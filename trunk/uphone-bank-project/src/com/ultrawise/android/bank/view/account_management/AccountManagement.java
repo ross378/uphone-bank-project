@@ -2,7 +2,7 @@ package com.ultrawise.android.bank.view.account_management;
 
 import android.app.Activity;
 import android.os.Bundle;
-import com.ultrawise.android.bank.view.transfer.*;
+import com.ultrawise.android.bank.view.transfer.R;;
 
 public class AccountManagement extends Activity {
 	@Override
