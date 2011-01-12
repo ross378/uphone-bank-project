@@ -78,6 +78,7 @@
 <Button
 	android:id="@+id/btn_ok"
 	android:layout_width="80dip"
+	android:layout_marginLeft="80dip"
 	android:text="@string/btn_ok"
 	/>
 <Button
