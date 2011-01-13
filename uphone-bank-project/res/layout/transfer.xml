@@ -9,7 +9,7 @@
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:text="@string/app_title"
-    android:textSize="28sp"
+    android:textSize="25sp"
     android:layout_gravity="center"
     />
 <TextView
@@ -69,6 +69,20 @@
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="10dip"
 	android:layout_marginRight="10dip"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/input_psswrd"
+	android:paddingLeft="10dip"
+	/>
+<EditText
+	android:id="@+id/input_psswrd"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:password="true"
 	/>
 <TableLayout
 	android:layout_width="fill_parent"

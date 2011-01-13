@@ -2,10 +2,17 @@
 <resources>
     <string name="hello">Hello World, TransferActivity!</string>
     <string name="app_name">uphone-bank-app</string>
-    <string name="app_title">欢迎使用手机银行</string>
+    <string name="app_title">手机银行</string>
     <string name="btn_ok">确定</string>
     <string name="btn_cancle">取消</string>
     <string name="select_acc">请选择付款账户</string>
     <string name="input_num">请输入收款手机号</string>
     <string name="trans_amount">请输入转账金额</string>
+    <string name="input_psswrd">请输入账户密码</string>
+    <string name="selected_acc">付款账户：</string>
+    <string name="inputed_num">收款人手机号：</string>
+    <string name="transed_amount">转账金额：</string>
+    <string name="acc_balance">账户余额：</string>
+    <string name="trans_sc">转账成功！</string>
+    <string name="trans_fail">转账失败！</string>
 </resources>
