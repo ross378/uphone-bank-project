@@ -7,13 +7,14 @@
         <activity android:name=".TransferActivity"
                   android:label="@string/app_title"
                   android:theme="@android:style/Theme.Dialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
 
-    </application>
+    <activity android:label="@string/phone_bank" android:name="com.ultrawise.android.bank.view.account_management.AccountManagement"><intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
+</application>
     <uses-sdk android:minSdkVersion="7" />
 
 </manifest> 

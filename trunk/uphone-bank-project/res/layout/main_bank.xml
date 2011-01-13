@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<!-- 头部分 -->
+	<RelativeLayout android:id="@+id/headLayout" android:layout_width="fill_parent"
+		android:layout_weight="1" android:layout_height="wrap_content"
+		android:layout_alignParentTop="true">
+		<TextView android:id="@+id/tvLogo" android:textSize="32sp"
+			android:text="@string/phone_bank" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center">
+		</TextView>
+	</RelativeLayout>
+<!-- 尾部分 -->
+	<LinearLayout android:id="@+id/bottomLayout" android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_weight="1"
+		android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+		<Button android:id="@+id/btnMain" android:text="@string/main_page"
+			android:layout_alignParentLeft="true" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1"></Button>
+		<Button android:id="@+id/btnCoustom" android:text="自定义"
+			android:layout_centerInParent="true" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1"></Button>
+		<Button android:id="@+id/btnHelper" android:text="@string/helper"
+			android:layout_alignParentRight="true" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_weight="1"></Button>
+	</LinearLayout>
+	
+	<!-- 中间部分，依赖性越高可以放在越后面-->
+	<RelativeLayout android:id="@+id/centerLayout"
+		android:layout_width="fill_parent" android:layout_weight="3"
+		android:layout_height="wrap_content" android:layout_below="@id/headLayout"
+		android:layout_above="@id/bottomLayout">
+		<TextView android:background="#aa0000" android:layout_height="fill_parent"
+			android:layout_width="fill_parent" android:text="中间部分">
+		</TextView>
+	</RelativeLayout>
+	
+</RelativeLayout>
