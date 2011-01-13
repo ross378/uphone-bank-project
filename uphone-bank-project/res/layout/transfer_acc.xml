@@ -26,19 +26,19 @@
 	android:orientation="vertical"
 	>
 <RadioButton
-	android:id="@+id/rb_tr_acc1"
+	android:id="@+id/rb_trac_acc1"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="111111111111"
 	/>
 <RadioButton
-	android:id="@+id/rb_acc2"
+	android:id="@+id/rb_trac_acc2"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="222222222222"
 	/>
 <RadioButton
-	android:id="@+id/rb_acc3"
+	android:id="@+id/rb_trac_acc3"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="333333333333"
@@ -47,11 +47,11 @@
 <TextView
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:text="@string/input_num"
+	android:text="@string/input_acc"
 	android:paddingLeft="10dip"
 	/>
 <EditText
-	android:id="@+id/input_num"
+	android:id="@+id/input_ac_acc"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="10dip"
@@ -64,7 +64,7 @@
 	android:paddingLeft="10dip"
 	/>
 <EditText
-	android:id="@+id/trans_amount"
+	android:id="@+id/trans_ac_amount"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="10dip"
@@ -77,7 +77,7 @@
 	android:paddingLeft="10dip"
 	/>
 <EditText
-	android:id="@+id/input_psswrd"
+	android:id="@+id/input_ac_psswrd"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="10dip"
@@ -90,13 +90,13 @@
 	>
 <TableRow>
 <Button
-	android:id="@+id/btn_ok"
+	android:id="@+id/btn_ac_ok"
 	android:layout_width="80dip"
 	android:layout_marginLeft="80dip"
 	android:text="@string/btn_ok"
 	/>
 <Button
-	android:id="@+id/btn_cancle"
+	android:id="@+id/btn_ac_cancle"
 	android:layout_width="80dip"
 	android:text="@string/btn_cancle"
 	/>
