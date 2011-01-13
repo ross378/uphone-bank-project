@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.view.transfer;
 
+import com.ultrawise.android.bank.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
