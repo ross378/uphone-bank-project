@@ -11,6 +11,6 @@ public class TransferActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.trans_tips_fail);
+        setContentView(R.layout.transfer_ph);
     }
 }
