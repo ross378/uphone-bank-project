@@ -6,44 +6,64 @@
 	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
 	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
 	<!-- 中间部分，依赖性越高可以放在越后面 -->
-	<RelativeLayout android:id="@+id/centerLayout" 
+	<RelativeLayout android:id="@+id/centerLayout"
 		android:layout_width="fill_parent" android:layout_weight="3"
 		android:layout_height="wrap_content" android:layout_below="@id/accManaAbove"
 		android:layout_above="@id/accManaBottom" android:padding="30dip">
 
 		<Button android:id="@+id/btnAccInfo" android:layout_width="wrap_content"
 			android:layout_height="70dip" android:text="账户信息"
-			android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-			>
+			android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
 		</Button>
 		<Button android:id="@+id/btnActiveAcc" android:layout_width="wrap_content"
 			android:layout_height="70dip" android:text="激活账户"
-			android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
-			>
+			android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
 		</Button>
 		<Button android:id="@+id/btnLossRegister" android:layout_width="wrap_content"
 			android:layout_height="70dip" android:text="账户挂失"
-			android:layout_alignParentTop="true" android:layout_alignParentRight="true"
-			>
+			android:layout_alignParentTop="true" android:layout_alignParentRight="true">
 		</Button>
 		<Button android:id="@+id/btnDefaultAcc" android:layout_width="wrap_content"
 			android:layout_height="70dip" android:text="默认账户"
 			android:layout_alignTop="@+id/btnPreferredAcc"
-			android:layout_alignParentRight="true"
-			>
+			android:layout_alignParentRight="true">
 		</Button>
 		<Button android:id="@+id/btnPreferredAcc" android:layout_width="wrap_content"
 			android:layout_height="70dip" android:text="首选账户"
-			android:layout_alignTop="@+id/btnOrder" android:layout_alignLeft="@+id/btnActiveAcc"
-			>
+			android:layout_alignTop="@+id/btnOrder" android:layout_alignLeft="@+id/btnActiveAcc">
 		</Button>
 		<Button android:id="@+id/btnOrder" android:layout_width="wrap_content"
 			android:layout_height="70dip" android:text="预约换卡"
-			android:layout_centerVertical="true" android:layout_alignParentLeft="true"
-			>
+			android:layout_centerVertical="true" android:layout_alignParentLeft="true">
 		</Button>
-
-
+		<TextView android:id="@+id/tvLossRegister"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="账户挂失" android:layout_alignTop="@+id/tvActiveAcc"
+			android:layout_alignLeft="@+id/btnLossRegister">
+		</TextView>
+		<TextView android:id="@+id/tvActiveAcc" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="激活账户"
+			android:layout_alignTop="@+id/tvAccInfo" android:layout_alignLeft="@+id/btnActiveAcc">
+		</TextView>
+		<TextView android:id="@+id/tvAccInfo" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="账户信息"
+			android:layout_below="@+id/btnAccInfo"
+			android:layout_alignParentLeft="true">
+		</TextView>
+		<TextView android:id="@+id/tvDefaultAcc"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="默认账户" android:layout_alignTop="@+id/tvPreferredAcc"
+			android:layout_alignLeft="@+id/btnLossRegister">
+		</TextView>
+		<TextView android:id="@+id/tvPreferredAcc"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:text="首选账户" android:layout_alignTop="@+id/tvOrder"
+			android:layout_alignLeft="@+id/btnActiveAcc">
+		</TextView>
+		<TextView android:id="@+id/tvOrder" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="预约换卡"
+			android:layout_below="@+id/btnOrder" android:layout_alignParentLeft="true">
+		</TextView>
 	</RelativeLayout>
 
 

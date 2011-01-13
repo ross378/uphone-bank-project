@@ -15,11 +15,11 @@ public class AccountManagement extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.account_management);
+		setContentView(R.layout.account_info);
 		
-		Button btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("账户管理");
-		btnCoustom.setVisibility(View.VISIBLE);
+//		Button btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
+//		btnCoustom.setText("账户管理");
+//		btnCoustom.setVisibility(View.VISIBLE);
 		
 	}
 }
