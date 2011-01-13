@@ -7,10 +7,12 @@
     <string name="btn_cancle">取消</string>
     <string name="select_acc">请选择付款账户</string>
     <string name="input_num">请输入收款手机号</string>
+    <string name="input_acc">请输入转入账号</string>
     <string name="trans_amount">请输入转账金额</string>
     <string name="input_psswrd">请输入账户密码</string>
     <string name="selected_acc">付款账户：</string>
     <string name="inputed_num">收款人手机号：</string>
+    <string name="inputed_acc">转入账号：</string>
     <string name="transed_amount">转账金额：</string>
     <string name="acc_balance">账户余额：</string>
     <string name="trans_sc">转账成功！</string>
