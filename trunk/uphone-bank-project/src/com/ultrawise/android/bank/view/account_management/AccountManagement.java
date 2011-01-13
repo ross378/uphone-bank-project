@@ -9,6 +9,6 @@ public class AccountManagement extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(com.ultrawise.android.bank.view.transfer.R.layout.account_management);
+		setContentView(R.layout.account_management);
 	}
 }
