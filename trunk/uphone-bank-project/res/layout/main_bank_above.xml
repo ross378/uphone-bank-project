@@ -5,15 +5,8 @@
 	android:id="@+id/headLayout" android:layout_width="fill_parent"
 	android:layout_weight="1" android:layout_height="wrap_content"
 	android:layout_alignParentTop="true">
-	<TextView android:id="@+id/tvLogo" android:textSize="32sp"
+	<TextView android:id="@+id/tvLogo" android:textSize="25sp"
 		android:text="@string/phone_bank" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:gravity="center">
 	</TextView>
 </RelativeLayout>
-
-
-<!-- 中间部分，依赖性越高可以放在越后面 <RelativeLayout android:id="@+id/centerLayout" android:layout_width="fill_parent" 
-	android:layout_weight="3" android:layout_height="wrap_content" android:layout_below="@id/headLayout" 
-	android:layout_above="@id/bottomLayout"> <TextView android:background="#aa0000" 
-	android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="中间部分"> 
-	</TextView> </RelativeLayout> -->
