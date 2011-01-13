@@ -14,11 +14,12 @@ public class AccountManagement extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.main_bank);
+		setContentView(R.layout.account_management);
 		
-		LayoutInflater lif = LayoutInflater.from(getApplicationContext());
-		View view = lif.inflate(R.layout.account_management, null);
-		
-		this.addContentView(view, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+//		LayoutInflater lif = LayoutInflater.from(getApplicationContext());
+//		View view = lif.inflate(R.layout.account_management, null);
+//		
+//		this.addContentView(view, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+//		
 	}
 }
