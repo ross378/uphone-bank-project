@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout.LayoutParams;
 
 import com.ultrawise.android.bank.view.transfer.R;
@@ -16,10 +17,9 @@ public class AccountManagement extends Activity {
 		
 		setContentView(R.layout.account_management);
 		
-//		LayoutInflater lif = LayoutInflater.from(getApplicationContext());
-//		View view = lif.inflate(R.layout.account_management, null);
-//		
-//		this.addContentView(view, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-//		
+		Button btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
+		btnCoustom.setText("’Àªßπ‹¿Ì");
+		btnCoustom.setVisibility(View.VISIBLE);
+		
 	}
 }
