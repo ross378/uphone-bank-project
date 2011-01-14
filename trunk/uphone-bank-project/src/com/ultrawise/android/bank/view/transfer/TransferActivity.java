@@ -84,32 +84,32 @@ public class TransferActivity extends Activity {
 						}
 						else{
 							Intent transfail_intent = new Intent();
-							transfail_intent.putExtra("info", "请选择转出账户");
-							transfail_intent.putExtra("flag", "转账失败");
+							transfail_intent.putExtra("info", "The selected account is not correct!");
+							transfail_intent.putExtra("flag", "Transfer failure");
 							transfail_intent.setClass(TransferActivity.this, TransInfo.class);
 							startActivity(transfail_intent);
 						}
 					}
 					else{
 						Intent transfail_intent = new Intent();
-						transfail_intent.putExtra("info", "请输入转入手机号");
-						transfail_intent.putExtra("flag", "转账失败");
+						transfail_intent.putExtra("info", "The input number is not correct!");
+						transfail_intent.putExtra("flag", "Transfer failure");
 						transfail_intent.setClass(TransferActivity.this, TransInfo.class);
 						startActivity(transfail_intent);
 					}
 				}
 				else{
 					Intent transfail_intent = new Intent();
-					transfail_intent.putExtra("info", "请输入转账金额");
-					transfail_intent.putExtra("flag", "转账失败");
+					transfail_intent.putExtra("info", "The input amount is not correct!");
+					transfail_intent.putExtra("flag", "Transfer failure");
 					transfail_intent.setClass(TransferActivity.this, TransInfo.class);
 					startActivity(transfail_intent);										
 				}
 			}
 			else {
 				Intent transfail_intent = new Intent();
-				transfail_intent.putExtra("info", "密码不正确");
-				transfail_intent.putExtra("flag", "转账失败");
+				transfail_intent.putExtra("info", "The password is not correct!");
+				transfail_intent.putExtra("flag", "Transfer failure");
 				transfail_intent.setClass(TransferActivity.this, TransInfo.class);
 				startActivity(transfail_intent);				
 			}
