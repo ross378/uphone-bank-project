@@ -3,16 +3,24 @@
 	package="com.ultrawise.android.bank.view.transfer" android:versionCode="1"
 	android:versionName="1.0">
 	<application android:icon="@drawable/icon" android:label="@string/app_title">
-		<activity android:name=".TransPhConfirm" android:label="@string/app_title">
+
+		<activity android:name=".TransAccConfirm" android:label="@string/app_title">
 		</activity>
-		<activity android:name=".TransResult" android:label="@string/app_title"
-			android:theme="@android:style/Theme.Dialog">
-		</activity>
-		<activity android:name=".TransferActivity" android:label="@string/app_title">
+		<activity android:name=".TransferAccActivity" android:label="@string/app_title">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
+		</activity>
+		<activity android:name=".TransResult" android:label="@string/app_title"
+			android:theme="@android:style/Theme.Dialog">
+		</activity>
+
+		<activity android:name=".TransPhConfirm" android:label="@string/app_title">
+		</activity>
+
+		<activity android:name=".TransferActivity" android:label="@string/app_title">
+
 		</activity>
 
 		<activity android:label="@string/phone_bank"
@@ -31,7 +39,8 @@
 			android:name="com.ultrawise.android.bank.view.account_management.AddAccount"></activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccount"></activity>
-		<activity android:name="com.ultrawise.android.bank.view.account_management.DeleteAccount"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.DeleteAccount"></activity>
 	</application>
 	<uses-sdk android:minSdkVersion="7" />
 
