@@ -25,6 +25,7 @@
 	android:paddingLeft="10dip"
 	/>
 <TextView
+	android:id="@+id/tv_transcon_acc"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="111111111111"
@@ -38,6 +39,7 @@
 	android:paddingLeft="10dip"
 	/>
 <TextView
+	android:id="@+id/tv_transcon_balance"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="100000.00"
@@ -45,12 +47,14 @@
 	android:textSize="18sp"
 	/>
 <TextView
+	android:id="@+id/tv_transcon_inptype"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="@string/inputed_num"
 	android:paddingLeft="10dip"
 	/>
 <TextView
+	android:id="@+id/tv_transcon_inputnum"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="13988888888"
@@ -64,6 +68,7 @@
 	android:paddingLeft="10dip"
 	/>
 <TextView
+	android:id="@+id/tv_transcon_amount"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:textColor="#FFFF0000"

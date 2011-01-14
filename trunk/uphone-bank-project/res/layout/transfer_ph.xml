@@ -25,6 +25,7 @@
 	android:paddingLeft="10dip"
 	/>
 <RadioGroup
+	android:id="@+id/rg_transph_acc"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="20dip"
@@ -51,6 +52,7 @@
 	/>
 </RadioGroup>
 <TextView
+	android:id="@+id/tv_trans_inptype"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="@string/input_num"
@@ -70,7 +72,7 @@
 	android:paddingLeft="10dip"
 	/>
 <EditText
-	android:id="@+id/trans_ph_amount"
+	android:id="@+id/input_ph_amount"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="10dip"
