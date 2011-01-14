@@ -5,8 +5,9 @@ import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.transfer.R;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,12 +16,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class QueryAccount extends ListActivity {
+public class DeleteAccount extends ListActivity {
 	private Button btnCoustom;
 	Intent intent;
+	private int flag = 0;
 	HashMap<String, String> map4;
 	HashMap<String, String> map5;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -28,11 +30,11 @@ public class QueryAccount extends ListActivity {
 		this.setContentView(R.layout.list_account);
 
 		// 设置List View
-		intent = QueryAccount.this.getIntent();
+		intent = DeleteAccount.this.getIntent();
 		String delAccNum = intent.getStringExtra("delAccNum");
 		String addAccNum = intent.getStringExtra("addAccNum");
 		String activeAcc = intent.getStringExtra("activeAcc");
-		
+
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		HashMap<String, String> map1 = new HashMap<String, String>();
 		map1.put("name", "5560654220320266");
@@ -75,7 +77,7 @@ public class QueryAccount extends ListActivity {
 					list.remove(map4);
 			}
 			if (activeAcc != null) {
-				if(delAccNum.equalsIgnoreCase(activeAcc))
+				if (delAccNum.equalsIgnoreCase(activeAcc))
 					list.remove(map5);
 			}
 		}
@@ -89,41 +91,51 @@ public class QueryAccount extends ListActivity {
 		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setText("选择账户");
 		btnCoustom.setVisibility(View.VISIBLE);
-
 	}
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
-		String num = "";
-		String nickName = "测试用卡";
-		String type = "神卡";
-		Intent intent = new Intent();
-		if (id == 0) {
-			num = "5560654220320266";
-			nickName = "信用卡二号";
-			type = "信用卡";
-		} else if (id == 1) {
-			num = "1122065468210030";
-			nickName = "我的龙卡";
-			type = "储蓄卡";
-		} else if (id == 2) {
-			num = "3322019830320266";
-			nickName = "我的第一个信用卡";
-			type = "信用卡";
-		}else if(id==3)
-		{
-			TextView tv = (TextView)v;
-			num = tv.getText().toString();
-		}else if(id==4){
-			TextView tv = (TextView)v;
-			num = tv.getText().toString();
+		// Eject dialog
+		new AlertDialog.Builder(DeleteAccount.this).setTitle("确认对话框")
+				.setMessage("删除账户？")
+				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						// delete account turn to account information
+						flag = 1;// done
+						finish();
+					}
+				})
+				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						flag = -1;
+						finish();
+					}
+				}).show();
+		if (flag == 1) {
+			String num = "";
+
+			if (id == 0) {
+				num = "5560654220320266";
+
+			} else if (id == 1) {
+				num = "1122065468210030";
+
+			} else if (id == 2) {
+				num = "3322019830320266";
+			} else if (id == 3) {
+				TextView tv = (TextView) v;
+				num = tv.getText().toString();
+			} else if (id == 4) {
+				TextView tv = (TextView) v;
+				num = tv.getText().toString();
+			}
+
+			intent.putExtra("delAccNum", num);
+			intent.setClass(DeleteAccount.this, AccountInfo.class);
+			DeleteAccount.this.startActivity(intent);
 		}
-		intent.putExtra("AccInfo", "账号：" + num + "\n" + "别名：" + nickName + "\n"
-				+ "账户类型：" + type + "\n" + "账户状态：正常\n是否签约：签约\n"
-				+ "开户行：建设银行深圳市梅林支行\n" + "开户日：2006/04/10");
-		intent.setClass(QueryAccount.this, AccountInfo.class);
-		QueryAccount.this.startActivity(intent);
 	}
 }

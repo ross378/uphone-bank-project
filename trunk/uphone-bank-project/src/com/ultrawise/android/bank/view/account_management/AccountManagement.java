@@ -14,6 +14,10 @@ import com.ultrawise.android.bank.view.transfer.R;
 public class AccountManagement extends Activity {
 	private Button btnCoustom;
 	private Button btnAccInfo;
+	private Button btnActiveAcc;
+	private Button btnLossRegister;
+	
+	Intent intent;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
@@ -24,12 +28,24 @@ public class AccountManagement extends Activity {
 		btnCoustom.setText("’Àªßπ‹¿Ì");
 		btnCoustom.setVisibility(View.VISIBLE);
 		
+		
+		
+		//Button Account Information
 		btnAccInfo = (Button)this.findViewById(R.id.btnAccInfo);
 		btnAccInfo.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent();
+				intent = AccountManagement.this.getIntent();
 				intent.setClass(AccountManagement.this, AccountInfo.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
+		//Button Active Account
+		btnActiveAcc = (Button)this.findViewById(R.id.btnActiveAcc);
+		btnActiveAcc.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, ActiveAccount.class);
 				AccountManagement.this.startActivity(intent);
 			}
 		});
