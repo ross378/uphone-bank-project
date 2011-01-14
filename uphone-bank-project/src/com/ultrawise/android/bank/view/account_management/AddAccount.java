@@ -18,6 +18,8 @@ public class AddAccount extends Activity {
 	private Button btnCoustom;
 	private EditText etAccount;
 	private EditText etCoustomPwd;
+	Intent intent;
+	private int flag = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,31 +33,39 @@ public class AddAccount extends Activity {
 		// Confirm to add account
 		btnConfirm.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-
 				// Eject dialog
 				new AlertDialog.Builder(AddAccount.this)
-						.setTitle("Confirm Dialog")
-						.setMessage("Add Account success!")
-						.setPositiveButton("OK",
+						.setTitle("确认对话框")
+						.setMessage("增加账户？")
+						.setPositiveButton("确定",
 								new DialogInterface.OnClickListener() {
 
 									public void onClick(DialogInterface dialog,
 											int which) {
 										// Turn to AccountInfo
-										String strAccount = etAccount.getText()
-												.toString();
-										String strCoustomPwd = etCoustomPwd
-												.getText().toString();
-										Intent intent = new Intent();
-										intent.putExtra("Account", strAccount);
-										intent.putExtra("CoustomPwd",
-												strCoustomPwd);
-										intent.setClass(AddAccount.this,
-												AccountInfo.class);
-										AddAccount.this.startActivity(intent);
+										flag = 1;// done
+										finish();
+									}
+								})
+						.setNegativeButton("取消",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,
+											int which) {
+										// cancel
+										flag = -1;
 										finish();
 									}
 								}).show();
+				// done
+				if (flag == 1) {
+					String strAccount = etAccount.getText().toString();
+					String strCoustomPwd = etCoustomPwd.getText().toString();
+					intent = AddAccount.this.getIntent();
+					intent.putExtra("addAccNum", strAccount);
+					intent.putExtra("CoustomPwd", strCoustomPwd);
+					intent.setClass(AddAccount.this, AccountInfo.class);
+					AddAccount.this.startActivity(intent);
+				}
 			}
 		});
 
@@ -64,5 +74,5 @@ public class AddAccount extends Activity {
 		btnCoustom.setText("增加账户");
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
-
+	
 }
