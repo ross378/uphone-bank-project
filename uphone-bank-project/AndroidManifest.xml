@@ -25,6 +25,11 @@
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
 		</activity>
 
+
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.QueryAccount"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AddAccount"></activity>
 	</application>
 	<uses-sdk android:minSdkVersion="7" />
 
