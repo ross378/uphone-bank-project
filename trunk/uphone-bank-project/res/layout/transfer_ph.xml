@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/bg"
-    android:scrollbars="vertical"
     >
 <include layout="@layout/main_bank_above" />
+<include layout="@layout/main_bank_bottom" />
+<ScrollView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical"
+	android:layout_below="@id/headLayout"
+	android:layout_above="@id/bottomLayout"
+	>
 <LinearLayout
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
@@ -103,5 +109,5 @@
 </TableRow>
 </TableLayout>
 </LinearLayout>
-<include layout="@layout/main_bank_bottom" />
-</LinearLayout>
+</ScrollView>
+</RelativeLayout>
