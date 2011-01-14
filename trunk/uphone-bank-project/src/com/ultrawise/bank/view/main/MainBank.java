@@ -24,7 +24,7 @@ public class MainBank extends TabActivity {
 	  
 	    TabHost mTabHost = getTabHost();   
 	       
-	    mTabHost.addTab(mTabHost.newTabSpec("tab_test1").setIndicator("TAB 1").setContent(R.id.textview1));   
+	    mTabHost.addTab(mTabHost.newTabSpec("tab_test1").setIndicator("TAB 1").setContent(new Intent(this,JinRZSView.class)));   
 	    mTabHost.addTab(mTabHost.newTabSpec("tab_test2").setIndicator("TAB 2").setContent(R.id.textview2));   
 	    mTabHost.addTab(mTabHost.newTabSpec("tab_test3").setIndicator("TAB 3").setContent(R.id.textview3));   
 	       
