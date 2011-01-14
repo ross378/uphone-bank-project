@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
-public class TransferActivity extends Activity {
+public class TransferAccActivity extends Activity {
 	private Button btn_ok = null;
 	private Button btn_cancle = null;
 	private Button btn_main = null;
@@ -21,26 +22,24 @@ public class TransferActivity extends Activity {
 	private RadioButton rb_acc1 = null;
 	private RadioButton rb_acc2 = null;
 	private RadioButton rb_acc3 = null;
+	private TextView tv_tratyp = null;
 	private EditText inpt_num = null;
 	private EditText trans_amount = null;
 	private EditText psswrd = null;
 	
 	private String SelectedAcc = null;
-	//private String InputNum = null;
-	//private String Amount = null;
-	//private String PassWord = null;
-	
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.transfer_ph);
-        
-        btn_ok = (Button)findViewById(R.id.btn_ph_ok);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.transfer_ph);
+		
+		btn_ok = (Button)findViewById(R.id.btn_ph_ok);
         btn_cancle = (Button)findViewById(R.id.btn_ph_cancle);
         btn_main = (Button)findViewById(R.id.btnMain);
         btn_help = (Button)findViewById(R.id.btnHelper);
         btn_now = (Button)findViewById(R.id.btnCoustom);
+        tv_tratyp = (TextView)findViewById(R.id.tv_trans_inptype);
         inpt_num = (EditText)findViewById(R.id.input_ph_num);
         trans_amount = (EditText)findViewById(R.id.input_ph_amount);
         psswrd = (EditText)findViewById(R.id.input_ph_psswrd);
@@ -54,6 +53,8 @@ public class TransferActivity extends Activity {
         rb_acc1 = (RadioButton)findViewById(R.id.rb_trph_acc1);
         rb_acc2 = (RadioButton)findViewById(R.id.rb_trph_acc2);
         rb_acc3 = (RadioButton)findViewById(R.id.rb_trph_acc3);
+        
+        tv_tratyp.setText("请输入转入账号 ");
         
         //btn_now.setOnClickListener(new BtnCustomCL());
         rg_acc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -72,8 +73,7 @@ public class TransferActivity extends Activity {
 			}
 		});
     }
-    
-    class BtnOkCL implements OnClickListener{
+	class BtnOkCL implements OnClickListener{
     	public void onClick(View v) {
     			String InputNum = inpt_num.getText().toString();
     			String Amount = trans_amount.getText().toString();
@@ -84,7 +84,7 @@ public class TransferActivity extends Activity {
 				trans_intent.putExtra("amount", Amount);
 				trans_intent.putExtra("inputnum", InputNum);
 				trans_intent.putExtra("selectedacc", SelectedAcc);
-				trans_intent.setClass(TransferActivity.this, TransPhConfirm.class);
+				trans_intent.setClass(TransferAccActivity.this, TransPhConfirm.class);
 				startActivity(trans_intent);
 				}
 			}
@@ -93,7 +93,7 @@ public class TransferActivity extends Activity {
     		Intent transcancle_intent = new Intent();
     		transcancle_intent.putExtra("flag", "failed");
     		transcancle_intent.putExtra("info", "The transfer is canceled");
-    		transcancle_intent.setClass(TransferActivity.this, TransResult.class);
+    		transcancle_intent.setClass(TransferAccActivity.this, TransResult.class);
     		startActivity(transcancle_intent);
     	}
     }
@@ -102,7 +102,7 @@ public class TransferActivity extends Activity {
     		Intent transmain_intent = new Intent();
     		transmain_intent.putExtra("flag", "failed");
     		transmain_intent.putExtra("info", "The transfer is canceled");
-    		transmain_intent.setClass(TransferActivity.this, TransResult.class);
+    		transmain_intent.setClass(TransferAccActivity.this, TransResult.class);
     		startActivity(transmain_intent);
     	}
     }
@@ -111,7 +111,7 @@ public class TransferActivity extends Activity {
     		Intent transhelp_intent = new Intent();
     		transhelp_intent.putExtra("flag", "failed");
     		transhelp_intent.putExtra("info", "The transfer is canceled");
-    		transhelp_intent.setClass(TransferActivity.this, TransResult.class);
+    		transhelp_intent.setClass(TransferAccActivity.this, TransResult.class);
     		startActivity(transhelp_intent);
     	}
     }

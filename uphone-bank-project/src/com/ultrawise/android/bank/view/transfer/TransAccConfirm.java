@@ -13,19 +13,18 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class TransPhConfirm extends Activity {
-    /** Called when the activity is first created. */
+public class TransAccConfirm extends Activity {
 	private Button btn_main = null;
 	private Button btn_help = null;
 	private Button btn_now = null;
 	Intent transcon_intent;
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.trans_ph_confirm);
-        
-        Button btnok = (Button)findViewById(R.id.btn_cfm_ok);
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.trans_result);
+		
+		Button btnok = (Button)findViewById(R.id.btn_cfm_ok);
     	Button btncancle = (Button)findViewById(R.id.btn_cfm_cancle);
         TextView tvtransacc = (TextView)findViewById(R.id.tv_transcon_acc);
         TextView tvtransbal = (TextView)findViewById(R.id.tv_transcon_balance);
@@ -51,7 +50,7 @@ public class TransPhConfirm extends Activity {
         		Intent transconok_intent = new Intent();
         		transconok_intent.putExtra("flag", "success");
         		transconok_intent.putExtra("info", "The transfered is successful");
-        		transconok_intent.setClass(TransPhConfirm.this, TransResult.class);
+        		transconok_intent.setClass(TransAccConfirm.this, TransResult.class);
         		startActivity(transconok_intent);
         	}
         });
@@ -60,7 +59,7 @@ public class TransPhConfirm extends Activity {
         		Intent transconcancle_intent = new Intent();
         		transconcancle_intent.putExtra("flag", "failed");
         		transconcancle_intent.putExtra("info", "The transfer is canceled");
-        		transconcancle_intent.setClass(TransPhConfirm.this, TransResult.class);
+        		transconcancle_intent.setClass(TransAccConfirm.this, TransResult.class);
         		startActivity(transconcancle_intent);
         	}
         });
@@ -70,7 +69,7 @@ public class TransPhConfirm extends Activity {
     		Intent transmain_intent = new Intent();
     		transmain_intent.putExtra("flag", "failed");
     		transmain_intent.putExtra("info", "The transfer is canceled");
-    		transmain_intent.setClass(TransPhConfirm.this, TransResult.class);
+    		transmain_intent.setClass(TransAccConfirm.this, TransResult.class);
     		startActivity(transmain_intent);
     	}
     }
@@ -79,7 +78,7 @@ public class TransPhConfirm extends Activity {
     		Intent transhelp_intent = new Intent();
     		transhelp_intent.putExtra("flag", "failed");
     		transhelp_intent.putExtra("info", "The transfer is canceled");
-    		transhelp_intent.setClass(TransPhConfirm.this, TransResult.class);
+    		transhelp_intent.setClass(TransAccConfirm.this, TransResult.class);
     		startActivity(transhelp_intent);
     	}
     }*/
