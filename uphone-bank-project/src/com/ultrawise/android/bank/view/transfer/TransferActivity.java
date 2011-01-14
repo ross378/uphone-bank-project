@@ -42,11 +42,11 @@ public class TransferActivity extends Activity {
         btn_help = (Button)findViewById(R.id.btnHelper);
         btn_now = (Button)findViewById(R.id.btnCoustom);
         
-        btn_ok.setOnClickListener(new BtnOkCL);
-        btn_cancle.setOnClickListener(new BtnCancleCL);
-        btn_main.setOnClickListener(new BtnMainCL);
-        btn_help.setOnClickListener(new BtnHelpCL);
-        btn_now.setOnClickListener(new BtnCustomCL);
+        btn_ok.setOnClickListener(new BtnOkCL());
+        //btn_cancle.setOnClickListener(new BtnCancleCL());
+        //btn_main.setOnClickListener(new BtnMainCL());
+        //btn_help.setOnClickListener(new BtnHelpCL());
+        //btn_now.setOnClickListener(new BtnCustomCL());
         rg_acc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -66,19 +66,50 @@ public class TransferActivity extends Activity {
     
     
     class BtnOkCL implements OnClickListener{
-    	@Override
     	public void onClick(View v) {
 			InputNum = inpt_num.getText().toString();
 			Amount = trans_amount.getText().toString();
 			PassWord = psswrd.getText().toString();
 			if(PassWord == "123456"){
 				Intent trans_intent = new Intent();
-				
+				trans_intent.putExtra("password", PassWord);
+				if(Amount != null){
+					trans_intent.putExtra("amount", Amount);
+					if(InputNum != null){
+						trans_intent.putExtra("inputnum", InputNum);
+						if(SelectedAcc != null){
+							trans_intent.putExtra("selectedacc", SelectedAcc);
+							trans_intent.setClass(TransferActivity.this, TransPhConfirm.class);
+							startActivity(trans_intent);
+						}
+						else{
+							Intent transfail_intent = new Intent();
+							transfail_intent.putExtra("info", "请选择转出账户！");
+							transfail_intent.putExtra("flag", "转账失败");
+							transfail_intent.setClass(TransferActivity.this, TransInfo.class);
+							startActivity(transfail_intent);
+						}
+					}
+					else{
+						Intent transfail_intent = new Intent();
+						transfail_intent.putExtra("info", "请输入转入手机号！");
+						transfail_intent.putExtra("flag", "转账失败");
+						transfail_intent.setClass(TransferActivity.this, TransInfo.class);
+						startActivity(transfail_intent);
+					}
+				}
+				else{
+					Intent transfail_intent = new Intent();
+					transfail_intent.putExtra("info", "请输入转账金额！");
+					transfail_intent.putExtra("flag", "转账失败");
+					transfail_intent.setClass(TransferActivity.this, TransInfo.class);
+					startActivity(transfail_intent);										
+				}
 			}
 			else {
 				Intent transfail_intent = new Intent();
-				transfail_intent.putExtra("info", "密码不正确");
-				transfail_intent.putExtra("flag", "转账失败！");
+				transfail_intent.putExtra("info", "密码不正确！");
+				transfail_intent.putExtra("flag", "转账失败");
 				transfail_intent.setClass(TransferActivity.this, TransInfo.class);
 				startActivity(transfail_intent);				
 			}
