@@ -54,6 +54,7 @@
 		<!-- kjsolo's activity -->
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
+
 		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
@@ -69,8 +70,13 @@
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.LossRegister"></activity>
 		<activity android:label="@string/phone_bank"
-			android:name="com.ultrawise.android.bank.view.account_management.OrderCard">
-			</activity>
+			android:name="com.ultrawise.android.bank.view.account_management.OrderCard"></activity>
+		<activity android:label="@string/phone_bank"
+			android:name="com.ultrawise.android.bank.view.account_management.DefaultAccount"></activity>
+		<activity android:label="@string/phone_bank"
+			android:name="com.ultrawise.android.bank.view.account_management.PreferredAccount"></activity>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.QueryAccount">
+		</activity>
 		<!-- end activity -->
 		
 	</application>
