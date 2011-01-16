@@ -6,30 +6,25 @@ android:layout_height="fill_parent"
 android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
-<include layout="@layout/main_bank_above"/>
-<include layout="@layout/main_bank_bottom"/>
-<ScrollView
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:scrollbars="vertical"
-	android:scrollbarSize="800px"
-	android:layout_below="@id/headLayout"
-	android:layout_above="@id/bottomLayout"
-	>
+
+<include layout="@layout/main_bank_bottom" />
+
 <TableLayout
 android:id="@+id/financialTable"
 android:layout_width="300px"
-android:layout_height="600px"
+android:layout_height="wrap_content"
 android:orientation="vertical"
 android:gravity="center"
 android:layout_gravity="center"
 android:layout_centerVertical="true"
 android:layout_centerHorizontal="true"
+
+android:layout_above="@id/bottomLayout"
 >
 <TableRow
 android:id="@+id/buttonline1"
 android:layout_width="fill_parent"
-android:layout_height="300px"
+android:layout_height="200px"
 android:orientation="horizontal"
 >
 <ImageButton
@@ -41,7 +36,7 @@ android:layout_marginLeft="50px"
 android:layout_marginBottom="5px"
 android:src="@drawable/abank"
 android:scaleType="fitXY"
-
+android:background="#00ffffff"
 >
 </ImageButton>
 <ImageButton
@@ -53,6 +48,7 @@ android:layout_marginLeft="40px"
 android:layout_marginBottom="5px"
 android:src="@drawable/depositerates"
 android:scaleType="fitXY"
+android:background="#00ffffff"
 >
 </ImageButton>
 </TableRow>
@@ -92,7 +88,7 @@ android:textColor="#ffffff"
 <TableRow
 android:id="@+id/buttonLine2"
 android:layout_width="fill_parent"
-android:layout_height="130px"
+android:layout_height="90px"
 android:orientation="horizontal"
 >
 <ImageButton
@@ -104,6 +100,7 @@ android:layout_marginTop="5px"
 android:layout_marginBottom="5px"
 android:src="@drawable/loanrates"
 android:scaleType="fitXY"
+android:background="#00ffffff"
 >
 </ImageButton>
 <ImageButton
@@ -115,6 +112,7 @@ android:layout_marginTop="5px"
 android:layout_marginBottom="5px"
 android:src="@drawable/exchangerates"
 android:scaleType="fitXY"
+android:background="#00ffffff"
 >
 </ImageButton>
 </TableRow>
@@ -152,7 +150,7 @@ android:textColor="#ffffff"
 </TextView>
 </TableRow>
 </TableLayout>
-</ScrollView>
+
 </RelativeLayout>
 
 
