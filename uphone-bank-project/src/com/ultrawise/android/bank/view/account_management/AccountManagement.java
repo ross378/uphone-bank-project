@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableLayout.LayoutParams;
+import android.widget.TextView;
 
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -16,6 +17,9 @@ public class AccountManagement extends Activity {
 	private Button btnAccInfo;
 	private Button btnActiveAcc;
 	private Button btnLossRegister;
+	private Button btnOrderCard;
+	private TextView tvClassFirst;
+	private TextView tvClassSecond;
 	
 	Intent intent;
 	@Override
@@ -23,6 +27,22 @@ public class AccountManagement extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.account_management);
+		//设置层级关系
+		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+
+			}
+		});
+		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("账户管理");
+		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
 		//设置底部自定义按钮显示
 		btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
 		btnCoustom.setText("账户管理");
@@ -49,5 +69,30 @@ public class AccountManagement extends Activity {
 				AccountManagement.this.startActivity(intent);
 			}
 		});
+		
+		//Button Loss Register
+		btnLossRegister = (Button)this.findViewById(R.id.btnLossRegister);
+		btnLossRegister.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, LossRegister.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
+		
+		//Button Order Card
+		btnOrderCard = (Button)this.findViewById(R.id.btnOrder);
+		btnOrderCard.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, OrderCard.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
+	}
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
 	}
 }

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -19,17 +20,24 @@ import android.widget.Toast;
 public class AccountInfo extends ListActivity {
 	private TextView tvAccInfo;
 	private Button btnCoustom;
+	private TextView tvClassFirst;
+	private TextView tvClassSecond;
+	private TextView tvClassThrid;
 	Intent intent;
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		/**
+		 * 业务功能，暂时不考虑
+		 */
+		/*
 		tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo);
 		intent = AccountInfo.this.getIntent();
 		//It will be updated account information if resume this activity
 		if (intent.getStringExtra("AccInfo") != null) {
 			tvAccInfo.setText(intent.getStringExtra("AccInfo"));
-		}
+		}*/
 	}
 
 	@Override
@@ -65,6 +73,35 @@ public class AccountInfo extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 		
+		//设置层级关系
+		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassFirst.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				//intent.setClass(AccountInfo.this, DeleteAccount.class);
+				//AccountInfo.this.startActivity(intent);
+			}
+		});
+		
+		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("账户管理>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+		tvClassSecond.setClickable(true);
+		tvClassSecond.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				intent = AccountInfo.this.getIntent();
+				intent.setClass(AccountInfo.this, AccountManagement.class);
+				AccountInfo.this.startActivity(intent);
+				
+			}
+		});
+		
+		tvClassThrid = (TextView)this.findViewById(R.id.class_third);
+		tvClassThrid.setText("账户信息");
+		tvClassThrid.setVisibility(View.VISIBLE);
+		
+		
 		//设置底部自定义按钮显示
 		btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
 		btnCoustom.setText("账户信息");
@@ -77,17 +114,14 @@ public class AccountInfo extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
 			//查询账户
-			
 			intent.setClass(AccountInfo.this, QueryAccount.class);
 			AccountInfo.this.startActivity(intent);
 		}else if(id==1){
 			//增加账户
-			
 			intent.setClass(AccountInfo.this, AddAccount.class);
 			AccountInfo.this.startActivity(intent);
 		}else if(id==2){
 			//删除账户
-			
 			intent.setClass(AccountInfo.this, DeleteAccount.class);
 			AccountInfo.this.startActivity(intent);
 		}

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddAccount extends Activity {
@@ -18,6 +19,10 @@ public class AddAccount extends Activity {
 	private Button btnCoustom;
 	private EditText etAccount;
 	private EditText etCoustomPwd;
+	private TextView tvClassFirst;
+	private TextView tvClassSecond;
+	private TextView tvClassThrid;
+	private TextView tvClassFour;
 	Intent intent;
 	private int flag = 0;
 
@@ -44,6 +49,7 @@ public class AddAccount extends Activity {
 											int which) {
 										// Turn to AccountInfo
 										flag = 1;// done
+										Toast.makeText(AddAccount.this, "增加账户成功", Toast.LENGTH_SHORT).show();
 										finish();
 									}
 								})
@@ -53,21 +59,63 @@ public class AddAccount extends Activity {
 											int which) {
 										// cancel
 										flag = -1;
-										finish();
+										//finish();
 									}
 								}).show();
 				// done
 				if (flag == 1) {
+					intent = AddAccount.this.getIntent();
+					/**
+					 * 业务功能，暂时不考虑
+					 */
+					/*
 					String strAccount = etAccount.getText().toString();
 					String strCoustomPwd = etCoustomPwd.getText().toString();
-					intent = AddAccount.this.getIntent();
+					
 					intent.putExtra("addAccNum", strAccount);
 					intent.putExtra("CoustomPwd", strCoustomPwd);
+					*/
 					intent.setClass(AddAccount.this, AccountInfo.class);
 					AddAccount.this.startActivity(intent);
 				}
 			}
 		});
+		
+		//设置层级关系
+		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+//				 intent = AddAccount.this.getIntent();
+//				 intent.setClass(AddAccount.this, AccountInfo.class);
+//				 AddAccount.this.startActivity(intent);
+			}
+		});
+		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("账户管理>");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 intent = AddAccount.this.getIntent();
+				 intent.setClass(AddAccount.this, AccountManagement.class);
+				 AddAccount.this.startActivity(intent);
+			}
+		});
+		tvClassThrid = (TextView)this.findViewById(R.id.class_third);
+		tvClassThrid.setText("账户信息>");
+		tvClassThrid.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 intent = AddAccount.this.getIntent();
+				 intent.setClass(AddAccount.this, AccountInfo.class);
+				 AddAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFour = (TextView)this.findViewById(R.id.class_four);
+		tvClassFour.setText("增加账户");
+
+		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassSecond.setVisibility(View.VISIBLE);
+		tvClassThrid.setVisibility(View.VISIBLE);
+		tvClassFour.setVisibility(View.VISIBLE);
 
 		// 设置底部自定义按钮显示
 		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);

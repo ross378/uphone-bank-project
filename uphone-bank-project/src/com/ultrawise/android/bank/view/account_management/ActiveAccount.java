@@ -11,20 +11,31 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ActiveAccount extends ListActivity {
 	private Button btnCoustom;
 	Intent intent;
 	private int flag = 0;
+	private TextView tvClassFirst;
+	private TextView tvClassSecond;
+	private TextView tvClassThrid;
+	private TextView tvClassFour;
 	ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		/**
+		 * 业务功能，暂时不考虑
+		 */
+		/*
 		intent = ActiveAccount.this.getIntent();
 		String activeAcc = intent.getStringExtra("activeAcc");
 		// just active one account only
@@ -35,7 +46,7 @@ public class ActiveAccount extends ListActivity {
 				list.remove(1);
 			if (activeAcc.equalsIgnoreCase("1234567899876543"))
 				list.remove(2);
-		}
+		}*/
 	}
 
 	@Override
@@ -44,10 +55,8 @@ public class ActiveAccount extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.account_active);
 		intent = ActiveAccount.this.getIntent();
-		
 
 		// 设置List View
-		
 		HashMap<String, String> map1 = new HashMap<String, String>();
 		map1.put("name", "9876543210123456");
 		map1.put("arrow", ">");
@@ -61,13 +70,39 @@ public class ActiveAccount extends ListActivity {
 		list.add(map2);
 		list.add(map3);
 
-		
-
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
+		//设置层级关系
+		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassFirst.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				//intent.setClass(AccountInfo.this, DeleteAccount.class);
+				//AccountInfo.this.startActivity(intent);
+			}
+		});
+		
+		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("账户管理>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+		tvClassSecond.setClickable(true);
+		tvClassSecond.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				intent = ActiveAccount.this.getIntent();
+				intent.setClass(ActiveAccount.this, AccountManagement.class);
+				ActiveAccount.this.startActivity(intent);
+				
+			}
+		});
+		
+		tvClassThrid = (TextView)this.findViewById(R.id.class_third);
+		tvClassThrid.setText("激活账户");
+		tvClassThrid.setVisibility(View.VISIBLE);
+		
 		// 设置底部自定义按钮显示
 		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setText("激活账户");
@@ -87,6 +122,7 @@ public class ActiveAccount extends ListActivity {
 					public void onClick(DialogInterface dialog, int which) {
 						// delete account turn to account information
 						flag = 1;// done
+						Toast.makeText(ActiveAccount.this, "激活账户成功", Toast.LENGTH_SHORT).show();
 						finish();
 					}
 				})
@@ -97,7 +133,13 @@ public class ActiveAccount extends ListActivity {
 						//finish();
 					}
 				}).show();
+		
+		
 		if (flag == 1) {
+			/**
+			 * 业务功能，暂时不考虑
+			 */
+			/*
 			String activeAcc = "";
 			intent = ActiveAccount.this.getIntent();
 
@@ -109,6 +151,7 @@ public class ActiveAccount extends ListActivity {
 				activeAcc = "1234567899876543";
 
 			intent.putExtra("activeAcc", activeAcc);
+			*/
 			intent.setClass(ActiveAccount.this, ActiveAccount.class);
 			ActiveAccount.this.startActivity(intent);
 		}
