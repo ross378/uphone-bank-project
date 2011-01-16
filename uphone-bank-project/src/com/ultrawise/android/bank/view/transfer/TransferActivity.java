@@ -93,7 +93,7 @@ public class TransferActivity extends Activity {
     		Intent transcancle_intent = new Intent();
     		transcancle_intent.putExtra("flag", "failed");
     		transcancle_intent.putExtra("info", "The transfer is canceled");
-    		transcancle_intent.setClass(TransferActivity.this, TransResult.class);
+    		transcancle_intent.setClass(TransferActivity.this, TransferMain.class);
     		startActivity(transcancle_intent);
     	}
     }
