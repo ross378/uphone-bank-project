@@ -77,9 +77,10 @@
 			android:name="com.ultrawise.android.bank.view.account_management.PreferredAccount"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.QueryAccount">
 		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.BankModel"></activity>
 		<!-- end activity -->
-		
-	</application>
+
+</application>
 	<uses-sdk android:minSdkVersion="7" />
 
 </manifest> 
