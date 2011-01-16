@@ -20,27 +20,29 @@
 		</activity>
 
 		<activity android:name=".TransferActivity" android:label="@string/app_title">
-
 		</activity>
-
+		
+		<!-- kjsolo's activity -->
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
-
 		</activity>
-
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
 		</activity>
-
-
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.QueryAccount"></activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AddAccount"></activity>
-		<activity
+		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccount"></activity>
-		<activity
+		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.DeleteAccount"></activity>
+		<activity android:label="@string/phone_bank"
+			android:name="com.ultrawise.android.bank.view.account_management.LossRegister"></activity>
+		<activity android:label="@string/phone_bank"
+			android:name="com.ultrawise.android.bank.view.account_management.OrderCard"></activity>
+		<!-- end activity -->
+		
 	</application>
 	<uses-sdk android:minSdkVersion="7" />
 
