@@ -6,8 +6,7 @@
 		
 		
 		<!-- 信用卡 -->
-		<activity android:name=".ABankMain">
-            
+		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
         </activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditView">
         </activity>
@@ -19,8 +18,8 @@
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
     		<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
@@ -70,7 +69,8 @@
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.LossRegister"></activity>
 		<activity android:label="@string/phone_bank"
-			android:name="com.ultrawise.android.bank.view.account_management.OrderCard"></activity>
+			android:name="com.ultrawise.android.bank.view.account_management.OrderCard">
+			</activity>
 		<!-- end activity -->
 		
 	</application>
