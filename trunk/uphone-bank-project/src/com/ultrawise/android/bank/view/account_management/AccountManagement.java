@@ -3,11 +3,11 @@ package com.ultrawise.android.bank.view.account_management;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TableLayout.LayoutParams;
+
 import android.widget.TextView;
 
 import com.ultrawise.android.bank.view.transfer.R;
@@ -18,6 +18,8 @@ public class AccountManagement extends Activity {
 	private Button btnActiveAcc;
 	private Button btnLossRegister;
 	private Button btnOrderCard;
+	private Button btnPreAcc;
+	private Button btnDefAcc;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	
@@ -86,6 +88,26 @@ public class AccountManagement extends Activity {
 			public void onClick(View v){
 				intent = AccountManagement.this.getIntent();
 				intent.setClass(AccountManagement.this, OrderCard.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
+		
+		//Button Pre Account
+		btnPreAcc = (Button)this.findViewById(R.id.btnPreferredAcc);
+		btnPreAcc.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, PreferredAccount.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
+		
+		//Button default Account
+		btnDefAcc = (Button)this.findViewById(R.id.btnDefaultAcc);
+		btnDefAcc.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, DefaultAccount.class);
 				AccountManagement.this.startActivity(intent);
 			}
 		});
