@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    >
+<include layout="@layout/main_bank_above" />
+<include layout="@layout/main_bank_bottom" />
+<ScrollView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical"
+	android:layout_below="@id/headLayout"
+	android:layout_above="@id/bottomLayout"
+	>
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+<TextView
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_title"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_payhis_amount"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_amount"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_payhis_tim"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_serialnum"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_payhis_sernum"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_serialnum"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_payhis_acc"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_acc"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+</LinearLayout>
+</ScrollView>
+</RelativeLayout>

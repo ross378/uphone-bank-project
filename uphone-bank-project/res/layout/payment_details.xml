@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    >
+<include layout="@layout/main_bank_above" />
+<include layout="@layout/main_bank_bottom" />
+<ScrollView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical"
+	android:layout_below="@id/headLayout"
+	android:layout_above="@id/bottomLayout"
+	>
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+<TextView
+	android:id="@+id/tv_pay_title"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_title"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_pay_amount"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_amount"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_pay_sernum"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_serialnum"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+	android:id="@+id/tv_pay_acc"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_acc"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<RadioGroup
+	android:id="@+id/rg_transph_acc"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="20dip"
+	android:layout_marginRight="20dip"
+	android:orientation="vertical"
+	>
+<RadioButton
+	android:id="@+id/rb_trph_acc1"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="111111111111"
+	/>
+<RadioButton
+	android:id="@+id/rb_trph_acc2"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="222222222222"
+	/>
+<RadioButton
+	android:id="@+id/rb_trph_acc3"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="333333333333"
+	/>
+</RadioGroup>
+<TableLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+<TableRow>
+<Button
+	android:id="@+id/btn_pay_ok"
+	android:layout_width="80dip"
+	android:layout_marginLeft="70dip"
+	android:layout_marginTop="30dip"
+	android:text="@string/btn_ok"
+	/>
+<Button
+	android:id="@+id/btn_pay_cancle"
+	android:layout_width="80dip"
+	android:layout_marginLeft="10dip"
+	android:layout_marginTop="30dip"
+	android:text="@string/btn_cancle"
+	/>
+</TableRow>
+</TableLayout>
+</LinearLayout>
+</ScrollView>
+</RelativeLayout>

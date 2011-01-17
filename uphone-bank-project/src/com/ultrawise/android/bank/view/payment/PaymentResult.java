@@ -1,8 +1,6 @@
 package com.ultrawise.android.bank.view.payment;
 
 import com.ultrawise.android.bank.view.transfer.R;
-import com.ultrawise.android.bank.view.transfer.TransResult;
-import com.ultrawise.android.bank.view.transfer.TransferMain;
 
 import android.app.Activity;
 import android.content.Intent;

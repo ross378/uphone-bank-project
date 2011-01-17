@@ -1,10 +1,5 @@
 package com.ultrawise.android.bank.view.transfer;
 
-import com.ultrawise.android.bank.view.transfer.R;
-import com.ultrawise.android.bank.view.transfer.TransferActivity.BtnCancleCL;
-import com.ultrawise.android.bank.view.transfer.TransferActivity.BtnHelpCL;
-import com.ultrawise.android.bank.view.transfer.TransferActivity.BtnMainCL;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,12 +17,13 @@ public class TransAccConfirm extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.trans_result);
+		setContentView(R.layout.trans_ph_confirm);
 		
 		Button btnok = (Button)findViewById(R.id.btn_cfm_ok);
     	Button btncancle = (Button)findViewById(R.id.btn_cfm_cancle);
         TextView tvtransacc = (TextView)findViewById(R.id.tv_transcon_acc);
         TextView tvtransbal = (TextView)findViewById(R.id.tv_transcon_balance);
+        TextView tvtransconinptype = (TextView)findViewById(R.id.tv_transcon_inptype);
         TextView tvtransinput = (TextView)findViewById(R.id.tv_transcon_inputnum);
         TextView tvtransamount = (TextView)findViewById(R.id.tv_transcon_amount);
         
@@ -38,12 +34,18 @@ public class TransAccConfirm extends Activity {
         String transinput = transcon_intent.getStringExtra("inputnum");
         String transamount = transcon_intent.getStringExtra("amount");
         
+        tvtransconinptype.setText("转入账号");
         tvtransacc.setText(transacc);
         tvtransinput.setText(transinput);
         tvtransamount.setText(transamount);
         
+        btn_now = (Button)this.findViewById(R.id.btnCoustom);
+        btn_now.setText("转账汇款");
+        btn_now.setVisibility(View.VISIBLE);
+        
         //btn_main.setOnClickListener(new BtnMainCL());
         //btn_help.setOnClickListener(new BtnHelpCL());
+        //btn_now.setOnClickListener(new BtnNowCL());
         
         btnok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){
@@ -64,7 +66,7 @@ public class TransAccConfirm extends Activity {
         	}
         });
     }
-    /*class BtnMainCL implements OnClickListener{
+    class BtnMainCL implements OnClickListener{
     	public void onClick(View v){
     		Intent transmain_intent = new Intent();
     		transmain_intent.putExtra("flag", "failed");
@@ -81,5 +83,14 @@ public class TransAccConfirm extends Activity {
     		transhelp_intent.setClass(TransAccConfirm.this, TransResult.class);
     		startActivity(transhelp_intent);
     	}
-    }*/
+    }
+    class BtnNowCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transhelp_intent = new Intent();
+    		transhelp_intent.putExtra("flag", "failed");
+    		transhelp_intent.putExtra("info", "The transfer is canceled");
+    		transhelp_intent.setClass(TransAccConfirm.this, TransResult.class);
+    		startActivity(transhelp_intent);
+    	}
+    }
 }

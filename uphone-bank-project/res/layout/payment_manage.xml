@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    >
+<include layout="@layout/main_bank_above" />
+<include layout="@layout/main_bank_bottom" />
+<ScrollView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical"
+	android:layout_below="@id/headLayout"
+	android:layout_above="@id/bottomLayout"
+	>
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:isScrollContainer="true"
+	android:layout_below="@id/headLayout"
+	android:layout_above="@id/bottomLayout"
+	
+	>
+<TextView
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_manage"
+	android:paddingLeft="10dip"
+	android:textSize="23sp"
+	/>
+<CheckBox 
+	android:id="@+id/cb_pay_manage1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="30dip"
+	android:checked="true"
+	android:text="手机充值" 
+/>
+<CheckBox 
+	android:id="@+id/cb_pay_manage2"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="30dip"
+	android:checked="true"
+	android:text="平安保险" 
+/>
+<CheckBox 
+	android:id="@+id/cb_pay_manage3"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="30dip"
+	android:checked="true"
+	android:text="交通罚款" 
+/>
+<CheckBox 
+	android:id="@+id/cb_pay_manage4"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="30dip"
+	android:checked="false"
+	android:text="报纸订阅" 
+/>
+<Button
+	android:id="@+id/btn_paymana_ok"
+	android:layout_width="150dip"
+	android:layout_height="wrap_content"
+	android:text="@string/btn_ok"
+	android:layout_gravity="center_horizontal"
+/>
+</LinearLayout>
+</ScrollView>
+</RelativeLayout>

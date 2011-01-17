@@ -26,6 +26,10 @@ public class TransferMain extends Activity {
         btn_now = (Button)this.findViewById(R.id.btnCoustom);
         btn_now.setText("转账汇款");
         btn_now.setVisibility(View.VISIBLE);
+        
+        //btn_main.setOnClickListener(new BtnMainCL());
+       // btn_help.setOnClickListener(new BtnHelpCL());
+       // btn_now.setOnClickListener(new BtnNowCL());
 	}
 	class BtnTransMainPh implements OnClickListener{
 		public void onClick(View v){
@@ -41,4 +45,31 @@ public class TransferMain extends Activity {
 			startActivity(trans_main_acc);
 		}
 	}
+	class BtnMainCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transmain_intent = new Intent();
+    		transmain_intent.putExtra("flag", "failed");
+    		transmain_intent.putExtra("info", "The transfer is canceled");
+    		transmain_intent.setClass(TransferMain.this, TransResult.class);
+    		startActivity(transmain_intent);
+    	}
+    }
+    class BtnHelpCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transhelp_intent = new Intent();
+    		transhelp_intent.putExtra("flag", "failed");
+    		transhelp_intent.putExtra("info", "The transfer is canceled");
+    		transhelp_intent.setClass(TransferMain.this, TransResult.class);
+    		startActivity(transhelp_intent);
+    	}
+    }
+    class BtnNowCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transhelp_intent = new Intent();
+    		transhelp_intent.putExtra("flag", "failed");
+    		transhelp_intent.putExtra("info", "The transfer is canceled");
+    		transhelp_intent.setClass(TransferMain.this, TransResult.class);
+    		startActivity(transhelp_intent);
+    	}
+    }
 }

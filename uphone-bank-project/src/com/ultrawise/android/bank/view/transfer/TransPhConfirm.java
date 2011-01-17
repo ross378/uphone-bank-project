@@ -43,8 +43,13 @@ public class TransPhConfirm extends Activity {
         tvtransinput.setText(transinput);
         tvtransamount.setText(transamount);
         
+        btn_now = (Button)this.findViewById(R.id.btnCoustom);
+        btn_now.setText("转账汇款");
+        btn_now.setVisibility(View.VISIBLE);
+        
         //btn_main.setOnClickListener(new BtnMainCL());
         //btn_help.setOnClickListener(new BtnHelpCL());
+        //btn_now.setOnClickListener(new BtnNowCL());
         
         btnok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){
@@ -65,7 +70,7 @@ public class TransPhConfirm extends Activity {
         	}
         });
     }
-    /*class BtnMainCL implements OnClickListener{
+    class BtnMainCL implements OnClickListener{
     	public void onClick(View v){
     		Intent transmain_intent = new Intent();
     		transmain_intent.putExtra("flag", "failed");
@@ -82,5 +87,14 @@ public class TransPhConfirm extends Activity {
     		transhelp_intent.setClass(TransPhConfirm.this, TransResult.class);
     		startActivity(transhelp_intent);
     	}
-    }*/
+    }
+    class BtnNowCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transhelp_intent = new Intent();
+    		transhelp_intent.putExtra("flag", "failed");
+    		transhelp_intent.putExtra("info", "The transfer is canceled");
+    		transhelp_intent.setClass(TransPhConfirm.this, TransResult.class);
+    		startActivity(transhelp_intent);
+    	}
+    }
 }

@@ -49,11 +49,16 @@ public class TransferActivity extends Activity {
         btn_cancle.setOnClickListener(new BtnCancleCL());
         btn_main.setOnClickListener(new BtnMainCL());
         btn_help.setOnClickListener(new BtnHelpCL());
+        btn_now.setOnClickListener(new BtnNowCL());
         
         rg_acc = (RadioGroup)findViewById(R.id.rg_transph_acc);
         rb_acc1 = (RadioButton)findViewById(R.id.rb_trph_acc1);
         rb_acc2 = (RadioButton)findViewById(R.id.rb_trph_acc2);
         rb_acc3 = (RadioButton)findViewById(R.id.rb_trph_acc3);
+        
+        btn_now = (Button)this.findViewById(R.id.btnCoustom);
+        btn_now.setText("转账汇款");
+        btn_now.setVisibility(View.VISIBLE);
         
         //btn_now.setOnClickListener(new BtnCustomCL());
         rg_acc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -107,6 +112,15 @@ public class TransferActivity extends Activity {
     	}
     }
     class BtnHelpCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transhelp_intent = new Intent();
+    		transhelp_intent.putExtra("flag", "failed");
+    		transhelp_intent.putExtra("info", "The transfer is canceled");
+    		transhelp_intent.setClass(TransferActivity.this, TransResult.class);
+    		startActivity(transhelp_intent);
+    	}
+    }
+    class BtnNowCL implements OnClickListener{
     	public void onClick(View v){
     		Intent transhelp_intent = new Intent();
     		transhelp_intent.putExtra("flag", "failed");
