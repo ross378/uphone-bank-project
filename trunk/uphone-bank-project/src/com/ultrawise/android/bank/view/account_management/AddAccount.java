@@ -11,12 +11,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddAccount extends Activity {
 	private Button btnConfirm;
-	private Button btnCoustom;
+	private ImageView btnCoustom;
 	private EditText etAccount;
 	private EditText etCoustomPwd;
 	private TextView tvClassFirst;
@@ -118,8 +119,8 @@ public class AddAccount extends Activity {
 		tvClassFour.setVisibility(View.VISIBLE);
 
 		// 设置底部自定义按钮显示
-		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("增加账户");
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		//btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 	

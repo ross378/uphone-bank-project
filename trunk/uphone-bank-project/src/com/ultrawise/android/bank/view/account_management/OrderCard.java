@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ import android.widget.Toast;
 
 public class OrderCard extends ListActivity {
 
-	private Button btnCoustom;
+	private ImageView btnCoustom;
 	Intent intent;
 	private int flag = 0;
 	private TextView tvClassFirst;
@@ -46,7 +47,7 @@ public class OrderCard extends ListActivity {
 										.setTitle("您选择的网点是：")
 										.setMessage(array[which])
 										.setPositiveButton(
-												"确认挂失？",
+												"确认预约？",
 												new DialogInterface.OnClickListener() {
 													public void onClick(
 															DialogInterface dialog,
@@ -55,7 +56,7 @@ public class OrderCard extends ListActivity {
 														flag = 1;
 														Toast.makeText(
 																OrderCard.this,
-																"挂失成功",
+																"预约成功",
 																Toast.LENGTH_SHORT)
 																.show();
 														dialog.dismiss();
@@ -137,8 +138,8 @@ public class OrderCard extends ListActivity {
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 设置底部自定义按钮显示
-		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("预约换卡");
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		//btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 

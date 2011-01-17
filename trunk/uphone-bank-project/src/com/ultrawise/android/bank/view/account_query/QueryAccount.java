@@ -12,12 +12,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class QueryAccount extends ListActivity {
-	private Button btnCoustom;
+	private ImageView btnCoustom;
 	Intent intent;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
@@ -77,8 +78,8 @@ public class QueryAccount extends ListActivity {
 
 
 		// 设置底部自定义按钮显示
-		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("账户查询");
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		//btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
 
 	}
