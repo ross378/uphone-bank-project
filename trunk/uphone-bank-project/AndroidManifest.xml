@@ -30,6 +30,7 @@
         
 		<!-- 转账 -->
 		<activity android:name=".TransferMain" android:label="@string/app_title">
+		
 		</activity>
 		<activity android:name=".TransAccConfirm" android:label="@string/app_title">
 		</activity>
