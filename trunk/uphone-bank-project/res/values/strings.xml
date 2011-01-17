@@ -8,6 +8,11 @@
     <string name="select_acc">请选择付款账户</string>
     <string name="input_num">请输入收款手机号</string>
     <string name="input_acc">请输入转入账号</string>
+    <string name="pay_title">项目名称:</string>
+    <string name="pay_amount">项目金额:</string>
+    <string name="pay_serialnum">缴费流水号:</string>
+    <string name="pay_acc">选择缴费账户:</string>
+    <string name="pay_manage">已有缴费项目：</string>
     <string name="trans_main_ph">手机到手机转账</string>
     <string name="trans_main_acc">手机到签约账户转账</string>
     <string name="trans_amount">请输入转账金额</string>
