@@ -20,8 +20,6 @@ public class PaymentLastMonth extends ListActivity {
 	private Button btn_help = null;
 	private Button btn_now = null;
 	
-	Intent payment_intent = new Intent();
-	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
@@ -33,16 +31,16 @@ public class PaymentLastMonth extends ListActivity {
         HashMap<String,String> paylist4 = new HashMap<String,String>();
         HashMap<String,String> paylist5 = new HashMap<String,String>();
         
-        paylist1.put("payment_list", "待缴费项目");
-        paylist1.put("payment_list_info", ">");
-        paylist2.put("payment_list", "--便捷服务");
-        paylist2.put("payment_list_info", ">");
-        paylist3.put("payment_list", "--手机充值");
-        paylist3.put("payment_list_info", ">");
-        paylist4.put("payment_list", "--平安保险");
-        paylist4.put("payment_list_info", ">");
-        paylist5.put("payment_list", "--交通罚款");
-        paylist5.put("payment_list_info", ">");
+        paylist1.put("payment_list", "  房租");
+        paylist1.put("payment_list_info", "2011/2/1  >");
+        paylist2.put("payment_list", "  电费");
+        paylist2.put("payment_list_info", "2011/1/26>");
+        paylist3.put("payment_list", "  煤气费");
+        paylist3.put("payment_list_info", "2011/1/25>");
+        paylist4.put("payment_list", "  水费");
+        paylist4.put("payment_list_info", "2011/1/25>");
+        paylist5.put("payment_list", "  手机充值");
+        paylist5.put("payment_list_info", "2011/1/20>");
         
         mainlist.add(paylist1);
         mainlist.add(paylist2);
@@ -63,14 +61,19 @@ public class PaymentLastMonth extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentLastMonth.this, PaymentSelfService.class);
 		}else if(id==1){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentLastMonth.this, PaymentManage.class);
 		}else if(id==2){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentLastMonth.this, PaymentLastMonth.class);
 		}else if(id==3){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentLastMonth.this, PaymentHistory.class);
 		}else if(id==4){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentLastMonth.this, PaymentDefAcc.class);
 		}
 	}

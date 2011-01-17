@@ -32,13 +32,13 @@
 		<activity android:name=".TransferMain" android:label="@string/app_title">
 		
 		</activity>
-		<activity android:name=".TransAccConfirm" android:label="@string/app_title">
+		<activity android:name=".TransferActivity" android:label="@string/app_title">
 		</activity>
 		<activity android:name=".TransferAccActivity" android:label="@string/app_title">
 		</activity>
 		<activity android:name=".TransPhConfirm" android:label="@string/app_title">
 		</activity>
-		<activity android:name=".TransferActivity" android:label="@string/app_title">
+		<activity android:name=".TransAccConfirm" android:label="@string/app_title">
 		</activity>
 		<activity android:name=".TransResult" android:label="@string/app_title"
 			android:theme="@android:style/Theme.Dialog">
@@ -53,7 +53,6 @@
         </intent-filter>
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService" android:label="@string/app_title">
-		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManage" android:label="@string/app_title">
 		</activity>
@@ -63,7 +62,13 @@
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDefAcc" android:label="@string/app_title">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult" android:label="@string/app_title"
+				android:theme="@android:style/Theme.Dialog">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDetail" android:label="@string/app_title">
+		
 		</activity>
 		<!-- end activity -->
 		

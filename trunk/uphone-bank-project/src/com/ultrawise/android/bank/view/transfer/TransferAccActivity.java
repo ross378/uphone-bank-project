@@ -48,6 +48,7 @@ public class TransferAccActivity extends Activity {
         btn_cancle.setOnClickListener(new BtnCancleCL());
         btn_main.setOnClickListener(new BtnMainCL());
         btn_help.setOnClickListener(new BtnHelpCL());
+        btn_now.setOnClickListener(new BtnNowCL());
         
         rg_acc = (RadioGroup)findViewById(R.id.rg_transph_acc);
         rb_acc1 = (RadioButton)findViewById(R.id.rb_trph_acc1);
@@ -56,7 +57,11 @@ public class TransferAccActivity extends Activity {
         
         tv_tratyp.setText("请输入转入账号 ");
         
-        //btn_now.setOnClickListener(new BtnCustomCL());
+        btn_now = (Button)this.findViewById(R.id.btnCoustom);
+        btn_now.setText("转账汇款");
+        btn_now.setVisibility(View.VISIBLE);
+        
+        
         rg_acc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -84,7 +89,7 @@ public class TransferAccActivity extends Activity {
 				trans_intent.putExtra("amount", Amount);
 				trans_intent.putExtra("inputnum", InputNum);
 				trans_intent.putExtra("selectedacc", SelectedAcc);
-				trans_intent.setClass(TransferAccActivity.this, TransPhConfirm.class);
+				trans_intent.setClass(TransferAccActivity.this, TransAccConfirm.class);
 				startActivity(trans_intent);
 				}
 			}
@@ -107,6 +112,15 @@ public class TransferAccActivity extends Activity {
     	}
     }
     class BtnHelpCL implements OnClickListener{
+    	public void onClick(View v){
+    		Intent transhelp_intent = new Intent();
+    		transhelp_intent.putExtra("flag", "failed");
+    		transhelp_intent.putExtra("info", "The transfer is canceled");
+    		transhelp_intent.setClass(TransferAccActivity.this, TransResult.class);
+    		startActivity(transhelp_intent);
+    	}
+    }
+    class BtnNowCL implements OnClickListener{
     	public void onClick(View v){
     		Intent transhelp_intent = new Intent();
     		transhelp_intent.putExtra("flag", "failed");
