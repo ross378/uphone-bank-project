@@ -24,7 +24,7 @@ public class TransferMain extends Activity {
         btn_trans_acc.setOnClickListener(new BtnTransMainAcc());
         
         btn_now = (Button)this.findViewById(R.id.btnCoustom);
-        btn_now.setText("账户管理");
+        btn_now.setText("杞处姹囨");
         btn_now.setVisibility(View.VISIBLE);
 	}
 	class BtnTransMainPh implements OnClickListener{

@@ -20,8 +20,6 @@ public class PaymentMain extends ListActivity {
 	private Button btn_help = null;
 	private Button btn_now = null;
 	
-	Intent payment_intent;
-	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
@@ -63,24 +61,24 @@ public class PaymentMain extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentSelfService.class);
 			PaymentMain.this.startActivity(payment_intent);
 		}else if(id==1){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentManage.class);
 			PaymentMain.this.startActivity(payment_intent);
 		}else if(id==2){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentLastMonth.class);
 			PaymentMain.this.startActivity(payment_intent);
 		}else if(id==3){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentHistory.class);
 			PaymentMain.this.startActivity(payment_intent);
 		}else if(id==4){
+			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentDefAcc.class);
-			PaymentMain.this.startActivity(payment_intent);
-		}else{
-			payment_intent.putExtra("flag", "failed");
-			payment_intent.putExtra("info", "The transfer is canceled");
-			payment_intent.setClass(PaymentMain.this, PaymentResult.class);
 			PaymentMain.this.startActivity(payment_intent);
 		}
 	}
