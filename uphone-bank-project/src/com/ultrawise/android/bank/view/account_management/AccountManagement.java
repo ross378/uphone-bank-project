@@ -1,19 +1,23 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import android.R.drawable;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import android.widget.TextView;
 
 import com.ultrawise.android.bank.view.transfer.R;
 
 public class AccountManagement extends Activity {
-	private Button btnCoustom;
+	private ImageView btnCoustom;
 	private Button btnAccInfo;
 	private Button btnActiveAcc;
 	private Button btnLossRegister;
@@ -29,6 +33,9 @@ public class AccountManagement extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.account_management);
+		
+		intent = new Intent();
+		
 		//设置层级关系
 		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
@@ -40,16 +47,17 @@ public class AccountManagement extends Activity {
 
 			}
 		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
 		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
 		tvClassSecond.setText("账户管理");
-		tvClassFirst.setVisibility(View.VISIBLE);
+		
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		//设置底部自定义按钮显示
-		btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("账户管理");
+		btnCoustom = (ImageView)this.findViewById(R.id.btnCoustom);
+		btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
-		
 		
 		
 		//Button Account Information
@@ -57,7 +65,7 @@ public class AccountManagement extends Activity {
 		btnAccInfo.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountManagement.this.getIntent();
+				
 				intent.setClass(AccountManagement.this, AccountInfo.class);
 				AccountManagement.this.startActivity(intent);
 			}
@@ -66,7 +74,7 @@ public class AccountManagement extends Activity {
 		btnActiveAcc = (Button)this.findViewById(R.id.btnActiveAcc);
 		btnActiveAcc.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				intent = AccountManagement.this.getIntent();
+				
 				intent.setClass(AccountManagement.this, ActiveAccount.class);
 				AccountManagement.this.startActivity(intent);
 			}
@@ -76,7 +84,7 @@ public class AccountManagement extends Activity {
 		btnLossRegister = (Button)this.findViewById(R.id.btnLossRegister);
 		btnLossRegister.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				intent = AccountManagement.this.getIntent();
+				
 				intent.setClass(AccountManagement.this, LossRegister.class);
 				AccountManagement.this.startActivity(intent);
 			}
@@ -86,7 +94,7 @@ public class AccountManagement extends Activity {
 		btnOrderCard = (Button)this.findViewById(R.id.btnOrder);
 		btnOrderCard.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				intent = AccountManagement.this.getIntent();
+				
 				intent.setClass(AccountManagement.this, OrderCard.class);
 				AccountManagement.this.startActivity(intent);
 			}
@@ -111,6 +119,7 @@ public class AccountManagement extends Activity {
 				AccountManagement.this.startActivity(intent);
 			}
 		});
+		
 	}
 	@Override
 	protected void onResume() {

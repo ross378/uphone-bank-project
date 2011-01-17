@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 
 public class AccountInfo extends ListActivity {
 	private TextView tvAccInfo;
-	private Button btnCoustom;
+	private ImageView btnCoustom;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
@@ -45,6 +46,7 @@ public class AccountInfo extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.account_info);
+		
 		intent = AccountInfo.this.getIntent();
 		// 账户信息
 		tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo);
@@ -103,9 +105,10 @@ public class AccountInfo extends ListActivity {
 		
 		
 		//设置底部自定义按钮显示
-		btnCoustom = (Button)this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("账户信息");
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		//btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
 	}
 
 	@Override

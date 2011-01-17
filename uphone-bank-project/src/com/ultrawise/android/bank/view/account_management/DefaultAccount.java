@@ -13,13 +13,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class DefaultAccount extends ListActivity {
-	private Button btnCoustom;
+	private ImageView btnCoustom;
 	Intent intent;
 	private int flag = 0;
 	private TextView tvClassFirst;
@@ -112,8 +113,8 @@ public class DefaultAccount extends ListActivity {
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 设置底部自定义按钮显示
-		btnCoustom = (Button) this.findViewById(R.id.btnCoustom);
-		btnCoustom.setText("默认账户");
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		//btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 
