@@ -6,7 +6,7 @@
 	android:orientation="horizontal" android:layout_weight="1"
 	android:layout_height="wrap_content" android:layout_alignParentBottom="true">
 	<!-- 功能模块按钮1 -->
-	<ImageView android:id="@+id/btnMain" android:src="@drawable/test1"
+	<ImageView android:id="@+id/btnMain" android:src="@drawable/cardbg_sjyh_b"
 		android:layout_marginLeft="0dp" android:layout_marginTop="0dp"
 		android:layout_marginBottom="0dp" android:layout_width="106px"
 		android:layout_height="40px" android:scaleType="fitXY" />
@@ -17,7 +17,7 @@
 		android:layout_height="40px" android:visibility="gone"
 		android:scaleType="fitXY" />
 	<!-- 功能模块按钮3 -->
-	<ImageView android:id="@+id/btnHelper" android:src="@drawable/test3"
+	<ImageView android:id="@+id/btnHelper" android:src="@drawable/cardbg_jrzx_b"
 		android:layout_marginLeft="0dp" android:layout_marginTop="0dp"
 		android:layout_marginBottom="0dp" android:layout_width="106px"
 		android:layout_height="40px" android:scaleType="fitXY" />
