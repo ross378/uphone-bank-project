@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class TransferMain extends Activity {
-	
-	private Button btn_main = null;
-	private Button btn_help = null;
-	private Button btn_now = null;
-	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_main);
@@ -23,13 +20,20 @@ public class TransferMain extends Activity {
         btn_trans_ph.setOnClickListener(new BtnTransMainPh());
         btn_trans_acc.setOnClickListener(new BtnTransMainAcc());
         
-        btn_now = (Button)this.findViewById(R.id.btnCoustom);
-        btn_now.setText("转账汇款");
-        btn_now.setVisibility(View.VISIBLE);
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
         
-        //btn_main.setOnClickListener(new BtnMainCL());
-       // btn_help.setOnClickListener(new BtnHelpCL());
-       // btn_now.setOnClickListener(new BtnNowCL());
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("转账汇款");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+        
 	}
 	class BtnTransMainPh implements OnClickListener{
 		public void onClick(View v){

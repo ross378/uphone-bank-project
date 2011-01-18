@@ -4,14 +4,14 @@
     android:layout_height="fill_parent"
     android:background="@drawable/bg"
     >
-<include layout="@layout/main_bank_above" />
-<include layout="@layout/main_bank_bottom" />
+<include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
+<include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
 <ScrollView
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:scrollbars="vertical"
-	android:layout_below="@id/headLayout"
-	android:layout_above="@id/bottomLayout"
+	android:layout_below="@id/paymentabove"
+	android:layout_above="@id/paymentbelow"
 	>
 <LinearLayout
 	android:layout_width="fill_parent"

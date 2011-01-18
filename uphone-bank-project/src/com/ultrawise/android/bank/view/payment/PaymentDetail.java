@@ -6,7 +6,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +16,29 @@ public class PaymentDetail extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_details);
+        
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("自助缴费>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
+		tvClassThree.setText("待缴费项目>");
+		tvClassThree.setVisibility(View.VISIBLE);
+		
+		TextView tvClassFour = (TextView)this.findViewById(R.id.class_four);
+		tvClassFour.setText("确认缴费");
+		tvClassFour.setVisibility(View.VISIBLE);
         
         TextView tv_pay_title = (TextView)findViewById(R.id.tv_pay_title);
         TextView tv_pay_amount = (TextView)findViewById(R.id.tv_pay_amount);
@@ -31,6 +56,9 @@ public class PaymentDetail extends Activity {
         tv_pay_amount.setText("缴费金额："+ pay_amount);
         tv_pay_sernum.setText("缴费流水号："+ pay_sernum);
         btn_pay_ok.setText("确认缴费");
+        
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
         
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){

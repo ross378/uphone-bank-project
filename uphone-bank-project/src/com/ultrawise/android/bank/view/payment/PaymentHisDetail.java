@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PaymentHisDetail extends Activity {	
@@ -38,6 +39,28 @@ public class PaymentHisDetail extends Activity {
         tv_sernum.setText("项目流水号："+tvsernum);
         tv_acc.setText("缴费账号：");
         tv_acc2.setText(tvacc);
+        
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("缴费历史>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
+		tvClassThree.setText("明细");
+		tvClassThree.setVisibility(View.VISIBLE);
+        
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
         
         btn_payhisdl_ok.setOnClickListener(new BtnHistlCL());
 	}

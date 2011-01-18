@@ -1,9 +1,6 @@
 package com.ultrawise.android.bank.view.transfer;
 
 import com.ultrawise.android.bank.view.transfer.R;
-import com.ultrawise.android.bank.view.transfer.TransferActivity.BtnCancleCL;
-import com.ultrawise.android.bank.view.transfer.TransferActivity.BtnHelpCL;
-import com.ultrawise.android.bank.view.transfer.TransferActivity.BtnMainCL;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,13 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class TransPhConfirm extends Activity {
     /** Called when the activity is first created. */
-	private Button btn_main = null;
-	private Button btn_help = null;
-	private Button btn_now = null;
 	Intent transcon_intent;
 
     @Override
@@ -43,13 +38,27 @@ public class TransPhConfirm extends Activity {
         tvtransinput.setText(transinput);
         tvtransamount.setText(transamount);
         
-        btn_now = (Button)this.findViewById(R.id.btnCoustom);
-        btn_now.setText("转账汇款");
-        btn_now.setVisibility(View.VISIBLE);
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
         
-        //btn_main.setOnClickListener(new BtnMainCL());
-        //btn_help.setOnClickListener(new BtnHelpCL());
-        //btn_now.setOnClickListener(new BtnNowCL());
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("转账汇款>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("转到手机账号>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
+		tvClassThree.setText("确认转账");
+		tvClassThree.setVisibility(View.VISIBLE);
         
         btnok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){

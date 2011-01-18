@@ -10,21 +10,35 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class PaymentSelfService extends ListActivity {
-	
-	private Button btn_main = null;
-	private Button btn_help = null;
-	private Button btn_now = null;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
         
-ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("自助缴费>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+        
+        ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
         
         HashMap<String,String> paylist1 = new HashMap<String,String>();
         HashMap<String,String> paylist2 = new HashMap<String,String>();
@@ -53,9 +67,8 @@ ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String
 				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
         this.setListAdapter(MainListAdapter);
         
-        btn_help = (Button)this.findViewById(R.id.btnCoustom);
-        btn_help.setText("账户信息");
-        btn_help.setVisibility(View.VISIBLE);
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
         
 	}
 	@Override
