@@ -24,7 +24,7 @@
 	android:layout_height="wrap_content"
 	android:text="@string/pay_title"
 	android:paddingLeft="10dip"
-	android:textSize="18sp"
+	android:textSize="20sp"
 	/>
 <TextView
 	android:layout_width="fill_parent"
@@ -37,7 +37,7 @@
 	android:layout_height="wrap_content"
 	android:text="@string/pay_amount"
 	android:paddingLeft="10dip"
-	android:textSize="18sp"
+	android:textSize="20sp"
 	/>
 <TextView
 	android:layout_width="fill_parent"
@@ -50,7 +50,7 @@
 	android:layout_height="wrap_content"
 	android:text="@string/pay_serialnum"
 	android:paddingLeft="10dip"
-	android:textSize="18sp"
+	android:textSize="20sp"
 	/>
 <TextView
 	android:layout_width="fill_parent"
@@ -63,7 +63,7 @@
 	android:layout_height="wrap_content"
 	android:text="@string/pay_serialnum"
 	android:paddingLeft="10dip"
-	android:textSize="18sp"
+	android:textSize="20sp"
 	/>
 <TextView
 	android:layout_width="fill_parent"
@@ -76,7 +76,24 @@
 	android:layout_height="wrap_content"
 	android:text="@string/pay_acc"
 	android:paddingLeft="10dip"
-	android:textSize="18sp"
+	android:textSize="20sp"
+	/>
+<TextView
+	android:id="@+id/tv_payhis_acc2"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_acc"
+	android:paddingLeft="10dip"
+	android:textSize="23sp"
+	android:layout_gravity="center_horizontal"
+	/>
+<Button
+	android:id="@+id/btn_payhisdt_ok"
+	android:layout_width="150dip"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal"
+	android:text="@string/btn_ok"
+	android:layout_marginTop="20dip"
 	/>
 </LinearLayout>
 </ScrollView>
