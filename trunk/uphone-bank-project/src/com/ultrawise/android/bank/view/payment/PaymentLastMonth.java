@@ -62,19 +62,49 @@ public class PaymentLastMonth extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentLastMonth.this, PaymentSelfService.class);
+			payment_intent.putExtra("title", "房租");
+			payment_intent.putExtra("amount", "300元");
+			payment_intent.putExtra("time", "2011-2-1");
+			payment_intent.putExtra("serialnum", "11115");
+			payment_intent.putExtra("acc", "222222222222");
+			payment_intent.setClass(PaymentLastMonth.this, PaymentHisDetail.class);
+			PaymentLastMonth.this.startActivity(payment_intent);
 		}else if(id==1){
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentLastMonth.this, PaymentManage.class);
+			payment_intent.putExtra("title", "电费");
+			payment_intent.putExtra("amount", "100元");
+			payment_intent.putExtra("time", "2011-1-26");
+			payment_intent.putExtra("serialnum", "11117");
+			payment_intent.putExtra("acc", "222222222222");
+			payment_intent.setClass(PaymentLastMonth.this, PaymentHisDetail.class);
+			PaymentLastMonth.this.startActivity(payment_intent);
 		}else if(id==2){
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentLastMonth.this, PaymentLastMonth.class);
+			payment_intent.putExtra("title", "煤气费");
+			payment_intent.putExtra("amount", "90元");
+			payment_intent.putExtra("time", "2011-1-25");
+			payment_intent.putExtra("serialnum", "11119");
+			payment_intent.putExtra("acc", "333333333333");
+			payment_intent.setClass(PaymentLastMonth.this, PaymentHisDetail.class);
+			PaymentLastMonth.this.startActivity(payment_intent);
 		}else if(id==3){
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentLastMonth.this, PaymentHistory.class);
+			payment_intent.putExtra("title", "水费");
+			payment_intent.putExtra("amount", "50元");
+			payment_intent.putExtra("time", "2011-1-25");
+			payment_intent.putExtra("serialnum", "11121");
+			payment_intent.putExtra("acc", "222222222222");
+			payment_intent.setClass(PaymentLastMonth.this, PaymentHisDetail.class);
+			PaymentLastMonth.this.startActivity(payment_intent);
 		}else if(id==4){
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentLastMonth.this, PaymentDefAcc.class);
+			payment_intent.putExtra("title", "手机充值");
+			payment_intent.putExtra("amount", "50元");
+			payment_intent.putExtra("time", "2011-1-20");
+			payment_intent.putExtra("serialnum", "11122");
+			payment_intent.putExtra("acc", "222222222222");
+			payment_intent.setClass(PaymentLastMonth.this, PaymentHisDetail.class);
+			PaymentLastMonth.this.startActivity(payment_intent);
 		}
 	}
 }

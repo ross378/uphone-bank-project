@@ -66,7 +66,7 @@
 	android:textSize="18sp"
 	/>
 <RadioGroup
-	android:id="@+id/rg_transph_acc"
+	android:id="@+id/rg_pay_acc"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="20dip"
@@ -74,19 +74,19 @@
 	android:orientation="vertical"
 	>
 <RadioButton
-	android:id="@+id/rb_trph_acc1"
+	android:id="@+id/rb_pay_acc1"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="111111111111"
 	/>
 <RadioButton
-	android:id="@+id/rb_trph_acc2"
+	android:id="@+id/rb_pay_acc2"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="222222222222"
 	/>
 <RadioButton
-	android:id="@+id/rb_trph_acc3"
+	android:id="@+id/rb_pay_acc3"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="333333333333"

@@ -12,7 +12,7 @@
         <activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
-        </activity>.PaymentMain
+        </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
@@ -69,6 +69,11 @@
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDetail" android:label="@string/app_title">
 		
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHisDetail" android:label="@string/app_title">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDftAccResult" android:label="@string/app_title"
+				android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<!-- end activity -->
 		
