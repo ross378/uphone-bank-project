@@ -10,27 +10,39 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.app.TimePickerDialog;
 
 public class PaymentHistory extends Activity {
 	
-	private Button btn_main = null;
-	private Button btn_help = null;
-	private Button btn_now = null;
-	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_hisdtl_ch);
-                
-        btn_help = (Button)this.findViewById(R.id.btnCoustom);
-        btn_help.setText("账户信息");
-        btn_help.setVisibility(View.VISIBLE);
         
         DatePicker datepicker = (DatePicker)findViewById(R.id.datepick_payment_hissta);
         DatePicker datepicker2 = (DatePicker)findViewById(R.id.datepick_payment_hisend);
         Button btn_payhis_ok = (Button)findViewById(R.id.btn_payhisck_ok);
         Button btn_payhis_cancle = (Button)findViewById(R.id.btn_payhisck_cancle);
+        
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("选择时间>");
+		tvClassSecond.setVisibility(View.VISIBLE);
+        
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
         
         btn_payhis_ok.setOnClickListener(new BtnHischOKCL());
         btn_payhis_cancle.setOnClickListener(new BtnHischCancleCL());

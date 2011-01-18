@@ -4,11 +4,11 @@
     android:layout_height="fill_parent"
     android:background="@drawable/bg"
     >
-<include layout="@layout/main_bank_above" />
-<include layout="@layout/main_bank_bottom" />
+<include android:id="@+id/transabove" layout="@layout/main_bank_above" />
+<include android:id="@+id/transbelow" layout="@layout/main_bank_bottom" />
 <Button
 	android:id="@+id/btn_trans_main_ph"
-	android:layout_below="@id/headLayout"
+	android:layout_below="@id/transabove"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="@string/trans_main_ph"

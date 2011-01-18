@@ -8,15 +8,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class TransferActivity extends Activity {
 	private Button btn_ok = null;
 	private Button btn_cancle = null;
-	private Button btn_main = null;
-	private Button btn_help = null;
-	private Button btn_now = null;
+
 	private RadioGroup rg_acc = null;
 	private RadioButton rb_acc1 = null;
 	private RadioButton rb_acc2 = null;
@@ -26,9 +26,6 @@ public class TransferActivity extends Activity {
 	private EditText psswrd = null;
 	
 	private String SelectedAcc = null;
-	//private String InputNum = null;
-	//private String Amount = null;
-	//private String PassWord = null;
 	
     /** Called when the activity is first created. */
     @Override
@@ -38,27 +35,35 @@ public class TransferActivity extends Activity {
         
         btn_ok = (Button)findViewById(R.id.btn_ph_ok);
         btn_cancle = (Button)findViewById(R.id.btn_ph_cancle);
-        btn_main = (Button)findViewById(R.id.btnMain);
-        btn_help = (Button)findViewById(R.id.btnHelper);
-        btn_now = (Button)findViewById(R.id.btnCoustom);
         inpt_num = (EditText)findViewById(R.id.input_ph_num);
         trans_amount = (EditText)findViewById(R.id.input_ph_amount);
         psswrd = (EditText)findViewById(R.id.input_ph_psswrd);
         
         btn_ok.setOnClickListener(new BtnOkCL());
         btn_cancle.setOnClickListener(new BtnCancleCL());
-        btn_main.setOnClickListener(new BtnMainCL());
-        btn_help.setOnClickListener(new BtnHelpCL());
-        btn_now.setOnClickListener(new BtnNowCL());
         
         rg_acc = (RadioGroup)findViewById(R.id.rg_transph_acc);
         rb_acc1 = (RadioButton)findViewById(R.id.rb_trph_acc1);
         rb_acc2 = (RadioButton)findViewById(R.id.rb_trph_acc2);
         rb_acc3 = (RadioButton)findViewById(R.id.rb_trph_acc3);
         
-        btn_now = (Button)this.findViewById(R.id.btnCoustom);
-        btn_now.setText("转账汇款");
-        btn_now.setVisibility(View.VISIBLE);
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
+        
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("转账汇款>");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("转到手机账号");
+		tvClassSecond.setVisibility(View.VISIBLE);
         
         //btn_now.setOnClickListener(new BtnCustomCL());
         rg_acc.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

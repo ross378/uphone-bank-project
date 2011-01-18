@@ -11,19 +11,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 public class PaymentMain extends ListActivity {
-	
-	private Button btn_main = null;
-	private Button btn_help = null;
-	private Button btn_now = null;
-	
+
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
         
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("手机缴费");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent = QueryAccount.this.getIntent();
+				// intent.setClass(QueryAccount.this, AccountManagement.class);
+				// QueryAccount.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
         ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
         
         HashMap<String,String> paylist1 = new HashMap<String,String>();
@@ -53,9 +63,8 @@ public class PaymentMain extends ListActivity {
 				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
         this.setListAdapter(MainListAdapter);
         
-        btn_help = (Button)this.findViewById(R.id.btnCoustom);
-        btn_help.setText("手机缴费");
-        btn_help.setVisibility(View.VISIBLE);
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {

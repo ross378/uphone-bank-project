@@ -30,7 +30,6 @@
         
 		<!-- 转账 -->
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-		
 		</activity>
 		<activity android:name=".TransferActivity" android:label="@string/app_title">
 		</activity>
@@ -68,7 +67,6 @@
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDetail" android:label="@string/app_title">
-		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHisDetail" android:label="@string/app_title">
 		</activity>
@@ -80,6 +78,7 @@
 		<!-- kjsolo's activity -->
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
+			
 		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
