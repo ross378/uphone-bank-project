@@ -36,9 +36,9 @@ public class AccountManagement extends Activity {
 		
 		intent = new Intent();
 		
-		//ÉèÖÃ²ã¼¶¹ØÏµ
+		//ï¿½ï¿½ï¿½Ã²ã¼¶ï¿½ï¿½Ïµ
 		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøÐÐ>");
+		tvClassFirst.setText("ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = QueryAccount.this.getIntent();
@@ -50,13 +50,13 @@ public class AccountManagement extends Activity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí");
+		tvClassSecond.setText("ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
-		//ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		//ï¿½ï¿½ï¿½Ãµ×²ï¿½ï¿½Ô¶ï¿½ï¿½å°´Å¥ï¿½ï¿½Ê¾
 		btnCoustom = (ImageView)this.findViewById(R.id.btnCoustom);
-		btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_jrzx_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 		
 		
