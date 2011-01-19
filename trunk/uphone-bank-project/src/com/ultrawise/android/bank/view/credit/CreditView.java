@@ -1,5 +1,5 @@
 package com.ultrawise.android.bank.view.credit;
-import com.ultrawise.android.bank.view.ABankMain;
+
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;

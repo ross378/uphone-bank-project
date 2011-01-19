@@ -18,8 +18,7 @@ public class TransactionDetailsList extends ListActivity {
 	        String creditNo=this.getIntent().getStringExtra("creditNo");
 	        Bundle bundle=this.getIntent().getExtras();
 	        ArrayList<HashMap<String,String>> transDetailInfos=(ArrayList)bundle.getSerializable("transDetailInfos");
-	        
-	      //设置ListView的值的
+	       
 	        ArrayList<HashMap<String,String>> list=new ArrayList<HashMap<String,String>>();
 	        for(HashMap<String,String> map:transDetailInfos){
 	        	HashMap<String,String> map1=new HashMap<String,String>();
