@@ -19,14 +19,14 @@ public class ABankMain extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.abank);
         creditButton=(ImageButton)findViewById(R.id.credit);
         creditButton.setOnClickListener(new CreditButtonListener());
         
-        accountManagerButton=(ImageButton)findViewById(R.id.ActManager);
+        accountManagerButton=(ImageButton)findViewById(R.id.actManager);
         accountManagerButton.setOnClickListener(new AccountManagerButtonListener());
         
-        actActivationButton=(ImageButton)findViewById(R.id.ActActivation);
+        actActivationButton=(ImageButton)findViewById(R.id.actActivate);
         actActivationButton.setOnClickListener(new ActActivationButtonListener());
     }
 	class CreditButtonListener implements OnClickListener{
