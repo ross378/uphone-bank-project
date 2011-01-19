@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 个人单位存款利率 布局 -->
+<RelativeLayout
+android:id="@+id/selfCompanydepositeRatesLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/bg"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- 个人单位存款利率 文本布局  距离上面的上外边距20dip-->
+<LinearLayout
+android:id="@+id/layout1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dip"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<!-- 个人单位存款利率 文本 -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="个人及单位存款利率"
+android:textSize="20sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:gravity="center"/>
+</LinearLayout>
+
+<!-- 活期存款利率 文本布局 相对于上面的上外边距 30dip -->
+<LinearLayout
+android:id="@+id/layout2"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="30dip"
+android:layout_below="@id/layout1"
+android:orientation="horizontal"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- 活期存款利率 文本 相对于左边边距30dip -->
+<TextView 
+  android:id="@+id/activatedDepositeRatesTiSi" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="活期存款"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="30dip"/> 
+ <!-- 活期存款利率 值 相对于左边存款利率文本的左边距145dip -->
+  <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="0.36%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="145dip"/> 
+</LinearLayout>
+<!-- 分隔线  相对于外面布局的左外边距和右外边距都是 30dip-->
+<TextView
+	android:id="@+id/line1"
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_below="@id/layout2"
+	android:layout_marginLeft="30dip"
+	android:layout_marginRight="30dip"
+	android:layout_marginTop="10dip"
+>
+</TextView>
+
+<!-- 定期存款 文本布局 相对于分隔线上外边距为10dip -->
+<LinearLayout 
+	android:id="@+id/DingQiDepositeRatesLayout" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@id/line1"
+    android:layout_marginTop="10dip">
+<!-- 定期存款文本 相对于左外边距是30dip -->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="定期存款"
+  android:layout_marginLeft="30dip"
+ /> 
+ <!-- 定期存款图标  相对于左边定期存款利率文本的左边距是148dip -->
+ <ImageView 
+  android:id="@+id/dingQiDepositeImage" 
+  android:layout_width="25dip" 
+  android:layout_height="25dip" 
+  android:src="@drawable/righticon"
+  android:layout_marginLeft="148dip"/>
+</LinearLayout>
+</RelativeLayout>
