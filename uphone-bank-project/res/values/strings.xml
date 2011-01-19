@@ -30,8 +30,39 @@
 	<string name="phone_bank">手机银行</string>
 	<string name="main_page">首页</string>
 	<string name="helper">金融助手</string>
+	<string name="pakitclass">请选择证件类型</string>
+	<string name="creditnumber">请选择卡号</string>
+	<string name="sourcecurrency">选择原始货币单位</string>
+	<string name="delatincurrency">选择目标货币单位</string>
+	 <string-array name="currencydw">
+		<item>美元(US)</item>
+		<item>日元(JPA)</item>
+		<item>欧元(DT)</item>
+		<item>人民币(CHI)</item>
+	</string-array>
+	<string-array name="pakitvalue">
+		<item>身份证</item>
+		<item>学生证</item>
+		<item>军人证</item>
+		<item>工作证</item>
+	</string-array>
+	
 	<string-array name="list_bank_net">
 		<item>小北储蓄所</item>
 		<item>省行营业室</item>
 	</string-array>
+	<string-array name="spinnercolor">
+
+		<item>红色</item>
+
+		<item>绿色</item>
+
+		<item>白色</item>
+
+		<item>橙色</item>
+
+	</string-array>
+
+	
 </resources>
+	
