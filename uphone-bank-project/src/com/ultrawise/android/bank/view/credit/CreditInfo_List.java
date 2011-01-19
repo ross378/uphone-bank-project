@@ -22,7 +22,7 @@ public class CreditInfo_List extends ListActivity {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.creditinfo);
 	        String creditNo=this.getIntent().getStringExtra("creditNo");
-	        //ÉèÖÃListViewµÄÖµµÄ
+	        
 	        ArrayList<HashMap<String,String>> list=new ArrayList<HashMap<String,String>>();
 	        HashMap<String,String> map1=new HashMap<String,String>();
 	        HashMap<String,String> map2=new HashMap<String,String>();
@@ -30,18 +30,18 @@ public class CreditInfo_List extends ListActivity {
 	        HashMap<String,String> map4=new HashMap<String,String>();
 	        HashMap<String,String> map5=new HashMap<String,String>();
 	        HashMap<String,String> map6=new HashMap<String,String>();
-	        map1.put("creditinfo_key", "¿¨ºÅ");
+	        map1.put("creditinfo_key", "å¡å·:");
 	        map1.put("creditinfo_value", creditNo);
-	        map2.put("creditinfo_key","ĞÅÓÃ¶î¶È");
+	        map2.put("creditinfo_key","ä¿¡ç”¨é¢åº¦:");
 	        map2.put("creditinfo_value", "5000");
-	        map3.put("creditinfo_key","¿ÉÓÃ¶î¶È");
+	        map3.put("creditinfo_key","å¯ç”¨é¢åº¦:");
 	        map3.put("creditinfo_value","3000");
-	        map4.put("creditinfo_key", "Ã¿ÔÂµ½ÕËµ¥ÈÕ");
-	        map4.put("creditinfo_value", "23ÈÕ");
-	        map5.put("creditinfo_key","±¾ÆÚÓ¦»¹¿î¶î");
+	        map4.put("creditinfo_key", "æ¯æœˆè´¦å•æ—¥:");
+	        map4.put("creditinfo_value", "23æ—¥");
+	        map5.put("creditinfo_key","æœ¬æœŸåº”è¿˜æ¬¾é¢:");
 	        map5.put("creditinfo_value", "400");
-	        map6.put("creditinfo_key","±¾ÆÚµ½ÆÚ»¹¿îÈÕ");
-	        map6.put("creditinfo_value","23ÈÕ");
+	        map6.put("creditinfo_key","æœ¬æœŸåˆ°æœŸè¿˜æ¬¾æ—¥:");
+	        map6.put("creditinfo_value","23æ—¥");
 	        list.add(map1);
 	        list.add(map2);
 	        list.add(map3);
@@ -59,20 +59,20 @@ public class CreditInfo_List extends ListActivity {
 				ArrayList<HashMap<String,String>> transDetailInfos=new ArrayList<HashMap<String,String>>();
 				HashMap<String,String> transDetailInfo1=new HashMap<String,String>();
 				
-				transDetailInfo1.put("½»Ò×ÈÕÆÚ", "2010Äê12ÔÂ25ÈÕ");
-				transDetailInfo1.put("½»Ò×ÀàĞÍ", "¹ºÎï");
-				transDetailInfo1.put("½»Ò×½ğ¶î","500");
-				transDetailInfo1.put("½»Ò×½á¹û","³É¹¦");
+				transDetailInfo1.put("äº¤æ˜“æ—¥æœŸ:", "2010å¹´1æœˆ5æ—¥");
+				transDetailInfo1.put("äº¤æ˜“ç±»å‹:", "è´­ç‰©");
+				transDetailInfo1.put("äº¤æ˜“é‡‘é¢:","500");
+				transDetailInfo1.put("äº¤æ˜“ç»“æœ:","æˆåŠŸ");
 				
-				HashMap<String,String> transDetailInfo2=new HashMap<String,String>();
-				
-				transDetailInfo2.put("½»Ò×ÈÕÆÚ", "2011Äê1ÔÂ25ÈÕ");
-				transDetailInfo2.put("½»Ò×ÀàĞÍ", "Ë®·Ñ");
-				transDetailInfo2.put("½»Ò×½ğ¶î","100");
-				transDetailInfo2.put("½»Ò×½á¹û","³É¹¦");
-				
+//				HashMap<String,String> transDetailInfo2=new HashMap<String,String>();
+//				
+//				transDetailInfo2.put("äº¤æ˜“æ—¥æœŸ:", "2010å¹´1æœˆ25æ—¥");
+//				transDetailInfo2.put("äº¤æ˜“ç±»å‹:", "ç”µè´¹");
+//				transDetailInfo2.put("äº¤æ˜“é‡‘é¢:","200");
+//				transDetailInfo2.put("äº¤æ˜“ç»“æœ:","æˆåŠŸ");
+//				
 				transDetailInfos.add(transDetailInfo1);
-				transDetailInfos.add(transDetailInfo2);
+				//transDetailInfos.add(transDetailInfo2);
 				
 				Bundle bundle = new Bundle(); 
 				bundle.putSerializable("transDetailInfos",transDetailInfos);
