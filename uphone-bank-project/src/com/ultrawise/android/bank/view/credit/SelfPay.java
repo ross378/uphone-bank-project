@@ -2,6 +2,7 @@ package com.ultrawise.android.bank.view.credit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import com.ultrawise.android.bank.view.transfer.R;
@@ -32,7 +33,7 @@ public class SelfPay extends ListActivity {
 	        HashMap<String,String> map5=new HashMap<String,String>();
 	        HashMap<String,String> map6=new HashMap<String,String>();
 	        
-	        map1.put("creditNo_key", "卡号");
+	        map1.put("creditNo_key", "还款账户");
 	        map1.put("selfPay_value", "应还金额");
 	        map2.put("creditNo_key","11111111111111111111");
 	        map2.put("selfPay_value", "500");
@@ -56,10 +57,17 @@ public class SelfPay extends ListActivity {
 	    }
 	 public void onListItemClick(ListView l,View v,int position,long id){
 	    	super.onListItemClick(l, v, position, id);
-	    	long itemId=l.getSelectedItemId();
+	    	HashMap<String,String> map=(HashMap<String,String>)l.getItemAtPosition(position);
+	    	System.out.println(map);
+	    	String selfPayBal=map.get(1);
+	    	System.out.print(selfPayBal);
+	    	String selfPayActNo=null;
+	    	Iterator<String> iter=map.keySet().iterator();
+	    	if(iter.hasNext())selfPayActNo=iter.next();
+	    	System.out.print(selfPayActNo);
 	    	Intent intent=new Intent();
-	    	intent.putExtra("selfPayActNo","3333333333333333");
-	    	intent.putExtra("selfPayBal","500");
+	    	intent.putExtra("selfPayActNo",selfPayBal);
+	    	intent.putExtra("selfPayBal",selfPayActNo);
 	    	intent.setClass(SelfPay.this,SelfPayAct.class);
 	    	SelfPay.this.startActivity(intent);
 	    	
