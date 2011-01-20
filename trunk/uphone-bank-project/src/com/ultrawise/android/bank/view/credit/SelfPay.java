@@ -53,7 +53,6 @@ public class SelfPay extends ListActivity {
 	        list.add(map6);
 	        SimpleAdapter listAdapter=new SimpleAdapter(this,list,R.layout.selfpaylist,new String[]{"creditNo_key","selfPay_value"},new int[]{R.id.creditNo_key,R.id.selfPay_value});
 	        setListAdapter(listAdapter);
-	        
 	    }
 	 public void onListItemClick(ListView l,View v,int position,long id){
 	    	super.onListItemClick(l, v, position, id);
@@ -70,7 +69,6 @@ public class SelfPay extends ListActivity {
 	    	intent.putExtra("selfPayBal",selfPayActNo);
 	    	intent.setClass(SelfPay.this,SelfPayAct.class);
 	    	SelfPay.this.startActivity(intent);
-	    	
 	    }
 	 	
 }

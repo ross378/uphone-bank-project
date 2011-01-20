@@ -15,6 +15,7 @@ public class CreditView extends Activity {
 		private ImageButton activateCardButton=null;
 		private ImageButton cancelTheCardButton=null;
 		private ImageButton creditCardBindButton=null;
+		private ImageButton creditpayButton=null;
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -31,6 +32,11 @@ public class CreditView extends Activity {
 	        
 	        creditCardBindButton=(ImageButton)findViewById(R.id.creditCardBind);
 	        creditCardBindButton.setOnClickListener(new CreditCardBindButtonListener());
+	        
+	        creditpayButton=(ImageButton)findViewById(R.id.creditpay);
+	        creditpayButton.setOnClickListener(new CreditPayButtonListener());
+	        
+	        
 		}
 		class CreditDetailButtonListener implements OnClickListener{
 
@@ -51,7 +57,6 @@ public class CreditView extends Activity {
 				CreditView.this.startActivity(intent);
 				
 			}
-			
 		}
 		
 		class CancelTheCardButtonListener implements OnClickListener{
@@ -70,6 +75,17 @@ public class CreditView extends Activity {
 			public void onClick(View arg0) {
 				Intent intent=new Intent();
 				intent.setClass(CreditView.this,CreditCardBind.class);
+				CreditView.this.startActivity(intent);
+				
+			}
+			
+		}
+		
+		class CreditPayButtonListener implements OnClickListener{
+
+			public void onClick(View arg0) {
+				Intent intent=new Intent();
+				intent.setClass(CreditView.this,SelfPay.class);
 				CreditView.this.startActivity(intent);
 				
 			}
