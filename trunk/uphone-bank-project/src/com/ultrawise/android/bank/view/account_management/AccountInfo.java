@@ -25,20 +25,21 @@ public class AccountInfo extends ListActivity {
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	Intent intent;
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 		/**
-		 * ÒµÎñ¹¦ÄÜ£¬ÔİÊ±²»¿¼ÂÇ
+		 * ä¸šåŠ¡åŠŸèƒ½
 		 */
 		/*
-		tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo);
-		intent = AccountInfo.this.getIntent();
-		//It will be updated account information if resume this activity
-		if (intent.getStringExtra("AccInfo") != null) {
-			tvAccInfo.setText(intent.getStringExtra("AccInfo"));
-		}*/
+		 * tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo); intent =
+		 * AccountInfo.this.getIntent(); //It will be updated account
+		 * information if resume this activity if
+		 * (intent.getStringExtra("AccInfo") != null) {
+		 * tvAccInfo.setText(intent.getStringExtra("AccInfo")); }
+		 */
 	}
 
 	@Override
@@ -46,26 +47,26 @@ public class AccountInfo extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.account_info);
-		
+
 		intent = AccountInfo.this.getIntent();
-		// ÕË»§ĞÅÏ¢
+		
 		tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo);
-		tvAccInfo.setText("ÕËºÅ£º440301198810282152\n" + "±ğÃû£ºÎÒµÄ´¢Ğî¿¨\n"
-				+ "ÕË»§ÀàĞÍ£º»îÆÚ´¢ĞîÒ»ÕÛ£¨¿¨£©\n" + "ÕË»§×´Ì¬£ºÕı³£\nÊÇ·ñÇ©Ô¼£ºÎ´Ç©Ô¼\n"
-				+ "¿ª»§ĞĞ£º½¨ÉèÒøĞĞÉîÛÚÊĞÃ·ÁÖÖ§ĞĞ\n" + "¿ª»§ÈÕ£º2006/07/09");
-		tvAccInfo.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG );//add bottom line
-		
-		
-		// ÉèÖÃList View
+		tvAccInfo.setText("è´¦å·ï¼š440301198810282152\n" + "åˆ«åï¼šæˆ‘çš„å‚¨è“„å¡\n"
+				+ "è´¦æˆ·ç±»å‹ï¼šæ´»æœŸå‚¨è“„ä¸€æŠ˜ï¼ˆå¡ï¼‰\n" + "è´¦æˆ·çŠ¶æ€ï¼šæ­£å¸¸\n" + "æ˜¯å¦ç­¾çº¦ï¼šæœªç­¾çº¦\n"
+				+ "å¼€æˆ·è¡Œï¼šå»ºè®¾é“¶è¡Œæ·±åœ³å¸‚æ¢…æ—æ”¯è¡Œ" + "å¼€æˆ·æ—¥ï¼š2006/07/09");
+		tvAccInfo.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);// add bottom
+																	// line
+
+		// List View
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		HashMap<String, String> map1 = new HashMap<String, String>();
-		map1.put("name", "²éÑ¯ÆäËûÕË»§");
+		map1.put("name", "æŸ¥è¯¢å…¶ä»–è´¦æˆ·");
 		map1.put("arrow", ">");
 		HashMap<String, String> map2 = new HashMap<String, String>();
-		map2.put("name", "Ôö¼ÓÕË»§");
+		map2.put("name", "å¢åŠ è´¦æˆ·");
 		map2.put("arrow", ">");
 		HashMap<String, String> map3 = new HashMap<String, String>();
-		map3.put("name", "É¾³ıÕË»§");
+		map3.put("name", "åˆ é™¤è´¦æˆ·");
 		map3.put("arrow", ">");
 		list.add(map1);
 		list.add(map2);
@@ -74,41 +75,40 @@ public class AccountInfo extends ListActivity {
 				R.layout.account_management_textview_list, new String[] {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
-		
-		//ÉèÖÃ²ã¼¶¹ØÏµ
-		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøĞĞ>");
+
+		//è®¾ç½®å±‚çº§å…³ç³»
+		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setVisibility(View.VISIBLE);
-		tvClassFirst.setOnClickListener(new OnClickListener(){
-			public void onClick(View v){
-				//intent.setClass(AccountInfo.this, DeleteAccount.class);
-				//AccountInfo.this.startActivity(intent);
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// intent.setClass(AccountInfo.this, DeleteAccount.class);
+				// AccountInfo.this.startActivity(intent);
 			}
 		});
-		
-		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí>");
+
+		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
+		tvClassSecond.setText("è´¦æˆ·ç®¡ç†>");
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassSecond.setClickable(true);
-		tvClassSecond.setOnClickListener(new OnClickListener(){
+		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = AccountInfo.this.getIntent();
 				intent.setClass(AccountInfo.this, AccountManagement.class);
 				AccountInfo.this.startActivity(intent);
-				
+
 			}
 		});
-		
-		tvClassThrid = (TextView)this.findViewById(R.id.class_third);
-		tvClassThrid.setText("ÕË»§ĞÅÏ¢");
+
+		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
+		tvClassThrid.setText("è´¦æˆ·ä¿¡æ¯");
 		tvClassThrid.setVisibility(View.VISIBLE);
-		
-		
-		//ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		// btnCoustom.setImageResource(R.drawable.test2);
 		btnCoustom.setVisibility(View.VISIBLE);
-		
+
 	}
 
 	@Override
@@ -116,15 +116,15 @@ public class AccountInfo extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
-			//²éÑ¯ÕË»§
+			// 
 			intent.setClass(AccountInfo.this, QueryAccount.class);
 			AccountInfo.this.startActivity(intent);
-		}else if(id==1){
-			//Ôö¼ÓÕË»§
+		} else if (id == 1) {
+			// 
 			intent.setClass(AccountInfo.this, AddAccount.class);
 			AccountInfo.this.startActivity(intent);
-		}else if(id==2){
-			//É¾³ıÕË»§
+		} else if (id == 2) {
+			// 
 			intent.setClass(AccountInfo.this, DeleteAccount.class);
 			AccountInfo.this.startActivity(intent);
 		}

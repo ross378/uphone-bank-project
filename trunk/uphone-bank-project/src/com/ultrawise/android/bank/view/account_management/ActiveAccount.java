@@ -34,7 +34,7 @@ public class ActiveAccount extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		/**
-		 * ÒµÎñ¹¦ÄÜ£¬ÔİÊ±²»¿¼ÂÇ
+		 *
 		 */
 		/*
 		intent = ActiveAccount.this.getIntent();
@@ -57,7 +57,7 @@ public class ActiveAccount extends ListActivity {
 		this.setContentView(R.layout.account_active);
 		intent = ActiveAccount.this.getIntent();
 
-		// ÉèÖÃList View
+		// List View
 		HashMap<String, String> map1 = new HashMap<String, String>();
 		map1.put("name", "9876543210123456");
 		map1.put("arrow", ">");
@@ -76,9 +76,9 @@ public class ActiveAccount extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		//ÉèÖÃ²ã¼¶¹ØÏµ
+		//
 		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøĞĞ>");
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassFirst.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
@@ -88,7 +88,7 @@ public class ActiveAccount extends ListActivity {
 		});
 		
 		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí>");
+		tvClassSecond.setText("è´¦æˆ·ç®¡ç†>");
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassSecond.setClickable(true);
 		tvClassSecond.setOnClickListener(new OnClickListener(){
@@ -101,12 +101,12 @@ public class ActiveAccount extends ListActivity {
 		});
 		
 		tvClassThrid = (TextView)this.findViewById(R.id.class_third);
-		tvClassThrid.setText("¼¤»îÕË»§");
+		tvClassThrid.setText("æ¿€æ´»è´¦æˆ·");
 		tvClassThrid.setVisibility(View.VISIBLE);
 		
-		// ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 
@@ -116,18 +116,18 @@ public class ActiveAccount extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 
 		// Eject dialog
-		new AlertDialog.Builder(ActiveAccount.this).setTitle("È·ÈÏ¶Ô»°¿ò")
-				.setMessage("¼¤»îÕË»§£¿")
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(ActiveAccount.this).setTitle("ç¡®è®¤å¯¹è¯æ¡†")
+				.setMessage("æ¿€æ´»è´¦æˆ·ï¼Ÿ")
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
 						// delete account turn to account information
 						flag = 1;// done
-						Toast.makeText(ActiveAccount.this, "¼¤»îÕË»§³É¹¦", Toast.LENGTH_SHORT).show();
+						Toast.makeText(ActiveAccount.this, "æ¿€æ´»æˆåŠŸ", Toast.LENGTH_SHORT).show();
 						finish();
 					}
 				})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						flag = -1;
 						
@@ -138,7 +138,7 @@ public class ActiveAccount extends ListActivity {
 		
 		if (flag == 1) {
 			/**
-			 * ÒµÎñ¹¦ÄÜ£¬ÔİÊ±²»¿¼ÂÇ
+			 * 
 			 */
 			/*
 			String activeAcc = "";

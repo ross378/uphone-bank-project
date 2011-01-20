@@ -34,7 +34,7 @@ public class OrderCard extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		// Eject list dialog
 		new AlertDialog.Builder(OrderCard.this)
-				.setTitle("ÇëÑ¡ÔñÁì¿¨Íøµã")
+				.setTitle("è¯·é€‰æ‹©é¢†å¡ç½‘ç‚¹")
 				.setItems(R.array.list_bank_net,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
@@ -44,10 +44,10 @@ public class OrderCard extends ListActivity {
 										R.array.list_bank_net);
 								//Eject dialog
 								new AlertDialog.Builder(OrderCard.this)
-										.setTitle("ÄúÑ¡ÔñµÄÍøµãÊÇ£º")
+										.setTitle("ç¡®è®¤å¯¹è¯æ¡†")
 										.setMessage(array[which])
 										.setPositiveButton(
-												"È·ÈÏÔ¤Ô¼£¿",
+												"ç¡®è®¤",
 												new DialogInterface.OnClickListener() {
 													public void onClick(
 															DialogInterface dialog,
@@ -56,12 +56,12 @@ public class OrderCard extends ListActivity {
 														flag = 1;
 														Toast.makeText(
 																OrderCard.this,
-																"Ô¤Ô¼³É¹¦",
+																"é¢„çº¦æˆåŠŸ",
 																Toast.LENGTH_SHORT)
 																.show();
 														dialog.dismiss();
 													}
-												}).setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+												}).setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 
 													public void onClick(
 															DialogInterface dialog,
@@ -72,7 +72,7 @@ public class OrderCard extends ListActivity {
 												}).show();
 							}
 						})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						flag = -1;
 						// finish();
@@ -88,7 +88,7 @@ public class OrderCard extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.order_card);
 
-		// ÉèÖÃList View
+		// ï¿½ï¿½ï¿½ï¿½List View
 		intent = OrderCard.this.getIntent();
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		HashMap<String, String> map1 = new HashMap<String, String>();
@@ -111,9 +111,9 @@ public class OrderCard extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// ÉèÖÃ²ã¼¶¹ØÏµ
+		// ï¿½ï¿½ï¿½Ã²ã¼¶ï¿½ï¿½Ïµ
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøĞĞ>");
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = DeleteAccount.this.getIntent();
@@ -122,7 +122,7 @@ public class OrderCard extends ListActivity {
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí>");
+		tvClassSecond.setText("è´¦æˆ·ç®¡ç†>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = OrderCard.this.getIntent();
@@ -131,15 +131,15 @@ public class OrderCard extends ListActivity {
 			}
 		});
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("Ô¤Ô¼»»¿¨");
+		tvClassThrid.setText("é¢„çº¦æ¢å¡");
 
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 
-		// ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 

@@ -32,20 +32,20 @@ public class DefaultAccount extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		// Eject dialog
 		new AlertDialog.Builder(DefaultAccount.this)
-				.setTitle("È·ÈÏ¶Ô»°¿ò")
-				.setMessage("ÉèÖÃÎªÄ¬ÈÏÕË»§£¿")
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+				.setTitle("ç¡®è®¤å¯¹è¯æ¡†")
+				.setMessage("è®¾ç½®ä¸ºé»˜è®¤è´¦æˆ·ï¼Ÿ")
+				.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
 						// set preferred account
 						flag = 1;// done
-						Toast.makeText(DefaultAccount.this, "ÉèÖÃ³É¹¦",
+						Toast.makeText(DefaultAccount.this, "è®¾ç½®æˆåŠŸ",
 								Toast.LENGTH_SHORT).show();
 						dialog.dismiss();
 						finish();
 					}
 				})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						flag = -1;
 						dialog.dismiss();
@@ -63,7 +63,7 @@ public class DefaultAccount extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.account_default);
 
-		// ÉèÖÃList View
+		// ï¿½ï¿½ï¿½ï¿½List View
 		intent = DefaultAccount.this.getIntent();
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		HashMap<String, String> map1 = new HashMap<String, String>();
@@ -86,9 +86,9 @@ public class DefaultAccount extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// ÉèÖÃ²ã¼¶¹ØÏµ
+		// 
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøĞĞ>");
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = DeleteAccount.this.getIntent();
@@ -97,7 +97,7 @@ public class DefaultAccount extends ListActivity {
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí>");
+		tvClassSecond.setText("è´¦æˆ·ç®¡ç†>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = DefaultAccount.this.getIntent();
@@ -106,15 +106,15 @@ public class DefaultAccount extends ListActivity {
 			}
 		});
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("Ä¬ÈÏÕË»§");
+		tvClassThrid.setText("é»˜è®¤è´¦æˆ·");
 
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 
-		// ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		// ï¿½ï¿½ï¿½Ãµ×²ï¿½ï¿½Ô¶ï¿½ï¿½å°´Å¥ï¿½ï¿½Ê¾
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 
