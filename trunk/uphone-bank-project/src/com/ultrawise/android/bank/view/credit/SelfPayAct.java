@@ -20,10 +20,12 @@ public class SelfPayAct extends Activity {
         
         selfPayActNo=this.getIntent().getStringExtra("selfPayActNo");
         selfPayBal=this.getIntent().getStringExtra("selfPayBal");
+        
         rg=(RadioGroup)findViewById(R.id.creditNumber);
         
         rg.setOnCheckedChangeListener (new RadioGroup.OnCheckedChangeListener(){
-
+        	
+        	
 			public void onCheckedChanged(RadioGroup rg1, int checkedId) {
 				rb=(RadioButton)findViewById(checkedId);
 				String creditNo=rb.getText().toString();
