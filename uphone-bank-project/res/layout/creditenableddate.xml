@@ -1,0 +1,46 @@
+<!-- 信用卡有效期选择对话框布局 -->
+<RelativeLayout
+android:id="@+id/activateCardLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<!-- 信用卡有效期选择文本布局 -->
+<LinearLayout
+android:id="@+id/topTiSiInfoLayout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dip"
+android:orientation="vertical"
+>
+<!-- 信用卡有效期选择文本 -->
+<TextView
+android:id="@+id/activateCardText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="选择日期"
+android:textSize="14sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:layout_gravity="center"
+/>
+<DatePicker
+android:id="@+id/enabledDatePicker"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="10dip"
+android:layout_gravity="center"
+>
+
+</DatePicker>
+<Button
+android:id="@+id/enabledDateButton"
+android:layout_width="100dip"
+android:layout_height="wrap_content"
+android:layout_marginTop="10dip"
+android:text="确定"
+android:layout_gravity="center"
+>
+</Button>
+</LinearLayout>
+</RelativeLayout>
