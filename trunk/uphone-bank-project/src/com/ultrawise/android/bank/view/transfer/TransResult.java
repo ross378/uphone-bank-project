@@ -14,11 +14,11 @@ public class TransResult extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.trans_result);
+        setContentView(R.layout.dialog);
         
-        TextView tvflag = (TextView)findViewById(R.id.tv_transdl_flag);
-    	TextView tvshow = (TextView)findViewById(R.id.tv_transdl_info);
-    	Button btnok = (Button)findViewById(R.id.btn_transdl_ok);
+        TextView tvflag = (TextView)findViewById(R.id.flag);
+    	TextView tvshow = (TextView)findViewById(R.id.info);
+    	Button btnok = (Button)findViewById(R.id.okBtn);
     	
         Intent receive_intent = getIntent();
         String flag = receive_intent.getStringExtra("flag");
