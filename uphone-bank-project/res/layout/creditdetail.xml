@@ -69,8 +69,7 @@ android:id="@+id/creditDetailTisiTextLayout"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:orientation="vertical"
-android:layout_alignParentTop="true"
-android:layout_alignParentLeft="true"
+android:layout_marginTop="10dip"
 >
 <TextView
 android:id="@+id/creditDetailTisiText"
@@ -78,8 +77,10 @@ android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="&#36134;&#25143;&#26126;&#32454;"
 android:textStyle="bold"
-android:textSize="16sp"
+android:textSize="20sp"
 android:textColor="#ffffff"
+android:layout_gravity="center"
+android:layout_marginTop="10dip"
 >
 </TextView>
 <TextView
@@ -89,8 +90,9 @@ android:layout_height="wrap_content"
 android:text="&#36873;&#25321;&#21345;&#21495;&#65306;"
 android:textStyle="bold"
 android:textSize="16sp"
-android:layout_gravity="center"
+android:layout_gravity="left"
 android:textColor="#ffffff"
+android:layout_marginTop="20dip"
 >
 </TextView>
 </LinearLayout>
