@@ -49,7 +49,7 @@ public class PaymentSelfService extends ListActivity {
         paylist1.put("payment_list", "待缴费项目");
         paylist1.put("payment_list_info", ">");
         paylist2.put("payment_list", "便捷服务");
-        paylist2.put("payment_list_info", ">");
+        paylist2.put("payment_list_info", "");
         paylist3.put("payment_list", "  --手机充值");
         paylist3.put("payment_list_info", ">");
         paylist4.put("payment_list", "  --平安保险");

@@ -4,24 +4,24 @@
 	android:versionName="1.0">
 	<application android:icon="@drawable/icon" android:label="@string/app_title">
 		
-		<!-- 信用卡 -->
+				<!-- 信用卡 -->
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
 		
         </activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditView">
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
-        <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+       
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-    	
+    	 <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
        		
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
@@ -86,6 +86,10 @@
             
 		<!-- 转账 -->
 		<activity android:name=".TransferMain" android:label="@string/app_title">
+		<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 		</activity>
 		<activity android:name=".TransferActivity" android:label="@string/app_title">
 		</activity>
