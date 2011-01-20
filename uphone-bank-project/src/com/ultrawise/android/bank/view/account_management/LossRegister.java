@@ -35,19 +35,19 @@ public class LossRegister extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		// Eject dialog
 		new AlertDialog.Builder(LossRegister.this)
-				.setTitle("È·ÈÏ¶Ô»°¿ò")
-				.setMessage("¹ÒÊ§ÕË»§£¿")
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+				.setTitle("ç¡®è®¤å¯¹è¯æ¡†")
+				.setMessage("è´¦æˆ·æŒ‚å¤±ï¼Ÿ")
+				.setPositiveButton("ç¡®è®¤", new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
 						// delete account turn to account information
 						flag = 1;// done
-						Toast.makeText(LossRegister.this, "¹ÒÊ§ÕË»§³É¹¦",
+						Toast.makeText(LossRegister.this, "è´¦æˆ·æŒ‚å¤±æˆåŠŸ",
 								Toast.LENGTH_SHORT).show();
 						// finish();
 					}
 				})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						flag = -1;
 						// finish();
@@ -66,7 +66,7 @@ public class LossRegister extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.loss_register);
-		// ÉèÖÃList View
+		// ï¿½ï¿½ï¿½ï¿½List View
 		intent = LossRegister.this.getIntent();
 
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -90,9 +90,9 @@ public class LossRegister extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// ÉèÖÃ²ã¼¶¹ØÏµ
+		// ï¿½ï¿½ï¿½Ã²ã¼¶ï¿½ï¿½Ïµ
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøĞĞ>");
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = DeleteAccount.this.getIntent();
@@ -101,7 +101,7 @@ public class LossRegister extends ListActivity {
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí>");
+		tvClassSecond.setText("è´¦æˆ·ç®¡ç†>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = LossRegister.this.getIntent();
@@ -110,15 +110,15 @@ public class LossRegister extends ListActivity {
 			}
 		});
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("¹ÒÊ§ÕË»§");
+		tvClassThrid.setText("è´¦æˆ·æŒ‚å¤±");
 
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 
-		// ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 		
 	}

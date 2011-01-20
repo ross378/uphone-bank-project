@@ -37,7 +37,7 @@ public class DeleteAccount extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.list_account);
 
-		// ÉèÖÃList View
+		//List View
 		intent = DeleteAccount.this.getIntent();
 //		String delAccNum = intent.getStringExtra("delAccNum");
 //		String addAccNum = intent.getStringExtra("addAccNum");
@@ -60,7 +60,7 @@ public class DeleteAccount extends ListActivity {
 		list.add(map3);
 		// just add one account only
 		/**
-		 * ÒµÎñ¹¦ÄÜ£¬ÔİÊ±²»¿¼ÂÇ
+		 * 
 		 */
 		/*
 		 * if (addAccNum != null) { map4 = new HashMap<String, String>();
@@ -83,9 +83,9 @@ public class DeleteAccount extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// ÉèÖÃ²ã¼¶¹ØÏµ
+		//
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøĞĞ>");
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = DeleteAccount.this.getIntent();
@@ -94,7 +94,7 @@ public class DeleteAccount extends ListActivity {
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§¹ÜÀí>");
+		tvClassSecond.setText("è´¦æˆ·ç®¡ç†>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = DeleteAccount.this.getIntent();
@@ -103,7 +103,7 @@ public class DeleteAccount extends ListActivity {
 			}
 		});
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("ÕË»§ĞÅÏ¢>");
+		tvClassThrid.setText("è´¦æˆ·ä¿¡æ¯>");
 		tvClassThrid.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = DeleteAccount.this.getIntent();
@@ -112,16 +112,16 @@ public class DeleteAccount extends ListActivity {
 			}
 		});
 		tvClassFour = (TextView) this.findViewById(R.id.class_four);
-		tvClassFour.setText("É¾³ıÕË»§");
+		tvClassFour.setText("åˆ é™¤è´¦æˆ·");
 
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 		tvClassFour.setVisibility(View.VISIBLE);
 
-		// ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 
@@ -131,19 +131,19 @@ public class DeleteAccount extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		// Eject dialog
 		new AlertDialog.Builder(DeleteAccount.this)
-				.setTitle("È·ÈÏ¶Ô»°¿ò")
-				.setMessage("É¾³ıÕË»§£¿")
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+				.setTitle("ç¡®è®¤å¯¹è¯æ¡†")
+				.setMessage("åˆ é™¤è´¦æˆ·ï¼Ÿ")
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
 						// delete account turn to account information
 						flag = 1;// done
-						Toast.makeText(DeleteAccount.this, "É¾³ıÕË»§³É¹¦",
+						Toast.makeText(DeleteAccount.this, "åˆ é™¤æˆåŠŸ",
 								Toast.LENGTH_SHORT).show();
 						// finish();
 					}
 				})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						flag = -1;
 						// finish();
@@ -151,7 +151,7 @@ public class DeleteAccount extends ListActivity {
 				}).show();
 		if (flag == 1) {
 			/**
-			 * ÒµÎñ¹¦ÄÜ£¬ÔİÊ±²»¿¼ÂÇ
+			 * 
 			 */
 			/*
 			 * String num = "";

@@ -41,20 +41,20 @@ public class AddAccount extends Activity {
 			public void onClick(View v) {
 				// Eject dialog
 				new AlertDialog.Builder(AddAccount.this)
-						.setTitle("»∑»œ∂‘ª∞øÚ")
-						.setMessage("‘ˆº”’Àªß£ø")
-						.setPositiveButton("»∑∂®",
+						.setTitle("Á°ÆËÆ§ÂØπËØùÊ°Ü")
+						.setMessage("Â¢ûÂä†Ë¥¶Êà∑Ôºü")
+						.setPositiveButton("Á°ÆËÆ§",
 								new DialogInterface.OnClickListener() {
 
 									public void onClick(DialogInterface dialog,
 											int which) {
 										// Turn to AccountInfo
 										flag = 1;// done
-										Toast.makeText(AddAccount.this, "‘ˆº”’Àªß≥…π¶", Toast.LENGTH_SHORT).show();
+										Toast.makeText(AddAccount.this, "Â¢ûÂä†Ë¥¶Êà∑ÊàêÂäü", Toast.LENGTH_SHORT).show();
 										finish();
 									}
 								})
-						.setNegativeButton("»°œ˚",
+						.setNegativeButton("ÂèñÊ∂à",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int which) {
@@ -67,7 +67,7 @@ public class AddAccount extends Activity {
 				if (flag == 1) {
 					intent = AddAccount.this.getIntent();
 					/**
-					 * “µŒÒπ¶ƒ‹£¨‘› ±≤ªøº¬«
+					 *
 					 */
 					/*
 					String strAccount = etAccount.getText().toString();
@@ -82,9 +82,9 @@ public class AddAccount extends Activity {
 			}
 		});
 		
-		//…Ë÷√≤„º∂πÿœµ
+		//
 		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText(" ÷ª˙“¯––>");
+		tvClassFirst.setText("ÊâãÊú∫Èì∂Ë°å>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 //				 intent = AddAccount.this.getIntent();
@@ -93,7 +93,7 @@ public class AddAccount extends Activity {
 			}
 		});
 		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("’Àªßπ‹¿Ì>");
+		tvClassSecond.setText("Ë¥¶Êà∑ÁÆ°ÁêÜ>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent = AddAccount.this.getIntent();
@@ -102,7 +102,7 @@ public class AddAccount extends Activity {
 			}
 		});
 		tvClassThrid = (TextView)this.findViewById(R.id.class_third);
-		tvClassThrid.setText("’Àªß–≈œ¢>");
+		tvClassThrid.setText("Ë¥¶Êà∑‰ø°ÊÅØ>");
 		tvClassThrid.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent = AddAccount.this.getIntent();
@@ -111,16 +111,16 @@ public class AddAccount extends Activity {
 			}
 		});
 		tvClassFour = (TextView)this.findViewById(R.id.class_four);
-		tvClassFour.setText("‘ˆº”’Àªß");
+		tvClassFour.setText("Â¢ûÂä†Ë¥¶Êà∑");
 
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 		tvClassFour.setVisibility(View.VISIBLE);
 
-		// …Ë÷√µ◊≤ø◊‘∂®“Â∞¥≈•œ‘ æ
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 	}
 	

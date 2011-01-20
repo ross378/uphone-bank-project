@@ -34,7 +34,7 @@ public class QueryAccount extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.list_account);
 
-		// 设置List View
+		// List View
 		intent = QueryAccount.this.getIntent();
 		String delAccNum = intent.getStringExtra("delAccNum");
 		String addAccNum = intent.getStringExtra("addAccNum");
@@ -56,32 +56,18 @@ public class QueryAccount extends ListActivity {
 		map3.put("arrow", ">");
 		list.add(map3);
 		/**
-		 * 业务功能，暂时不考虑
-		 */
-		/*
-		 * // just add one account only if (addAccNum != null) { map4 = new
-		 * HashMap<String, String>(); map4.put("name", addAccNum);
-		 * map4.put("arrow", ">"); list.add(map4); } if (activeAcc != null) {
-		 * map5 = new HashMap<String, String>(); map5.put("name", addAccNum);
-		 * map5.put("arrow", ">"); list.add(map5); }
 		 * 
-		 * // just delete one account only if (delAccNum != null) { if
-		 * (delAccNum.equalsIgnoreCase("5560654220320266")) list.remove(0); if
-		 * (delAccNum.equalsIgnoreCase("1122065468210030")) list.remove(1); if
-		 * (delAccNum.equalsIgnoreCase("3322019830320266")) list.remove(2); if
-		 * (addAccNum != null) { if (delAccNum.equalsIgnoreCase(addAccNum))
-		 * list.remove(map4); } if (activeAcc != null) {
-		 * if(delAccNum.equalsIgnoreCase(activeAcc)) list.remove(map5); } }
 		 */
+		
 
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// 设置层级关系
+		// 
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setText("鎵嬫満閾惰>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = QueryAccount.this.getIntent();
@@ -91,7 +77,7 @@ public class QueryAccount extends ListActivity {
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("账户管理>");
+		tvClassSecond.setText("璐︽埛绠＄悊>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent = QueryAccount.this.getIntent();
@@ -100,7 +86,7 @@ public class QueryAccount extends ListActivity {
 			}
 		});
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("账户信息>");
+		tvClassThrid.setText("璐︽埛淇℃伅>");
 		tvClassThrid.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent = QueryAccount.this.getIntent();
@@ -109,7 +95,7 @@ public class QueryAccount extends ListActivity {
 			}
 		});
 		tvClassFour = (TextView) this.findViewById(R.id.class_four);
-		tvClassFour.setText("查询账户");
+		tvClassFour.setText("鏌ヨ璐︽埛");
 		
 		
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -117,9 +103,9 @@ public class QueryAccount extends ListActivity {
 		tvClassThrid.setVisibility(View.VISIBLE);
 		tvClassFour.setVisibility(View.VISIBLE);
 
-		// 设置底部自定义按钮显示
+		// 
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 
 	}
@@ -128,21 +114,7 @@ public class QueryAccount extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
-		/**
-		 * 业务功能，暂时不考虑
-		 */
-		/*
-		 * String num = ""; String nickName = "测试用卡"; String type = "神卡"; Intent
-		 * intent = new Intent(); if (id == 0) { num = "5560654220320266";
-		 * nickName = "信用卡二号"; type = "信用卡"; } else if (id == 1) { num =
-		 * "1122065468210030"; nickName = "我的龙卡"; type = "储蓄卡"; } else if (id ==
-		 * 2) { num = "3322019830320266"; nickName = "我的第一个信用卡"; type = "信用卡";
-		 * }else if(id==3) { TextView tv = (TextView)v; num =
-		 * tv.getText().toString(); }else if(id==4){ TextView tv = (TextView)v;
-		 * num = tv.getText().toString(); } intent.putExtra("AccInfo", "账号：" +
-		 * num + "\n" + "别名：" + nickName + "\n" + "账户类型：" + type + "\n" +
-		 * "账户状态：正常\n是否签约：签约\n" + "开户行：建设银行深圳市梅林支行\n" + "开户日：2006/04/10");
-		 */
+		
 		intent.setClass(QueryAccount.this, AccountInfo.class);
 		QueryAccount.this.startActivity(intent);
 	}
