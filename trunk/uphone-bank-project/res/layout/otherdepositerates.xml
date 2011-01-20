@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 其他存款方式利率Activity 布局 -->
+<RelativeLayout
+android:id="@+id/selfCompanydepositeRatesLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/bg"
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- 其他存款方式利率 文本布局  距离上面的上外边距20dip-->
+<LinearLayout
+android:id="@+id/layout1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dip"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<!-- 其他存款方式利率 文本 -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="其他存款利率"
+android:textSize="20sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:gravity="center"/>
+</LinearLayout>
+
+<!-- 通知存款利率 外布局 有背景 -->
+<LinearLayout
+android:id="@+id/out1Layout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_marginTop="10dip"
+android:layout_marginLeft="30dip"
+android:layout_marginRight="30dip"
+android:background="#ff33ff"
+android:layout_below="@id/layout1"
+>
+<!-- 通知存款利率 文本布局  -->
+<LinearLayout
+android:id="@+id/selfCompanydepositeRatesTiSiTextLayout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+>
+<!-- 通知存款利率文本  -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="通知存款利率"
+android:textSize="18sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:layout_marginLeft="10dip"
+>
+</TextView>
+</LinearLayout>
+<!-- 分隔线 距离上面 外上边距 10dip-->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginTop="10dip"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"/>
+<!-- 一天利率文本布局  -->
+<LinearLayout 
+	android:id="@+id/activatedDepositeRatesLayout"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip">
+<!-- 一天 文本 距离左边距30dip -->
+<TextView 
+  android:id="@+id/activatedDepositeRatesTiSi" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="一天"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 一天利率值  距离左边一天文本的左边距  150dip-->
+  <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="0.81%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="150dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+	/>
+<!-- 七天文本布局 -->
+<LinearLayout 
+	android:id="@+id/DingQiDepositeRatesLayout" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip">
+<!-- 七天文本 距离左边距30dip -->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="七天"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 七天利率值  距离左边七天文本左边距是150dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="1.35%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="150dip"
+ /> 
+</LinearLayout>
+</LinearLayout>
+<!--协定存款利率 外布局 有背景-->  
+<LinearLayout
+android:id="@+id/out2Layout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_marginTop="5dip"
+android:layout_marginLeft="30dip"
+android:layout_marginRight="30dip"
+android:background="#ff33ff"
+android:layout_below="@id/out1Layout"
+>
+<!-- 协定存款利率 文本布局 -->
+<LinearLayout
+android:id="@+id/selfCompanydepositeRatesTiSiTextLayout1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+>
+<!-- 协定存款 文本 距离左外边距10dip-->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="协定存款"
+android:textSize="18sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:layout_marginLeft="10dip"
+>
+</TextView>
+</LinearLayout>
+<!-- 分隔线 距离上面外边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+></TextView>
+<!-- 利率文本布局 -->
+<LinearLayout 
+	android:id="@+id/activatedDepositeRatesLayout1"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip"
+    >
+    <!-- 利率文本 距离左外边距10dip-->
+<TextView 
+  android:id="@+id/activatedDepositeRatesTiSi" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="利率"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="10dip"
+ />
+ <!-- 利率值 距离左边的利率的文本的左边距150dip --> 
+  <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="1.17%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="150dip"
+ /> 
+</LinearLayout>
+</LinearLayout>
+</RelativeLayout>
