@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SelfPayOperation extends Activity {
 	private Button selfPayOperationButton=null;
@@ -33,6 +34,7 @@ public class SelfPayOperation extends Activity {
         creditNo=intent.getStringExtra("creditNo");
         selfPayActNo=this.getIntent().getStringExtra("selfPayActNo");
         selfPayBal=this.getIntent().getStringExtra("selfPayBal");
+        
         selfPayOperationButton=(Button)findViewById(R.id.selfPayOperationButton);
         selfPayOperationButton.setOnClickListener(new SelfPayOperationButtonListener());
         
@@ -50,6 +52,12 @@ public class SelfPayOperation extends Activity {
 	class SelfPayOperationButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
+			String bal=selfPayBalEditText.getText().toString();
+			if(bal==null || bal.trim().length()==0){
+				Toast.makeText(SelfPayOperation.this, "还款金额不能为空",  Toast.LENGTH_SHORT).show();
+			}else{
+				
+			
 			Intent intent=new Intent();
 			String selfPayBal=selfPayBalEditText.getText().toString();
 			intent.putExtra("selfPayBal", selfPayBal);
@@ -57,7 +65,7 @@ public class SelfPayOperation extends Activity {
 			intent.putExtra("selfPayActNo", selfPayActNo);
 			intent.setClass(SelfPayOperation.this,SelfPayOperationDetail.class);
 			SelfPayOperation.this.startActivity(intent);
-			
+			}
 		}
 		
 	}
