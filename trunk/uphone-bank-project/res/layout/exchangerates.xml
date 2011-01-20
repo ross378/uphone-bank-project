@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 外汇汇率Activity 布局 -->
+<RelativeLayout
+android:id="@+id/selfCompanydepositeRatesLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/bg"
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- 外汇利率计算器 文本布局  距离上面的上外边距10dip-->
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/layout1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="10dip"
+android:layout_marginLeft="10dip"
+android:layout_marginRight="10dip"
+android:orientation="vertical"
+>
+<!-- 外汇存款计算器 文本 -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="外汇汇率计算器"
+android:textSize="18sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:gravity="center"/>
+<!-- 输入兑换货币面值 文本 -->
+<TextView
+android:id="@+id/HuoBiMZText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="请输入要兑换的货币面值:"
+android:textSize="16sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+/>
+<!-- 输入兑换货币面值 编辑框 -->
+<EditText
+android:id="@+id/currencyInputEdit"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:textSize="14sp"
+android:textStyle="bold"
+android:singleLine="true"
+></EditText>
+<!-- 选择原始货币单位 文本 -->
+<TextView
+android:id="@+id/sourceCurrencyText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="原始货币:"
+android:textSize="16sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+/>
+<Spinner
+	android:id="@+id/sourceCurrencySpinner"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:prompt="@string/sourcecurrency"
+/>
+<!-- 选择目标货币单位 文本 -->
+<TextView
+android:id="@+id/delatinCurrencyText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="目标货币:"
+android:textSize="16sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+/>
+<Spinner
+	android:id="@+id/delatinCurrencySpinner"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:prompt="@string/delatincurrency"
+/>
+<Button
+android:id="@+id/currencyConCulate"
+android:layout_width="100dip"
+android:layout_height="wrap_content"
+android:text="开始计算"
+android:layout_gravity="center"
+/>
+</LinearLayout>
+
+</RelativeLayout>

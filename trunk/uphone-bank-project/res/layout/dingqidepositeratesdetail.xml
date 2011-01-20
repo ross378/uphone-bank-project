@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 定期存款利率Activity 布局 -->
+<RelativeLayout
+android:id="@+id/selfCompanydepositeRatesLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/bg"
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- 定期存款利率 文本布局  距离上面的上外边距20dip-->
+<LinearLayout
+android:id="@+id/layout1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="20dip"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<!-- 定期存款利率 文本 -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="定期存款利率"
+android:textSize="20sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:gravity="center"/>
+</LinearLayout>
+
+<!-- 整存整取 外布局 有背景 -->
+<LinearLayout
+android:id="@+id/out1Layout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_marginTop="10dip"
+android:layout_marginLeft="30dip"
+android:layout_marginRight="30dip"
+android:background="#ff33ff"
+android:layout_below="@id/layout1"
+>
+<!-- 整存整取 文本布局  -->
+<LinearLayout
+android:id="@+id/selfCompanydepositeRatesTiSiTextLayout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+>
+<!-- 整存整取文本  -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="整存整取"
+android:textSize="18sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:layout_marginLeft="10dip"
+>
+</TextView>
+</LinearLayout>
+<!-- 分隔线 距离上面 外上边距 10dip-->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginTop="10dip"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"/>
+<!--三个月文本布局  -->
+<LinearLayout 
+	android:id="@+id/activatedDepositeRatesLayout"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip">
+<!-- 三个月 文本 距离左边距30dip -->
+<TextView 
+  android:id="@+id/activatedDepositeRatesTiSi" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="三个月"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 三个月利率值  距离左边三个月文本的左边距  130dip-->
+  <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="2.25%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="130dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+	/>
+<!-- 六个月文本布局 -->
+<LinearLayout 
+	android:id="@+id/DingQiDepositeRatesLayout" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip">
+<!-- 六个月文本 距离左边距30dip -->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="六个月"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 六个月利率值  距离左边六个月文本左边距是130dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="2.5%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="130dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+	/>
+<!-- 一年文本布局 距离上面上边距 10dip-->
+<LinearLayout 
+	android:id="@+id/oneYearLayout" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip">
+<!-- 一年 文本 距离左边距30dip-->    
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="一年"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 一年利率值 距离一年文本左边距144dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="2.75%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="144dip"
+ /> 
+</LinearLayout>
+</LinearLayout>
+<!--零存整取 外布局 有背景-->  
+<LinearLayout
+android:id="@+id/out2Layout"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_marginTop="5dip"
+android:layout_marginLeft="30dip"
+android:layout_marginRight="30dip"
+android:background="#ff33ff"
+android:layout_below="@id/out1Layout"
+>
+<!-- 零存整取 文本布局 -->
+<LinearLayout
+android:id="@+id/selfCompanydepositeRatesTiSiTextLayout1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+>
+<!-- 零存整取 文本 距离左外边距10dip-->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="零存整取"
+android:textSize="18sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:layout_marginLeft="10dip"
+>
+</TextView>
+</LinearLayout>
+<!-- 分隔线 距离上面外边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+></TextView>
+<!-- 一年文本布局 -->
+<LinearLayout 
+	android:id="@+id/activatedDepositeRatesLayout1"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip"
+    >
+    <!-- 一年 文本 距离左外边距10dip-->
+<TextView 
+  android:id="@+id/activatedDepositeRatesTiSi" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="一年"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="10dip"
+ />
+ <!-- 一年利率值 距离左边的一年的文本的左边距142dip --> 
+  <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="2.25%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="142dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 距离上面外边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+	
+></TextView>
+<!-- 三年文本布局 -->
+<LinearLayout 
+	android:id="@+id/DingQiDepositeRatesLayout1" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip"
+    >
+<!-- 三年 文本 距离左边距10dip-->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="三年"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 三年利率值 距离左边的三年文本左边距是142dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="2.5%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="142dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 距离上面外边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+	
+></TextView>
+<!-- 五年 文本布局 距离上面布局的外上边距10dip-->
+<LinearLayout 
+	android:id="@+id/fiveYearLayout" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip">
+<!-- 五年文本 距离左边外边距10dip -->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="五年"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 五年利率值 距离左边的五年文本左外边距是142dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="2.75%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="142dip"
+ /> 
+</LinearLayout>
+</LinearLayout>
+<!-- 存本取息 外布局 有背景 距离上面边距10dip-->
+<LinearLayout
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_marginTop="10dip"
+android:layout_marginLeft="30dip"
+android:layout_marginRight="30dip"
+android:background="#ff33ff"
+android:layout_below="@id/out2Layout"
+>
+<!-- 存本取息 文本布局 -->
+<LinearLayout
+android:id="@+id/selfCompanydepositeRatesTiSiTextLayout2"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+>
+<!-- 存本取息 文本 距离左边距10dip -->
+<TextView
+android:id="@+id/selfPayText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="存本取息"
+android:textSize="16sp"
+android:textStyle="bold"
+android:textColor="#ffffff"
+android:layout_marginLeft="10dip"
+>
+</TextView>
+</LinearLayout>
+<!-- 分隔线 距离上面边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+></TextView>
+<!-- 二年 文本布局 距离上面边距10dip-->
+<LinearLayout 
+	android:id="@+id/activatedDepositeRatesLayout2"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip"
+    >
+    <!-- 二年文本 距离左边边距10dip -->
+<TextView 
+  android:id="@+id/activatedDepositeRatesTiSi" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="二年"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 二年利率值 距离左边的二年文本边距142 -->
+  <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="3.55%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="142dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 距离上面边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+></TextView>
+<!-- 三年文本布局 距离上面边距10dip -->
+<LinearLayout 
+	android:id="@+id/DingQiDepositeRatesLayout2" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip"
+    >
+<!-- 三年文本 距离左边边距10dip-->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="三年"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 三年利率值 距离左边三年文本距离142dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="4.15%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="132dip"
+ /> 
+</LinearLayout>
+<!-- 分隔线 距离上面边距10dip -->
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:layout_marginTop="10dip"
+></TextView>
+<!-- 五年文本布局 距离上面边距10dip -->
+<LinearLayout 
+	android:id="@+id/fiveYearLayout2" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dip"
+    >
+    <!-- 五年文本 距离左边边距10dip -->
+<TextView 
+  android:id="@+id/OtherItemText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:text="五年"
+  android:layout_marginLeft="10dip"
+ /> 
+ <!-- 五年利率值 距离左边五年文本的左边距是142dip -->
+ <TextView 
+  android:id="@+id/activatedDepositeRatesText" 
+  android:layout_width="wrap_content" 
+  android:layout_height="wrap_content" 
+  android:text="4.55%"
+  android:textColor="#ffffff"
+  android:textSize="16sp"
+  android:layout_marginLeft="142dip"
+ /> 
+</LinearLayout>
+</LinearLayout>
+
+</RelativeLayout>
