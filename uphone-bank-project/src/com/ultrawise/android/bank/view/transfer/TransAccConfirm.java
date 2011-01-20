@@ -16,7 +16,10 @@ public class TransAccConfirm extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.dialog);
+
 		setContentView(R.layout.trans_ph_confirm);
+
 		
 		Button btnok = (Button)findViewById(R.id.btn_cfm_ok);
     	Button btncancle = (Button)findViewById(R.id.btn_cfm_cancle);
