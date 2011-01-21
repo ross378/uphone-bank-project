@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -28,6 +29,7 @@ public class AccountManagement extends Activity {
 	private TextView tvClassSecond;
 
 	Intent intent;
+	private ImageView btnReturn;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class AccountManagement extends Activity {
 
 		//
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		btnCoustom.setImageResource(R.drawable.cardbg_jrzx_w);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 
 		// Button Account Information
@@ -118,6 +120,17 @@ public class AccountManagement extends Activity {
 				intent.setClass(AccountManagement.this, DefaultAccount.class);
 				AccountManagement.this.startActivity(intent);
 			}
+		});
+		
+		//返回键设定
+		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
 		});
 
 	}
