@@ -3,6 +3,8 @@ package com.ultrawise.android.bank.view.account_query;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.AccountInfo;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -24,6 +26,8 @@ public class QueryAccount extends ListActivity {
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private View btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 
 
 	// HashMap<String, String> map4;
@@ -65,9 +69,9 @@ public class QueryAccount extends ListActivity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				 intent = QueryAccount.this.getIntent();
+				 intent.setClass(QueryAccount.this, ABankMain.class);
+				 QueryAccount.this.startActivity(intent);
 
 			}
 		});
@@ -83,6 +87,28 @@ public class QueryAccount extends ListActivity {
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhcx_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = QueryAccount.this.getIntent();
+				intent.setClass(QueryAccount.this, ABankMain.class);
+				QueryAccount.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = QueryAccount.this.getIntent();
+				intent.setClass(QueryAccount.this, FinancialConsultation.class);
+				QueryAccount.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);

@@ -3,6 +3,8 @@ package com.ultrawise.android.bank.view.account_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.AlertDialog;
@@ -28,6 +30,8 @@ public class DefaultAccount extends ListActivity {
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	private View btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
@@ -93,9 +97,9 @@ public class DefaultAccount extends ListActivity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = DeleteAccount.this.getIntent();
-				// intent.setClass(DeleteAccount.this, AccountManagement.class);
-				// DeleteAccount.this.startActivity(intent);
+				 intent = DefaultAccount.this.getIntent();
+				 intent.setClass(DefaultAccount.this, ABankMain.class);
+				 DefaultAccount.this.startActivity(intent);
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
@@ -114,10 +118,32 @@ public class DefaultAccount extends ListActivity {
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 
-		//
+		//set bottom button
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = DefaultAccount.this.getIntent();
+				intent.setClass(DefaultAccount.this, ABankMain.class);
+				DefaultAccount.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = DefaultAccount.this.getIntent();
+				intent.setClass(DefaultAccount.this, FinancialConsultation.class);
+				DefaultAccount.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);

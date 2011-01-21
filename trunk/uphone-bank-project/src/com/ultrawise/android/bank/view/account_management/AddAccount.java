@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -28,6 +30,8 @@ public class AddAccount extends Activity {
 	Intent intent;
 	private int flag = 0;
 	private ImageView btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +93,9 @@ public class AddAccount extends Activity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-//				 intent = AddAccount.this.getIntent();
-//				 intent.setClass(AddAccount.this, AccountInfo.class);
-//				 AddAccount.this.startActivity(intent);
+				 intent = AddAccount.this.getIntent();
+				 intent.setClass(AddAccount.this, ABankMain.class);
+				 AddAccount.this.startActivity(intent);
 			}
 		});
 		tvClassSecond = (TextView)this.findViewById(R.id.class_second);
@@ -120,10 +124,32 @@ public class AddAccount extends Activity {
 		tvClassThrid.setVisibility(View.VISIBLE);
 		tvClassFour.setVisibility(View.VISIBLE);
 
-		// 
+		// set bottom button
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = AddAccount.this.getIntent();
+				intent.setClass(AddAccount.this, ABankMain.class);
+				AddAccount.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = AddAccount.this.getIntent();
+				intent.setClass(AddAccount.this, FinancialConsultation.class);
+				AddAccount.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);

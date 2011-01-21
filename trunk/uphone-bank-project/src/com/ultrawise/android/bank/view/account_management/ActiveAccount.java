@@ -3,6 +3,8 @@ package com.ultrawise.android.bank.view.account_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.AlertDialog;
@@ -30,6 +32,8 @@ public class ActiveAccount extends ListActivity {
 	private TextView tvClassFour;
 	ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 	private ImageView btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 
 	@Override
 	protected void onResume() {
@@ -38,18 +42,7 @@ public class ActiveAccount extends ListActivity {
 		/**
 		 *
 		 */
-		/*
-		intent = ActiveAccount.this.getIntent();
-		String activeAcc = intent.getStringExtra("activeAcc");
-		// just active one account only
-		if (activeAcc != null) {
-			if (activeAcc.equalsIgnoreCase("9876543210123456"))
-				list.remove(0);
-			if (activeAcc.equalsIgnoreCase("5560654220320266"))
-				list.remove(1);
-			if (activeAcc.equalsIgnoreCase("1234567899876543"))
-				list.remove(2);
-		}*/
+
 	}
 
 	@Override
@@ -84,8 +77,8 @@ public class ActiveAccount extends ListActivity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassFirst.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
-				//intent.setClass(AccountInfo.this, DeleteAccount.class);
-				//AccountInfo.this.startActivity(intent);
+				intent.setClass(ActiveAccount.this, ABankMain.class);
+				ActiveAccount.this.startActivity(intent);
 			}
 		});
 		
@@ -106,10 +99,32 @@ public class ActiveAccount extends ListActivity {
 		tvClassThrid.setText("激活账户");
 		tvClassThrid.setVisibility(View.VISIBLE);
 		
-		// 
+		// 设置底部按钮
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = ActiveAccount.this.getIntent();
+				intent.setClass(ActiveAccount.this, ABankMain.class);
+				ActiveAccount.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = ActiveAccount.this.getIntent();
+				intent.setClass(ActiveAccount.this, FinancialConsultation.class);
+				ActiveAccount.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);

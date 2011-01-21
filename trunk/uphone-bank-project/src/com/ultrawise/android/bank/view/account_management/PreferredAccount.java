@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.account_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 
@@ -93,9 +94,9 @@ public class PreferredAccount extends ListActivity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = DeleteAccount.this.getIntent();
-				// intent.setClass(DeleteAccount.this, AccountManagement.class);
-				// DeleteAccount.this.startActivity(intent);
+				 intent = PreferredAccount.this.getIntent();
+				 intent.setClass(PreferredAccount.this, ABankMain.class);
+				 PreferredAccount.this.startActivity(intent);
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
