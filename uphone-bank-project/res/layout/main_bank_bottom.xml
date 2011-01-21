@@ -5,21 +5,30 @@
 	android:id="@+id/bottomLayout" android:layout_width="fill_parent"
 	android:orientation="horizontal" android:layout_weight="1"
 	android:layout_height="wrap_content" android:layout_alignParentBottom="true">
-	<!-- 功能模块按钮1 -->
-	<ImageView android:id="@+id/btnMain" android:src="@drawable/cardbg_sy_b"
-		android:layout_marginLeft="0dp" android:layout_marginTop="0dp"
-		android:layout_marginBottom="0dp" android:layout_width="106px"
-		android:layout_height="40px" android:scaleType="fitXY" />
-	<!-- 功能模块按钮2 -->
-	<ImageView android:id="@+id/btnCoustom" android:src="@drawable/cardbg_sy_w"
-		android:layout_marginLeft="0dp" android:layout_marginTop="0dp"
-		android:layout_marginBottom="0dp" android:layout_width="108px"
-		android:layout_height="40px" android:visibility="gone"
-		android:scaleType="fitXY" />
-	<!-- 功能模块按钮3 -->
-	<ImageView android:id="@+id/btnHelper" android:src="@drawable/cardbg_jrzx_b"
-		android:layout_marginLeft="0dp" android:layout_marginTop="0dp"
-		android:layout_marginBottom="0dp" android:layout_width="106px"
-		android:layout_height="40px" android:scaleType="fitXY" />
+	<ImageView
+android:id="@+id/btnMain"
+android:layout_width="wrap_content"
+android:layout_height="40px"
+android:src="@drawable/cardbg_sy_b"
+android:layout_weight="1" android:scaleType="fitXY"
+>
+</ImageView>
+<ImageView
+android:id="@+id/btnCoustom"
+android:layout_width="wrap_content"
+android:layout_height="40px"
+android:src="@drawable/cardbg_sy_w"
+android:layout_weight="1" android:scaleType="fitXY" android:visibility="gone"
+>
+</ImageView>
+<ImageView
+android:id="@+id/btnHelper"
+android:layout_width="wrap_content"
+android:layout_height="40px"
+android:src="@drawable/cardbg_jrzx_b"
+android:layout_weight="1" android:scaleType="fitXY"
+>
+</ImageView>
+
 </LinearLayout>
 

@@ -15,6 +15,8 @@ import android.widget.ImageView;
 
 import android.widget.TextView;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 public class AccountManagement extends Activity {
@@ -30,6 +32,8 @@ public class AccountManagement extends Activity {
 
 	Intent intent;
 	private ImageView btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,9 +48,8 @@ public class AccountManagement extends Activity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				 intent.setClass(AccountManagement.this, ABankMain.class);
+				 AccountManagement.this.startActivity(intent);
 
 			}
 		});
@@ -57,10 +60,32 @@ public class AccountManagement extends Activity {
 
 		tvClassSecond.setVisibility(View.VISIBLE);
 
-		//
+		//设置底部按钮
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, ABankMain.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = AccountManagement.this.getIntent();
+				intent.setClass(AccountManagement.this, FinancialConsultation.class);
+				AccountManagement.this.startActivity(intent);
+			}
+		});
 
 		// Button Account Information
 		btnAccInfo = (ImageView) this.findViewById(R.id.btnAccInfo);
@@ -122,6 +147,8 @@ public class AccountManagement extends Activity {
 			}
 		});
 		
+		
+		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
 		btnReturn.setOnClickListener(new OnClickListener(){
@@ -132,6 +159,8 @@ public class AccountManagement extends Activity {
 			}
 			
 		});
+		
+		
 
 	}
 

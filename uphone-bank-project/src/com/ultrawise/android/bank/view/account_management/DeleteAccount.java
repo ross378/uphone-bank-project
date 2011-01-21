@@ -3,6 +3,8 @@ package com.ultrawise.android.bank.view.account_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.AlertDialog;
@@ -29,6 +31,8 @@ public class DeleteAccount extends ListActivity {
 	private TextView tvClassThrid;
 	private TextView tvClassFour;
 	private View btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 
 	// HashMap<String, String> map4;
 	// HashMap<String, String> map5;
@@ -90,9 +94,9 @@ public class DeleteAccount extends ListActivity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = DeleteAccount.this.getIntent();
-				// intent.setClass(DeleteAccount.this, AccountManagement.class);
-				// DeleteAccount.this.startActivity(intent);
+				 intent = DeleteAccount.this.getIntent();
+				 intent.setClass(DeleteAccount.this, ABankMain.class);
+				 DeleteAccount.this.startActivity(intent);
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
@@ -121,10 +125,32 @@ public class DeleteAccount extends ListActivity {
 		tvClassThrid.setVisibility(View.VISIBLE);
 		tvClassFour.setVisibility(View.VISIBLE);
 
-		// 
+		// set bottm button
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = DeleteAccount.this.getIntent();
+				intent.setClass(DeleteAccount.this, ABankMain.class);
+				DeleteAccount.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = DeleteAccount.this.getIntent();
+				intent.setClass(DeleteAccount.this, FinancialConsultation.class);
+				DeleteAccount.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
@@ -153,7 +179,7 @@ public class DeleteAccount extends ListActivity {
 						flag = 1;// done
 						Toast.makeText(DeleteAccount.this, "删除成功",
 								Toast.LENGTH_SHORT).show();
-						// finish();
+						 finish();
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {

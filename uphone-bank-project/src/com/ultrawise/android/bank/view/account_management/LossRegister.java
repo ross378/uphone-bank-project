@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.account_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.AlertDialog;
@@ -97,9 +98,9 @@ public class LossRegister extends ListActivity {
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = DeleteAccount.this.getIntent();
-				// intent.setClass(DeleteAccount.this, AccountManagement.class);
-				// DeleteAccount.this.startActivity(intent);
+				 intent = LossRegister.this.getIntent();
+				 intent.setClass(LossRegister.this, ABankMain.class);
+				 LossRegister.this.startActivity(intent);
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);

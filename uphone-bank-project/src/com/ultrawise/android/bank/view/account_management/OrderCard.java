@@ -3,6 +3,8 @@ package com.ultrawise.android.bank.view.account_management;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.AlertDialog;
@@ -29,6 +31,8 @@ public class OrderCard extends ListActivity {
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	private ImageView btnReturn;
+	private ImageView btnMain;
+	private View btnHelper;
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -113,14 +117,14 @@ public class OrderCard extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// ���ò㼶��ϵ
+		// 
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = DeleteAccount.this.getIntent();
-				// intent.setClass(DeleteAccount.this, AccountManagement.class);
-				// DeleteAccount.this.startActivity(intent);
+				 intent = OrderCard.this.getIntent();
+				 intent.setClass(OrderCard.this, ABankMain.class);
+				 OrderCard.this.startActivity(intent);
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
@@ -139,10 +143,32 @@ public class OrderCard extends ListActivity {
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 
-		// 
+		// set bottom button
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = OrderCard.this.getIntent();
+				intent.setClass(OrderCard.this, ABankMain.class);
+				OrderCard.this.startActivity(intent);
+			}
+		});
+		
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = OrderCard.this.getIntent();
+				intent.setClass(OrderCard.this, FinancialConsultation.class);
+				OrderCard.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);

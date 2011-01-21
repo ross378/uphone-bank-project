@@ -12,28 +12,28 @@
 		android:layout_above="@id/accManaBottom" android:padding="30dip">
 
 		<ImageView android:id="@+id/btnAccInfo" android:layout_width="70dip"
-			android:layout_height="70dip" android:src="@drawable/abank"
+			android:layout_height="70dip" android:src="@drawable/am_acc_info"
 			android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
 		</ImageView>
 		<ImageView android:id="@+id/btnActiveAcc" android:layout_width="70dip"
-			android:layout_height="70dip" android:src="@drawable/abank"
+			android:layout_height="70dip" android:src="@drawable/actactivate"
 			android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
 		</ImageView>
 		<ImageView android:id="@+id/btnLossRegister" android:layout_width="70dip"
-			android:layout_height="70dip" android:src="@drawable/abank"
+			android:layout_height="70dip" android:src="@drawable/am_loss_reg"
 			android:layout_alignParentTop="true" android:layout_alignParentRight="true">
 		</ImageView>
 		<ImageView android:id="@+id/btnDefaultAcc" android:layout_width="70dip"
-			android:layout_height="70dip" android:src="@drawable/abank"
+			android:layout_height="70dip" android:src="@drawable/am_def_acc"
 			android:layout_alignTop="@+id/btnPreferredAcc"
 			android:layout_alignParentRight="true">
 		</ImageView>
 		<ImageView android:id="@+id/btnPreferredAcc" android:layout_width="70dip"
-			android:layout_height="70dip" android:src="@drawable/abank"
+			android:layout_height="70dip" android:src="@drawable/am_pre_acc"
 			android:layout_alignTop="@+id/btnOrder" android:layout_alignLeft="@+id/btnActiveAcc">
 		</ImageView>
 		<ImageView android:id="@+id/btnOrder" android:layout_width="70dip"
-			android:layout_height="70dip" android:src="@drawable/abank"
+			android:layout_height="70dip" android:src="@drawable/am_ord_card"
 			android:layout_centerVertical="true" android:layout_alignParentLeft="true">
 		</ImageView>
 		<TextView android:id="@+id/tvLossRegister"
