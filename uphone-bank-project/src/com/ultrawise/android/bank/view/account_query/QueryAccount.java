@@ -9,6 +9,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class QueryAccount extends ListActivity {
 	Intent intent;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
+	private View btnReturn;
 
 
 	// HashMap<String, String> map4;
@@ -33,7 +35,7 @@ public class QueryAccount extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.list_account);
 
-		// ÉèÖÃList View
+		// ï¿½ï¿½ï¿½ï¿½List View
 		intent = QueryAccount.this.getIntent();
 
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -58,9 +60,9 @@ public class QueryAccount extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
 		this.setListAdapter(sa);
 
-		// ÉèÖÃ²ã¼¶¹ØÏµ
+		//
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("ÊÖ»úÒøÐÐ>");
+		tvClassFirst.setText("æ‰‹æœºé“¶è¡Œ>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = QueryAccount.this.getIntent();
@@ -70,17 +72,28 @@ public class QueryAccount extends ListActivity {
 			}
 		});
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("ÕË»§²éÑ¯");
+		tvClassSecond.setText("æŸ¥è¯¢è´¦æˆ·");
 
 		
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 
 
-		// ÉèÖÃµ×²¿×Ô¶¨Òå°´Å¥ÏÔÊ¾
+		//
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		//btnCoustom.setImageResource(R.drawable.test2);
+		btnCoustom.setImageResource(R.drawable.cardbg_zhcx_w);
 		btnCoustom.setVisibility(View.VISIBLE);
+		
+		//è¿”å›žé”®è®¾å®š
+		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
 
 	}
 

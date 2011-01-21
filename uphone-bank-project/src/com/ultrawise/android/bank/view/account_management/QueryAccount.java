@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class QueryAccount extends ListActivity {
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	private TextView tvClassFour;
+	private ImageView btnReturn;
 
 	// HashMap<String, String> map4;
 	// HashMap<String, String> map5;
@@ -108,6 +110,16 @@ public class QueryAccount extends ListActivity {
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);
 
+		//返回键设定
+		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
 	}
 
 	@Override

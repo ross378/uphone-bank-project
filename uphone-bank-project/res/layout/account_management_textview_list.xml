@@ -3,9 +3,8 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent">
 	<TextView android:id="@+id/name" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:singleLine="true"
-		android:textSize="25dip"></TextView>
+		android:textSize="25dip" android:background="@drawable/list_bg"></TextView>
 	<TextView android:id="@+id/arrow" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:gravity="right"
-		android:textSize="25dip"></TextView>
-
+		android:textSize="25dip" android:background="@drawable/list_bg"></TextView>
 </LinearLayout>
