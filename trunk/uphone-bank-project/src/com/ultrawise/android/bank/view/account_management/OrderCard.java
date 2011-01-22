@@ -12,7 +12,9 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,7 +35,15 @@ public class OrderCard extends ListActivity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private View btnHelper;
+	private GestureDetector mGestureDetector;
 
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
+	}
+	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
@@ -94,6 +104,19 @@ public class OrderCard extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.order_card);
 
+		//向右滑动触发后退
+		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
+			@Override
+			public boolean onScroll(MotionEvent e1, MotionEvent e2,
+					float distanceX, float distanceY) {
+				// TODO Auto-generated method stub
+				if (distanceY == 0 && distanceX < 0)
+					onBackPressed();
+
+				return super.onScroll(e1, e2, distanceX, distanceY);
+			}
+		});
+		
 		// ����List View
 		intent = OrderCard.this.getIntent();
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();

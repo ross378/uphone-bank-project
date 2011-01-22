@@ -9,7 +9,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,12 +34,33 @@ public class AddAccount extends Activity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private GestureDetector mGestureDetector;
 
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.add_account);
+		
+		//向右滑动触发后退
+		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
+			@Override
+			public boolean onScroll(MotionEvent e1, MotionEvent e2,
+					float distanceX, float distanceY) {
+				// TODO Auto-generated method stub
+				if (distanceY == 0 && distanceX < 0)
+					onBackPressed();
+
+				return super.onScroll(e1, e2, distanceX, distanceY);
+			}
+		});
 
 		btnConfirm = (Button) this.findViewById(R.id.btnAddAccConfrim);
 		etAccount = (EditText) this.findViewById(R.id.etAcc);
