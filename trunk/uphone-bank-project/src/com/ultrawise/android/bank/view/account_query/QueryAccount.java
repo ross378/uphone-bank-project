@@ -36,6 +36,7 @@ public class QueryAccount extends ListActivity {
 	// HashMap<String, String> map4;
 	// HashMap<String, String> map5;
 	
+	//点击触发
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
