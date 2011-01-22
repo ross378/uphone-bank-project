@@ -11,7 +11,10 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -30,7 +33,16 @@ public class AccountInfo extends ListActivity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private GestureDetector mGestureDetector;
 	Intent intent;
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
+	}
+
 
 	@Override
 	protected void onResume() {
@@ -39,13 +51,7 @@ public class AccountInfo extends ListActivity {
 		/**
 		 * 业务功能
 		 */
-		/*
-		 * tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo); intent =
-		 * AccountInfo.this.getIntent(); //It will be updated account
-		 * information if resume this activity if
-		 * (intent.getStringExtra("AccInfo") != null) {
-		 * tvAccInfo.setText(intent.getStringExtra("AccInfo")); }
-		 */
+
 	}
 
 	@Override
@@ -53,6 +59,19 @@ public class AccountInfo extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.account_info);
+
+		//向右滑动触发后退
+		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
+			@Override
+			public boolean onScroll(MotionEvent e1, MotionEvent e2,
+					float distanceX, float distanceY) {
+				// TODO Auto-generated method stub
+				if (distanceY == 0 && distanceX < 0)
+					onBackPressed();
+
+				return super.onScroll(e1, e2, distanceX, distanceY);
+			}
+		});
 
 		intent = AccountInfo.this.getIntent();
 
@@ -125,7 +144,7 @@ public class AccountInfo extends ListActivity {
 				AccountInfo.this.startActivity(intent);
 			}
 		});
-		
+
 		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
 		btnHelper.setOnClickListener(new OnClickListener() {
 

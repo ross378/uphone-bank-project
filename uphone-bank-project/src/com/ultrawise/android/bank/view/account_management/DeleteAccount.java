@@ -12,7 +12,9 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,9 +35,17 @@ public class DeleteAccount extends ListActivity {
 	private View btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private GestureDetector mGestureDetector;
 
 	// HashMap<String, String> map4;
 	// HashMap<String, String> map5;
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +53,19 @@ public class DeleteAccount extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.list_account);
 
+		//向右滑动触发后退
+		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
+			@Override
+			public boolean onScroll(MotionEvent e1, MotionEvent e2,
+					float distanceX, float distanceY) {
+				// TODO Auto-generated method stub
+				if (distanceY == 0 && distanceX < 0)
+					onBackPressed();
+
+				return super.onScroll(e1, e2, distanceX, distanceY);
+			}
+		});
+		
 		//List View
 		intent = DeleteAccount.this.getIntent();
 //		String delAccNum = intent.getStringExtra("delAccNum");

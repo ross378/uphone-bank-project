@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -34,6 +36,14 @@ public class AccountManagement extends Activity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private GestureDetector mGestureDetector;
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +52,20 @@ public class AccountManagement extends Activity {
 		setContentView(R.layout.account_management);
 
 		intent = new Intent();
+		
+		//向右滑动触发后退
+		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
+			@Override
+			public boolean onScroll(MotionEvent e1, MotionEvent e2,
+					float distanceX, float distanceY) {
+				// TODO Auto-generated method stub
+				if (distanceY == 0 && distanceX < 0)
+					onBackPressed();
 
+				return super.onScroll(e1, e2, distanceX, distanceY);
+			}
+		});
+		
 		// 
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
