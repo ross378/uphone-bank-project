@@ -12,11 +12,9 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -63,7 +61,7 @@ public class QueryAccount extends ListActivity {
 			}
 		});
 		
-		// ����List View
+		// List View
 		intent = QueryAccount.this.getIntent();
 
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
@@ -135,7 +133,7 @@ public class QueryAccount extends ListActivity {
 		});
 		
 		//返回键设定
-		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+		btnReturn = this.findViewById(R.id.returnToPre);
 		btnReturn.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub

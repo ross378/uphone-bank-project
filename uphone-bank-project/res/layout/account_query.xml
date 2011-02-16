@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
+	
+
+	<RelativeLayout android:id="@+id/widget35"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<ImageButton android:id="@+id/accDetailQuery" android:src="@drawable/abank"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+		</ImageButton>
+		<ImageButton android:id="@+id/balanceQuery" android:src="@drawable/abank"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
+		</ImageButton>
+		<ImageButton android:id="@+id/vostroQuery" android:src="@drawable/abank"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+		</ImageButton>
+	</RelativeLayout>
+	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
+</LinearLayout>
