@@ -25,6 +25,7 @@
        		
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
+        
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
         
@@ -86,10 +87,7 @@
             
 		<!-- 转账 -->
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-		<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+		
 		</activity>
 		<activity android:name=".TransferActivity" android:label="@string/app_title">
 		</activity>

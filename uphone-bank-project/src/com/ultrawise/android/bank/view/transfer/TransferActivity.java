@@ -6,17 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class TransferActivity extends Activity {
 	private Button btn_ok = null;
 	private Button btn_cancle = null;
 
+	
 	private RadioGroup rg_acc = null;
 	private RadioButton rb_acc1 = null;
 	private RadioButton rb_acc2 = null;
@@ -32,6 +36,7 @@ public class TransferActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.transfer_ph);
+        
         
         btn_ok = (Button)findViewById(R.id.btn_ph_ok);
         btn_cancle = (Button)findViewById(R.id.btn_ph_cancle);
