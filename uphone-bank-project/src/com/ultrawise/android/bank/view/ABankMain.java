@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view;
 
 import com.ultrawise.android.bank.view.account_management.AccountManagement;
 import com.ultrawise.android.bank.view.account_management.ActiveAccount;
+import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.account_query.QueryAccount;
 import com.ultrawise.android.bank.view.credit.CreditView;
 import com.ultrawise.android.bank.view.payment.PaymentMain;
@@ -81,7 +82,7 @@ public class ABankMain extends Activity {
 
 		public void onClick(View arg0) {
 			Intent intent=new Intent();
-			intent.setClass(ABankMain.this,QueryAccount.class);
+			intent.setClass(ABankMain.this,AccountQuery.class);
 			ABankMain.this.startActivity(intent);
 			
 		}
