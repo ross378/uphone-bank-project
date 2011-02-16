@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class TransferAccActivity extends Activity {
@@ -33,6 +36,8 @@ public class TransferAccActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.transfer_ph);
 		
+
+		
 		btn_ok = (Button)findViewById(R.id.btn_ph_ok);
         btn_cancle = (Button)findViewById(R.id.btn_ph_cancle);
 
@@ -44,7 +49,6 @@ public class TransferAccActivity extends Activity {
         btn_ok.setOnClickListener(new BtnOkCL());
         btn_cancle.setOnClickListener(new BtnCancleCL());
 
-        
         rg_acc = (RadioGroup)findViewById(R.id.rg_transph_acc);
         rb_acc1 = (RadioButton)findViewById(R.id.rb_trph_acc1);
         rb_acc2 = (RadioButton)findViewById(R.id.rb_trph_acc2);

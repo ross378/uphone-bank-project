@@ -26,6 +26,7 @@
 	android:paddingLeft="10dip"
 	android:textSize="15dip"
 	/>
+
 <RadioGroup
 	android:id="@+id/rg_transph_acc"
 	android:layout_width="fill_parent"
@@ -53,6 +54,7 @@
 	android:text="333333333333"
 	/>
 </RadioGroup>
+
 <TextView
 	android:id="@+id/tv_trans_inptype"
 	android:layout_width="fill_parent"

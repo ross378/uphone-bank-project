@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,8 +15,8 @@ public class TransferMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_main);
         
-        Button btn_trans_ph = (Button)findViewById(R.id.btn_trans_main_ph);
-        Button btn_trans_acc = (Button)findViewById(R.id.btn_trans_main_acc);
+        ImageButton btn_trans_ph = (ImageButton)findViewById(R.id.btn_trans_main_ph);
+        ImageButton btn_trans_acc = (ImageButton)findViewById(R.id.btn_trans_main_acc);
         
         btn_trans_ph.setOnClickListener(new BtnTransMainPh());
         btn_trans_acc.setOnClickListener(new BtnTransMainAcc());
