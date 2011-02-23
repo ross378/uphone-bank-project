@@ -158,6 +158,6 @@ android:layout_width="100dip"
 android:layout_height="wrap_content"
 android:text="&#30331;&#24405;"
 android:textStyle="bold"/>
-</LinearLayout>
+</LinearLayout> 
 </RelativeLayout>
 
