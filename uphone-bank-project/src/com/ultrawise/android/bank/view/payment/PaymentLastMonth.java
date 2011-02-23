@@ -1,7 +1,21 @@
 package com.ultrawise.android.bank.view.payment;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -9,6 +23,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,13 +33,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class PaymentLastMonth extends ListActivity {
+	String start_time = "2011-1-1";
+	String end_time = "2011-1-30";
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setText("自助缴费>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = QueryAccount.this.getIntent();
@@ -35,8 +52,21 @@ public class PaymentLastMonth extends ListActivity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("缴费历史");
+		tvClassSecond.setText("历史缴费记录");
 		tvClassSecond.setVisibility(View.VISIBLE);
+        
+		Intent intent = this.getIntent();
+		if(intent.hasExtra("start_time")){
+			start_time = intent.getStringExtra("start_time");
+        }
+        if(intent.hasExtra("end_time")){
+        	end_time = intent.getStringExtra("end_time");
+        }
+		
+        TextView titel = (TextView)findViewById(R.id.paymenthistory);
+        titel.setText("从"+start_time+"到"+end_time+"的缴费记录如下：");
+        
+        
         
         ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
         

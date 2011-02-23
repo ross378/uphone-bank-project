@@ -24,7 +24,7 @@ public class PaymentMain extends ListActivity {
         setContentView(R.layout.payment_main);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机缴费");
+		tvClassFirst.setText("自助缴费");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = QueryAccount.this.getIntent();
@@ -41,10 +41,11 @@ public class PaymentMain extends ListActivity {
         HashMap<String,String> paylist3 = new HashMap<String,String>();
         HashMap<String,String> paylist4 = new HashMap<String,String>();
         HashMap<String,String> paylist5 = new HashMap<String,String>();
+        HashMap<String,String> paylist6 = new HashMap<String,String>();
         
-        paylist1.put("payment_list", "自助缴费");
+        paylist1.put("payment_list", "待缴费项目");
         paylist1.put("payment_list_info", ">");
-        paylist2.put("payment_list", "缴费项目管理");
+        paylist2.put("payment_list", "便捷服务");
         paylist2.put("payment_list_info", ">");
         paylist3.put("payment_list", "最近一个月缴费");
         paylist3.put("payment_list_info", ">");
@@ -52,12 +53,15 @@ public class PaymentMain extends ListActivity {
         paylist4.put("payment_list_info", ">");
         paylist5.put("payment_list", "默认缴费账户设置");
         paylist5.put("payment_list_info", ">");
+        paylist6.put("payment_list", "缴费项目管理");
+        paylist6.put("payment_list_info", ">");
         
         mainlist.add(paylist1);
         mainlist.add(paylist2);
         mainlist.add(paylist3);
         mainlist.add(paylist4);
         mainlist.add(paylist5);
+        mainlist.add(paylist6);
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[] {
 				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
@@ -89,6 +93,8 @@ public class PaymentMain extends ListActivity {
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentDefAcc.class);
 			PaymentMain.this.startActivity(payment_intent);
+		}else if(id==5){
+			
 		}
 	}
 }

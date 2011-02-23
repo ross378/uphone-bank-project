@@ -21,7 +21,7 @@ public class PaymentHisDetail extends Activity {
         TextView tv_time = (TextView)findViewById(R.id.tv_payhis_tim);
         TextView tv_sernum = (TextView)findViewById(R.id.tv_payhis_sernum);
         TextView tv_acc = (TextView)findViewById(R.id.tv_payhis_acc);
-        TextView tv_acc2 = (TextView)findViewById(R.id.tv_payhis_acc2);
+        //TextView tv_acc2 = (TextView)findViewById(R.id.tv_payhis_acc2);
         
         Button btn_payhisdl_ok = (Button)findViewById(R.id.btn_payhisdt_ok);
         
@@ -37,11 +37,11 @@ public class PaymentHisDetail extends Activity {
         tv_amount.setText("缴费金额："+tvamount);
         tv_time.setText("缴费时间："+tvtime);
         tv_sernum.setText("项目流水号："+tvsernum);
-        tv_acc.setText("缴费账号：");
-        tv_acc2.setText(tvacc);
+        tv_acc.setText("缴费账号："+tvacc);
+        //tv_acc2.setText(tvacc);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setText("自助缴费>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// intent = QueryAccount.this.getIntent();
@@ -52,7 +52,7 @@ public class PaymentHisDetail extends Activity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("缴费历史>");
+		tvClassSecond.setText("历史缴费记录>");
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);

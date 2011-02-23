@@ -26,23 +26,48 @@
 	android:text="@string/pay_chstart"
 	android:textSize="20dip"
 	/>
-<DatePicker
+<!--  <DatePicker
 	android:id="@+id/datepick_payment_hissta"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	/>
-<TextView
-	android:id="@+id/tv_payhis_ckend"
+	-->
+	<LinearLayout 
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:text="@string/pay_chend"
+	android:orientation="horizontal">
+	<TextView
+	android:id="@+id/tv_payhis_ckstart"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="从："
 	android:textSize="20dip"
 	/>
-<DatePicker
-	android:id="@+id/datepick_payment_hisend"
+	<Button 
+	android:id="@+id/tv_payhis_ckstartbut"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
+	android:text="起始时间"
 	/>
+	</LinearLayout>
+<LinearLayout 
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+	<TextView
+	android:id="@+id/tv_payhis_cksendend"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="到："
+	android:textSize="20dip"
+	/>
+	<Button 
+	android:id="@+id/tv_payhis_ckendendbut"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="终止时间"
+	/>
+	</LinearLayout>
 <TableLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
@@ -52,12 +77,7 @@
 	android:id="@+id/btn_payhisck_ok"
 	android:layout_width="80dip"
 	android:layout_marginLeft="80dip"
-	android:text="@string/btn_ok"
-	/>
-<Button
-	android:id="@+id/btn_payhisck_cancle"
-	android:layout_width="80dip"
-	android:text="@string/btn_cancle"
+	android:text="@string/btn_look"
 	/>
 </TableRow>
 </TableLayout>
