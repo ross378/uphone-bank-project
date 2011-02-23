@@ -26,6 +26,9 @@ public class DepositeRates extends Activity {
 	private ImageView selfCompanyItemImage=null;
 	//其他存款利率图标
 	private ImageView otherItemImage=null;
+	//返回图标
+	private ImageView back = null;
+	//文本框临时 变量
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.depositereates);

@@ -42,6 +42,7 @@
          <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
          	android:theme="@android:style/Theme.Dialog"
          >
+         
         </activity>
           <activity android:name="com.ultrawise.android.bank.view.credit.CancelCardDialog"
           	android:theme="@android:style/Theme.Dialog"
@@ -65,11 +66,16 @@
         	android:theme="@android:style/Theme.Dialog"
          >
          </activity>
+         <!-- 存款利率 -->
           <activity android:name="com.ultrawise.android.bank.view.DepositeRates">
-          
+          <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+		
           </activity>
          <activity android:name="com.ultrawise.android.bank.view.OtherDepositeRates">
-          
+         
           </activity>
            <activity android:name="com.ultrawise.android.bank.view.SelfCompanyDepositeRates"/>
            <activity android:name="com.ultrawise.android.bank.view.DingQiDepositeRatesDetail"/>
@@ -83,21 +89,19 @@
             />
             
 		<!-- 转账 -->
-		<activity android:name=".TransferMain" android:label="@string/app_title">
-		<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferMain" android:label="@string/app_title">
+		
 		</activity>
-		<activity android:name=".TransferActivity" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferActivity" android:label="@string/app_title">
+		
 		</activity>
-		<activity android:name=".TransferAccActivity" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferAccActivity" android:label="@string/app_title">
 		</activity>
-		<activity android:name=".TransPhConfirm" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransPhConfirm" android:label="@string/app_title">
 		</activity>
-		<activity android:name=".TransAccConfirm" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransAccConfirm" android:label="@string/app_title">
 		</activity>
-		<activity android:name=".TransResult" android:label="@string/app_title"
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransResult" android:label="@string/app_title"
 			android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<!-- end activity -->

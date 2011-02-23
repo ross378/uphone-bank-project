@@ -6,12 +6,16 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- 头部 -->
+<include layout = "@layout/main_bank_above"/>
+
 <!-- 存款利率文本提示布局   距离父布局的外上边距是10dip-->
 <LinearLayout
 android:id="@+id/depositeRatesTiSiTextLayout"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:layout_marginTop="10dip"
+android:layout_below = "@id/headLayout"
 >
 <!-- 存款利率 提示文本  居中显示 selfPayText -->
 <TextView
@@ -75,6 +79,7 @@ android:layout_below="@id/SelfCompanyItemLayout"
     android:orientation="horizontal"
     android:layout_below="@id/line1"
     android:layout_marginTop="10dip"
+    
     >
 <!-- 其他存款 文本  距离外面的布局的左边距 30dip-->
 <TextView 
@@ -95,4 +100,6 @@ android:layout_below="@id/SelfCompanyItemLayout"
   android:layout_marginLeft="168dip"
  />
 </LinearLayout>
+<!-- 底部 -->
+<include layout = "@layout/main_bank_bottom"/>
 </RelativeLayout>
