@@ -113,10 +113,10 @@ public class LossRegister extends ListActivity {
 		
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {
-						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
+						"name", "arrow" }, new int[] { R.id.accMana_tvName, R.id.accMana_tvArrow });
 		this.setListAdapter(sa);
 
-		// ���ò㼶��ϵ
+		// 设置层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {

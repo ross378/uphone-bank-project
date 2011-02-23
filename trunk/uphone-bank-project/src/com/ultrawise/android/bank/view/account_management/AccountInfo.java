@@ -31,7 +31,10 @@ public class AccountInfo extends ListActivity {
 	private ImageView btnHelper;
 	private GestureDetector mGestureDetector;
 	Intent intent;
+	private TextView tvAccInfo2;
+	private TextView tvAccInfo3;
 
+	//触摸触发事件
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
@@ -72,12 +75,25 @@ public class AccountInfo extends ListActivity {
 		intent = AccountInfo.this.getIntent();
 
 		tvAccInfo = (TextView) this.findViewById(R.id.tvAccInfo);
-		tvAccInfo.setText("账号：440301198810282152\n" + "别名：我的储蓄卡\n"
-				+ "账户类型：活期储蓄一折（卡）\n" + "账户状态：正常\n" + "是否签约：未签约\n"
-				+ "开户行：建设银行深圳市梅林支行" + "开户日：2006/07/09");
-		tvAccInfo.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);// add bottom
-																	// line
-
+		
+		tvAccInfo.setText("账号：440301198810282152\n"
+				+ "别名：我的储蓄卡\n"
+				+ "账户类型：活期储蓄一折（卡）\n"
+				+ "币种：人民币\n"
+				+ "余额：¥3380\n"
+				+ "是否激活：已激活\n"
+				+ "开户行：建设银行深圳市梅林支行\n" 
+				+ "开户日：2006/07/09\n");
+		
+		tvAccInfo.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);// add bottom line
+		tvAccInfo2=(TextView)this.findViewById(R.id.tvAccInfo02);
+		tvAccInfo2.setText("账户状态：预约换卡\n");
+		tvAccInfo2.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+		tvAccInfo3=(TextView)this.findViewById(R.id.tvAccInfo03);
+		tvAccInfo3.setText("账户别名：");
+		tvAccInfo3.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+		
+		
 		// List View
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		HashMap<String, String> map1 = new HashMap<String, String>();
@@ -94,7 +110,7 @@ public class AccountInfo extends ListActivity {
 		list.add(map3);
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {
-						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
+						"name", "arrow" }, new int[] { R.id.accMana_tvName, R.id.accMana_tvArrow });
 		this.setListAdapter(sa);
 
 		// 设置层级关系

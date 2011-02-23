@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/bg">
+	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
+	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
+	<LinearLayout android:layout_below="@id/accManaAbove"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:orientation="vertical">
+
+		<TextView android:id="@+id/accinfo_tvSelectType"
+			android:text="@string/accinfo_selectType" android:layout_width="fill_parent"
+			android:layout_height="wrap_content"></TextView>
+		<Spinner android:id="@+id/accinfo_SpnrSelectType"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:prompt="@string/accinfo_selectTypeTitle"></Spinner>
+		<TextView android:id="@+id/accinfo_tvSelectAcc" android:text="@string/accinfo_selectAcc"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+		<Spinner android:id="@+id/accinfo_SpnrSelectAcc"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:prompt="@string/accinfo_selectAccTitle"></Spinner>
+
+		<Button android:layout_gravity="right" android:layout_width="wrap_content"
+			android:text="@string/accinfo_GoOn" android:layout_height="wrap_content"
+			android:id="@+id/accinfo_btnGoOn"></Button>
+	</LinearLayout>
+</RelativeLayout>
