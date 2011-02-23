@@ -68,10 +68,7 @@
          </activity>
          <!-- 存款利率 -->
           <activity android:name="com.ultrawise.android.bank.view.DepositeRates">
-          <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+       
 		
           </activity>
          <activity android:name="com.ultrawise.android.bank.view.OtherDepositeRates">
@@ -108,10 +105,20 @@
 		
 		<!-- 缴费 -->
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentMain" android:label="@string/app_title">
-		
+		   <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService" android:label="@string/app_title">
 		</activity>
+		
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelectAccountType" android:label="@string/app_title">
+		</activity>
+		
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelectAccount" android:label="@string/app_title">
+		</activity>
+		
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManage" android:label="@string/app_title">
 		
 		</activity>

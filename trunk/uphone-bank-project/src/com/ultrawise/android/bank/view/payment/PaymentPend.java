@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.payment.PaymentResult.BtnOkCL;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -20,25 +21,16 @@ import android.widget.TextView;
 public class PaymentPend extends ListActivity {
 	
 	Intent payment_intent;
+	Intent return_intent;
 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
-        
+
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机缴费>");
-		tvClassFirst.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
-			}
-		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
-		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("自助缴费>");
-		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
 		tvClassThree.setText("待缴费项目");
@@ -59,6 +51,7 @@ public class PaymentPend extends ListActivity {
         paylist3.put("payment_list_info", "90元 >");
         paylist4.put("payment_list", "  --房租");
         paylist4.put("payment_list_info", "300元 >");
+        
         
         mainlist.add(paylist1);
         mainlist.add(paylist2);
@@ -106,4 +99,5 @@ public class PaymentPend extends ListActivity {
 			PaymentPend.this.startActivity(payment_intent);
 		}
 	}
+
 }

@@ -33,7 +33,7 @@ public class PaymentDetail extends Activity {
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
-		tvClassThree.setText("待缴费项目>");
+		tvClassThree.setText("便捷服务>");
 		tvClassThree.setVisibility(View.VISIBLE);
 		
 		TextView tvClassFour = (TextView)this.findViewById(R.id.class_four);
@@ -51,21 +51,24 @@ public class PaymentDetail extends Activity {
         String pay_title = paymentre_intent.getStringExtra("title");
         String pay_amount = paymentre_intent.getStringExtra("amount");
         String pay_sernum = paymentre_intent.getStringExtra("serialnum");
+        //外加的收费方
+        String pay_sern = paymentre_intent.getStringExtra("serialnum");
         
         tv_pay_title.setText("项目名称："+ pay_title);
         tv_pay_amount.setText("缴费金额："+ pay_amount);
         tv_pay_sernum.setText("缴费流水号："+ pay_sernum);
-        btn_pay_ok.setText("确认缴费");
+        btn_pay_ok.setText("前往缴费");
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.VISIBLE);
         
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){
+        		System.out.println("fdsfsdf");
         		Intent transconok_intent = new Intent();
         		transconok_intent.putExtra("flag", "success");
         		transconok_intent.putExtra("info", "The payment is successful");
-        		transconok_intent.setClass(PaymentDetail.this, PaymentResult.class);
+        		transconok_intent.setClass(PaymentDetail.this, PaymentSelectAccountType.class);
         		startActivity(transconok_intent);
         	}
         });
