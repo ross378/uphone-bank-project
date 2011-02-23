@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
-public class PaymentManage extends Activity {
+public class PaymentManage extends Activity {//缴费项目管理
 	
 	Intent payment_intent = new Intent();
 	

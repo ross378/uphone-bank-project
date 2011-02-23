@@ -17,7 +17,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
-public class PaymentMain extends ListActivity {
+public class PaymentMain extends ListActivity {//自助缴费主页面
 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,28 +73,31 @@ public class PaymentMain extends ListActivity {
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		if (id == 0) {
+		if (id == 0) {//待缴费
+			Intent payment_intent = new Intent();
+			payment_intent.setClass(PaymentMain.this, PaymentPend.class);
+			PaymentMain.this.startActivity(payment_intent);
+		}else if(id==1){//便捷
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentSelfService.class);
 			PaymentMain.this.startActivity(payment_intent);
-		}else if(id==1){
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentMain.this, PaymentManage.class);
-			PaymentMain.this.startActivity(payment_intent);
-		}else if(id==2){
-			Intent payment_intent = new Intent();
+		}else if(id==2){//缴费项目管理
+		    Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentLastMonth.class);
-			PaymentMain.this.startActivity(payment_intent);
-		}else if(id==3){
+			PaymentMain.this.startActivity(payment_intent);	
+		}
+		else if(id==3){//最近一个月
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentHistory.class);
 			PaymentMain.this.startActivity(payment_intent);
-		}else if(id==4){
+		}else if(id==4){//历史缴费记录
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentDefAcc.class);
 			PaymentMain.this.startActivity(payment_intent);
-		}else if(id==5){
-			
+		}else if(id==5){//默认账户管理
+			Intent payment_intent = new Intent();
+			payment_intent.setClass(PaymentMain.this, PaymentManage.class);
+			PaymentMain.this.startActivity(payment_intent);
 		}
 	}
 }
