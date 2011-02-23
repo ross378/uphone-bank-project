@@ -135,28 +135,29 @@
 		<!-- end activity -->
 		
 		<!-- kjsolo's activity -->
-		
+
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
+
 		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
 		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.QueryAccount">
-			</activity>
+		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AddAccount">
-			</activity>
+		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccount">
-			</activity>
+		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.DeleteAccount">
-			</activity>
+		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.LossRegister">
-			</activity>
+		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.OrderCard"></activity>
 		<activity android:label="@string/phone_bank"
@@ -164,11 +165,24 @@
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.PreferredAccount"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.QueryAccount">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.BankModel">
 
 		</activity>
-					<!-- end activity -->
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.BalanceQuery"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.BalanceQueryResult"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountInfoSelect">
+
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
+	<!-- end activity -->
 
 </application>
 	<uses-sdk android:minSdkVersion="7" />
