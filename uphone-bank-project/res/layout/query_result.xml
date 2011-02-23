@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/widget41"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:id="@+id/query_result" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/test_query_result">
+	</TextView>
+	<Button android:id="@+id/btn_query_result_confirm" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/btn_return_balance_query">
+	</Button>
+	<Button android:id="@+id/btn_query_result_cancel" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/cancel"
+		android:visibility="gone">
+	</Button>
+</LinearLayout>

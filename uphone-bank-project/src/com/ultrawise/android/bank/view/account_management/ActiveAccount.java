@@ -47,9 +47,6 @@ public class ActiveAccount extends ListActivity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		/**
-		 *
-		 */
 
 	}
 
@@ -89,10 +86,10 @@ public class ActiveAccount extends ListActivity {
 
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {
-						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
+						"name", "arrow" }, new int[] { R.id.accMana_tvName, R.id.accMana_tvArrow });
 		this.setListAdapter(sa);
 
-		//
+		//设置层级关系
 		tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setVisibility(View.VISIBLE);

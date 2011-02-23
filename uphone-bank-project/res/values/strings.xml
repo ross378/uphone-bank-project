@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="hello">Hello World, TransferActivity!</string>
-    <string name="app_name">uphone-bank-app</string>
-    <string name="app_title">手机银行</string>
-    <string name="btn_ok">确定</string>
-    <string name="btn_cancle">取消</string>
-    <string name="select_acc">请选择付款账户</string>
-    <string name="input_num">请输入收款手机号</string>
-    <string name="input_acc">请输入转入账号</string>
-    <string name="pay_title">项目名称:</string>
-    <string name="pay_amount">项目金额:</string>
-    <string name="pay_serialnum">缴费流水号:</string>
-    <string name="pay_acc">选择缴费账户:</string>
-    <string name="pay_manage">已有缴费项目：</string>
-    <string name="pay_delacc">请选择默认账户：</string>
-    <string name="pay_chstart">请选择起始时间：</string>
-    <string name="pay_chend">请选择终止时间：</string>
-    <string name="trans_main_ph">手机到手机转账</string>
-    <string name="trans_main_acc">手机到签约账户转账</string>
-    <string name="trans_amount">请输入转账金额</string>
-    <string name="input_psswrd">请输入账户密码</string>
-    <string name="selected_acc">付款账户：</string>
-    <string name="inputed_num">收款人手机号：</string>
-    <string name="inputed_acc">转入账号：</string>
-    <string name="transed_amount">转账金额：</string>
-    <string name="acc_balance">账户余额：</string>
-    <string name="trans_sc">转账成功！</string>
-    <string name="trans_fail">转账失败！</string>
+	<string name="app_name">uphone-bank-app</string>
+	<string name="app_title">手机银行</string>
+	<string name="btn_ok">确定</string>
+	<string name="btn_cancle">取消</string>
+	<string name="select_acc">请选择付款账户</string>
+	<string name="input_num">请输入收款手机号</string>
+	<string name="input_acc">请输入转入账号</string>
+	<string name="pay_title">项目名称:</string>
+	<string name="pay_amount">项目金额:</string>
+	<string name="pay_serialnum">缴费流水号:</string>
+	<string name="pay_acc">选择缴费账户:</string>
+	<string name="pay_manage">已有缴费项目：</string>
+	<string name="pay_delacc">请选择默认账户：</string>
+	<string name="pay_chstart">请选择起始时间：</string>
+	<string name="pay_chend">请选择终止时间：</string>
+	<string name="trans_main_ph">手机到手机转账</string>
+	<string name="trans_main_acc">手机到签约账户转账</string>
+	<string name="trans_amount">请输入转账金额</string>
+	<string name="input_psswrd">请输入账户密码</string>
+	<string name="selected_acc">付款账户：</string>
+	<string name="inputed_num">收款人手机号：</string>
+	<string name="inputed_acc">转入账号：</string>
+	<string name="transed_amount">转账金额：</string>
+	<string name="acc_balance">账户余额：</string>
+	<string name="trans_sc">转账成功！</string>
+	<string name="trans_fail">转账失败！</string>
 	<string name="phone_bank">手机银行</string>
 	<string name="main_page">首页</string>
 	<string name="helper">金融助手</string>
@@ -34,7 +34,7 @@
 	<string name="creditnumber">请选择卡号</string>
 	<string name="sourcecurrency">选择原始货币单位</string>
 	<string name="delatincurrency">选择目标货币单位</string>
-	 <string-array name="currencydw">
+	<string-array name="currencydw">
 		<item>美元(US)</item>
 		<item>日元(JPA)</item>
 		<item>欧元(DT)</item>
@@ -46,7 +46,7 @@
 		<item>军人证</item>
 		<item>工作证</item>
 	</string-array>
-	
+
 	<string-array name="list_bank_net">
 		<item>小北储蓄所</item>
 		<item>省行营业室</item>
@@ -63,6 +63,36 @@
 
 	</string-array>
 
-	
+
+	<string name="balanceQuery">余额查询</string>
+	<string name="test_query_result">账号： 440301198810282152\n币种：
+		人民币\n信用额度：5000\n可用额度：1000\n预借现金可用额度：500\n每月账单日：23日\n本期应还金额：2500\n本期最低还款额：1500\n本期到期还款：2300
+	</string>
+	<string name="confirm">确定</string>
+	<string name="cancel">取消</string>
+	<string name="btn_return_balance_query">返回查询其他账户余额</string>
+	<string name="accinfo_selectType">请选择账户类型</string>
+	<string name="accinfo_selectAcc">请选择账户</string>
+	<string name="accinfo_selectTypeTitle">请选择账户类型</string>
+	<string name="accinfo_selectAccTitle">请选择账户</string>
+	<string-array name="accinfo_accType">
+		<item>储蓄卡</item>
+		<item>信用卡</item>
+	</string-array>
+<string-array name="accinfo_acc"><item>3322***0266</item>
+<item>3340***2026</item>
+<item>我的信用卡</item>
+</string-array>
+<string name="accinfo_GoOn">继续</string>
+<string name="accinfo_AccNickName">我的活期卡</string>
+<string name="accMana_AccInfo">账户信息</string>
+<string name="accMana_AccActive">账户激活</string>
+<string name="accMana_AccPre">首选账户设置</string>
+<string name="accMana_OrderCard">预约换卡</string>
+<string name="accMana_AccLoss">账户挂失</string>
+<string name="accMana_AddAcc">添加新账户</string>
+<string name="accMana_DelAcc">删除已有账户</string>
+<string name="accAct_Active">激活</string>
+<string name="accAct_TpyePwd">请输入账户密码</string>
 </resources>
 	

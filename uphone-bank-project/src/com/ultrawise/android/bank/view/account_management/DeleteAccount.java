@@ -107,7 +107,7 @@ public class DeleteAccount extends ListActivity {
 
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {
-						"name", "arrow" }, new int[] { R.id.name, R.id.arrow });
+						"name", "arrow" }, new int[] { R.id.accMana_tvName, R.id.accMana_tvArrow });
 		this.setListAdapter(sa);
 
 		//

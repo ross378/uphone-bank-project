@@ -32,7 +32,8 @@ public class AccountManagement extends Activity {
 	private ImageView btnMain;
 	private ImageView btnHelper;
 	private GestureDetector mGestureDetector;
-	
+
+	//触摸触发
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
@@ -165,8 +166,6 @@ public class AccountManagement extends Activity {
 			}
 		});
 		
-		
-		
 		//返回键设定
 		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
 		btnReturn.setOnClickListener(new OnClickListener(){
@@ -177,8 +176,6 @@ public class AccountManagement extends Activity {
 			}
 			
 		});
-		
-		
 
 	}
 
