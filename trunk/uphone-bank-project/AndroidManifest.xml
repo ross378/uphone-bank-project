@@ -183,6 +183,18 @@
 			android:name="com.ultrawise.android.bank.view.account_query.BalanceQueryResult"></activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfoSelect">
+			
+		<!--guo    peng  -->
+		
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		
+		
+		<!-- end activity -->
 
 		</activity>
 		<activity
@@ -193,7 +205,7 @@
 	<!-- end activity -->
 	<!--guo    peng  -->
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery"></activity>
-
+<activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
 </application>
 	<uses-sdk android:minSdkVersion="7" />
 </manifest> 
