@@ -18,11 +18,8 @@
         <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-    	 <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-       		
+    	 
+    	 
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
         
@@ -87,7 +84,10 @@
             
 		<!-- 转账 -->
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-		
+		<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 		</activity>
 		<activity android:name=".TransferActivity" android:label="@string/app_title">
 		</activity>
@@ -109,12 +109,16 @@
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService" android:label="@string/app_title">
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManage" android:label="@string/app_title">
+		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentLastMonth" android:label="@string/app_title">
+		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHistory" android:label="@string/app_title">
+		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDefAcc" android:label="@string/app_title">
+		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult" android:label="@string/app_title"
 				android:theme="@android:style/Theme.Dialog">
@@ -134,7 +138,6 @@
 		
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
-			
 		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
