@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    >
+<include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
+<include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
+<LinearLayout
+	android:id="@+id/Listquery"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:layout_below="@id/paymentabove"
+	android:layout_above="@id/paymentbelow"
+	>
+	<TableLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="vertical" 
+			android:stretchColumns="1"
+		    android:paddingLeft="10dip"
+		    android:paddingRight="10dip"
+		    android:paddingTop="1dip"
+		    android:paddingBottom="1dip">
+	<TableRow>
+		<TextView 
+		android:id="@+id/acc1"
+		android:textSize="10pt"
+		android:singleLine="true"
+		/>
+		<TextView 
+		android:id="@+id/acc2"
+		android:textSize="10pt"
+		android:singleLine="true"
+		android:gravity="left"
+		/>
+	</TableRow>
+	</TableLayout>
+	<TableLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="vertical" 
+			android:stretchColumns="1"
+		    android:paddingLeft="10dip"
+		    android:paddingRight="10dip"
+		    android:paddingTop="1dip"
+		    android:paddingBottom="1dip">
+	<TableRow>
+		<TextView 
+		android:id="@+id/type1"
+		android:textSize="10pt"
+		android:singleLine="true"
+		/>
+		<TextView 
+		android:id="@+id/type2"
+		android:textSize="10pt"
+		android:singleLine="true"
+		/>
+	</TableRow>
+	</TableLayout>
+<ListView
+	android:id="@id/android:list"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
+</LinearLayout>
+</RelativeLayout>
