@@ -229,6 +229,8 @@
 	<!--guo    peng  -->
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery"></activity>
 <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
+<activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"></activity>
 </application>
 	<uses-sdk android:minSdkVersion="7" />
 </manifest> 
