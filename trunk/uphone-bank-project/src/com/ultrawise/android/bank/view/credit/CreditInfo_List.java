@@ -41,7 +41,7 @@ public class CreditInfo_List extends ListActivity {
 	        map5.put("creditinfo_key","本期应还款额:");
 	        map5.put("creditinfo_value", "400");
 	        map6.put("creditinfo_key","本期到期还款日:");
-	        map6.put("creditinfo_value","23日");
+	        map6.put("creditinfo_value","29日");
 	        list.add(map1);
 	        list.add(map2);
 	        list.add(map3);
