@@ -37,6 +37,8 @@ public class ActivateCard extends Activity {
 	private EditText mobileNoEdit=null;
 	//固定电话输入框
 	private EditText phoneNoEdit=null;
+	//帐户密码输入框
+	private EditText passwordEdit=null;
 	
 	//客户姓名
 	private String userName=null;
@@ -50,6 +52,8 @@ public class ActivateCard extends Activity {
 	private String mobileNo=null;
 	//固定电话
 	private String phone=null;
+	//帐户密码
+	private String accountPassword=null;
 	//信用卡有效期值
 	private String dateEnable=null;
 	
@@ -74,6 +78,8 @@ public class ActivateCard extends Activity {
         mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit);
         //获得固定电话输入框对象
         phoneNoEdit=(EditText)findViewById(R.id.phoneNoEdit);
+        //获得帐户密码输入框对象
+        passwordEdit=(EditText)findViewById(R.id.creditPasswdEdit);
         //获得证件号输入框对象
         pakitNoEditText=(EditText)findViewById(R.id.pakitNoEditText);
         
@@ -86,6 +92,7 @@ public class ActivateCard extends Activity {
         	pakitNo=intent.getStringExtra("pakitNo");
         	mobileNo=intent.getStringExtra("mobileNo");
         	phone=intent.getStringExtra("phone");
+        	accountPassword=intent.getStringExtra("accountPassword");
         	dateEnable=intent.getStringExtra("dateEnable");
         	userNameEditText.setText(userName);
         	activateCardNumberEditText.setText(creditNo);

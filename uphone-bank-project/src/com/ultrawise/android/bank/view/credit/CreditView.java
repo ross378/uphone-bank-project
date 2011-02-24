@@ -7,37 +7,51 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 
 public class CreditView extends Activity {
-		private ImageButton creditDetailButton=null;
-		private ImageButton activateCardButton=null;
-		private ImageButton cancelTheCardButton=null;
-		private ImageButton creditCardBindButton=null;
-		private ImageButton creditpayButton=null;
+	    
+		private Button creditDetailButton=null;
+		private Button creditDetailButton1=null;
+		private Button activateCardButton=null;
+		private Button activateCardButton1=null;
+		private Button cancelTheCardButton=null;
+		private Button cancelTheCardButton1=null;
+		private Button creditCardBindButton=null;
+		private Button creditpayButton=null;
+		private Button creditpayButton1=null;
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
-	        super.onCreate(savedInstanceState);
-	        setContentView(R.layout.credit);
-	        creditDetailButton=(ImageButton)findViewById(R.id.creditDetail);
+	        super.onCreate(savedInstanceState);  
+	        setContentView(R.layout.credit);  
+	        //帐户信息
+	        creditDetailButton=(Button)findViewById(R.id.creditDetail);
 	        creditDetailButton.setOnClickListener(new CreditDetailButtonListener());
-	        
-	        activateCardButton=(ImageButton)findViewById(R.id.activateCard);
+	        creditDetailButton1=(Button)findViewById(R.id.creditDetail1);
+	        creditDetailButton1.setOnClickListener(new CreditDetailButtonListener());
+	        //开卡
+	        activateCardButton=(Button)findViewById(R.id.activateCard);
 	        activateCardButton.setOnClickListener(new ActivateCardButtonListener());
-		
-	        cancelTheCardButton=(ImageButton)findViewById(R.id.cancelTheCard);
+	        activateCardButton1=(Button)findViewById(R.id.activateCard1);
+	        activateCardButton1.setOnClickListener(new ActivateCardButtonListener());
+		     //销卡
+	        cancelTheCardButton=(Button)findViewById(R.id.cancelTheCard);
 	        cancelTheCardButton.setOnClickListener(new CancelTheCardButtonListener());
+	        cancelTheCardButton1=(Button)findViewById(R.id.cancelTheCard1);
+	        cancelTheCardButton1.setOnClickListener(new CancelTheCardButtonListener());
 	        
-	        
-	        creditCardBindButton=(ImageButton)findViewById(R.id.creditCardBind);
+	        creditCardBindButton=(Button)findViewById(R.id.comelook);
 	        creditCardBindButton.setOnClickListener(new CreditCardBindButtonListener());
-	        
-	        creditpayButton=(ImageButton)findViewById(R.id.creditpay);
+	        //还款
+	        creditpayButton=(Button)findViewById(R.id.creditpay);
 	        creditpayButton.setOnClickListener(new CreditPayButtonListener());
+	        creditpayButton1=(Button)findViewById(R.id.creditpay1);
+	        creditpayButton1.setOnClickListener(new CreditPayButtonListener());
 	        
 	        
 		}
+		//帐户信息事件
 		class CreditDetailButtonListener implements OnClickListener{
 
 			public void onClick(View arg0) {
@@ -46,7 +60,6 @@ public class CreditView extends Activity {
 				CreditView.this.startActivity(intent);
 				
 			}
-			
 		}
 		
 		class ActivateCardButtonListener implements OnClickListener{
