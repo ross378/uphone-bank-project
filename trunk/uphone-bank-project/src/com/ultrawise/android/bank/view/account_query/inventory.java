@@ -1,16 +1,17 @@
 package com.ultrawise.android.bank.view.account_query;
 
 import com.ultrawise.android.bank.view.ABankMain;
-import com.ultrawise.android.bank.view.account_management.AccountInfo;
-import com.ultrawise.android.bank.view.account_management.AccountManagement;
 import com.ultrawise.android.bank.view.transfer.R;
-
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +32,6 @@ public class inventory extends Activity{
 			public void onClick(View v) {
 				 intent.setClass(inventory.this, ABankMain.class);
 				 inventory.this.startActivity(intent);
-
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -50,7 +50,37 @@ public class inventory extends Activity{
 				onBackPressed();
 				finish();
 			}
+		});
+		Button timeStart = (Button)findViewById(R.id.timechange_from);
+		timeStart.setOnClickListener(new OnClickListener() {
 			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub;
+
+				LayoutInflater inflater = getLayoutInflater();
+				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
+				   AlertDialog.Builder builder = new Builder(inventory.this);			   
+				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
+				   .setNegativeButton("取消", null)
+				   .show();
+			}
+		});
+		Button timeOver = (Button)findViewById(R.id.timechange_to);
+		timeOver.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub		
+		        
+				LayoutInflater inflater = getLayoutInflater();
+				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
+				   AlertDialog.Builder builder = new Builder(inventory.this);			   
+				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
+				   .setNegativeButton("取消", null)
+				   .show();
+			}
 		});
 	}
+
+		 
+
 }
