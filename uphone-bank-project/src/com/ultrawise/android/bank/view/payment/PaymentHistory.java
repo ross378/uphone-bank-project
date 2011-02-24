@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.payment;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -42,16 +43,24 @@ public class PaymentHistory extends Activity {
 		tvClassFirst.setText("自助缴费>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				 Intent intent = new Intent();
+				 intent.setClass(PaymentHistory.this, ABankMain.class);
+				 PaymentHistory.this.startActivity(intent);
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("历史缴费记录>");
+		tvClassSecond.setText("历史缴费记录");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 Intent intent = new Intent();
+				 intent.setClass(PaymentHistory.this, PaymentMain.class);
+				 PaymentHistory.this.startActivity(intent);
+			}
+		});
 		tvClassSecond.setVisibility(View.VISIBLE);
+		
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.VISIBLE);
@@ -63,8 +72,16 @@ public class PaymentHistory extends Activity {
 		public void onClick(View v){
 		
 			Intent payhisch_intent = new Intent();
-			payhisch_intent.putExtra("start_time", start_time);
-			payhisch_intent.putExtra("end_time", end_time);
+			if(start_time.equals("起始时间")){
+				payhisch_intent.putExtra("start_time", "2011-1-1");
+			}else{
+				payhisch_intent.putExtra("start_time", start_time);
+			}
+			if(end_time.equals("起始时间")){
+				payhisch_intent.putExtra("end_time", "2011-1-1");
+			}else{
+				payhisch_intent.putExtra("end_time", end_time);
+			}
 			
 			payhisch_intent.setClass(PaymentHistory.this, PaymentLastMonth.class);
 			PaymentHistory.this.startActivity(payhisch_intent);

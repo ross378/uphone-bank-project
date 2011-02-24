@@ -3,8 +3,8 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
-
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -27,9 +27,9 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
 		tvClassFirst.setText("自助缴费");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				 Intent intent = new Intent();
+				 intent.setClass(PaymentMain.this, ABankMain.class);
+				 PaymentMain.this.startActivity(intent);
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -41,7 +41,6 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
         HashMap<String,String> paylist3 = new HashMap<String,String>();
         HashMap<String,String> paylist4 = new HashMap<String,String>();
         HashMap<String,String> paylist5 = new HashMap<String,String>();
-        HashMap<String,String> paylist6 = new HashMap<String,String>();
         
         paylist1.put("payment_list", "待缴费项目");
         paylist1.put("payment_list_info", ">");
@@ -51,17 +50,14 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
         paylist3.put("payment_list_info", ">");
         paylist4.put("payment_list", "历史缴费记录");
         paylist4.put("payment_list_info", ">");
-        paylist5.put("payment_list", "默认缴费账户设置");
+        paylist5.put("payment_list", "缴费项目管理");
         paylist5.put("payment_list_info", ">");
-        paylist6.put("payment_list", "缴费项目管理");
-        paylist6.put("payment_list_info", ">");
         
         mainlist.add(paylist1);
         mainlist.add(paylist2);
         mainlist.add(paylist3);
         mainlist.add(paylist4);
         mainlist.add(paylist5);
-        mainlist.add(paylist6);
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[] {
 				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
@@ -93,10 +89,6 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
 		}else if(id==4){//历史缴费记录
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentDefAcc.class);
-			PaymentMain.this.startActivity(payment_intent);
-		}else if(id==5){//默认账户管理
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentMain.this, PaymentManage.class);
 			PaymentMain.this.startActivity(payment_intent);
 		}
 	}

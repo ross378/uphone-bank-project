@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.payment;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -44,20 +45,27 @@ public class PaymentHisDetail extends Activity {
 		tvClassFirst.setText("自助缴费>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				Intent intent = new Intent();
+				intent.setClass(PaymentHisDetail.this, ABankMain.class);
+				PaymentHisDetail.this.startActivity(intent);
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("历史缴费记录>");
+		tvClassSecond.setText("历史缴费记录");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(PaymentHisDetail.this, PaymentMain.class);
+				PaymentHisDetail.this.startActivity(intent);
+			}
+		});
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
-		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
+		/*TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
 		tvClassThree.setText("明细");
-		tvClassThree.setVisibility(View.VISIBLE);
+		tvClassThree.setVisibility(View.VISIBLE);*/
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.VISIBLE);

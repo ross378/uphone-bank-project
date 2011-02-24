@@ -1,32 +1,16 @@
 package com.ultrawise.android.bank.view.payment;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -44,15 +28,22 @@ public class PaymentLastMonth extends ListActivity {
 		tvClassFirst.setText("自助缴费>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				Intent intent = new Intent();
+				intent.setClass(PaymentLastMonth.this, ABankMain.class);
+				PaymentLastMonth.this.startActivity(intent);
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
 		tvClassSecond.setText("历史缴费记录");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(PaymentLastMonth.this, PaymentMain.class);
+				PaymentLastMonth.this.startActivity(intent);
+			}
+		});
 		tvClassSecond.setVisibility(View.VISIBLE);
         
 		Intent intent = this.getIntent();

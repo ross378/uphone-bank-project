@@ -14,7 +14,7 @@
 	<string name="pay_acc">选择缴费账户:</string>
 	<string name="pay_manage">已有缴费项目：</string>
 	<string name="pay_delacc">请选择默认账户：</string>
-	<string name="pay_chstart">请选择起始时间：</string>
+	<string name="pay_chstart">请输入要查看的时间区间：</string>
 	<string name="pay_chend">请选择终止时间：</string>
 	<string name="trans_main_ph">手机到手机转账</string>
 	<string name="trans_main_acc">手机到签约账户转账</string>
@@ -62,7 +62,7 @@
 		<item>橙色</item>
 
 	</string-array>
-	<string name="btn_look">查看</string>
+	<string name="btn_look">确定</string>
 	<string name="set_time">设置[起始/终止]时间</string>
 
 
