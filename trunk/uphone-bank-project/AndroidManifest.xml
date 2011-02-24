@@ -190,6 +190,27 @@
 			android:name="com.ultrawise.android.bank.view.account_query.BalanceQueryResult"></activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfoSelect">
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.PreferredAccountSelect">
+
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.OrderCardSelect">
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
+
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.OrderCardSelect2">
+			
+			</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.OrderCardShowInfo"></activity>
+		<!-- end activity -->
 			
 		<!--guo    peng  -->
 		
@@ -200,10 +221,6 @@
 			</intent-filter>
 		</activity>
 		
-		
-		<!-- end activity -->
-
-		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
 		</activity>
