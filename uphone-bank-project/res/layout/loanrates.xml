@@ -7,6 +7,8 @@ android:layout_height="fill_parent"
 android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android">
 
+<include layout = "@layout/main_bank_above"/>
+
 <!-- 贷款利率 文本布局  距离上面的上外边距20dip-->
 <LinearLayout
 android:id="@+id/layout1"
@@ -14,6 +16,7 @@ android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:layout_marginTop="20dip"
 xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_below = "@id/headLayout"
 >
 <!-- 贷款存款利率 文本 -->
 <TextView
@@ -284,4 +287,6 @@ android:layout_marginLeft="10dip"
  /> 
 </LinearLayout>
 </LinearLayout>
+
+<include layout = "@layout/main_bank_bottom"/>
 </RelativeLayout>
