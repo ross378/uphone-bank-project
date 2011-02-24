@@ -111,7 +111,7 @@ public class PreferredAccount extends ListActivity {
 						"name", "arrow" }, new int[] { R.id.accMana_tvName, R.id.accMana_tvArrow });
 		this.setListAdapter(sa);
 
-		// 
+		// 设置层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
@@ -137,7 +137,7 @@ public class PreferredAccount extends ListActivity {
 		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassThrid.setVisibility(View.VISIBLE);
 
-		// 
+		// 设置底部按钮
 		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
 		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
 		btnCoustom.setVisibility(View.VISIBLE);

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/bg">
+	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
+	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
+	<LinearLayout android:layout_width="fill_parent" android:layout_below="@id/accManaAbove"
+		android:layout_height="fill_parent" android:orientation="vertical">
+		<LinearLayout android:id="@+id/accPre_linearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<TextView android:id="@+id/accPre_tvPreAcc"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="@string/accPre_PreAcc">
+			</TextView>
+			<TextView android:id="@+id/accPre_tvPreAccClick"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+	</LinearLayout>
+</RelativeLayout>

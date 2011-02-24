@@ -1,7 +1,7 @@
 package com.ultrawise.android.bank.view.account_management;
 
 import com.ultrawise.android.bank.view.ABankMain;
-import com.ultrawise.android.bank.view.account_management.AccountInfoSelect.SpinnerSelectedListener;
+import com.ultrawise.android.bank.view.account_management.ActiveAccountSelect.SpinnerSelectedListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -17,40 +17,48 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class ActiveAccountSelect extends Activity {
+public class OrderCardSelect extends Activity {
 
 	private Spinner spnrSelectTpye;
 	private ArrayAdapter<String> adapterType;
 	private Spinner spnrSelectAcc;
 	private ArrayAdapter<String> adapterAcc;
-	private Button btnActive;
+	private View btnNext;
+	protected boolean flag;
 	protected Intent intent;
-	private EditText dtPwd;
-	protected boolean flag = false;
-	private GestureDetector mGestureDetector;
+	private String accountTypeValue;
+	private String accountValue;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	private ImageView btnReturn;
+	private GestureDetector mGestureDetector;
+
+	/**
+	 * 静态变量，用于intent传输中方便使用
+	 */
+	public final static String ACCOUNT_TYPE = "accountType";
+	public final static String ACCOUNT = "account";
+	public final static String CHANGE_REASON = "changeReason";
+	public final static String NET = "net";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
-		this.setContentView(R.layout.account_active_select);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
+		setContentView(R.layout.account_order_card_select);
 
 		/**
 		 * 下拉框，账户类型:spnrSelectTpye，账户：spnrSelectAcc
 		 */
-		spnrSelectTpye = (Spinner) findViewById(R.id.accAct_SpnrSelectType);
+		spnrSelectTpye = (Spinner) findViewById(R.id.accOrder_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
 		String[] accTypeArray = this.getResources().getStringArray(
 				R.array.accinfo_accType);
@@ -64,7 +72,8 @@ public class ActiveAccountSelect extends Activity {
 		// 添加事件Spinner事件监听
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
-		spnrSelectAcc = (Spinner) this.findViewById(R.id.accAct_SpnrSelectAcc);
+		spnrSelectAcc = (Spinner) this
+				.findViewById(R.id.accOrder_SpnrSelectAcc);
 		String[] accArray = this.getResources().getStringArray(
 				R.array.accinfo_acc);
 		adapterAcc = new ArrayAdapter<String>(this,
@@ -75,59 +84,22 @@ public class ActiveAccountSelect extends Activity {
 		spnrSelectAcc.setOnItemSelectedListener(new SpinnerSelectedListener());
 		spnrSelectAcc.setClickable(false);
 
-		// 获取输入的密码
-		dtPwd = (EditText) this.findViewById(R.id.accAct_dtPwd);
-		String password = dtPwd.getText().toString();
-
+		// 获取账户类型和账户号
+		accountTypeValue = spnrSelectTpye.getSelectedItem().toString();
+		accountValue = spnrSelectAcc.getSelectedItem().toString();
 		// 按钮 激活
-		btnActive = (Button) this.findViewById(R.id.accAct_btnActive);
-		btnActive.setOnClickListener(new OnClickListener() {
+		btnNext = (Button) this.findViewById(R.id.accOrder_btnNextTo2);
+		btnNext.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				// 从服务器比较密码是否正确
-
-				// 获取选中的账户
-				String account = spnrSelectAcc.getSelectedItem().toString();
-				// 弹出对话框
-				if (flag == true) {
-					new AlertDialog.Builder(ActiveAccountSelect.this)
-							.setMessage("账户" + account + "已成功激活")
-							.setPositiveButton("确定",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-
-											Toast.makeText(
-													ActiveAccountSelect.this,
-													"激活成功", Toast.LENGTH_SHORT)
-													.show();
-											finish();
-										}
-									}).show();
-				} else {
-					new AlertDialog.Builder(ActiveAccountSelect.this)
-							.setMessage("密码错误，激活失败")
-							.setPositiveButton("确定",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-
-											Toast.makeText(
-													ActiveAccountSelect.this,
-													"未激活", Toast.LENGTH_SHORT)
-													.show();
-											dialog.dismiss();
-										}
-									}).show();
-				}
+				// TODO 跳转至选择换卡原因和换卡网点的页面
+				intent = new Intent();
+				intent.putExtra(OrderCardSelect.ACCOUNT_TYPE, accountTypeValue);
+				intent.putExtra(OrderCardSelect.ACCOUNT, accountValue);
+				intent.setClass(OrderCardSelect.this, OrderCardSelect2.class);
+				OrderCardSelect.this.startActivity(intent);
 
 			}
-
 		});
 
 		// 向右滑动触发后退
@@ -151,8 +123,8 @@ public class ActiveAccountSelect extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(ActiveAccountSelect.this, ABankMain.class);
-				ActiveAccountSelect.this.startActivity(intent);
+				intent.setClass(OrderCardSelect.this, ABankMain.class);
+				OrderCardSelect.this.startActivity(intent);
 			}
 		});
 
@@ -163,15 +135,14 @@ public class ActiveAccountSelect extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(ActiveAccountSelect.this,
-						AccountManagement.class);
-				ActiveAccountSelect.this.startActivity(intent);
+				intent.setClass(OrderCardSelect.this, AccountManagement.class);
+				OrderCardSelect.this.startActivity(intent);
 
 			}
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("账户激活");
+		tvClassThrid.setText("预约换卡");
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 返回键设定
@@ -192,11 +163,11 @@ public class ActiveAccountSelect extends Activity {
 				int position, long id) {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
-			case R.id.accAct_SpnrSelectType:
+			case R.id.accOrder_SpnrSelectType:
 				spnrSelectTpye.setSelection(position);
 				spnrSelectAcc.setClickable(true);
 				break;
-			case R.id.accAct_SpnrSelectAcc:
+			case R.id.accOrder_SpnrSelectAcc:
 				spnrSelectAcc.setSelection(position);
 				break;
 			}

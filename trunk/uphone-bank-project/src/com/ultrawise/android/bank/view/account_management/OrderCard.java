@@ -46,7 +46,7 @@ public class OrderCard extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
-		// Eject list dialog
+		// 弹出list对话框
 		new AlertDialog.Builder(OrderCard.this)
 				.setTitle("请选择领卡网点")
 				.setItems(R.array.list_bank_net,
@@ -56,7 +56,7 @@ public class OrderCard extends ListActivity {
 								// TODO Auto-generated method stub
 								String[] array = getResources().getStringArray(
 										R.array.list_bank_net);
-								//Eject dialog
+								//弹出对话框
 								new AlertDialog.Builder(OrderCard.this)
 										.setTitle("确认对话框")
 										.setMessage(array[which])
