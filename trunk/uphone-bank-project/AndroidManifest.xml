@@ -22,7 +22,10 @@
     	 
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
-        
+        	<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        	</intent-filter>
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
         
@@ -68,8 +71,7 @@
          </activity>
          <!-- 存款利率 -->
           <activity android:name="com.ultrawise.android.bank.view.DepositeRates">
-       
-		
+               
           </activity>
          <activity android:name="com.ultrawise.android.bank.view.OtherDepositeRates">
          
@@ -215,10 +217,7 @@
 		<!--guo    peng  -->
 		
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+			
 		</activity>
 		
 		<activity
