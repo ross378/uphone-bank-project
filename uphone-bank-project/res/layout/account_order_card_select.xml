@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/bg">
+	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
+	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
+	<LinearLayout android:layout_width="fill_parent" android:layout_below="@id/accManaAbove"
+		android:layout_height="fill_parent" android:orientation="vertical">
+		<LinearLayout android:layout_below="@id/accManaAbove" android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<TextView android:id="@+id/accOrder_tvSelectType"
+			android:text="@string/accinfo_selectType" android:layout_width="fill_parent"
+			android:layout_height="wrap_content"></TextView>
+		<Spinner android:id="@+id/accOrder_SpnrSelectType"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:prompt="@string/accinfo_selectTypeTitle"></Spinner>
+			
+		<TextView android:id="@+id/accOrder_tvSelectAcc" android:text="@string/accinfo_selectAcc"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+		<Spinner android:id="@+id/accOrder_SpnrSelectAcc"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:prompt="@string/accinfo_selectAccTitle"></Spinner>
+			
+		<Button android:layout_gravity="center_horizontal" android:layout_width="wrap_content"
+			android:text="@string/accOrder_Next" android:layout_height="wrap_content"
+			android:id="@+id/accOrder_btnNextTo2"></Button>
+	</LinearLayout>
+	</LinearLayout>
+</RelativeLayout>

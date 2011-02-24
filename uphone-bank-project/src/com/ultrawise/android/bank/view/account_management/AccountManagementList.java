@@ -53,12 +53,12 @@ public class AccountManagementList extends ListActivity {
 		}else if(id==3){
 			//预约换卡
 			intent=new Intent();
-			intent.setClass(AccountManagementList.this, OrderCard.class);
+			intent.setClass(AccountManagementList.this, OrderCardSelect.class);
 			AccountManagementList.this.startActivity(intent);
 		}else if(id==4){
 			//首选账户设置
 			intent=new Intent();
-			intent.setClass(AccountManagementList.this, PreferredAccount.class);
+			intent.setClass(AccountManagementList.this, PreferredAccountSelect.class);
 			AccountManagementList.this.startActivity(intent);
 		}else if(id==5){
 			//添加新账户
@@ -177,7 +177,7 @@ public class AccountManagementList extends ListActivity {
 		});
 
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("账户管理>");
+		tvClassSecond.setText("账户管理");
 		tvClassSecond.setVisibility(View.VISIBLE);
 	}
 	//触摸触发

@@ -5,17 +5,17 @@
 	android:id="@+id/bottomLayout" android:layout_width="fill_parent"
 	android:orientation="horizontal" android:layout_weight="1"
 	android:layout_height="wrap_content" android:layout_alignParentBottom="true">
-	<ImageView android:id="@+id/btnMain" android:layout_width="wrap_content"
-		android:layout_height="40px" android:src="@drawable/cardbg_sjyh_b_3"
+	<ImageView android:id="@+id/btnMain" android:layout_width="160dip"
+		android:layout_height="47dip" android:src="@drawable/main_sjyh"
 		android:layout_weight="1" android:scaleType="fitXY">
 	</ImageView>
-	<ImageView android:id="@+id/btnCoustom" android:layout_width="wrap_content"
-		android:layout_height="40px" android:src="@drawable/cardbg_sy_w"
+	<ImageView android:id="@+id/btnCoustom" android:layout_width="160dip"
+		android:layout_height="47dip" android:src="@drawable/cardbg_sy_w"
 		android:layout_weight="1" android:scaleType="fitXY"
 		android:visibility="gone">
 	</ImageView>
-	<ImageView android:id="@+id/btnHelper" android:layout_width="wrap_content"
-		android:layout_height="40px" android:src="@drawable/cardbg_jrzx_b"
+	<ImageView android:id="@+id/btnHelper" android:layout_width="160dip"
+		android:layout_height="47dip" android:src="@drawable/main_jrzs"
 		android:layout_weight="1" android:scaleType="fitXY">
 	</ImageView>
 
