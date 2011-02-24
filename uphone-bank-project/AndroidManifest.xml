@@ -231,6 +231,13 @@
 <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
 <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"></activity>
+       
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryDetail"></activity>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryEinnahme"></activity>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryBalance"></activity>
+       
+       
 </application>
 	<uses-sdk android:minSdkVersion="7" />
 </manifest> 
