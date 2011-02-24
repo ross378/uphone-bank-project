@@ -7,8 +7,7 @@ android:layout_height="fill_parent"
 android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
-
-<include layout="@layout/main_bank_bottom" />
+<include layout = "@layout/main_bank_above"/>
 <!-- 
 导航按钮的表格布局 
 表格布局在父布局(相对布局)的中央：由
@@ -22,38 +21,53 @@ android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:layout_centerHorizontal="true"
 android:layout_centerVertical="true"
+android:layout_below = "@id/headLayout"
 >
-<!-- 表格布局第一行(手机银行,存款利率按钮)  左外边距为60dip -->
+
+<!-- 表格布局第一行(手机银行,存款利率按钮)  左外边距为50dip -->
 <TableRow
-android:layout_marginLeft="60dip"
+android:layout_marginTop = "67px"
 >
-<!-- 手机银行图形按钮 80*80 aBank-->
+<!-- 1手机银行图形按钮 100*100 aBank-->
 <ImageButton
 android:id="@+id/aBank"
-android:layout_width="80dip"
-android:layout_height="80dip"
+android:layout_width="100px"
+android:layout_height="100px"
 android:src="@drawable/abank"
 android:scaleType="fitXY"
 android:background="#00ffffff"
+android:layout_marginLeft = "50px"
 >
 </ImageButton>
-<!-- 存款利率图形按钮 80*80 相对与手机银行按钮的左边距40dip depositRates-->
+<!-- 2存款利率图形按钮 100*100 相对与手机银行按钮的左边距40dip depositRates-->
 <ImageButton
 android:id="@+id/depositRates"
-android:layout_width="80dip"
-android:layout_height="80dip"
+android:layout_width="100px"
+android:layout_height="100px"
 android:src="@drawable/depositerates"
 android:scaleType="fitXY"
 android:background="#00ffffff"
-android:layout_marginLeft="40dip"
+android:layout_marginLeft="40px"
+>
+</ImageButton>
+<!-- 3贷款利率图形按钮 100*100 loanRate-->
+<ImageButton
+android:id="@+id/loanRate"
+android:layout_width="100px"
+android:layout_height="100px"
+android:src="@drawable/loanrates"
+android:scaleType="fitXY"
+android:background="#00ffffff"
+android:layout_marginLeft = "40px"
 >
 </ImageButton>
 </TableRow>
-<!-- 表格布局第二行(手机银行，存款利率文本)  左外边距为60dip -->
+
+<!-- 表格布局第二行(手机银行，存款利率文本)  左外边距为50dip -->
 <TableRow
-android:layout_marginLeft="60dip"
+android:layout_marginTop = "10px"
 >
-<!-- 手机银行 文本 居中对齐 -->
+<!-- 1手机银行 文本 居中对齐 -->
 <TextView
 android:id="@+id/aBankText"
 android:layout_width="wrap_content"
@@ -62,9 +76,11 @@ android:text="&#25163;&#26426;&#38134;&#34892;"
 android:textStyle="bold"
 android:gravity="center"
 android:textColor="#ffffff"
+android:textSize = "20px"
+android:paddingLeft = "51px"
 >
 </TextView>
-<!-- 存款利率 文本 居中对齐   相对与手机银行文本的左边距40dip-->
+<!-- 2存款利率 文本 居中对齐   相对与手机银行文本的左边距40dip-->
 <TextView
 android:id="@+id/depositRatesText"
 android:layout_width="wrap_content"
@@ -72,41 +88,11 @@ android:layout_height="wrap_content"
 android:text="&#23384;&#27454;&#21033;&#29575;"
 android:textStyle="bold"
 android:gravity="center"
-android:layout_marginLeft="40dip"
 android:textColor="#ffffff"
+android:textSize = "20px"
+android:paddingLeft = "48px"
 >
 </TextView>
-</TableRow>
-<!-- 表格布局第三行(贷款利率，外汇汇率按钮)  左外边距为60dip -->
-<TableRow
-android:layout_marginLeft="60dip"
->
-<!-- 贷款利率图形按钮 80*80 loanRate-->
-<ImageButton
-android:id="@+id/loanRate"
-android:layout_width="80dip"
-android:layout_height="80dip"
-android:src="@drawable/loanrates"
-android:scaleType="fitXY"
-android:background="#00ffffff"
->
-</ImageButton>
-<!-- 外汇汇率图形按钮 80*80 相对与贷款利率按钮的左边距40dip exchangeRate-->
-<ImageButton
-android:id="@+id/exchangeRate"
-android:layout_width="80dip"
-android:layout_height="80dip"
-android:layout_marginLeft="40dip"
-android:src="@drawable/exchangerates"
-android:scaleType="fitXY"
-android:background="#00ffffff"
->
-</ImageButton>
-</TableRow>
-<!-- 表格布局第四行(贷款利率，外汇汇率文本)  左外边距为60dip -->
-<TableRow
-android:layout_marginLeft="60dip"
->
 <!-- 贷款利率文本 居中对齐 -->
 <TextView
 android:id="@+id/loanRateText"
@@ -116,8 +102,33 @@ android:text="&#36151;&#27454;&#21033;&#29575;"
 android:textStyle="bold"
 android:gravity="center"
 android:textColor="#ffffff"
+android:textSize = "20px"
+android:paddingLeft = "48px"
 >
 </TextView>
+</TableRow>
+
+<!-- 表格布局第三行(贷款利率，外汇汇率按钮)  左外边距为60dip -->
+<TableRow
+android:layout_marginTop = "10px"
+>
+<!-- 外汇汇率图形按钮 80*80 相对与贷款利率按钮的左边距40dip exchangeRate-->
+<ImageButton
+android:id="@+id/exchangeRate"
+android:layout_width="100px"
+android:layout_height="100px"
+android:layout_marginLeft="50px"
+android:src="@drawable/exchangerates"
+android:layout_marginTop = "40px"
+android:background="#00ffffff"
+>
+</ImageButton>
+</TableRow>
+
+<!-- 表格布局第四行(贷款利率，外汇汇率文本)  左外边距为60dip -->
+<TableRow
+android:layout_marginTop = "10px"
+>
 <!-- 外汇汇率文本 居中对齐 相对与贷款利率文本的左边距40dip-->
 <TextView
 android:id="@+id/exchangeRate"
@@ -126,13 +137,14 @@ android:layout_height="wrap_content"
 android:text="&#22806;&#27719;&#21033;&#29575;"
 android:textStyle="bold"
 android:gravity="center"
-android:layout_marginLeft="40dip"
 android:textColor="#ffffff"
+android:textSize = "20px"
+android:paddingLeft = "53px"
 >
 </TextView>
 </TableRow>
 </TableLayout>
-
+<include layout = "@layout/main_bank_bottom"/>
 </RelativeLayout>
 
 

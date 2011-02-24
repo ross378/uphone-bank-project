@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 /**
  * 
  * @author weijuan 
@@ -30,11 +31,20 @@ public class ExchangeRates extends Activity {
 	private Spinner delatinCurrencySpinner=null;
 	
 	private Button currencyConCulateButton=null;
+	//界面级别显示文本试图
+	TextView firstText = null;
+	TextView secondText = null;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         //设置布局
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.exchangerates);
+        firstText = (TextView)findViewById(R.id.class_first);
+        firstText.setText(R.string.information);
+        firstText.setVisibility(View.VISIBLE);
+        secondText = (TextView)findViewById(R.id.class_second);
+        secondText.setText(R.string.exchange_rate);
+        secondText.setVisibility(View.VISIBLE);
         //获得货币面值输入框对象
         currencyInputEdit=(EditText)findViewById(R.id.currencyInputEdit);
         //获得原始货币单位下拉框对象

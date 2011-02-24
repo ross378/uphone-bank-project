@@ -7,13 +7,16 @@ android:layout_height="fill_parent"
 android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
+
+
 <!-- 手机用户登陆提示文本布局 -->
 <LinearLayout
 android:id="@+id/loginTextLayout"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
-android:orientation="vertical"
-android:layout_alignParentTop="true"
+android:orientation="vertical"    
+android:layout_alignParentTop="true"           
+
 >
 <!-- 手机登陆提示文本 -->
 <TextView
@@ -159,5 +162,7 @@ android:layout_height="wrap_content"
 android:text="&#30331;&#24405;"
 android:textStyle="bold"/>
 </LinearLayout> 
+
+
 </RelativeLayout>
 

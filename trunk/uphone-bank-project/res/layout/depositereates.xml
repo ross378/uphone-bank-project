@@ -9,97 +9,135 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 <!-- 头部 -->
 <include layout = "@layout/main_bank_above"/>
 
-<!-- 存款利率文本提示布局   距离父布局的外上边距是10dip-->
-<LinearLayout
-android:id="@+id/depositeRatesTiSiTextLayout"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:layout_marginTop="10dip"
-android:layout_below = "@id/headLayout"
->
-<!-- 存款利率 提示文本  居中显示 selfPayText -->
-<TextView
-android:id="@+id/selfPayText"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="存款利率"
-android:textSize="20sp"
-android:textStyle="bold"
-android:textColor="#ffffff"
-android:gravity="center">
-</TextView>
-</LinearLayout>
-<!-- 具体存款类别布局  相对位置在存款利率文本提示布局的下方 距离上面布局上边距 30dip-->
+<!-- 第一级 活期存款 -->
 <LinearLayout 
-	android:id="@+id/SelfCompanyItemLayout"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_below="@id/depositeRatesTiSiTextLayout"
-    android:layout_marginTop="30dip">
-<!-- 个人单位存款利率文本 距离外面布局左边距30dip -->
-<TextView 
-  android:id="@+id/SelfCompanyItemText" 
-  android:layout_width="wrap_content" 
-  android:layout_height="wrap_content" 
-  android:text="个人及单位存款"
-  android:textColor="#ffffff"
-  android:textSize="16sp"
-  android:layout_marginLeft="30dip"
-  /> 
- <!-- 个人单位存款图标  图标大小 25*25 距离左边文本的左边距120dip-->
- <ImageView 
-  android:id="@+id/SelfCompanyItemImage" 
-  android:layout_width="25dip" 
-  android:layout_height="25dip"
-  android:src="@drawable/righticon"
-  android:layout_marginLeft="120dip"
- /> 
+	android:layout_below = "@id/headLayout"
+	android:layout_width = "440px"
+	android:layout_height = "90px"
+	android:layout_marginTop = "120px"
+	android:layout_marginLeft = "20px"
+	android:orientation = "vertical">
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "50px"
+		android:layout_marginLeft = "50px"
+		android:textSize = "24px"
+		android:text = "活期存款"	
+		>
+	</TextView>
+	<LinearLayout
+		android:layout_width = "fill_parent"
+		android:layout_height = "fill_parent"
+		android:orientation = "horizontal">
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "100px"
+		android:text = "当前利率"
+		android:textSize = "22px">
+	</TextView>
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "100px"
+		android:text = "0.36%"
+		android:textSize = "22px">
+	</TextView>
+	</LinearLayout>
 </LinearLayout>
-<!-- 中间白色分隔线 -->
-<TextView
-android:id="@+id/line1"
-android:layout_width="fill_parent"
-android:layout_height="2dip"
-android:background="#ffffff"
-android:layout_marginLeft="30dip"
-android:layout_marginRight="30dip"
-android:layout_marginTop="10dip"
-android:layout_below="@id/SelfCompanyItemLayout"
->
 
-</TextView>
-<!-- 其他存款 文本布局  在分隔线下-->
-<LinearLayout 
-	android:id="@+id/OtherItemLayout" 
-	xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_below="@id/line1"
-    android:layout_marginTop="10dip"
-    
-    >
-<!-- 其他存款 文本  距离外面的布局的左边距 30dip-->
-<TextView 
-  android:id="@+id/OtherItemText" 
-  android:layout_width="wrap_content" 
-  android:layout_height="wrap_content" 
-  android:textColor="#ffffff"
-  android:textSize="16sp"
-  android:layout_marginLeft="30dip"
-  android:text="其他存款"
- /> 
- <!-- 其他存款 图标  图标大小 25*25 距离左边文本的左边距168dip-->
- <ImageView 
-  android:id="@+id/OtherItemImage" 
-  android:layout_width="25dip" 
-  android:layout_height="25dip" 
-  android:src="@drawable/righticon"
-  android:layout_marginLeft="168dip"
- />
+<!-- 第三级 通知存款 -->
+<LinearLayout
+	android:layout_width = "440px"
+	android:layout_height = "210px"
+	android:layout_marginTop = "300px"
+	android:layout_marginLeft = "20px"
+	android:orientation = "vertical"><!-- 通知存款 -->
+	<TextView
+		android:layout_width = "fill_parent"
+		android:layout_height = "50px"
+		android:layout_marginLeft = "50px"
+		android:textSize = "24px"
+		android:text = "通知存款"	
+		>
+	</TextView>
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true">
+	<TableRow>
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "100px"
+		android:text = "一天"
+		android:textSize = "22px">
+	</TextView>
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "200px"
+		android:text = "0.81%"
+		android:textSize = "22px">
+	</TextView>
+	</TableRow>
+	<TableRow>
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "100px"
+		android:text = "七天"
+		android:textSize = "22px">
+	</TextView>
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "200px"
+		android:text = "1.35%"
+		android:textSize = "22px">
+	</TextView>
+	</TableRow>
+	</TableLayout>
 </LinearLayout>
+
+<!-- 第四级 协定存款 -->
+<LinearLayout 
+	android:layout_width = "440px"
+	android:layout_height = "90px"
+	android:layout_marginTop = "300px"
+	android:layout_marginLeft = "20px"
+	android:orientation = "vertical">
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "50px"
+		android:layout_marginLeft = "50px"
+		android:textSize = "24px"
+		android:text = "协定存款"	
+		>
+	</TextView>
+	<LinearLayout
+		android:layout_width = "fill_parent"
+		android:layout_height = "fill_parent"
+		android:orientation = "horizontal">
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "100px"
+		android:text = "当前利率"
+		android:textSize = "22px">
+	</TextView>
+	<TextView
+		android:layout_width = "wrap_content"
+		android:layout_height = "40px"
+		android:layout_marginLeft = "100px"
+		android:text = "0.36%"
+		android:textSize = "22px">
+	</TextView>
+	</LinearLayout>
+</LinearLayout>
+
+	
 <!-- 底部 -->
 <include layout = "@layout/main_bank_bottom"/>
 </RelativeLayout>
