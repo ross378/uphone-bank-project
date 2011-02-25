@@ -1,7 +1,5 @@
 package com.ultrawise.android.bank.view.payment;
-
 import com.ultrawise.android.bank.view.transfer.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
