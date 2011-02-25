@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    >
+<include android:id="@+id/transabove" layout="@layout/main_bank_above" />
+<include android:id="@+id/transbelow" layout="@layout/main_bank_bottom" />
+<ScrollView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical"
+	android:layout_below="@id/transabove"
+	android:layout_above="@id/transbelow"
+	>
+<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+	<LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+<TextView
+
+     android:id="@+id/select_acc"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/select_acc"
+	android:textSize="25sp"
+	/>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+    android:id="@+id/pay_num"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:textSize="25sp"
+	/>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+    android:id="@+id/acc_balance"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/acc_balance"
+	android:textSize="25sp"
+	/>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+<TextView
+    android:id="@+id/balance_num"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:textSize="25sp"
+
+	/>
+		<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
+	</LinearLayout>
+<TextView
+    android:id="@+id/input_psswrd"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/input_psswrd"
+	android:textSize="25sp"
+	/>	
+	
+	
+<EditText
+   android:id="@+id/password"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:password="true"
+	android:paddingLeft="10dip"
+	android:textSize="18sp"
+	/>
+<Button
+    android:id="@+id/rg_pay_ok"
+    android:text="确认缴费"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="90dip"
+	android:layout_marginTop="30dip"
+	android:textSize="25sp"
+	android:gravity="center_horizontal"
+/>
+
+</LinearLayout>
+</ScrollView>
+</RelativeLayout>
