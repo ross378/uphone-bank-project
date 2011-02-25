@@ -28,10 +28,9 @@ public class CreditView extends ListActivity  {
 	        
 	        setContentView(R.layout.credit);  
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-	        iv_now.setVisibility(View.VISIBLE);
+        iv_now.setVisibility(View.GONE);
 	    	intent = new Intent();
 	        TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
-	        tvCredit.setBackgroundColor(Color.BLUE);
 	        tvCredit.setText("首页>信用卡 ");
 	        tvCredit.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
@@ -86,8 +85,7 @@ public class CreditView extends ListActivity  {
 	        SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.credit_list,new String[]{"creditimg1","credit_list","creditimg2"},new int[]{R.id.creditimg1,R.id.credit_list,R.id.creditimg2});
 	        this.setListAdapter(TransMainAdapter);
 	        //设置底部按钮
-			btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-			btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
+			btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 			btnCoustom.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
@@ -95,9 +93,9 @@ public class CreditView extends ListActivity  {
 					CreditView.this.startActivity(intent);
 				}
 			});
-			btnCoustom.setVisibility(View.VISIBLE);
+			//btnCoustom.setVisibility(View.VISIBLE);
 			
-			btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 			btnMain.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
@@ -141,83 +139,3 @@ public class CreditView extends ListActivity  {
 		}
 		}
 }
-	
-	       /* //帐户信息
-	        creditDetailButton=(Button)findViewById(R.id.creditDetail);
-	        creditDetailButton.setOnClickListener(new CreditDetailButtonListener());
-	        creditDetailButton1=(Button)findViewById(R.id.creditDetail1);
-	        creditDetailButton1.setOnClickListener(new CreditDetailButtonListener());
-	        //开卡
-	        activateCardButton=(Button)findViewById(R.id.activateCard);
-	        activateCardButton.setOnClickListener(new ActivateCardButtonListener());
-	        activateCardButton1=(Button)findViewById(R.id.activateCard1);
-	        activateCardButton1.setOnClickListener(new ActivateCardButtonListener());
-		     //销卡
-	        cancelTheCardButton=(Button)findViewById(R.id.cancelTheCard);
-	        cancelTheCardButton.setOnClickListener(new CancelTheCardButtonListener());
-	        cancelTheCardButton1=(Button)findViewById(R.id.cancelTheCard1);
-	        cancelTheCardButton1.setOnClickListener(new CancelTheCardButtonListener());
-	        
-	        creditCardBindButton=(Button)findViewById(R.id.comelook);
-	        creditCardBindButton.setOnClickListener(new CreditCardBindButtonListener());
-	        //还款
-	        creditpayButton=(Button)findViewById(R.id.creditpay);
-	        creditpayButton.setOnClickListener(new CreditPayButtonListener());
-	        creditpayButton1=(Button)findViewById(R.id.creditpay1);
-	        creditpayButton1.setOnClickListener(new CreditPayButtonListener());
-	        
-	        
-		}
-		//帐户信息事件
-		class CreditDetailButtonListener implements OnClickListener{
-
-			public void onClick(View arg0) {
-				Intent intent=new Intent();
-				intent.setClass(CreditView.this,CreditDetail.class);
-				CreditView.this.startActivity(intent);
-				
-			}
-		}
-		
-		class ActivateCardButtonListener implements OnClickListener{
-
-			public void onClick(View arg0) {
-				Intent intent=new Intent();
-				intent.setClass(CreditView.this,ActivateCard.class);
-				CreditView.this.startActivity(intent);
-				
-			}
-		}
-		
-		class CancelTheCardButtonListener implements OnClickListener{
-
-			public void onClick(View arg0) {
-				Intent intent=new Intent();
-				intent.setClass(CreditView.this,CancelTheCard.class);
-				CreditView.this.startActivity(intent);
-				
-			}
-			
-		}
-		
-		class CreditCardBindButtonListener implements OnClickListener{
-
-			public void onClick(View arg0) {
-				Intent intent=new Intent();
-				intent.setClass(CreditView.this,CreditCardBind.class);
-				CreditView.this.startActivity(intent);
-				
-			}
-			
-		}
-		
-		class CreditPayButtonListener implements OnClickListener{
-
-			public void onClick(View arg0) {
-				Intent intent=new Intent();
-				intent.setClass(CreditView.this,SelfPay.class);
-				CreditView.this.startActivity(intent);
-				
-			}
-			
-		}*/

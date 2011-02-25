@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/but"
+    android:background="@drawable/backcredit"
     >
 <include android:id="@+id/creditabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/creditbelow" layout="@layout/main_bank_bottom" />
@@ -21,6 +21,7 @@
     android:layout_height="wrap_content"
     android:drawSelectorOnTop="true"
     android:scrollbars="vertical"
+    android:divider="@drawable/xian"
     />
 </LinearLayout>
 </RelativeLayout>
