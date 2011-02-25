@@ -21,10 +21,8 @@ public class LoanRates extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loanrates);
         firstText = (TextView)findViewById(R.id.class_first);
-        firstText.setText(R.string.information);
+        firstText.setText(R.string.loan_rates);
         firstText.setVisibility(View.VISIBLE);
-        secondText = (TextView)findViewById(R.id.class_second);
-        secondText.setText(R.string.loan_rates);
-        secondText.setVisibility(View.VISIBLE);
+       
 	}
 }
