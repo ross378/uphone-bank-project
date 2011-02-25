@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.credit;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -11,7 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 /**
  * 
  * @author weijuajn
@@ -47,11 +50,48 @@ public class CancelTheCard extends Activity {
 	private String mobileNo=null;
 	//信用卡密码
 	private String creditPasswd=null;
-	
+	Intent intent;
+	ImageView btnCoustom;
+	ImageView btnMain;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cancelthecard);
+        
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
+    	intent = new Intent();
+        TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
+        tvCredit.setText("首页>信用卡>销卡");
+        tvCredit.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 intent.setClass(CancelTheCard.this, CreditView.class);
+				 CancelTheCard.this.startActivity(intent);
+			}
+		});
+        tvCredit.setVisibility(View.VISIBLE);
+        
+      //设置底部按钮
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
+		btnCoustom.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(CancelTheCard.this, ABankMain.class);
+				CancelTheCard.this.startActivity(intent);
+			}
+		});
+		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(CancelTheCard.this, ABankMain.class);
+				CancelTheCard.this.startActivity(intent);
+			}
+		});
         
         //获得证件类型控件对象
         pakitSpinner=(Spinner)findViewById(R.id.pakitSpinner);
@@ -69,7 +109,7 @@ public class CancelTheCard extends Activity {
         //获得手机号输入框对象
         mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit);
       //获得信用卡密码输入框对象
-        creditPasswdEdit=(EditText)findViewById(R.id.creditPasswdEdit);
+        creditPasswdEdit=(EditText)findViewById(R.id.creditpasswordEdit);
         
         
         final String[] arrs1=new String[]{"身份证","学生证","工作证","军人证"};
@@ -128,12 +168,12 @@ public class CancelTheCard extends Activity {
 				mobileNo==null || mobileNo.trim().length()==0 ||
 				creditPasswd==null || creditPasswd.trim().length()==0){
 				cancelFlag=1;
-				flag="对不起,销卡失败";
-				info="用户名,信用卡密码,信用卡号,证件类型,证件号,手机号不能为空!";
+				flag="失败提示：";
+				info="销卡失败!请确认所\n填信息是否正确!";
 			}else{
 				cancelFlag=2;
-				flag="您好："+userName;
-				info="您确定是要将卡号为"+creditNo+"的信用卡服务注销吗？\n";
+				flag="成功提示：";
+				info="销卡成功！\n";
 			}
 			Intent intent = new Intent();
 			intent.putExtra("flag", flag);

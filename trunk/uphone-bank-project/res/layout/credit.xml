@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/but"
     >
 <include android:id="@+id/creditabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/creditbelow" layout="@layout/main_bank_bottom" />
