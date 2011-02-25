@@ -77,26 +77,26 @@ public class AccountQueryEinnahme extends ListActivity {
 	        HashMap<String,Object> acclist2 = new HashMap<String,Object>();
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
-	        //acclist1.put("account_list1", R.drawable.account1);
-	        acclist1.put("account_list_info", "日期");
-	        acclist1.put("account_list2",R.drawable.account2);
+	        acclist1.put("txtView1","1");
+	        acclist1.put("txtView2", "日期");
+	        acclist1.put("txtView3",R.drawable.account2);
 	        
 	        
 	        
-	       // acclist2.put("account_list1", R.drawable.account1);
-	        acclist2.put("account_list_info", "来账时间");
-	        acclist2.put("account_list2", R.drawable.account2);
+	        acclist2.put("txtView1","2");
+	        acclist2.put("txtView2", "来账时间");
+	        acclist2.put("txtView3", R.drawable.account2);
 	        
-	       // acclist3.put("account_list1",R.drawable.account1);
-	        acclist3.put("account_list_info", "来账");
-	        acclist3.put("account_list2",R.drawable.account2);
+	        acclist3.put("txtView1",2);
+	        acclist3.put("txtView2", "来账");
+	        acclist3.put("txtView3",R.drawable.account2);
 	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);
 	        accoutList.add(acclist3);
 	        
-	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list, new String[] {
-					"account_list1", "account_list_info" ,"account_list2",}, new int[] { R.id.account_list1, R.id.account_list_info ,R.id.account_list2} );
+	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list2, new String[] {
+					"txtView1", "txtView2" ,"txtView3",}, new int[] { R.id.txtView1, R.id.txtView2 ,R.id.txtView3} );
 	        this.setListAdapter(MainListAdapter);
 	        
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
