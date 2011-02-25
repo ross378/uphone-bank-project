@@ -22,10 +22,6 @@
     	 
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
-        	<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        	</intent-filter>
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
         
@@ -158,7 +154,8 @@
 		
 		<!-- 错误信息两个按钮 -->
 		
-			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo" android:label="@string/app_title">
+			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo" android:label="@string/app_title"
+			android:theme="@android:style/Theme.Dialog">
 		
 		</activity>
 		<!-- 错误信息一个按钮 -->
