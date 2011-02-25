@@ -84,7 +84,7 @@ public class PaymentDetail extends ListActivity {
 	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
 	       
 	        paylist1.put("listimg1","项目名称：");
-	        paylist1.put("payment_list",pay_amount);
+	        paylist1.put("payment_list",pay_title);
 	        mainlist.add(paylist1);
 	        
 	        paylist1 = new HashMap<String,Object>();
@@ -97,27 +97,27 @@ public class PaymentDetail extends ListActivity {
 	        paylist1 = new HashMap<String,Object>();
 		       
 	        paylist1.put("listimg1","收费方：");
-	        paylist1.put("payment_list",pay_amount);
+	        paylist1.put("payment_list",inputed_peo);
 	        mainlist.add(paylist1);
 	        
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       
 	        paylist1.put("listimg1","缴费流水号：");
-	        paylist1.put("payment_list",pay_amount);
+	        paylist1.put("payment_list",pay_sernum);
 	        mainlist.add(paylist1);
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       
 	        paylist1.put("listimg1","缴费期限:");
-	        paylist1.put("payment_list",pay_amount);
+	        paylist1.put("payment_list",pay_deadline);
 	        mainlist.add(paylist1);
 	        
 	        
 	       
 	        SimpleAdapter MainListAdapter = new SimpleAdapter(
 	        		this, mainlist,R.layout.payment_details_list, new String[]{
-	        				"listimg1","payment_list"},new int[]{R.id.payment_list,R.id.payment_list_info} );
+	        				"listimg1","payment_list"},new int[]{R.id.payment_list,R.id.payment_list2} );
 	        this.setListAdapter(MainListAdapter);
         
  
