@@ -59,7 +59,7 @@ public class CancelTheCard extends Activity {
         setContentView(R.layout.cancelthecard);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        iv_now.setVisibility(View.GONE);
     	intent = new Intent();
         TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
         tvCredit.setText("首页>信用卡>销卡");
@@ -72,7 +72,7 @@ public class CancelTheCard extends Activity {
         tvCredit.setVisibility(View.VISIBLE);
         
       //设置底部按钮
-		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 		btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
 		btnCoustom.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -83,7 +83,7 @@ public class CancelTheCard extends Activity {
 		});
 		btnCoustom.setVisibility(View.VISIBLE);
 		
-		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 		btnMain.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
