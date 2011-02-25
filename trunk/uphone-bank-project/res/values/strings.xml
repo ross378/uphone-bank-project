@@ -19,6 +19,8 @@
 	<string name="trans_main_ph">手机到手机转账</string>
 	<string name="trans_main_acc">手机到签约账户转账</string>
 	<string name="trans_amount">请输入转账金额</string>
+	<string name="trans_acc_type">请选择账户类型</string>
+	<string name="trans_acc">请选择账户</string>
 	<string name="input_psswrd">请输入账户密码</string>
 	<string name="selected_acc">付款账户：</string>
 	<string name="inputed_num">收款人手机号：</string>
@@ -49,7 +51,12 @@
 		<item>军人证</item>
 		<item>工作证</item>
 	</string-array>
-
+	<string-array name="account">
+	<item>123456789012</item>
+	<item>234567890123</item>
+	<item>345678901234</item>
+	<item>456789012345</item>
+	</string-array>
 	<string-array name="list_bank_net">
 		<item>小北储蓄所</item>
 		<item>省行营业室</item>
