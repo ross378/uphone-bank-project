@@ -129,6 +129,10 @@
 		
 		<!-- 缴费 -->
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentMain" android:label="@string/app_title">
+		  <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService" android:label="@string/app_title">
@@ -142,6 +146,34 @@
 		
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManage" android:label="@string/app_title">
 		
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.AllPaymentSer" android:label="@string/app_title">
+		
+		</activity>
+		
+			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
+		
+		</activity>
+		
+		
+		<!-- 错误信息两个按钮 -->
+		
+			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo" android:label="@string/app_title">
+		
+		</activity>
+		<!-- 错误信息一个按钮 -->
+			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultOne" android:label="@string/app_title">
+		
+		</activity>
+		
+		
+		
+		
+		
+		
+		
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentInPwd" android:label="@string/app_title">
+		 
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentLastMonth" android:label="@string/app_title">
 		
@@ -236,7 +268,6 @@
 		<!--guo    peng  -->
 		
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
-
 		</activity>
 		
 		<activity
