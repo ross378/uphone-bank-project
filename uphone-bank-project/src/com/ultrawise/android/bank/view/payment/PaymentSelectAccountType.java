@@ -25,22 +25,52 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("自助缴费>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+//				Intent payment_intent = new Intent();
+//				payment_intent.setClass(PaymentSelectAccountType.this, PaymentMain.class);
+//				PaymentSelectAccountType.this.startActivity(payment_intent);	
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		
-		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
-		tvClassThree.setText("缴费账户选择");
-		tvClassThree.setVisibility(View.VISIBLE);
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("自助缴费>");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent payment_intent = new Intent();
+				payment_intent.setClass(PaymentSelectAccountType.this, PaymentMain.class);
+				PaymentSelectAccountType.this.startActivity(payment_intent);	
+				
+			}
+		});
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		
+		
+		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
+		tvClassThird.setText("待缴费项目");
+		tvClassThird.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent payment_intent = new Intent();
+				payment_intent.setClass(PaymentSelectAccountType.this, PaymentPend.class);
+				PaymentSelectAccountType.this.startActivity(payment_intent);	
+				
+			}
+		});
+		tvClassThird.setVisibility(View.VISIBLE);
+		
+		
+		TextView tv_acc_typ = (TextView)this.findViewById(R.id.paymenthistory);
+		tv_acc_typ.setText("缴费账户类型选择");
+//		tvClassThree.setVisibility(View.VISIBLE);
+		
 		
         ArrayList<HashMap<String,String>> selectlist = new ArrayList<HashMap<String,String>>();
         
@@ -70,7 +100,8 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {//首选账户
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentSelectAccountType.this,PaymentMain.class);
+			payment_intent.putExtra("Account", "67324623461");
+			payment_intent.setClass(PaymentSelectAccountType.this,PaymentInPwd.class);
 			PaymentSelectAccountType.this.startActivity(payment_intent);
 		}else if(id==1){//其他账户
 			Intent payment_intent = new Intent();
