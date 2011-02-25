@@ -6,7 +6,12 @@
 		
 				<!-- 信用卡 -->
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
-		
+			
+			 <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+			
         </activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditView">
         </activity>
@@ -278,8 +283,8 @@
 	<!-- end activity -->
 	<!--guo    peng  -->
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery"></activity>
-<activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
-<activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"></activity>
        
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
