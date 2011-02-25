@@ -4,23 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
-import com.ultrawise.android.bank.view.account_management.AccountManagement;
-import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
-import com.ultrawise.android.bank.view.payment.PaymentHistory;
-import com.ultrawise.android.bank.view.payment.PaymentLastMonth;
-import com.ultrawise.android.bank.view.payment.PaymentMain;
-import com.ultrawise.android.bank.view.payment.PaymentManage;
-import com.ultrawise.android.bank.view.payment.PaymentPend;
-import com.ultrawise.android.bank.view.payment.PaymentSelfService;
 import com.ultrawise.android.bank.view.transfer.R;
-
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -28,16 +18,6 @@ import android.widget.TextView;
 
 
 public class CreditView extends ListActivity  {
-	    
-		private Button creditDetailButton=null;
-		private Button creditDetailButton1=null;
-		private Button activateCardButton=null;
-		private Button activateCardButton1=null;
-		private Button cancelTheCardButton=null;
-		private Button cancelTheCardButton1=null;
-		private Button creditCardBindButton=null;
-		private Button creditpayButton=null;
-		private Button creditpayButton1=null;
 		TextView  tvCredit;
 		Intent intent;
 		ImageView btnCoustom;
@@ -51,7 +31,8 @@ public class CreditView extends ListActivity  {
 	        iv_now.setVisibility(View.VISIBLE);
 	    	intent = new Intent();
 	        TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
-	        tvCredit.setText("首页>信用卡");
+	        tvCredit.setBackgroundColor(Color.BLUE);
+	        tvCredit.setText("首页>信用卡 ");
 	        tvCredit.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					 intent.setClass(CreditView.this, ABankMain.class);
@@ -96,6 +77,11 @@ public class CreditView extends ListActivity  {
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","信用卡还款");
 	        map.put("creditimg2", R.drawable.righticon);
+	        list.add(map);
+	        map = new HashMap<String,Object>();
+	        map.put("creditimg1","");
+	        map.put("credit_list","");
+	        map.put("creditimg2", "");
 	        list.add(map);
 	        SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.credit_list,new String[]{"creditimg1","credit_list","creditimg2"},new int[]{R.id.creditimg1,R.id.credit_list,R.id.creditimg2});
 	        this.setListAdapter(TransMainAdapter);

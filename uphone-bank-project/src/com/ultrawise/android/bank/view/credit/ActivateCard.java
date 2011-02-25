@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.credit;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -11,7 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 /**
  * 
@@ -56,11 +59,49 @@ public class ActivateCard extends Activity {
 	private String accountPassword=null;
 	//信用卡有效期值
 	private String dateEnable=null;
-	
+	Intent intent;
+	ImageView btnCoustom;
+	ImageView btnMain;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activatecard);
+        
+        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
+        iv_now.setVisibility(View.VISIBLE);
+    	intent = new Intent();
+        TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
+        tvCredit.setText("首页>信用卡>开卡");
+        tvCredit.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 intent.setClass(ActivateCard.this, CreditView.class);
+				 ActivateCard.this.startActivity(intent);
+			}
+		});
+        tvCredit.setVisibility(View.VISIBLE);
+        
+      //设置底部按钮
+		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
+		btnCoustom.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(ActivateCard.this, ABankMain.class);
+				ActivateCard.this.startActivity(intent);
+			}
+		});
+		btnCoustom.setVisibility(View.VISIBLE);
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(ActivateCard.this, ABankMain.class);
+				ActivateCard.this.startActivity(intent);
+			}
+		});
+		
         //获得开卡按钮对象，并设置其鼠标单击事件监听
         activateCardButton=(Button)findViewById(R.id.activateCard1);
         activateCardButton.setOnClickListener(new ActivateCardButtonListener());
@@ -79,7 +120,7 @@ public class ActivateCard extends Activity {
         //获得固定电话输入框对象
         phoneNoEdit=(EditText)findViewById(R.id.phoneNoEdit);
         //获得帐户密码输入框对象
-        passwordEdit=(EditText)findViewById(R.id.creditPasswdEdit);
+        passwordEdit=(EditText)findViewById(R.id.creditpasswordEdit);
         //获得证件号输入框对象
         pakitNoEditText=(EditText)findViewById(R.id.pakitNoEditText);
         
