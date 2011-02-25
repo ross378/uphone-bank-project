@@ -71,30 +71,34 @@ public class PaymentPend extends ListActivity {
         
         HashMap<String,Object> paylist1 = new HashMap<String,Object>();
        
-        paylist1.put("listimg1",R.drawable.trans_main);
-        paylist1.put("payment_list","三月份水费                "+"50"+"元");
+         
+        paylist1.put("payment_list","三月份水费");
+        paylist1.put("payment_list2","50元");
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
         
         paylist1 = new HashMap<String,Object>();
-        paylist1.put("listimg1",R.drawable.trans_main);
-        paylist1.put("payment_list","三月份电费                "+"100"+"元");
+        
+        paylist1.put("payment_list","三月份电费");
+        paylist1.put("payment_list2","50元");
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
         
         
         paylist1 = new HashMap<String,Object>();
-        paylist1.put("listimg1",R.drawable.trans_main);
-        paylist1.put("payment_list","三月份煤气                "+"90"+"元");
+         
+        paylist1.put("payment_list","三月份煤气");
+        paylist1.put("payment_list2","50元");
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
         
         paylist1 = new HashMap<String,Object>();
-        paylist1.put("listimg1",R.drawable.trans_main);
-        paylist1.put("payment_list","三月份房租                "+"3000"+"元");
+        
+        paylist1.put("payment_list","三月份房租");
+        paylist1.put("payment_list2","3000元");
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
@@ -105,7 +109,7 @@ public class PaymentPend extends ListActivity {
         
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{
-        		"payment_list","listimg2"},new int[]{R.id.payment_list,R.id.listimg2 } );
+        		"payment_list","payment_list2","listimg2"},new int[]{R.id.payment_list,R.id.payment_list2,R.id.listimg2 } );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
