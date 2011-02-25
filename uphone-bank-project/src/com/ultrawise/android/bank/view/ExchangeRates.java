@@ -40,11 +40,9 @@ public class ExchangeRates extends Activity {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.exchangerates);
         firstText = (TextView)findViewById(R.id.class_first);
-        firstText.setText(R.string.information);
+        firstText.setText(R.string.exchange_rates);
         firstText.setVisibility(View.VISIBLE);
-        secondText = (TextView)findViewById(R.id.class_second);
-        secondText.setText(R.string.exchange_rate);
-        secondText.setVisibility(View.VISIBLE);
+        
         //获得货币面值输入框对象
         currencyInputEdit=(EditText)findViewById(R.id.currencyInputEdit);
         //获得原始货币单位下拉框对象
