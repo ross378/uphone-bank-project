@@ -34,8 +34,6 @@ public class AccountQueryType extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_querytype);
-        
-
         intent = new Intent();
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("手机银行>");
@@ -71,25 +69,32 @@ public class AccountQueryType extends ListActivity {
 	    type1.setText("账户类型：");
 	    type2=(TextView)findViewById(R.id.type2);
 	    type2.setText("定期存储(零存整取)");
-        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
+        ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
         
-        HashMap<String,String> acclist1 = new HashMap<String,String>();
-        HashMap<String,String> acclist2 = new HashMap<String,String>();
-        HashMap<String,String> acclist3 = new HashMap<String,String>();
+        HashMap<String,Object> acclist1 = new HashMap<String,Object>();
+        HashMap<String,Object> acclist2 = new HashMap<String,Object>();
+        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
         
-        acclist1.put("account_list", "账户信息及余额查询");
-        acclist1.put("account_list_info", ">");
-        acclist2.put("account_list", "账单明细查询");
-        acclist2.put("account_list_info", ">");
-        acclist3.put("account_list", "账户来帐查询");
-        acclist3.put("account_list_info", ">");
+        acclist1.put("account_list1", R.drawable.account1);
+        acclist1.put("account_list_info", "账户信息及余额查询");
+        acclist1.put("account_list2",R.drawable.account2);
+        
+        
+        
+        acclist2.put("account_list1", R.drawable.account1);
+        acclist2.put("account_list_info", "账户明细查询");
+        acclist2.put("account_list2", R.drawable.account2);
+        
+        acclist3.put("account_list1",R.drawable.account1);
+        acclist3.put("account_list_info", "账户来帐查询");
+        acclist3.put("account_list2",R.drawable.account2);
         
         accoutList.add(acclist1);
         accoutList.add(acclist2);
         accoutList.add(acclist3);
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list, new String[] {
-				"account_list", "account_list_info" }, new int[] { R.id.account_list, R.id.account_list_info } );
+				"account_list1", "account_list_info" ,"account_list2",}, new int[] { R.id.account_list1, R.id.account_list_info ,R.id.account_list2} );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
