@@ -17,7 +17,10 @@ public class TransAmtConfirm extends Activity {
         btn_trans_cofok.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent trans_amt_cofcan = new Intent();
+				trans_amt_cofcan.setClass(TransAmtConfirm.this, TransSuccDialog.class);
+				TransAmtConfirm.this.startActivity(trans_amt_cofcan);
+				TransAmtConfirm.this.startActivity(trans_amt_cofcan);
 			}
         	
         });

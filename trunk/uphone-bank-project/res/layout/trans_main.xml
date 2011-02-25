@@ -11,7 +11,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
-	android:background="@drawable/trans_main_bg"
+	android:background="#AAF2F6F9"
 	android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
@@ -22,6 +22,13 @@
 	android:textColor="#FF000000"
 	android:textSize="18sp"
 	android:paddingLeft="30dip"
+	android:visibility="gone"
+	/>
+<TextView
+	android:id="@+id/tv_trans_ln"
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:background="#FF555555"
 	android:visibility="gone"
 	/>
 <ListView
