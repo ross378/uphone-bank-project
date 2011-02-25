@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 /**
@@ -31,6 +32,8 @@ public class ExchangeRates extends Activity {
 	private Spinner delatinCurrencySpinner=null;
 	
 	private Button currencyConCulateButton=null;
+	
+	private ImageView back = null;
 	//界面级别显示文本试图
 	TextView firstText = null;
 	TextView secondText = null;
@@ -42,7 +45,10 @@ public class ExchangeRates extends Activity {
         firstText = (TextView)findViewById(R.id.class_first);
         firstText.setText(R.string.exchange_rates);
         firstText.setVisibility(View.VISIBLE);
-        
+        secondText = (TextView)findViewById(R.id.class_second);
+        secondText.setText(R.string.exchange_rates);
+        secondText.setVisibility(View.VISIBLE);
+        back = (ImageView)findViewById(R.id.returnToPre);
         //获得货币面值输入框对象
         currencyInputEdit=(EditText)findViewById(R.id.currencyInputEdit);
         //获得原始货币单位下拉框对象
@@ -136,4 +142,10 @@ public class ExchangeRates extends Activity {
 		}
 		
 	}
+	class BackImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 ExchangeRates.this.finish();
+		 }
+	 }
 }
