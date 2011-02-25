@@ -26,10 +26,46 @@ import android.widget.TextView;
  */
 public class DepositeRates extends Activity {
 	
+	 private ImageView back = null;
+	 private ImageView phoneBank = null;
+	 private ImageView helper = null;
+	 TextView firstText = null;
+	 TextView secondText = null;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.depositereates);
-	        
+	        firstText = (TextView)findViewById(R.id.class_first);
+	        firstText.setText(R.string.helper);
+	        firstText.setVisibility(View.VISIBLE);
+	        secondText = (TextView)findViewById(R.id.class_second);
+	        secondText.setText(R.string.deposite_rates);
+	        secondText.setVisibility(View.VISIBLE);
+	        back = (ImageView)findViewById(R.id.returnToPre);
+	        back.setOnClickListener(new BackImageViewListener());
+	        phoneBank = (ImageView)findViewById(R.id.btnCoustom);
+	        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
+	        helper = (ImageView)findViewById(R.id.btnHelper);
+	        helper.setOnClickListener(new BackImageViewListener());
 	    }
 	 
+	 class BackImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 DepositeRates.this.finish();
+		 }
+	 }
+	 
+	 class PhoneBankImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 //
+		 }
+	 }
+	 
+	 class HelperImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 //
+		 }
+	 }
 }
