@@ -4,6 +4,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -124,7 +125,7 @@ public class AccountQuery extends Activity {
 
 		// 继续按钮跳转
 		btnContinue = (Button) findViewById(R.id.btnContinue);
-		// System.out.println("跳转");
+		btnContinue.setTextColor(Color.BLACK);
 		btnContinue.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
