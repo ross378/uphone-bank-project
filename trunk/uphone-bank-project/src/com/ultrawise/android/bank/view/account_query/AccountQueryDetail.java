@@ -101,7 +101,7 @@ public class AccountQueryDetail extends ListActivity {
 	        accoutList.add(acclist5);
 	        
 	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list, new String[] {
-					"account_list", "account_list_info" }, new int[] { R.id.account_list, R.id.account_list_info } );
+					"account_list", "account_list_info" }, new int[] { R.id.account_list3, R.id.account_list_info3 } );
 	        this.setListAdapter(MainListAdapter);
 	        
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
