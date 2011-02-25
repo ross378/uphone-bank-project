@@ -73,7 +73,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
          
         
         String pay_num = paymentre_intent.getStringExtra("Account");    
-        acc_balance =799;
+        acc_balance =399;
         
         tv_pay_num.setText(pay_num); 
         
@@ -95,11 +95,11 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         		if(tv_pasword.getText().toString().equals(file_password)){
         		
         			
-        			if((acc_balance>=900)){
+        			if((acc_balance>=500)){
         			Intent btnok_intent = new Intent();
         			btnok_intent.putExtra("flag", "成功！");
-        			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-600));
-        			btnok_intent.setClass(PaymentInPwd.this, PaymentFailResultOne.class);
+        			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-500));
+        			btnok_intent.setClass(PaymentInPwd.this, PaymentResult.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			}	else {
             			Intent btnok_intent = new Intent();
@@ -118,7 +118,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         			Intent btnok_intent = new Intent();
         			btnok_intent.putExtra("flag", "失败！");
         			btnok_intent.putExtra("info", "密码错误！");
-        			btnok_intent.setClass(PaymentInPwd.this,PaymentResult.class);
+        			btnok_intent.setClass(PaymentInPwd.this,PaymentFailResultOne.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			
         			
