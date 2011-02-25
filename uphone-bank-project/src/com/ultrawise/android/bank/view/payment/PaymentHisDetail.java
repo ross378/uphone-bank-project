@@ -42,7 +42,7 @@ public class PaymentHisDetail extends Activity {
         //tv_acc2.setText(tvacc);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("自助缴费>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -51,17 +51,27 @@ public class PaymentHisDetail extends Activity {
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
-		
-		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("历史缴费记录");
-		tvClassSecond.setOnClickListener(new OnClickListener() {
+        TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+        tvClassSecond.setText("自助缴费>");
+        tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(PaymentHisDetail.this, PaymentMain.class);
 				PaymentHisDetail.this.startActivity(intent);
 			}
 		});
-		tvClassSecond.setVisibility(View.VISIBLE);
+        tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
+		tvClassThird.setText("历史缴费记录");
+		tvClassThird.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(PaymentHisDetail.this, PaymentHistory.class);
+				PaymentHisDetail.this.startActivity(intent);
+			}
+		});
+		tvClassThird.setVisibility(View.VISIBLE);
 		
 		/*TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
 		tvClassThree.setText("明细");

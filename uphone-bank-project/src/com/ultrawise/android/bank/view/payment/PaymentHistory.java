@@ -9,38 +9,63 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class PaymentHistory extends Activity {
-	static String start_time = "起始时间";
-	static String end_time = "终止时间";
+	static String start_time = "2011-1-1";
+	static String end_time = "2011-1-31";
+	EditText start_text = null;
+	EditText end_text = null;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_hisdtl_ch);
        
         Button btn_payhis_ok = (Button)findViewById(R.id.btn_payhisck_ok);
-        Button btn_payhis_starttime = (Button)findViewById(R.id.tv_payhis_ckstartbut);
-        btn_payhis_starttime.setOnClickListener(new SetStartTime());
-        Button btn_payhis_endtime=(Button)findViewById(R.id.tv_payhis_ckendendbut);
-        btn_payhis_endtime.setOnClickListener(new SetEndTime());
         
+        start_text = (EditText)findViewById(R.id.start_text);
+        start_text.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent set_start_time = new Intent();
+				set_start_time.putExtra("start", "start");
+				set_start_time.setClass(PaymentHistory.this, PaymentSetTimeDialog.class);
+				PaymentHistory.this.startActivity(set_start_time);
+			}
+		});
+        
+        end_text = (EditText)findViewById(R.id.end_text);
+        end_text.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent set_end_time = new Intent();
+				set_end_time.putExtra("end", "end");
+				set_end_time.setClass(PaymentHistory.this, PaymentSetTimeDialog.class);
+				PaymentHistory.this.startActivity(set_end_time);
+			}
+		});
+        
+        /*Spinner starttime = (Spinner)findViewById(R.id.tv_payhis_ckstartbut);
+        starttime.setOnClickListener(new SetStartTime());
+        Spinner endtime = (Spinner)findViewById(R.id.tv_payhis_ckendendbut);
+        endtime.setOnClickListener(new SetEndTime());*/
         Intent intent = this.getIntent();
         if(intent.hasExtra("start")){
         	String[] date = intent.getStringArrayExtra("start");
         	start_time = date[0]+"-"+date[1]+"-"+date[2];
         }
-        btn_payhis_starttime.setText(start_time);
+        start_text.setText(start_time);
         if(intent.hasExtra("end")){
         	String[] date = intent.getStringArrayExtra("end");
         	end_time = date[0]+"-"+date[1]+"-"+date[2];
         }
-        btn_payhis_endtime.setText(end_time);
+        end_text.setText(end_time);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("自助缴费>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 Intent intent = new Intent();
@@ -49,9 +74,8 @@ public class PaymentHistory extends Activity {
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
-		
-		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("历史缴费记录");
+        TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("自助缴费>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 Intent intent = new Intent();
@@ -60,6 +84,10 @@ public class PaymentHistory extends Activity {
 			}
 		});
 		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
+		tvClassThird.setText("历史缴费记录");
+		tvClassThird.setVisibility(View.VISIBLE);
 		
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
@@ -72,16 +100,8 @@ public class PaymentHistory extends Activity {
 		public void onClick(View v){
 		
 			Intent payhisch_intent = new Intent();
-			if(start_time.equals("起始时间")){
-				payhisch_intent.putExtra("start_time", "2011-1-1");
-			}else{
-				payhisch_intent.putExtra("start_time", start_time);
-			}
-			if(end_time.equals("起始时间")){
-				payhisch_intent.putExtra("end_time", "2011-1-1");
-			}else{
-				payhisch_intent.putExtra("end_time", end_time);
-			}
+			payhisch_intent.putExtra("start_time", start_time);
+			payhisch_intent.putExtra("end_time", end_time);
 			
 			payhisch_intent.setClass(PaymentHistory.this, PaymentLastMonth.class);
 			PaymentHistory.this.startActivity(payhisch_intent);
@@ -93,24 +113,5 @@ public class PaymentHistory extends Activity {
 			payhisch_intent.setClass(PaymentHistory.this, PaymentMain.class);
 			PaymentHistory.this.startActivity(payhisch_intent);
 		}
-	}
-	class SetStartTime implements OnClickListener{
-
-		public void onClick(View v) {
-			Intent set_start_time = new Intent();
-			set_start_time.putExtra("start", "start");
-			set_start_time.setClass(PaymentHistory.this, PaymentSetTimeDialog.class);
-			PaymentHistory.this.startActivity(set_start_time);
-		}
-	}
-	class SetEndTime implements OnClickListener{
-
-		public void onClick(View v) {
-			Intent set_end_time = new Intent();
-			set_end_time.putExtra("end", "end");
-			set_end_time.setClass(PaymentHistory.this, PaymentSetTimeDialog.class);
-			PaymentHistory.this.startActivity(set_end_time);
-		}
-		
 	}
 }

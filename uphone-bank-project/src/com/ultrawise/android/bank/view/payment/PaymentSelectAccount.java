@@ -83,8 +83,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 			AccTypAdapter.add("储蓄卡"); 
 			AccTypAdapter.add("信用卡"); 
 			AccTypSpinner= (Spinner)findViewById(R.id.spinnerAccTyp); 
-			AccTypSpinner.setAdapter(AccTypAdapter);  
-	        
+			AccTypSpinner.setAdapter(AccTypAdapter); 
+			
 			AccTypSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 				public void onItemSelected(AdapterView< ?> parent,  View view, 

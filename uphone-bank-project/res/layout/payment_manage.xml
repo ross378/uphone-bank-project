@@ -23,51 +23,85 @@
 	
 	>
 <TextView
-	android:layout_width="wrap_content"
+	android:id="@+id/payment_open"
+	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:text="@string/pay_manage"
 	android:paddingLeft="10dip"
 	android:textSize="23sp"
+	/><!--
+	<ListView
+	android:id="@+id/open:list"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
+    --><RelativeLayout
+    android:id="@+id/opened_list"
+    android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+    >
+    <LinearLayout
+    android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+    >
+    <ListView 
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="水费"
+	android:textSize="23sp"
+    ></ListView>
+    <Button 
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="水费"
+	android:textSize="23sp"
+    ></Button>
+    </LinearLayout>
+    </RelativeLayout>
+	<TextView 
+	android:id="@+id/payment_close"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/pay_all_manage"
+	android:paddingLeft="10dip"
+	android:textSize="23sp"
 	/>
-<CheckBox 
-	android:id="@+id/cb_pay_manage1"
-	android:layout_width="wrap_content"
+	<!--<ListView
+	android:id="@+id/close:list"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
+    
+-->
+	<RelativeLayout
+    android:id="@+id/closed_list"
+    android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginLeft="30dip"
-	android:checked="true"
-	android:text="手机充值" 
-/>
-<CheckBox 
-	android:id="@+id/cb_pay_manage2"
-	android:layout_width="wrap_content"
+    >
+    <LinearLayout
+    android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_marginLeft="30dip"
-	android:checked="true"
-	android:text="平安保险" 
-/>
-<CheckBox 
-	android:id="@+id/cb_pay_manage3"
-	android:layout_width="wrap_content"
+	android:orientation="horizontal"
+    >
+    <ListView 
+    android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_marginLeft="30dip"
-	android:checked="true"
-	android:text="交通罚款" 
-/>
-<CheckBox 
-	android:id="@+id/cb_pay_manage4"
-	android:layout_width="wrap_content"
+	android:text="水费"
+	android:textSize="23sp"
+    ></ListView>
+    <Button 
+    android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_marginLeft="30dip"
-	android:checked="false"
-	android:text="报纸订阅" 
-/>
-<Button
-	android:id="@+id/btn_paymana_ok"
-	android:layout_width="150dip"
-	android:layout_height="wrap_content"
-	android:text="@string/btn_ok"
-	android:layout_gravity="center_horizontal"
-/>
+	android:text="水费"
+	android:textSize="23sp"
+    ></Button>
+    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
 </ScrollView>
 </RelativeLayout>
