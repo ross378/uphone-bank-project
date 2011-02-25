@@ -24,9 +24,11 @@ public class PaymentSelfService extends ListActivity {
         setContentView(R.layout.payment_main);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				
+				
 				// intent = QueryAccount.this.getIntent();
 				// intent.setClass(QueryAccount.this, AccountManagement.class);
 				// QueryAccount.this.startActivity(intent);
@@ -37,10 +39,32 @@ public class PaymentSelfService extends ListActivity {
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
 		tvClassSecond.setText("自助缴费>");
 		tvClassSecond.setVisibility(View.VISIBLE);
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent payment_intent = new Intent();
+				payment_intent.setClass(PaymentSelfService.this, PaymentMain.class);
+				PaymentSelfService.this.startActivity(payment_intent);
+				
+				
+			}
+		});
+		
+		
+		
 		
 		TextView tvClassThird= (TextView)this.findViewById(R.id.class_third);
-		tvClassThird.setText("便捷服务>");
+		tvClassThird.setText("便捷服务");
 		tvClassThird.setVisibility(View.VISIBLE);
+		
+		tvClassThird.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
         
       
 		ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
@@ -57,9 +81,9 @@ public class PaymentSelfService extends ListActivity {
 //        paylist2.put("payment_list_info", "");
         paylist1.put("payment_list", "  --手机充值");
         paylist1.put("payment_list_info", ">");
-        paylist2.put("payment_list", "  --平安保险");
+        paylist2.put("payment_list", "  --QQ充值");
         paylist2.put("payment_list_info", ">");
-        paylist3.put("payment_list", "  --交通罚款");
+        paylist3.put("payment_list", "  --网易点卡充值");
         paylist3.put("payment_list_info", ">");
         
 //        mainlist.add(paylist1);
@@ -87,31 +111,26 @@ public class PaymentSelfService extends ListActivity {
 
        if(id==0){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "手机充值");
-			payment_intent.putExtra("amount", "50元");
-			payment_intent.putExtra("serialnum", "111115");
-			payment_intent.setClass(PaymentSelfService.this, PaymentDetail.class);
+			payment_intent.putExtra("ser_name", "手机");
+			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
 		}else if(id==1){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "平安保险");
-			payment_intent.putExtra("amount", "2000元");
-			payment_intent.putExtra("serialnum", "21376564");
-			payment_intent.setClass(PaymentSelfService.this, PaymentDetail.class);
+			payment_intent.putExtra("ser_name", "QQ");
+			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
-			System.out.println("id----------------"+id);
-	    	System.out.println("position----------"+position);
+//			System.out.println("id----------------"+id);
+//	    	System.out.println("position----------"+position);
 			//Intent payment_intent = new Intent();
 			//payment_intent.setClass(PaymentSelfService.this, PaymentHistory.class);
 		}else if(id==2){			
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "交通罚款");
-			payment_intent.putExtra("amount", "500元");
-			payment_intent.putExtra("serialnum", "767865786");
-			payment_intent.setClass(PaymentSelfService.this, PaymentDetail.class);
+			payment_intent.putExtra("ser_name", "网易帐号");
+
+			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
-			System.out.println("id----------------"+id);
-	    	System.out.println("position----------"+position);
+//			System.out.println("id----------------"+id);
+//	    	System.out.println("position----------"+position);
 			//Intent payment_intent = new Intent();
 			//payment_intent.setClass(PaymentSelfService.this, PaymentDefAcc.class);
 		}
