@@ -15,68 +15,18 @@
 		android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
-<TextView
-	android:id="@+id/tv_pay_title"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@string/pay_title"
-	android:paddingLeft="10dip"
-	android:textSize="18sp"
-	/>
-	
-	<TextView
-	android:id="@+id/tv_pay_amount"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@string/pay_amount"
-	android:paddingLeft="10dip"
-	android:textSize="18sp"
-	/>
-	
-	
-	<TextView
-	android:id="@+id/tv_inputed_peo"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@string/inputed_peo"
-	android:paddingLeft="10dip"
-	android:textSize="18sp"
-	/>
-	
-	
-	<TextView
-	android:id="@+id/tv_pay_sernum"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@string/pay_serialnum"
-	android:paddingLeft="10dip"
-	android:textSize="18sp"
-	/>
-
- <TextView
-	android:id="@+id/tv_pay_deadline"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@string/pay_deadline"
-	android:paddingLeft="10dip"
-	android:textSize="18sp"
-	/>
-	
-	
-	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
-	/>
+<ListView
+	android:id="@id/android:list"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
 <Button
 	android:id="@+id/btn_pay_ok"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_marginLeft="90dip"
-	android:layout_marginTop="30dip"
-	android:text="@string/btn_ok"
-	android:textSize="25sp"
-	android:gravity="center_horizontal"
+	android:layout_gravity="center_horizontal"
 	/>
 </LinearLayout>
 </RelativeLayout>
