@@ -112,6 +112,10 @@
 		<activity android:name=".TransAmtConfirm" android:label="@string/app_title">
 		
 		</activity>
+		<activity android:name=".TransSuccDialog" android:label="@string/app_title"
+		android:theme="@android:style/Theme.Dialog">
+			
+		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferMain" android:label="@string/app_title">
 		
 		</activity>

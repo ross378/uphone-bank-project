@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -36,6 +35,9 @@ public class TransAccSelect extends ListActivity {
 		TextView tv_trans_title = (TextView)findViewById(R.id.tv_trans_title);
 		tv_trans_title.setText("请选择账户:");
 		tv_trans_title.setVisibility(View.VISIBLE);
+		
+		TextView tv_trans_ln = (TextView)findViewById(R.id.tv_trans_ln);
+		tv_trans_ln.setVisibility(View.VISIBLE);
 		
 		 ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
 	        
