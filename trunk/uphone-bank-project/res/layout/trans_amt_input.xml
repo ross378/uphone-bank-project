@@ -10,6 +10,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
+	android:background="#AAF2F6F9"
 	android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
@@ -17,66 +18,91 @@
 	android:id="@+id/tv_trans_amttv1"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
-	android:textSize="24sp"
+	android:layout_marginLeft="30sp"
+	android:textSize="18sp"
+	android:textColor="#FF000000"
 	android:text="请输入转账金额："
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="3dip"
+	android:background="#FFAAAAAA"
 	/>
 <EditText
 	android:id="@+id/et_trans_amt"
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
+	android:layout_height="40dip"
+	android:layout_marginLeft="50dip"
+	android:layout_marginRight="50dip"
 	/>
 <TextView
 	android:layout_width="fill_parent"
-	android:layout_height="3dip"
-	android:layout_margin="5dip"
-	android:background="#FFFFFFFF"
+	android:layout_height="1dip"
+	android:layout_margin="3dip"
+	android:background="#FFAAAAAA"
 	/>
 <TextView
 	android:id="@+id/tv_trans_amttv2"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
-	android:textSize="24sp"
+	android:layout_marginLeft="30sp"
+	android:textSize="18sp"
+	android:textColor="#FF000000"
 	android:text="请输入目标手机号："
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="3dip"
+	android:background="#FFAAAAAA"
 	/>
 <EditText
 	android:id="@+id/et_trans_amt2"
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
+	android:layout_height="40dip"
+	android:layout_marginLeft="50dip"
+	android:layout_marginRight="50dip"
 	/>
 <TextView
 	android:layout_width="fill_parent"
-	android:layout_height="3dip"
-	android:layout_margin="5dip"
-	android:background="#FFFFFFFF"
+	android:layout_height="1dip"
+	android:layout_margin="3dip"
+	android:background="#FFAAAAAA"
 	/>
 <TextView
 	android:id="@+id/tv_trans_amttv3"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
-	android:textSize="24sp"
+	android:layout_marginLeft="30sp"
+	android:textSize="18sp"
+	android:textColor="#FF000000"
 	android:text="请输入账户密码："
+	/>
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="3dip"
+	android:background="#FFAAAAAA"
 	/>
 <EditText
 	android:id="@+id/et_trans_amt3"
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
+	android:layout_height="40dip"
+	android:layout_marginLeft="50dip"
+	android:layout_marginRight="50dip"
+	android:password="true"
 	/>
 <TextView
 	android:layout_width="fill_parent"
-	android:layout_height="3dip"
-	android:layout_margin="5dip"
-	android:background="#FFFFFFFF"
+	android:layout_height="1dip"
+	android:layout_margin="3dip"
+	android:background="#FFAAAAAA"
 	/>
 <Button
 	android:id="@+id/btn_trans_amtnext"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:layout_width="90dip"
+	android:layout_height="40dip"
 	android:text="下一步"
 	android:layout_gravity="center_horizontal"
 	/>

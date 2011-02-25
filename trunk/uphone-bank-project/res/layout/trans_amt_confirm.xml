@@ -10,6 +10,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
+	android:background="#AAF2F6F9"
 	android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
@@ -17,15 +18,17 @@
 	android:id="@+id/tv_trans_cfm1"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_margin="5dip"
-	android:textSize="24sp"
+	android:layout_marginTop="6dip"
+	android:layout_marginLeft="30sp"
+	android:textSize="18sp"
+	android:textColor="#FF000000"
 	android:text="转账信息确认"
 	/>
 <TextView
 	android:layout_width="fill_parent"
-	android:layout_height="3dip"
-	android:layout_margin="5dip"
-	android:background="#FFFFFFFF"
+	android:layout_height="1dip"
+	android:layout_margin="6dip"
+	android:background="#FFAAAAAA"
 	/>
 <TableLayout
 	android:layout_width="fill_parent"
@@ -35,88 +38,146 @@
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="转出账户："
 		/>
 	<TextView
 		android:id="@+id/tv_trans_confirmacc"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="123456789012"
 		/>
 	</TableRow>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="6dip"
+	android:background="#FFAAAAAA"
+	/>
 	<TableRow>
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="转出金额："
 		/>
 	<TextView
 		android:id="@+id/tv_trans_confirmamt"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="15000"
 		/>
 	</TableRow>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="6dip"
+	android:background="#FFAAAAAA"
+	/>
 	<TableRow>
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="手续费："
 		/>
 	<TextView
 		android:id="@+id/tv_trans_confirmamtpay"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="200"
 		/>
 	</TableRow>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="6dip"
+	android:background="#FFAAAAAA"
+	/>
 	<TableRow>
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="转入手机号："
 		/>
 	<TextView
 		android:id="@+id/tv_trans_confirmamtpay"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="18712345678"
 		/>
 	</TableRow>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="6dip"
+	android:background="#FFAAAAAA"
+	/>
 	<TableRow>
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="收款人姓名："
 		/>
 	<TextView
 		android:id="@+id/tv_trans_confirmamtpay"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="20sp"
+		android:layout_marginLeft="30dip"
+		android:textColor="#FF000000"
+		android:textSize="15sp"
 		android:text="张三"
 		/>
 	</TableRow>
+</TableLayout>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="1dip"
+	android:layout_margin="6dip"
+	android:background="#FFAAAAAA"
+	/>
+<TableLayout
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal"
+	>
 	<TableRow>
 	<Button
 		android:id="@+id/btn_trans_confok"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		android:layout_width="100dip"
+		android:layout_height="40dip"
+		android:layout_marginRight="10dip"
 		android:text="确认转账"
 		/>
 	<Button
-		android:id="@+id/btn_trans_confok"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		android:id="@+id/btn_trans_confcancle"
+		android:layout_width="100dip"
+		android:layout_height="40dip"
+		android:layout_marginLeft="10dip"
 		android:text="取消转账"
 		/>
 	</TableRow>
