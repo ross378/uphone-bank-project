@@ -92,10 +92,7 @@
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-			<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        	</intent-filter>
+			
 		</activity>
 		<activity android:name=".TransAccSelect" android:label="@string/app_title">
 		
@@ -282,11 +279,19 @@
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
 	<!-- end activity -->
 	<!--guo    peng  -->
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
+		<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        	</intent-filter>
+		</activity>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery"></activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"></activity>
-       
+       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryResult"/>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryDetail"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryEinnahme"></activity>
