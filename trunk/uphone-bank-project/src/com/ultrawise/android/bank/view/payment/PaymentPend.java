@@ -26,15 +26,46 @@ public class PaymentPend extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
-
+        
+        
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+//				Intent payment_intent = new Intent();
+//				payment_intent.setClass(PaymentPend.this, PaymentMain.class);
+//				PaymentPend.this.startActivity(payment_intent);	
+			}
+		});
+        
+
+        TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+        tvClassSecond.setText("自助缴费>");
+        tvClassSecond.setVisibility(View.VISIBLE);
+		
+        tvClassSecond.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent payment_intent = new Intent();
+				payment_intent.setClass(PaymentPend.this, PaymentMain.class);
+				PaymentPend.this.startActivity(payment_intent);	
+			}
+		});
+		
 		
 		
 		TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
 		tvClassThree.setText("待缴费项目");
 		tvClassThree.setVisibility(View.VISIBLE);
+		
+
+		
+		
         
         ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
         
@@ -43,13 +74,13 @@ public class PaymentPend extends ListActivity {
         HashMap<String,String> paylist3 = new HashMap<String,String>();
         HashMap<String,String> paylist4 = new HashMap<String,String>();
         
-        paylist1.put("payment_list", "  --水费");
+        paylist1.put("payment_list", "  三月份水费");
         paylist1.put("payment_list_info", "50元 >");
-        paylist2.put("payment_list", "  --电费");
+        paylist2.put("payment_list", "  三月份电费");
         paylist2.put("payment_list_info", "100元 >");
-        paylist3.put("payment_list", "  --煤气");
+        paylist3.put("payment_list", "  三月份煤气");
         paylist3.put("payment_list_info", "90元 >");
-        paylist4.put("payment_list", "  --房租");
+        paylist4.put("payment_list", "  三月份房租");
         paylist4.put("payment_list_info", "300元 >");
         
         
@@ -71,30 +102,38 @@ public class PaymentPend extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "水费");
+			payment_intent.putExtra("title", "三月份水费");
 			payment_intent.putExtra("amount", "50元");
+			payment_intent.putExtra("inputed_peo", "无锡自来水公司");
 			payment_intent.putExtra("serialnum", "111111");
+			payment_intent.putExtra("deadline", "2011年1月15号");
 			payment_intent.setClass(PaymentPend.this, PaymentDetail.class);
 			PaymentPend.this.startActivity(payment_intent);
 		}else if(id==1){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "电费");
+			payment_intent.putExtra("title", "三月份电费");
 			payment_intent.putExtra("amount", "100元");
-			payment_intent.putExtra("serialnum", "111112");
+			payment_intent.putExtra("inputed_peo", "无锡电力公司");
+			payment_intent.putExtra("serialnum", "222222");
+			payment_intent.putExtra("deadline", "2011年2月15号");
 			payment_intent.setClass(PaymentPend.this, PaymentDetail.class);
 			PaymentPend.this.startActivity(payment_intent);
 		}else if(id==2){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "煤气费");
+			payment_intent.putExtra("title", "三月份煤气费");
 			payment_intent.putExtra("amount", "90元");
-			payment_intent.putExtra("serialnum", "111113");
+			payment_intent.putExtra("inputed_peo", "无锡能源供给公司");
+			payment_intent.putExtra("serialnum", "3333333");
+			payment_intent.putExtra("deadline", "2011年3月15号");
 			payment_intent.setClass(PaymentPend.this, PaymentDetail.class);
 			PaymentPend.this.startActivity(payment_intent);
 		}else if(id==3){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("title", "房租");
-			payment_intent.putExtra("amount", "300元");
-			payment_intent.putExtra("serialnum", "111114");
+			payment_intent.putExtra("title", "三月份房租");
+			payment_intent.putExtra("amount", "3000元");
+			payment_intent.putExtra("inputed_peo", "无锡**房地产");
+			payment_intent.putExtra("serialnum", "4444444");
+			payment_intent.putExtra("deadline", "2011年4月15号");
 			payment_intent.setClass(PaymentPend.this, PaymentDetail.class);
 			PaymentPend.this.startActivity(payment_intent);
 		}
