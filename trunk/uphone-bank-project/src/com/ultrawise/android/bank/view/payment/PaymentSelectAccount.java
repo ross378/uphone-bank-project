@@ -169,7 +169,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 	        
 	        //下一步的按钮选择
 	        Button btn_next=(Button)findViewById(R.id.btn_next);
-	        btn_next.setText("下一步"+">");
+	        btn_next.setText("下一步");
 	        btn_next.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
