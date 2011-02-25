@@ -75,7 +75,6 @@ android:layout_height="wrap_content"
 	android:textColor="#FF000000" 
 				android:text="@string/input_psswrd"
 								android:textSize="15sp" />
-
 				<EditText 
 				android:id="@+id/password"
 				android:password="true" 
