@@ -190,7 +190,7 @@
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDefAcc" android:label="@string/app_title">
 		
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult" android:label="@string/app_title"
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult"
 				android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
@@ -284,10 +284,6 @@
 	<!-- end activity -->
 	<!--guo    peng  -->
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
-		<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        	</intent-filter>
 		</activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
