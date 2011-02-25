@@ -46,17 +46,7 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
         paylist1.put("payment_list","待缴费项目");
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
-        
-        /*paylist1.put("payment_list", "待缴费项目");
-        paylist1.put("payment_list_info", ">");
-        paylist2.put("payment_list", "便捷服务");
-        paylist2.put("payment_list_info", ">");
-        paylist3.put("payment_list", "最近一个月缴费");
-        paylist3.put("payment_list_info", ">");
-        paylist4.put("payment_list", "历史缴费记录");
-        paylist4.put("payment_list_info", ">");
-        paylist5.put("payment_list", "缴费项目管理");
-        paylist5.put("payment_list_info", ">");*/
+
 
         
         paylist1 = new HashMap<String,Object>();
