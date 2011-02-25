@@ -69,27 +69,27 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 		
 		TextView tv_acc_typ = (TextView)this.findViewById(R.id.paymenthistory);
 		tv_acc_typ.setText("缴费账户类型选择");
-//		tvClassThree.setVisibility(View.VISIBLE);
+    	tv_acc_typ.setVisibility(View.VISIBLE);
 		
 		
-        ArrayList<HashMap<String,String>> selectlist = new ArrayList<HashMap<String,String>>();
+       ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
         
-        HashMap<String,String> paylist1 = new HashMap<String,String>();
-        HashMap<String,String> paylist2 = new HashMap<String,String>();
+        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
+        paylist1.put("payment_list","首选账户");
+        paylist1.put("listimg2", R.drawable.trans_main2);
+        mainlist.add(paylist1);
         
-        paylist1.put("payment_list", "首选账户");
-        paylist1.put("payment_list_info", ">");
+        paylist1 = new HashMap<String,Object>();
+        paylist1.put("payment_list","其他账户");
+        paylist1.put("listimg2", R.drawable.trans_main2);
+        mainlist.add(paylist1);
+        
 
-        paylist2.put("payment_list", "其他账户");
-        paylist2.put("payment_list_info", ">");
 
-        selectlist.add(paylist1);
-      
-        selectlist.add(paylist2);
+    
 
         
-        SimpleAdapter MainListAdapter = new SimpleAdapter(this, selectlist,R.layout.payment_list, new String[] {
-				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
+        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{"payment_list","listimg2"},new int[]{R.id.payment_list,R.id.listimg2 } );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
