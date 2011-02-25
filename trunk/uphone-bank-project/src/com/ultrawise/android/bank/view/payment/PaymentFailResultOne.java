@@ -30,6 +30,7 @@ public class PaymentFailResultOne extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent transinfo_intent = new Intent();
+				transinfo_intent.putExtra("Account", "123455467347");
 	    		transinfo_intent.setClass(PaymentFailResultOne.this, PaymentInPwd.class);
 	    		startActivity(transinfo_intent);
 			}
