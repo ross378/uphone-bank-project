@@ -25,12 +25,12 @@ public class PaymentManage extends Activity {//缴费项目管理
         iv_now.setVisibility(View.VISIBLE);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机缴费>");
+		tvClassFirst.setText("自助缴费>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				Intent payment_intent = new Intent();
+				payment_intent.setClass(PaymentManage.this, PaymentMain.class);
+				PaymentManage.this.startActivity(payment_intent);
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
