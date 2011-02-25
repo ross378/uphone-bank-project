@@ -13,6 +13,7 @@
 	android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
+	
 <LinearLayout
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
