@@ -67,47 +67,43 @@ public class PaymentSelfService extends ListActivity {
 		
         
       
-		ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
+	      ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
+	        
+	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
+	       
+
+	        paylist1.put("payment_list","手机充值");
+	        paylist1.put("listimg2", R.drawable.trans_main2);
+	        mainlist.add(paylist1);
+	        
+	        
+	        paylist1 = new HashMap<String,Object>();
+	        paylist1.put("payment_list","QQ充值");
+	        paylist1.put("listimg2", R.drawable.trans_main2);
+	        mainlist.add(paylist1);
+	        
+	        paylist1 = new HashMap<String,Object>();
+	        paylist1.put("payment_list","网易点卡充值");
+	        paylist1.put("listimg2", R.drawable.trans_main2);
+	        mainlist.add(paylist1);
         
-//        HashMap<String,String> paylist1 = new HashMap<String,String>();
-//        HashMap<String,String> paylist2 = new HashMap<String,String>();
-        HashMap<String,String> paylist1 = new HashMap<String,String>();
-        HashMap<String,String> paylist2 = new HashMap<String,String>();
-        HashMap<String,String> paylist3 = new HashMap<String,String>();
         
-//        paylist1.put("payment_list", "待缴费项目");
-//        paylist1.put("payment_list_info", ">");
-//        paylist2.put("payment_list", "便捷服务");
-//        paylist2.put("payment_list_info", "");
-        paylist1.put("payment_list", "  --手机充值");
-        paylist1.put("payment_list_info", ">");
-        paylist2.put("payment_list", "  --QQ充值");
-        paylist2.put("payment_list_info", ">");
-        paylist3.put("payment_list", "  --网易点卡充值");
-        paylist3.put("payment_list_info", ">");
+      
         
-//        mainlist.add(paylist1);
-//        mainlist.add(paylist2);
-        mainlist.add(paylist1);
-        mainlist.add(paylist2);
-        mainlist.add(paylist3);
+ 
         
-        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[] {
-				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
+        
+        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{
+        		"payment_list","listimg2"},new int[]{R.id.payment_list,R.id.listimg2 } );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+//        iv_now.setVisibility(View.VISIBLE);
         
 	}
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-//		if (id == 0) {//待缴费项目的原来
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(PaymentSelfService.this, PaymentPend.class);
-//			PaymentSelfService.this.startActivity(payment_intent);
-//		}else 
 
        if(id==0){
 			Intent payment_intent = new Intent();
@@ -119,10 +115,6 @@ public class PaymentSelfService extends ListActivity {
 			payment_intent.putExtra("ser_name", "QQ");
 			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
-//			System.out.println("id----------------"+id);
-//	    	System.out.println("position----------"+position);
-			//Intent payment_intent = new Intent();
-			//payment_intent.setClass(PaymentSelfService.this, PaymentHistory.class);
 		}else if(id==2){			
 			Intent payment_intent = new Intent();
 			payment_intent.putExtra("ser_name", "网易帐号");

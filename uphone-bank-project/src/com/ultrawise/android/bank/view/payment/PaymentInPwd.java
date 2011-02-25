@@ -86,7 +86,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         btn_pay_ok.setText("确认缴费");
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+//        iv_now.setVisibility(View.VISIBLE);
 	
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
         	
@@ -99,7 +99,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         			Intent btnok_intent = new Intent();
         			btnok_intent.putExtra("flag", "成功！");
         			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-600));
-        			btnok_intent.setClass(PaymentInPwd.this, PaymentResult.class);
+        			btnok_intent.setClass(PaymentInPwd.this, PaymentFailResultOne.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			}	else {
             			Intent btnok_intent = new Intent();

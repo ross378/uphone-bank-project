@@ -93,7 +93,7 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+//        iv_now.setVisibility(View.VISIBLE);
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
