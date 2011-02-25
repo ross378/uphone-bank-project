@@ -37,7 +37,8 @@
     android:drawSelectorOnTop="true"
     android:scrollbars="vertical"
     />
-    --><RelativeLayout
+    -->
+    <RelativeLayout
     android:id="@+id/opened_list"
     android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
@@ -47,17 +48,19 @@
 	android:layout_height="wrap_content"
 	android:orientation="horizontal"
     >
-    <ListView 
+    <TextView 
     android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="水费"
 	android:textSize="23sp"
-    ></ListView>
+	android:gravity="left"
+    ></TextView>
     <Button 
     android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="水费"
+	android:text="水费nut"
 	android:textSize="23sp"
+	android:gravity="right"
     ></Button>
     </LinearLayout>
     </RelativeLayout>
@@ -88,17 +91,19 @@
 	android:layout_height="wrap_content"
 	android:orientation="horizontal"
     >
-    <ListView 
+    <TextView  
     android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="水费"
 	android:textSize="23sp"
-    ></ListView>
+	android:gravity="left"
+    ></TextView >
     <Button 
     android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="水费"
 	android:textSize="23sp"
+	android:gravity="right"
     ></Button>
     </LinearLayout>
     </RelativeLayout>
