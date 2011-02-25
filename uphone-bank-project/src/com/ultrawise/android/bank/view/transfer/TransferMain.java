@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -20,44 +18,43 @@ public class TransferMain extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_main);
         
-        //ImageButton btn_trans_ph = (ImageButton)findViewById(R.id.btn_trans_main_ph);
-        //ImageButton btn_trans_acc = (ImageButton)findViewById(R.id.btn_trans_main_acc);
-        
-        //btn_trans_ph.setOnClickListener(new BtnTransMainPh());
-        //btn_trans_acc.setOnClickListener(new BtnTransMainAcc());
-        
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        //iv_now.setVisibility(View.VISIBLE);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("转账汇款");
-		tvClassFirst.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
-			}
-		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
         ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
         
         HashMap<String,Object> map = new HashMap<String,Object>();
-        map.put("listimg1",R.drawable.p1);
-        map.put("payment_list",R.string.trans_main_ph);
-        map.put("listimg2", R.drawable.p2);
+        map.put("listimg1",R.drawable.trans_main);
+        map.put("payment_list","手机到手机转账");
+        map.put("listimg2", R.drawable.trans_main2);
         list.add(map);
         
         map = new HashMap<String,Object>();
-        map.put("listimg1",R.drawable.p1);
-        map.put("payment_list",R.string.trans_main_acc);
-        map.put("listimg2", R.drawable.p2);
+        map.put("listimg1",R.drawable.trans_main);
+        map.put("payment_list","手机到签约账户转账");
+        map.put("listimg2", R.drawable.trans_main2);
         list.add(map);
         
         SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.trans_main_list,new String[]{"listimg1","payment_list","listimg2"},new int[]{R.id.listimg1,R.id.payment_list,R.id.listimg2});
         this.setListAdapter(TransMainAdapter);
 	}
 	
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		if (id == 0) {
+			Intent intent = new Intent();
+			intent.setClass(TransferMain.this, TransAccSelect.class);
+			TransferMain.this.startActivity(intent);
+		}else if(id==1){
+			Intent intent = new Intent();
+			intent.setClass(TransferMain.this, TransAccSelect.class);
+			TransferMain.this.startActivity(intent);
+		}
+	}
 	
 	class BtnTransMainPh implements OnClickListener{
 		public void onClick(View v){

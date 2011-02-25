@@ -38,7 +38,7 @@
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
         </activity>
-		  <activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
+		<activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
 		  	android:theme="@android:style/Theme.Dialog"
 		  >
         </activity>
@@ -88,6 +88,28 @@
             />
             
 		<!-- 转账 -->
+
+		<activity android:name=".TransferMain" android:label="@string/app_title">
+			
+		</activity>
+		<activity android:name=".TransAccSelect" android:label="@string/app_title">
+		
+		</activity>
+		<activity android:name=".TransAccActive" android:label="@string/app_title">
+		
+		</activity>
+		<activity android:name=".TransAccInput" android:label="@string/app_title">
+		
+		</activity>
+		<activity android:name=".TransAccPsdSucc" android:label="@string/app_title">
+
+		</activity>
+		<activity android:name=".TransAmtInput" android:label="@string/app_title">
+		
+		</activity>
+		<activity android:name=".TransAmtConfirm" android:label="@string/app_title">
+		
+		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferMain" android:label="@string/app_title">
 		
 		</activity>
@@ -107,10 +129,7 @@
 		
 		<!-- 缴费 -->
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentMain" android:label="@string/app_title">
-		   <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService" android:label="@string/app_title">
 		</activity>
@@ -217,7 +236,7 @@
 		<!--guo    peng  -->
 		
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
-			
+
 		</activity>
 		
 		<activity

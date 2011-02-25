@@ -11,12 +11,22 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
+	android:background="@drawable/trans_main_bg"
 	android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
+<TextView
+	android:id="@+id/tv_trans_title"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#FF000000"
+	android:textSize="18sp"
+	android:paddingLeft="30dip"
+	android:visibility="gone"
+	/>
 <ListView
 	android:id="@id/android:list"
-    android:layout_width="fill_parent" 
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:drawSelectorOnTop="true"
     android:scrollbars="vertical"
