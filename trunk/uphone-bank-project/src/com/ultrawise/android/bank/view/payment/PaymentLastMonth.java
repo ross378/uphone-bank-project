@@ -25,7 +25,7 @@ public class PaymentLastMonth extends ListActivity {
         setContentView(R.layout.payment_main);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("自助缴费>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -35,8 +35,8 @@ public class PaymentLastMonth extends ListActivity {
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
-		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText("历史缴费记录");
+        TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText("自助缴费>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -45,6 +45,10 @@ public class PaymentLastMonth extends ListActivity {
 			}
 		});
 		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
+		tvClassThird.setText("历史缴费记录");
+		tvClassThird.setVisibility(View.VISIBLE);
         
 		Intent intent = this.getIntent();
 		if(intent.hasExtra("start_time")){
