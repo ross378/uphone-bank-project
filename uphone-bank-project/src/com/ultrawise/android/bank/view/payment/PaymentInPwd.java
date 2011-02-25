@@ -27,9 +27,9 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
 		
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-//				Intent payment_intent = new Intent();
-//				payment_intent.setClass(PaymentInPwd.this, PaymentMain.class);
-//				PaymentInPwd.this.startActivity(payment_intent);	
+				Intent payment_intent = new Intent();
+				payment_intent.setClass(PaymentInPwd.this, PaymentMain.class);
+				PaymentInPwd.this.startActivity(payment_intent);	
 			}
 		});
         
