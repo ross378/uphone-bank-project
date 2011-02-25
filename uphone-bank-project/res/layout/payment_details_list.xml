@@ -10,24 +10,24 @@
     >
 <TextView 
 	android:id="@+id/payment_list"
-	android:layout_width="wrap_content"
+	android:layout_width="115dip"
 	android:layout_height="wrap_content"
-	android:paddingTop="3dip"
-	android:singleLine="true"
-	android:textColor="#FF000000"
-	android:padding="3dip"
-	android:layout_gravity="left"
-    />
-    
-    <TextView 
-	android:id="@+id/payment_list_info"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:paddingLeft="6dip"
 	android:paddingTop="6dip"
 	android:singleLine="true"
 	android:textColor="#FF000000"
-	android:padding="3dip"
-	android:layout_gravity="right"
+	android:textSize="15sp"
+    />
+    
+    <TextView 
+	android:id="@+id/payment_list2"
+	android:textSize="15sp"
+	android:layout_height="wrap_content"
+	android:layout_width="150dip"
+	android:paddingLeft="10dip"
+	android:paddingTop="6dip"
+	android:singleLine="true"
+	android:textColor="#FF000000"
     />
 
 </LinearLayout>
