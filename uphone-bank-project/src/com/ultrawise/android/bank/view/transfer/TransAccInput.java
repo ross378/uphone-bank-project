@@ -16,7 +16,7 @@ public class TransAccInput extends Activity {
         setContentView(R.layout.trans_acc_input);
         
         Spinner sp_trans_inptype = (Spinner)findViewById(R.id.sp_trans_inptype);
-        ArrayAdapter spadapter1 = ArrayAdapter.createFromResource(this, R.array.currencydw, android.R.layout.simple_spinner_item);
+        ArrayAdapter spadapter1 = ArrayAdapter.createFromResource(this, R.array.acctype, android.R.layout.simple_spinner_item);
         spadapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_trans_inptype.setAdapter(spadapter1);
         

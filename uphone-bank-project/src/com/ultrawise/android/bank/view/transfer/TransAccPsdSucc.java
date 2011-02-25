@@ -27,7 +27,7 @@ public class TransAccPsdSucc extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent trans_intent = new Intent();
-				trans_intent.setClass(TransAccPsdSucc.this,TransAccSelect.class);
+				trans_intent.setClass(TransAccPsdSucc.this,TransAmtInput.class);
 				TransAccPsdSucc.this.startActivity(trans_intent);
 			}
         });
