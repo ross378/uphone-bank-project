@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/accountque"
     >
 <include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
@@ -26,14 +26,16 @@
 	<TableRow>
 		<TextView 
 		android:id="@+id/acc1"
-		android:textSize="10pt"
 		android:singleLine="true"
+		android:textColor="#ff000000"
+		android:textSize="24dip"
 		/>
 		<TextView 
 		android:id="@+id/acc2"
-		android:textSize="10pt"
 		android:singleLine="true"
 		android:gravity="left"
+		android:textColor="#ff000000"
+		android:textSize="24dip"
 		/>
 	</TableRow>
 	</TableLayout>
@@ -48,13 +50,15 @@
 	<TableRow>
 		<TextView 
 		android:id="@+id/type1"
-		android:textSize="10pt"
 		android:singleLine="true"
+		android:textColor="#ff000000"
+		android:textSize="24dip"
 		/>
 		<TextView 
 		android:id="@+id/type2"
-		android:textSize="10pt"
 		android:singleLine="true"
+		android:textColor="#ff000000"
+		android:textSize="24dip"
 		/>
 	</TableRow>
 	</TableLayout>
