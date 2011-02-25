@@ -2,7 +2,6 @@ package com.ultrawise.android.bank.view.account_query;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -17,15 +16,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class AccountFrom extends Activity{
+
 	Intent intent = new Intent();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.setContentView(R.layout.accountfrom);
+		this.setContentView(R.layout.inventory);
+		
+		
 		
 		TextView tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("账户查询 >");
+		tvClassFirst.setText("账户查询>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent.setClass(AccountFrom.this, ABankMain.class);
@@ -36,6 +38,7 @@ public class AccountFrom extends Activity{
 
 		TextView tvClassSecond = (TextView) this.findViewById(R.id.class_second);
 		tvClassSecond.setText("来帐查询");
+		tvClassSecond.setVisibility(View.VISIBLE);
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		
@@ -48,43 +51,43 @@ public class AccountFrom extends Activity{
 				finish();
 			}
 		});
-	Button timeStart = (Button)findViewById(R.id.accountfrom_from);
-	timeStart.setOnClickListener(new OnClickListener() {
-		
-		public void onClick(View v) {
-			// TODO Auto-generated method stub;
+		Button timeStart = (Button)findViewById(R.id.timechange_from);
+		timeStart.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub;
 
-			LayoutInflater inflater = getLayoutInflater();
-			View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
-			   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
-			   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
-			   .setNegativeButton("取消", null)
-			   .show();
-		}
-	});
-	Button timeOver = (Button)findViewById(R.id.accountfrom_to);
-	timeOver.setOnClickListener(new OnClickListener() {
+				LayoutInflater inflater = getLayoutInflater();
+				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
+				   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
+				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
+				   .setNegativeButton("取消", null)
+				   .show();
+			}
+		});
+		Button timeOver = (Button)findViewById(R.id.timechange_to);
+		timeOver.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub		
+		        
+				LayoutInflater inflater = getLayoutInflater();
+				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
+				   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
+				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
+				   .setNegativeButton("取消", null)
+				   .show();
+			}
+		});
 		
-		public void onClick(View v) {
-			// TODO Auto-generated method stub		
-	        
-			LayoutInflater inflater = getLayoutInflater();
-			View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
-			   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
-			   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
-			   .setNegativeButton("取消", null)
-			   .show();
-		}
-	});
-	
-	Button select = (Button)findViewById(R.id.accountfrom_Run);
-	select.setOnClickListener(new OnClickListener() {
-		
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			intent.setClass(AccountFrom.this,AccountFrom_selection.class);
-			startActivity(intent);
-		}
-	});
-}
+		Button run = (Button)findViewById(R.id.Query_Run);
+		run.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(AccountFrom.this, AccountQueryEinnahme.class);
+				startActivity(intent);
+			}
+		});
+	}
 }
