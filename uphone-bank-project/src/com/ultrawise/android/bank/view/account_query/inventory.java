@@ -79,8 +79,15 @@ public class inventory extends Activity{
 				   .show();
 			}
 		});
+		
+		Button run = (Button)findViewById(R.id.Query_Run);
+		run.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(inventory.this, AccountQueryEinnahme.class);
+				startActivity(intent);
+			}
+		});
 	}
-
-		 
-
 }
