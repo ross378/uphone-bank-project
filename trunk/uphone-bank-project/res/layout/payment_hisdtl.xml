@@ -6,95 +6,123 @@
     >
 <include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
-<!--<ScrollView
+<ScrollView
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:scrollbars="vertical"
 	android:layout_below="@id/paymentabove"
 	android:layout_above="@id/paymentbelow"
 	>
-	--><LinearLayout
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_below="@id/transabove"
-	android:layout_above="@id/transbelow"
-	>
-	
-	<ListView
-	android:id="@+id/detail_list"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:drawSelectorOnTop="true"
-    android:scrollbars="vertical"
-    />
-	</LinearLayout>
-<!--<LinearLayout
-	android:orientation="vertical"
+	<LinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	>
-<TextView
+	<!--  android:text="@string/pay_title"-->
+	<TextView
 	android:id="@+id/tv_payhis_tim"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="@string/pay_title"
+	android:text="项目信息"
 	android:paddingLeft="10dip"
 	android:textSize="20sp"
 	/>
-<TextView
+	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
 	android:background="#ffffffff"
 	/>
-<TextView
+	<!-- 	android:text="@string/pay_amount" -->
+	<TextView
 	android:id="@+id/tv_payhis_title"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="@string/pay_amount"
+	android:text="项目名称："
 	android:paddingLeft="10dip"
 	android:textSize="20sp"
 	/>
-<TextView
+	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
 	android:background="#ffffffff"
 	/>
-<TextView
+	<!--android:text="@string/pay_serialnum"  -->
+	<TextView
 	android:id="@+id/tv_payhis_acc"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="@string/pay_serialnum"
+	android:text="收费金额："
 	android:paddingLeft="10dip"
 	android:textSize="20sp"
 	/>
-<TextView
+	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
 	android:background="#ffffffff"
 	/>
-<TextView
+	<!--android:text="@string/pay_serialnum"  -->
+	<TextView
 	android:id="@+id/tv_payhis_amount"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="@string/pay_serialnum"
+	android:text="收费方："
 	android:paddingLeft="10dip"
 	android:textSize="20sp"
 	/>
-<TextView
+	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
 	android:background="#ffffffff"
 	/>
-<TextView
+	<!--android:text="@string/pay_acc"  -->
+	<TextView
 	android:id="@+id/tv_payhis_sernum"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="@string/pay_acc"
+	android:text="代理方："
+	android:paddingLeft="10dip"
+	android:textSize="20sp"
+	/>
+	<TextView
+	android:id="@+id/tv_payhis_sernum1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="代理费："
+	android:paddingLeft="10dip"
+	android:textSize="20sp"
+	/>
+	<TextView
+	android:id="@+id/tv_payhis_sernum2"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="缴费日期："
+	android:paddingLeft="10dip"
+	android:textSize="20sp"
+	/>
+	<TextView
+	android:id="@+id/tv_payhis_sernum3"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="项目设置："
+	android:paddingLeft="10dip"
+	android:textSize="20sp"
+	/>
+	<TextView
+	android:id="@+id/tv_payhis_sernum4"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="收取地址："
+	android:paddingLeft="10dip"
+	android:textSize="20sp"
+	/>
+	<TextView
+	android:id="@+id/tv_payhis_sernum"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="代理方："
 	android:paddingLeft="10dip"
 	android:textSize="20sp"
 	/>
 </LinearLayout>
 </ScrollView>
--->
+
 </RelativeLayout>
