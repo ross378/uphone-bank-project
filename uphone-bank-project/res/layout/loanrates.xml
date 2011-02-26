@@ -28,7 +28,7 @@ android:orientation = "vertical"
 	android:layout_height = "wrap_content"
 	android:layout_marginTop = "20px"
 	android:layout_marginLeft = "20px"
-	android:background = "@drawable/deposite_rate_two"
+	android:background = "@drawable/white_three"
 	android:orientation = "vertical">
 	<TextView
 		android:layout_width = "fill_parent"
@@ -113,7 +113,7 @@ android:orientation = "vertical"
 	android:layout_marginTop = "20px"
 	android:layout_marginLeft = "20px"
 	android:layout_below = "@id/loan_rate_one"
-	android:background = "@drawable/deposite_rate_two"
+	android:background = "@drawable/white_three"
 	android:orientation = "vertical">
 	<TextView
 		android:layout_width = "fill_parent"
