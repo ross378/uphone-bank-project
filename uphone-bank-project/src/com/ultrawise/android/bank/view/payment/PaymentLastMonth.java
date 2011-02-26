@@ -17,8 +17,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class PaymentLastMonth extends ListActivity {
-	String start_time = "2011-1-1";
-	String end_time = "2011-1-30";
+	String start_time = "20110101";
+	String end_time = "20110130";
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,41 +59,54 @@ public class PaymentLastMonth extends ListActivity {
         }
 		
         TextView titel = (TextView)findViewById(R.id.paymenthistory);
-        titel.setText("从"+start_time+"到"+end_time+"的缴费记录如下：");
+        titel.setText("从"+start_time+"到"+end_time+"的历史缴费记录如下：");
+        titel.setVisibility(View.VISIBLE);
         
+        ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
         
-        
-        ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
-        
-        HashMap<String,String> paylist1 = new HashMap<String,String>();
-        HashMap<String,String> paylist2 = new HashMap<String,String>();
-        HashMap<String,String> paylist3 = new HashMap<String,String>();
-        HashMap<String,String> paylist4 = new HashMap<String,String>();
-        HashMap<String,String> paylist5 = new HashMap<String,String>();
-        
-        paylist1.put("payment_list", "  房租");
-        paylist1.put("payment_list_info", "2011/2/1  >");
-        paylist2.put("payment_list", "  电费");
-        paylist2.put("payment_list_info", "2011/1/26>");
-        paylist3.put("payment_list", "  煤气费");
-        paylist3.put("payment_list_info", "2011/1/25>");
-        paylist4.put("payment_list", "  水费");
-        paylist4.put("payment_list_info", "2011/1/25>");
-        paylist5.put("payment_list", "  手机充值");
-        paylist5.put("payment_list_info", "2011/1/20>");
-        
+        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
+       
+         
+        paylist1.put("payment_list","2011/2/1");
+        paylist1.put("payment_list2","房租");
+        paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
-        mainlist.add(paylist2);
-        mainlist.add(paylist3);
-        mainlist.add(paylist4);
-        mainlist.add(paylist5);
         
-        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[] {
-				"payment_list", "payment_list_info" }, new int[] { R.id.payment_list, R.id.payment_list_info } );
+        
+        paylist1 = new HashMap<String,Object>();
+        
+        paylist1.put("payment_list","2011/1/26");
+        paylist1.put("payment_list2","电费");
+        paylist1.put("listimg2", R.drawable.trans_main2);
+        mainlist.add(paylist1);
+        
+        paylist1 = new HashMap<String,Object>();
+        
+        paylist1.put("payment_list","2011/1/25");
+        paylist1.put("payment_list2","煤气费");
+        paylist1.put("listimg2", R.drawable.trans_main2);
+        mainlist.add(paylist1);
+        
+paylist1 = new HashMap<String,Object>();
+        
+        paylist1.put("payment_list","2011/1/25");
+        paylist1.put("payment_list2","水费");
+        paylist1.put("listimg2", R.drawable.trans_main2);
+        mainlist.add(paylist1);
+        
+paylist1 = new HashMap<String,Object>();
+        
+        paylist1.put("payment_list","2011/1/20");
+        paylist1.put("payment_list2","手机充值");
+        paylist1.put("listimg2", R.drawable.trans_main2);
+        mainlist.add(paylist1);
+
+        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{
+        		"payment_list","payment_list2","listimg2"},new int[]{R.id.payment_list,R.id.payment_list2,R.id.listimg2 } );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        //iv_now.setVisibility(View.VISIBLE);
         
 	}
 	@Override
