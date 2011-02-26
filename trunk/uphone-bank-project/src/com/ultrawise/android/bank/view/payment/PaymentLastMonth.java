@@ -87,14 +87,14 @@ public class PaymentLastMonth extends ListActivity {
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
-paylist1 = new HashMap<String,Object>();
+        paylist1 = new HashMap<String,Object>();
         
         paylist1.put("payment_list","2011/1/25");
         paylist1.put("payment_list2","水费");
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
-paylist1 = new HashMap<String,Object>();
+        paylist1 = new HashMap<String,Object>();
         
         paylist1.put("payment_list","2011/1/20");
         paylist1.put("payment_list2","手机充值");
@@ -106,7 +106,7 @@ paylist1 = new HashMap<String,Object>();
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        //iv_now.setVisibility(View.VISIBLE);
+        //iv_now.setVisibility(View.VISIBLE)
         
 	}
 	@Override
