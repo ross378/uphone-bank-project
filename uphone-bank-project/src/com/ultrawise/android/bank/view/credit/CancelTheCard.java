@@ -94,22 +94,22 @@ public class CancelTheCard extends Activity {
 		});
         
         //获得证件类型控件对象
-        pakitSpinner=(Spinner)findViewById(R.id.pakitSpinner);
+        pakitSpinner=(Spinner)findViewById(R.id.pakitSpinner1);
         //获得信用卡号选择框对象
-        creditNoSpinner=(Spinner)findViewById(R.id.creditNoSpinner);
+        creditNoSpinner=(Spinner)findViewById(R.id.creditNoSpinner1);
         
         //获得销卡按钮对象
-        cancelCardButton=(Button)findViewById(R.id.cancelCard);
+        cancelCardButton=(Button)findViewById(R.id.cancelCard1);
         cancelCardButton.setOnClickListener(new CancelCardButtonListener());
         
         //获得用户名输入框对象
-        userNameEdit=(EditText)findViewById(R.id.userNameEdit);
+        userNameEdit=(EditText)findViewById(R.id.userNameEdit1);
         //获得证件号输入框对象
-        pakitNoEdit=(EditText)findViewById(R.id.pakitNoEdit);
+        pakitNoEdit=(EditText)findViewById(R.id.pakitNoEdit1);
         //获得手机号输入框对象
-        mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit);
+        mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit1);
       //获得信用卡密码输入框对象
-        creditPasswdEdit=(EditText)findViewById(R.id.creditpasswordEdit);
+        creditPasswdEdit=(EditText)findViewById(R.id.creditpasswordEdit1);
         
         
         final String[] arrs1=new String[]{"身份证","学生证","工作证","军人证"};
@@ -117,7 +117,7 @@ public class CancelTheCard extends Activity {
         for(int i=0;i<10;i++){
         	arrs2[i]="1111222233334444"+i;
         }
-        pakitSpinner= (Spinner)findViewById(R.id.pakitSpinner); 
+        pakitSpinner= (Spinner)findViewById(R.id.pakitSpinner1); 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrs1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
         pakitSpinner.setAdapter(adapter);  
@@ -131,7 +131,7 @@ public class CancelTheCard extends Activity {
                 }
 
             });
-        creditNoSpinner= (Spinner)findViewById(R.id.creditNoSpinner); 
+        creditNoSpinner= (Spinner)findViewById(R.id.creditNoSpinner1); 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrs2);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
         creditNoSpinner.setAdapter(adapter2);  
@@ -169,11 +169,11 @@ public class CancelTheCard extends Activity {
 				creditPasswd==null || creditPasswd.trim().length()==0){
 				cancelFlag=1;
 				flag="失败提示：";
-				info="销卡失败!请确认所\n填信息是否正确!";
+				info="        销卡失败!请确认所               \n       填信息是否正确!            ";
 			}else{
 				cancelFlag=2;
 				flag="成功提示：";
-				info="销卡成功！\n";
+				info="         销卡成功！                \n";
 			}
 			Intent intent = new Intent();
 			intent.putExtra("flag", flag);

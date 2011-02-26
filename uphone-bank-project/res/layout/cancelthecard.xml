@@ -17,7 +17,7 @@
 	android:layout_above="@id/canclecreditbelow"
 	>
 	<TableLayout
-	android:id="@+id/Creditcancle"
+	android:id="@+id/Creditcancle1"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	>
@@ -29,144 +29,148 @@ android:id="@+id/cancelCardTiSiText"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="*信用卡号:"
-android:textSize="16dip"
+android:textSize="14dip"
 android:paddingLeft="12dip"
 android:textColor="#000000"
 >
 </TextView>
 <Spinner
-	android:id="@+id/creditNoSpinner"
+	android:id="@+id/creditNoSpinner1"
 	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:layout_height="40dip"
 	android:prompt="@string/creditnumber"
-	
+	android:layout_marginLeft="15dip"
 />
 </TableRow>
-<View android:layout_height="1dip"         android:background="#000000" /> 
+<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
 
 <TableRow>
 <TextView
-android:id="@+id/userNameText"
+android:id="@+id/userNameText1"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="*开户名:"
-android:textSize="16dip"
+android:textSize="14dip"
 android:paddingLeft="12dip"
-android:textColor="#ffffff"
+android:textColor="#000000"
 >
 </TextView>
 <!-- 用户名  编辑输入框-->
 <EditText
-android:id="@+id/userNameEdit"
+android:id="@+id/userNameEdit1"
 android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:textSize="16dip"
+android:layout_height="40dip"
+android:textSize="14dip"
+android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="#000000" /> 
+<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
  <TableRow>
 
 <TextView
-android:id="@+id/pakitClassText"
+android:id="@+id/pakitClassText1"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="*证件类型:"
-android:textSize="16dip"
+android:textSize="14dip"
 android:paddingLeft="12dip"
 android:textColor="#000000"
 >
 </TextView>
 <!--证件类型  下拉框-->
 <Spinner
-	android:id="@+id/pakitSpinner"
+	android:id="@+id/pakitSpinner1"
 	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:layout_height="40dip"
 	android:prompt="@string/pakitclass"
+	android:layout_marginLeft="15dip"
 />
 </TableRow>
-<View android:layout_height="1dip"         android:background="#000000" /> 
+<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
 <TableRow>
 <TextView
-android:id="@+id/pakitNoText"
+android:id="@+id/pakitNoText1"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="*证件号:"
-android:textSize="16dip"
+android:textSize="14dip"
 android:paddingLeft="12dip"
 android:textColor="#000000"
 >
 </TextView>
 <!-- 证件号 输入框 -->
 <EditText
-android:id="@+id/pakitNoEdit"
+android:id="@+id/pakitNoEdit1"
 android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:textSize="16dip"
-
+android:layout_height="40dip"
+android:textSize="14dip"
+android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="#000000" /> 
+<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
 <TableRow>
 <!-- 手机号 提示文本  -->
 <TextView
-android:id="@+id/mobileNoText"
+android:id="@+id/mobileNoText1"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="手机号码:"
 android:paddingLeft="12dip"
-android:textSize="16dip"
+android:textSize="14dip"
 android:textColor="#000000"
 >
 </TextView>
 <!-- 手机号 输入编辑框  -->
 <EditText
-android:id="@+id/mobileNoEdit"
+android:id="@+id/mobileNoEdit1"
 android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:textSize="16dip"
-
+android:layout_height="40dip"
+android:textSize="14dip"
+android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="#000000" /> 
+<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
 <TableRow>
 <!-- 帐户密码 提示文本  -->
 <TextView
-android:id="@+id/creditpassword"
+android:id="@+id/creditpassword1"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="帐户密码:"
-android:textSize="16dip"
+android:textSize="14dip"
 android:paddingLeft="12dip"
 android:textColor="#000000"
 >
 </TextView>
 <!-- 帐户密码 输入编辑框  -->
 <EditText
-android:id="@+id/creditpasswordEdit"
+android:id="@+id/creditpasswordEdit1"
 android:layout_width="wrap_content"
-android:layout_height="35dip"
-android:textSize="16dip"
+android:layout_height="40dip"
+android:textSize="14dip"
+android:layout_marginLeft="15dip"
+android:password="true"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="#000000" /> 
+<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
 </TableLayout>
 <!-- 销卡按钮 布局 -->
 <LinearLayout
-android:id="@+id/activateCardButtonLayout"
+android:id="@+id/activateCardButtonLayout1"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:layout_marginTop="10dip"
 android:gravity="center"
 >
 <Button
-android:id="@+id/cancelCard"
+android:id="@+id/cancelCard1"
 android:layout_width="100dip"
 android:layout_height="40dip"
-android:text="确认销卡"
+android:text="下一步"
 android:textSize="16dip"
 android:textStyle="bold"
 android:gravity="center"
