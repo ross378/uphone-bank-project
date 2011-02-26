@@ -43,9 +43,9 @@ import android.widget.AdapterView.OnItemSelectedListener;
 			
 			tvClassFirst.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-//					Intent payment_intent = new Intent();
-//					payment_intent.setClass(AllPaymentSer.this, PaymentMain.class);
-//					AllPaymentSer.this.startActivity(payment_intent);	
+					Intent intent = new Intent();
+					 intent.setClass(AllPaymentSer.this, ABankMain.class);
+					 AllPaymentSer.this.startActivity(intent);
 				}
 			});
 			tvClassFirst.setVisibility(View.VISIBLE);
@@ -89,9 +89,18 @@ import android.widget.AdapterView.OnItemSelectedListener;
 			//运行商选择
 			AccTypAdapter= new ArrayAdapter< String>(  this,  android.R.layout.simple_spinner_item);  
 			AccTypAdapter.setDropDownViewResource(  android.R.layout.simple_spinner_dropdown_item);  
+			if(ser_name=="手机充值"){
 			AccTypAdapter.add("中国移动"); 
 			AccTypAdapter.add("中国联通"); 
-			AccTypAdapter.add("中国电信"); 
+			AccTypAdapter.add("中国电信");
+			}else if(ser_name=="QQ充值"){
+				AccTypAdapter.add("腾讯QQ"); 
+				
+			}else if(ser_name=="网易帐号"){
+				AccTypAdapter.add("网易"); 
+				
+				
+			}
 			AccTypSpinner= (Spinner)findViewById(R.id.spinner_pay_typ); 
 			AccTypSpinner.setAdapter(AccTypAdapter);  
 	        
