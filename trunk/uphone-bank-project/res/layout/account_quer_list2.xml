@@ -26,6 +26,7 @@
 	android:singleLine="true"
 	android:textColor="#FF000000"
 	android:layout_gravity="left"
+	android:layout_marginLeft="50dip"
     />
     
     <!-- 中间的没有用到 -->
@@ -46,6 +47,7 @@
 	android:layout_width="30dip"
 	android:layout_height="30dip"
 	android:padding="3dip"
-	android:gravity="right"
+	android:paddingLeft="200dip"
+	android:layout_marginLeft="90dip"
 	/>
 </LinearLayout>

@@ -113,7 +113,7 @@ public class AccountQueryType extends ListActivity {
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==2){//账户来帐查询
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryType.this, AccountQueryEinnahme.class);
+			payment_intent.setClass(AccountQueryType.this, AccountFrom.class);
 			AccountQueryType.this.startActivity(payment_intent);
 		}
 	}
