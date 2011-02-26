@@ -293,7 +293,10 @@
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery"></activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"></activity>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"
+       android:theme="@android:style/Theme.Dialog"></activity>
+       <activity android:name="com.ultrawise.android.bank.view.account_query.Query_Settime"
+       android:theme="@android:style/Theme.Dialog"></activity>
        <activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryResult"/>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryDetail"></activity>
