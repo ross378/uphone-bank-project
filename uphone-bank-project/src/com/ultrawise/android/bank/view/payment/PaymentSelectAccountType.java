@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -30,9 +31,9 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 		
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-//				Intent payment_intent = new Intent();
-//				payment_intent.setClass(PaymentSelectAccountType.this, PaymentMain.class);
-//				PaymentSelectAccountType.this.startActivity(payment_intent);	
+				Intent intent = new Intent();
+				 intent.setClass(PaymentSelectAccountType.this, ABankMain.class);
+				 PaymentSelectAccountType.this.startActivity(intent);	
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);

@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.payment;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 import com.ultrawise.android.bank.view.transfer.R.string;
 
@@ -29,9 +30,9 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
 		
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-//				Intent payment_intent = new Intent();
-//				payment_intent.setClass(PaymentInPwd.this, PaymentMain.class);
-//				PaymentInPwd.this.startActivity(payment_intent);	
+				Intent intent = new Intent();
+				 intent.setClass(PaymentInPwd.this, ABankMain.class);
+				 PaymentInPwd.this.startActivity(intent);
 			}
 		});
         
@@ -97,14 +98,14 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         			
         			if((acc_balance>=500)){
         			Intent btnok_intent = new Intent();
-        			btnok_intent.putExtra("flag", "成功！");
+//        			btnok_intent.putExtra("flag", "成功！");
         			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-500));
         			btnok_intent.setClass(PaymentInPwd.this, PaymentResult.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			}	else {
             			Intent btnok_intent = new Intent();
-            			btnok_intent.putExtra("flag", "失败！");
-            			btnok_intent.putExtra("info", "余额不足！");
+//            			btnok_intent.putExtra("flag", "失败！");
+            			btnok_intent.putExtra("info", "缴费账户的余额不足！");
             			btnok_intent.setClass(PaymentInPwd.this, PaymentFailResultTwo.class);
             			PaymentInPwd.this.startActivity(btnok_intent);
             			
@@ -116,7 +117,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         		}
         		else{
         			Intent btnok_intent = new Intent();
-        			btnok_intent.putExtra("flag", "失败！");
+//        			btnok_intent.putExtra("flag", "失败！");
         			btnok_intent.putExtra("info", "密码错误！");
         			btnok_intent.setClass(PaymentInPwd.this,PaymentFailResultOne.class);
         			PaymentInPwd.this.startActivity(btnok_intent);

@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.ListActivity;
@@ -28,9 +29,9 @@ public class PaymentDetail extends ListActivity {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//				Intent payment_intent = new Intent();
-//				payment_intent.setClass(PaymentDetail.this, PaymentMain.class);
-//				PaymentDetail.this.startActivity(payment_intent);	
+				Intent intent = new Intent();
+				 intent.setClass(PaymentDetail.this, ABankMain.class);
+				 PaymentDetail.this.startActivity(intent);	
 			}
 		});
 		

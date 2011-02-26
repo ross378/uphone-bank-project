@@ -13,17 +13,18 @@ public class PaymentResult extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.payment_result);
+		setContentView(R.layout.payment_result_one);
 
-		TextView tvflag = (TextView) findViewById(R.id.tv_paymentdl_flag);
+//		TextView tvflag = (TextView) findViewById(R.id.tv_paymentdl_flag);
 		TextView tvshow = (TextView) findViewById(R.id.tv_paymentdl_info);
 		Button btnok = (Button) findViewById(R.id.btn_paymentdl_ok);
 
 		Intent receive_intent = getIntent();
-		String flag = receive_intent.getStringExtra("flag");
+//		String flag = receive_intent.getStringExtra("flag");
 		String info = receive_intent.getStringExtra("info");
-		tvflag.setText(flag);
+//		tvflag.setText(flag);
 		tvshow.setText(info);
+		btnok.setText("返回");
 
 		btnok.setOnClickListener(new BtnOkCL());
 	}

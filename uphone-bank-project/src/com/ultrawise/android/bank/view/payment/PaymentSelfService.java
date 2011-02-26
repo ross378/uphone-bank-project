@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -29,9 +30,9 @@ public class PaymentSelfService extends ListActivity {
 			public void onClick(View v) {
 				
 				
-				// intent = QueryAccount.this.getIntent();
-				// intent.setClass(QueryAccount.this, AccountManagement.class);
-				// QueryAccount.this.startActivity(intent);
+				Intent intent = new Intent();
+				 intent.setClass(PaymentSelfService.this, ABankMain.class);
+				 PaymentSelfService.this.startActivity(intent);
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -78,7 +79,7 @@ public class PaymentSelfService extends ListActivity {
 	        
 	        
 	        paylist1 = new HashMap<String,Object>();
-	        paylist1.put("payment_list","QQ充值");
+	        paylist1.put("payment_list","Q币充值");
 	        paylist1.put("listimg2", R.drawable.trans_main2);
 	        mainlist.add(paylist1);
 	        
@@ -107,7 +108,7 @@ public class PaymentSelfService extends ListActivity {
 
        if(id==0){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "手机");
+			payment_intent.putExtra("ser_name", "手机充值");
 			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
 		}else if(id==1){
@@ -117,7 +118,7 @@ public class PaymentSelfService extends ListActivity {
 			PaymentSelfService.this.startActivity(payment_intent);
 		}else if(id==2){			
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "网易帐号");
+			payment_intent.putExtra("ser_name", "网易帐");
 
 			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);

@@ -38,9 +38,9 @@ import android.widget.AdapterView.OnItemSelectedListener;
 			
 			tvClassFirst.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-//					Intent payment_intent = new Intent();
-//					payment_intent.setClass(PaymentSelectAccount.this, PaymentMain.class);
-//					PaymentSelectAccount.this.startActivity(payment_intent);	
+					Intent intent = new Intent();
+					 intent.setClass(PaymentSelectAccount.this, ABankMain.class);
+					 PaymentSelectAccount.this.startActivity(intent);	
 				}
 			});
 			tvClassFirst.setVisibility(View.VISIBLE);
