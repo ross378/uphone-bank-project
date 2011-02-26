@@ -52,7 +52,7 @@ public class AccountQueryDetail extends ListActivity {
 		});
 	   
 		    TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-	        tvClassSecond.setText("账户明细查询");
+	        tvClassSecond.setText("明细查询");
 //	        tvClassSecond.setOnClickListener(new OnClickListener() {
 //				public void onClick(View v) {
 //					// intent = QueryAccount.this.getIntent();

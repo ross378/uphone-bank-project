@@ -109,7 +109,7 @@ public class AccountQueryType extends ListActivity {
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==1){//账户明细查询
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryType.this, AccountQueryDetail.class);
+			payment_intent.setClass(AccountQueryType.this, inventory.class);
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==2){//账户来帐查询
 			Intent payment_intent = new Intent();
