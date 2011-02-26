@@ -63,7 +63,7 @@ public class AccountQueryEinnahme extends ListActivity {
 	        tvClassSecond.setVisibility(View.VISIBLE);
 		
 		    acc1=(TextView)findViewById(R.id.acc1);
-		    acc1.setText("账户：");
+		    acc1.setText("定期账户012345678：");
 		    acc2=(TextView)findViewById(R.id.acc2);
 		    acc2.setText("1234578xxxx");
 		    type1=(TextView)findViewById(R.id.type1);
@@ -77,18 +77,18 @@ public class AccountQueryEinnahme extends ListActivity {
 	        HashMap<String,Object> acclist2 = new HashMap<String,Object>();
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
-	        acclist1.put("txtView1","1");
-	        acclist1.put("txtView2", "日期");
+	        acclist1.put("txtView1","20101123");
+	        acclist1.put("txtView2", "转账");
 	        acclist1.put("txtView3",R.drawable.account2);
 	        
 	        
 	        
-	        acclist2.put("txtView1","2");
-	        acclist2.put("txtView2", "来账时间");
+	        acclist2.put("txtView1","20101124");
+	        acclist2.put("txtView2", "汇款");
 	        acclist2.put("txtView3", R.drawable.account2);
 	        
-	        acclist3.put("txtView1",2);
-	        acclist3.put("txtView2", "来账");
+	        acclist3.put("txtView1","20101125");
+	        acclist3.put("txtView2", "转账");
 	        acclist3.put("txtView3",R.drawable.account2);
 	        
 	        accoutList.add(acclist1);
@@ -103,20 +103,20 @@ public class AccountQueryEinnahme extends ListActivity {
 	        iv_now.setVisibility(View.VISIBLE);
 	}
 
-//	protected void onListItemClick(ListView l, View v, int position, long id) {
-//		super.onListItemClick(l, v, position, id);
-//		if(id==3){//账户信息及余额查询
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(AccountQueryEinnahme.this, PaymentHistory.class);
-//			AccountQueryEinnahme.this.startActivity(payment_intent);
-//		}else if(id==4){//账户明细查询
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(AccountQueryEinnahme.this, PaymentDefAcc.class);
-//			AccountQueryEinnahme.this.startActivity(payment_intent);
-//		}else if(id==5){//账户来帐查询
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(AccountQueryEinnahme.this, PaymentManage.class);
-//			AccountQueryEinnahme.this.startActivity(payment_intent);
-//		}
-//	}
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		super.onListItemClick(l, v, position, id);
+		if(id==0){//账户信息及余额查询
+			Intent payment_intent = new Intent();
+			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
+			AccountQueryEinnahme.this.startActivity(payment_intent);
+		}else if(id==1){//账户明细查询
+			Intent payment_intent = new Intent();
+			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
+			AccountQueryEinnahme.this.startActivity(payment_intent);
+		}else if(id==2){//账户来帐查询
+			Intent payment_intent = new Intent();
+			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
+			AccountQueryEinnahme.this.startActivity(payment_intent);
+		}
+	}
 }
