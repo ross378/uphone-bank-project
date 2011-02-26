@@ -27,15 +27,15 @@
 		<TextView 
 		android:id="@+id/acc1"
 		android:singleLine="true"
-		android:textColor="#ff000000"
-		android:textSize="24dip"
+		android:textColor="#000000"
+		android:textSize="15dip"
 		/>
 		<TextView 
 		android:id="@+id/acc2"
 		android:singleLine="true"
 		android:gravity="left"
-		android:textColor="#ff000000"
-		android:textSize="24dip"
+		android:textColor="#000000"
+		android:textSize="15dip"
 		/>
 	</TableRow>
 	</TableLayout>
@@ -51,19 +51,20 @@
 		<TextView 
 		android:id="@+id/type1"
 		android:singleLine="true"
-		android:textColor="#ff000000"
-		android:textSize="24dip"
+		android:textColor="#000000"
+		android:textSize="15dip"
 		/>
 		<TextView 
 		android:id="@+id/type2"
 		android:singleLine="true"
 		android:textColor="#ff000000"
-		android:textSize="24dip"
+		android:textSize="15dip"
 		/>
 	</TableRow>
 	</TableLayout>
 <ListView
-	android:id="@id/android:list"
+	android:id="@id/android:list" android:divider="#cccccc" 
+    android:dividerHeight="2px"
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
     android:drawSelectorOnTop="true"
