@@ -48,10 +48,6 @@ public class PaymentHistory extends Activity {
 			}
 		});
         
-        /*Spinner starttime = (Spinner)findViewById(R.id.tv_payhis_ckstartbut);
-        starttime.setOnClickListener(new SetStartTime());
-        Spinner endtime = (Spinner)findViewById(R.id.tv_payhis_ckendendbut);
-        endtime.setOnClickListener(new SetEndTime());*/
         Intent intent = this.getIntent();
         if(intent.hasExtra("start")){
         	String[] date = intent.getStringArrayExtra("start");
@@ -91,7 +87,7 @@ public class PaymentHistory extends Activity {
 		
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        //iv_now.setVisibility(View.VISIBLE);
         
         btn_payhis_ok.setOnClickListener(new BtnHischOKCL());
         //btn_payhis_cancle.setOnClickListener(new BtnHischCancleCL());
