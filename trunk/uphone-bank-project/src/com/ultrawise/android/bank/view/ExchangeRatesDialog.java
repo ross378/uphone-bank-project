@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 /**
@@ -23,6 +24,7 @@ public class ExchangeRatesDialog extends Activity {
 	private int currencyFlag=0;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
+	        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        setContentView(R.layout.dialog);
 	        //获得外汇汇率Activity传入的信息值并显示
 	        TextView tvflag = (TextView)findViewById(R.id.flag);
@@ -32,8 +34,8 @@ public class ExchangeRatesDialog extends Activity {
 	        Intent receive_intent = getIntent();
 	        String flag = receive_intent.getStringExtra("flag");
 	        String info = receive_intent.getStringExtra("info");
-	        tvflag.setText(flag);
-	        tvshow.setText(info);
+//	        tvflag.setText(flag);
+//	        tvshow.setText(info);
 	        //获得货币面值是否有值标志
 	        currencyFlag=Integer.parseInt(receive_intent.getStringExtra("currencyFlag"));
 	        btnok.setOnClickListener(new BtnOkCL());
@@ -42,7 +44,7 @@ public class ExchangeRatesDialog extends Activity {
 	 }
 	 class BtnOkCL implements OnClickListener{
 			public void onClick(View v) {
-				System.out.println(currencyFlag);
+				//System.out.println(currencyFlag);
 				Intent intent = new Intent();
 				//货币面值不为孔
 				if(currencyFlag==2){
