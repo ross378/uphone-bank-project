@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.account_management.QueryAccount;
+import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -30,8 +32,9 @@ public class CreditView extends ListActivity  {
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.GONE);
 	    	intent = new Intent();
-	        TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
+	         tvCredit= (TextView)this.findViewById(R.id.class_first);
 	        tvCredit.setText("首页>信用卡 ");
+	        tvCredit.setTextSize(13);
 	        tvCredit.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					 intent.setClass(CreditView.this, ABankMain.class);
@@ -109,15 +112,15 @@ public class CreditView extends ListActivity  {
 			super.onListItemClick(l, v, position, id);
 			if (id == 0) {//帐户信息
 				Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, CreditDetail.class);
+				payment_intent.setClass(CreditView.this, AccountQuery.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==1){//交易明细查看
 				Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, CreditDetail.class);
+				payment_intent.setClass(CreditView.this, AccountQuery.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==2){//帐户来帐查看
 			    Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, CreditDetail.class);
+				payment_intent.setClass(CreditView.this, AccountQuery.class);
 				CreditView.this.startActivity(payment_intent);	
 			}
 			else if(id==3){//开卡
