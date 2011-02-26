@@ -1,32 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="320px"
+    android:layout_height = "200px"
     >
 <TextView  
 	android:id="@+id/flag"
-    android:layout_width="wrap_content" 
+    android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="@string/app_title"
-    android:textSize="18sp"
-    android:paddingLeft="8dip"
+    android:text="@string/result"
+    android:textSize="24px"
+    android:layout_marginTop = "15px"
+    android:paddingLeft="20px"
     />
 <TextView
+	android:layout_width = "300px"
+	android:layout_height =  "2dip"
+	android:layout_marginLeft = "10px"
+	android:layout_marginTop = "10px"
+	android:background = "#ffffff"></TextView>
+<TextView
 	android:id="@+id/info"
-	android:layout_width="wrap_content"
+	android:layout_width= "fill_parent"
 	android:layout_height="wrap_content"
 	android:text="@string/trans_fail"
-	android:layout_gravity="center_horizontal"
-	android:padding="8dip"
+	android:paddingTop = "20px"
+	android:paddingLeft = "100px"
 />
+<TextView
+	android:layout_width = "300px"
+	android:layout_height =  "2dip"
+	android:layout_marginLeft = "10px"
+	android:layout_marginTop = "20px"
+	android:background = "#ffffff"></TextView>
 <Button
 	android:id="@+id/okBtn"
 	android:text="@string/btn_ok"
-	android:layout_width="80dip"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_horizontal"
+	android:layout_width="70px"
+	android:layout_height="30px"
 	android:background="#ffffff"
-	android:layout_marginBottom="4dip"
+	android:layout_marginTop = "15px"
+	android:layout_marginLeft = "125px"
 	/>
 </LinearLayout>
