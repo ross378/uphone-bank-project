@@ -6,14 +6,30 @@
     >
 <include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
-<ScrollView
+<!--<ScrollView
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:scrollbars="vertical"
 	android:layout_below="@id/paymentabove"
 	android:layout_above="@id/paymentbelow"
 	>
-<LinearLayout
+	--><LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/transabove"
+	android:layout_above="@id/transbelow"
+	>
+	
+	<ListView
+	android:id="@+id/detail_list"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
+	</LinearLayout>
+<!--<LinearLayout
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
@@ -78,24 +94,7 @@
 	android:paddingLeft="10dip"
 	android:textSize="20sp"
 	/>
-<!--  <TextView
-	android:id="@+id/tv_payhis_acc2"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@string/pay_acc"
-	android:paddingLeft="10dip"
-	android:textSize="23sp"
-	android:layout_gravity="center_horizontal"
-	/>
-	-->
-<Button
-	android:id="@+id/btn_payhisdt_ok"
-	android:layout_width="150dip"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_horizontal"
-	android:text="@string/btn_ok"
-	android:layout_marginTop="20dip"
-	/>
 </LinearLayout>
 </ScrollView>
+-->
 </RelativeLayout>
