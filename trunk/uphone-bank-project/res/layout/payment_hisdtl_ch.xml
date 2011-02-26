@@ -21,18 +21,17 @@
 	>
 <TextView
 	android:id="@+id/tv_payhis_ckst"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:layout_height="40dip"
 	android:text="@string/pay_chstart"
-	android:textSize="24sp"
-	android:paddingRight="30dp"
+	android:textSize="25sp"
+	android:paddingRight="10dip"
 	/>
-<!--  <DatePicker
-	android:id="@+id/datepick_payment_hissta"
+	<TextView
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
 	/>
-	-->
 	<LinearLayout 
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
@@ -40,16 +39,29 @@
 	<TextView
 	android:id="@+id/tv_payhis_ckstart"
 	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:layout_height="40dip"
 	android:text="开始日期："
-	android:textSize="20dip"
+	android:textSize="25sp"
+	android:paddingLeft="20dip"
+	/>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
 	/>
 	<EditText 
 	android:id="@+id/start_text"
-	android:layout_width="200dip"
+	android:layout_width="180dip"
 	android:layout_height="45dip"
+	android:textSize="22sp"
 	android:layout_marginLeft="100dip"
+	android:layout_marginTop="2dip"
 	></EditText>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
 	</LinearLayout>
 	<LinearLayout 
 	android:layout_width="fill_parent"
@@ -58,16 +70,29 @@
 	<TextView
 	android:id="@+id/tv_payhis_cksendend"
 	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:layout_height="40dip"
 	android:text="结束日期："
-	android:textSize="20dip"
+	android:textSize="25sp"
+	android:paddingLeft="20dip"
+	/>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
 	/>
 	<EditText 
 	android:id="@+id/end_text"
-	android:layout_width="200dip"
+	android:layout_width="180dip"
 	android:layout_height="45dip"
+	android:textSize="22sp"
 	android:layout_marginLeft="100dip"
+	android:layout_marginTop="2dip"
 	></EditText>
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
 	</LinearLayout>
 <TableLayout
 	android:layout_width="fill_parent"
@@ -77,8 +102,9 @@
 <Button
 	android:id="@+id/btn_payhisck_ok"
 	android:layout_width="80dip"
-	android:layout_marginLeft="80dip"
+	android:layout_marginLeft="120dip"
 	android:text="@string/btn_look"
+	android:layout_marginTop="15dip"
 	/>
 </TableRow>
 </TableLayout>
