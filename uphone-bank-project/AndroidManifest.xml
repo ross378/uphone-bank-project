@@ -161,15 +161,20 @@
 		<!-- 错误信息两个按钮 -->
 		
 			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo" 
+			android:label="@string/fail_inmation"
 			android:theme="@android:style/Theme.Dialog">
 		
 		</activity>
 		<!-- 错误信息一个按钮 -->
 			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultOne" 
-			android:theme="@android:style/Theme.Dialog"
-			
+			android:label="@string/fail_inmation"
+			android:theme="@android:style/Theme.Dialog"		
 			>
-		
+		</activity>
+		<!-- 成功一个按钮 -->
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult"
+		android:label="@string/success_inmation"
+				android:theme="@android:style/Theme.Dialog">
 		</activity>
 		
 		
@@ -190,9 +195,7 @@
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDefAcc" android:label="@string/app_title">
 		
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult"
-				android:theme="@android:style/Theme.Dialog">
-		</activity>
+		
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDetail" android:label="@string/app_title">
