@@ -6,51 +6,66 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:background="@drawable/helper"
 xmlns:android="http://schemas.android.com/apk/res/android">
-
 <include layout = "@layout/main_bank_above"/>
-
+<LinearLayout
+	android:layout_width = "fill_parent"
+	android:layout_height = "fill_parent"
+	android:orientation = "vertical"
+	android:layout_below = "@id/headLayout">
+	
 <!-- 外汇利率计算器 文本布局  距离上面的上外边距10dip-->
 <LinearLayout
-android:background = "@drawable/white_two"
+
 xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/layout1"
-android:layout_width="420px"
+android:layout_width = "420px"
 android:layout_height="wrap_content"
 android:layout_marginTop="30px"
-android:layout_marginLeft="30px"
 android:orientation="vertical"
 android:layout_below = "@id/headLayout"
+android:background = "@drawable/white_two"
+android:layout_marginLeft = "30px"
 
 >
+
 <!-- 输入兑换货币面值 文本 -->
 <TextView
 android:id="@+id/HuoBiMZText"
-android:layout_width="fill_parent"
+android:layout_width="360px"
 android:layout_height="50px"
 android:text="请输入要兑换的货币面值:"
 android:textSize="24px"
-android:layout_marginLeft = "50px"
+android:layout_marginLeft = "30px"
+android:layout_marginTop = "10px"
 android:textColor="#000000"
 />
+
+
 <TextView 
 			android:layout_width = "fill_parent"
 			android:layout_height = "2dip"
 			android:background = "#808080ff">
 	</TextView>
+
+
 <!-- 输入兑换货币面值 编辑框 -->
 <EditText
 android:id="@+id/currencyInputEdit"
-android:layout_width="380px"
-android:layout_height="40px"
+android:layout_width="360px"
+android:layout_height="60px"
 android:textSize="22px"
-android:layout_marginLeft = "50px"
+android:layout_marginLeft = "30px"
 android:singleLine="true"
 ></EditText>
+
+
 <TextView 
 			android:layout_width = "fill_parent"
 			android:layout_height = "2dip"
 			android:background = "#808080ff">
 	</TextView>
+
+
 <!-- 选择原始货币单位 文本 -->
 <TextView
 android:id="@+id/sourceCurrencyText"
@@ -58,56 +73,72 @@ android:layout_width="fill_parent"
 android:layout_height="50px"
 android:text="原始货币:"
 android:textSize="24px"
-android:layout_marginLeft = "50px"
+android:layout_marginLeft = "30px"
 android:textColor="#000000"
 />
+
+
 <TextView 
 			android:layout_width = "fill_parent"
 			android:layout_height = "2dip"
 			android:background = "#808080ff">
 	</TextView>
+
+
 <Spinner
 	android:id="@+id/sourceCurrencySpinner"
-	android:layout_width="fill_parent"
+	android:layout_width="360px"
 	android:layout_height="wrap_content"
 	android:prompt="@string/sourcecurrency"
+	android:layout_marginLeft = "30px"
 />
+
+
 <TextView 
 			android:layout_width = "fill_parent"
 			android:layout_height = "2dip"
 			android:background = "#808080ff">
 	</TextView>
+
 <!-- 选择目标货币单位 文本 -->
 <TextView
 android:id="@+id/delatinCurrencyText"
 android:layout_width="fill_parent"
 android:layout_height="50px"
+android:layout_gravity = "center"
 android:text="目标货币:"
-android:textSize="50px"
-android:layout_marginLeft = "50px"
+android:textSize="24px"
+android:layout_marginLeft = "30px"
 android:textColor="#000000"
 />
+
 <TextView 
 			android:layout_width = "fill_parent"
 			android:layout_height = "2dip"
 			android:background = "#808080ff">
 	</TextView>
+
 <Spinner
 	android:id="@+id/delatinCurrencySpinner"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_width="360px"
+	android:layout_height="60px"
+	android:layout_marginTop = "5px"
 	android:prompt="@string/delatincurrency"
+	android:layout_marginLeft = "30px"
 />
+
+
+
+</LinearLayout>
 <Button
 android:id="@+id/currencyConCulate"
 android:layout_width="140px"
-android:layout_height="50px"
+android:layout_height="70px"
 android:text="开始计算"
-android:layout_gravity="center"
-android:layout_marginLeft = "170px"
-android:layout_marginTop = "500px"
+android:layout_marginLeft = "140px"
+android:layout_marginTop = "50px"
 />
 </LinearLayout>
-
 <include layout = "@layout/main_bank_bottom"/>
+
 </RelativeLayout>
