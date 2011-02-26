@@ -4,23 +4,35 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
+<!--
 <TextView  
 	android:id="@+id/tv_paymentdl_flag"
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:textSize="20sp"
     android:paddingLeft="8dip"
-    />
+    /> 
+ -->
+ 	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
 <TextView
 	android:id="@+id/tv_paymentdl_info"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
+	android:textSize="25sp"
 	android:layout_gravity="center_horizontal"
 	android:padding="8dip"
 />
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="2dip"
+	android:background="#ffffffff"
+	/>
 <Button
 	android:id="@+id/btn_paymentdl_ok"
-	android:text="@string/btn_ok"
 	android:layout_width="100dip"
 	android:layout_height="wrap_content"
 	android:layout_gravity="center_horizontal"

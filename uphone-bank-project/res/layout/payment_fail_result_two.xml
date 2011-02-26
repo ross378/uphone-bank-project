@@ -4,14 +4,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" 
     >
-<TextView  
+<!-- <TextView
 	android:id="@+id/tv_paymentdl_flag"
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:textSize="20sp"
     android:paddingLeft="8dip"
     android:layout_gravity="left"
-    />
+    /> -->  
+
     	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
@@ -22,6 +23,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_gravity="center_horizontal"
+	android:textSize="25sp"
 	android:padding="8dip"
 />
 	<TextView
