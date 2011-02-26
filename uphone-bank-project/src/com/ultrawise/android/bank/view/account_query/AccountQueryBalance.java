@@ -88,18 +88,26 @@ public class AccountQueryBalance extends ListActivity {
 	        HashMap<String,String> acclist1 = new HashMap<String,String>();
 	        HashMap<String,String> acclist2 = new HashMap<String,String>();
 	        HashMap<String,String> acclist3 = new HashMap<String,String>();
+	        HashMap<String,String> acclist4 = new HashMap<String,String>();
+	        HashMap<String,String> acclist5 = new HashMap<String,String>();
 	        
 	       
-	        acclist1.put("account_list", "币中：");
-	        acclist1.put("account_list_info", ">");
-	        acclist2.put("account_list", "人民币");
-	        acclist2.put("account_list_info", ">");
-	        acclist3.put("account_list", "余额");
-	        acclist3.put("account_list_info", "3000");
+	        acclist1.put("account_list", "币种：");
+	        acclist1.put("account_list_info", "人民币");
+	        acclist2.put("account_list", "余额：");
+	        acclist2.put("account_list_info", "30000");
+	        acclist3.put("account_list", "存期：");
+	        acclist3.put("account_list_info", "三个月");
+	        acclist4.put("account_list", "起息：");
+	        acclist4.put("account_list_info", "2011.12.15");
+	        acclist5.put("account_list", "利率");
+	        acclist5.put("account_list_info", "2.25%");
 	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);
 	        accoutList.add(acclist3);
+	        accoutList.add(acclist4);
+	        accoutList.add(acclist5);
 	        
 	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list2, new String[] {
 					"account_list", "account_list_info" }, new int[] { R.id.txtView1, R.id.txtView2 } );
