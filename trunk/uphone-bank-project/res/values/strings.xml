@@ -37,6 +37,7 @@
 	<string name="main_page">首页</string>
 	<string name="helper">金融助手</string>
 	<string name = "deposite_rates">存款利率</string>
+	<string name = "result">计算结果:</string>
 	<string name = "loan_rates">贷款利率</string>
 	<string name = "exchange_rates">汇率计算</string>
 	<string name="pakitclass">请选择证件类型</string>
