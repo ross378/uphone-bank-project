@@ -12,10 +12,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 <!-- 手机用户登陆提示文本布局 -->
 <LinearLayout
 android:id="@+id/loginTextLayout"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
+android:layout_width="440px"
+android:layout_height="380px"
 android:orientation="vertical"    
-android:layout_alignParentTop="true"           
+android:layout_alignParentTop="true"  
+android:layout_marginLeft = "20px"
+android:layout_marginTop = "50px"
+android:background = "@drawable/user_log"  
+       
 
 >
 <!-- 手机登陆提示文本 -->
@@ -26,11 +30,14 @@ android:layout_height="wrap_content"
 android:text="手机用户登录"
 android:textStyle="bold"
 android:gravity="center"
-android:textSize="20sp"
+android:layout_marginTop = "20px"
+android:paddingBottom = "20px"
+android:textSize="32px"
+android:textColor = "#ffffff"
 >
 </TextView>
-</LinearLayout>
-<include layout="@layout/main_bank_bottom"/>
+
+
 <!-- 登陆信息表格布局 -->
 <TableLayout
 android:id="@+id/userLoginTable"
@@ -38,7 +45,7 @@ android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:layout_below="@+id/loginTextLayout"
 android:stretchColumns="1"
-android:layout_marginTop="10dip"
+android:layout_marginTop="5dip"
 android:layout_marginLeft="10dip"
 android:layout_marginRight="10dip"
 >
@@ -51,15 +58,15 @@ android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="用户名："
 android:textStyle="bold"
-android:textSize="16sp"
-android:textColor="#ffffff"
+android:textSize="24px"
+android:textColor="#000000"
 >
 </TextView>
 <!-- 用户名输入框 -->
 <EditText
 android:id="@+id/nameEdit"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
+android:layout_width="280px"
+android:layout_height="60px"
 android:textSize="14sp"
 android:gravity="left"
 android:layout_span="2"
@@ -77,16 +84,16 @@ android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="&#23494;&#30721;&#65306;"
 android:textStyle="bold"
-android:textSize="16sp"
+android:textSize="24px"
 
-android:textColor="#ffffff"
+android:textColor="#000000"
 >
 </TextView>
 <!-- 密码输入框 -->
 <EditText
 android:id="@+id/passwdEdit"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
+android:layout_width="280px"
+android:layout_height="60px"
 android:textSize="14sp"
 android:textStyle="bold"
 android:layout_span="2"
@@ -104,8 +111,8 @@ android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="&#38468;&#21152;&#30721;&#65306;"
 android:textStyle="bold"
-android:textSize="16sp"
-android:textColor="#ffffff"
+android:textSize="24px"
+android:textColor="#000000"
 
 >
 </TextView>
@@ -138,12 +145,14 @@ android:text="记下登陆名"
 android:textStyle="bold"
 android:gravity="center"
 android:layout_span="3"
-android:textSize="16sp"
+android:textSize="24px"
+android:textColor = "#000000"
 android:layout_gravity="center_horizontal"
 >
 </CheckBox>
 </TableRow>
 </TableLayout>
+</LinearLayout>
 <!-- 登陆按钮 布局 -->
 <LinearLayout
 android:id="@+id/loginButtonLayout"
@@ -151,7 +160,7 @@ android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:layout_below="@id/userLoginTable"
 android:layout_above="@id/bottomLayout"
-android:layout_marginTop="20dip"
+android:layout_marginBottom="100px"
 android:gravity="center"
 >
 <!-- 登陆按钮 -->
@@ -160,9 +169,11 @@ android:id="@+id/userLogin"
 android:layout_width="100dip"
 android:layout_height="wrap_content"
 android:text="&#30331;&#24405;"
+android:background = "@drawable/log_button"
+android:layout_marginTop = "50px"
 android:textStyle="bold"/>
 </LinearLayout> 
 
-
+<include layout="@layout/main_bank_bottom"/>
 </RelativeLayout>
 

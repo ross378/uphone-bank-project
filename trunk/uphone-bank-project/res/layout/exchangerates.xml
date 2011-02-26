@@ -22,7 +22,6 @@ android:layout_width = "420px"
 android:layout_height="wrap_content"
 android:layout_marginTop="30px"
 android:orientation="vertical"
-android:layout_below = "@id/headLayout"
 android:background = "@drawable/white_two"
 android:layout_marginLeft = "30px"
 
