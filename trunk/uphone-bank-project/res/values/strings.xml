@@ -84,7 +84,7 @@
 
 	</string-array>
 	<string name="btn_look">确定</string>
-	<string name="set_time">设置[起始/终止]时间</string>
+	<string name="set_time">设置起始时间</string>
 
 
 	<string name="balanceQuery">余额查询</string>
