@@ -68,7 +68,7 @@ public class ActivateCard extends Activity {
         setContentView(R.layout.activatecard);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        iv_now.setVisibility(View.GONE);
     	intent = new Intent();
         TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
         tvCredit.setText("首页>信用卡>开卡");
@@ -81,7 +81,7 @@ public class ActivateCard extends Activity {
         tvCredit.setVisibility(View.VISIBLE);
         
       //设置底部按钮
-		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
+		btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 		btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
 		btnCoustom.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -92,7 +92,7 @@ public class ActivateCard extends Activity {
 		});
 		btnCoustom.setVisibility(View.VISIBLE);
 		
-		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 		btnMain.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -103,7 +103,7 @@ public class ActivateCard extends Activity {
 		});
 		
         //获得开卡按钮对象，并设置其鼠标单击事件监听
-        activateCardButton=(Button)findViewById(R.id.activateCard1);
+        activateCardButton=(Button)findViewById(R.id.activateCard);
         activateCardButton.setOnClickListener(new ActivateCardButtonListener());
         
         //获得信用卡号输入框对象
@@ -114,13 +114,14 @@ public class ActivateCard extends Activity {
         //获得卡片有效期至输入框对象，并设置其鼠标单击事件监听
         creditEnabledDateText=(EditText)findViewById(R.id.creditEnabledDateEdit);
         creditEnabledDateText.setOnClickListener(new CreditEnabledDateTextListener());
-        
+        //获得证件类型控件对象
+        pakitSpinner=(Spinner)findViewById(R.id.pakitSpinner);
         //获得手机号码输入框对象
         mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit);
         //获得固定电话输入框对象
         phoneNoEdit=(EditText)findViewById(R.id.phoneNoEdit);
         //获得帐户密码输入框对象
-        passwordEdit=(EditText)findViewById(R.id.creditpasswordEdit);
+        passwordEdit=(EditText)findViewById(R.id.accoutpasswordEdit);
         //获得证件号输入框对象
         pakitNoEditText=(EditText)findViewById(R.id.pakitNoEditText);
         
@@ -146,14 +147,12 @@ public class ActivateCard extends Activity {
         }
     	
         //初始化证件类型控件值
-       // final String[] arrs=new String[]{"身份证","学生证","工作证","军人证"};
-        pakitSpinner= (Spinner)findViewById(R.id.pakitSpinner); 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,R.array.pakitvalue);
+       final String[] arrs=new String[]{"身份证","学生证","工作证","军人证"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
 
         pakitSpinner.setAdapter(adapter);  
-
         pakitSpinner.setSelection(1,true);
 
          pakitSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
@@ -192,12 +191,12 @@ public class ActivateCard extends Activity {
 	    			creditNo==null || creditNo.trim().length()==0||
 	    			dateEnable==null || dateEnable.trim().length()==0){
 	    			activateFlag=1;
-	    			flag="对不起,开卡失败";
-	    			info="用户名,信用卡号,信用卡有效期不能为空";
+	    			flag="失败提示：";
+	    			info="     开卡失败！请验证所\n           填信息是否正确！";
 	    	}else{
-	    		activateFlag=2;
-	    		flag="恭喜您"+userName;
-	    		info="您的卡号为"+creditNo+"的信用卡已经开通服务！\n";
+	    		activateFlag=2; 
+	    		flag="  成功提示：";
+	    		info="  开卡成功！在激活该信用卡前   \n  您还不能通过手机客户端操作！ ";
 	    	}
 			Intent intent=new Intent();
 			intent.putExtra("flag",flag);
