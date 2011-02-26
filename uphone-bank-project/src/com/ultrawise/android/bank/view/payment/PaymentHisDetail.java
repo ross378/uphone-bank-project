@@ -1,30 +1,38 @@
 package com.ultrawise.android.bank.view.payment;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-public class PaymentHisDetail extends Activity {	
+public class PaymentHisDetail extends ListActivity {	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.payment_hisdtl);
+        setContentView(R.layout.payment_main);
         
-        TextView tv_title = (TextView)findViewById(R.id.tv_payhis_title);
+        /*TextView tv_title = (TextView)findViewById(R.id.tv_payhis_title);
         TextView tv_amount = (TextView)findViewById(R.id.tv_payhis_amount);
         TextView tv_time = (TextView)findViewById(R.id.tv_payhis_tim);
         TextView tv_sernum = (TextView)findViewById(R.id.tv_payhis_sernum);
-        TextView tv_acc = (TextView)findViewById(R.id.tv_payhis_acc);
+        TextView tv_acc = (TextView)findViewById(R.id.tv_payhis_acc);*/
         //TextView tv_acc2 = (TextView)findViewById(R.id.tv_payhis_acc2);
         
-        Button btn_payhisdl_ok = (Button)findViewById(R.id.btn_payhisdt_ok);
+        //Button btn_payhisdl_ok = (Button)findViewById(R.id.btn_payhisdt_ok);
+        
+       /* ListView hisDetail = (ListView)findViewById(android:list);*/
         
         Intent payhisdtl_intent = getIntent();
         
@@ -34,13 +42,47 @@ public class PaymentHisDetail extends Activity {
         String tvsernum = payhisdtl_intent.getStringExtra("serialnum");
         String tvacc = payhisdtl_intent.getStringExtra("acc");
         
-        tv_title.setText("项目名称："+tvtitle);
+        /*tv_title.setText("项目名称："+tvtitle);
         tv_amount.setText("缴费金额："+tvamount);
         tv_time.setText("缴费时间："+tvtime);
         tv_sernum.setText("项目流水号："+tvsernum);
-        tv_acc.setText("缴费账号："+tvacc);
+        tv_acc.setText("缴费账号："+tvacc);*/
         //tv_acc2.setText(tvacc);
         
+        ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
+        
+        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
+        
+        paylist1 = new HashMap<String,Object>();  
+        paylist1.put("listimg1","缴费时间：");
+        paylist1.put("payment_list",tvtime);
+        mainlist.add(paylist1);
+        
+        paylist1.put("listimg1","缴费项目：");
+        paylist1.put("payment_list",tvtitle);
+        mainlist.add(paylist1);
+        
+        paylist1 = new HashMap<String,Object>();  
+        paylist1.put("listimg1","缴费账号：");
+        paylist1.put("payment_list",tvacc);
+        mainlist.add(paylist1);
+        
+        paylist1 = new HashMap<String,Object>();  
+        paylist1.put("listimg1","缴费金额：");
+        paylist1.put("payment_list",tvamount);
+        mainlist.add(paylist1);
+        
+        paylist1 = new HashMap<String,Object>();  
+        paylist1.put("listimg1","项目流水号：");
+        paylist1.put("payment_list",tvsernum);
+        mainlist.add(paylist1);
+        
+        SimpleAdapter MainListAdapter = new SimpleAdapter(
+        		this, mainlist,R.layout.payment_details_list, new String[]{
+        				"listimg1","payment_list"},new int[]{R.id.payment_list,R.id.payment_list2} );
+        
+       /* hisDetail.setAdapter(MainListAdapter);*/
+        this.setListAdapter(MainListAdapter);
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
@@ -80,7 +122,7 @@ public class PaymentHisDetail extends Activity {
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.VISIBLE);
         
-        btn_payhisdl_ok.setOnClickListener(new BtnHistlCL());
+        //btn_payhisdl_ok.setOnClickListener(new BtnHistlCL());
 	}
 	class BtnHistlCL implements OnClickListener{
 		public void onClick(View v){
