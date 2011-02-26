@@ -205,7 +205,7 @@
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDftAccResult" android:label="@string/app_title"
 				android:theme="@android:style/Theme.Dialog">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSetTimeDialog" android:label="@string/app_title"
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSetTimeDialog" 
 				android:theme="@android:style/Theme.Dialog">
 
 		</activity>
