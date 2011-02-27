@@ -15,7 +15,7 @@
 	android:textSize="10pt"
 	android:singleLine="true"
     />
-<TextView
+<ImageButton
 	android:id="@+id/pay_manage_list_but"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
