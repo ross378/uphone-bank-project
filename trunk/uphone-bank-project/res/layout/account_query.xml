@@ -82,5 +82,5 @@
 		    android:layout_centerHorizontal="true"
 		    android:layout_marginTop="320px"
 		    android:textColor="#ff000000"
-		    android:background="@drawable/spinner_ok1"/>
+		    android:background="@drawable/sprinner_ok1"/>
 </RelativeLayout >
