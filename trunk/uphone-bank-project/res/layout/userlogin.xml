@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 用户登陆Activity 布局 -->
-<RelativeLayout
+<LinearLayout
 android:id="@+id/userLoginLayout"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
@@ -8,172 +8,75 @@ android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
 
-
-<!-- 手机用户登陆提示文本布局 -->
-<LinearLayout
-android:id="@+id/loginTextLayout"
-android:layout_width="440px"
-android:layout_height="380px"
-android:orientation="vertical"    
-android:layout_alignParentTop="true"  
-android:layout_marginLeft = "20px"
-android:layout_marginTop = "50px"
-android:background = "@drawable/user_log"  
-       
-
->
-<!-- 手机登陆提示文本 -->
-<TextView
-android:id="@+id/loginText"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="手机用户登录"
-android:textStyle="bold"
-android:gravity="center"
-android:layout_marginTop = "20px"
-android:paddingBottom = "20px"
-android:textSize="32px"
-android:textColor = "#ffffff"
->
-</TextView>
-
-
-<!-- 登陆信息表格布局 -->
+<!-- 登录表 -->
 <TableLayout
-android:id="@+id/userLoginTable"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:layout_below="@+id/loginTextLayout"
-android:stretchColumns="1"
-android:layout_marginTop="5dip"
-android:layout_marginLeft="10dip"
-android:layout_marginRight="10dip"
->
-<!-- 第一行 用户名 -->
-<TableRow>
-<!-- 用户名文本 -->
-<TextView
-android:id="@+id/nameText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="用户名："
-android:textStyle="bold"
-android:textSize="24px"
-android:textColor="#000000"
->
-</TextView>
-<!-- 用户名输入框 -->
-<EditText
-android:id="@+id/nameEdit"
-android:layout_width="280px"
-android:layout_height="60px"
-android:textSize="14sp"
-android:gravity="left"
-android:layout_span="2"
-android:singleLine="true"
->
-</EditText>
-</TableRow>
-<!-- 第二行 密码 -->
-<TableRow
->
-<!-- 密码文本 -->
-<TextView
-android:id="@+id/passwdText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="&#23494;&#30721;&#65306;"
-android:textStyle="bold"
-android:textSize="24px"
-
-android:textColor="#000000"
->
-</TextView>
-<!-- 密码输入框 -->
-<EditText
-android:id="@+id/passwdEdit"
-android:layout_width="280px"
-android:layout_height="60px"
-android:textSize="14sp"
-android:textStyle="bold"
-android:layout_span="2"
-android:password="true"
-android:singleLine="true"
->
-</EditText>
-</TableRow>
-<!-- 第三行 附加码  -->
-<TableRow>
-<!-- 附加码文本 -->
-<TextView
-android:id="@+id/pyramidText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="&#38468;&#21152;&#30721;&#65306;"
-android:textStyle="bold"
-android:textSize="24px"
-android:textColor="#000000"
-
->
-</TextView>
-<!-- 附加码输入框 -->
-<EditText
-android:id="@+id/pyramidEdit"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="14sp"
-android:gravity="left"
-android:singleLine="true"
->
-</EditText>
-<!-- 动态附加码图形 -->
-<ImageButton
-android:id="@+id/pyramidImage"
-android:layout_width="80dip"
-android:layout_height="45dip"
-android:layout_centerInParent="true"
-/>
-</TableRow>
-<!-- 第四行 记录用户名 -->
-<TableRow>
-<!-- 记录用户名复选框 -->
-<CheckBox
-android:id="@+id/notesPasswdCheckBox"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="记下登陆名"
-android:textStyle="bold"
-android:gravity="center"
-android:layout_span="3"
-android:textSize="24px"
-android:textColor = "#000000"
-android:layout_gravity="center_horizontal"
->
-</CheckBox>
-</TableRow>
+	android:layout_width = "440px"
+	android:layout_height = "360px"
+	android:layout_marginTop = "20px"
+	android:background = "#ffffff">
+	<TableRow
+		android:layout_width = "fill_parent"
+		android:layout_height = "72px"
+		android:background = "#000000">
+		<TextView
+			android:layout_width = "wrap_content"
+			android:layout_height = "72"
+			android:gravity = "center"
+			android:text = "hello"></TextView>
+		<TextView
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "hellohello"></TextView>
+	</TableRow>
+	<TableRow
+		android:layout_width = "fill_parent"
+		android:layout_height = "72px"
+		android:background = "#ffffff">
+		<TextView
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "hello"></TextView>
+		<TextView
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "hellohello"></TextView>
+	</TableRow>
+	<TableRow
+		android:layout_width = "fill_parent"
+		android:layout_height = "288px"
+		android:background = "#000000">
+		<TableLayout
+			android:layout_width = "fill_parent"
+			android:layout_height = "wrap_content">
+			<TableRow
+				android:layout_width = "fill_parent"
+				android:layout_height = "72px"
+				android:background = "#000000">
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "wrap_content"
+					android:text = "hello"></TextView>
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "wrap_content"
+					android:text = "hellohello"></TextView>
+			</TableRow>
+			<TableRow
+				android:layout_width = "fill_parent"
+				android:layout_height = "72px"
+				android:background = "#000000">
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "wrap_content"
+					android:text = "hello"></TextView>
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "wrap_content"
+					android:text = "hellohello"></TextView>
+			</TableRow>
+		</TableLayout>
+	</TableRow>
 </TableLayout>
-</LinearLayout>
-<!-- 登陆按钮 布局 -->
-<LinearLayout
-android:id="@+id/loginButtonLayout"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:layout_below="@id/userLoginTable"
-android:layout_above="@id/bottomLayout"
-android:layout_marginBottom="100px"
-android:gravity="center"
->
-<!-- 登陆按钮 -->
-<Button
-android:id="@+id/userLogin"
-android:layout_width="100dip"
-android:layout_height="wrap_content"
-android:text="&#30331;&#24405;"
-android:background = "@drawable/log_button"
-android:layout_marginTop = "50px"
-android:textStyle="bold"/>
-</LinearLayout> 
 
-<include layout="@layout/main_bank_bottom"/>
-</RelativeLayout>
+</LinearLayout>
 
