@@ -49,19 +49,19 @@ public class PaymentManageDetail extends Activity {
 			}
 		});
 		
-		TextView tv_payhis_title_detail1=(TextView)findViewById(R.id.tv_payhis_title_detail);
+		TextView tv_payhis_title_detail1=(TextView)findViewById(R.id.tv_payhis_title_detail1);
 		tv_payhis_title_detail1.setText("扬子晚报");
 	    
-	    TextView tv_payhis_title_detail2=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    TextView tv_payhis_title_detail2=(TextView)findViewById(R.id.tv_payhis_title_detail2);
 	    tv_payhis_title_detail2.setText("10元/月");
 	    
-	    TextView tv_payhis_title_detail3=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    TextView tv_payhis_title_detail3=(TextView)findViewById(R.id.tv_payhis_title_detail3);
 	    tv_payhis_title_detail3.setText("扬子晚报");
-	    TextView tv_payhis_title_detail4=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    TextView tv_payhis_title_detail4=(TextView)findViewById(R.id.tv_payhis_title_detail4);
 	    tv_payhis_title_detail4.setText("中国建设银行");
-	    TextView tv_payhis_title_detail5=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    TextView tv_payhis_title_detail5=(TextView)findViewById(R.id.tv_payhis_title_detail5);
 	    tv_payhis_title_detail5.setText("2元/月");
-	    TextView tv_payhis_title_detail6=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    TextView tv_payhis_title_detail6=(TextView)findViewById(R.id.tv_payhis_title_detail6);
 	    tv_payhis_title_detail6.setText("每月1日至15日");
      
 	    Button ok=(Button)findViewById(R.id.manage_ok);
