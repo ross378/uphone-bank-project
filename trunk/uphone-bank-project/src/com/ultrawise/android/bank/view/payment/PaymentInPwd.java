@@ -4,6 +4,7 @@ import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 import com.ultrawise.android.bank.view.transfer.R.string;
 
+import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,8 +74,9 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         Intent paymentre_intent = getIntent();
          
         
-        String pay_num = paymentre_intent.getStringExtra("Account");    
-        acc_balance =399;
+        String pay_num = paymentre_intent.getStringExtra("Account"); 
+         
+        acc_balance= Integer.parseInt(paymentre_intent.getStringExtra("acc_balance")); 
         
         tv_pay_num.setText(pay_num); 
         
