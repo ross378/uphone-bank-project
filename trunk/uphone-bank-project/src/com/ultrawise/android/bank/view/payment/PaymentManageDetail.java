@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class PaymentManageDetail extends Activity {
@@ -47,5 +48,42 @@ public class PaymentManageDetail extends Activity {
 				PaymentManageDetail.this.startActivity(payment_intent);
 			}
 		});
+		
+		TextView tv_payhis_title_detail1=(TextView)findViewById(R.id.tv_payhis_title_detail);
+		tv_payhis_title_detail1.setText("扬子晚报");
+	    
+	    TextView tv_payhis_title_detail2=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    tv_payhis_title_detail2.setText("10元/月");
+	    
+	    TextView tv_payhis_title_detail3=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    tv_payhis_title_detail3.setText("扬子晚报");
+	    TextView tv_payhis_title_detail4=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    tv_payhis_title_detail4.setText("中国建设银行");
+	    TextView tv_payhis_title_detail5=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    tv_payhis_title_detail5.setText("2元/月");
+	    TextView tv_payhis_title_detail6=(TextView)findViewById(R.id.tv_payhis_title_detail);
+	    tv_payhis_title_detail6.setText("每月1日至15日");
+     
+	    Button ok=(Button)findViewById(R.id.manage_ok);
+	    ok.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent payment_intent=new Intent();
+				payment_intent.setClass(PaymentManageDetail.this,PaymentMain.class);
+				
+				startActivity(payment_intent);
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
