@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/com.android.gif"
+	android:background="@drawable/acc_dialog" android:layout_width="wrap_content"
+	android:layout_height="wrap_content" android:orientation="vertical">
+	<!-- 提示 -->
+	<TextView android:text="@+id/TextView01" android:id="@+id/dialog_tvTitle"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	<!-- 分割线 -->
+	<ImageView android:src="@drawable/dialog_background"
+		android:layout_width="wrap_content" android:layout_height="2dip"></ImageView>
+	<!-- 内容 -->
+	<TextView android:text="@+id/dialog_tvMsg" android:id="@+id/TextView02"
+		android:layout_marginLeft="20dip" android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></TextView>
+	<!-- 分割线 -->
+	<ImageView android:src="@drawable/dialog_background"
+		android:layout_width="wrap_content" android:layout_height="2dip"></ImageView>
+	<!-- 按钮 -->
+	<Button android:text="确定" android:id="@+id/dialog_btnYes"
+		android:background="@drawable/dialog_btnbg" android:layout_gravity="center_horizontal"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	<Button android:text="取消" android:id="@+id/dialog_btnNo"
+		android:visibility="gone" android:background="@drawable/dialog_btnbg"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+</RelativeLayout>
