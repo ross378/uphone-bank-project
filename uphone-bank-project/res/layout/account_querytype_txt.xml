@@ -17,9 +17,9 @@
 	>
 	
 	
-	<!-- 顶端账户和账号 -->
+	<!-- 顶端账户和账号 
 	<RelativeLayout
-		    android:paddingLeft="10dip"
+		    android:paddingLeft="26dip"
 		    android:paddingRight="10dip"
 		    android:paddingTop="1dip"
 		    android:paddingBottom="1dip"
@@ -32,7 +32,7 @@
 	>
 		<TextView 
 		android:id="@+id/acc1"
-		android:layout_width="92dip"
+		android:layout_width="145dip"
 		android:layout_height="wrap_content"
 		android:textColor="#000000"
 		android:textSize="15dip"
@@ -47,9 +47,9 @@
 		/>
 	</LinearLayout>
 	</RelativeLayout>
-	 <!-- end顶端账户和账号 -->
+	   end顶端账户和账号 -->
 	 
-	 	<!-- 顶端账户类型 -->
+	 	<!-- 顶端账户类型
 	<RelativeLayout
 		    android:paddingLeft="10dip"
 		    android:paddingRight="10dip"
@@ -64,7 +64,7 @@
 	>
 		<TextView 
 		android:id="@+id/type1"
-		android:layout_width="92dip"
+		android:layout_width="145dip"
 		android:layout_height="wrap_content"
 		android:textColor="#000000"
 		android:textSize="15dip"
@@ -79,23 +79,25 @@
 		/>
 	</LinearLayout>
 	</RelativeLayout>
-	 <!-- end顶端账户类型 -->
+	 end顶端账户类型 -->
 	 
-	  <!-- 账户和类型之间的线 -->
+	  <!-- 账户和类型之间的线
 	 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
 				android:background="#c0c0ff">
 			</TextView>
-   <!-- end账户和类型之间的线 -->
+    end账户和类型之间的线 -->
    
 
-	<!-- 分隔线 -->
+	<!-- 分隔线
 	 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
 				android:background="#c0c0ff">
 	 </TextView>
+	   -->
+	   
 	 <!-- 自动列表 -->
 <ListView
 	android:id="@id/android:list" 
