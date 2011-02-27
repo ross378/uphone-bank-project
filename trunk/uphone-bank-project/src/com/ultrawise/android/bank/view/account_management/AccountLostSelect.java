@@ -10,24 +10,26 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
-/**
- * 账户信息的选择账户页面
- */
-public class AccountInfoSelect extends Activity {
-
+public class AccountLostSelect extends Activity {
+	/**
+	 * 静态变量，用于指示作用
+	 */
+	public final static String ACCOUNT_TYPE="accountType";
+	public final static String ACCOUNT="account";
+	
 	private Spinner spnrSelectTpye;
-	private Spinner spnrSelectAcc;
 	private ArrayAdapter<String> adapterType;
+	private Spinner spnrSelectAcc;
 	private ArrayAdapter<String> adapterAcc;
 	private Button btnGoOn;
 	protected Intent intent;
@@ -38,26 +40,19 @@ public class AccountInfoSelect extends Activity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-
-	/**
-	 * 静态变量，用于指示作用
-	 */
-	private final static String TAG = "AccountInfoSelect";
-	public final static String ACCOUNT_TYPE="accountType";
-	public final static String ACCOUNT="account";
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
 		//去标题栏
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		this.setContentView(R.layout.account_info_select);
-
+		this.setContentView(R.layout.account_loss_select);
+		
 		/**
 		 * 下拉框，账户类型:spnrSelectTpye，账户：spnrSelectAcc
 		 */
-		spnrSelectTpye = (Spinner) findViewById(R.id.accinfo_SpnrSelectType);
+		spnrSelectTpye = (Spinner) findViewById(R.id.accLost_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
 		String[] accTypeArray = this.getResources().getStringArray(
 				R.array.accinfo_accType);
@@ -71,7 +66,7 @@ public class AccountInfoSelect extends Activity {
 		// 添加事件Spinner事件监听
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
-		spnrSelectAcc = (Spinner) this.findViewById(R.id.accinfo_SpnrSelectAcc);
+		spnrSelectAcc = (Spinner) this.findViewById(R.id.accLost_SpnrSelectAcc);
 		String[] accArray = this.getResources().getStringArray(
 				R.array.accinfo_acc);
 		adapterAcc = new ArrayAdapter<String>(this,
@@ -83,16 +78,16 @@ public class AccountInfoSelect extends Activity {
 		spnrSelectAcc.setClickable(false);
 
 		// 按钮 继续
-		btnGoOn = (Button) this.findViewById(R.id.accinfo_btnGoOn);
+		btnGoOn = (Button) this.findViewById(R.id.accLost_btnGoOn);
 		btnGoOn.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent=new Intent();
-				intent.putExtra(AccountInfoSelect.ACCOUNT_TYPE, spnrSelectTpye.getSelectedItem().toString());
-				intent.putExtra(AccountInfoSelect.ACCOUNT, spnrSelectAcc.getSelectedItem().toString());
-				intent.setClass(AccountInfoSelect.this, AccountInfo2.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent.putExtra(ACCOUNT_TYPE, spnrSelectTpye.getSelectedItem().toString());
+				intent.putExtra(ACCOUNT, spnrSelectAcc.getSelectedItem().toString());
+				intent.setClass(AccountLostSelect.this, AccountLostInfo.class);
+				AccountLostSelect.this.startActivity(intent);
 			}
 			
 		});
@@ -117,8 +112,8 @@ public class AccountInfoSelect extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent=new Intent();
-				intent.setClass(AccountInfoSelect.this, ABankMain.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent.setClass(AccountLostSelect.this, ABankMain.class);
+				AccountLostSelect.this.startActivity(intent);
 			}
 		});
 
@@ -129,14 +124,14 @@ public class AccountInfoSelect extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent=new Intent();
-				intent.setClass(AccountInfoSelect.this, AccountManagementList.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent.setClass(AccountLostSelect.this, AccountManagementList.class);
+				AccountLostSelect.this.startActivity(intent);
 
 			}
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("账户信息");
+		tvClassThrid.setText("账户挂失");
 		tvClassThrid.setVisibility(View.VISIBLE);
 		
 		// 返回键设定
@@ -154,9 +149,9 @@ public class AccountInfoSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfoSelect.this.getIntent();
-				intent.setClass(AccountInfoSelect.this, ABankMain.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent = AccountLostSelect.this.getIntent();
+				intent.setClass(AccountLostSelect.this, ABankMain.class);
+				AccountLostSelect.this.startActivity(intent);
 			}
 		});
 
@@ -165,13 +160,13 @@ public class AccountInfoSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfoSelect.this.getIntent();
-				intent.setClass(AccountInfoSelect.this, FinancialConsultation.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent = AccountLostSelect.this.getIntent();
+				intent.setClass(AccountLostSelect.this, FinancialConsultation.class);
+				AccountLostSelect.this.startActivity(intent);
 			}
 		});
-		
 	}
+	
 	//触摸触发
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
@@ -187,11 +182,11 @@ public class AccountInfoSelect extends Activity {
 				int position, long id) {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
-			case R.id.accinfo_SpnrSelectType:
+			case R.id.accLost_SpnrSelectType:
 				spnrSelectTpye.setSelection(position);
 				spnrSelectAcc.setClickable(true);
 				break;
-			case R.id.accinfo_SpnrSelectAcc:
+			case R.id.accLost_SpnrSelectAcc:
 				spnrSelectAcc.setSelection(position);
 				break;
 			}

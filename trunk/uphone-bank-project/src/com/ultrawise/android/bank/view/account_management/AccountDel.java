@@ -2,6 +2,7 @@ package com.ultrawise.android.bank.view.account_management;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.account_management.AccountInfoSelect.SpinnerSelectedListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -10,24 +11,27 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
-/**
- * 账户信息的选择账户页面
- */
-public class AccountInfoSelect extends Activity {
+public class AccountDel extends Activity {
 
+	/**
+	 * 静态变量，用于指示作用
+	 */
+	private final static String TAG = "AccountInfoSelect";
+	public final static String ACCOUNT_TYPE="accountType";
+	public final static String ACCOUNT="account";
 	private Spinner spnrSelectTpye;
-	private Spinner spnrSelectAcc;
 	private ArrayAdapter<String> adapterType;
+	private Spinner spnrSelectAcc;
 	private ArrayAdapter<String> adapterAcc;
 	private Button btnGoOn;
 	protected Intent intent;
@@ -38,20 +42,12 @@ public class AccountInfoSelect extends Activity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-
-	/**
-	 * 静态变量，用于指示作用
-	 */
-	private final static String TAG = "AccountInfoSelect";
-	public final static String ACCOUNT_TYPE="accountType";
-	public final static String ACCOUNT="account";
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		//去标题栏
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
 		this.setContentView(R.layout.account_info_select);
 
 		/**
@@ -91,12 +87,11 @@ public class AccountInfoSelect extends Activity {
 				intent=new Intent();
 				intent.putExtra(AccountInfoSelect.ACCOUNT_TYPE, spnrSelectTpye.getSelectedItem().toString());
 				intent.putExtra(AccountInfoSelect.ACCOUNT, spnrSelectAcc.getSelectedItem().toString());
-				intent.setClass(AccountInfoSelect.this, AccountInfo2.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent.setClass(AccountDel.this, AccountDelInfo.class);
+				AccountDel.this.startActivity(intent);
 			}
 			
 		});
-		
 		//向右滑动触发后退
 		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
 			@Override
@@ -117,8 +112,8 @@ public class AccountInfoSelect extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent=new Intent();
-				intent.setClass(AccountInfoSelect.this, ABankMain.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent.setClass(AccountDel.this, ABankMain.class);
+				AccountDel.this.startActivity(intent);
 			}
 		});
 
@@ -129,14 +124,14 @@ public class AccountInfoSelect extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent=new Intent();
-				intent.setClass(AccountInfoSelect.this, AccountManagementList.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent.setClass(AccountDel.this, AccountManagementList.class);
+				AccountDel.this.startActivity(intent);
 
 			}
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("账户信息");
+		tvClassThrid.setText("删除账户");
 		tvClassThrid.setVisibility(View.VISIBLE);
 		
 		// 返回键设定
@@ -154,9 +149,9 @@ public class AccountInfoSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfoSelect.this.getIntent();
-				intent.setClass(AccountInfoSelect.this, ABankMain.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent = AccountDel.this.getIntent();
+				intent.setClass(AccountDel.this, ABankMain.class);
+				AccountDel.this.startActivity(intent);
 			}
 		});
 
@@ -165,12 +160,11 @@ public class AccountInfoSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfoSelect.this.getIntent();
-				intent.setClass(AccountInfoSelect.this, FinancialConsultation.class);
-				AccountInfoSelect.this.startActivity(intent);
+				intent = AccountDel.this.getIntent();
+				intent.setClass(AccountDel.this, FinancialConsultation.class);
+				AccountDel.this.startActivity(intent);
 			}
 		});
-		
 	}
 	//触摸触发
 	@Override

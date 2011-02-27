@@ -15,8 +15,8 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,19 +24,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class OrderCardShowInfo extends Activity {
+public class AccountDelInfo extends Activity {
 
 	private Intent intent;
 	private String strAccountTypeValue;
 	private String strAccountValue;
-	private String strChangeReason;
-	private String strNet;
-	private Button btnOrder;
-	protected boolean flag;
 	private ListView lvContent;
-	private String strAccNickName;
-	private String strAddress;
-	private String strCost;
+	private Object strAccNickName;
+	private Button btnNext;
+	protected boolean flag;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
@@ -49,19 +45,19 @@ public class OrderCardShowInfo extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
+		// 去标题栏
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(R.layout.account_order_card_info);
-		intent = OrderCardShowInfo.this.getIntent();
+
+		((Button)this.findViewById(R.id.accOrderCardInfo_btnOrder)).setText("下一步");
+		intent = AccountDelInfo.this.getIntent();
 		if (intent != null) {
 			// 从预约换卡页面传来的数据中获取账户类型和账户号
 			strAccountTypeValue = intent
 					.getStringExtra(OrderCardSelect.ACCOUNT_TYPE);
 			strAccountValue = intent.getStringExtra(OrderCardSelect.ACCOUNT);
-			strChangeReason = intent
-					.getStringExtra(OrderCardSelect.CHANGE_REASON);
-			strNet = intent.getStringExtra(OrderCardSelect.NET);
-			if (strAccountTypeValue != null && strAccountValue != null
-					&& strChangeReason != null && strNet != null) {
+
+			if (strAccountTypeValue != null && strAccountValue != null) {
 
 			} else {
 				// 进错页面了吧你
@@ -69,7 +65,9 @@ public class OrderCardShowInfo extends Activity {
 		} else {
 			// 错误的进入此界面
 		}
-
+		
+		//从服务器获取
+		strAccNickName = "定期储蓄";
 		// 显示文本
 		lvContent = (ListView) this.findViewById(R.id.accOrderCardInfo_lv);
 		// 生成内容
@@ -77,35 +75,15 @@ public class OrderCardShowInfo extends Activity {
 		HashMap<String, Object> item01 = new HashMap<String, Object>();
 		HashMap<String, Object> item02 = new HashMap<String, Object>();
 		HashMap<String, Object> item03 = new HashMap<String, Object>();
-		HashMap<String, Object> item04 = new HashMap<String, Object>();
-		HashMap<String, Object> item05 = new HashMap<String, Object>();
-		HashMap<String, Object> item06 = new HashMap<String, Object>();
-		HashMap<String, Object> item07 = new HashMap<String, Object>();
-		item01.put("name", "预约换卡的账户：");
+		item01.put("name", "账户：");
 		item01.put("content", strAccountValue);
-		// 从服务器端获取账户别名
-		strAccNickName = "我的信用卡";
 		item02.put("name", "账户别名：");
 		item02.put("content", strAccNickName);
-		item03.put("name", "更换原因：");
-		item03.put("content", strChangeReason);
-		item04.put("name", "领卡网点：");
-		item04.put("content", strNet);
-		// 从服务器端获取网点地址
-		strAddress = "xxx路xxxx号";
-		item05.put("name", "网点地址：");
-		item05.put("content", strAddress);
-		// 从服务气短获取工本费用
-		strCost = "10元";
-		item06.put("name", "工本费用：");
-		item06.put("content", strCost);
+		item03.put("name", "账户类型：");
+		item03.put("content", strAccountTypeValue);
 		alContent.add(item01);
 		alContent.add(item02);
 		alContent.add(item03);
-		alContent.add(item04);
-		alContent.add(item05);
-		alContent.add(item06);
-		alContent.add(item07);
 		// 适配器
 		SimpleAdapter lvAdapter = new SimpleAdapter(this, alContent,
 				R.layout.account_order_card_info_adapter, new String[] {
@@ -115,57 +93,19 @@ public class OrderCardShowInfo extends Activity {
 		lvContent.setAdapter(lvAdapter);
 		lvContent.setClickable(false);
 
-		btnOrder = (Button) this.findViewById(R.id.accOrderCardInfo_btnOrder);
-		btnOrder.setOnClickListener(new OnClickListener() {
+		btnNext = (Button) this.findViewById(R.id.accOrderCardInfo_btnOrder);
+		btnNext.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO 发送服务器，确定是否能连上
 				flag=true;
-				// 弹出对话框
-				if (flag == true) {
-					new AlertDialog.Builder(OrderCardShowInfo.this)
-							.setMessage(R.string.accOrder_OrderSucess)
-							.setPositiveButton("确认",
-									new DialogInterface.OnClickListener() {
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											// TODO Auto-generated
-											dialog.dismiss();
-											Toast.makeText(
-													OrderCardShowInfo.this,
-													"操作完成", Toast.LENGTH_SHORT)
-													.show();
-											intent = new Intent();
-											intent.setClass(
-													OrderCardShowInfo.this,
-													AccountManagementList.class);
-											OrderCardShowInfo.this
-													.startActivity(intent);
-										}
-									})
-							.setNegativeButton("取消",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											// TODO Auto-generated method stub
-											dialog.dismiss();
-										}
-									}).show();
-				} else {
-					// 如果出现一些莫名其妙错误则报错
-					Toast.makeText(
-							OrderCardShowInfo.this,
-							"连接服务器失败，请检查", Toast.LENGTH_SHORT)
-							.show();
-				}
+				intent=new Intent();
+				intent.setClass(AccountDelInfo.this, AccountDelInfo2.class);
+				AccountDelInfo.this.startActivity(intent);
 
 			}
 
 		});
-
 		// 向右滑动触发后退
 		mGestureDetector = new GestureDetector(this,
 				new GestureDetector.SimpleOnGestureListener() {
@@ -187,8 +127,8 @@ public class OrderCardShowInfo extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardShowInfo.this, ABankMain.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				intent.setClass(AccountDelInfo.this, ABankMain.class);
+				AccountDelInfo.this.startActivity(intent);
 			}
 		});
 
@@ -199,13 +139,13 @@ public class OrderCardShowInfo extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardShowInfo.this, AccountManagementList.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				intent.setClass(AccountDelInfo.this, AccountManagementList.class);
+				AccountDelInfo.this.startActivity(intent);
 			}
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("预约换卡");
+		tvClassThrid.setText("删除账户");
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 返回键设定
@@ -223,9 +163,9 @@ public class OrderCardShowInfo extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = OrderCardShowInfo.this.getIntent();
-				intent.setClass(OrderCardShowInfo.this, ABankMain.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				intent = AccountDelInfo.this.getIntent();
+				intent.setClass(AccountDelInfo.this, ABankMain.class);
+				AccountDelInfo.this.startActivity(intent);
 			}
 		});
 
@@ -234,9 +174,9 @@ public class OrderCardShowInfo extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = OrderCardShowInfo.this.getIntent();
-				intent.setClass(OrderCardShowInfo.this, FinancialConsultation.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				intent = AccountDelInfo.this.getIntent();
+				intent.setClass(AccountDelInfo.this, FinancialConsultation.class);
+				AccountDelInfo.this.startActivity(intent);
 			}
 		});
 	}
@@ -246,4 +186,5 @@ public class OrderCardShowInfo extends Activity {
 		return mGestureDetector.onTouchEvent(event);
 
 	}
+
 }

@@ -2,7 +2,6 @@ package com.ultrawise.android.bank.view.account_management;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
-import com.ultrawise.android.bank.view.account_management.ActiveAccountSelect.SpinnerSelectedListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -18,50 +17,47 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class OrderCardSelect extends Activity {
+public class AccountAdd extends Activity {
 
 	private Spinner spnrSelectTpye;
 	private ArrayAdapter<String> adapterType;
-	private Spinner spnrSelectAcc;
-	private ArrayAdapter<String> adapterAcc;
-	private View btnNext;
+	private Button btnAdd;
+	protected EditText dtAcc;
+	protected EditText dtNickName;
+	protected EditText dtPwd;
 	protected boolean flag;
-	protected Intent intent;
-	private String accountTypeValue;
-	private String accountValue;
+	private GestureDetector mGestureDetector;
 	private TextView tvClassFirst;
+	protected Intent intent;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
-	private ImageView btnReturn;
-	private GestureDetector mGestureDetector;
+	private TextView tvClassFour;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-
-	/**
-	 * 静态变量，用于intent传输中方便使用
-	 */
-	public final static String ACCOUNT_TYPE = "accountType";
-	public final static String ACCOUNT = "account";
-	public final static String CHANGE_REASON = "changeReason";
-	public final static String NET = "net";
+	private ImageView btnReturn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
-		setContentView(R.layout.account_order_card_select);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
+		this.setContentView(R.layout.account_add);
+
+		// 从服务器获取用户号
+		String userNo = "303249578";
+		((TextView)this.findViewById(R.id.accAdd_tvUser2)).setText(userNo);
 
 		/**
 		 * 下拉框，账户类型:spnrSelectTpye，账户：spnrSelectAcc
 		 */
-		spnrSelectTpye = (Spinner) findViewById(R.id.accOrder_SpnrSelectType);
+		spnrSelectTpye = (Spinner) findViewById(R.id.accAdd_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
 		String[] accTypeArray = this.getResources().getStringArray(
 				R.array.accinfo_accType);
@@ -75,36 +71,73 @@ public class OrderCardSelect extends Activity {
 		// 添加事件Spinner事件监听
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
-		spnrSelectAcc = (Spinner) this
-				.findViewById(R.id.accOrder_SpnrSelectAcc);
-		String[] accArray = this.getResources().getStringArray(
-				R.array.accinfo_acc);
-		adapterAcc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accArray);
-		adapterAcc
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spnrSelectAcc.setAdapter(adapterAcc);
-		spnrSelectAcc.setOnItemSelectedListener(new SpinnerSelectedListener());
-		spnrSelectAcc.setClickable(false);
-
-		// 获取账户类型和账户号
-		accountTypeValue = spnrSelectTpye.getSelectedItem().toString();
-		accountValue = spnrSelectAcc.getSelectedItem().toString();
-		// 按钮 激活
-		btnNext = (Button) this.findViewById(R.id.accOrder_btnNextTo2);
-		btnNext.setOnClickListener(new OnClickListener() {
+		// 按钮 添加
+		btnAdd = (Button) this.findViewById(R.id.accAdd_btnAdd);
+		btnAdd.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO 跳转至选择换卡原因和换卡网点的页面
-				intent = new Intent();
-				intent.putExtra(OrderCardSelect.ACCOUNT_TYPE, accountTypeValue);
-				intent.putExtra(OrderCardSelect.ACCOUNT, accountValue);
-				intent.setClass(OrderCardSelect.this, OrderCardSelect2.class);
-				OrderCardSelect.this.startActivity(intent);
+				// 获取输入的账户类型
+				String accTpyeValue = spnrSelectTpye.getSelectedItem()
+						.toString();
+				// 获取输入的账户
+				dtAcc = (EditText) AccountAdd.this
+						.findViewById(R.id.accAdd_dtAcc);
+				String accountValue = dtAcc.getText().toString();
+				// 获取输入的账户别名
+				dtNickName = (EditText) AccountAdd.this
+						.findViewById(R.id.accAdd_dtNickName);
+				String nickName = dtNickName.getText().toString();
+				// 获取输入的密码
+				dtPwd = (EditText) AccountAdd.this
+						.findViewById(R.id.accAdd_dtPwd);
+				String pwdValue = dtPwd.getText().toString();
+				// 向服务器添加账户
+
+				// 弹出对话框
+				flag = true;
+				if (flag == true) {
+					new AlertDialog.Builder(AccountAdd.this)
+							.setTitle("成功提示：")
+							.setMessage("账户添加成功")
+							.setPositiveButton("确定",
+									new DialogInterface.OnClickListener() {
+
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+
+											Toast.makeText(AccountAdd.this,
+													"操作完成", Toast.LENGTH_SHORT)
+													.show();
+											dialog.dismiss();
+											//清空数据
+											dtAcc.setText("");
+											dtNickName.setText("");
+											dtPwd.setText("");
+										}
+									}).show();
+				} else {
+					new AlertDialog.Builder(AccountAdd.this)
+							.setTitle("失败提示：")
+							.setMessage("添加账户已存在或输入输入信息有误")
+							.setPositiveButton("确定",
+									new DialogInterface.OnClickListener() {
+
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+
+											Toast.makeText(AccountAdd.this,
+													"操作完成", Toast.LENGTH_SHORT)
+													.show();
+											dialog.dismiss();
+										}
+									}).show();
+				}
 
 			}
-		});
 
+		});
 		// 向右滑动触发后退
 		mGestureDetector = new GestureDetector(this,
 				new GestureDetector.SimpleOnGestureListener() {
@@ -118,35 +151,55 @@ public class OrderCardSelect extends Activity {
 						return super.onScroll(e1, e2, distanceX, distanceY);
 					}
 				});
-
-		// 设置层级关系
+		// 层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("首页>");
-		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassFirst.setText("手机银行>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, ABankMain.class);
-				OrderCardSelect.this.startActivity(intent);
+				intent = AccountAdd.this.getIntent();
+				intent.setClass(AccountAdd.this, ABankMain.class);
+				AccountAdd.this.startActivity(intent);
 			}
 		});
-
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
 		tvClassSecond.setText("账户管理>");
-		tvClassSecond.setVisibility(View.VISIBLE);
-		tvClassSecond.setClickable(true);
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, AccountManagementList.class);
-				OrderCardSelect.this.startActivity(intent);
+				intent = AccountAdd.this.getIntent();
+				intent.setClass(AccountAdd.this, AccountManagementList.class);
+				AccountAdd.this.startActivity(intent);
+			}
+		});
+		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
+		tvClassThrid.setText("添加账户");
 
+		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassSecond.setVisibility(View.VISIBLE);
+		tvClassThrid.setVisibility(View.VISIBLE);
+
+		// set bottom button
+
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = AccountAdd.this.getIntent();
+				intent.setClass(AccountAdd.this, ABankMain.class);
+				AccountAdd.this.startActivity(intent);
 			}
 		});
 
-		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("预约换卡");
-		tvClassThrid.setVisibility(View.VISIBLE);
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = AccountAdd.this.getIntent();
+				intent.setClass(AccountAdd.this, FinancialConsultation.class);
+				AccountAdd.this.startActivity(intent);
+			}
+		});
 
 		// 返回键设定
 		btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
@@ -156,29 +209,7 @@ public class OrderCardSelect extends Activity {
 				onBackPressed();
 				finish();
 			}
-		});
-		
-		// 底部按钮设置
-		btnMain = (ImageView) this.findViewById(R.id.btnMain);
-		btnMain.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				intent = OrderCardSelect.this.getIntent();
-				intent.setClass(OrderCardSelect.this, ABankMain.class);
-				OrderCardSelect.this.startActivity(intent);
-			}
-		});
-
-		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
-		btnHelper.setOnClickListener(new OnClickListener() {
-
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				intent = OrderCardSelect.this.getIntent();
-				intent.setClass(OrderCardSelect.this, FinancialConsultation.class);
-				OrderCardSelect.this.startActivity(intent);
-			}
 		});
 	}
 
@@ -189,13 +220,11 @@ public class OrderCardSelect extends Activity {
 				int position, long id) {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
-			case R.id.accOrder_SpnrSelectType:
+			case R.id.accAct_SpnrSelectType:
 				spnrSelectTpye.setSelection(position);
-				spnrSelectAcc.setClickable(true);
+
 				break;
-			case R.id.accOrder_SpnrSelectAcc:
-				spnrSelectAcc.setSelection(position);
-				break;
+
 			}
 			switch (view.getId()) {
 

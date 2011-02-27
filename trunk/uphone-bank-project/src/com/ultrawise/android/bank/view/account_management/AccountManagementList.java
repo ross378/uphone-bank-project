@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -35,37 +36,45 @@ public class AccountManagementList extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
-		if(id==0){
-			//账户信息
+		if (id == 0) {
+			// 账户信息
 			intent = new Intent();
 			intent.setClass(AccountManagementList.this, AccountInfoSelect.class);
 			AccountManagementList.this.startActivity(intent);
-		}else if(id==1){
-			//激活账户
+		} else if (id == 1) {
+			// 激活账户
 			intent = new Intent();
-			intent.setClass(AccountManagementList.this, ActiveAccountSelect.class);
+			intent.setClass(AccountManagementList.this,
+					ActiveAccountSelect.class);
 			AccountManagementList.this.startActivity(intent);
-		}else if(id==2){
-			//账户挂失
+		} else if (id == 2) {
+			// 账户挂失
 			intent = new Intent();
-			intent.setClass(AccountManagementList.this, LossRegister.class);
+			intent.setClass(AccountManagementList.this, AccountLostSelect.class);
 			AccountManagementList.this.startActivity(intent);
-		}else if(id==3){
-			//预约换卡
-			intent=new Intent();
+		} else if (id == 3) {
+			// 预约换卡
+			intent = new Intent();
 			intent.setClass(AccountManagementList.this, OrderCardSelect.class);
 			AccountManagementList.this.startActivity(intent);
-		}else if(id==4){
-			//首选账户设置
-			intent=new Intent();
-			intent.setClass(AccountManagementList.this, PreferredAccountSelect.class);
+		} else if (id == 4) {
+			// 首选账户设置
+			intent = new Intent();
+			intent.setClass(AccountManagementList.this,
+					PreferredAccountSelect.class);
 			AccountManagementList.this.startActivity(intent);
-		}else if(id==5){
-			//添加新账户
-		}else if(id==6){
-			//删除已有账户
+		} else if (id == 5) {
+			// 添加新账户
+			intent = new Intent();
+			intent.setClass(AccountManagementList.this, AccountAdd.class);
+			AccountManagementList.this.startActivity(intent);
+		} else if (id == 6) {
+			// 删除已有账户
+			intent = new Intent();
+			intent.setClass(AccountManagementList.this, AccountDel.class);
+			AccountManagementList.this.startActivity(intent);
 		}
-		
+
 	}
 
 	@Override
@@ -74,35 +83,39 @@ public class AccountManagementList extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
 		this.setContentView(R.layout.account_management_list);
+
+		// 设置宋体
+		// Typeface face=Typeface.createFromAsset(getAssets(),"fonts/st.ttf");
+		// ((TextView)this.findViewById(R.id.accMana_tvName)).setTypeface(face);
 		// List View
 		HashMap<String, Object> map1 = new HashMap<String, Object>();
-		map1.put("star", android.R.drawable.btn_star_big_on);
+		map1.put("star", R.drawable.accmana_cilun);
 		map1.put("name", this.getString(R.string.accMana_AccInfo));
-		map1.put("arrow", ">");
+		map1.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map2 = new HashMap<String, Object>();
-		map2.put("star", android.R.drawable.btn_star_big_on);
+		map2.put("star", R.drawable.accmana_cilun);
 		map2.put("name", this.getString(R.string.accMana_AccActive));
-		map2.put("arrow", ">");
+		map2.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map3 = new HashMap<String, Object>();
-		map3.put("star", android.R.drawable.btn_star_big_on);
+		map3.put("star", R.drawable.accmana_cilun);
 		map3.put("name", this.getString(R.string.accMana_AccLoss));
-		map3.put("arrow", ">");
+		map3.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map4 = new HashMap<String, Object>();
-		map4.put("star", android.R.drawable.btn_star_big_on);
+		map4.put("star", R.drawable.accmana_cilun);
 		map4.put("name", this.getString(R.string.accMana_OrderCard));
-		map4.put("arrow", ">");
+		map4.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map5 = new HashMap<String, Object>();
-		map5.put("star", android.R.drawable.btn_star_big_on);
+		map5.put("star", R.drawable.accmana_cilun);
 		map5.put("name", this.getString(R.string.accMana_AccPre));
-		map5.put("arrow", ">");
+		map5.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map6 = new HashMap<String, Object>();
-		map6.put("star", android.R.drawable.btn_star_big_on);
+		map6.put("star", R.drawable.accmana_cilun);
 		map6.put("name", this.getString(R.string.accMana_AddAcc));
-		map6.put("arrow", ">");
+		map6.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map7 = new HashMap<String, Object>();
-		map7.put("star", android.R.drawable.btn_star_big_on);
+		map7.put("star", R.drawable.accmana_cilun);
 		map7.put("name", this.getString(R.string.accMana_DelAcc));
-		map7.put("arrow", ">");
+		map7.put("arrow", R.drawable.accmana_right);
 
 		list.add(map1);
 		list.add(map2);
@@ -118,21 +131,22 @@ public class AccountManagementList extends ListActivity {
 						R.id.accMana_ibStar, R.id.accMana_tvName,
 						R.id.accMana_tvArrow });
 		this.setListAdapter(sa);
-		
-		//向右滑动触发后退
-		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
-			@Override
-			public boolean onScroll(MotionEvent e1, MotionEvent e2,
-					float distanceX, float distanceY) {
-				// TODO Auto-generated method stub
-				if (distanceY == 0 && distanceX < 0)
-					onBackPressed();
 
-				return super.onScroll(e1, e2, distanceX, distanceY);
-			}
-		});
-		
-		//底部按钮设置
+		// 向右滑动触发后退
+		mGestureDetector = new GestureDetector(this,
+				new GestureDetector.SimpleOnGestureListener() {
+					@Override
+					public boolean onScroll(MotionEvent e1, MotionEvent e2,
+							float distanceX, float distanceY) {
+						// TODO Auto-generated method stub
+						if (distanceY == 0 && distanceX < 0)
+							onBackPressed();
+
+						return super.onScroll(e1, e2, distanceX, distanceY);
+					}
+				});
+
+		// 底部按钮设置
 		btnMain = (ImageView) this.findViewById(R.id.btnMain);
 		btnMain.setOnClickListener(new OnClickListener() {
 
@@ -143,31 +157,32 @@ public class AccountManagementList extends ListActivity {
 				AccountManagementList.this.startActivity(intent);
 			}
 		});
-		
+
 		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
 		btnHelper.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(AccountManagementList.this, FinancialConsultation.class);
+				intent.setClass(AccountManagementList.this,
+						FinancialConsultation.class);
 				AccountManagementList.this.startActivity(intent);
 			}
 		});
-		//返回键设定
-		btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
-		btnReturn.setOnClickListener(new OnClickListener(){
+		// 返回键设定
+		btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				onBackPressed();
 				finish();
 			}
-			
+
 		});
-		
+
 		// 设置层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -180,13 +195,13 @@ public class AccountManagementList extends ListActivity {
 		tvClassSecond.setText("账户管理");
 		tvClassSecond.setVisibility(View.VISIBLE);
 	}
-	//触摸触发
+
+	// 触摸触发
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
 		return mGestureDetector.onTouchEvent(event);
 
 	}
-	
 
 }
