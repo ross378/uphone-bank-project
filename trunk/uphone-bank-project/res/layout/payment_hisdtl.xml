@@ -8,15 +8,16 @@
 <include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
 <ScrollView
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="240dip"
 	android:scrollbars="vertical"
 	android:layout_below="@id/paymentabove"
 	android:layout_above="@id/paymentbelow"
 	>
-	<LinearLayout
+<LinearLayout
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
+	android:scrollbars="vertical"
 	>
 	<!--  android:text="@string/pay_title"-->
 	<TextView
@@ -25,94 +26,187 @@
 	android:layout_height="wrap_content"
 	android:text="项目信息"
 	android:paddingLeft="10dip"
-	android:textSize="20sp"
+	android:textSize="25sp"
 	/>
+	
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
 	/>
 	<!-- 	android:text="@string/pay_amount" -->
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
 	<TextView
 	android:id="@+id/tv_payhis_title"
-	android:layout_width="wrap_content"
+	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="项目名称："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:id="@+id/tv_payhis_title_detail"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="扬子晚报"
+	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
+	/>
+	</LinearLayout>
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
 	/>
 	<!--android:text="@string/pay_serialnum"  -->
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
 	<TextView
-	android:id="@+id/tv_payhis_acc"
-	android:layout_width="wrap_content"
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="收费金额："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:id="@+id/tv_payhis_title_detail"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="10元/月"
+	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
+	/>
+	</LinearLayout>
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
 	/>
 	<!--android:text="@string/pay_serialnum"  -->
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
 	<TextView
-	android:id="@+id/tv_payhis_amount"
-	android:layout_width="wrap_content"
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="收费方："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:id="@+id/tv_payhis_title_detail"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="扬子晚报"
+	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
+	/>
+	</LinearLayout>
+
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
 	/>
 	<!--android:text="@string/pay_acc"  -->
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
 	<TextView
-	android:id="@+id/tv_payhis_sernum"
-	android:layout_width="wrap_content"
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="代理方："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
-	/>
-	<TextView
-	android:id="@+id/tv_payhis_sernum1"
+	android:id="@+id/tv_payhis_title_detail"
 	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="中国建设银行"
+	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
+	/>
+	</LinearLayout>
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
+	/>
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
+	<TextView
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="代理费："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
-	/>
-	<TextView
-	android:id="@+id/tv_payhis_sernum2"
+	android:id="@+id/tv_payhis_title_detail"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="缴费日期："
-	android:paddingLeft="10dip"
+	android:text="2元/月"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
+	/>
+	</LinearLayout>
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
+	/>
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
+	<TextView
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="150dip"
+	android:layout_height="wrap_content"
+	android:text="缴费日期："
+	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:id="@+id/tv_payhis_title_detail"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="每月1日至15日"
+	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
+	/>
+	</LinearLayout>
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
 	/>
 	<TextView
 	android:id="@+id/tv_payhis_sernum3"
@@ -120,47 +214,72 @@
 	android:layout_height="wrap_content"
 	android:text="项目设置："
 	android:paddingLeft="10dip"
-	android:textSize="20sp"
+	android:textSize="25sp"
 	/>
 	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
+	/>
+	<LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
-	/>
+	android:layout_height="35dip"
+	android:layout_marginLeft="25dip"
+	>
 	<TextView
-	android:id="@+id/tv_payhis_sernum4"
-	android:layout_width="wrap_content"
+	android:id="@+id/tv_payhis_title"
+	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="收取地址："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
-	/>
-	<TextView
-	android:id="@+id/tv_payhis_sernum"
+	android:id="@+id/tv_payhis_title_detail"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="代理方："
-	android:paddingLeft="10dip"
 	android:textSize="20sp"
+	android:layout_gravity="center_vertical"
 	/>
+	</LinearLayout>
 	<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
 	/>
-	<!--<Button
-	android:id="@+id/btn_manage_ok"
-	android:layout_width="80dip"
-	android:layout_marginLeft="120dip"
-	android:text="@string/btn_look"
-	android:layout_marginTop="15dip"
-	></Button>
---></LinearLayout>
-</ScrollView>
+	<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="35dip"
+	android:layout_marginLeft="80dip"
+	>
+	<EditText
+	android:layout_width="200dip"
+	android:layout_height="wrap_content"
+	android:textSize="20sp"
+	android:id="@+id/addres_edit"
+	android:layout_gravity="center_vertical"
+	></EditText>
+	</LinearLayout>
+	<TextView
+	android:layout_width="314dip"
+	android:layout_height="1dip"
+	android:background="#2F4F4F"
+	android:layout_gravity="center_horizontal"
+	/>
+	<Button
+	android:layout_width="100dip" 
+	android:layout_height="wrap_content"
+	android:text="确定"
+	android:id="@+id/manage_ok"
+	android:layout_gravity="center_horizontal"
+	android:layout_marginTop="10dip"
+	>
+	
+	</Button>
+</LinearLayout>
 
+</ScrollView>
+	
 </RelativeLayout>
