@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:background="@drawable/bg">
+	android:background="@drawable/main_background_2">
 	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
 	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
-	<LinearLayout android:layout_width="fill_parent" android:layout_below="@id/accManaAbove"
-		android:layout_height="fill_parent" android:orientation="vertical">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_below="@id/accManaAbove" android:layout_height="fill_parent"
+		android:orientation="vertical">
 		<LinearLayout android:id="@+id/accPre_linearLayout"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			android:orientation="vertical">
 			<TextView android:id="@+id/accPre_tvPreAcc"
+				android:textSize="18sp" android:textColor="#ff000000"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:text="@string/accPre_PreAcc">
+				android:layout_marginLeft="21dip" android:text="@string/accPre_PreAcc">
 			</TextView>
-			<TextView android:id="@+id/accPre_tvPreAccClick"
-				android:layout_width="fill_parent" android:layout_height="wrap_content"
-				android:textSize="18sp">
+			<TextView android:id="@+id/accPre_tvPreAccClick" android:gravity="center_vertical"
+				android:textColor="#ff000000" android:background="@drawable/accpre_setpre"
+				android:layout_height="30dip" android:layout_marginLeft="47dip"
+				android:layout_width="227dip" android:textSize="18sp">
 			</TextView>
 		</LinearLayout>
 	</LinearLayout>
