@@ -27,14 +27,16 @@
 <TextView
 	android:id="@+id/tv_trans_ln"
 	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:background="#FF555555"
+	android:layout_height="2px"
+	android:background="#cccccc"
 	android:visibility="gone"
 	/>
 <ListView
 	android:id="@id/android:list"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:divider="#cccccc"
+	android:dividerHeight="2px"
     android:drawSelectorOnTop="true"
     android:scrollbars="vertical"
     />

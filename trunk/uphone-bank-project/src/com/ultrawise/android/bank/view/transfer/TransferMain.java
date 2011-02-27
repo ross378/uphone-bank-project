@@ -25,6 +25,11 @@ public class TransferMain extends ListActivity {
 		tvClassFirst.setText("转账汇款");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText(">选择账户");
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		
         ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
         
         HashMap<String,Object> map = new HashMap<String,Object>();
