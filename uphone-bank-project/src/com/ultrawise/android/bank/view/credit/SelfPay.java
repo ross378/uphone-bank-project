@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.account_query.AccountQuery;
+import com.ultrawise.android.bank.view.credit.ActivateCard.ActivateCardButtonListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -14,12 +16,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class SelfPay extends ListActivity {
@@ -27,10 +32,10 @@ public class SelfPay extends ListActivity {
 	Intent intent;
 	ImageView btnCoustom;
 	ImageView btnMain;
-	HashMap<String,Object> map1;
-	HashMap<String,Object> map2;
-	 ArrayList<HashMap<String,Object>> list;
-	 
+	Button nextButton=null;
+	
+	//证件类型下拉框
+	private Spinner pakitSpinner=null;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selepay);
@@ -43,83 +48,95 @@ public class SelfPay extends ListActivity {
 		        tvCredit.setTextSize(10);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
+						intent=new Intent();
 						 intent.setClass(SelfPay.this, ABankMain.class);
 						 SelfPay.this.startActivity(intent);
 					}
 				});
 		        tvCredit.setVisibility(View.VISIBLE);
-	         list=new ArrayList<HashMap<String,Object>>();
-	         map1=new HashMap<String,Object>();
-	         map2=new HashMap<String,Object>();
+
+		        //获得证件类型控件对象
+		        pakitSpinner=(Spinner)findViewById(R.id.pakitSpinnercard);
 	        //已绑定信用卡还款
-	      ImageView img1=(ImageView)findViewById(R.id.creditimgpay);
-	        img1.setOnClickListener(new OnClickListener() {
-				
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					  map1.put("creditNo_key","11111111111111111111");
-				        map1.put("selfPay_value", R.id.selfPay_value);
-				        map2.put("creditNo_key","22222222222222222222");
-				        map2.put("selfPay_value",R.id.selfPay_value);
-				        list.add(map1);
-				        list.add(map2);
-				      //  SimpleAdapter listAdapter=new SimpleAdapter(this,list,R.layout.selfpaylist,new String[]{"creditNo_key","selfPay_value"},new int[]{R.id.creditNo_key,R.id.selfPay_value});
-				       
-				      //  setListAdapter(listAdapter);
-				}
-			});
-	        TextView pay1=(TextView)findViewById(R.id.selfPayText);
-	        pay1.setOnClickListener(new OnClickListener() {
-				
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
-				}
-			});
-	        Button returnpay=(Button)findViewById(R.id.selfPay_value);
-	        returnpay.setOnClickListener(new OnClickListener() {
-				
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-		
-				}
-			});
+		        ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
+			      
+		        HashMap<String,Object> map = new HashMap<String,Object>();
+		        map.put("creditNo_key","12212133232323232");
+		        map.put("selfPay_value","还款");
+		        list.add(map);
+		        map=new HashMap<String, Object>();
+		        map.put("creditNo_key","12212133232323345");
+		        map.put("selfPay_value","还款");
+		        list.add(map);
+		        SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.selfpaylist,new String[]{"creditNo_key","selfPay_value"},new int[]{R.id.creditNo_key,R.id.selfPay_value});
+		        this.setListAdapter(TransMainAdapter);
 	        //设置底部按钮
 			btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 			btnCoustom.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
+					intent=new Intent();
 					intent.setClass(SelfPay.this, ABankMain.class);
 					SelfPay.this.startActivity(intent);
 				}
 			});
-			//btnCoustom.setVisibility(View.VISIBLE);
-			
+		               	//btnCoustom.setVisibility(View.VISIBLE);
 		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 			btnMain.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
+					intent=new Intent();
 					intent.setClass(SelfPay.this, ABankMain.class);
 					SelfPay.this.startActivity(intent);
 				}
 			});
+			  //获得下一步按钮对象，并设置其鼠标单击事件监听
+		       nextButton=(Button)this.findViewById(R.id.selfPay_next);
+		        nextButton.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						intent = new Intent();
+						intent.setClass(SelfPay.this, SelfPayDetail.class);
+						SelfPay.this.startActivity(intent);
+					}
+				});
+			 //初始化证件类型控件值
+		       final String[] arrs=new String[]{"34343545454550","34343545454554","34343545454556","34343545454557"};
+		        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
+
+		        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
+
+		        pakitSpinner.setAdapter(adapter);  
+		        pakitSpinner.setSelection(1,true);
+
+		         pakitSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
+
+		                public void onItemSelected(AdapterView<?> parent, View arg1, int position, long arg3){
+
+
+		                	//pakitPostion=parent.getSelectedItemPosition();
+		                	parent.setVisibility(View.VISIBLE);
+		                }
+
+						public void onNothingSelected(AdapterView<?> arg0) {
+							// TODO Auto-generated method stub
+							
+						}
+		         });
 	    }
-	 public void onListItemClick(ListView l,View v,int position,long id){
-	    	super.onListItemClick(l, v, position, id);
-	    	HashMap<String,String> map=(HashMap<String,String>)l.getItemAtPosition(position);
-	    	System.out.println(map);
-	    	String selfPayBal=map.get(1);
-	    	System.out.print(selfPayBal);
-	    	String selfPayActNo=null;
-	    	Iterator<String> iter=map.keySet().iterator();
-	    	if(iter.hasNext())selfPayActNo=iter.next();
-	    	System.out.print(selfPayActNo);
-	    	Intent intent=new Intent();
-	    	intent.putExtra("selfPayActNo",selfPayBal);
-	    	intent.putExtra("selfPayBal",selfPayActNo);
-	    	intent.setClass(SelfPay.this,SelfPayAct.class);
-	    	SelfPay.this.startActivity(intent);
-	    }
-	 	
+	 public void onListItemClick(ListView l, View v, int position, long id) {
+			
+		 super.onListItemClick(l, v, position, id);
+			
+			if (id == 0) {//第一个还款
+				intent= new Intent();
+				intent.setClass(SelfPay.this, AccountQuery.class);
+				SelfPay.this.startActivity(intent);
+			}else if(id==1){//第二个还款
+				intent = new Intent();
+				intent.setClass(SelfPay.this, AccountQuery.class);
+				SelfPay.this.startActivity(intent);
+			}
+	 }
 }

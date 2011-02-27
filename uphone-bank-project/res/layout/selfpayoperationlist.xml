@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:padding="10dip"
+>
+   <TextView  
+    android:id="@+id/creditNo_key2"
+    android:layout_width="100dip"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:textColor="#000000"
+    android:paddingLeft="5dip"
+    />
+<TextView  
+    android:id="@+id/selfPay_value2"
+    android:layout_width="200dip"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:textColor="#000000"
+   android:paddingLeft="20dip"
+    
+    />
+    
+  
+</LinearLayout>
+
+

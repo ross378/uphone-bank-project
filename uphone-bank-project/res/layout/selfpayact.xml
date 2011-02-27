@@ -1,88 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-android:id="@+id/selfPayActLayout"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:background="@drawable/bg"
-xmlns:android="http://schemas.android.com/apk/res/android"
->
-<TableLayout
-android:id="@+id/selfPayActTable"
-android:layout_width="200px"
-android:layout_height="200px"
-android:orientation="vertical"
-android:layout_below="@+id/widget35"
-android:layout_centerHorizontal="true"
-android:layout_marginTop="40dip"
->
-<RadioGroup
-android:id="@+id/creditNumber"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:orientation="vertical"
->
-<RadioButton
-android:id="@+id/credit1"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="1111111111111111111"
-android:textSize="12sp"
-android:textStyle="bold"
-android:gravity="center"
->
-</RadioButton>
-<RadioButton
-android:id="@+id/credit2"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="2222222222222222222"
-android:textSize="12sp"
-android:textStyle="bold"
-android:gravity="center"
->
-</RadioButton>
-<RadioButton
-android:id="@+id/credit3"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="333333333333333333"
-android:textSize="12sp"
-android:textStyle="bold"
-android:gravity="center"
->
-</RadioButton>
-<RadioButton
-android:id="@+id/credit4"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="444444444444444444"
-android:textSize="12sp"
-android:textStyle="bold"
-android:gravity="center"
->
-</RadioButton>
-</RadioGroup>
-</TableLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/accountque"
+	>
+	<include android:id="@+id/accManaAbove7" layout="@layout/main_bank_above" />
 
-<LinearLayout
-android:id="@+id/selfPayActTisiTextLayout"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:layout_alignParentTop="true"
-android:layout_alignParentLeft="true"
->
-<TextView
-android:id="@+id/selfPayActTisiText"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="请选择还款信用卡账户"
-android:textStyle="bold"
-android:textSize="16sp"
-android:textColor="#ffffff"
-android:gravity="center"
->
-</TextView>
-
-</LinearLayout>
-</RelativeLayout>
+	<include android:id="@+id/accManaBottom7" layout="@layout/main_bank_bottom" />
+	<LinearLayout  android:layout_width="fill_parent"
+		android:layout_below="@id/accManaAbove7" android:layout_height="fill_parent"
+		android:layout_above="@id/accManaBottom7"
+		android:orientation="vertical">
+			
+			<TextView 
+			    android:text="请选择还款账户类型:"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:textColor="#ff000000"
+				android:textSize="24dip"
+				></TextView>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+   			<Spinner 
+    		android:id="@+id/spinnerAccTyp1" 
+    		android:textSize="25dip"
+    		android:layout_height="40dip" 
+    		android:layout_width="240dip"
+    		android:layout_marginLeft="70dip"
+			android:layout_marginRight="30dip"/>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+			<TextView 
+			android:text="请选择还款账户:"
+			android:textSize="25dip" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="30dip"
+			android:textColor="#ff000000"
+			></TextView>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+			 <Spinner 
+    		android:id="@+id/spinnerAcc1" 
+    		android:textSize="25dip"
+    		android:layout_height="40dip" android:layout_width="240dip"
+    		android:layout_marginLeft="70dip"/>
+    		 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+	</LinearLayout>
+	<Button
+			android:id="@+id/btnContinue1"
+			android:text="下一步"
+			android:textSize="24dip"
+			android:layout_width="120dip"
+			android:layout_height="45dip"
+			android:layout_alignRight="@id/spinnerAcc"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="350px"
+		    android:textColor="#ff000000"
+		    />
+</RelativeLayout >

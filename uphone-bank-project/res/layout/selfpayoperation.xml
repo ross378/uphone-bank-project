@@ -1,159 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-android:id="@+id/selfPayOperationLayout"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:background="@drawable/bg"
->
-<TableLayout
-android:id="@+id/selfPayOperationTable"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical"
-android:stretchColumns="1"
-android:layout_marginTop="50dip"
-android:layout_marginLeft="10dip"
-android:layout_marginRight="10dip"
->
-<TableRow>
-<TextView
-android:id="@+id/selfPayOperationPayActTiSi"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="还款账户："
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-<TextView
-android:id="@+id/selfPayOperationPayActText"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
-android:singleLine="true"
->
-</TextView>
-</TableRow>
-<TableRow>
-<TextView
-android:id="@+id/selfPayOperationCreditNoTiSi"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="信用卡账户："
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-<TextView
-android:id="@+id/selfPayOperationCreditNoText"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-</TableRow>
-<TableRow>
-<TextView
-android:id="@+id/selfPayBalText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="请输入还款金额："
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-<EditText
-android:id="@+id/selfPayBalEdit"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:singleLine="true"
->
-
-</EditText>
-</TableRow>
-<TableRow>
-<TextView
-android:id="@+id/selfPayBalText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="本期应还款额："
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-<TextView
-android:id="@+id/selfPayBalTextValue"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-</TableRow>
-<TableRow>
-<TextView
-android:id="@+id/selfPaySmallBalText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="本期最低应还款额："
-android:textSize="16sp"
-android:textStyle="bold"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-<TextView
-android:id="@+id/selfPaySmallBalTextValue"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="16sp"
-android:textStyle="bold"
-android:text="1000"
-android:gravity="left"
-android:textColor="#ffffff"
->
-</TextView>
-</TableRow>
-</TableLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backcredit"
+    >
+<include android:id="@+id/creditabove2" layout="@layout/main_bank_above" />
+<include android:id="@+id/creditbelow2" layout="@layout/main_bank_bottom" />
 <LinearLayout
-android:id="@+id/selfPayOperationButtonLayout"
+	android:id="@+id/payviewCredit"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:layout_below="@id/creditabove2"
+	android:layout_above="@id/creditbelow2"
+	>
+<ListView
+android:id="@id/android:list"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
-android:orientation="vertical"
-android:layout_below="@id/selfPayOperationTable"
 >
+</ListView>
+<TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+<TextView android:id="@+id/accountpay" android:text="请输入还款金额:"
+				android:layout_width="fill_parent"
+				android:layout_height="40dip"
+				 android:paddingLeft="15dip"
+				android:textColor="#000000"
+				android:layout_gravity="center"
+				android:textSize="15dip"
+				></TextView>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+   			<Spinner 
+    		android:id="@+id/spinnerpay" 
+    		android:textSize="18dip"
+    		android:layout_height="40dip" android:layout_width="240dip"
+    		android:layout_marginLeft="35dip"
+			android:layout_marginRight="25dip"
+			/>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+			<TextView 
+			android:text="请输入帐户密码:"
+			android:textSize="15dip" android:layout_width="fill_parent"
+			android:layout_height="40dip"
+			android:textColor="#000000"
+			android:layout_gravity="center"
+			 android:paddingLeft="15dip"
+			></TextView>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+<EditText
+android:id="@+id/paypassword"
+android:layout_width="240dip"
+android:layout_height="40dip"
+android:textSize="14dip"
+android:password="true"
+android:layout_marginLeft="30dip"
+>
+</EditText>
+    		 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#808080ff">
+			</TextView>
+			
+			<TableLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal"
+	>
+  <TableRow>
 <Button
-android:id="@+id/selfPayOperationButton"
-android:layout_width="100dip"
-android:layout_height="wrap_content"
-android:text="继续"
-android:textStyle="bold"
-android:gravity="center"
-android:layout_gravity="center"
->
-</Button>
+	android:id="@+id/btn_paymentOk"
+	android:text="确认还款"
+	android:textSize="18dip"
+	android:layout_width="100dip"
+	android:layout_height="wrap_content"
+	android:background="@drawable/but"
+	 android:layout_marginLeft="40dip"
+	 android:layout_marginTop="10dip"
+	/>
+	<Button
+	android:id="@+id/btn_paymentCancle"
+	android:text="取消"
+	android:textSize="18dip"
+	android:layout_width="100dip"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="30dip"
+	android:background="@drawable/but"
+	android:layout_marginTop="10dip"
+	/>
+	</TableRow>
+	</TableLayout>
 </LinearLayout>
-
 </RelativeLayout>
-
-
