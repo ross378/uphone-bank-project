@@ -250,14 +250,6 @@
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
-	<TextView
-	android:id="@+id/tv_payhis_title_detail"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:textColor="#000000"
-	android:textSize="20sp"
-	android:layout_gravity="center_vertical"
-	/>
 	</LinearLayout>
 	<TextView
 	android:layout_width="314dip"
@@ -271,18 +263,18 @@
 	android:layout_marginLeft="80dip"
 	>
 	<EditText
-	android:layout_width="200dip"
+	android:layout_width="240dip"
 	android:layout_height="wrap_content"
 	android:textSize="20sp"
 	android:id="@+id/addres_edit"
-	android:layout_gravity="center_vertical"
+	android:layout_gravity="center_horizontal"
 	></EditText>
 	</LinearLayout>
 	<TextView
 	android:layout_width="314dip"
 	android:layout_height="1dip"
 	android:background="#2F4F4F"
-	android:layout_gravity="center_horizontal"
+
 	/>
 	<Button
 	android:layout_width="100dip" 
