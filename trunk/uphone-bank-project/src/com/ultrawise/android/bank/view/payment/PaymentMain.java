@@ -106,7 +106,8 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
 
 		}else if(id==4){
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(PaymentMain.this, PaymentManage.class);
+			//payment_intent.setClass(PaymentMain.this, PaymentManage.class);
+			payment_intent.setClass(PaymentMain.this, PaymentManageDetail.class);
 			PaymentMain.this.startActivity(payment_intent);
 
 		}
