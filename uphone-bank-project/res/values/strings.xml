@@ -94,8 +94,8 @@
 	<string name="confirm">确定</string>
 	<string name="cancel">取消</string>
 	<string name="btn_return_balance_query">返回查询其他账户余额</string>
-	<string name="accinfo_selectType">请选择账户类型</string>
-	<string name="accinfo_selectAcc">请选择账户</string>
+	<string name="accinfo_selectType">请选择账户类型：</string>
+	<string name="accinfo_selectAcc">请选择账户：</string>
 	<string name="accinfo_selectTypeTitle">请选择账户类型</string>
 	<string name="accinfo_selectAccTitle">请选择账户</string>
 	<string-array name="accinfo_accType">
@@ -116,14 +116,14 @@
 <string name="accMana_AddAcc">添加新账户</string>
 <string name="accMana_DelAcc">删除已有账户</string>
 <string name="accAct_Active">激活</string>
-<string name="accAct_TpyePwd">请输入账户密码</string>
+<string name="accAct_TpyePwd">请输入账户密码：</string>
 <string name="accPre_PreAcc">当前首选账户为：</string>
 
 <string name="accOrder_Next">下一步</string>
 <string name="accOrder_OrderSucess">已经预约成功，请在10个工作日后到选定网点领取新卡</string>
 <string name="accOrder_ChangeReason">换卡原因</string>
 <string name="accOrder_Net">选择换卡网点</string>
-<string name="accOrderCardInfo_OrderConfirm">确定预约</string>
+<string name="accOrderCardInfo_OrderConfirm">确认预约</string>
 <string-array name="accOrder_reasonArray"><item>卡损坏</item>
 <item>卡过期</item>
 <item>卡丢失</item>
