@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,9 +86,13 @@ public class AccountFrom extends Activity{
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent.setClass(AccountFrom.this, AccountQueryEinnahme.class);
+				intent.setClass(AccountFrom.this, Query_Settime.class);
 				startActivity(intent);
 			}
 		});
+		
+		 String source = "<font color='red' size='7' face='宋体' sytle='宋体'><BIG>红色字</BIG></font>"; 
+		 TextView test = (TextView)findViewById(R.id.inventory1);
+		 test.setText(Html.fromHtml(source));
 	}
 }

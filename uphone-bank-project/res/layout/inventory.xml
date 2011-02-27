@@ -13,7 +13,7 @@
 		<TextView android:id="@+id/inventory1"
 	          android:layout_height="wrap_content" 
 	          android:layout_width="wrap_content"
-	          android:textSize="20dp"
+	          android:textSize="15dp"
 	          android:text="请输入你要查询的时间区间"
 	          android:layout_marginLeft="38dip"
 	          android:textColor="#000000">
@@ -27,7 +27,7 @@
 			<TextView android:id="@+id/inventory_c"
 	          android:layout_height="wrap_content" 
 	          android:layout_width="wrap_content"
-	          android:textSize="20dp"
+	          android:textSize="15dp"
 	          android:text="开始时间"
 	          android:textColor="#000000"
 	          android:gravity="left"
@@ -47,7 +47,8 @@
 	          android:layout_marginTop="3dip"
 	          android:layout_marginLeft="90dip"
 	          android:layout_marginRight="30dip"
-	          android:text="起始时间">
+	          android:text="起始时间"
+	          android:background="@drawable/selection">
 	        </Button>
 	        <TextView 
 	          android:layout_height="1dip" 
@@ -58,7 +59,7 @@
 			<TextView android:id="@+id/inventory_c"
 	          android:layout_height="wrap_content" 
 	          android:layout_width="wrap_content"
-	          android:textSize="20dp"
+	          android:textSize="15dp"
 	          android:text="终止时间"
 	          android:textColor="#000000"
 	          android:gravity="left"
@@ -78,7 +79,8 @@
 	          android:layout_marginTop="3dip"
 	          android:layout_marginLeft="90dip"
 	          android:layout_marginRight="30dip"
-	          android:text="结束时间">
+	          android:text="结束时间"
+	          android:background="@drawable/selection">
 	        </Button>
 	        <TextView 
 	          android:layout_height="1dip" 
@@ -91,7 +93,8 @@
 	          android:layout_width="wrap_content"
 	          android:text="查 询 ->"
 	          android:layout_marginTop="10dip"
-	          android:layout_marginLeft="130dip">
+	          android:layout_marginLeft="130dip"
+	          android:background="@drawable/sprinner_ok1">
 	        </Button>
 	</LinearLayout>
 </RelativeLayout>
