@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view;
 import com.ultrawise.android.bank.view.ABankMain.CreditButtonListener;
+
 import com.ultrawise.android.bank.view.credit.CreditView;
 import com.ultrawise.android.bank.view.transfer.R;
 import com.ultrawise.android.bank.view.transfer.TransResult;
@@ -38,60 +39,62 @@ public class UserLogin extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userlogin);
+	}
         //获得用户名输入框，并获得输入框中的值
-        nameEditText=(EditText)findViewById(R.id.nameEdit);
-        
-        
-        //获得登陆按钮，并设置登陆按钮的鼠标响应事件
-        userLoginButton=(Button)findViewById(R.id.userLogin);
-        userLoginButton.setOnClickListener(new UserLoginButtonListener());
-        //获得用户名输入框，并获得输入框中输入的值
-        passwdEditText=(EditText)findViewById(R.id.passwdEdit);
-        
-        
-        //获得密码输入框，并获得输入框中输入的值
-        pyramidEditText=(EditText)findViewById(R.id.pyramidEdit);
-       
-	}
-	/**
-	 * 登陆按钮响应
-	 * @author Administrator
-	 *跳转到登陆成功对话框Activity-UserLoginDialog
-	 */
-	class UserLoginButtonListener implements OnClickListener{
-
-		public void onClick(View arg0) {
-			String flag="手机银行";
-			String info=null;
-			int loginFlag=0;
-			userName=nameEditText.getText().toString();
-			passwd=passwdEditText.getText().toString();
-			pyramid=pyramidEditText.getText().toString();
-			
-			//判断用户名，密码，附加码为空或输入空白
-			if(userName==null || userName.trim().length()==0||
-			   passwd==null || passwd.trim().length()==0||
-			   pyramid==null || pyramid.trim().length()==0){
-				info="用户名，密码，附加码不能为空!";
-				loginFlag=1;
-			//判断正确的用户名，密码
-			}else if(userName.equals("zhangsan") && passwd.equals("123")){
-				info="尊敬的客户"+userName+"\n您上次登陆的时间为\n"+"2010-1-13 16:20:20\n这是你第20次登录系统！\n";
-				loginFlag=2;
-			//判断错误的用户名，密码，附加码
-			}else{
-				info="用户名，密码，附加码错误!";
-				loginFlag=3;
-			}
-			Intent intent=new Intent();
-			intent.putExtra("flag", flag);
-			intent.putExtra("info", info);
-			intent.putExtra("loginFlag",loginFlag+"");
-			intent.setClass(UserLogin.this,UserLoginDialog.class);
-			UserLogin.this.startActivity(intent);
-			
-		}
-		
-	}
-	
+//        nameEditText=(EditText)findViewById(R.id.nameEdit);
+//        
+//        
+//        //获得登陆按钮，并设置登陆按钮的鼠标响应事件
+//        userLoginButton=(Button)findViewById(R.id.userLogin);
+//       // userLoginButton.setVisibility(View.VISIBLE);
+//        userLoginButton.setOnClickListener(new UserLoginButtonListener());
+//        //获得用户名输入框，并获得输入框中输入的值
+//        passwdEditText=(EditText)findViewById(R.id.passwdEdit);
+//        
+//        
+//        //获得密码输入框，并获得输入框中输入的值
+//        pyramidEditText=(EditText)findViewById(R.id.pyramidEdit);
+//       
+//	}
+//	/**
+//	 * 登陆按钮响应
+//	 * @author Administrator
+//	 *跳转到登陆成功对话框Activity-UserLoginDialog
+//	 */
+//	class UserLoginButtonListener implements OnClickListener{
+//
+//		public void onClick(View arg0) {
+//			String flag="手机银行";
+//			String info=null;
+//			int loginFlag=0;
+//			userName=nameEditText.getText().toString();
+//			passwd=passwdEditText.getText().toString();
+//			pyramid=pyramidEditText.getText().toString();
+//			
+//			//判断用户名，密码，附加码为空或输入空白
+//			if(userName==null || userName.trim().length()==0||
+//			   passwd==null || passwd.trim().length()==0||
+//			   pyramid==null || pyramid.trim().length()==0){
+//				info="用户名，密码，附加码不能为空!";
+//				loginFlag=1;
+//			//判断正确的用户名，密码
+//			}else if(userName.equals("zhangsan") && passwd.equals("123")){
+//				info="尊敬的客户"+userName+"\n您上次登陆的时间为\n"+"2010-1-13 16:20:20\n这是你第20次登录系统！\n";
+//				loginFlag=2;
+//			//判断错误的用户名，密码，附加码
+//			}else{
+//				info="用户名，密码，附加码错误!";
+//				loginFlag=3;
+//			}
+//			Intent intent=new Intent();
+//			intent.putExtra("flag", flag);
+//			intent.putExtra("info", info);
+//			intent.putExtra("loginFlag",loginFlag+"");
+//			intent.setClass(UserLogin.this,UserLoginDialog.class);
+//			UserLogin.this.startActivity(intent);
+//			
+//		}
+//		
+//	}
+//	
 }
