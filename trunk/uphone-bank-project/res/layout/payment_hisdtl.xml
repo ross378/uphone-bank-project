@@ -26,7 +26,8 @@
 	android:layout_height="wrap_content"
 	android:text="项目信息"
 	android:paddingLeft="10dip"
-	android:textSize="25sp"
+	android:textColor="#000000"
+	android:textSize="20sp"
 	/>
 	
 	<TextView
@@ -38,7 +39,7 @@
 	<!-- 	android:text="@string/pay_amount" -->
 	<LinearLayout
 	android:layout_width="fill_parent"
-	android:layout_height="35dip"
+	android:layout_height="25dip"
 	android:layout_marginLeft="25dip"
 	>
 	<TextView
@@ -46,7 +47,8 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="项目名称："
-	android:textSize="20sp"
+	android:textColor="#000000"
+	android:textSize="18sp"
 	android:layout_gravity="center_vertical"
 	/>
 	<TextView
@@ -54,7 +56,8 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="扬子晚报"
-	android:textSize="20sp"
+	android:textColor="#000000"
+	android:textSize="18sp"
 	android:layout_gravity="center_vertical"
 	/>
 	</LinearLayout>
@@ -75,6 +78,7 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="收费金额："
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -83,6 +87,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="10元/月"
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -104,6 +109,7 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="收费方："
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -112,6 +118,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="扬子晚报"
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -134,6 +141,7 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="代理方："
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -142,6 +150,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="中国建设银行"
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -162,6 +171,7 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="代理费："
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -170,6 +180,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="2元/月"
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -190,6 +201,7 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="缴费日期："
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -198,6 +210,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="每月1日至15日"
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -214,7 +227,8 @@
 	android:layout_height="wrap_content"
 	android:text="项目设置："
 	android:paddingLeft="10dip"
-	android:textSize="25sp"
+	android:textColor="#000000"
+	android:textSize="20sp"
 	/>
 	<TextView
 	android:layout_width="314dip"
@@ -232,6 +246,7 @@
 	android:layout_width="150dip"
 	android:layout_height="wrap_content"
 	android:text="收取地址："
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -239,6 +254,7 @@
 	android:id="@+id/tv_payhis_title_detail"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
+	android:textColor="#000000"
 	android:textSize="20sp"
 	android:layout_gravity="center_vertical"
 	/>
@@ -255,7 +271,7 @@
 	android:layout_marginLeft="80dip"
 	>
 	<EditText
-	android:layout_width="250dip"
+	android:layout_width="200dip"
 	android:layout_height="wrap_content"
 	android:textSize="20sp"
 	android:id="@+id/addres_edit"
