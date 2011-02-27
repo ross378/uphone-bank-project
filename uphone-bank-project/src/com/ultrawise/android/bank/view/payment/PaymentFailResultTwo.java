@@ -32,6 +32,7 @@
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						Intent transinfo_intent = new Intent();
+						
 			    		transinfo_intent.setClass(PaymentFailResultTwo.this, PaymentSelectAccount.class);
 			    		startActivity(transinfo_intent);
 					}
@@ -42,7 +43,7 @@
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					Intent transinfo_intent = new Intent();
-		    		transinfo_intent.setClass(PaymentFailResultTwo.this, PaymentPend.class);
+		    		transinfo_intent.setClass(PaymentFailResultTwo.this, PaymentMain.class);
 		    		startActivity(transinfo_intent);
 				}
 		    }
