@@ -29,7 +29,7 @@ public class PaymentManage extends Activity {//缴费项目管理
         //Button btn_paymanage_ok = (Button)findViewById(R.id.btn_paymana_ok);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        //iv_now.setVisibility(View.VISIBLE);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
@@ -40,6 +40,7 @@ public class PaymentManage extends Activity {//缴费项目管理
 				PaymentManage.this.startActivity(payment_intent);
 			}
 		});
+		tvClassFirst.setVisibility(View.VISIBLE);
         TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
         tvClassSecond.setText("自助缴费>");
         tvClassSecond.setOnClickListener(new OnClickListener() {
