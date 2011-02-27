@@ -73,14 +73,14 @@ public class AccountQueryBalance extends ListActivity {
 		    tvClassthird.setText("账户信息及余额查询");
 		    tvClassthird.setVisibility(View.VISIBLE);
 		
-		    acc1=(TextView)findViewById(R.id.acc1);
-		    acc1.setText("账户：");
-		    acc2=(TextView)findViewById(R.id.acc2);
-		    acc2.setText("1234578xxxx");
-		    type1=(TextView)findViewById(R.id.type1);
-		    type1.setText("账户类型：");
-		    type2=(TextView)findViewById(R.id.type2);
-		    type2.setText("定期存储(零存整取)");
+//		    acc1=(TextView)findViewById(R.id.acc1);
+//		    acc1.setText("账户：");
+//		    acc2=(TextView)findViewById(R.id.acc2);
+//		    acc2.setText("1234578xxxx");
+//		    type1=(TextView)findViewById(R.id.type1);
+//		    type1.setText("账户类型：");
+//		    type2=(TextView)findViewById(R.id.type2);
+//		    type2.setText("定期存储(零存整取)");
 	        
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
 	        
@@ -90,24 +90,33 @@ public class AccountQueryBalance extends ListActivity {
 	        HashMap<String,String> acclist3 = new HashMap<String,String>();
 	        HashMap<String,String> acclist4 = new HashMap<String,String>();
 	        HashMap<String,String> acclist5 = new HashMap<String,String>();
+	        HashMap<String,String> acclist6 = new HashMap<String,String>();
+	        HashMap<String,String> acclist7 = new HashMap<String,String>();
+	        
+	        acclist1.put("account_list", "账户：");
+	        acclist1.put("account_list_info", "12345678xx");
+	        acclist2.put("account_list", "账户类型：");
+	        acclist2.put("account_list_info", "定期存储（零存整取）");
+	        acclist3.put("account_list", "币种：");
+	        acclist3.put("account_list_info", "人民币");
+	        acclist4.put("account_list", "余额：");
+	        acclist4.put("account_list_info", "30000");
+	        acclist5.put("account_list", "存期：");
+	        acclist5.put("account_list_info", "三个月");
+	        acclist6.put("account_list", "起息：");
+	        acclist6.put("account_list_info", "2011.12.15");
+	        acclist7.put("account_list", "利率");
+	        acclist7.put("account_list_info", "2.25%");
 	        
 	       
-	        acclist1.put("account_list", "币种：");
-	        acclist1.put("account_list_info", "人民币");
-	        acclist2.put("account_list", "余额：");
-	        acclist2.put("account_list_info", "30000");
-	        acclist3.put("account_list", "存期：");
-	        acclist3.put("account_list_info", "三个月");
-	        acclist4.put("account_list", "起息：");
-	        acclist4.put("account_list_info", "2011.12.15");
-	        acclist5.put("account_list", "利率");
-	        acclist5.put("account_list_info", "2.25%");
 	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);
 	        accoutList.add(acclist3);
 	        accoutList.add(acclist4);
 	        accoutList.add(acclist5);
+	        accoutList.add(acclist6);
+	        accoutList.add(acclist7);
 	        
 	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list2, new String[] {
 					"account_list", "account_list_info" }, new int[] { R.id.txtView1, R.id.txtView2 } );
