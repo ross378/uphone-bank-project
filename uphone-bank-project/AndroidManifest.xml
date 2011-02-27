@@ -7,10 +7,7 @@
 				<!-- 信用卡 -->
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
 			
-			 <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+			
 			
         </activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditView">
@@ -23,11 +20,14 @@
         <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-    	 
+    	 <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> 
     	 
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.UserLogin">
-
+		
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
         
@@ -81,7 +81,9 @@
            <activity android:name="com.ultrawise.android.bank.view.SelfCompanyDepositeRates"/>
            <activity android:name="com.ultrawise.android.bank.view.DingQiDepositeRatesDetail"/>
            <activity android:name="com.ultrawise.android.bank.view.LoanRates"/>
-            <activity android:name="com.ultrawise.android.bank.view.ExchangeRates"/>
+            <activity android:name="com.ultrawise.android.bank.view.ExchangeRates">
+            
+            </activity>
             <activity android:name="com.ultrawise.android.bank.view.ExchangeRatesDialog"
             android:theme="@android:style/Theme.Dialog"
             />
