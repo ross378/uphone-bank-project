@@ -23,16 +23,18 @@ public class PaymentFailResultOne extends Activity {
 	        String info = receive_intent.getStringExtra("info");
 //	        tvflag.setText(flag);
 	        tvshow.setText(info);
-	        btnok.setText("重新密码");
+	        btnok.setText("重输密码");
 	        btnok.setOnClickListener(new BtnOkCL());
 	 }
 	 class BtnOkCL implements OnClickListener{
 			public void onClick(View v) {
+				
+				PaymentFailResultOne.this.finish();
 				// TODO Auto-generated method stub
-				Intent transinfo_intent = new Intent();
-				transinfo_intent.putExtra("Account", "123455467347");
-	    		transinfo_intent.setClass(PaymentFailResultOne.this, PaymentInPwd.class);
-	    		startActivity(transinfo_intent);
+//				Intent transinfo_intent = new Intent();
+//				transinfo_intent.putExtra("Account", "123455467347");
+//	    		transinfo_intent.setClass(PaymentFailResultOne.this, PaymentInPwd.class);
+//	    		startActivity(transinfo_intent);
 			}
 	    }
 }
