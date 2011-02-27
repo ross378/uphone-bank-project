@@ -15,7 +15,8 @@
 		android:visibility="gone">
 	</ImageView>
 	<ImageView android:id="@+id/btnHelper" android:layout_width="160dip"
-		android:layout_height="47dip" android:src="@drawable/main_jrzs2"
+		android:layout_height="47dip" 
+		android:src="@drawable/main_jrzs2"
 		android:layout_weight="1" android:scaleType="fitXY">
 	</ImageView>
 
