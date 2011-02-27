@@ -63,13 +63,9 @@ public class AccountQueryEinnahme extends ListActivity {
 	        tvClassSecond.setVisibility(View.VISIBLE);
 		
 		    acc1=(TextView)findViewById(R.id.acc1);
-		    acc1.setText("定期账户012345678：");
-		    acc2=(TextView)findViewById(R.id.acc2);
-		    acc2.setText("1234578xxxx");
-		    type1=(TextView)findViewById(R.id.type1);
-		    type1.setText("账户类型：");
-		    type2=(TextView)findViewById(R.id.type2);
-		    type2.setText("定期存储(零存整取)");
+		    acc1.setText("定期账户012345678在20101123到20100111" +
+		    		"\n"+"之间的来帐记录如下：");
+
 	        
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        
