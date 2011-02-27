@@ -3,8 +3,10 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.List;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.payment.TreeViewAdapter.TreeNode;
 import com.ultrawise.android.bank.view.transfer.R;
 
+import android.R.color;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +24,7 @@ public class PaymentManage extends Activity {//缴费项目管理
 	ListView payment_manage_list = null;
 	ExpandableListView expandableList;     
 	TreeViewAdapter adapter;
-	public String[] groups = { "以开通项目", "所有项目"};     
+	public String[] groups = { "   已开通项目", "   所有项目"};     
 	public String[][]  child= {     
 	            { "水费", "电费", "报纸订阅"},     
 	            { "平安保险", "人寿保险", "交通罚款","水费", "电费", "报纸订阅"},          
@@ -64,7 +66,7 @@ public class PaymentManage extends Activity {//缴费项目管理
         
 		adapter=new TreeViewAdapter(this,TreeViewAdapter.PaddingLeft>>1);
 		expandableList =(ExpandableListView) findViewById(R.id.ExpandableListView01);
-		/*adapter.RemoveAll();     
+		adapter.RemoveAll();     
         adapter.notifyDataSetChanged();
         List<TreeNode> treeNode = adapter.GetTreeNode();     
         for(int i=0;i<groups.length;i++)     
@@ -84,10 +86,12 @@ public class PaymentManage extends Activity {//缴费项目管理
 
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
-				System.out.println("1234567");
+				Intent intent = new Intent();
+				intent.setClass(PaymentManage.this, PaymentManageDetail.class);
+				PaymentManage.this.startActivity(intent);
 				return false;
 			}     
-        });*/
+        });
 	}
 
 	class BtnManaOK implements OnClickListener{
