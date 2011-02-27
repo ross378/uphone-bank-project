@@ -23,17 +23,6 @@ public class PaymentHisDetail extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_main);
         
-        /*TextView tv_title = (TextView)findViewById(R.id.tv_payhis_title);
-        TextView tv_amount = (TextView)findViewById(R.id.tv_payhis_amount);
-        TextView tv_time = (TextView)findViewById(R.id.tv_payhis_tim);
-        TextView tv_sernum = (TextView)findViewById(R.id.tv_payhis_sernum);
-        TextView tv_acc = (TextView)findViewById(R.id.tv_payhis_acc);*/
-        //TextView tv_acc2 = (TextView)findViewById(R.id.tv_payhis_acc2);
-        
-        //Button btn_payhisdl_ok = (Button)findViewById(R.id.btn_payhisdt_ok);
-        
-       /* ListView hisDetail = (ListView)findViewById(android:list);*/
-        
         Intent payhisdtl_intent = getIntent();
         
         String tvtitle = payhisdtl_intent.getStringExtra("title");
@@ -41,13 +30,6 @@ public class PaymentHisDetail extends ListActivity {
         String tvtime = payhisdtl_intent.getStringExtra("time");
         String tvsernum = payhisdtl_intent.getStringExtra("serialnum");
         String tvacc = payhisdtl_intent.getStringExtra("acc");
-        
-        /*tv_title.setText("项目名称："+tvtitle);
-        tv_amount.setText("缴费金额："+tvamount);
-        tv_time.setText("缴费时间："+tvtime);
-        tv_sernum.setText("项目流水号："+tvsernum);
-        tv_acc.setText("缴费账号："+tvacc);*/
-        //tv_acc2.setText(tvacc);
         
         ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
         
@@ -114,10 +96,6 @@ public class PaymentHisDetail extends ListActivity {
 			}
 		});
 		tvClassThird.setVisibility(View.VISIBLE);
-		
-		/*TextView tvClassThree = (TextView)this.findViewById(R.id.class_third);
-		tvClassThree.setText("明细");
-		tvClassThree.setVisibility(View.VISIBLE);*/
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.VISIBLE);
