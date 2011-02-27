@@ -34,7 +34,7 @@ public class AccountQueryBalance extends ListActivity {
 	private TextView type2=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_querytype);
+        setContentView(R.layout.account_querytype_txt);
         tvClassFirst = (TextView) this.findViewById(R.id.class_first);
         tvClassFirst.setText("首页>");
         tvClassFirst.setOnClickListener(new OnClickListener() {
