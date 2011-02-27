@@ -18,6 +18,7 @@
 				android:textSize="18sp" 
 				android:layout_marginLeft="15dip" 
 				android:layout_width="fill_parent"
+				android:textColor="#000000"
 				android:layout_height="wrap_content"></TextView>
    			 <Spinner  
     		android:id="@+id/spinnerAccTyp" 
@@ -27,6 +28,7 @@
     		android:textSize="17sp"	/>
 			<TextView 
 			android:text="请选择账户:"
+			android:textColor="#000000"
 			android:textSize="18sp"	
 			android:layout_marginLeft="15dip" 
 			android:gravity="center_vertical"
