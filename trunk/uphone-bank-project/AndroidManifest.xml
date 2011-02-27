@@ -214,10 +214,8 @@
 		<!-- end activity -->
 		
 		<!-- kjsolo's activity -->
-
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
-
 		</activity>
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo">
@@ -244,10 +242,8 @@
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.PreferredAccount"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.QueryAccount">
-
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
-
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.BalanceQuery"></activity>
 		<activity
@@ -257,23 +253,39 @@
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.PreferredAccountSelect">
-
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.OrderCardSelect">
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
-
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.OrderCardSelect2">
-			
-			</activity>
+		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.OrderCardShowInfo"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountInfo2"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountLostSelect"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountLostInfo"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountAdd"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountDel"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountDelInfo"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountDelInfo2"></activity>
 		<!-- end activity -->
 			
 		<!--guo    peng  -->
