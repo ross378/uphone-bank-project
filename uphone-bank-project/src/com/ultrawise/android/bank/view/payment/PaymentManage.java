@@ -1,7 +1,6 @@
 package com.ultrawise.android.bank.view.payment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -10,21 +9,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.ExpandableListView.OnChildClickListener;
 import android.view.View.OnClickListener;
 
 public class PaymentManage extends Activity {//缴费项目管理
 	
 	Intent payment_intent = new Intent();
 	ListView payment_manage_list = null;
+	ExpandableListView expandableList;     
+	TreeViewAdapter adapter;
+	public String[] groups = { "以开通项目", "所有项目"};     
+	public String[][]  child= {     
+	            { "水费", "电费", "报纸订阅"},     
+	            { "平安保险", "人寿保险", "交通罚款","水费", "电费", "报纸订阅"},          
+	    };
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.payment_manage);
+        setContentView(R.layout.payment_tree);
         
         //Button btn_paymanage_ok = (Button)findViewById(R.id.btn_paymana_ok);
         
@@ -56,39 +62,32 @@ public class PaymentManage extends Activity {//缴费项目管理
 		tvClassThird.setText("缴费项目管理");
 		tvClassThird.setVisibility(View.VISIBLE);
         
-        //btn_paymanage_ok.setOnClickListener(new BtnManaOK());
-		
-		//payment_manage_list = (ListView)findViewById(R.id.open_list);
-		
-		ArrayList<HashMap<String,String>> mainlist = new ArrayList<HashMap<String,String>>();
-        
-        HashMap<String,String> paylist1 = new HashMap<String,String>();
-        HashMap<String,String> paylist2 = new HashMap<String,String>();
-        HashMap<String,String> paylist3 = new HashMap<String,String>();
-        HashMap<String,String> paylist4 = new HashMap<String,String>();
-        HashMap<String,String> paylist5 = new HashMap<String,String>();
-        
-        paylist1.put("payment_list", "待缴费项目");
-        paylist1.put("payment_list_info", ">");
-        paylist2.put("payment_list", "便捷服务");
-        paylist2.put("payment_list_info", ">");
-        paylist3.put("payment_list", "最近一个月缴费");
-        paylist3.put("payment_list_info", ">");
-        paylist4.put("payment_list", "历史缴费记录");
-        paylist4.put("payment_list_info", ">");
-        paylist5.put("payment_list", "缴费项目管理");
-        paylist5.put("payment_list_info", ">");
+		adapter=new TreeViewAdapter(this,TreeViewAdapter.PaddingLeft>>1);
+		expandableList =(ExpandableListView) findViewById(R.id.ExpandableListView01);
+		/*adapter.RemoveAll();     
+        adapter.notifyDataSetChanged();
+        List<TreeNode> treeNode = adapter.GetTreeNode();     
+        for(int i=0;i<groups.length;i++)     
+        {     
+            TreeNode node=new TreeNode();     
+            node.parent=groups[i];     
+            for(int ii=0;ii<child[i].length;ii++)     
+            {     
+                node.childs.add(child[i][ii]);     
+            }     
+            treeNode.add(node);     
+        }     
+             
+        adapter.UpdateTreeNode(treeNode);          
+        expandableList.setAdapter(adapter);     
+        expandableList.setOnChildClickListener(new OnChildClickListener(){
 
-        
-        mainlist.add(paylist1);
-        mainlist.add(paylist2);
-        mainlist.add(paylist3);
-        mainlist.add(paylist4);
-        mainlist.add(paylist5);
-        
-        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_manage_list, new String[] {
-				"payment_list", "payment_list_info" }, new int[] { R.id.pay_manage_list, R.id.pay_manage_list_but } );
-        //payment_manage_list.setAdapter(MainListAdapter);
+			public boolean onChildClick(ExpandableListView parent, View v,
+					int groupPosition, int childPosition, long id) {
+				System.out.println("1234567");
+				return false;
+			}     
+        });*/
 	}
 
 	class BtnManaOK implements OnClickListener{
