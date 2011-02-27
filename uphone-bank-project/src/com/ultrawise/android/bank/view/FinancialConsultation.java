@@ -55,9 +55,7 @@ public class FinancialConsultation extends Activity {
         //获得外汇汇率按钮，并设置其鼠标单击事件监听器
         exchangeRateButton=(ImageButton)findViewById(R.id.exchangeRate);
         exchangeRateButton.setOnClickListener(new ExchangeRateButtonListener());
-      //获得手机银行按钮，并设置其鼠标单击事件监听器
-        backButton=(ImageView)findViewById(R.id.returnToPre);
-        backButton.setOnClickListener(new BackButtonListener());
+      
         //获得存款利率按钮，并设置其鼠标单击事件监听器
         aBankBottomButton=(ImageView)findViewById(R.id.btnMain);
         aBankBottomButton.setOnClickListener(new ABankBottomButtonListener());
@@ -124,16 +122,7 @@ public class FinancialConsultation extends Activity {
 		
 	}
 	
-	/*
-	 * 返回按钮响应
-	 * 回到上一级Activity
-	 */
-	class BackButtonListener implements OnClickListener{
-		
-		public void onClick(View args0){
-			FinancialConsultation.this.finish();
-		}
-	}
+	
 	
 	/*
 	 * 手机银行登录底层按钮
