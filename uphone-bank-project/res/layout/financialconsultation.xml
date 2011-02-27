@@ -7,7 +7,7 @@ android:layout_height="fill_parent"
 android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
-<include layout = "@layout/main_bank_above"/>
+<include layout = "@layout/phone_above"/>
 <!-- 
 导航按钮的表格布局 
 表格布局在父布局(相对布局)的中央：由
@@ -121,6 +121,7 @@ android:layout_marginLeft="50px"
 android:src="@drawable/exchangerates"
 android:layout_marginTop = "40px"
 android:background="#00ffffff"
+android:scaleType="fitXY"
 >
 </ImageButton>
 </TableRow>
