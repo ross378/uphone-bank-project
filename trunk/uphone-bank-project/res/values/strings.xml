@@ -41,6 +41,7 @@
 	<string name = "loan_rates">贷款利率</string>
 	<string name = "exchange_rates">汇率计算</string>
 	<string name="pakitclass">请选择证件类型</string>
+	<string name="pakitclasscardid">请选择卡号</string>
 	<string name="creditnumber">请选择卡号</string>
 	<string name="sourcecurrency">选择原始货币单位</string>
 	<string name="delatincurrency">选择目标货币单位</string>
