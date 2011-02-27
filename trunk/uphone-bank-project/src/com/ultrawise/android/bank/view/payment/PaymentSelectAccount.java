@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 	public class PaymentSelectAccount extends Activity {
+		//账户选择
 		 private Spinner AccTypSpinner=null;
 		 private ArrayAdapter< String> AccTypAdapter=null;
 		 private Spinner Accspinner=null;
@@ -44,9 +45,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 				}
 			});
 			tvClassFirst.setVisibility(View.VISIBLE);
-			
-			
-			
 			
 		    TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
 		    tvClassSecond.setText("自助缴费>");
@@ -91,16 +89,14 @@ import android.widget.AdapterView.OnItemSelectedListener;
 						int position, long id) {
 					Spinner spinner = (Spinner) parent;  
 					
-					Log.v("Test", "id = " + id + "("  + spinner.getSelectedItem().toString() + ")");
-					
-					
+					Log.v("Test", "id = " + id + "("  + spinner.getSelectedItem().toString() + ")");				
 					if(spinner.getSelectedItem().toString()=="储蓄卡"){
 						 Log.v("Test","fdsjjjj");
 					        //储蓄账户加载
 					        Accadapter= new ArrayAdapter< String>(  PaymentSelectAccount.this,  android.R.layout.simple_spinner_item);  
 					        Accadapter.setDropDownViewResource(  android.R.layout.simple_spinner_dropdown_item);  
-					        Accadapter.add("611111111111"); 
-					        Accadapter.add("222222222222222"); 
+					        Accadapter.add("111111111"); 
+					        Accadapter.add("2222222222"); 
 					        Accadapter.add("333333333"); 
 					        Accadapter.add("444444444");
 					        Accspinner= (Spinner)findViewById(R.id.spinnerAcc); 
@@ -111,10 +107,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 								public void onItemSelected(AdapterView< ?> parent,  View view, 
 										int position, long id) {
 									Spinner spinner = (Spinner) parent;  
-									Log.v("Test", "id = " + id + "("  + spinner.getSelectedItem().toString() + ")");
-								
-								
-								
+									Log.v("Test", "id = " + id + "("  + spinner.getSelectedItem().toString() + ")");												
 								}
 
 								public void onNothingSelected(AdapterView<?> arg0) {
@@ -122,9 +115,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 					      });
 					        //结束储蓄用户绑定
 						
-					}else if(spinner.getSelectedItem().toString()=="信用卡"){
-				        	
-					        
+					}else if(spinner.getSelectedItem().toString()=="信用卡"){				        
 					        Log.v("Test","fdshh4345235fsd");
 					        
 					        //信用卡账户加载
@@ -158,26 +149,17 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 				public void onNothingSelected(AdapterView<?> arg0) {
 				} 
-	      }); 
-			
-	        
-        
-   
-
-	        
-	        
-	        
+	      });      	        
 	        //下一步的按钮选择
 	        Button btn_next=(Button)findViewById(R.id.btn_next);
 	        btn_next.setText("下一步");
 	        btn_next.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
-				Intent	AccMation_intent=new Intent();
-				
+					// TODO Auto-generated method stub				
+				Intent	AccMation_intent=new Intent();		
 				AccMation_intent.putExtra("Account",Accspinner.getSelectedItem().toString());
+				AccMation_intent.putExtra("acc_balance","700");
 				AccMation_intent.setClass(PaymentSelectAccount.this,PaymentInPwd.class);
 				PaymentSelectAccount.this.startActivity(AccMation_intent);
 					
