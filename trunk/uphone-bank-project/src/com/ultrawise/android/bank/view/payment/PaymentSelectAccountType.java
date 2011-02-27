@@ -102,6 +102,7 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 		if (id == 0) {//首选账户
 			Intent payment_intent = new Intent();
 			payment_intent.putExtra("Account", "67324623461");
+			payment_intent.putExtra("acc_balance","399");
 			payment_intent.setClass(PaymentSelectAccountType.this,PaymentInPwd.class);
 			PaymentSelectAccountType.this.startActivity(payment_intent);
 		}else if(id==1){//其他账户
