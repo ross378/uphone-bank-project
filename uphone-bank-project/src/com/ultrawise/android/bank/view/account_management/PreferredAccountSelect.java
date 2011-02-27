@@ -148,7 +148,7 @@ public class PreferredAccountSelect extends Activity {
 		});
 		// 设置层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = PreferredAccountSelect.this.getIntent();
@@ -162,7 +162,7 @@ public class PreferredAccountSelect extends Activity {
 			public void onClick(View v) {
 				intent = PreferredAccountSelect.this.getIntent();
 				intent.setClass(PreferredAccountSelect.this,
-						AccountManagement.class);
+						AccountManagementList.class);
 				PreferredAccountSelect.this.startActivity(intent);
 			}
 		});
@@ -196,6 +196,7 @@ public class PreferredAccountSelect extends Activity {
 				PreferredAccountSelect.this.startActivity(intent);
 			}
 		});
+		
 
 	}
 

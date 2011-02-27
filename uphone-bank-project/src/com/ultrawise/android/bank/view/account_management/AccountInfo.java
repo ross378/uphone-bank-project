@@ -115,7 +115,7 @@ public class AccountInfo extends ListActivity {
 
 		// 设置层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -131,7 +131,7 @@ public class AccountInfo extends ListActivity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = AccountInfo.this.getIntent();
-				intent.setClass(AccountInfo.this, AccountManagement.class);
+				intent.setClass(AccountInfo.this, AccountManagementList.class);
 				AccountInfo.this.startActivity(intent);
 
 			}
@@ -142,10 +142,6 @@ public class AccountInfo extends ListActivity {
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 底部按钮设置
-		btnCoustom = (ImageView) this.findViewById(R.id.btnCoustom);
-		btnCoustom.setImageResource(R.drawable.cardbg_zhgl_w);
-		btnCoustom.setVisibility(View.VISIBLE);
-
 		btnMain = (ImageView) this.findViewById(R.id.btnMain);
 		btnMain.setOnClickListener(new OnClickListener() {
 

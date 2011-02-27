@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.account_management;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -36,6 +37,8 @@ public class OrderCardSelect2 extends Activity {
 	private TextView tvClassThrid;
 	private ImageView btnReturn;
 	private GestureDetector mGestureDetector;
+	private ImageView btnMain;
+	private ImageView btnHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +145,7 @@ public class OrderCardSelect2 extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardSelect2.this, AccountManagement.class);
+				intent.setClass(OrderCardSelect2.this, AccountManagementList.class);
 				OrderCardSelect2.this.startActivity(intent);
 			}
 		});
@@ -158,6 +161,29 @@ public class OrderCardSelect2 extends Activity {
 				// TODO Auto-generated method stub
 				onBackPressed();
 				finish();
+			}
+		});
+		
+		// 底部按钮设置
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = OrderCardSelect2.this.getIntent();
+				intent.setClass(OrderCardSelect2.this, ABankMain.class);
+				OrderCardSelect2.this.startActivity(intent);
+			}
+		});
+
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = OrderCardSelect2.this.getIntent();
+				intent.setClass(OrderCardSelect2.this, FinancialConsultation.class);
+				OrderCardSelect2.this.startActivity(intent);
 			}
 		});
 	}

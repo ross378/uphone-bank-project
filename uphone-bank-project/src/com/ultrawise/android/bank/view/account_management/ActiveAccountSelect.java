@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.account_management;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.AccountInfoSelect.SpinnerSelectedListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TableLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -33,12 +35,15 @@ public class ActiveAccountSelect extends Activity {
 	private Button btnActive;
 	protected Intent intent;
 	private EditText dtPwd;
-	protected boolean flag = false;
+	protected boolean flag;
 	private GestureDetector mGestureDetector;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	private ImageView btnReturn;
+	private ImageView btnMain;
+	private ImageView btnHelper;
+	protected View view;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +95,9 @@ public class ActiveAccountSelect extends Activity {
 				// 获取选中的账户
 				String account = spnrSelectAcc.getSelectedItem().toString();
 				// 弹出对话框
+				flag=true;
 				if (flag == true) {
-					new AlertDialog.Builder(ActiveAccountSelect.this)
+					AlertDialog myDialog=new AlertDialog.Builder(ActiveAccountSelect.this)
 							.setMessage("账户" + account + "已成功激活")
 							.setPositiveButton("确定",
 									new DialogInterface.OnClickListener() {
@@ -107,6 +113,9 @@ public class ActiveAccountSelect extends Activity {
 											finish();
 										}
 									}).show();
+					
+					
+//					myDialog.getWindow().setContentView(R.layout.dialog);
 				} else {
 					new AlertDialog.Builder(ActiveAccountSelect.this)
 							.setMessage("密码错误，激活失败")
@@ -164,7 +173,7 @@ public class ActiveAccountSelect extends Activity {
 			public void onClick(View v) {
 				intent = new Intent();
 				intent.setClass(ActiveAccountSelect.this,
-						AccountManagement.class);
+						AccountManagementList.class);
 				ActiveAccountSelect.this.startActivity(intent);
 
 			}
@@ -181,6 +190,28 @@ public class ActiveAccountSelect extends Activity {
 				// TODO Auto-generated method stub
 				onBackPressed();
 				finish();
+			}
+		});
+		// 底部按钮设置
+		btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = ActiveAccountSelect.this.getIntent();
+				intent.setClass(ActiveAccountSelect.this, ABankMain.class);
+				ActiveAccountSelect.this.startActivity(intent);
+			}
+		});
+
+		btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent = ActiveAccountSelect.this.getIntent();
+				intent.setClass(ActiveAccountSelect.this, FinancialConsultation.class);
+				ActiveAccountSelect.this.startActivity(intent);
 			}
 		});
 	}
