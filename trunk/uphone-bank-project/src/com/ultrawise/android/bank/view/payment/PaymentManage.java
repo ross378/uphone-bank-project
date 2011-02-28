@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.payment;
 import java.util.List;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.TreeViewAdapter.TreeNode;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -59,11 +60,11 @@ public class PaymentManage extends Activity {//缴费项目管理
 			}
 		});
         tvClassSecond.setVisibility(View.VISIBLE);
-		
+
 		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
 		tvClassThird.setText("缴费项目管理");
 		tvClassThird.setVisibility(View.VISIBLE);
-        
+       
 		adapter=new TreeViewAdapter(this,TreeViewAdapter.PaddingLeft>>1);
 		expandableList =(ExpandableListView) findViewById(R.id.ExpandableListView01);
 		adapter.RemoveAll();     
