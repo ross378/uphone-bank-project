@@ -14,8 +14,11 @@ public class TransAccActive extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_acc_active);
         
+        Intent receive_intent = getIntent();
+        String transtype = receive_intent.getStringExtra("transtype");
+        
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("转账汇款");
+		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -26,25 +29,28 @@ public class TransAccActive extends Activity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText(">选择账户");
+		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.setClass(TransAccActive.this, TransAccSelect.class);
+				intent.setClass(TransAccActive.this, TransferMain.class);
 				TransAccActive.this.startActivity(intent);
 			}
 		});
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
-		tvClassThird.setText(">账户激活");
+		tvClassThird.setText(transtype);
 		tvClassThird.setVisibility(View.VISIBLE);
 		
 		Button btn_trans_act = (Button)findViewById(R.id.btn_trans_act);
 		btn_trans_act.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				Intent receive_intent = getIntent();
+		        String transtype = receive_intent.getStringExtra("transtype");
 				Intent intent = new Intent();
+				intent.putExtra("transtype", transtype);
 				intent.setClass(TransAccActive.this, TransAccPsdSucc.class);
 				TransAccActive.this.startActivity(intent);
 			}

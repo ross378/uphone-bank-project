@@ -17,8 +17,11 @@ public class TransAccSelect extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_main);
         
+        Intent receive_intent = getIntent();
+        String transtype = receive_intent.getStringExtra("transtype");
+        
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("转账汇款");
+		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -29,8 +32,19 @@ public class TransAccSelect extends ListActivity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText(">选择账户");
+		tvClassSecond.setText(">转账汇款");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TransAccSelect.this, TransferMain.class);
+				TransAccSelect.this.startActivity(intent);
+			}
+		});
 		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
+		tvClassThird.setText(transtype);
+		tvClassThird.setVisibility(View.VISIBLE);
 		
 		TextView tv_trans_title = (TextView)findViewById(R.id.tv_trans_title);
 		tv_trans_title.setText("请选择账户:");
@@ -61,17 +75,22 @@ public class TransAccSelect extends ListActivity {
 	}
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
+		Intent receive_intent = getIntent();
+        String transtype = receive_intent.getStringExtra("transtype");
 		if (id == 0) {
 			Intent intent = new Intent();
+			intent.putExtra("transtype", transtype);
 			intent.setClass(TransAccSelect.this, TransAccActive.class);
 			TransAccSelect.this.startActivity(intent);
 		}else if(id==1){
 			Intent intent = new Intent();
+			intent.putExtra("transtype", transtype);
 			intent.setClass(TransAccSelect.this, TransAccActive.class);
 			TransAccSelect.this.startActivity(intent);
 		}
 		else if(id==2){
 			Intent intent = new Intent();
+			intent.putExtra("transtype", transtype);
 			intent.setClass(TransAccSelect.this, TransAccInput.class);
 			TransAccSelect.this.startActivity(intent);
 		}

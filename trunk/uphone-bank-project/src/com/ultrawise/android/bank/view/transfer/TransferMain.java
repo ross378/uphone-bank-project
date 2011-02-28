@@ -22,11 +22,18 @@ public class TransferMain extends ListActivity {
         //iv_now.setVisibility(View.VISIBLE);
         
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
-		tvClassFirst.setText("转账汇款");
+		tvClassFirst.setText("首页");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TransferMain.this, TransferMain.class);
+				TransferMain.this.startActivity(intent);
+			}
+		});
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-		tvClassSecond.setText(">选择账户");
+		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		
@@ -52,10 +59,12 @@ public class TransferMain extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
 			Intent intent = new Intent();
+			intent.putExtra("transtype", ">手机到手机转账");
 			intent.setClass(TransferMain.this, TransAccSelect.class);
 			TransferMain.this.startActivity(intent);
 		}else if(id==1){
 			Intent intent = new Intent();
+			intent.putExtra("transtype", ">手机到签约账户转账");
 			intent.setClass(TransferMain.this, TransAccSelect.class);
 			TransferMain.this.startActivity(intent);
 		}
