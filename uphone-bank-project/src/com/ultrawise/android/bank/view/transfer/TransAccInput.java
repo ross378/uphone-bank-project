@@ -8,12 +8,42 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class TransAccInput extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_acc_input);
+        
+        Intent receive_intent = getIntent();
+        String transtype = receive_intent.getStringExtra("transtype");
+        
+        TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
+		tvClassFirst.setText("首页");
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TransAccInput.this, TransferMain.class);
+				TransAccInput.this.startActivity(intent);
+			}
+		});
+		tvClassFirst.setVisibility(View.VISIBLE);
+		
+		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+		tvClassSecond.setText(">转账汇款");
+		tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TransAccInput.this, TransferMain.class);
+				TransAccInput.this.startActivity(intent);
+			}
+		});
+		tvClassSecond.setVisibility(View.VISIBLE);
+		
+		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
+		tvClassThird.setText(transtype);
+		tvClassThird.setVisibility(View.VISIBLE);
         
         Spinner sp_trans_inptype = (Spinner)findViewById(R.id.sp_trans_inptype);
         ArrayAdapter spadapter1 = ArrayAdapter.createFromResource(this, R.array.acctype, android.R.layout.simple_spinner_item);
@@ -29,7 +59,10 @@ public class TransAccInput extends Activity {
         btn_trans_next.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				Intent receive_intent = getIntent();
+		        String transtype = receive_intent.getStringExtra("transtype");
 				Intent intent = new Intent();
+				intent.putExtra("transtype", transtype);
 				intent.setClass(TransAccInput.this, TransAccActive.class);
 				TransAccInput.this.startActivity(intent);
 			}
