@@ -76,7 +76,7 @@ public class AccountManagementList extends ListActivity {
 		}else if(id==7){
 			//设置账户别名
 			intent =new Intent();
-			intent.setClass(AccountManagementList.this, AccountNickName.class);
+			intent.setClass(AccountManagementList.this, AccountNickNameSelect.class);
 			AccountManagementList.this.startActivity(intent);
 		}
 
@@ -99,7 +99,7 @@ public class AccountManagementList extends ListActivity {
 		map1.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("star", R.drawable.accmana_cilun);
-		map2.put("name", this.getString(R.string.accMana_AccActive));
+		map2.put("name", "账户绑定");
 		map2.put("arrow", R.drawable.accmana_right);
 		HashMap<String, Object> map3 = new HashMap<String, Object>();
 		map3.put("star", R.drawable.accmana_cilun);

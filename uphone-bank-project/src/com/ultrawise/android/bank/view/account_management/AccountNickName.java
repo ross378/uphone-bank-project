@@ -56,7 +56,7 @@ public class AccountNickName extends Activity {
 
 				// 改别名
 				final EditText et = new EditText(AccountNickName.this);
-				et.setBackgroundResource(R.drawable.deposite_rate_two);
+				et.setBackgroundResource(R.drawable.main_et);
 				AlertDialog myDialog = new AlertDialog.Builder(
 						AccountNickName.this)
 						.setTitle("设置别名：")
@@ -66,7 +66,7 @@ public class AccountNickName extends Activity {
 
 									public void onClick(DialogInterface dialog,
 											int which) {
-										tvAccNickClick.setText("et");
+										tvAccNickClick.setText(et.getText().toString());
 										Toast.makeText(AccountNickName.this,
 												"设置成功", Toast.LENGTH_SHORT)
 												.show();

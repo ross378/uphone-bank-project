@@ -83,7 +83,7 @@ public class AccountDelInfo2 extends Activity {
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = AccountDelInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountDelInfo2.this, ABankMain.class);
 				AccountDelInfo2.this.startActivity(intent);
 			}
@@ -92,7 +92,7 @@ public class AccountDelInfo2 extends Activity {
 		tvClassSecond.setText("账户管理>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = AccountDelInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountDelInfo2.this, AccountManagementList.class);
 				AccountDelInfo2.this.startActivity(intent);
 			}
@@ -112,7 +112,7 @@ public class AccountDelInfo2 extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountDelInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountDelInfo2.this, ABankMain.class);
 				AccountDelInfo2.this.startActivity(intent);
 			}
@@ -123,7 +123,7 @@ public class AccountDelInfo2 extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountDelInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountDelInfo2.this,
 						FinancialConsultation.class);
 				AccountDelInfo2.this.startActivity(intent);

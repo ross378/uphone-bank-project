@@ -56,8 +56,7 @@ public class AccountInfo2 extends ListActivity {
 	private GestureDetector mGestureDetector;
 	private TextView ivNickName;
 	ViewHolder holder;
-	private final static String CHECK ="（点击查看详情）"; 
-
+	private final static String CHECK = "（点击查看详情）";
 	private String strNickName;
 
 	// 触摸触发事件
@@ -74,6 +73,7 @@ public class AccountInfo2 extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
 		this.setContentView(R.layout.account_info2);
+
 		intent = AccountInfo2.this.getIntent();
 		if (intent != null) {
 			// 从账户选择页面传来的数据中获取账户类型和账户号
@@ -126,7 +126,7 @@ public class AccountInfo2 extends ListActivity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountInfo2.this, ABankMain.class);
 				AccountInfo2.this.startActivity(intent);
 			}
@@ -137,7 +137,7 @@ public class AccountInfo2 extends ListActivity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountInfo2.this, FinancialConsultation.class);
 				AccountInfo2.this.startActivity(intent);
 			}
@@ -167,25 +167,7 @@ public class AccountInfo2 extends ListActivity {
 					}
 				});
 
-		intent = AccountInfo2.this.getIntent();
-		if (intent != null) {
-			// 从账户选择页面传来的数据中获取账户类型和账户号
-			strAccountTypeValue = intent
-					.getStringExtra(AccountInfoSelect.ACCOUNT_TYPE);
-			strAccountValue = intent.getStringExtra(AccountInfoSelect.ACCOUNT);
-
-			if (strAccountTypeValue != null && strAccountValue != null) {
-
-			} else {
-				// 进错页面了吧你
-				finish();
-			}
-		} else {
-			// 错误的进入此界面
-			finish();
-		}
-
-//		lvContent = (ListView) this.findViewById(R.id.accInfo_lv);
+		// lvContent = (ListView) this.findViewById(R.id.accInfo_lv);
 		// TextView tvChiangeNickName = new TextView(this);
 		// tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
 		// tvChangeNickName.setText("我的储蓄卡在此");
@@ -196,7 +178,7 @@ public class AccountInfo2 extends ListActivity {
 		strIsActive = "已激活";
 		strOpenAdd = "建设银行深圳市梅林支行";
 		strOpenDate = "2011/3/1";
-		strAccState = "预约换卡"+CHECK;
+		strAccState = "预约换卡" + CHECK;
 		strNickName = "我的储蓄卡";
 		// ivOrderInfo.setText("预约换卡");
 		// btnChangeNickName.setText("我的储蓄卡");
@@ -228,7 +210,7 @@ public class AccountInfo2 extends ListActivity {
 		item05.put("content", strBalance);
 		item06.put("name", "账户状态：");
 		item06.put("content", strAccState);
-//		item06.put("right", "点击查看详情");
+		// item06.put("right", "点击查看详情");
 		item07.put("name", "是否激活");
 		item07.put("content", strIsActive);
 		item08.put("name", "开户行：");
@@ -247,9 +229,9 @@ public class AccountInfo2 extends ListActivity {
 		alContent.add(item09);
 		// 适配器
 		MyAdapter lvAdapter = new MyAdapter(this, alContent,
-				R.layout.account_info_adapter, new String[] { "name",
-						"content" }, new int[] { R.id.accInfo_tvName,
-						R.id.accInfo_tvInfo});
+				R.layout.account_info_adapter,
+				new String[] { "name", "content" }, new int[] {
+						R.id.accInfo_tvName, R.id.accInfo_tvInfo });
 		this.setListAdapter(lvAdapter);
 		// holder.tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
 
@@ -267,11 +249,16 @@ public class AccountInfo2 extends ListActivity {
 		public ImageView ivCheck;
 
 	}
+
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		if (id == 5) {
+			intent = new Intent();
+			intent.putExtra(ACCOUNT, strAccountValue);
+			intent.setClass(AccountInfo2.this, OrderShowInfo2.class);
+			AccountInfo2.this.startActivity(intent);
 		}
 	}
 
@@ -289,10 +276,10 @@ public class AccountInfo2 extends ListActivity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
 			View v = super.getView(position, convertView, parent);
-//			if (position == 1) {
-//				v.findViewById(R.id.accInfo_tvInfo);
-//				v.setBackgroundResource(R.drawable.accinfo_changename);
-//			}
+			// if (position == 1) {
+			// v.findViewById(R.id.accInfo_tvInfo);
+			// v.setBackgroundResource(R.drawable.accinfo_changename);
+			// }
 			// holder = new ViewHolder();
 			// if (convertView == null) {
 			//
@@ -318,40 +305,40 @@ public class AccountInfo2 extends ListActivity {
 
 	}
 
-//	class BtnOnClickListener implements OnClickListener {
-//
-//		public void onClick(View v) {
-//			// TODO Auto-generated method stub
-//			switch (v.getId()) {
-//			case R.id.accInfo_tvChangeNickName:
-//				// 改别名
-//				final EditText et = new EditText(AccountInfo2.this);
-//				et.setBackgroundResource(R.drawable.deposite_rate_two);
-//				AlertDialog myDialog = new AlertDialog.Builder(
-//						AccountInfo2.this)
-//						.setTitle("设置别名：")
-//						.setView(et)
-//						.setPositiveButton("确定",
-//								new DialogInterface.OnClickListener() {
-//
-//									public void onClick(DialogInterface dialog,
-//											int which) {
-//
-//										Toast.makeText(AccountInfo2.this,
-//												"设置成功", Toast.LENGTH_SHORT)
-//												.show();
-//										dialog.dismiss();
-//									}
-//								}).show();
-//				break;
-//			case R.id.accInfo_ivCheck:
-//				// 查看预约
-//				intent = new Intent();
-//				intent.putExtra(AccountInfo2.ACCOUNT, strAccountValue);
-//				intent.setClass(AccountInfo2.this, null);
-//
-//			}
-//		}
-//	}
+	// class BtnOnClickListener implements OnClickListener {
+	//
+	// public void onClick(View v) {
+	// // TODO Auto-generated method stub
+	// switch (v.getId()) {
+	// case R.id.accInfo_tvChangeNickName:
+	// // 改别名
+	// final EditText et = new EditText(AccountInfo2.this);
+	// et.setBackgroundResource(R.drawable.deposite_rate_two);
+	// AlertDialog myDialog = new AlertDialog.Builder(
+	// AccountInfo2.this)
+	// .setTitle("设置别名：")
+	// .setView(et)
+	// .setPositiveButton("确定",
+	// new DialogInterface.OnClickListener() {
+	//
+	// public void onClick(DialogInterface dialog,
+	// int which) {
+	//
+	// Toast.makeText(AccountInfo2.this,
+	// "设置成功", Toast.LENGTH_SHORT)
+	// .show();
+	// dialog.dismiss();
+	// }
+	// }).show();
+	// break;
+	// case R.id.accInfo_ivCheck:
+	// // 查看预约
+	// intent = new Intent();
+	// intent.putExtra(AccountInfo2.ACCOUNT, strAccountValue);
+	// intent.setClass(AccountInfo2.this, null);
+	//
+	// }
+	// }
+	// }
 
 }

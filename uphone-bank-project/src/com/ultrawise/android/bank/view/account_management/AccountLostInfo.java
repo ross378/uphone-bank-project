@@ -212,7 +212,7 @@ public class AccountLostInfo extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountLostInfo.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountLostInfo.this, ABankMain.class);
 				AccountLostInfo.this.startActivity(intent);
 			}
@@ -223,7 +223,7 @@ public class AccountLostInfo extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountLostInfo.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountLostInfo.this, FinancialConsultation.class);
 				AccountLostInfo.this.startActivity(intent);
 			}

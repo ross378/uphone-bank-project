@@ -153,10 +153,10 @@ public class AccountAdd extends Activity {
 				});
 		// 层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("手机银行>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = AccountAdd.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountAdd.this, ABankMain.class);
 				AccountAdd.this.startActivity(intent);
 			}
@@ -165,7 +165,7 @@ public class AccountAdd extends Activity {
 		tvClassSecond.setText("账户管理>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = AccountAdd.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountAdd.this, AccountManagementList.class);
 				AccountAdd.this.startActivity(intent);
 			}
@@ -184,7 +184,7 @@ public class AccountAdd extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountAdd.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountAdd.this, ABankMain.class);
 				AccountAdd.this.startActivity(intent);
 			}
@@ -195,7 +195,7 @@ public class AccountAdd extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountAdd.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountAdd.this, FinancialConsultation.class);
 				AccountAdd.this.startActivity(intent);
 			}
