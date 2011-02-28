@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -66,7 +67,10 @@ public class PaymentSelfService extends ListActivity {
 			}
 		});
 		
-        
+		
+		
+		
+		
       
 	      ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
 	        
@@ -118,8 +122,7 @@ public class PaymentSelfService extends ListActivity {
 			PaymentSelfService.this.startActivity(payment_intent);
 		}else if(id==2){			
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "网易帐");
-
+			payment_intent.putExtra("ser_name", "网易");
 			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
 //			System.out.println("id----------------"+id);
