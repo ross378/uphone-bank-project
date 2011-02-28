@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.PaymentResult.BtnOkCL;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -57,6 +58,9 @@ public class PaymentPend extends ListActivity {
 				PaymentPend.this.startActivity(payment_intent);	
 			}
 		});
+        
+        
+        
 		
 		
 		
