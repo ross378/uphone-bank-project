@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="uphone_webservices"
+  id="myeclipse.1298809303135"
+  context-root="/webservices"
+  j2ee-spec="5.0"
+  archive="uphone_webservices.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
