@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.view.transfer;
 
+import com.ultrawise.android.bank.view.ABankMain;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +23,7 @@ public class TransAmtConfirm extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.setClass(TransAmtConfirm.this, TransferMain.class);
+				intent.setClass(TransAmtConfirm.this, ABankMain.class);
 				TransAmtConfirm.this.startActivity(intent);
 			}
 		});
