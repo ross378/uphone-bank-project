@@ -63,6 +63,7 @@ public class PaymentLastMonth extends ListActivity {
         titel.setText("从"+start_time+"到"+end_time+"的历史缴费记录如下：");
         titel.setVisibility(View.VISIBLE);
         
+        
         ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
         
         HashMap<String,Object> paylist1 = new HashMap<String,Object>();
@@ -109,7 +110,39 @@ public class PaymentLastMonth extends ListActivity {
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         //iv_now.setVisibility(View.VISIBLE)
         
-        
+        //返回键设定
+        ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+        btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
+		
+		//底部两个按钮
+        ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
+        btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(PaymentLastMonth.this, ABankMain.class);
+				PaymentLastMonth.this.startActivity(intent);
+			}
+		});
+		
+        ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+        btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent	intent = new Intent();
+				intent.setClass(PaymentLastMonth.this, FinancialConsultation.class);
+				PaymentLastMonth.this.startActivity(intent);
+			}
+		});
         
         
 	}

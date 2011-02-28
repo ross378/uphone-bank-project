@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.payment;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PaymentManageDetail extends Activity {
@@ -48,6 +50,42 @@ public class PaymentManageDetail extends Activity {
 				PaymentManageDetail.this.startActivity(payment_intent);
 			}
 		});
+		
+        
+        //返回键设定
+        ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+        btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
+		
+		//底部两个按钮
+        ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
+        btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(PaymentManageDetail.this, ABankMain.class);
+				PaymentManageDetail.this.startActivity(intent);
+			}
+		});
+		
+        ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+        btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent	intent = new Intent();
+				intent.setClass(PaymentManageDetail.this, FinancialConsultation.class);
+				PaymentManageDetail.this.startActivity(intent);
+			}
+		});
+		
 		
 		TextView tv_payhis_title_detail1=(TextView)findViewById(R.id.tv_payhis_title_detail1);
 		tv_payhis_title_detail1.setText("扬子晚报");

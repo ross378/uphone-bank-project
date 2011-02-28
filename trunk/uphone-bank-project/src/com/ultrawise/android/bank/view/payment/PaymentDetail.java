@@ -126,21 +126,42 @@ public class PaymentDetail extends ListActivity {
  
         
         Button btn_pay_ok = (Button)findViewById(R.id.btn_pay_ok);
-        
-       
-      
-        
-    
-        
-//        tv_pay_title.setText("项目名称："+ pay_title);
-//        tv_pay_amount.setText("缴费金额："+ pay_amount);
-//        tv_inputed_peo.setText("收费方："+inputed_peo);
-//        tv_pay_sernum.setText("缴费流水号："+ pay_sernum);
-//        tv_pay_deadline.setText("缴费期限:"+pay_deadline);
        btn_pay_ok.setText("前往缴费");
         
         
-        
+       //返回键设定
+       ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+       btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
+		
+		//底部两个按钮
+       ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
+       btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(PaymentDetail.this, ABankMain.class);
+				PaymentDetail.this.startActivity(intent);
+			}
+		});
+		
+       ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+       btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent	intent = new Intent();
+				intent.setClass(PaymentDetail.this, FinancialConsultation.class);
+				PaymentDetail.this.startActivity(intent);
+			}
+		});
         
         
         

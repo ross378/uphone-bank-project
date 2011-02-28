@@ -6,6 +6,8 @@ import java.util.HashMap;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
+import com.ultrawise.android.bank.view.transfer.TransAmtConfirm;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -82,6 +84,43 @@ public class PaymentMain extends ListActivity {//自助缴费主页面
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
 	
+      //返回键设定
+        ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+        btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
+		
+		//底部两个按钮
+        ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
+        btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(PaymentMain.this, ABankMain.class);
+				PaymentMain.this.startActivity(intent);
+			}
+		});
+		
+        ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+        btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent	intent = new Intent();
+				intent.setClass(PaymentMain.this, FinancialConsultation.class);
+				PaymentMain.this.startActivity(intent);
+			}
+		});
+        
+        
+        
+        
 	}
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);

@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.payment;
 	import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 	import com.ultrawise.android.bank.view.account_management.AccountManagement;
 	import com.ultrawise.android.bank.view.transfer.R;
 
@@ -72,6 +73,41 @@ import android.widget.AdapterView.OnItemSelectedListener;
 					
 				}
 			});
+			
+	        //返回键设定
+	        ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+	        btnReturn.setOnClickListener(new OnClickListener(){
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					onBackPressed();
+					finish();
+				}
+				
+			});
+			
+			//底部两个按钮
+	        ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
+	        btnMain.setOnClickListener(new OnClickListener() {
+
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent();
+					intent.setClass(PaymentSelectAccount.this, ABankMain.class);
+					PaymentSelectAccount.this.startActivity(intent);
+				}
+			});
+			
+	        ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+	        btnHelper.setOnClickListener(new OnClickListener() {
+
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent	intent = new Intent();
+					intent.setClass(PaymentSelectAccount.this, FinancialConsultation.class);
+					PaymentSelectAccount.this.startActivity(intent);
+				}
+			});
+			
 			
 			
 			
