@@ -100,11 +100,19 @@ public class UserLogin extends Activity {
 				loginFlag=3;
 			}
 			Intent intent=new Intent();
-			intent.putExtra("flag", flag);
-			intent.putExtra("info", info);
-			intent.putExtra("loginFlag",loginFlag+"");
-			intent.setClass(UserLogin.this,UserLoginDialog.class);
-			UserLogin.this.startActivity(intent);
+			if(loginFlag == 2)
+			{
+				intent.setClass(UserLogin.this,ABankMain.class);
+				UserLogin.this.startActivity(intent);
+			}else
+			{
+				intent.putExtra("flag", flag);
+				intent.putExtra("info", info);
+				intent.putExtra("loginFlag",loginFlag+"");
+				intent.setClass(UserLogin.this,UserLoginDialog.class);
+				UserLogin.this.startActivity(intent);
+			}
+			
 			
 		}
 		
