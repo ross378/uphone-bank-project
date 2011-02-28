@@ -34,7 +34,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AccountInfo2 extends Activity {
+public class AccountInfo2 extends ListActivity {
 	public final static String ACCOUNT = "account";
 
 	private ListView lvContent;
@@ -56,6 +56,7 @@ public class AccountInfo2 extends Activity {
 	private GestureDetector mGestureDetector;
 	private TextView ivNickName;
 	ViewHolder holder;
+	private final static String CHECK ="（点击查看详情）"; 
 
 	private String strNickName;
 
@@ -184,7 +185,7 @@ public class AccountInfo2 extends Activity {
 			finish();
 		}
 
-		lvContent = (ListView) this.findViewById(R.id.accInfo_lv);
+//		lvContent = (ListView) this.findViewById(R.id.accInfo_lv);
 		// TextView tvChiangeNickName = new TextView(this);
 		// tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
 		// tvChangeNickName.setText("我的储蓄卡在此");
@@ -195,7 +196,7 @@ public class AccountInfo2 extends Activity {
 		strIsActive = "已激活";
 		strOpenAdd = "建设银行深圳市梅林支行";
 		strOpenDate = "2011/3/1";
-		strAccState = "预约换卡";
+		strAccState = "预约换卡"+CHECK;
 		strNickName = "我的储蓄卡";
 		// ivOrderInfo.setText("预约换卡");
 		// btnChangeNickName.setText("我的储蓄卡");
@@ -205,16 +206,16 @@ public class AccountInfo2 extends Activity {
 
 		// 显示文本
 		// 生成内容
-		ArrayList<HashMap<String, Object>> alContent = new ArrayList<HashMap<String, Object>>();
-		HashMap<String, Object> item01 = new HashMap<String, Object>();
-		HashMap<String, Object> item02 = new HashMap<String, Object>();
-		HashMap<String, Object> item03 = new HashMap<String, Object>();
-		HashMap<String, Object> item04 = new HashMap<String, Object>();
-		HashMap<String, Object> item05 = new HashMap<String, Object>();
-		HashMap<String, Object> item06 = new HashMap<String, Object>();
-		HashMap<String, Object> item07 = new HashMap<String, Object>();
-		HashMap<String, Object> item08 = new HashMap<String, Object>();
-		HashMap<String, Object> item09 = new HashMap<String, Object>();
+		ArrayList<HashMap<String, String>> alContent = new ArrayList<HashMap<String, String>>();
+		HashMap<String, String> item01 = new HashMap<String, String>();
+		HashMap<String, String> item02 = new HashMap<String, String>();
+		HashMap<String, String> item03 = new HashMap<String, String>();
+		HashMap<String, String> item04 = new HashMap<String, String>();
+		HashMap<String, String> item05 = new HashMap<String, String>();
+		HashMap<String, String> item06 = new HashMap<String, String>();
+		HashMap<String, String> item07 = new HashMap<String, String>();
+		HashMap<String, String> item08 = new HashMap<String, String>();
+		HashMap<String, String> item09 = new HashMap<String, String>();
 		item01.put("name", "账号：");
 		item01.put("content", strAccountValue);
 		item02.put("name", "账户别名：");
@@ -227,7 +228,7 @@ public class AccountInfo2 extends Activity {
 		item05.put("content", strBalance);
 		item06.put("name", "账户状态：");
 		item06.put("content", strAccState);
-		item06.put("right", R.drawable.accmana_right);
+//		item06.put("right", "点击查看详情");
 		item07.put("name", "是否激活");
 		item07.put("content", strIsActive);
 		item08.put("name", "开户行：");
@@ -247,9 +248,9 @@ public class AccountInfo2 extends Activity {
 		// 适配器
 		MyAdapter lvAdapter = new MyAdapter(this, alContent,
 				R.layout.account_info_adapter, new String[] { "name",
-						"content", "right" }, new int[] { R.id.accInfo_tvName,
-						R.id.accInfo_tvInfo, R.id.accInfo_ivCheck });
-		lvContent.setAdapter(lvAdapter);
+						"content" }, new int[] { R.id.accInfo_tvName,
+						R.id.accInfo_tvInfo});
+		this.setListAdapter(lvAdapter);
 		// holder.tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
 
 		// RelativeLayout ll = (RelativeLayout) lvContent.getChildAt(0);// 获得子级
@@ -265,6 +266,13 @@ public class AccountInfo2 extends Activity {
 		public TextView tvChangeNickName;
 		public ImageView ivCheck;
 
+	}
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		// TODO Auto-generated method stub
+		super.onListItemClick(l, v, position, id);
+		if (id == 5) {
+		}
 	}
 
 	class MyAdapter extends SimpleAdapter {
@@ -310,40 +318,40 @@ public class AccountInfo2 extends Activity {
 
 	}
 
-	// class BtnOnClickListener implements OnClickListener {
-	//
-	// public void onClick(View v) {
-	// // TODO Auto-generated method stub
-	// switch (v.getId()) {
-	// case R.id.accInfo_tvChangeNickName:
-	// // 改别名
-	// final EditText et = new EditText(AccountInfo2.this);
-	// et.setBackgroundResource(R.drawable.deposite_rate_two);
-	// AlertDialog myDialog = new AlertDialog.Builder(
-	// AccountInfo2.this)
-	// .setTitle("设置别名：")
-	// .setView(et)
-	// .setPositiveButton("确定",
-	// new DialogInterface.OnClickListener() {
-	//
-	// public void onClick(DialogInterface dialog,
-	// int which) {
-	//
-	// Toast.makeText(AccountInfo2.this,
-	// "设置成功", Toast.LENGTH_SHORT)
-	// .show();
-	// dialog.dismiss();
-	// }
-	// }).show();
-	// break;
-	// case R.id.accInfo_ivCheck:
-	// // 查看预约
-	// intent = new Intent();
-	// intent.putExtra(AccountInfo2.ACCOUNT, strAccountValue);
-	// intent.setClass(AccountInfo2.this, null);
-	//
-	// }
-	// }
-	// }
+//	class BtnOnClickListener implements OnClickListener {
+//
+//		public void onClick(View v) {
+//			// TODO Auto-generated method stub
+//			switch (v.getId()) {
+//			case R.id.accInfo_tvChangeNickName:
+//				// 改别名
+//				final EditText et = new EditText(AccountInfo2.this);
+//				et.setBackgroundResource(R.drawable.deposite_rate_two);
+//				AlertDialog myDialog = new AlertDialog.Builder(
+//						AccountInfo2.this)
+//						.setTitle("设置别名：")
+//						.setView(et)
+//						.setPositiveButton("确定",
+//								new DialogInterface.OnClickListener() {
+//
+//									public void onClick(DialogInterface dialog,
+//											int which) {
+//
+//										Toast.makeText(AccountInfo2.this,
+//												"设置成功", Toast.LENGTH_SHORT)
+//												.show();
+//										dialog.dismiss();
+//									}
+//								}).show();
+//				break;
+//			case R.id.accInfo_ivCheck:
+//				// 查看预约
+//				intent = new Intent();
+//				intent.putExtra(AccountInfo2.ACCOUNT, strAccountValue);
+//				intent.setClass(AccountInfo2.this, null);
+//
+//			}
+//		}
+//	}
 
 }

@@ -73,6 +73,11 @@ public class AccountManagementList extends ListActivity {
 			intent = new Intent();
 			intent.setClass(AccountManagementList.this, AccountDel.class);
 			AccountManagementList.this.startActivity(intent);
+		}else if(id==7){
+			//设置账户别名
+			intent =new Intent();
+			intent.setClass(AccountManagementList.this, AccountNickName.class);
+			AccountManagementList.this.startActivity(intent);
 		}
 
 	}
@@ -116,6 +121,11 @@ public class AccountManagementList extends ListActivity {
 		map7.put("star", R.drawable.accmana_cilun);
 		map7.put("name", this.getString(R.string.accMana_DelAcc));
 		map7.put("arrow", R.drawable.accmana_right);
+		HashMap<String, Object> map8 = new HashMap<String, Object>();
+		map8.put("star", R.drawable.accmana_cilun);
+		map8.put("name", "设置账户别名");
+		map8.put("arrow", R.drawable.accmana_right);
+		
 
 		list.add(map1);
 		list.add(map2);
@@ -124,6 +134,7 @@ public class AccountManagementList extends ListActivity {
 		list.add(map5);
 		list.add(map6);
 		list.add(map7);
+		list.add(map8);
 
 		SimpleAdapter sa = new SimpleAdapter(this, list,
 				R.layout.account_management_textview_list, new String[] {

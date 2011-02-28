@@ -9,22 +9,25 @@
 		android:orientation="vertical">
 
 		<TextView android:id="@+id/accinfo_tvSelectType"
-			android:textSize="18sp" android:textColor="#ff000000"
+			android:textSize="18dip" android:textColor="#ff000000"
 			android:text="@string/accinfo_selectType" android:layout_width="fill_parent"
 			android:layout_marginLeft="21dip" android:layout_height="wrap_content"></TextView>
-		<Spinner android:id="@+id/accinfo_SpnrSelectType" android:background="@drawable/spinner1"
-			android:layout_marginLeft="47dip" android:layout_width="227dip"
+		<Spinner android:id="@+id/accinfo_SpnrSelectType"
+			android:background="@drawable/spinner1" android:layout_marginLeft="47dip"
+			android:layout_width="227dip" android:textSize="18dip"
 			android:layout_height="wrap_content" android:prompt="@string/accinfo_selectTypeTitle"></Spinner>
 		<TextView android:id="@+id/accinfo_tvSelectAcc" android:text="@string/accinfo_selectAcc"
-			android:textSize="18sp" android:textColor="#ff000000"
+			android:textSize="18dip" android:textColor="#ff000000"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			android:layout_marginLeft="21dip"></TextView>
-		<Spinner android:id="@+id/accinfo_SpnrSelectAcc" android:background="@drawable/spinner1"
-			android:layout_marginLeft="47dip" android:layout_width="227dip"
+		<Spinner android:id="@+id/accinfo_SpnrSelectAcc"
+			android:background="@drawable/spinner1" android:layout_marginLeft="47dip"
+			android:layout_width="227dip" android:textSize="18dip"
 			android:layout_height="wrap_content" android:prompt="@string/accinfo_selectAccTitle"></Spinner>
 
-		<Button android:layout_gravity="center_horizontal" android:layout_marginTop="10dip"
-			android:layout_width="wrap_content" android:text="@string/accinfo_GoOn"
+		<Button android:layout_gravity="center_horizontal"
+			android:layout_marginTop="10dip" android:layout_width="wrap_content"
+			android:text="@string/accinfo_GoOn" android:textSize="18dip"
 			android:layout_height="wrap_content" android:id="@+id/accinfo_btnGoOn"
 			android:background="@drawable/main_next"></Button>
 	</LinearLayout>

@@ -8,12 +8,13 @@
 		android:layout_below="@id/accManaAbove" android:layout_height="fill_parent"
 		android:orientation="vertical">
 
-		<ListView android:id="@+id/accOrderCardInfo_lv" android:divider="#ffcccccc" 
-            android:dividerHeight="4px"
+		<ListView android:id="@+id/accOrderCardInfo_lv"
+			android:divider="#ffcccccc" android:dividerHeight="4px"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"></ListView>
-		<Button android:id="@+id/accOrderCardInfo_btnOrder" android:layout_marginTop="10dip"
-			android:text="@string/accOrderCardInfo_OrderConfirm" android:background="@drawable/main_next"
-			android:layout_gravity="center_horizontal" android:layout_width="wrap_content"
-			android:layout_height="wrap_content"></Button>
+		<Button android:id="@+id/accOrderCardInfo_btnOrder"
+			android:layout_marginTop="10dip" android:textSize="18dip"
+			android:text="@string/accOrderCardInfo_OrderConfirm"
+			android:background="@drawable/main_next" android:layout_gravity="center_horizontal"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 	</LinearLayout>
 </RelativeLayout>

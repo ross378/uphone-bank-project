@@ -19,7 +19,7 @@
 				android:layout_marginLeft="130dip"></Button>
 		</RelativeLayout>
 
-		--><ListView android:id="@+id/accInfo_lv" android:layout_width="wrap_content" android:divider="#cccccc" 
+		--><ListView android:id="@id/android:list" android:layout_width="wrap_content" android:divider="#cccccc" 
             android:dividerHeight="2px"
 			android:layout_height="wrap_content"></ListView>
 			
