@@ -4,6 +4,7 @@ package com.ultrawise.android.bank.view;
 import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.account_management.AccountManagement;
+import com.ultrawise.android.bank.view.account_management.AccountManagementList;
 import com.ultrawise.android.bank.view.account_management.ActiveAccount;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.account_query.QueryAccount;
@@ -106,7 +107,7 @@ public class ABankMain extends Activity {
 
 		public void onClick(View arg0) {
 			Intent intent=new Intent();
-			intent.setClass(ABankMain.this,AccountManagement.class);
+			intent.setClass(ABankMain.this,AccountManagementList.class);
 			ABankMain.this.startActivity(intent);
 			
 		}
