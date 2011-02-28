@@ -71,6 +71,7 @@ public class AccountQuery extends Activity {
 				Intent intent=new Intent();
 				intent.setClass(AccountQuery.this, ABankMain.class);
 				AccountQuery.this.startActivity(intent);
+				finish();
 			}
 		});
 		//btnCoustom.setVisibility(View.VISIBLE);
@@ -82,6 +83,7 @@ public class AccountQuery extends Activity {
 				Intent intent=new Intent();
 				intent.setClass(AccountQuery.this,  FinancialConsultation.class);
 				AccountQuery.this.startActivity(intent);
+				finish();
 			}
 		});
 	

@@ -59,6 +59,7 @@ public class AccountQueryType extends ListActivity {
 				Intent intent=new Intent();
 				intent.setClass(AccountQueryType.this, ABankMain.class);
 				AccountQueryType.this.startActivity(intent);
+				finish();
 			}
 		});
 		
@@ -69,6 +70,7 @@ public class AccountQueryType extends ListActivity {
 				Intent intent=new Intent();
 				intent.setClass(AccountQueryType.this,  FinancialConsultation.class);
 				AccountQueryType.this.startActivity(intent);
+				finish();
 			}
 		});
 		

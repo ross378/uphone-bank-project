@@ -130,6 +130,7 @@ public class AccountQueryBalance extends ListActivity {
 	    			Intent intent=new Intent();
 	    			intent.setClass(AccountQueryBalance.this, ABankMain.class);
 	    			AccountQueryBalance.this.startActivity(intent);
+	    			finish();
 	    		}
 	    	});
 	    	
@@ -140,6 +141,7 @@ public class AccountQueryBalance extends ListActivity {
 	    			Intent intent=new Intent();
 	    			intent.setClass(AccountQueryBalance.this,  FinancialConsultation.class);
 	    			AccountQueryBalance.this.startActivity(intent);
+	    			finish();
 	    		}
 	    	});
 	}
