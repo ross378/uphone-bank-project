@@ -142,7 +142,7 @@ public class PaymentPend extends ListActivity {
 			Intent payment_intent = new Intent();
 			payment_intent.putExtra("title", "三月份煤气费");
 			payment_intent.putExtra("amount", "90元");
-			payment_intent.putExtra("inputed_peo", "无锡能源供给公司");
+			payment_intent.putExtra("inputed_peo", "无锡能源公司");
 			payment_intent.putExtra("serialnum", "3333333");
 			payment_intent.putExtra("deadline", "2011年3月15号");
 			payment_intent.setClass(PaymentPend.this, PaymentDetail.class);
