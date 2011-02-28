@@ -26,14 +26,12 @@
 	<TableRow>
 		<TextView 
 		android:id="@+id/acc1"
-		android:singleLine="true"
+		android:singleLine="false"
 		android:textColor="#ff000000"
 		android:textSize="18dip"
 		/>
 		<TextView 
 		android:id="@+id/acc2"
-		android:singleLine="true"
-		android:gravity="left"
 		android:textColor="#ff000000"
 		android:textSize="18dip"/>
 	</TableRow>
