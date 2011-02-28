@@ -16,17 +16,19 @@
 	android:paddingTop="6dip"
 	android:singleLine="true"
 	android:textColor="#FF000000"
-	android:textSize="20sp"
+	android:textSize="18dip"
     />
     
     <TextView 
 	android:id="@+id/payment_list2"
-	android:textSize="20sp"
+	android:textSize="18sp"
 	android:layout_height="wrap_content"
 	android:layout_width="150dip"
 	android:paddingLeft="10dip"
 	android:paddingTop="6dip"
 	android:singleLine="true"
+	android:ellipsize="end"
+	android:maxLines="2"
 	android:textColor="#FF000000"
     />
 
