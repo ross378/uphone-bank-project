@@ -60,6 +60,7 @@ public class ABankMain extends Activity {
         helper = (ImageView)findViewById(R.id.btnHelper);
         helper.setOnClickListener(new HelperImageViewListener());
     }
+	
 	class CreditButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
