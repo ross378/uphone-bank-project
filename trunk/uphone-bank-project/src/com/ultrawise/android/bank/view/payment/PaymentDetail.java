@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.ListActivity;
@@ -69,6 +70,7 @@ public class PaymentDetail extends ListActivity {
 		
 		
 		tvClassThird.setVisibility(View.VISIBLE);
+		
 		
 
 		
