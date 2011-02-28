@@ -47,7 +47,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 				<EditText
 					android:id="@+id/nameEdit"
 					android:layout_width = "280px"
-					android:layout_height = "50px"></EditText>
+					android:layout_height = "50px"
+					android:textSize = "20px"></EditText>
 			</TableRow>
 			<TableRow
 				android:gravity = "center">
@@ -62,7 +63,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 				<EditText
 					android:id="@+id/passwdEdit"
 					android:layout_width = "280px"
-					android:layout_height = "50px"></EditText>
+					android:layout_height = "50px"
+					android:textSize = "20px"></EditText>
 			</TableRow>
 		</TableLayout>
 	</TableRow>
@@ -82,7 +84,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 					android:id="@+id/pyramidEdit"
 					android:layout_width = "120px"
 					android:layout_gravity = "center_vertical"
-					android:layout_height = "50px"></EditText>			
+					android:layout_height = "50px"
+					android:textSize = "20px"></EditText>			
 				<ImageButton
 					android:id="@+id/pyramidImage"
 					android:layout_width = "120px"
