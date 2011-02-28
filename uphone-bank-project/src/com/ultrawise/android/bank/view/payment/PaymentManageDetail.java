@@ -108,7 +108,7 @@ public class PaymentManageDetail extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent payment_intent=new Intent();
-				payment_intent.setClass(PaymentManageDetail.this,PaymentMain.class);
+				payment_intent.setClass(PaymentManageDetail.this,PaymentManage.class);
 				
 				startActivity(payment_intent);
 			}
