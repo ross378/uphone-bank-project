@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.credit;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -62,11 +63,21 @@ public class ActivateCard extends Activity {
 	Intent intent;
 	ImageView btnCoustom;
 	ImageView btnMain;
+	ImageView btnReturn;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activatecard);
         
+        // 返回键设定
+		btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+		});
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.GONE);
     	intent = new Intent();
@@ -97,8 +108,8 @@ public class ActivateCard extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent.setClass(ActivateCard.this, ABankMain.class);
-				ActivateCard.this.startActivity(intent);
+				intent = ActivateCard.this.getIntent();
+				intent.setClass(ActivateCard.this, FinancialConsultation.class);
 			}
 		});
 		
