@@ -13,12 +13,15 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 public class AccountQueryType extends ListActivity {
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
-	private  ImageView btnReturn=null;
+	private ImageView btnReturn=null;
+	private ImageView btnCoustom=null;
+	private ImageView btnMain=null; 
 	private TextView acc1=null;
 	private TextView acc2=null;
 	private TextView type1=null;
@@ -44,12 +47,30 @@ public class AccountQueryType extends ListActivity {
         btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
 		btnReturn.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				onBackPressed();
 				finish();
 			}
 		});
 		
+	    //设置底部按钮
+		btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
+		btnCoustom.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent=new Intent();
+				intent.setClass(AccountQueryType.this, ABankMain.class);
+				AccountQueryType.this.startActivity(intent);
+			}
+		});
+		
+		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent=new Intent();
+				intent.setClass(AccountQueryType.this,  FinancialConsultation.class);
+				AccountQueryType.this.startActivity(intent);
+			}
+		});
 		
 	    acc1=(TextView)findViewById(R.id.acc1);
 	    acc1.setText("账户：");

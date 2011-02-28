@@ -16,6 +16,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
 import com.ultrawise.android.bank.view.payment.PaymentHistory;
 import com.ultrawise.android.bank.view.payment.PaymentLastMonth;
@@ -27,6 +28,8 @@ import com.ultrawise.android.bank.view.transfer.R;
 
 public class AccountQueryBalance extends ListActivity {
 	private ImageView btnReturn=null;
+	private ImageView btnCoustom=null;
+	private ImageView btnMain=null;
 	private TextView  tvClassFirst=null;
 	private TextView acc1=null;
 	private TextView acc2=null;
@@ -108,8 +111,6 @@ public class AccountQueryBalance extends ListActivity {
 	        acclist7.put("account_list", "利率");
 	        acclist7.put("account_list_info", "2.25%");
 	        
-	       
-	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);
 	        accoutList.add(acclist3);
@@ -121,5 +122,25 @@ public class AccountQueryBalance extends ListActivity {
 	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list2, new String[] {
 					"account_list", "account_list_info" }, new int[] { R.id.txtView1, R.id.txtView2 } );
 	        this.setListAdapter(MainListAdapter);
+	        
+	        //设置底部按钮
+	    	btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
+	    	btnCoustom.setOnClickListener(new OnClickListener() {
+	    		public void onClick(View v) {
+	    			Intent intent=new Intent();
+	    			intent.setClass(AccountQueryBalance.this, ABankMain.class);
+	    			AccountQueryBalance.this.startActivity(intent);
+	    		}
+	    	});
+	    	
+	    	btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+	    	btnMain.setOnClickListener(new OnClickListener() {
+
+	    		public void onClick(View v) {
+	    			Intent intent=new Intent();
+	    			intent.setClass(AccountQueryBalance.this,  FinancialConsultation.class);
+	    			AccountQueryBalance.this.startActivity(intent);
+	    		}
+	    	});
 	}
 }
