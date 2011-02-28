@@ -16,7 +16,7 @@
  	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:background="#cccccc"
 	/>
 <TextView
 	android:id="@+id/tv_paymentdl_info"
@@ -29,10 +29,11 @@
 	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:background="#cccccc"
 	/>
 <Button
 	android:id="@+id/btn_paymentdl_ok"
+	android:layout_marginTop="10dip"
 	android:layout_width="100dip"
 	android:layout_height="wrap_content"
 	android:layout_gravity="center_horizontal"
