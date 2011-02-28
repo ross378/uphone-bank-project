@@ -79,32 +79,30 @@ public class AccountLostInfo extends Activity {
 		HashMap<String, Object> item01 = new HashMap<String, Object>();
 		HashMap<String, Object> item02 = new HashMap<String, Object>();
 		HashMap<String, Object> item03 = new HashMap<String, Object>();
-		HashMap<String, Object> item04 = new HashMap<String, Object>();
-		HashMap<String, Object> item05 = new HashMap<String, Object>();
-		HashMap<String, Object> item06 = new HashMap<String, Object>();
-		HashMap<String, Object> item07 = new HashMap<String, Object>();
+//		HashMap<String, Object> item04 = new HashMap<String, Object>();
+//		HashMap<String, Object> item05 = new HashMap<String, Object>();
+//		HashMap<String, Object> item06 = new HashMap<String, Object>();
+//		HashMap<String, Object> item07 = new HashMap<String, Object>();
 		item01.put("name", "挂失的账户：");
 		item01.put("content", strAccountValue);
-		
-		
 		item02.put("name", "账户别名：");
 		item02.put("content", strAccNickName);
 		item03.put("name", "挂失原因：");
 		item03.put("content", "丢失");
-		item04.put("name", "领卡网点：");
-		item04.put("content", "惠新路");
-		item05.put("name", "网点地址：");
-		item05.put("content", "惠新路8号");
+//		item04.put("name", "领卡网点：");
+//		item04.put("content", "惠新路");
+//		item05.put("name", "网点地址：");
+//		item05.put("content", "惠新路8号");
 		
-		item06.put("name", "工本费用：");
-		item06.put("content", strCost);
+//		item06.put("name", "工本费用：");
+//		item06.put("content", strCost);
 		alContent.add(item01);
 		alContent.add(item02);
 		alContent.add(item03);
-		alContent.add(item04);
-		alContent.add(item05);
-		alContent.add(item06);
-		alContent.add(item07);
+//		alContent.add(item04);
+//		alContent.add(item05);
+//		alContent.add(item06);
+//		alContent.add(item07);
 		// 适配器
 		SimpleAdapter lvAdapter = new SimpleAdapter(this, alContent,
 				R.layout.account_order_card_info_adapter, new String[] {
@@ -115,6 +113,7 @@ public class AccountLostInfo extends Activity {
 		lvContent.setClickable(false);
 
 		btnLoss = (Button) this.findViewById(R.id.accOrderCardInfo_btnOrder);
+		btnLoss.setText("确认挂失");
 		btnLoss.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
