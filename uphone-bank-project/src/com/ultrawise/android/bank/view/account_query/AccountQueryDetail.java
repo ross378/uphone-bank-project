@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
 import com.ultrawise.android.bank.view.payment.PaymentHistory;
 import com.ultrawise.android.bank.view.payment.PaymentLastMonth;
@@ -38,8 +39,31 @@ public class AccountQueryDetail extends ListActivity {
 
         intent = new Intent();
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("账户查询>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 intent = AccountQueryDetail.this.getIntent();
+				 intent.setClass(AccountQueryDetail.this, ABankMain.class);
+				 startActivity(intent);
+			}
+		});
+	    TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
+        tvClassSecond.setText("账户查询>");
+        tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 intent = AccountQueryDetail.this.getIntent();
+				 intent.setClass(AccountQueryDetail.this, AccountQuery.class);
+				 startActivity(intent);
+			}
+		});
+        tvClassSecond.setVisibility(View.VISIBLE);
+        
+        TextView  tvClassFirst1 = (TextView) this.findViewById(R.id.class_third);
+		tvClassFirst1.setText("明细查询>");
+		tvClassFirst1.setVisibility(View.VISIBLE);
 		
 		//返回键设定
         ImageView btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
@@ -51,26 +75,8 @@ public class AccountQueryDetail extends ListActivity {
 			}
 		});
 	   
-		    TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-	        tvClassSecond.setText("明细查询");
-//	        tvClassSecond.setOnClickListener(new OnClickListener() {
-//				public void onClick(View v) {
-//					// intent = QueryAccount.this.getIntent();
-//					// intent.setClass(QueryAccount.this, AccountManagement.class);
-//					// QueryAccount.this.startActivity(intent);
-//				}
-//			});
-	        tvClassSecond.setVisibility(View.VISIBLE);
-	        
-		    acc1=(TextView)findViewById(R.id.acc1);
-		    acc1.setText("账户：");
-		    acc2=(TextView)findViewById(R.id.acc2);
-		    acc2.setText("1234578xxxx");
-		    type1=(TextView)findViewById(R.id.type1);
-		    type1.setText("账户类型：");
-		    type2=(TextView)findViewById(R.id.type2);
-		    type2.setText("定期存储(零存整取)");
-	        
+
+	                
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
 	        
 	        
@@ -107,21 +113,4 @@ public class AccountQueryDetail extends ListActivity {
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
 	        iv_now.setVisibility(View.VISIBLE);
 	}
-//
-//	protected void onListItemClick(ListView l, View v, int position, long id) {
-//		super.onListItemClick(l, v, position, id);
-//		if(id==3){//账户信息及余额查询
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(AccountQueryDetail.this, PaymentHistory.class);
-//			AccountQueryDetail.this.startActivity(payment_intent);
-//		}else if(id==4){//账户明细查询
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(AccountQueryDetail.this, PaymentDefAcc.class);
-//			AccountQueryDetail.this.startActivity(payment_intent);
-//		}else if(id==5){//账户来帐查询
-//			Intent payment_intent = new Intent();
-//			payment_intent.setClass(AccountQueryDetail.this, PaymentManage.class);
-//			AccountQueryDetail.this.startActivity(payment_intent);
-//		}
-//	}
 }

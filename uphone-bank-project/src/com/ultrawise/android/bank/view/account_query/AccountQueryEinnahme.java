@@ -38,7 +38,7 @@ public class AccountQueryEinnahme extends ListActivity {
 
         intent = new Intent();
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("账户查询>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		
 		//返回键设定
@@ -52,7 +52,7 @@ public class AccountQueryEinnahme extends ListActivity {
 		});
 	   
 		    TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
-	        tvClassSecond.setText("账户来帐查询");
+	        tvClassSecond.setText("账户查询");
 //	        tvClassSecond.setOnClickListener(new OnClickListener() {
 //				public void onClick(View v) {
 //					// intent = QueryAccount.this.getIntent();
@@ -63,10 +63,8 @@ public class AccountQueryEinnahme extends ListActivity {
 	        tvClassSecond.setVisibility(View.VISIBLE);
 		
 		    acc1=(TextView)findViewById(R.id.acc1);
-		    acc1.setText("定期账户012345678在20101123到20100111" +
-		    		"\n"+"之间的来帐记录如下：");
-
-	        
+		    acc1.setText("定期账户012345678在20101123到20100111"+"\n"+"之间的来帐记录如下：");
+		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        
 	        HashMap<String,Object> acclist1 = new HashMap<String,Object>();

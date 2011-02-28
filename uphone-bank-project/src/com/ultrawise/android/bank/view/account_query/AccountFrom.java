@@ -28,20 +28,27 @@ public class AccountFrom extends Activity{
 		
 		
 		TextView tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("账户查询>");
-		tvClassFirst.setOnClickListener(new OnClickListener() {
+		tvClassFirst.setText("首页>");
+        tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				 Intent intent = new Intent();
 				 intent.setClass(AccountFrom.this, ABankMain.class);
 				 AccountFrom.this.startActivity(intent);
 			}
 		});
-		tvClassFirst.setVisibility(View.VISIBLE);
+        tvClassFirst.setVisibility(View.VISIBLE);
 
 		TextView tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("来帐查询");
+		tvClassSecond.setText("账户查询");
 		tvClassSecond.setVisibility(View.VISIBLE);
-		tvClassSecond.setVisibility(View.VISIBLE);
-		
+        tvClassSecond.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 Intent intent = new Intent();
+				 intent = AccountFrom.this.getIntent();
+				 startActivity(intent);
+			}
+		});
+        tvClassSecond.setVisibility(View.VISIBLE);
 		
 		//设定返回按钮
 		ImageView btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
@@ -57,15 +64,18 @@ public class AccountFrom extends Activity{
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub;
-
+//				intent.setClass(AccountFrom.this, Query_Settime.class);
+//				startActivity(intent);
+				
 				LayoutInflater inflater = getLayoutInflater();
 				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
 				   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
 				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
 				   .setNegativeButton("取消", null)
 				   .show();
+			
 			}
-		});
+			});
 		Button timeOver = (Button)findViewById(R.id.timechange_to);
 		timeOver.setOnClickListener(new OnClickListener() {
 			
@@ -86,13 +96,10 @@ public class AccountFrom extends Activity{
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent.setClass(AccountFrom.this, Query_Settime.class);
+				intent.setClass(AccountFrom.this, AccountQueryEinnahme.class);
 				startActivity(intent);
 			}
 		});
-		
-		 String source = "<font color='red' size='7' face='宋体' sytle='宋体'><BIG>红色字</BIG></font>"; 
-		 TextView test = (TextView)findViewById(R.id.inventory1);
-		 test.setText(Html.fromHtml(source));
+	
 	}
 }
