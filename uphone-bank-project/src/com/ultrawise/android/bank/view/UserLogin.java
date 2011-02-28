@@ -66,7 +66,7 @@ public class UserLogin extends Activity {
         phoneBank = (ImageView)findViewById(R.id.btnMain);
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
         helper = (ImageView)findViewById(R.id.btnHelper);
-        helper.setOnClickListener(new BackImageViewListener());
+        helper.setOnClickListener(new HelperImageViewListener());
        
 	}
 	/**
