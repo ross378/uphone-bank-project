@@ -25,9 +25,8 @@ public class inventory extends Activity{
 		this.setContentView(R.layout.inventory);
 		
 		
-		
 		TextView tvClassFirst = (TextView) this.findViewById(R.id.class_first);
-		tvClassFirst.setText("账户查询>");
+		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent.setClass(inventory.this, ABankMain.class);
@@ -37,8 +36,13 @@ public class inventory extends Activity{
 		tvClassFirst.setVisibility(View.VISIBLE);
 
 		TextView tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("明细查询");
-		tvClassSecond.setVisibility(View.VISIBLE);
+		tvClassSecond.setText("账户查询");
+		 tvClassSecond.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					 intent.setClass(inventory.this,AccountQuery.class);
+					 startActivity(intent);
+				}
+			});
 		tvClassSecond.setVisibility(View.VISIBLE);
 		
 		

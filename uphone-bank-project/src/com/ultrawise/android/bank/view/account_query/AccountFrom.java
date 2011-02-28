@@ -43,8 +43,7 @@ public class AccountFrom extends Activity{
 		tvClassSecond.setVisibility(View.VISIBLE);
         tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				 Intent intent = new Intent();
-				 intent = AccountFrom.this.getIntent();
+				 intent.setClass(AccountFrom.this,AccountQuery.class);
 				 startActivity(intent);
 			}
 		});
