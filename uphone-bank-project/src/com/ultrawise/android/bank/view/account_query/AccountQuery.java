@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.account_query;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.credit.CreditView;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -27,6 +28,8 @@ public class AccountQuery extends Activity {
 	private TextView tvClassSecond = null;
 	private ImageView btnReturn = null;
 	private Button btnContinue = null;
+	private ImageView btnCoustom =null;
+	private ImageView btnMain =null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,29 @@ public class AccountQuery extends Activity {
 		tvClassSecond = (TextView) this.findViewById(R.id.class_second);
 		tvClassSecond.setText("账户查询");
 		tvClassSecond.setVisibility(View.VISIBLE);
+		
+        //设置底部按钮
+		btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
+		btnCoustom.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent();
+				intent.setClass(AccountQuery.this, ABankMain.class);
+				AccountQuery.this.startActivity(intent);
+			}
+		});
+		//btnCoustom.setVisibility(View.VISIBLE);
+		
+	btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent=new Intent();
+				intent.setClass(AccountQuery.this, ABankMain.class);
+				AccountQuery.this.startActivity(intent);
+			}
+		});
+	
 
 		// 确定按钮跳转
 		btnContinue = (Button) findViewById(R.id.btnContinue);
