@@ -173,7 +173,7 @@ public class AllPaymentSer extends Activity {
 						.toString());
 				pay_ser_intent.putExtra("inputed_peo", AccTypSpinner
 						.getSelectedItem().toString());
-				pay_ser_intent.putExtra("serialnum", "365246245236714");
+				pay_ser_intent.putExtra("serialnum", "3652462");
 				pay_ser_intent.putExtra("deadline", "无");
 				pay_ser_intent
 						.setClass(AllPaymentSer.this, PaymentDetail.class);
