@@ -14,12 +14,15 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 <TableLayout
 	android:layout_width = "440px"
 	android:layout_height = "360px"
-	android:layout_marginTop = "20px"
+	android:layout_marginTop = "50px"
+	android:layout_marginLeft = "20px"
 	android:layout_below = "@id/phoneBankHome"
 	android:background = "@drawable/user_log">
-	<TableLayout>
+	<TableLayout
+		android:layout_below="@+id/loginTextLayout">
 		<TableRow>
 			<TextView
+				android:id="@+id/loginText"
 				android:layout_width = "440px"
 				android:layout_height = "75px"
 				android:text = "手机用户登录"
@@ -34,6 +37,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 			<TableRow
 				android:gravity = "center">
 				<TextView
+					android:id="@+id/nameText"
 					android:layout_width = "wrap_content"
 					android:layout_height = "75px"
 					android:textSize = "24px"
@@ -41,12 +45,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 					android:text = "用户名： "
 					android:gravity = "center_vertical"></TextView>
 				<EditText
+					android:id="@+id/nameEdit"
 					android:layout_width = "280px"
 					android:layout_height = "50px"></EditText>
 			</TableRow>
 			<TableRow
 				android:gravity = "center">
 				<TextView
+					android:id="@+id/passwdText"
 					android:layout_width = "wrap_content"
 					android:layout_height = "72px"
 					android:textSize = "24px"
@@ -54,6 +60,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 					android:text = "密码：  "					
 					android:gravity = "center_vertical"></TextView>
 				<EditText
+					android:id="@+id/passwdEdit"
 					android:layout_width = "280px"
 					android:layout_height = "50px"></EditText>
 			</TableRow>
@@ -63,6 +70,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		<TableLayout>
 			<TableRow>
 				<TextView
+					android:id="@+id/pyramidText"
 					android:layout_width = "wrap_content"
 					android:layout_height = "72px"
 					android:textSize = "24px"
@@ -71,32 +79,43 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_marginLeft = "30px"				
 					android:gravity = "center_vertical"></TextView>
 				<EditText
+					android:id="@+id/pyramidEdit"
 					android:layout_width = "120px"
+					android:layout_gravity = "center_vertical"
 					android:layout_height = "50px"></EditText>			
-				<ImageView
+				<ImageButton
+					android:id="@+id/pyramidImage"
 					android:layout_width = "120px"
 					android:layout_height = "50px"
-					android:layout_marginLeft = "40px"></ImageView>
+					android:layout_gravity = "center_vertical"
+					android:layout_marginLeft = "40px"></ImageButton>
 			</TableRow>
 		</TableLayout>
 	</TableRow>
 	<TableRow>
 		<TableLayout>
 			<CheckBox
-				android:layout_width = "440px"
-				android:layout_height = "72px"
-				android:text = "记下登录名"
-				android:checked = "true"
-				android:gravity = "center"></CheckBox>
+				android:id="@+id/notesPasswdCheckBox"
+				android:layout_width="fill_parent"
+				android:layout_height="72px"
+				android:text="记下登陆名"
+				android:textStyle="bold"
+				android:gravity="center"
+				android:layout_span="3"
+				android:textSize="24px"
+				android:textColor = "#000000"
+				android:layout_gravity="center_horizontal"></CheckBox>
 		</TableLayout>
 	</TableRow>
 </TableLayout>
 <Button
+android:id="@+id/userLogin"
 android:layout_width="170px"
 android:layout_height="60px"
 android:textColor = "#ffffff"
 android:textSize = "32px"
-android:layout_marginTop = "20px"
+android:layout_marginBottom = "100px"
+android:layout_marginLeft = "155px"
 android:background = "@drawable/log_button"
 android:text="登录"
 android:layout_above = "@id/bottomLayout"
