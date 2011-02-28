@@ -99,7 +99,7 @@ public class PaymentHisDetail extends ListActivity {
 		tvClassThird.setVisibility(View.VISIBLE);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-        iv_now.setVisibility(View.VISIBLE);
+        //iv_now.setVisibility(View.VISIBLE);
         
         
         //返回键设定
