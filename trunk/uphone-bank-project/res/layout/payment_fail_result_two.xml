@@ -50,8 +50,8 @@ android:layout_width="wrap_content"
 	android:text="重选账户"
 	android:textSize="16sp"
 	android:layout_width="100dip"
-	android:layout_height="40dip"
-	android:layout_marginLeft="10dip"
+	android:layout_height="50dip"
+	android:layout_marginLeft="20dip"
 	android:layout_gravity="right"
 
 	/>
