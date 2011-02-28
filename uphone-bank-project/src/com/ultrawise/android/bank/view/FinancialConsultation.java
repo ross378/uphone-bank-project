@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -42,6 +43,7 @@ public class FinancialConsultation extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         //设置布局
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.financialconsultation);
         //获得手机银行按钮，并设置其鼠标单击事件监听器
         aBankButton=(ImageButton)findViewById(R.id.aBank);

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,14 +42,16 @@ public class ExchangeRates extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         //设置布局
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.exchangerates);
         firstText = (TextView)findViewById(R.id.class_first);
-        firstText.setText(R.string.exchange_rates);
+        firstText.setText(R.string.helper);
         firstText.setVisibility(View.VISIBLE);
         secondText = (TextView)findViewById(R.id.class_second);
         secondText.setText(R.string.exchange_rates);
         secondText.setVisibility(View.VISIBLE);
         back = (ImageView)findViewById(R.id.returnToPre);
+        back.setOnClickListener(new BackImageViewListener());
         //获得货币面值输入框对象
         currencyInputEdit=(EditText)findViewById(R.id.currencyInputEdit);
         //获得原始货币单位下拉框对象

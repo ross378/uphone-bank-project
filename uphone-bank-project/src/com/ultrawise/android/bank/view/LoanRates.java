@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 /*
@@ -27,10 +28,14 @@ public class LoanRates extends Activity {
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.loanrates);
         firstText = (TextView)findViewById(R.id.class_first);
-        firstText.setText(R.string.loan_rates);
+        firstText.setText(R.string.helper);
         firstText.setVisibility(View.VISIBLE);
+        secondText = (TextView)findViewById(R.id.class_second);
+        secondText.setText(R.string.loan_rates);
+        secondText.setVisibility(View.VISIBLE);
         back = (ImageView)findViewById(R.id.returnToPre);
         back.setOnClickListener(new BackImageViewListener());
         phoneBank = (ImageView)findViewById(R.id.btnCoustom);
