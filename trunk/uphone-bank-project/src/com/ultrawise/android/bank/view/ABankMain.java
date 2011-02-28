@@ -1,6 +1,8 @@
 package com.ultrawise.android.bank.view;
 
 
+import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
+import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.account_management.AccountManagement;
 import com.ultrawise.android.bank.view.account_management.ActiveAccount;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class ABankMain extends Activity {
     /** Called when the activity is first created. */
@@ -26,12 +29,14 @@ public class ABankMain extends Activity {
     private ImageButton actQueryButton=null;
     private ImageButton transferMoneyButton=null;
     private ImageButton paymentButton=null;
+    private ImageView phoneBank = null;
+	 private ImageView helper = null;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        setContentView(R.layout.abank);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.abank);
+        
         creditButton=(ImageButton)findViewById(R.id.credit);
         creditButton.setOnClickListener(new CreditButtonListener());
         
@@ -49,6 +54,11 @@ public class ABankMain extends Activity {
         
         paymentButton=(ImageButton)findViewById(R.id.payment);
         paymentButton.setOnClickListener(new PaymentButtonListener());
+        
+        phoneBank = (ImageView)findViewById(R.id.btnCoustom);       
+        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
+        helper = (ImageView)findViewById(R.id.btnHelper);
+        helper.setOnClickListener(new HelperImageViewListener());
     }
 	class CreditButtonListener implements OnClickListener{
 
@@ -112,4 +122,19 @@ public class ABankMain extends Activity {
 		
 	}
 	
+	class PhoneBankImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 
+		 }
+	 }
+	 
+	 class HelperImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 Intent intent = new Intent();
+			 intent.setClass(ABankMain.this, FinancialConsultation.class);
+			 ABankMain.this.startActivity(intent);
+		 }
+	 }
 }

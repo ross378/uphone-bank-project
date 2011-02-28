@@ -46,7 +46,7 @@ public class DepositeRates extends Activity {
 	        secondText.setVisibility(View.VISIBLE);
 	        back = (ImageView)findViewById(R.id.returnToPre);
 	        back.setOnClickListener(new BackImageViewListener());
-	        phoneBank = (ImageView)findViewById(R.id.btnCoustom);
+	        phoneBank = (ImageView)findViewById(R.id.btnMain);
 	        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
 	        helper = (ImageView)findViewById(R.id.btnHelper);
 	        helper.setOnClickListener(new BackImageViewListener());
@@ -62,14 +62,20 @@ public class DepositeRates extends Activity {
 	 class PhoneBankImageViewListener implements OnClickListener{
 		 
 		 public void onClick(View args0){
-			 //
+			 DepositeRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(DepositeRates.this, ABankMain.class);
+			 DepositeRates.this.startActivity(intent);
 		 }
 	 }
 	 
 	 class HelperImageViewListener implements OnClickListener{
 		 
 		 public void onClick(View args0){
-			 //
+			 DepositeRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(DepositeRates.this, FinancialConsultation.class);
+			 DepositeRates.this.startActivity(intent);
 		 }
 	 }
 }

@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.view;
 
+import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
+import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.credit.ActivateCard;
 import com.ultrawise.android.bank.view.credit.ActivateCardDialog;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -35,6 +37,8 @@ public class ExchangeRates extends Activity {
 	private Button currencyConCulateButton=null;
 	
 	private ImageView back = null;
+	private ImageView phoneBank = null;
+	 private ImageView helper = null;
 	//界面级别显示文本试图
 	TextView firstText = null;
 	TextView secondText = null;
@@ -52,6 +56,10 @@ public class ExchangeRates extends Activity {
         secondText.setVisibility(View.VISIBLE);
         back = (ImageView)findViewById(R.id.returnToPre);
         back.setOnClickListener(new BackImageViewListener());
+        phoneBank = (ImageView)findViewById(R.id.btnMain);
+        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
+        helper = (ImageView)findViewById(R.id.btnHelper);
+        helper.setOnClickListener(new BackImageViewListener());
         //获得货币面值输入框对象
         currencyInputEdit=(EditText)findViewById(R.id.currencyInputEdit);
         //获得原始货币单位下拉框对象
@@ -149,6 +157,26 @@ public class ExchangeRates extends Activity {
 		 
 		 public void onClick(View args0){
 			 ExchangeRates.this.finish();
+		 }
+	}
+	
+	class PhoneBankImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 ExchangeRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(ExchangeRates.this, ABankMain.class);
+			 ExchangeRates.this.startActivity(intent);
+		 }
+	 }
+	 
+	 class HelperImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 ExchangeRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(ExchangeRates.this, FinancialConsultation.class);
+			 ExchangeRates.this.startActivity(intent);
 		 }
 	 }
 }

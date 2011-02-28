@@ -5,6 +5,7 @@ import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,7 +39,7 @@ public class LoanRates extends Activity {
         secondText.setVisibility(View.VISIBLE);
         back = (ImageView)findViewById(R.id.returnToPre);
         back.setOnClickListener(new BackImageViewListener());
-        phoneBank = (ImageView)findViewById(R.id.btnCoustom);
+        phoneBank = (ImageView)findViewById(R.id.btnMain);
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
         helper = (ImageView)findViewById(R.id.btnHelper);
         helper.setOnClickListener(new BackImageViewListener());
@@ -52,17 +53,23 @@ public class LoanRates extends Activity {
 		 }
 	 }
 	 
-	 class PhoneBankImageViewListener implements OnClickListener{
+	class PhoneBankImageViewListener implements OnClickListener{
 		 
 		 public void onClick(View args0){
-			 //
+			 LoanRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(LoanRates.this, ABankMain.class);
+			 LoanRates.this.startActivity(intent);
 		 }
 	 }
 	 
 	 class HelperImageViewListener implements OnClickListener{
 		 
 		 public void onClick(View args0){
-			 //
+			 LoanRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(LoanRates.this, FinancialConsultation.class);
+			 LoanRates.this.startActivity(intent);
 		 }
 	 }
 }
