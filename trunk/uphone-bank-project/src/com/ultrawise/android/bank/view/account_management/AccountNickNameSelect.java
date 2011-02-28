@@ -2,12 +2,10 @@ package com.ultrawise.android.bank.view.account_management;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
-import com.ultrawise.android.bank.view.account_management.ActiveAccountSelect.SpinnerSelectedListener;
+import com.ultrawise.android.bank.view.account_management.AccountDel.SpinnerSelectedListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -21,47 +19,35 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class OrderCardSelect extends Activity {
+public class AccountNickNameSelect extends Activity {
 
 	private Spinner spnrSelectTpye;
 	private ArrayAdapter<String> adapterType;
 	private Spinner spnrSelectAcc;
 	private ArrayAdapter<String> adapterAcc;
-	private View btnNext;
-	protected boolean flag;
+	private Button btnGoOn;
 	protected Intent intent;
-	private String accountTypeValue;
-	private String accountValue;
+	private GestureDetector mGestureDetector;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
-	private ImageView btnReturn;
-	private GestureDetector mGestureDetector;
+	private View btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-
-	/**
-	 * 静态变量，用于intent传输中方便使用
-	 */
-	public final static String ACCOUNT_TYPE = "accountType";
-	public final static String ACCOUNT = "account";
-	public final static String CHANGE_REASON = "changeReason";
-	public final static String NET = "net";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
-		setContentView(R.layout.account_order_card_select);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
+		this.setContentView(R.layout.account_info_select);
 
 		/**
 		 * 下拉框，账户类型:spnrSelectTpye，账户：spnrSelectAcc
 		 */
-		spnrSelectTpye = (Spinner) findViewById(R.id.accOrder_SpnrSelectType);
+		spnrSelectTpye = (Spinner) findViewById(R.id.accinfo_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
 		String[] accTypeArray = this.getResources().getStringArray(
 				R.array.accinfo_accType);
@@ -75,8 +61,7 @@ public class OrderCardSelect extends Activity {
 		// 添加事件Spinner事件监听
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
-		spnrSelectAcc = (Spinner) this
-				.findViewById(R.id.accOrder_SpnrSelectAcc);
+		spnrSelectAcc = (Spinner) this.findViewById(R.id.accinfo_SpnrSelectAcc);
 		String[] accArray = this.getResources().getStringArray(
 				R.array.accinfo_acc);
 		adapterAcc = new ArrayAdapter<String>(this,
@@ -87,22 +72,22 @@ public class OrderCardSelect extends Activity {
 		spnrSelectAcc.setOnItemSelectedListener(new SpinnerSelectedListener());
 		spnrSelectAcc.setClickable(false);
 
-		// 获取账户类型和账户号
-		accountTypeValue = spnrSelectTpye.getSelectedItem().toString();
-		accountValue = spnrSelectAcc.getSelectedItem().toString();
-		// 按钮 激活
-		btnNext = (Button) this.findViewById(R.id.accOrder_btnNextTo2);
-		btnNext.setOnClickListener(new OnClickListener() {
+		// 按钮 继续
+		btnGoOn = (Button) this.findViewById(R.id.accinfo_btnGoOn);
+		btnGoOn.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO 跳转至选择换卡原因和换卡网点的页面
+				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.putExtra(OrderCardSelect.ACCOUNT_TYPE, accountTypeValue);
-				intent.putExtra(OrderCardSelect.ACCOUNT, accountValue);
-				intent.setClass(OrderCardSelect.this, OrderCardSelect2.class);
-				OrderCardSelect.this.startActivity(intent);
-
+				intent.putExtra(AccountInfoSelect.ACCOUNT_TYPE, spnrSelectTpye
+						.getSelectedItem().toString());
+				intent.putExtra(AccountInfoSelect.ACCOUNT, spnrSelectAcc
+						.getSelectedItem().toString());
+				intent.setClass(AccountNickNameSelect.this,
+						AccountNickName.class);
+				AccountNickNameSelect.this.startActivity(intent);
 			}
+
 		});
 
 		// 向右滑动触发后退
@@ -126,8 +111,8 @@ public class OrderCardSelect extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, ABankMain.class);
-				OrderCardSelect.this.startActivity(intent);
+				intent.setClass(AccountNickNameSelect.this, ABankMain.class);
+				AccountNickNameSelect.this.startActivity(intent);
 			}
 		});
 
@@ -138,14 +123,15 @@ public class OrderCardSelect extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, AccountManagementList.class);
-				OrderCardSelect.this.startActivity(intent);
+				intent.setClass(AccountNickNameSelect.this,
+						AccountManagementList.class);
+				AccountNickNameSelect.this.startActivity(intent);
 
 			}
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("预约换卡");
+		tvClassThrid.setText("账户别名");
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 返回键设定
@@ -157,7 +143,6 @@ public class OrderCardSelect extends Activity {
 				finish();
 			}
 		});
-		
 		// 底部按钮设置
 		btnMain = (ImageView) this.findViewById(R.id.btnMain);
 		btnMain.setOnClickListener(new OnClickListener() {
@@ -165,8 +150,8 @@ public class OrderCardSelect extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, ABankMain.class);
-				OrderCardSelect.this.startActivity(intent);
+				intent.setClass(AccountNickNameSelect.this, ABankMain.class);
+				AccountNickNameSelect.this.startActivity(intent);
 			}
 		});
 
@@ -176,10 +161,19 @@ public class OrderCardSelect extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, FinancialConsultation.class);
-				OrderCardSelect.this.startActivity(intent);
+				intent.setClass(AccountNickNameSelect.this,
+						FinancialConsultation.class);
+				AccountNickNameSelect.this.startActivity(intent);
 			}
 		});
+	}
+
+	// 触摸触发
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
 	}
 
 	// 选择下拉框选项触发
@@ -189,11 +183,11 @@ public class OrderCardSelect extends Activity {
 				int position, long id) {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
-			case R.id.accOrder_SpnrSelectType:
+			case R.id.accinfo_SpnrSelectType:
 				spnrSelectTpye.setSelection(position);
 				spnrSelectAcc.setClickable(true);
 				break;
-			case R.id.accOrder_SpnrSelectAcc:
+			case R.id.accinfo_SpnrSelectAcc:
 				spnrSelectAcc.setSelection(position);
 				break;
 			}
@@ -207,13 +201,6 @@ public class OrderCardSelect extends Activity {
 			// TODO Auto-generated method stub
 
 		}
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-
-		return mGestureDetector.onTouchEvent(event);
-
 	}
 
 }

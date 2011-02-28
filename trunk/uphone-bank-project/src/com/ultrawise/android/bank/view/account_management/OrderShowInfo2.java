@@ -8,42 +8,44 @@ import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class OrderCardShowInfo extends Activity {
+public class OrderShowInfo2 extends Activity {
 
 	private Intent intent;
-	private String strAccountTypeValue;
 	private String strAccountValue;
-	private String strChangeReason;
-	private String strNet;
 	private Button btnOrder;
-	protected boolean flag;
 	private ListView lvContent;
 	private String strAccNickName;
+	private String strChangeReason;
+	private String strNet;
 	private String strAddress;
 	private String strCost;
+	private GestureDetector mGestureDetector;
 	private TextView tvClassFirst;
 	private TextView tvClassSecond;
 	private TextView tvClassThrid;
 	private ImageView btnReturn;
-	private GestureDetector mGestureDetector;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+
+		return mGestureDetector.onTouchEvent(event);
+
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +53,11 @@ public class OrderCardShowInfo extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
 		this.setContentView(R.layout.account_order_card_info);
-		intent = OrderCardShowInfo.this.getIntent();
+		intent = OrderShowInfo2.this.getIntent();
 		if (intent != null) {
 			// 从预约换卡页面传来的数据中获取账户类型和账户号
-			strAccountTypeValue = intent
-					.getStringExtra(OrderCardSelect.ACCOUNT_TYPE);
-			strAccountValue = intent.getStringExtra(OrderCardSelect.ACCOUNT);
-			strChangeReason = intent
-					.getStringExtra(OrderCardSelect.CHANGE_REASON);
-			strNet = intent.getStringExtra(OrderCardSelect.NET);
-			if (strAccountTypeValue != null && strAccountValue != null
-					&& strChangeReason != null && strNet != null) {
+			strAccountValue = intent.getStringExtra(AccountInfo2.ACCOUNT);
+			if (strAccountValue != null) {
 
 			} else {
 				// 进错页面了吧你
@@ -88,7 +84,9 @@ public class OrderCardShowInfo extends Activity {
 		item02.put("name", "账户别名：");
 		item02.put("content", strAccNickName);
 		item03.put("name", "更换原因：");
+		strChangeReason = "卡损坏";
 		item03.put("content", strChangeReason);
+		strNet = "小北储蓄";
 		item04.put("name", "领卡网点：");
 		item04.put("content", strNet);
 		// 从服务器端获取网点地址
@@ -116,53 +114,7 @@ public class OrderCardShowInfo extends Activity {
 		lvContent.setClickable(false);
 
 		btnOrder = (Button) this.findViewById(R.id.accOrderCardInfo_btnOrder);
-		btnOrder.setOnClickListener(new OnClickListener() {
-
-			public void onClick(View v) {
-				// TODO 发送服务器，确定是否能连上
-				flag = true;
-				// 弹出对话框
-				if (flag == true) {
-					new AlertDialog.Builder(OrderCardShowInfo.this)
-							.setMessage(R.string.accOrder_OrderSucess)
-							.setPositiveButton("确认",
-									new DialogInterface.OnClickListener() {
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											// TODO Auto-generated
-											dialog.dismiss();
-											Toast.makeText(
-													OrderCardShowInfo.this,
-													"操作完成", Toast.LENGTH_SHORT)
-													.show();
-											intent = new Intent();
-											intent.setClass(
-													OrderCardShowInfo.this,
-													AccountManagementList.class);
-											OrderCardShowInfo.this
-													.startActivity(intent);
-										}
-									})
-							.setNegativeButton("取消",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											// TODO Auto-generated method stub
-											dialog.dismiss();
-										}
-									}).show();
-				} else {
-					// 如果出现一些莫名其妙错误则报错
-					Toast.makeText(OrderCardShowInfo.this, "连接服务器失败，请检查",
-							Toast.LENGTH_SHORT).show();
-				}
-
-			}
-
-		});
+		btnOrder.setVisibility(View.GONE);
 
 		// 向右滑动触发后退
 		mGestureDetector = new GestureDetector(this,
@@ -185,8 +137,8 @@ public class OrderCardShowInfo extends Activity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardShowInfo.this, ABankMain.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				intent.setClass(OrderShowInfo2.this, ABankMain.class);
+				OrderShowInfo2.this.startActivity(intent);
 			}
 		});
 
@@ -197,14 +149,14 @@ public class OrderCardShowInfo extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardShowInfo.this,
+				intent.setClass(OrderShowInfo2.this,
 						AccountManagementList.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				OrderShowInfo2.this.startActivity(intent);
 			}
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("预约换卡");
+		tvClassThrid.setText("账户信息");
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 返回键设定
@@ -223,8 +175,8 @@ public class OrderCardShowInfo extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(OrderCardShowInfo.this, ABankMain.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				intent.setClass(OrderShowInfo2.this, ABankMain.class);
+				OrderShowInfo2.this.startActivity(intent);
 			}
 		});
 
@@ -234,17 +186,11 @@ public class OrderCardShowInfo extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(OrderCardShowInfo.this,
+				intent.setClass(OrderShowInfo2.this,
 						FinancialConsultation.class);
-				OrderCardShowInfo.this.startActivity(intent);
+				OrderShowInfo2.this.startActivity(intent);
 			}
 		});
 	}
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-
-		return mGestureDetector.onTouchEvent(event);
-
-	}
 }

@@ -37,7 +37,7 @@
 		<Button android:layout_gravity="center_horizontal"
 			android:textSize="18dip" android:background="@drawable/main_next"
 			android:layout_width="wrap_content" android:layout_marginTop="10dip"
-			android:text="@string/accAct_Active" android:layout_height="wrap_content"
+			android:text="绑定" android:layout_height="wrap_content"
 			android:id="@+id/accAct_btnActive"></Button>
 	</LinearLayout>
 </RelativeLayout>

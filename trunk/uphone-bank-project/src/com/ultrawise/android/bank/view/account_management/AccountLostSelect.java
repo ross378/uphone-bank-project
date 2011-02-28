@@ -149,7 +149,7 @@ public class AccountLostSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountLostSelect.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountLostSelect.this, ABankMain.class);
 				AccountLostSelect.this.startActivity(intent);
 			}
@@ -160,7 +160,7 @@ public class AccountLostSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountLostSelect.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountLostSelect.this, FinancialConsultation.class);
 				AccountLostSelect.this.startActivity(intent);
 			}

@@ -180,7 +180,7 @@ public class ActiveAccountSelect extends Activity {
 		});
 
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
-		tvClassThrid.setText("账户激活");
+		tvClassThrid.setText("账户绑定");
 		tvClassThrid.setVisibility(View.VISIBLE);
 
 		// 返回键设定
@@ -198,7 +198,7 @@ public class ActiveAccountSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = ActiveAccountSelect.this.getIntent();
+				intent = new Intent();
 				intent.setClass(ActiveAccountSelect.this, ABankMain.class);
 				ActiveAccountSelect.this.startActivity(intent);
 			}
@@ -209,7 +209,7 @@ public class ActiveAccountSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = ActiveAccountSelect.this.getIntent();
+				intent = new Intent();
 				intent.setClass(ActiveAccountSelect.this, FinancialConsultation.class);
 				ActiveAccountSelect.this.startActivity(intent);
 			}

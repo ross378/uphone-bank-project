@@ -149,7 +149,7 @@ public class AccountDel extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountDel.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountDel.this, ABankMain.class);
 				AccountDel.this.startActivity(intent);
 			}
@@ -160,7 +160,7 @@ public class AccountDel extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountDel.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountDel.this, FinancialConsultation.class);
 				AccountDel.this.startActivity(intent);
 			}

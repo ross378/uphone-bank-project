@@ -121,7 +121,6 @@ public class OrderCardSelect2 extends Activity {
 						// TODO Auto-generated method stub
 						if (distanceY == 0 && distanceX < 0)
 							onBackPressed();
-
 						return super.onScroll(e1, e2, distanceX, distanceY);
 					}
 				});
@@ -170,7 +169,7 @@ public class OrderCardSelect2 extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = OrderCardSelect2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(OrderCardSelect2.this, ABankMain.class);
 				OrderCardSelect2.this.startActivity(intent);
 			}
@@ -181,7 +180,7 @@ public class OrderCardSelect2 extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = OrderCardSelect2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(OrderCardSelect2.this, FinancialConsultation.class);
 				OrderCardSelect2.this.startActivity(intent);
 			}

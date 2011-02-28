@@ -154,7 +154,7 @@ public class AccountInfoSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfoSelect.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountInfoSelect.this, ABankMain.class);
 				AccountInfoSelect.this.startActivity(intent);
 			}
@@ -165,7 +165,7 @@ public class AccountInfoSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = AccountInfoSelect.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountInfoSelect.this, FinancialConsultation.class);
 				AccountInfoSelect.this.startActivity(intent);
 			}
