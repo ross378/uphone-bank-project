@@ -1,6 +1,8 @@
 package com.ultrawise.android.bank.view.payment;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.account_management.AccountAdd;
 import com.ultrawise.android.bank.view.transfer.R;
 import com.ultrawise.android.bank.view.transfer.R.string;
 
@@ -90,7 +92,9 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
 //        iv_now.setVisibility(View.VISIBLE);
-	
+	//最顶端返回按钮的监听 
+        
+        //确认缴费按钮的监听
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
         	
 //        	Intent trans_intent = new Intent();
