@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.ListActivity;
@@ -107,6 +108,9 @@ public class PaymentLastMonth extends ListActivity {
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         //iv_now.setVisibility(View.VISIBLE)
+        
+        
+        
         
 	}
 	@Override
