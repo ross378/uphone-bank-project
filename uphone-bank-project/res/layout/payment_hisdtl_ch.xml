@@ -42,7 +42,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="40dip"
 	android:text="开始日期："
-	android:textSize="20sp"
+	android:textSize="18dip"
 	android:textColor="#000000"
 	android:paddingLeft="20dip"
 	/>
@@ -74,7 +74,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="40dip"
 	android:text="结束日期："
-	android:textSize="20sp"
+	android:textSize="18dip"
 	android:textColor="#000000"
 	android:paddingLeft="20dip"
 	/>
