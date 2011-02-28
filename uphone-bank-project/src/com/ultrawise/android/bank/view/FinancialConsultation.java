@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain.CreditButtonListener;
+import com.ultrawise.android.bank.view.ABankMain.HelperImageViewListener;
+import com.ultrawise.android.bank.view.ABankMain.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.credit.CreditView;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -39,6 +41,9 @@ public class FinancialConsultation extends Activity {
 	private ImageView aBankBottomButton = null;
 	//金融助手
 	private ImageView financialHelButton = null;
+	
+	private ImageView phoneBank = null;
+	 private ImageView helper = null;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         //设置布局
@@ -65,7 +70,10 @@ public class FinancialConsultation extends Activity {
         financialHelButton=(ImageView)findViewById(R.id.btnCoustom);
         financialHelButton.setOnClickListener(new FinancialHelButtonListener());
         
-        
+        phoneBank = (ImageView)findViewById(R.id.btnMain);       
+        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
+        helper = (ImageView)findViewById(R.id.btnHelper);
+        helper.setOnClickListener(new HelperImageViewListener());
 	}
 	/*
 	 * 手机银行按钮响应事件
@@ -149,4 +157,20 @@ public class FinancialConsultation extends Activity {
 			Log.d("debug", "financial");
 		}
 	}
+	
+	class PhoneBankImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 Intent intent = new Intent();
+			 intent.setClass(FinancialConsultation.this, ABankMain.class);
+			 FinancialConsultation.this.startActivity(intent);
+		 }
+	 }
+	 
+	 class HelperImageViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0){
+			 
+		 }
+	 }
 }
