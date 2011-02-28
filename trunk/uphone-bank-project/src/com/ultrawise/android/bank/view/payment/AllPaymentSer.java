@@ -102,7 +102,7 @@ public class AllPaymentSer extends Activity {
 			if (ser_name.equals("QQ")) {
 				AccTypAdapter.add("腾讯QQ");
 
-			} else if (ser_name == "网易帐") {
+			} else  {
 				AccTypAdapter.add("网易");
 
 			}
