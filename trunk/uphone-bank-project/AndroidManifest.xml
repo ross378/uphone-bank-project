@@ -82,11 +82,9 @@
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
 		</activity>
->>>>>>> .r369
+
 		<activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
-<<<<<<< .mine
-		  	android:theme="@android:style/Theme.Dialog"
-		  >
+		  	android:theme="@android:style/Theme.Dialog">
         </activity>
          <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
          	android:theme="@android:style/Theme.Dialog"
@@ -125,10 +123,7 @@
             
             <activity android:name="com.ultrawise.android.bank.view.credit.CreditEnabledDateActivity"
             	android:theme="@android:style/Theme.Dialog"
-            />
-            
-=======
-			android:theme="@android:style/Theme.Dialog">
+            >
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
 			android:theme="@android:style/Theme.Dialog">
@@ -175,7 +170,6 @@
 			android:name="com.ultrawise.android.bank.view.credit.CreditEnabledDateActivity"
 			android:theme="@android:style/Theme.Dialog" />
 
->>>>>>> .r369
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
