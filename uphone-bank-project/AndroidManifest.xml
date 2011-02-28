@@ -3,218 +3,237 @@
 	package="com.ultrawise.android.bank.view.transfer" android:versionCode="1"
 	android:versionName="1.0">
 	<application android:icon="@drawable/icon" android:label="@string/app_title">
-		
-				<!-- 信用卡 -->
+
+		<!-- 信用卡 -->
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
-			
-			<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter> 
-			
-        </activity>
+
+
+
+		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditView">
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
-       
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
-        </activity>
-    	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-    	 
-    	 
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.UserLogin">
-		
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
-        
-       
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.CancelTheCard">
-        	
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.CancelCardQR">
-        </activity>
-        <activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
-        </activity>
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
+
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.UserLogin">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
+
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CancelTheCard">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CancelCardQR">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
+		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
-		  	android:theme="@android:style/Theme.Dialog"
-		  >
-        </activity>
-         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
-         	android:theme="@android:style/Theme.Dialog"
-         >
-         
-        </activity>
-          <activity android:name="com.ultrawise.android.bank.view.credit.CancelCardDialog"
-          	android:theme="@android:style/Theme.Dialog"
-          >
-        </activity>
-         <activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBindDialog"
-          	android:theme="@android:style/Theme.Dialog"
-          >
-        </activity>
-         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPay">
-         	 
-        </activity>
-         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayAct">
-         
-        </activity>
-         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperation"/>
-         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperationDetail">
-         	
-         </activity>
-         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperationDialog"
-        	android:theme="@android:style/Theme.Dialog"
-         >
-         </activity>
-         <!-- 存款利率 -->
-          <activity android:name="com.ultrawise.android.bank.view.DepositeRates">
-               
-          </activity>
-         <activity android:name="com.ultrawise.android.bank.view.OtherDepositeRates">
-         
-          </activity>
-           <activity android:name="com.ultrawise.android.bank.view.SelfCompanyDepositeRates"/>
-           <activity android:name="com.ultrawise.android.bank.view.DingQiDepositeRatesDetail"/>
-           <activity android:name="com.ultrawise.android.bank.view.LoanRates"/>
-            <activity android:name="com.ultrawise.android.bank.view.ExchangeRates">
-            
-            </activity>
-            <activity android:name="com.ultrawise.android.bank.view.ExchangeRatesDialog"
-            android:theme="@android:style/Theme.Dialog"
-            />
-            <activity android:name="com.ultrawise.android.bank.view.credit.CreditEnabledDateActivity"
-            	android:theme="@android:style/Theme.Dialog"
-            />
-            
+			android:theme="@android:style/Theme.Dialog">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
+			android:theme="@android:style/Theme.Dialog">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CancelCardDialog"
+			android:theme="@android:style/Theme.Dialog">
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.credit.CreditCardBindDialog"
+			android:theme="@android:style/Theme.Dialog">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.SelfPay">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.SelfPayAct">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperation" />
+		<activity
+			android:name="com.ultrawise.android.bank.view.credit.SelfPayOperationDetail">
+
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.credit.SelfPayOperationDialog"
+			android:theme="@android:style/Theme.Dialog">
+		</activity>
+		<!-- 存款利率 -->
+		<activity android:name="com.ultrawise.android.bank.view.DepositeRates">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.OtherDepositeRates">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.SelfCompanyDepositeRates" />
+		<activity android:name="com.ultrawise.android.bank.view.DingQiDepositeRatesDetail" />
+		<activity android:name="com.ultrawise.android.bank.view.LoanRates" />
+		<activity android:name="com.ultrawise.android.bank.view.ExchangeRates">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.ExchangeRatesDialog"
+			android:theme="@android:style/Theme.Dialog" />
+		<activity
+			android:name="com.ultrawise.android.bank.view.credit.CreditEnabledDateActivity"
+			android:theme="@android:style/Theme.Dialog" />
+
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-			
+
 		</activity>
 		<activity android:name=".TransAccSelect" android:label="@string/app_title">
-		
+
 		</activity>
 		<activity android:name=".TransAccActive" android:label="@string/app_title">
-		
+
 		</activity>
 		<activity android:name=".TransAccInput" android:label="@string/app_title">
-		
+
 		</activity>
 		<activity android:name=".TransAccPsdSucc" android:label="@string/app_title">
 
 		</activity>
 		<activity android:name=".TransAmtInput" android:label="@string/app_title">
-		
-		</activity>
-		<activity android:name=".TransAmtConfirm" android:label="@string/app_title">
-		
-		</activity>
-		<activity android:name=".TransSuccDialog" android:label="@string/app_title"
-		android:theme="@android:style/Theme.Dialog">
-			
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferMain" android:label="@string/app_title">
-		
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferActivity" android:label="@string/app_title">
-		
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferAccActivity" android:label="@string/app_title">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.transfer.TransPhConfirm" android:label="@string/app_title">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.transfer.TransAccConfirm" android:label="@string/app_title">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.transfer.TransResult" android:label="@string/app_title"
-			android:theme="@android:style/Theme.Dialog">
-		</activity>
-		<!-- end activity -->
-		
-		<!-- 缴费 -->
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentMain" android:label="@string/app_title">
 
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService" android:label="@string/app_title">
+		<activity android:name=".TransAmtConfirm" android:label="@string/app_title">
+
 		</activity>
-		
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelectAccountType" android:label="@string/app_title">
-		</activity>
-		
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelectAccount" android:label="@string/app_title">
-		</activity>
-		
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManage" android:label="@string/app_title">
-		
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.AllPaymentSer" android:label="@string/app_title">
-		
-		</activity>
-		
-			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
-		
-		</activity>
-		
-		
-		<!-- 错误信息两个按钮 -->
-		
-			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo" 
-			android:label="@string/fail_inmation"
+		<activity android:name=".TransSuccDialog" android:label="@string/app_title"
 			android:theme="@android:style/Theme.Dialog">
-		
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferMain"
+			android:label="@string/app_title">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferActivity"
+			android:label="@string/app_title">
+
+		</activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.transfer.TransferAccActivity"
+			android:label="@string/app_title">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransPhConfirm"
+			android:label="@string/app_title">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransAccConfirm"
+			android:label="@string/app_title">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.transfer.TransResult"
+			android:label="@string/app_title" android:theme="@android:style/Theme.Dialog">
+		</activity>
+		<!-- end activity -->
+
+		<!-- 缴费 -->
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentMain"
+			android:label="@string/app_title">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSelfService"
+			android:label="@string/app_title">
+		</activity>
+
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentSelectAccountType"
+			android:label="@string/app_title">
+		</activity>
+
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentSelectAccount"
+			android:label="@string/app_title">
+		</activity>
+
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManage"
+			android:label="@string/app_title">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.AllPaymentSer"
+			android:label="@string/app_title">
+
+		</activity>
+
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend"
+			android:label="@string/app_title">
+
+		</activity>
+
+
+		<!-- 错误信息两个按钮 -->
+
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo"
+			android:label="@string/fail_inmation" android:theme="@android:style/Theme.Dialog">
+
 		</activity>
 		<!-- 错误信息一个按钮 -->
-			<activity android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultOne" 
-			android:label="@string/fail_inmation"
-			android:theme="@android:style/Theme.Dialog"		
-			>
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultOne"
+			android:label="@string/fail_inmation" android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<!-- 成功一个按钮 -->
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult"
-		android:label="@string/success_inmation"
-				android:theme="@android:style/Theme.Dialog">
+			android:label="@string/success_inmation" android:theme="@android:style/Theme.Dialog">
 		</activity>
-		
-		
-		
-		
-		
-		
-		
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentInPwd" android:label="@string/app_title">
-		 
+
+
+
+
+
+
+
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentInPwd"
+			android:label="@string/app_title">
+
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentLastMonth" android:label="@string/app_title">
-		
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentLastMonth"
+			android:label="@string/app_title">
+
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHistory" android:label="@string/app_title">
-		
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHistory"
+			android:label="@string/app_title">
+
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDefAcc" android:label="@string/app_title">
-		
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDefAcc"
+			android:label="@string/app_title">
+
 		</activity>
-		
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend" android:label="@string/app_title">
+
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend"
+			android:label="@string/app_title">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDetail" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDetail"
+			android:label="@string/app_title">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHisDetail" android:label="@string/app_title">
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentHisDetail"
+			android:label="@string/app_title">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentManageDetail" android:label="@string/app_title">
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentManageDetail"
+			android:label="@string/app_title">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentDftAccResult" android:label="@string/app_title"
-				android:theme="@android:style/Theme.Dialog">
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentDftAccResult"
+			android:label="@string/app_title" android:theme="@android:style/Theme.Dialog">
 		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSetTimeDialog" 
-				android:theme="@android:style/Theme.Dialog">
+		<activity
+			android:name="com.ultrawise.android.bank.view.payment.PaymentSetTimeDialog"
+			android:theme="@android:style/Theme.Dialog">
 
 		</activity>
 		<!-- end activity -->
-		
+
 		<!-- kjsolo's activity -->
 		<activity android:label="@string/phone_bank"
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagement">
@@ -261,6 +280,10 @@
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
@@ -288,38 +311,46 @@
 			android:name="com.ultrawise.android.bank.view.account_management.AccountDelInfo"></activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountDelInfo2"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_management.AccountNickName"></activity>
 		<!-- end activity -->
-			
-		<!--guo    peng  -->
-		
+
+		<!--guo peng -->
+
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
 		</activity>
-		
+
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.AccountManagementList">
 		</activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_management.ActiveAccountSelect"></activity>
-	<!-- end activity -->
-	<!--guo    peng  -->
+		<!-- end activity -->
+		<!--guo peng -->
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery">
 		</activity>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.inventory" />
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
 		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQuery"></activity>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.inventory"/>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"
-       android:theme="@android:style/Theme.Dialog"></activity>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.Query_Settime"
-       android:theme="@android:style/Theme.Dialog"></activity>
-       <activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryResult"/>
-		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
-		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryDetail"></activity>
-		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryEinnahme"></activity>
-		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountQueryBalance"></activity>
-       
-       
-</application>
+		<activity android:name="com.ultrawise.android.bank.view.account_query.inventory" />
+		<activity android:name="com.ultrawise.android.bank.view.account_query.AccountFrom"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.AccountFrom_selection"
+			android:theme="@android:style/Theme.Dialog"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.Query_Settime"
+			android:theme="@android:style/Theme.Dialog"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryResult" />
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryDetail"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryEinnahme"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryBalance"></activity>
+
+	</application>
 	<uses-sdk android:minSdkVersion="7" />
 </manifest> 
