@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.payment;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -47,6 +48,16 @@ public class PaymentHistory extends Activity {
 				PaymentHistory.this.startActivity(set_end_time);
 			}
 		});
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         Intent intent = this.getIntent();
         if(intent.hasExtra("start")){
