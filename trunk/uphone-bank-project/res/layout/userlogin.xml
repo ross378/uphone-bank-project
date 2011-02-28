@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 用户登陆Activity 布局 -->
-<LinearLayout
+<RelativeLayout
 android:id="@+id/userLoginLayout"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
@@ -8,24 +8,100 @@ android:background="@drawable/bg"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
 
+<include layout = "@layout/phone_above"/>
+
 <!-- 登录表 -->
 <TableLayout
 	android:layout_width = "440px"
 	android:layout_height = "360px"
 	android:layout_marginTop = "20px"
-	android:background = "#ffffff">
-	<TableRow
-		android:layout_width = "fill_parent"
-		android:layout_height = "wrap_content">
+	android:layout_below = "@id/phoneBankHome"
+	android:background = "@drawable/user_log">
+	<TableLayout>
+		<TableRow>
+			<TextView
+				android:layout_width = "440px"
+				android:layout_height = "75px"
+				android:text = "手机用户登录"
+				android:textSize = "32px"
+				android:textColor = "#ffffff"
+				android:gravity = "center"></TextView>
+		</TableRow>
+	</TableLayout>
+	<TableRow>
+		<TableLayout		
+			android:layout_marginLeft = "30px">
+			<TableRow
+				android:gravity = "center">
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "75px"
+					android:textSize = "24px"
+					android:textColor = "#000000"
+					android:text = "用户名： "
+					android:gravity = "center_vertical"></TextView>
+				<EditText
+					android:layout_width = "280px"
+					android:layout_height = "50px"></EditText>
+			</TableRow>
+			<TableRow
+				android:gravity = "center">
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "72px"
+					android:textSize = "24px"
+					android:textColor = "#000000"
+					android:text = "密码：  "					
+					android:gravity = "center_vertical"></TextView>
+				<EditText
+					android:layout_width = "280px"
+					android:layout_height = "50px"></EditText>
+			</TableRow>
+		</TableLayout>
 	</TableRow>
 	<TableRow>
-		<TableLayout
-			android:layout_width = "fill_parent"
-			android:layout_height = "wrap_content">
-			
+		<TableLayout>
+			<TableRow>
+				<TextView
+					android:layout_width = "wrap_content"
+					android:layout_height = "72px"
+					android:textSize = "24px"
+					android:textColor = "#000000"
+					android:text = "附加码：   "	
+					android:layout_marginLeft = "30px"				
+					android:gravity = "center_vertical"></TextView>
+				<EditText
+					android:layout_width = "120px"
+					android:layout_height = "50px"></EditText>			
+				<ImageView
+					android:layout_width = "120px"
+					android:layout_height = "50px"
+					android:layout_marginLeft = "40px"></ImageView>
+			</TableRow>
+		</TableLayout>
+	</TableRow>
+	<TableRow>
+		<TableLayout>
+			<CheckBox
+				android:layout_width = "440px"
+				android:layout_height = "72px"
+				android:text = "记下登录名"
+				android:checked = "true"
+				android:gravity = "center"></CheckBox>
 		</TableLayout>
 	</TableRow>
 </TableLayout>
+<Button
+android:layout_width="170px"
+android:layout_height="60px"
+android:textColor = "#ffffff"
+android:textSize = "32px"
+android:layout_marginTop = "20px"
+android:background = "@drawable/log_button"
+android:text="登录"
+android:layout_above = "@id/bottomLayout"
+/>
 
-</LinearLayout>
+<include layout = "@layout/main_bank_bottom"/>
+</RelativeLayout>
 
