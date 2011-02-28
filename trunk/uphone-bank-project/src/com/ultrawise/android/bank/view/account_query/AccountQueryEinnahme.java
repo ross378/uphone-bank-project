@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
 import com.ultrawise.android.bank.view.payment.PaymentHistory;
 import com.ultrawise.android.bank.view.payment.PaymentLastMonth;
@@ -40,6 +41,13 @@ public class AccountQueryEinnahme extends ListActivity {
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
+		tvClassFirst.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				 Intent intent = new Intent();
+				 intent.setClass(AccountQueryEinnahme.this, ABankMain.class);
+				 AccountQueryEinnahme.this.startActivity(intent);
+			}
+		});
 		
 		//返回键设定
         ImageView btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
@@ -53,13 +61,13 @@ public class AccountQueryEinnahme extends ListActivity {
 	   
 		    TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
 	        tvClassSecond.setText("账户查询");
-//	        tvClassSecond.setOnClickListener(new OnClickListener() {
-//				public void onClick(View v) {
-//					// intent = QueryAccount.this.getIntent();
-//					// intent.setClass(QueryAccount.this, AccountManagement.class);
-//					// QueryAccount.this.startActivity(intent);
-//				}
-//			});
+	        tvClassSecond.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					 intent = AccountQueryEinnahme.this.getIntent();
+					 intent.setClass(AccountQueryEinnahme.this, AccountQuery.class);
+					 AccountQueryEinnahme.this.startActivity(intent);
+				}
+			});
 	        tvClassSecond.setVisibility(View.VISIBLE);
 		
 		    acc1=(TextView)findViewById(R.id.acc1);

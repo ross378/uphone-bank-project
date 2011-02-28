@@ -28,8 +28,7 @@
 		android:id="@+id/acc1"
 		android:singleLine="false"
 		android:textColor="#ff000000"
-		android:textSize="18dip"
-		/>
+		android:textSize="18dip"/>
 		<TextView 
 		android:id="@+id/acc2"
 		android:textColor="#ff000000"

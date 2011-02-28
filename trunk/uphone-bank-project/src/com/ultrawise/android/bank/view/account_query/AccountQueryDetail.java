@@ -64,6 +64,14 @@ public class AccountQueryDetail extends ListActivity {
         TextView  tvClassFirst1 = (TextView) this.findViewById(R.id.class_third);
 		tvClassFirst1.setText("明细查询>");
 		tvClassFirst1.setVisibility(View.VISIBLE);
+		tvClassFirst1.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 intent.setClass(AccountQueryDetail.this, inventory.class);
+				 startActivity(intent);
+			}
+		});
 		
 		//返回键设定
         ImageView btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
