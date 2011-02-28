@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.account_management.AccountInfo;
 import com.ultrawise.android.bank.view.account_management.QueryAccount;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -24,11 +26,22 @@ public class CreditView extends ListActivity  {
 		Intent intent;
 		ImageView btnCoustom;
 		ImageView btnMain;
+		ImageView btnReturn;
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);  
 	        
 	        setContentView(R.layout.credit);  
+	        
+	     // 返回键设定
+			btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+			btnReturn.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					onBackPressed();
+					finish();
+				}
+			});
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         iv_now.setVisibility(View.GONE);
 	    	intent = new Intent();
@@ -47,38 +60,38 @@ public class CreditView extends ListActivity  {
 	        HashMap<String,Object> map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","帐户信息");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","交易明细查看");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","帐户来帐查看");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","开卡");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","销卡");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","信用卡绑定");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","信用卡还款");
-	        map.put("creditimg2", R.drawable.righticon);
+	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1","");
@@ -103,8 +116,8 @@ public class CreditView extends ListActivity  {
 
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					intent.setClass(CreditView.this, ABankMain.class);
-					CreditView.this.startActivity(intent);
+					intent = CreditView.this.getIntent();
+					intent.setClass(CreditView.this, FinancialConsultation.class);
 				}
 			});
 		}
