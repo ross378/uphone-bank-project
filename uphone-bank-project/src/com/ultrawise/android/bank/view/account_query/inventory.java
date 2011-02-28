@@ -5,6 +5,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,12 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class inventory extends Activity{
 
 	Intent intent = new Intent();
+	Button timeStart,timeOver;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -55,30 +59,56 @@ public class inventory extends Activity{
 				finish();
 			}
 		});
-		Button timeStart = (Button)findViewById(R.id.timechange_from);
+		timeStart = (Button)findViewById(R.id.timechange_from);
 		timeStart.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub;
 
 				LayoutInflater inflater = getLayoutInflater();
-				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
+				final DatePicker layout = (DatePicker) inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
 				   AlertDialog.Builder builder = new Builder(inventory.this);			   
-				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
+				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", new DialogInterface.OnClickListener(){
+
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						String sql=null;
+						int year = layout.getYear();
+						int month = layout.getMonth();
+						int day = layout.getDayOfMonth();
+
+                        sql=String.valueOf(year)+String.valueOf(month+1)+String.valueOf(day);
+                        timeStart.setText(sql);
+					}
+					   
+				   })
 				   .setNegativeButton("取消", null)
 				   .show();
 			}
 		});
-		Button timeOver = (Button)findViewById(R.id.timechange_to);
+		timeOver = (Button)findViewById(R.id.timechange_to);
 		timeOver.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub		
 		        
 				LayoutInflater inflater = getLayoutInflater();
-				View layout = inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
+				final DatePicker layout = (DatePicker) inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
 				   AlertDialog.Builder builder = new Builder(inventory.this);			   
-				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", null)
+				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", new DialogInterface.OnClickListener(){
+
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						String sql=null;
+						int year = layout.getYear();
+						int month = layout.getMonth();
+						int day = layout.getDayOfMonth();
+
+                        sql=String.valueOf(year)+String.valueOf(month+1)+String.valueOf(day);
+                        timeOver.setText(sql);
+					}
+					   
+				   })
 				   .setNegativeButton("取消", null)
 				   .show();
 			}
