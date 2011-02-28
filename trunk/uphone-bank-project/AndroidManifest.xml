@@ -5,13 +5,57 @@
 	<application android:icon="@drawable/icon" android:label="@string/app_title">
 
 		<!-- 信用卡 -->
+
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
 
-
+		<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> 
+		 </activity>
+		<activity android:name="com.ultrawise.android.bank.view.UserLogin">
+		
+        </activity>	
+		<!-- 存款利率 -->
+          <activity android:name="com.ultrawise.android.bank.view.DepositeRates">
+               
+          </activity>	
+          <activity android:name="com.ultrawise.android.bank.view.ExchangeRates">
+            
+            </activity>
+            <activity android:name="com.ultrawise.android.bank.view.ExchangeRatesDialog"
+            android:theme="@android:style/Theme.Dialog"
+            >	
 
 		</activity>
+
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditView">
-		</activity>
+
+        </activity>
+        <activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
+       
+        </activity>
+        <activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
+        </activity>
+        <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
+        </activity>
+    	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
+    	 
+    	 
+        </activity>
+        
+        <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
+        
+       
+        </activity>
+        <activity android:name="com.ultrawise.android.bank.view.credit.CancelTheCard">
+        	
+        </activity>
+        <activity android:name="com.ultrawise.android.bank.view.credit.CancelCardQR">
+        </activity>
+        <activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
+        </activity>
+
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
 
 		</activity>
@@ -38,7 +82,52 @@
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
 		</activity>
+>>>>>>> .r369
 		<activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
+<<<<<<< .mine
+		  	android:theme="@android:style/Theme.Dialog"
+		  >
+        </activity>
+         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
+         	android:theme="@android:style/Theme.Dialog"
+         >
+         
+        </activity>
+          <activity android:name="com.ultrawise.android.bank.view.credit.CancelCardDialog"
+          	android:theme="@android:style/Theme.Dialog"
+          >
+        </activity>
+         <activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBindDialog"
+          	android:theme="@android:style/Theme.Dialog"
+          >
+        </activity>
+         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPay">
+         	 
+        </activity>
+         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayAct">
+         
+        </activity>
+         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperation"/>
+         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperationDetail">
+         	
+         </activity>
+         <activity android:name="com.ultrawise.android.bank.view.credit.SelfPayOperationDialog"
+        	android:theme="@android:style/Theme.Dialog"
+         >
+         </activity>
+         
+         <activity android:name="com.ultrawise.android.bank.view.OtherDepositeRates">
+         
+          </activity>
+           <activity android:name="com.ultrawise.android.bank.view.SelfCompanyDepositeRates"/>
+           <activity android:name="com.ultrawise.android.bank.view.DingQiDepositeRatesDetail"/>
+           <activity android:name="com.ultrawise.android.bank.view.LoanRates"/>
+            
+            <activity android:name="com.ultrawise.android.bank.view.credit.CreditEnabledDateActivity"
+            	android:theme="@android:style/Theme.Dialog"
+            />
+            
+=======
 			android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCardDialog"
@@ -86,6 +175,7 @@
 			android:name="com.ultrawise.android.bank.view.credit.CreditEnabledDateActivity"
 			android:theme="@android:style/Theme.Dialog" />
 
+>>>>>>> .r369
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
