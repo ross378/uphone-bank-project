@@ -16,7 +16,7 @@
     	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:background="#cccccc"
 	/>
 <TextView
 	android:id="@+id/tv_paymentdl_info"
@@ -29,7 +29,7 @@
 	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:background="#ffffffff"
+	android:background="#cccccc"
 	/>
 <LinearLayout 
 android:layout_width="wrap_content"
@@ -39,6 +39,7 @@ android:layout_width="wrap_content"
 <Button
 	android:id="@+id/btn_paymentdl_cancle"
 	android:text="取消缴费"
+	android:layout_marginTop="10dip" 
 	android:textSize="16sp"
 	android:layout_width="100dip"
 	android:layout_height="40dip"
@@ -47,6 +48,7 @@ android:layout_width="wrap_content"
 	<Button
 	android:id="@+id/btn_paymentdl_again"
 	android:text="重选账户"
+	android:layout_marginTop="10dip" 
 	android:textSize="16sp"
 	android:layout_width="100dip"
 	android:layout_height="40dip"
