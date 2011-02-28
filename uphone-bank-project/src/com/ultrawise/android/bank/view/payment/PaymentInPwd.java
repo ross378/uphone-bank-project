@@ -92,7 +92,39 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
 //        iv_now.setVisibility(View.VISIBLE);
-	//最顶端返回按钮的监听 
+        //返回键设定
+        ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
+        btnReturn.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
+			
+		});
+		
+		//底部两个按钮
+        ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
+        btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(PaymentInPwd.this, ABankMain.class);
+				PaymentInPwd.this.startActivity(intent);
+			}
+		});
+		
+        ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+        btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent	intent = new Intent();
+				intent.setClass(PaymentInPwd.this, FinancialConsultation.class);
+				PaymentInPwd.this.startActivity(intent);
+			}
+		});
         
         //确认缴费按钮的监听
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
