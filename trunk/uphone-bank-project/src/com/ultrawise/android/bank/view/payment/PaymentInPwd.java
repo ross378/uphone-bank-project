@@ -54,16 +54,8 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
 		
 		
 		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
-		tvClassThird.setText("待缴费项目");
-		tvClassThird.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-//				Intent payment_intent = new Intent();
-//				payment_intent.setClass(PaymentInPwd.this, PaymentPend.class);
-//				PaymentInPwd.this.startActivity(payment_intent);	
-				
-			}
-		});
+		tvClassThird.setText("密码输入");
+		tvClassThird.setVisibility(View.VISIBLE);
 		
 		TextView tv_select_acc = (TextView)findViewById(R.id.select_acc);
         TextView tv_pay_num = (TextView)findViewById(R.id.pay_num);

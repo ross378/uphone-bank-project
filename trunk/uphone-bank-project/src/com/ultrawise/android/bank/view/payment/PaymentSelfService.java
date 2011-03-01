@@ -133,8 +133,8 @@ public class PaymentSelfService extends ListActivity {
  
         
         
-        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{
-        		"payment_list","listimg2"},new int[]{R.id.payment_list,R.id.listimg2 } );
+        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[]{
+        		"payment_list","listimg2"},new int[]{R.id.payment_11,R.id.listimg33} );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
