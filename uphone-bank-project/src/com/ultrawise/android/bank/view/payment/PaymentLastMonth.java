@@ -78,7 +78,7 @@ public class PaymentLastMonth extends ListActivity {
         }
 		
         TextView titel = (TextView)findViewById(R.id.paymenthistory);
-        titel.setText("从"+start_time+"到"+end_time+"的历史缴费记录如下：");
+        titel.setText("从"+start_time+"到"+end_time+"的历史缴费记录：");
         titel.setVisibility(View.VISIBLE);
         
         
@@ -86,7 +86,7 @@ public class PaymentLastMonth extends ListActivity {
         
         HashMap<String,Object> paylist1 = new HashMap<String,Object>();
        
-         
+       
         paylist1.put("payment_list","2011/2/1");
         paylist1.put("payment_list2","房租");
         paylist1.put("listimg2", R.drawable.trans_main2);
@@ -168,6 +168,13 @@ public class PaymentLastMonth extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
+			JSONArray json = Login("72:Test");
+			try {
+				System.out.println(json.get(0));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Intent payment_intent = new Intent();
 			payment_intent.putExtra("title", "房租");
 			payment_intent.putExtra("amount", "300元");
@@ -219,7 +226,7 @@ public class PaymentLastMonth extends ListActivity {
 		// Get the public interface's value by path
 		// It's look like http://localhost:8080/hello/login/solo/123
 		
-		requestParameters = "/payment/ShowHistoryDetail0074/"+msg;
+		requestParameters = "/payment/historydetail/"+msg+"/";
 		HttpGet httpget = new HttpGet(serviceAddress + requestParameters);
 		
 		HttpClient httpclient = new DefaultHttpClient();
@@ -231,7 +238,7 @@ public class PaymentLastMonth extends ListActivity {
 			// Just log,don't focus on it
 			Log.i("REST:Response Status line", response.getStatusLine()
 					.toString());
-
+			
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
 				InputStream instream = entity.getContent();
