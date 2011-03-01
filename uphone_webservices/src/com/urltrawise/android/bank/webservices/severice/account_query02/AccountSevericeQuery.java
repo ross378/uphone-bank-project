@@ -21,8 +21,8 @@ public class AccountSevericeQuery {
 		JSONObject jsonObj = new JSONObject();
 		try {
 			//jsonObj.put("welcome", AccountQueryManager.getInstance().getAccountQueryById(account));	
-			jsonObj.put("welcome","yyyy");
-			jsonObj.put("password", "yyyyyyyy");
+			jsonObj.put("welcome","用户名");
+			jsonObj.put("password", "我yyyy");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
