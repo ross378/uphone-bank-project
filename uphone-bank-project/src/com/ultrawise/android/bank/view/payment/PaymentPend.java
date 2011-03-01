@@ -147,8 +147,8 @@ public class PaymentPend extends ListActivity {
         
         
         
-        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{
-        		"payment_list","payment_list2","listimg2"},new int[]{R.id.payment_list,R.id.payment_list2,R.id.listimg2 } );
+        SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[]{
+        		"payment_list","payment_list2","listimg2"},new int[]{R.id.payment_11,R.id.payment_22,R.id.listimg33} );
         this.setListAdapter(MainListAdapter);
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
