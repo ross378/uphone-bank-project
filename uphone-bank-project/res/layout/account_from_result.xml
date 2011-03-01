@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/accountque"
+    >
+<include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
+<include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
+		<TextView 
+		android:id="@+id/accountfrom_text"
+		android:singleLine="false"
+		android:textColor="#ff000000"
+		android:textSize="18dip"/>
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:layout_below="@id/paymentabove"
+	android:layout_above="@id/paymentbelow"
+	>
+<ListView
+	android:id="@+id/fromlist_01" 
+	android:divider="#cccccc" 
+    android:dividerHeight="2px"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
+   </LinearLayout>
+</RelativeLayout>
