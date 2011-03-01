@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="fill_parent"
 	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-	<TextView android:id="@+id/accInfo_tvName" android:textColor="#ff000000"
-		android:textSize="18dip" android:layout_centerVertical="true"
+	<TextView android:id="@+id/accInfo_tvName" android:textColor="#253e81"
+		android:textSize="16dip" android:layout_centerVertical="true"
 		android:layout_marginTop="10dip" android:layout_marginBottom="10dip"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_marginLeft="21dip">
 	</TextView>
 	<TextView android:id="@+id/accInfo_tvInfo" android:textColor="#ff000000"
-		android:textSize="18dip" android:layout_centerVertical="true"
+		android:textSize="16dip" android:layout_centerVertical="true"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_marginLeft="130dip" android:layout_marginTop="10dip"
 		android:layout_marginBottom="10dip">
