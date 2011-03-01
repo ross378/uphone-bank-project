@@ -119,6 +119,6 @@ public class AccountQueryDetail extends ListActivity {
 	        this.setListAdapter(MainListAdapter);
 	        
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-	        iv_now.setVisibility(View.VISIBLE);
+	        //iv_now.setVisibility(View.VISIBLE);
 	}
 }

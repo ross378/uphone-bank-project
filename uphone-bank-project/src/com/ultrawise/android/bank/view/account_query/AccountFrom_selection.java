@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 
-public class Query_Settime extends Activity{
+public class AccountFrom_selection extends Activity{
 	String[] time=new String[3];
 	Button time_ok = null;
 	Button time_cancel = null;
@@ -22,7 +22,6 @@ public class Query_Settime extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.payment_settime);
-		this.setTitle("");
 		intent = this.getIntent();
 		if(intent.hasExtra("start")){
 			name = intent.getStringExtra("start");
@@ -43,9 +42,9 @@ public class Query_Settime extends Activity{
 				time[1]=String.valueOf(month+1);
 				time[2]=String.valueOf(day);
 				Intent intent = new Intent();
-				intent.putExtra(Query_Settime.this.name, time);
-				intent.setClass(Query_Settime.this, AccountFrom.class);
-				Query_Settime.this.startActivity(intent);
+				intent.putExtra(AccountFrom_selection.this.name, time);
+				intent.setClass(AccountFrom_selection.this, AccountFrom.class);
+				AccountFrom_selection.this.startActivity(intent);
 			}
 		});
 		time_cancel = (Button)findViewById(R.id.time_cancel);
@@ -53,8 +52,8 @@ public class Query_Settime extends Activity{
 			
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.setClass(Query_Settime.this, AccountFrom.class);
-				Query_Settime.this.startActivity(intent);
+				intent.setClass(AccountFrom_selection.this, AccountFrom.class);
+				AccountFrom_selection.this.startActivity(intent);
 			}
 		});
 	}

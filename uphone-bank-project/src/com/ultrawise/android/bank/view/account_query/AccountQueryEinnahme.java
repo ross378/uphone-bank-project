@@ -16,6 +16,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
 import com.ultrawise.android.bank.view.payment.PaymentHistory;
 import com.ultrawise.android.bank.view.payment.PaymentLastMonth;
@@ -102,7 +103,31 @@ public class AccountQueryEinnahme extends ListActivity {
 	        this.setListAdapter(MainListAdapter);
 	        
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-	        iv_now.setVisibility(View.VISIBLE);
+	        //iv_now.setVisibility(View.VISIBLE);
+	        
+	        //设置底部按钮
+	        ImageView	btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
+			btnCoustom.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent=new Intent();
+					intent.setClass(AccountQueryEinnahme.this, ABankMain.class);
+					AccountQueryEinnahme.this.startActivity(intent);
+					finish();
+				}
+			});
+			//btnCoustom.setVisibility(View.VISIBLE);
+			
+			ImageView btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+			btnMain.setOnClickListener(new OnClickListener() {
+
+				public void onClick(View v) {
+					Intent intent=new Intent();
+					intent.setClass(AccountQueryEinnahme.this,  FinancialConsultation.class);
+					AccountQueryEinnahme.this.startActivity(intent);
+					finish();
+				}
+			});
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {

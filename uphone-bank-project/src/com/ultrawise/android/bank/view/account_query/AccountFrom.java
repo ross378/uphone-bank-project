@@ -25,6 +25,8 @@ public class AccountFrom extends Activity{
 	Intent intent = new Intent();
 	Button timeStart;
 	Button timeOver;
+	static String start_time = "开始时间";
+	static String end_time = "结束时间";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -45,7 +47,7 @@ public class AccountFrom extends Activity{
         tvClassFirst.setVisibility(View.VISIBLE);
 
 		TextView tvClassSecond = (TextView) this.findViewById(R.id.class_second);
-		tvClassSecond.setText("账户查询");
+		tvClassSecond.setText("账户查询>");
 		tvClassSecond.setVisibility(View.VISIBLE);
         tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -54,6 +56,9 @@ public class AccountFrom extends Activity{
 			}
 		});
         tvClassSecond.setVisibility(View.VISIBLE);
+		TextView tvClassSecond1 = (TextView) this.findViewById(R.id.class_third);
+		tvClassSecond1.setText("来帐查询");
+		tvClassSecond1.setVisibility(View.VISIBLE);
 		
 		//设定返回按钮
 		ImageView btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
@@ -71,26 +76,11 @@ public class AccountFrom extends Activity{
 				// TODO Auto-generated method stub;
 //				intent.setClass(AccountFrom.this, Query_Settime.class);
 //				startActivity(intent);
-				
-				LayoutInflater inflater = getLayoutInflater();
-				final DatePicker layout = (DatePicker) inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
-				   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
-				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", new DialogInterface.OnClickListener(){
-
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						String sql=null;
-						int year = layout.getYear();
-						int month = layout.getMonth();
-						int day = layout.getDayOfMonth();
-
-                        sql=String.valueOf(year)+String.valueOf(month+1)+String.valueOf(day);
-                        timeStart.setText(sql);
-					}
+				Intent intent = new Intent();
+				intent.setClass(AccountFrom.this, AccountFrom_selection.class);
+				intent.putExtra("start", "start");
+				AccountFrom.this.startActivity(intent);
 					   
-				   })
-				   .setNegativeButton("取消", null)
-				   .show();
 			
 			}
 			});
@@ -100,25 +90,10 @@ public class AccountFrom extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub		
 		        
-				LayoutInflater inflater = getLayoutInflater();
-				final DatePicker layout = (DatePicker) inflater.inflate(R.layout.timechanger,(ViewGroup) findViewById(R.id.timechanger));
-				   AlertDialog.Builder builder = new Builder(AccountFrom.this);			   
-				   builder.setTitle("设置时间").setView(layout).setNeutralButton("完成", new DialogInterface.OnClickListener(){
-
-					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						String sql=null;
-						int year = layout.getYear();
-						int month = layout.getMonth();
-						int day = layout.getDayOfMonth();
-
-                        sql=String.valueOf(year)+String.valueOf(month+1)+String.valueOf(day);
-                        timeOver.setText(sql);
-					}
-					   
-				   })
-				   .setNegativeButton("取消", null)
-				   .show();
+				Intent intent = new Intent();
+				intent.setClass(AccountFrom.this, AccountFrom_selection.class);
+				intent.putExtra("end", "end");
+				AccountFrom.this.startActivity(intent);
 			}
 		});
 		
@@ -131,6 +106,16 @@ public class AccountFrom extends Activity{
 				startActivity(intent);
 			}
 		});
-	
+		Intent intent = this.getIntent();
+        if(intent.hasExtra("start")){
+        	String[] date = intent.getStringArrayExtra("start");
+        	start_time = date[0]+"-"+date[1]+"-"+date[2];
+        }
+        timeStart.setText(start_time);
+        if(intent.hasExtra("end")){
+        	String[] date = intent.getStringArrayExtra("end");
+        	end_time = date[0]+"-"+date[1]+"-"+date[2];
+        }
+        timeOver.setText(end_time);
 	}
 }
