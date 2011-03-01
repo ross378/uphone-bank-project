@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,7 +55,9 @@ public class PaymentHistory extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				onBackPressed();
-				finish();
+				Intent intent = new Intent();
+				intent.setClass(PaymentHistory.this, PaymentMain.class);
+				PaymentHistory.this.startActivity(intent);
 			}
 			
 		});
