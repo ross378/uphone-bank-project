@@ -24,8 +24,7 @@ public class UserLoginDialog extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog);
-        
-       
+     
         TextView tvflag = (TextView)findViewById(R.id.flag);
     	TextView tvshow = (TextView)findViewById(R.id.info);
     	Button btnok = (Button)findViewById(R.id.okBtn);

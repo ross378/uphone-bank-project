@@ -56,7 +56,7 @@ public class ABankMain extends Activity {
         paymentButton=(ImageButton)findViewById(R.id.payment);
         paymentButton.setOnClickListener(new PaymentButtonListener());
         
-        phoneBank = (ImageView)findViewById(R.id.btnCoustom);       
+        phoneBank = (ImageView)findViewById(R.id.btnMain);      
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
         helper = (ImageView)findViewById(R.id.btnHelper);
         helper.setOnClickListener(new HelperImageViewListener());

@@ -61,18 +61,10 @@ public class FinancialConsultation extends Activity {
         loanRateButton.setOnClickListener(new LoanRatekButtonListener());
         //获得外汇汇率按钮，并设置其鼠标单击事件监听器
         exchangeRateButton=(ImageButton)findViewById(R.id.exchangeRate);
-        exchangeRateButton.setOnClickListener(new ExchangeRateButtonListener());
-      
-        //获得存款利率按钮，并设置其鼠标单击事件监听器
-        aBankBottomButton=(ImageView)findViewById(R.id.btnMain);
-        aBankBottomButton.setOnClickListener(new ABankBottomButtonListener());
-        //获得贷款利率按钮，并设置其鼠标单击事件监听器
-        financialHelButton=(ImageView)findViewById(R.id.btnCoustom);
-        financialHelButton.setOnClickListener(new FinancialHelButtonListener());
-        
-        phoneBank = (ImageView)findViewById(R.id.btnMain);       
+        exchangeRateButton.setOnClickListener(new ExchangeRateButtonListener());       
+        phoneBank = (ImageView)findViewById(R.id.buttonBank);       
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
-        helper = (ImageView)findViewById(R.id.btnHelper);
+        helper = (ImageView)findViewById(R.id.buttonHelper);
         helper.setOnClickListener(new HelperImageViewListener());
 	}
 	/*
