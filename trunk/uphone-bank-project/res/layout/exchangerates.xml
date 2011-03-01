@@ -87,7 +87,7 @@ android:textColor="#000000"
 <Spinner
 	android:id="@+id/sourceCurrencySpinner"
 	android:layout_width="360px"
-	android:layout_height="wrap_content"
+	android:layout_height="60px"
 	android:prompt="@string/sourcecurrency"
 	android:layout_marginLeft = "30px"
 />
@@ -134,7 +134,7 @@ android:id="@+id/currencyConCulate"
 android:layout_width="140px"
 android:layout_height="70px"
 android:text="开始计算"
-android:layout_marginLeft = "140px"
+android:layout_marginLeft = "170px"
 android:layout_marginTop = "50px"
 />
 </LinearLayout>
