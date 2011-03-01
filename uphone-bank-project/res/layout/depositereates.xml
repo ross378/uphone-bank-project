@@ -11,7 +11,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 
 <ScrollView
 	android:layout_width="fill_parent"
-	android:layout_height="530px"
+	android:layout_height="580px"
 	android:layout_below = "@id/headLayout"
 	android:layout_above = "@id/bottomLayout"
 	android:layout_marginTop = "20px"
