@@ -72,9 +72,9 @@ public class UserLogin extends Activity {
         //获得密码输入框，并获得输入框中输入的值
         pyramidEditText=(EditText)findViewById(R.id.pyramidEdit);
         
-        phoneBank = (ImageView)findViewById(R.id.buttonBank);
+        phoneBank = (ImageView)findViewById(R.id.btnMain);
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
-        helper = (ImageView)findViewById(R.id.buttonHelper);
+        helper = (ImageView)findViewById(R.id.btnHelper);
         helper.setOnClickListener(new HelperImageViewListener());
        
 	}
