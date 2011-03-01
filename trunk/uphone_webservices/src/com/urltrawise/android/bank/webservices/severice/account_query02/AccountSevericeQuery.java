@@ -20,8 +20,9 @@ public class AccountSevericeQuery {
 			@PathParam("pwd") String pwd) {
 		JSONObject jsonObj = new JSONObject();
 		try {
-			jsonObj.put("welcome", AccountQueryManager.getInstance().getAccountQueryById(account));	
-			jsonObj.put("password", pwd);
+			//jsonObj.put("welcome", AccountQueryManager.getInstance().getAccountQueryById(account));	
+			jsonObj.put("welcome","yyyy");
+			jsonObj.put("password", "yyyyyyyy");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
