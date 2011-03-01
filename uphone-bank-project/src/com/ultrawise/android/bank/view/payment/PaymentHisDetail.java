@@ -41,6 +41,7 @@ public class PaymentHisDetail extends ListActivity {
         paylist1.put("payment_list",tvtime);
         mainlist.add(paylist1);
         
+        paylist1 = new HashMap<String,Object>();
         paylist1.put("listimg1","缴费项目：");
         paylist1.put("payment_list",tvtitle);
         mainlist.add(paylist1);
