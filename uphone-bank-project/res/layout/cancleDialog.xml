@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <TextView
+	android:layout_width="fill_parent"
+	android:layout_height =  "1dip"
+	android:layout_marginLeft = "3px"
+	android:layout_marginTop = "3px"
+	android:background = "#ffffff"></TextView>
+<TextView  
+	android:id="@+id/flag4"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:textSize="18sp"
+    android:paddingLeft="8dip"
+    />
+      <TextView
+	android:layout_width="fill_parent"
+	android:layout_height =  "1dip"
+	android:layout_marginLeft = "3px"
+	android:layout_marginTop = "3px"
+	android:background = "#ffffff"></TextView>
+<TextView
+	android:id="@+id/info4"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="@string/trans_fail"
+	android:layout_gravity="center_horizontal"
+	android:padding="8dip"
+/>
+  <TextView
+	android:layout_width="fill_parent"
+	android:layout_height =  "1dip"
+	android:layout_marginLeft = "3px"
+	android:layout_marginTop = "3px"
+	android:background = "#ffffff"></TextView>
+<Button
+	android:id="@+id/okBtn4"
+	android:text="确定"
+	android:layout_width="80dip"
+	android:layout_height="wrap_content"
+	android:background="#ffffff"
+	android:layout_gravity="center"
+	android:layout_marginBottom="4dip"
+	android:layout_marginTop="10dip"
+	/>
+	</LinearLayout>
