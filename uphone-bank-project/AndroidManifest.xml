@@ -58,6 +58,21 @@
         </activity>
 
 
+<<<<<<< .mine
+		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
+
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CancelTheCard">
+
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CancelCardQR">
+		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
+		</activity>
+
+=======
+>>>>>>> .r437
 		<activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
 			android:theme="@android:style/Theme.Dialog">
 		</activity>
