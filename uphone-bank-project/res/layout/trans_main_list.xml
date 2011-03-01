@@ -21,6 +21,7 @@
 	android:layout_height="wrap_content"
 	android:paddingLeft="6dip"
 	android:paddingTop="6dip"
+	android:textSize="18dip"
 	android:singleLine="true"
 	android:textColor="#FF000000"
     />
@@ -30,6 +31,7 @@
 	android:layout_height="wrap_content"
 	android:paddingTop="6dip"
 	android:singleLine="true"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
     />
 <ImageView

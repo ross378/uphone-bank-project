@@ -24,7 +24,7 @@
 	android:layout_height="wrap_content"
 	android:textColor="#FF000000"
 	android:layout_marginLeft="30dip"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:text="账户："
 	/>
 <TextView
@@ -33,7 +33,7 @@
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="60dip"
 	android:textColor="#FF000000"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:text="123456789012"
 	/>
 </TableRow>
@@ -55,7 +55,7 @@
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30dip"
 	android:textColor="#FF000000"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:text="类型："
 	/>
 <TextView
@@ -64,7 +64,7 @@
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="60dip"
 	android:textColor="#FF000000"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:text="定期储蓄"
 	/>
 </TableRow>
@@ -86,7 +86,7 @@
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30dip"
 	android:textColor="#FF000000"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:text="余额："
 	/>
 <TextView
@@ -95,7 +95,7 @@
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="60dip"
 	android:textColor="#FF000000"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:text="30000"
 	/>
 </TableRow>
@@ -118,6 +118,7 @@
 	android:layout_width="100dip"
 	android:layout_height="40dip"
 	android:layout_marginRight="10dip"
+	android:background="@drawable/btnbg"
 	android:textSize="15sp"
 	android:text="重选账户"
 	/>
@@ -126,6 +127,7 @@
 	android:layout_width="100dip"
 	android:layout_height="40dip"
 	android:layout_marginLeft="10dip"
+	android:background="@drawable/btnbg"
 	android:textSize="15sp"
 	android:text="继续转账"
 	/>

@@ -37,6 +37,7 @@
 	android:drawSelectorOnTop="true"
 	android:layout_marginLeft="60dip"
 	android:layout_marginRight="60dip"
+	android:background="@drawable/spinnerbg"
 	android:prompt="@string/trans_acc_type"
 	/>
 <TextView
@@ -67,6 +68,7 @@
 	android:drawSelectorOnTop="true"
 	android:layout_marginLeft="60dip"
 	android:layout_marginRight="60dip"
+	android:background="@drawable/spinnerbg"
 	android:prompt="@string/trans_acc"
 	/>
 <TextView
@@ -80,6 +82,7 @@
 	android:layout_width="90dip"
 	android:layout_height="40dip"
 	android:text="下一步"
+	android:background="@drawable/btnbg"
 	android:layout_gravity="center_horizontal"
 	/>
 </LinearLayout>

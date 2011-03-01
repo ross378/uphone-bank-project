@@ -20,7 +20,7 @@
 	android:layout_height="wrap_content"
 	android:layout_marginTop="6dip"
 	android:layout_marginLeft="30sp"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="您选择的转账账户为："
 	/>
@@ -35,7 +35,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="50sp"
-	android:textSize="15sp"
+	android:textSize="16dip"
 	android:textColor="#FF000000"
 	android:text="定期储蓄账户:123456789012"
 	/>
@@ -50,7 +50,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30sp"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="请输入账户密码:"
 	/>
@@ -78,6 +78,7 @@
 	android:id="@+id/btn_trans_act"
 	android:layout_width="90dip"
 	android:layout_height="40dip"
+	android:background="@drawable/btnbg"
 	android:text="下一步"
 	android:layout_gravity="center_horizontal"
 	/>

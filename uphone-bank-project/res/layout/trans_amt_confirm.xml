@@ -19,8 +19,8 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_marginTop="6dip"
-	android:layout_marginLeft="30sp"
-	android:textSize="18sp"
+	android:layout_marginLeft="10dip"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="转账信息确认"
 	/>
@@ -40,7 +40,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
 		android:textColor="#FF000000"
-		android:textSize="15sp"
+		android:textSize="16dip"
 		android:text="转出账户："
 		/>
 	<TextView
@@ -49,7 +49,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
 		android:textColor="#FF000000"
-		android:textSize="15sp"
+		android:textSize="16dip"
 		android:text="123456789012"
 		/>
 	</TableRow>
@@ -65,7 +65,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
 		android:textColor="#FF000000"
-		android:textSize="15sp"
+		android:textSize="16dip"
 		android:text="转出金额："
 		/>
 	<TextView
@@ -74,7 +74,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
 		android:textColor="#FF000000"
-		android:textSize="15sp"
+		android:textSize="16dip"
 		android:text="15000"
 		/>
 	</TableRow>
@@ -90,7 +90,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
 		android:textColor="#FF000000"
-		android:textSize="15sp"
+		android:textSize="16dip"
 		android:text="手续费："
 		/>
 	<TextView
@@ -99,7 +99,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
 		android:textColor="#FF000000"
-		android:textSize="15sp"
+		android:textSize="16dip"
 		android:text="200"
 		/>
 	</TableRow>
@@ -171,6 +171,7 @@
 		android:layout_width="100dip"
 		android:layout_height="40dip"
 		android:layout_marginRight="10dip"
+		android:background="@drawable/btnbg"
 		android:text="确认转账"
 		/>
 	<Button
@@ -178,6 +179,7 @@
 		android:layout_width="100dip"
 		android:layout_height="40dip"
 		android:layout_marginLeft="10dip"
+		android:background="@drawable/btnbg"
 		android:text="取消转账"
 		/>
 	</TableRow>
