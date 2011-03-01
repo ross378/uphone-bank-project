@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backcredit"
+    android:background="@drawable/main_background_2"
     >
 <include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
@@ -15,62 +15,17 @@
 	android:layout_above="@id/paymentbelow"
 	>
 	<!--
-	//图标+已开通项目
-	-->
-	<LinearLayout
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:orientation="horizontal"
-	>
-	<!--
-	图标
-	-->
-	<ImageView
-	android:id="@+id/manag1"
-	android:layout_width="30dip"
-	android:layout_height="30dip"
-	/>
-	<!--
 	已开通项目
 	-->
 	<TextView 
 	android:id="@+id/open_pay_item"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
+	android:paddingLeft="6dip"
+	android:textColor="#000000"
     android:text="已开通项目"
-	android:textSize="20sp"
+	android:textSize="18sp"
 	/>
-</LinearLayout>
-	
-<ListView
-	android:id="@+id/open_list1"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:drawSelectorOnTop="true"
-    android:scrollbars="vertical"
-    />
-    <!--
-	图标
-	-->	
-	<ImageView
-	android:id="@+id/manag2"
-	android:layout_width="30dip"
-	android:layout_height="30dip"
-	/>
-	<!--
-	所有项目
-	-->
-    
-    	<TextView 
-	android:id="@+id/all_item"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:visibility="gone"
-	android:layout_marginLeft="20dip"
-	android:textSize="17sp"
-	/>
-	
-	
 <ListView
 	android:id="@+id/close_list"
     android:layout_width="fill_parent" 
