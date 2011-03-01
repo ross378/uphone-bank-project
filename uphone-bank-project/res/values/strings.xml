@@ -110,7 +110,7 @@
 <string name="accinfo_GoOn">继续</string>
 <string name="accinfo_AccNickName">我的活期卡</string>
 <string name="accMana_AccInfo">账户信息</string>
-<string name="accMana_AccActive">账户激活</string>
+<string name="accMana_AccActive">账户绑定</string>
 <string name="accMana_AccPre">首选账户设置</string>
 <string name="accMana_OrderCard">预约换卡</string>
 <string name="accMana_AccLoss">账户挂失</string>

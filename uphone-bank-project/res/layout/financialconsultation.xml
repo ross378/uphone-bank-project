@@ -140,12 +140,11 @@ android:textStyle="bold"
 android:gravity="center"
 android:textColor="#ffffff"
 android:textSize = "20px"
-android:paddingLeft = "53px"
->
+android:paddingLeft = "53px">
 </TextView>
 </TableRow>
 </TableLayout>
-<include layout = "@layout/main_bank_bottom"/>
+<include layout = "@layout/financial_helper_bottom"/>
 </RelativeLayout>
 
 

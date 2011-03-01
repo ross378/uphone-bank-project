@@ -11,7 +11,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 
 <ScrollView
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="530px"
 	android:layout_below = "@id/headLayout"
 	android:layout_above = "@id/bottomLayout"
 	android:layout_marginTop = "20px"
@@ -623,5 +623,5 @@ android:id = "@+id/liner_two"
 </ScrollView>
 	
 <!-- 底部 -->
-<include layout = "@layout/main_bank_bottom"/>
+<include layout = "@layout/financial_helper_bottom"/>
 </RelativeLayout>
