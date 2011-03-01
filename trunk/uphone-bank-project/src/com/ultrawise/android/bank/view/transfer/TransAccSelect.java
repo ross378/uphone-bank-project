@@ -93,21 +93,24 @@ public class TransAccSelect extends ListActivity {
 		 ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
 	        
 	        HashMap<String,Object> map = new HashMap<String,Object>();
-	        map.put("payment_list","    首选账户");
+	        map.put("listimg1",R.drawable.trans_main);
+	        map.put("payment_list","  首选账户");
 	        map.put("listimg2", R.drawable.trans_main2);
 	        list.add(map);
 	        
 	        map = new HashMap<String,Object>();
-	        map.put("payment_list","    默认账户");
+	        map.put("listimg1",R.drawable.trans_main);
+	        map.put("payment_list","  默认账户");
 	        map.put("listimg2", R.drawable.trans_main2);
 	        list.add(map);
 	        
 	        map = new HashMap<String,Object>();
-	        map.put("payment_list","    其他账户");
+	        map.put("listimg1",R.drawable.trans_main);
+	        map.put("payment_list","  其他账户");
 	        map.put("listimg2", R.drawable.trans_main2);
 	        list.add(map);
 	        
-	        SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.trans_main_list,new String[]{"payment_list","listimg2"},new int[]{R.id.payment_list,R.id.listimg2});
+	        SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.trans_main_list,new String[]{"listimg1","payment_list","listimg2"},new int[]{R.id.listimg1,R.id.payment_list,R.id.listimg2});
 	        this.setListAdapter(TransMainAdapter);
 	        
 	        //返回键设定

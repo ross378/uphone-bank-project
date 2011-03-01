@@ -19,7 +19,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30sp"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="请输入转账金额："
 	/>
@@ -47,7 +47,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30sp"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="请输入目标手机号："
 	/>
@@ -75,7 +75,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30sp"
-	android:textSize="18sp"
+	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="请输入账户密码："
 	/>
@@ -103,6 +103,7 @@
 	android:id="@+id/btn_trans_amtnext"
 	android:layout_width="90dip"
 	android:layout_height="40dip"
+	android:background="@drawable/btnbg"
 	android:text="下一步"
 	android:layout_gravity="center_horizontal"
 	/>
