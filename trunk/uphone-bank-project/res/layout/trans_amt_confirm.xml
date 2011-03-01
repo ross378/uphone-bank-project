@@ -39,7 +39,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
-		android:textColor="#FF000000"
+		android:textColor="#FF253e81"
 		android:textSize="16dip"
 		android:text="转出账户："
 		/>
@@ -64,7 +64,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
-		android:textColor="#FF000000"
+		android:textColor="#FF253e81"
 		android:textSize="16dip"
 		android:text="转出金额："
 		/>
@@ -89,7 +89,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
-		android:textColor="#FF000000"
+		android:textColor="#FF253e81"
 		android:textSize="16dip"
 		android:text="手续费："
 		/>
@@ -114,7 +114,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
-		android:textColor="#FF000000"
+		android:textColor="#FF253e81"
 		android:textSize="15sp"
 		android:text="转入手机号："
 		/>
@@ -139,7 +139,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"
-		android:textColor="#FF000000"
+		android:textColor="#FF253e81"
 		android:textSize="15sp"
 		android:text="收款人姓名："
 		/>
