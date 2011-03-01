@@ -1,7 +1,21 @@
 package com.ultrawise.android.bank.view.payment;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
@@ -10,6 +24,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -20,6 +35,9 @@ import android.widget.TextView;
 public class PaymentLastMonth extends ListActivity {
 	String start_time = "20110101";
 	String end_time = "20110130";
+	
+	private String serviceAddress = "http://10.1.1.103:8080/webservices";
+	private String requestParameters;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +168,13 @@ public class PaymentLastMonth extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
+			JSONArray json = Login("world");
+			try {
+				System.out.println(json.get(0).toString());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Intent payment_intent = new Intent();
 			payment_intent.putExtra("title", "房租");
 			payment_intent.putExtra("amount", "300元");
@@ -195,5 +220,75 @@ public class PaymentLastMonth extends ListActivity {
 			payment_intent.setClass(PaymentLastMonth.this, PaymentHisDetail.class);
 			PaymentLastMonth.this.startActivity(payment_intent);
 		}
+	}
+	
+	private JSONArray Login(String msg) {
+		// Get the public interface's value by path
+		// It's look like http://localhost:8080/hello/login/solo/123
+		
+		requestParameters = "/payment/ShowHistoryDetail0074/"+msg;
+		HttpGet httpget = new HttpGet(serviceAddress + requestParameters);
+		
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpResponse response;
+		try {
+			
+			response = httpclient.execute(httpget);
+
+			// Just log,don't focus on it
+			Log.i("REST:Response Status line", response.getStatusLine()
+					.toString());
+
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				InputStream instream = entity.getContent();
+				String result = convertStreamToString(instream);
+				JSONObject json = new JSONObject(result);
+
+				// Parsing
+				JSONArray nameArray = json.names();
+				JSONArray valArray = json.toJSONArray(nameArray);
+
+				instream.close();
+				return valArray;
+
+			}
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			httpget.abort();
+			//httppost.abort();
+			httpclient.getConnectionManager().shutdown();
+		}
+		return null;
+	}
+
+	// Convert InputStream to String
+	private static String convertStreamToString(InputStream is) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		StringBuilder sb = new StringBuilder();
+
+		String line = null;
+		try {
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return sb.toString();
 	}
 }
