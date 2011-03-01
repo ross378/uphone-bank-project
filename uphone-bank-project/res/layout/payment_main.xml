@@ -24,8 +24,12 @@
 	android:layout_marginLeft="20dip"
 	android:textSize="15dip"
 	/>
-	
-	
+
+	    <TextView 
+	android:layout_width="fill_parent"
+	android:layout_height="2px"
+	android:background="#cccccc"
+    />
 <ListView
 	android:id="@id/android:list"
     android:layout_width="fill_parent" 
