@@ -19,12 +19,13 @@
 android:id="@id/android:list"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
+android:divider="@drawable/xian"
 >
 </ListView>
 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
-				android:background="#808080ff">
+				android:background="@drawable/xian">
 			</TextView>
 <TextView android:id="@+id/accountpay" android:text="请输入还款金额:"
 				android:layout_width="fill_parent"
@@ -37,7 +38,7 @@ android:layout_height="wrap_content"
 			 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
-				android:background="#808080ff">
+				android:background="@drawable/xian">
 			</TextView>
    			<Spinner 
     		android:id="@+id/spinnerpay" 
@@ -49,7 +50,7 @@ android:layout_height="wrap_content"
 			 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
-				android:background="#808080ff">
+				android:background="@drawable/xian">
 			</TextView>
 			<TextView 
 			android:text="请输入帐户密码:"
@@ -62,7 +63,7 @@ android:layout_height="wrap_content"
 			 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
-				android:background="#808080ff">
+				android:background="@drawable/xian">
 			</TextView>
 <EditText
 android:id="@+id/paypassword"
@@ -76,7 +77,7 @@ android:layout_marginLeft="30dip"
     		 <TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
-				android:background="#808080ff">
+				android:background="@drawable/xian">
 			</TextView>
 			
 			<TableLayout

@@ -85,11 +85,6 @@ public class CreditView extends ListActivity  {
 	        list.add(map);
 	        map = new HashMap<String,Object>();
 	        map.put("creditimg1",R.drawable.zhen);
-	        map.put("credit_list","信用卡绑定");
-	        map.put("creditimg2", R.drawable.accmana_right);
-	        list.add(map);
-	        map = new HashMap<String,Object>();
-	        map.put("creditimg1",R.drawable.zhen);
 	        map.put("credit_list","信用卡还款");
 	        map.put("creditimg2", R.drawable.accmana_right);
 	        list.add(map);
@@ -144,11 +139,7 @@ public class CreditView extends ListActivity  {
 				Intent payment_intent = new Intent();
 				payment_intent.setClass(CreditView.this, CancelTheCard.class);
 				CreditView.this.startActivity(payment_intent);
-			}else if(id==5){//信用卡绑定
-				Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, CreditCardBind.class);
-				CreditView.this.startActivity(payment_intent);
-			}else if(id==6){//信用卡还款
+			}else if(id==5){//信用卡还款
 				Intent payment_intent = new Intent();
 				payment_intent.setClass(CreditView.this,SelfPay.class);
 				CreditView.this.startActivity(payment_intent);

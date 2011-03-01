@@ -37,9 +37,10 @@ android:textColor="#000000"
 <Spinner
 	android:id="@+id/creditNoSpinner1"
 	android:layout_width="wrap_content"
-	android:layout_height="40dip"
+	android:layout_height="35dip"
 	android:prompt="@string/creditnumber"
 	android:layout_marginLeft="15dip"
+	android:background="@drawable/spinner1"/>
 />
 </TableRow>
 <View android:layout_height="1dip"         android:background="@drawable/xian" /> 
@@ -82,9 +83,10 @@ android:textColor="#000000"
 <Spinner
 	android:id="@+id/pakitSpinner1"
 	android:layout_width="wrap_content"
-	android:layout_height="40dip"
+	android:layout_height="35dip"
 	android:prompt="@string/pakitclass"
 	android:layout_marginLeft="15dip"
+	android:background="@drawable/spinner1"/>
 />
 </TableRow>
 <View android:layout_height="1dip"         android:background="@drawable/xian" /> 
