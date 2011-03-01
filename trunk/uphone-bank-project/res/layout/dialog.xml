@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="320px"
-    android:layout_height = "200px"
+    android:layout_height = "320px"
     >
 <TextView  
 	android:id="@+id/flag"
@@ -22,7 +22,7 @@
 <TextView
 	android:id="@+id/info"
 	android:layout_width= "fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_height="150px"
 	android:text="@string/trans_fail"
 	android:paddingTop = "20px"
 	android:paddingLeft = "100px"

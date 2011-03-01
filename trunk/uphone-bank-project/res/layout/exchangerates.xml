@@ -20,7 +20,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/layout1"
 android:layout_width = "420px"
 android:layout_height="wrap_content"
-android:layout_marginTop="30px"
+android:layout_marginTop="20px"
 android:orientation="vertical"
 android:background = "@drawable/white_two"
 android:layout_marginLeft = "30px"
@@ -138,6 +138,6 @@ android:layout_marginLeft = "140px"
 android:layout_marginTop = "50px"
 />
 </LinearLayout>
-<include layout = "@layout/main_bank_bottom"/>
+<include layout = "@layout/financial_helper_bottom"/>
 
 </RelativeLayout>
