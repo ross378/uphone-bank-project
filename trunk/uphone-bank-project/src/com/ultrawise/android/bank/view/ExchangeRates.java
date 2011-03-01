@@ -56,9 +56,9 @@ public class ExchangeRates extends Activity {
         secondText.setVisibility(View.VISIBLE);
         back = (ImageView)findViewById(R.id.returnToPre);
         back.setOnClickListener(new BackImageViewListener());
-        phoneBank = (ImageView)findViewById(R.id.btnMain);
+        phoneBank = (ImageView)findViewById(R.id.buttonBank);
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
-        helper = (ImageView)findViewById(R.id.btnHelper);
+        helper = (ImageView)findViewById(R.id.buttonHelper);
         helper.setOnClickListener(new BackImageViewListener());
         //获得货币面值输入框对象
         currencyInputEdit=(EditText)findViewById(R.id.currencyInputEdit);

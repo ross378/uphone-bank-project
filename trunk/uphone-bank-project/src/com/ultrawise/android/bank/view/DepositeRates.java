@@ -46,9 +46,9 @@ public class DepositeRates extends Activity {
 	        secondText.setVisibility(View.VISIBLE);
 	        back = (ImageView)findViewById(R.id.returnToPre);
 	        back.setOnClickListener(new BackImageViewListener());
-	        phoneBank = (ImageView)findViewById(R.id.btnMain);
+	        phoneBank = (ImageView)findViewById(R.id.buttonBank);
 	        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
-	        helper = (ImageView)findViewById(R.id.btnHelper);
+	        helper = (ImageView)findViewById(R.id.buttonBank);
 	        helper.setOnClickListener(new BackImageViewListener());
 	    }
 	 
