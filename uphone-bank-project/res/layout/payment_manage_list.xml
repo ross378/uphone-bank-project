@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="40dip"
     android:orientation="horizontal"
     android:paddingLeft="10dip"
     android:paddingRight="10dip"
@@ -9,17 +9,22 @@
     android:paddingBottom="1dip"
     >
 <TextView 
-	android:id="@+id/pay_manage_list"
-	android:layout_width="180dip"
-	android:layout_height="30dip"
-	android:textSize="10pt"
+	android:id="@+id/manage_list_text"
+	android:layout_width="230dip"
+	android:layout_height="wrap_content"
+	android:paddingLeft="20dip"
+	android:paddingTop="6dip"
 	android:singleLine="true"
+	android:textColor="#000000"
+	android:textSize="18dip"
+	
     />
-<ImageButton
-	android:id="@+id/pay_manage_list_but"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:gravity="right"
-	android:textSize="10pt"
+    
+<ImageView
+	android:id="@+id/manage_list_img"
+	android:layout_width="55dip"
+	android:layout_height="20dip"
+	android:scaleType="fitXY"
+	android:layout_gravity="center_vertical"
 	/>
 </LinearLayout>
