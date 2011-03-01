@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +49,7 @@ public class PaymentHistory extends Activity {
 				PaymentHistory.this.startActivity(set_end_time);
 			}
 		});
+        
         //返回键设定
         ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
         btnReturn.setOnClickListener(new OnClickListener(){
@@ -81,7 +83,6 @@ public class PaymentHistory extends Activity {
 				PaymentHistory.this.startActivity(intent);
 			}
 		});
-        
         
         Intent intent = this.getIntent();
         if(intent.hasExtra("start")){
@@ -123,6 +124,7 @@ public class PaymentHistory extends Activity {
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
         //iv_now.setVisibility(View.VISIBLE);
+        
         
         btn_payhis_ok.setOnClickListener(new BtnHischOKCL());
         //btn_payhis_cancle.setOnClickListener(new BtnHischCancleCL());
