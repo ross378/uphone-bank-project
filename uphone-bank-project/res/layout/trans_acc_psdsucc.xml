@@ -22,7 +22,7 @@
 <TextView
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:textColor="#FF000000"
+	android:textColor="#FF253e81"
 	android:layout_marginLeft="30dip"
 	android:textSize="18dip"
 	android:text="账户："
@@ -54,7 +54,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30dip"
-	android:textColor="#FF000000"
+	android:textColor="#FF253e81"
 	android:textSize="18dip"
 	android:text="类型："
 	/>
@@ -85,7 +85,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="30dip"
-	android:textColor="#FF000000"
+	android:textColor="#FF253e81"
 	android:textSize="18dip"
 	android:text="余额："
 	/>

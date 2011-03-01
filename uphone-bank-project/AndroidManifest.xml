@@ -39,10 +39,7 @@
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
 			
-    	 	<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+    	 	
         </activity>
         
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
@@ -148,7 +145,7 @@
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-
+			
 		</activity>
 		<activity android:name=".TransAccSelect" android:label="@string/app_title">
 
@@ -168,9 +165,20 @@
 		<activity android:name=".TransAmtConfirm" android:label="@string/app_title">
 
 		</activity>
-		<activity android:name=".TransSuccDialog" android:label="@string/app_title"
-			android:theme="@android:style/Theme.Dialog">
+		<activity android:name=".TransSuccDialog" android:theme="@android:style/Theme.Dialog">
 
+		</activity>
+		<activity android:name=".CommonDialog" android:theme="@android:style/Theme.Dialog">
+			
+		</activity>
+		<activity android:name=".CommonDialog2" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".TransTest" android:label="@string/app_title">
+		
 		</activity>
 		<activity android:name="com.ultrawise.android.bank.view.transfer.TransferMain"
 			android:label="@string/app_title">
