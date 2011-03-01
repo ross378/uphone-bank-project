@@ -2,19 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.ultrawise.android.bank.view.transfer" android:versionCode="1"
 	android:versionName="1.0">
-	<application android:icon="@drawable/icon" android:label="@string/app_title">
+	<application android:icon="@drawable/phone" android:label="@string/app_title">
 
 		<!-- 信用卡 -->
 
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
-				 <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter> 
 		
-		 </activity>
+		</activity>
 
-		
 		<activity android:name="com.ultrawise.android.bank.view.UserLogin">
 
 		</activity>
@@ -41,8 +36,11 @@
         <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
         </activity>
     	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-    	
-    	 
+			
+    	 	<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
         </activity>
         
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
@@ -57,58 +55,6 @@
         <activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
         </activity>
 
-		<activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
-
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
-		</activity>
-		<activity
-			android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-
-
-		</activity>
-
-		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
-
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CancelTheCard">
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CancelCardQR">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
-		</activity>
-
-		<activity android:name="com.ultrawise.android.bank.view.credit.CreditDetail">
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CreditInfo_List">
-		</activity>
-		<activity
-			android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.UserLogin">
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
-
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CancelTheCard">
-
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CancelCardQR">
-		</activity>
-		<activity android:name="com.ultrawise.android.bank.view.credit.CreditCardBind">
-		</activity>
 
 		<activity android:name="com.ultrawise.android.bank.view.UserLoginDialog"
 			android:theme="@android:style/Theme.Dialog">
@@ -199,10 +145,7 @@
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+
 		</activity>
 		<activity android:name=".TransAccSelect" android:label="@string/app_title">
 
