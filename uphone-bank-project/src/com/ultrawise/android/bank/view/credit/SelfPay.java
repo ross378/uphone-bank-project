@@ -27,13 +27,16 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class SelfPay extends ListActivity {
+public class SelfPay extends Activity {
 	TextView  tvCredit;
 	Intent intent;
 	ImageView btnCoustom;
 	ImageView btnMain;
 	Button nextButton=null;
-	
+	Button paya;
+	Button payaa;
+	TextView creditpaya;
+	TextView creditpayaa;
 	//证件类型下拉框
 	private Spinner pakitSpinner=null;
 	 public void onCreate(Bundle savedInstanceState) {
@@ -57,19 +60,31 @@ public class SelfPay extends ListActivity {
 
 		        //获得证件类型控件对象
 		        pakitSpinner=(Spinner)findViewById(R.id.pakitSpinnercard);
-	        //已绑定信用卡还款
-		        ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
-			      
-		        HashMap<String,Object> map = new HashMap<String,Object>();
-		        map.put("creditNo_key","12212133232323232");
-		        map.put("selfPay_value","还款");
-		        list.add(map);
-		        map=new HashMap<String, Object>();
-		        map.put("creditNo_key","12212133232323345");
-		        map.put("selfPay_value","还款");
-		        list.add(map);
-		        SimpleAdapter TransMainAdapter = new SimpleAdapter(this,list,R.layout.selfpaylist,new String[]{"creditNo_key","selfPay_value"},new int[]{R.id.creditNo_key,R.id.selfPay_value});
-		        this.setListAdapter(TransMainAdapter);
+	      //还款按钮
+		        creditpaya=(TextView)findViewById(R.id.creditpaya);
+		        creditpaya.setText("12324333453443543");
+		        creditpayaa=(TextView)findViewById(R.id.creditpayaa);
+		        creditpayaa.setText("12324333453443544");
+		        paya=(Button)findViewById(R.id.selfPaya);
+		        paya.setText("还款");
+		        payaa=(Button)findViewById(R.id.selfPayaa);
+		        payaa.setText("还款");
+		        paya.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						intent = new Intent();
+						intent.setClass(SelfPay.this, SelfPayDetail.class);
+						SelfPay.this.startActivity(intent);
+					}
+				});
+		        payaa.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						intent = new Intent();
+						intent.setClass(SelfPay.this, SelfPayDetail.class);
+						SelfPay.this.startActivity(intent);
+					}
+				});
 	        //设置底部按钮
 			btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 			btnCoustom.setOnClickListener(new OnClickListener() {
@@ -92,7 +107,7 @@ public class SelfPay extends ListActivity {
 				}
 			});
 			  //获得下一步按钮对象，并设置其鼠标单击事件监听
-		       nextButton=(Button)this.findViewById(R.id.selfPay_next);
+		      nextButton=(Button)this.findViewById(R.id.selfPay_next);
 		        nextButton.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
@@ -102,7 +117,7 @@ public class SelfPay extends ListActivity {
 					}
 				});
 			 //初始化证件类型控件值
-		       final String[] arrs=new String[]{"34343545454550","34343545454554","34343545454556","34343545454557"};
+		      final String[] arrs=new String[]{"34343545454550","34343545454554","34343545454556","34343545454557"};
 		        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
 
 		        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
@@ -125,18 +140,4 @@ public class SelfPay extends ListActivity {
 						}
 		         });
 	    }
-	 public void onListItemClick(ListView l, View v, int position, long id) {
-			
-		 super.onListItemClick(l, v, position, id);
-			
-			if (id == 0) {//第一个还款
-				intent= new Intent();
-				intent.setClass(SelfPay.this, AccountQuery.class);
-				SelfPay.this.startActivity(intent);
-			}else if(id==1){//第二个还款
-				intent = new Intent();
-				intent.setClass(SelfPay.this, AccountQuery.class);
-				SelfPay.this.startActivity(intent);
-			}
-	 }
 }

@@ -9,17 +9,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CancelCardDialog extends Activity {
 	private int cancelFlag=0;
 	 @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        setContentView(R.layout.dialog);
+	        setContentView(R.layout.canclecarddialog);
 	        
-	        TextView tvflag = (TextView)findViewById(R.id.flag);
-	    	TextView tvshow = (TextView)findViewById(R.id.info);
-	    	Button btnok = (Button)findViewById(R.id.okBtn);
+	        TextView tvflag = (TextView)findViewById(R.id.flagdia);
+	    	TextView tvshow = (TextView)findViewById(R.id.infodia);
+	    	Button btnok = (Button)findViewById(R.id.okBtndia);
 	    	
 	        Intent receive_intent = getIntent();
 	        String flag = receive_intent.getStringExtra("flag");
@@ -33,12 +34,18 @@ public class CancelCardDialog extends Activity {
 	    
 	    class BtnOkCL implements OnClickListener{
 			public void onClick(View v) {
-				
+				System.out.print(cancelFlag);
 				Intent intent = new Intent();
 				if(cancelFlag==2){
-					intent.setClass(CancelCardDialog.this, CancelCardQR.class);
-				}else{
+					intent.setClass(CancelCardDialog.this, CreditView.class);
+				}else if(cancelFlag==1){
 					intent.setClass(CancelCardDialog.this, CancelTheCard.class);
+				}else if(cancelFlag==4){
+					intent.setClass(CancelCardDialog.this, SelfPay.class);
+				}
+				else if(cancelFlag==3)
+				{
+					intent.setClass(CancelCardDialog.this, SelfPayOperation.class);
 				}
 	    		CancelCardDialog.this.startActivity(intent);
 			}

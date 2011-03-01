@@ -30,6 +30,9 @@ public class SelfPayOperation extends ListActivity {
 	ImageView btnCoustom;
 	ImageView btnMain;
 	private Spinner pakitSpinner = null;
+	Button queren;
+	Button cancle;
+	EditText password;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selfpayoperation);
@@ -81,8 +84,19 @@ public class SelfPayOperation extends ListActivity {
 		                }
 
 		            });
-
+           password=(EditText)findViewById(R.id.paypassword);
 	        
+		  //确定，取消按钮
+		         queren=(Button)findViewById(R.id.btn_paymentOk);
+		         cancle=(Button)findViewById(R.id.btn_paymentCancle);
+		         queren.setOnClickListener(new payButtonListener());
+		         cancle.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							// TODO Auto-generated method stub
+							intent.setClass(SelfPayOperation.this, SelfPay.class);
+							SelfPayOperation.this.startActivity(intent);
+						}
+					});
 	        //设置底部按钮
 			btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 			btnCoustom.setOnClickListener(new OnClickListener() {
@@ -106,7 +120,7 @@ public class SelfPayOperation extends ListActivity {
 	    }
 	 public void onListItemClick(ListView l,View v,int position,long id){
 	    	super.onListItemClick(l, v, position, id);
-	    	HashMap<String,String> map=(HashMap<String,String>)l.getItemAtPosition(position);
+	    	/*HashMap<String,String> map=(HashMap<String,String>)l.getItemAtPosition(position);
 	    	System.out.println(map);
 	    	String selfPayBal=map.get(1);
 	    	System.out.print(selfPayBal);
@@ -118,7 +132,36 @@ public class SelfPayOperation extends ListActivity {
 	    	intent.putExtra("selfPayActNo",selfPayBal);
 	    	intent.putExtra("selfPayBal",selfPayActNo);
 	    	intent.setClass(SelfPayOperation.this,SelfPayAct.class);
-	    	SelfPayOperation.this.startActivity(intent);
+	    	SelfPayOperation.this.startActivity(intent);*/
 	    }
-	 	
+	 class payButtonListener implements OnClickListener{
+
+			public void onClick(View arg0) {
+				int cancelFlag=0;
+				String info=null;
+				String flag=null;
+				String creditPasswd;
+				
+				
+				creditPasswd=password.getText().toString();
+				
+				if(creditPasswd.trim().equals("123")==false)
+				{
+					cancelFlag=3;
+					flag="失败提示：";
+					info="        还款失败!请确认所               \n       填密码是否正确!            ";
+				}else{
+					cancelFlag=4;
+					flag="成功提示：";
+					info="         还款成功！                \n";
+				}
+				Intent intent = new Intent();
+				intent.putExtra("flag", flag);
+				intent.putExtra("info",info);
+				intent.putExtra("cancelFlag",cancelFlag+"");
+	    		intent.setClass(SelfPayOperation.this, CancelCardDialog.class);
+	    		SelfPayOperation.this.startActivity(intent);
+				
+			}
+	 }
 }

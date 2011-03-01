@@ -1,4 +1,5 @@
 package com.ultrawise.android.bank.view.credit;
+import com.ultrawise.android.bank.view.account_management.ActiveAccount;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ActivateCardDialog extends Activity {
 	private int activateFlag=0;
@@ -26,11 +28,11 @@ public class ActivateCardDialog extends Activity {
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        Intent receive_intent = getIntent();
-	        setContentView(R.layout.dialog);
+	        setContentView(R.layout.activecarddialog);
 	        activateFlag=Integer.parseInt(receive_intent.getStringExtra("activateFlag"));
-	        tvflag = (TextView)findViewById(R.id.flag);
-	        tvshow = (TextView)findViewById(R.id.info);
-	        btnok = (Button)findViewById(R.id.okBtn);
+	        tvflag = (TextView)findViewById(R.id.flag2);
+	        tvshow = (TextView)findViewById(R.id.info2);
+	        btnok = (Button)findViewById(R.id.okBtn2);
 	          flag = receive_intent.getStringExtra("flag");
 	         info = receive_intent.getStringExtra("info");
 	        tvflag.setText(flag);
@@ -38,19 +40,16 @@ public class ActivateCardDialog extends Activity {
 	       if(activateFlag==2)
 	        {
 	        	setContentView(R.layout.dialogbig);
-	        	tvflag1 = (TextView)findViewById(R.id.flag1);
+	      	tvflag1 = (TextView)findViewById(R.id.flag1);
 		        tvshow1 = (TextView)findViewById(R.id.info1);
 		       btnok1 = (Button)findViewById(R.id.okBtn1);
 		       btnok2 = (Button)findViewById(R.id.okBtn2); 
-		         flag1 = receive_intent.getStringExtra("flag");
-		         info1 = receive_intent.getStringExtra("info");
-		        tvflag1.setText(flag1);
-		        tvshow1.setText(info1);
+		        tvflag1.setText(flag);
+		        tvshow1.setText(info);
 		        btnok1.setOnClickListener(new BtnOkCL());
 		        btnok2.setOnClickListener(new BtnOkCL());
 	        }
 	        btnok.setOnClickListener(new BtnOkCL());
-	        
 	    }
 	    
 	    class BtnOkCL implements OnClickListener{
@@ -60,7 +59,10 @@ public class ActivateCardDialog extends Activity {
 				Intent intent = new Intent();
 				if(activateFlag==2){
 					intent.setClass(ActivateCardDialog.this, CreditView.class);
+					Toast.makeText(ActivateCardDialog.this, "开卡成功", Toast.LENGTH_SHORT).show();
+				    finish();
 				}else{
+					
 					intent.setClass(ActivateCardDialog.this, ActivateCard.class);
 				}
 	    		ActivateCardDialog.this.startActivity(intent);

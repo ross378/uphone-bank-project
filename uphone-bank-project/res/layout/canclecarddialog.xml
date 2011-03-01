@@ -4,45 +4,47 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
+    <TextView
+	android:layout_width="fill_parent"
+	android:layout_height =  "1dip"
+	android:layout_marginLeft = "3px"
+	android:layout_marginTop = "3px"
+	android:background = "#ffffff"></TextView>
 <TextView  
-	android:id="@+id/flag1"
+	android:id="@+id/flagdia"
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:textSize="18sp"
     android:paddingLeft="8dip"
     />
+      <TextView
+	android:layout_width="fill_parent"
+	android:layout_height =  "1dip"
+	android:layout_marginLeft = "3px"
+	android:layout_marginTop = "3px"
+	android:background = "#ffffff"></TextView>
 <TextView
-	android:id="@+id/info1"
+	android:id="@+id/infodia"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:text="@string/trans_fail"
 	android:layout_gravity="center_horizontal"
 	android:padding="8dip"
 />
-<TableLayout
+  <TextView
 	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_horizontal"
-	>
-  <TableRow>
+	android:layout_height =  "1dip"
+	android:layout_marginLeft = "3px"
+	android:layout_marginTop = "3px"
+	android:background = "#ffffff"></TextView>
 <Button
-	android:id="@+id/okBtn1"
-	android:text="立即激活"
+	android:id="@+id/okBtndia"
+	android:text="确定"
 	android:layout_width="80dip"
 	android:layout_height="wrap_content"
 	android:background="#ffffff"
-	android:layout_marginLeft="20dip"
-	/>
-	<Button
-	android:id="@+id/okBtn2"
-	android:text="以后再说"
-	android:layout_width="80dip"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="30dip"
-	android:background="#ffffff"
+	android:layout_gravity="center"
 	android:layout_marginBottom="4dip"
-	android:layout_marginRight="20dip"
+	android:layout_marginTop="10dip"
 	/>
-	</TableRow>
-	</TableLayout>
-</LinearLayout>
+	</LinearLayout>
