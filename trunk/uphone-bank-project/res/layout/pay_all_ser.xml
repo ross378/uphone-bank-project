@@ -24,6 +24,7 @@
     		android:id="@+id/spinner_pay_typ" 
     		android:layout_height="wrap_content" 
     		android:layout_marginLeft="35dip"
+    		android:background="@drawable/selection"
     		android:layout_width="250dip"
     		android:textSize="15sp"/>
     		
@@ -47,6 +48,7 @@
     		android:id="@+id/spinner_pay_num" 
     		android:layout_height="wrap_content" 
     		android:layout_marginLeft="35dip"
+    		android:background="@drawable/selection"
     		android:layout_width="250dip"
     		android:textSize="15sp"	/>
     		
