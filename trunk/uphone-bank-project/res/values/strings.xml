@@ -128,6 +128,7 @@
 <string-array name="accOrder_reasonArray"><item>卡损坏</item>
 <item>卡过期</item>
 <item>卡丢失</item>
+
 </string-array>
 
 </resources>

@@ -28,13 +28,9 @@ import com.ultrawise.android.bank.view.transfer.R;
 public class AccountQueryDetail extends ListActivity {
 	private Intent intent=null;
 	private Button btnReturn=null;
-	private TextView acc1=null;
-	private TextView acc2=null;
-	private TextView type1=null;
-	private TextView type2=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_querytype);
+        setContentView(R.layout.account_layout_result);
         
 
         intent = new Intent();
@@ -86,26 +82,23 @@ public class AccountQueryDetail extends ListActivity {
 
 	                
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
-	        
-	        
+	                
 	        HashMap<String,String> acclist1 = new HashMap<String,String>();
 	        HashMap<String,String> acclist2 = new HashMap<String,String>();
 	        HashMap<String,String> acclist3 = new HashMap<String,String>();
 	        HashMap<String,String> acclist4 = new HashMap<String,String>();
 	        HashMap<String,String> acclist5 = new HashMap<String,String>();
-	        
-	        
-	        
-	        acclist1.put("account_list", "币种：");
-	        acclist1.put("account_list_info", "人民币");
-	        acclist2.put("account_list", "余额：");
-	        acclist2.put("account_list_info", "4000");
-	        acclist3.put("account_list", "存期");
-	        acclist3.put("account_list_info", "三个月");
-	        acclist4.put("account_list", "起息月：");
-	        acclist4.put("account_list_info", "2011.12.03");
-	        acclist5.put("account_list", "利率");
-	        acclist5.put("account_list_info", "2.25%");
+	               	        
+	        acclist1.put("account_list", "交易日期：");
+	        acclist1.put("account_list_info", "20110224");
+	        acclist2.put("account_list", "来帐账户：");
+	        acclist2.put("account_list_info", "238723589732856");
+	        acclist3.put("account_list", "收入:");
+	        acclist3.put("account_list_info", "10000");
+	        acclist4.put("account_list", "余额：");
+	        acclist4.put("account_list_info", "25000000000");
+	        acclist5.put("account_list", "描述：");
+	        acclist5.put("account_list_info", "描述描述");
 	        
 	        
 	        accoutList.add(acclist1);
@@ -114,8 +107,8 @@ public class AccountQueryDetail extends ListActivity {
 	        accoutList.add(acclist4);
 	        accoutList.add(acclist5);
 	        
-	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.account_quer_list2, new String[] {
-					"account_list", "account_list_info" }, new int[] { R.id.txtView1, R.id.txtView2 } );
+	        SimpleAdapter MainListAdapter = new SimpleAdapter(this, accoutList,R.layout.accountfrom, new String[] {
+					"account_list", "account_list_info" }, new int[] { R.id.accountfrom_1, R.id.accountfrom_2 } );
 	        this.setListAdapter(MainListAdapter);
 	        
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);

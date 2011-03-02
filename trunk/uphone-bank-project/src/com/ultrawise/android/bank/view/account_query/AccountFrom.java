@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.account_query;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.R.string;
@@ -69,6 +70,30 @@ public class AccountFrom extends Activity{
 				finish();
 			}
 		});
+		
+		  //设置底部按钮
+		ImageView	btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
+		btnCoustom.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent intent=new Intent();
+				intent.setClass(AccountFrom.this, ABankMain.class);
+				AccountFrom.this.startActivity(intent);
+				finish();
+			}
+		});
+		
+		ImageView btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent=new Intent();
+				intent.setClass(AccountFrom.this,  FinancialConsultation.class);
+				AccountFrom.this.startActivity(intent);
+				finish();
+			}
+		});
+		
+		
 		timeStart = (Button)findViewById(R.id.timechange_from);
 		timeStart.setOnClickListener(new OnClickListener() {
 			
@@ -80,7 +105,6 @@ public class AccountFrom extends Activity{
 				intent.setClass(AccountFrom.this, AccountFrom_selection.class);
 				intent.putExtra("start", "start");
 				AccountFrom.this.startActivity(intent);
-					   
 			
 			}
 			});
