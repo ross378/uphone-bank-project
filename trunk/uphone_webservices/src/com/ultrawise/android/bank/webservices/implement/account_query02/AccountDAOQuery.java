@@ -27,7 +27,7 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new InputStreamReader(
-						new FileInputStream("D:\\test1.txt")));
+						new FileInputStream("D:\\temp\\test.txt")));
 			while((line=br.readLine())!=null){
 				data.append(line+"\n");
 				
