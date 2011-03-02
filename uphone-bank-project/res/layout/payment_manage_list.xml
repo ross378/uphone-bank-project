@@ -23,7 +23,7 @@
 <ImageView
 	android:id="@+id/manage_list_img"
 	android:layout_width="60dip"
-	android:layout_height="300dip"
+	android:layout_height="30dip"
 	android:scaleType="fitXY"
 	android:layout_gravity="center_vertical"
 	/>
