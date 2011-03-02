@@ -18,11 +18,11 @@
 							  android:paddingTop="6dip"
 						  	  android:singleLine="true"
 	                          android:textColor="#FF000000"
-	                          android:textSize="20sp"
+	                          android:textSize="18dip"
 	                          android:text="您选择的账户为：" />
 					<TextView 
 								android:id="@+id/pay_num" 
-					       		android:textSize="20sp"
+					       		android:textSize="18dip"
                               	android:layout_height="wrap_content"
 								android:layout_width="280dip"
 								android:paddingLeft="6dip"
@@ -42,12 +42,12 @@
 						android:layout_height="wrap_content"
 						android:paddingLeft="6dip"
 						android:paddingTop="6dip"
-						android:textSize="20sp"
+						android:textSize="18dip"
 						android:singleLine="true"
 						android:textColor="#FF000000" />
 					<TextView 
 						android:id="@+id/balance_num"
-						android:textSize="20sp"
+						android:textSize="18dip"
                         android:layout_height="wrap_content"
 						android:layout_width="280dip"
 						android:paddingLeft="6dip"
@@ -71,7 +71,7 @@
 						android:singleLine="true"
 						android:textColor="#FF000000" 
 						android:text="@string/input_psswrd"
-						android:textSize="20sp" />
+						android:textSize="18dip" />
 				<EditText 
 						android:id="@+id/password"
 						android:password="true" 
