@@ -1,10 +1,17 @@
 package com.ultrawise.android.bank.webservices.implement.account_management01;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -27,13 +34,15 @@ public class AccManaWebServices {
 	 * @param anything
 	 * @return
 	 */
+	@Consumes("application/x-www-form-urlencoded")
+	@Path("amws/")
 	@Produces("application/json")
-	@GET
-	@Path(value = "amws/{any}")
-	public JSONObject doPost(@PathParam("any") String anything) {
+	@POST
+	public JSONObject doGet(@FormParam("value") String anything) {
 		// 解析json
 		// 解密
 		// 解析格式
+		// String anything = "0101";
 		mValue = anything.split(":");
 		mAction = Integer.parseInt(mValue[0]);
 
