@@ -241,17 +241,17 @@
 
 		<activity
 			android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultTwo"
-			android:label="@string/fail_inmation" android:theme="@android:style/Theme.Dialog">
+			 android:theme="@android:style/Theme.Dialog">
 
 		</activity>
 		<!-- 错误信息一个按钮 -->
 		<activity
 			android:name="com.ultrawise.android.bank.view.payment.PaymentFailResultOne"
-			android:label="@string/fail_inmation" android:theme="@android:style/Theme.Dialog">
+			 android:theme="@android:style/Theme.Dialog">
 		</activity>
 		<!-- 成功一个按钮 -->
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentResult"
-			android:label="@string/success_inmation" android:theme="@android:style/Theme.Dialog">
+			 android:theme="@android:style/Theme.Dialog">
 		</activity>
 
 
