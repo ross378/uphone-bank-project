@@ -35,7 +35,7 @@ public class AccountQueryEinnahme extends ListActivity {
 	private TextView type2=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_querytype);
+        setContentView(R.layout.account_chance);
         
 
         intent = new Intent();
@@ -71,7 +71,7 @@ public class AccountQueryEinnahme extends ListActivity {
 			});
 	        tvClassSecond.setVisibility(View.VISIBLE);
 		
-		    acc1=(TextView)findViewById(R.id.acc1);
+		    acc1=(TextView)findViewById(R.id.account_chance_text);
 		    acc1.setText("定期账户012345678在20101123到20100111"+"\n"+"之间的来帐记录如下：");
 		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
@@ -80,11 +80,10 @@ public class AccountQueryEinnahme extends ListActivity {
 	        HashMap<String,Object> acclist2 = new HashMap<String,Object>();
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
+	        String data="";
 	        acclist1.put("txtView1","20101123");
 	        acclist1.put("txtView2", "转账");
 	        acclist1.put("txtView3",R.drawable.account2);
-	        
-	        
 	        
 	        acclist2.put("txtView1","20101124");
 	        acclist2.put("txtView2", "汇款");

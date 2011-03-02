@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,6 +23,8 @@ public class Query_Settime extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.payment_settime);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 		this.setTitle("");
 		intent = this.getIntent();
 		if(intent.hasExtra("start")){

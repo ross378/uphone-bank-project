@@ -24,23 +24,24 @@
 		    android:paddingTop="1dip"
 		    android:paddingBottom="1dip">
 	<TableRow>
-		<TextView 
+	<TextView 
 		android:id="@+id/acc1"
 		android:singleLine="false"
-		android:textColor="#ff000000"
-		android:textSize="18dip"/>
-		<TextView 
+		android:textColor="#404040"
+		android:textSize="15dip"/>
+			<TextView 
 		android:id="@+id/acc2"
-		android:textColor="#ff000000"
-		android:textSize="18dip"/>
+		android:singleLine="false"
+		android:textColor="#404040"
+		android:textSize="15dip"/>
 	</TableRow>
-	</TableLayout>
-	 <TextView
+</TableLayout>
+<TextView
 				android:layout_height="1dip"
 				android:layout_width="fill_parent"
 				android:background="#cccccc">
 			</TextView>
-	<TableLayout android:layout_width="fill_parent"
+<TableLayout android:layout_width="fill_parent"
 			android:layout_height="wrap_content" 
 			android:orientation="vertical" 
 			android:stretchColumns="1"
@@ -48,26 +49,19 @@
 		    android:paddingRight="10dip"
 		    android:paddingTop="1dip"
 		    android:paddingBottom="1dip">
-	<TableRow>
-		<TextView 
+<TableRow>
+<TextView 
 		android:id="@+id/type1"
-		android:singleLine="true"
-		android:textColor="#ff000000"
-		android:textSize="18dip"
-		/>
-		<TextView 
+		android:singleLine="false"
+		android:textColor="#404040"
+		android:textSize="15dip"/>
+<TextView 
 		android:id="@+id/type2"
-		android:singleLine="true"
-		android:textColor="#ff000000"
-		android:textSize="18dip"
-		/>
-	</TableRow>
-	</TableLayout>
-	 <TextView
-				android:layout_height="1dip"
-				android:layout_width="fill_parent"
-				android:background="#cccccc">
-	 </TextView>
+		android:singleLine="false"
+		android:textColor="#404040"
+		android:textSize="15dip"/>
+</TableRow>
+</TableLayout>
 <ListView
 	android:id="@id/android:list" 
 	android:divider="#cccccc" 
@@ -77,5 +71,10 @@
     android:drawSelectorOnTop="true"
     android:scrollbars="vertical"
     />
+<TextView
+	android:layout_height="1dip"
+	android:layout_width="fill_parent"
+	android:background="#cccccc">
+			</TextView>
 </LinearLayout>
 </RelativeLayout>

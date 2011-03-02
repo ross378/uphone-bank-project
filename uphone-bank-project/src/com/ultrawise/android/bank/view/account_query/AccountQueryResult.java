@@ -1,23 +1,14 @@
 package com.ultrawise.android.bank.view.account_query;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import com.ultrawise.android.bank.view.payment.PaymentHistory;
-import com.ultrawise.android.bank.view.payment.PaymentSetTimeDialog;
 import com.ultrawise.android.bank.view.transfer.R;
-
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
+
 
 public class AccountQueryResult extends Activity{
 	    String[] time=new String[3];

@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.view.account_query;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.R.string;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class AccountQueryType extends ListActivity {
 	private TextView acc2=null;
 	private TextView type1=null;
 	private TextView type2=null;
+	public String Datachange=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_querytype);
@@ -75,7 +77,7 @@ public class AccountQueryType extends ListActivity {
 		});
 		
 	    acc1=(TextView)findViewById(R.id.acc1);
-	    acc1.setText("账户：");
+	    acc1.setText("账户:");
 	    acc2=(TextView)findViewById(R.id.acc2);
 	    acc2.setText("1234578xxxx");
 	    type1=(TextView)findViewById(R.id.type1);
@@ -120,10 +122,12 @@ public class AccountQueryType extends ListActivity {
 		}else if(id==1){//账户明细查询
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(AccountQueryType.this, inventory.class);
+			
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==2){//账户来帐查询
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(AccountQueryType.this, AccountFrom.class);
+			Datachange="laizhang";
 			AccountQueryType.this.startActivity(payment_intent);
 		}
 	}
