@@ -7,7 +7,9 @@ import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.AccountInfo;
 import com.ultrawise.android.bank.view.account_management.QueryAccount;
+import com.ultrawise.android.bank.view.account_query.AccountFrom;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
+import com.ultrawise.android.bank.view.account_query.inventory;
 import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -124,11 +126,11 @@ public class CreditView extends ListActivity  {
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==1){//交易明细查看
 				Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, AccountQuery.class);
+				payment_intent.setClass(CreditView.this, inventory.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==2){//帐户来帐查看
 			    Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, AccountQuery.class);
+				payment_intent.setClass(CreditView.this, AccountFrom.class);
 				CreditView.this.startActivity(payment_intent);	
 			}
 			else if(id==3){//开卡

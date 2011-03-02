@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backcredit"
+   android:background="@drawable/accountque"
     >
 <include android:id="@+id/creditabove4" layout="@layout/main_bank_above" />
 <include android:id="@+id/creditbelow4" layout="@layout/main_bank_bottom" />
@@ -18,13 +18,14 @@
 android:id="@id/android:list"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
-android:divider="@drawable/xian"
+android:divider="#cccccc"
+android:dividerHeight="1dip"
 >
 </ListView>
  <TextView
     android:layout_height="1dip"
 	android:layout_width="fill_parent"
-	android:background="@drawable/xian">
+	android:background="#cccccc">
 	</TextView>
 	
 	<LinearLayout
@@ -33,25 +34,28 @@ android:divider="@drawable/xian"
 	android:orientation="horizontal"
 	> 
 	<TextView  
-    android:layout_width="220dip"
-    android:layout_height="wrap_content"
+    android:layout_width="150dip"
+    android:layout_height="35dip"
     android:textSize="16dip"
-    android:textColor="#000000"
-    android:text="查看帐户明细"
+    android:textColor="#253e81"
+    android:text="查看帐户明细:"
     android:paddingLeft="10dip"
+    android:gravity="center_vertical"
     />
-<ImageView  
+<Button  
     android:id="@+id/selfPay_next2"
-    android:layout_width="20dip"
-    android:layout_height="20dip"
-    android:src="@drawable/trans_main2"
+    android:layout_width="wrap_content"
+    android:layout_height="30dip"
+    android:text="点击查看"
+    android:textColor="#000000"
     android:layout_gravity="center"
+    android:background="@drawable/cha"
     />
     </LinearLayout>
     <TextView
     android:layout_height="1dip"
 	android:layout_width="fill_parent"
-	android:background="@drawable/xian">
+	android:background="#cccccc">
 	</TextView>
 <Button  
     android:id="@+id/selfPay_next1"

@@ -19,6 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -37,6 +38,8 @@ public class SelfPay extends Activity {
 	Button payaa;
 	TextView creditpaya;
 	TextView creditpayaa;
+	ImageView btnReturn;
+	EditText creditname;
 	//证件类型下拉框
 	private Spinner pakitSpinner=null;
 	 public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class SelfPay extends Activity {
 		    	intent = new Intent();
 		         tvCredit= (TextView)this.findViewById(R.id.class_first);
 		        tvCredit.setText("首页>信用卡>信用卡还款 ");
-		        tvCredit.setTextSize(10);
+		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						intent=new Intent();
@@ -57,9 +60,9 @@ public class SelfPay extends Activity {
 					}
 				});
 		        tvCredit.setVisibility(View.VISIBLE);
-
+          creditname=(EditText)findViewById(R.id.creditNameEdit);
 		        //获得证件类型控件对象
-		        pakitSpinner=(Spinner)findViewById(R.id.pakitSpinnercard);
+		       // pakitSpinner=(Spinner)findViewById(R.id.pakitSpinnercard);
 	      //还款按钮
 		        creditpaya=(TextView)findViewById(R.id.creditpaya);
 		        creditpaya.setText("12324333453443543");
@@ -95,6 +98,16 @@ public class SelfPay extends Activity {
 					SelfPay.this.startActivity(intent);
 				}
 			});
+			
+			   // 返回键设定
+			btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+			btnReturn.setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					onBackPressed();
+					finish();
+				}
+			});
 		               	//btnCoustom.setVisibility(View.VISIBLE);
 		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 			btnMain.setOnClickListener(new OnClickListener() {
@@ -117,7 +130,7 @@ public class SelfPay extends Activity {
 					}
 				});
 			 //初始化证件类型控件值
-		      final String[] arrs=new String[]{"34343545454550","34343545454554","34343545454556","34343545454557"};
+		      /*final String[] arrs=new String[]{"34343545454550","34343545454554","34343545454556","34343545454557"};
 		        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
 
 		        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
@@ -138,6 +151,6 @@ public class SelfPay extends Activity {
 							// TODO Auto-generated method stub
 							
 						}
-		         });
+		         });*/
 	    }
 }
