@@ -6,22 +6,25 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 
 public class PaymentFailResultOne extends Activity {
 	 @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
+	        requestWindowFeature(Window.FEATURE_NO_TITLE);
 	        setContentView(R.layout.payment_result_one);
 	        
-	       // TextView tvflag = (TextView)findViewById(R.id.tv_paymentdl_flag);
+
+	       TextView tvflag = (TextView)findViewById(R.id.tv_paymentdl_flag);
 	    	TextView tvshow = (TextView)findViewById(R.id.tv_paymentdl_info);
 	    	Button btnok = (Button)findViewById(R.id.btn_paymentdl_ok);
 	    	
 	        Intent receive_intent = getIntent();
-	       // String flag = receive_intent.getStringExtra("flag");
+	      String flag = receive_intent.getStringExtra("flag");
 	        String info = receive_intent.getStringExtra("info");
-	      //  tvflag.setText(flag);
+	     tvflag.setText(flag);
 	        tvshow.setText(info);
 	        btnok.setText("重输密码");
 	        btnok.setOnClickListener(new BtnOkCL());
