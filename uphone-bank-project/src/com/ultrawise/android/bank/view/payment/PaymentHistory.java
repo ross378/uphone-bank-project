@@ -18,8 +18,8 @@ import android.widget.TextView;
 public class PaymentHistory extends Activity {
 	static String start_time = "2011-1-1";
 	static String end_time = "2011-1-31";
-	EditText start_text = null;
-	EditText end_text = null;
+	Button start_text = null;
+	Button end_text = null;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class PaymentHistory extends Activity {
        
         Button btn_payhis_ok = (Button)findViewById(R.id.btn_payhisck_ok);
         
-        start_text = (EditText)findViewById(R.id.start_text);
+        start_text = (Button)findViewById(R.id.start_text);
         start_text.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
@@ -38,7 +38,7 @@ public class PaymentHistory extends Activity {
 			}
 		});
         
-        end_text = (EditText)findViewById(R.id.end_text);
+        end_text = (Button)findViewById(R.id.end_text);
         end_text.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
