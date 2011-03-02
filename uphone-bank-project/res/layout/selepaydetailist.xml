@@ -10,7 +10,7 @@
     android:layout_width="140dip"
     android:layout_height="wrap_content"
     android:textSize="14dip"
-    android:textColor="#000000"
+    android:textColor="#253e81"
     />
 <TextView  
     android:id="@+id/paylistid"

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backcredit">
+    android:background="@drawable/accountque">
 <include android:id="@+id/activatecreditabove" layout="@layout/main_bank_above" />
 <include android:id="@+id/activatecreditbelow" layout="@layout/main_bank_bottom" />
 <LinearLayout
@@ -18,10 +18,11 @@
 <TextView
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
-android:textSize="10dip"
+android:textSize="12dip"
 android:textColor="#000000"
 android:paddingLeft="12dip"
-android:text="注意：所填信息必须与您在申请卡时的申请表上\n的信息完全相符."/>
+android:text="注意：   \n      所填信息必须与您在申请卡时的申请表上的信息完全\n相符."/>
+
 	<TableLayout
 	android:id="@+id/Creditactivate"
 	android:layout_width="fill_parent"
@@ -48,7 +49,7 @@ android:textStyle="normal"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" /> 
+<View android:layout_height="1dip"         android:background="#cccccc" /> 
   <TableRow>
   
 <!-- 信用卡文本  -->
@@ -71,7 +72,7 @@ android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"         android:background="#cccccc" />
  <TableRow>
 
 <TextView
@@ -93,7 +94,7 @@ android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"         android:background="#cccccc" />
 <TableRow>
 <TextView
 android:id="@+id/pakitNoTextp"
@@ -109,13 +110,14 @@ android:textColor="#000000"
 <Spinner
 	android:id="@+id/pakitSpinner"
 	android:layout_width="180dip"
-	android:layout_height="wrap_content"
+	android:layout_height="30dip"
 	android:prompt="@string/pakitclass"
-   android:layout_marginLeft="15dip"
+   android:layout_marginLeft="17dip"
+android:layout_marginRight="2dip"
    android:background="@drawable/spinner1"/>
 />
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"         android:background="#cccccc"/>
 <TableRow>
 
 <TextView
@@ -138,7 +140,7 @@ android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"         android:background="#cccccc" />
 <TableRow>
 <!-- 手机号 提示文本  -->
 <TextView
@@ -161,14 +163,14 @@ android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"        android:background="#cccccc" />
 <TableRow>
 <!-- 固定电话 提示文本  -->
 <TextView
 android:id="@+id/phoneNoText"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="固定号码:"
+android:text="固定电话:"
 android:paddingLeft="12dip"
 android:textSize="14dip"
 android:textColor="#000000"
@@ -184,7 +186,7 @@ android:layout_marginLeft="15dip"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"         android:background="#cccccc" />
 <TableRow>
 <!-- 帐户密码 提示文本  -->
 <TextView
@@ -208,7 +210,7 @@ android:password="true"
 >
 </EditText>
 </TableRow>
-<View android:layout_height="1dip"         android:background="@drawable/xian" />
+<View android:layout_height="1dip"         android:background="#cccccc" />
 </TableLayout>
 <!-- 开卡按钮 布局 -->
 <LinearLayout

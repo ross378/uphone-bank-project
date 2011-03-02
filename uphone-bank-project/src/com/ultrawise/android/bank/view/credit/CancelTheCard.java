@@ -53,6 +53,7 @@ public class CancelTheCard extends Activity {
 	Intent intent;
 	ImageView btnCoustom;
 	ImageView btnMain;
+	ImageView btnReturn;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public class CancelTheCard extends Activity {
     	intent = new Intent();
         TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
         tvCredit.setText("首页>信用卡>销卡");
+        tvCredit.setTextSize(13);
         tvCredit.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent.setClass(CancelTheCard.this, CreditView.class);
@@ -71,9 +73,18 @@ public class CancelTheCard extends Activity {
 		});
         tvCredit.setVisibility(View.VISIBLE);
         
+        // 返回键设定
+		btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 intent.setClass(CancelTheCard.this, CreditView.class);
+				 CancelTheCard.this.startActivity(intent);
+			}
+		});
       //设置底部按钮
 		btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
-		btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
+		//btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
 		btnCoustom.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -81,7 +92,7 @@ public class CancelTheCard extends Activity {
 				CancelTheCard.this.startActivity(intent);
 			}
 		});
-		btnCoustom.setVisibility(View.VISIBLE);
+		//btnCoustom.setVisibility(View.VISIBLE);
 		
 		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 		btnMain.setOnClickListener(new OnClickListener() {

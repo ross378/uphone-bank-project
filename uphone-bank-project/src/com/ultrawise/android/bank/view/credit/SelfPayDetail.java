@@ -29,7 +29,7 @@ public class SelfPayDetail extends ListActivity {
 	ImageView btnMain;
 	Intent intent=null;
 	Button btnContinue;
-	ImageView detail;
+	Button detail;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selepaydetail);
@@ -38,7 +38,7 @@ public class SelfPayDetail extends ListActivity {
 		    	intent = new Intent();
 		         tvCredit= (TextView)this.findViewById(R.id.class_first);
 		        tvCredit.setText("首页>信用卡>信用卡还款 ");
-		        tvCredit.setTextSize(10);
+		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						 intent.setClass(SelfPayDetail.this, ABankMain.class);
@@ -81,7 +81,7 @@ public class SelfPayDetail extends ListActivity {
 	        SimpleAdapter listAdapter=new SimpleAdapter(this,list,R.layout.selepaydetailist,new String[]{"creditNo_key2","selfPay_value2"},new int[]{R.id.paylistlable,R.id.paylistid});
 	        setListAdapter(listAdapter);
 	        //明细查看
-	        detail=(ImageView)findViewById(R.id.selfPay_next2);
+	        detail=(Button)findViewById(R.id.selfPay_next2);
 	        detail.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {

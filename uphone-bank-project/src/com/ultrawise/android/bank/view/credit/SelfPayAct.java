@@ -95,7 +95,7 @@ public class SelfPayAct extends Activity {
 		    	intent = new Intent();
 		         tvCredit= (TextView)this.findViewById(R.id.class_first);
 		        tvCredit.setText("首页>信用卡>信用卡还款 ");
-		        tvCredit.setTextSize(10);
+		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						 intent.setClass(SelfPayAct.this, ABankMain.class);

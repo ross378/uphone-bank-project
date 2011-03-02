@@ -74,8 +74,8 @@ public class ActivateCard extends Activity {
 		btnReturn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				onBackPressed();
-				finish();
+				 intent.setClass(ActivateCard.this, CreditView.class);
+				 ActivateCard.this.startActivity(intent);
 			}
 		});
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
@@ -83,6 +83,7 @@ public class ActivateCard extends Activity {
     	intent = new Intent();
         TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
         tvCredit.setText("首页>信用卡>开卡");
+        tvCredit.setTextSize(13);
         tvCredit.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 intent.setClass(ActivateCard.this, CreditView.class);
@@ -93,7 +94,7 @@ public class ActivateCard extends Activity {
         
       //设置底部按钮
 		btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
-		btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
+		//btnCoustom.setImageResource(R.drawable.cardbg_sy_b);
 		btnCoustom.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -101,7 +102,7 @@ public class ActivateCard extends Activity {
 				ActivateCard.this.startActivity(intent);
 			}
 		});
-		btnCoustom.setVisibility(View.VISIBLE);
+		//btnCoustom.setVisibility(View.VISIBLE);
 		
 		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 		btnMain.setOnClickListener(new OnClickListener() {

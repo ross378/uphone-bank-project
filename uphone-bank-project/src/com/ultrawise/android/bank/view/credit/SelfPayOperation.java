@@ -33,6 +33,7 @@ public class SelfPayOperation extends ListActivity {
 	Button queren;
 	Button cancle;
 	EditText password;
+	EditText paymuch;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selfpayoperation);
@@ -42,6 +43,7 @@ public class SelfPayOperation extends ListActivity {
 		    	intent = new Intent();
 		        TextView tvCredit= (TextView)this.findViewById(R.id.class_first);
 		        tvCredit.setText("首页>信用卡>信用卡还款 ");
+		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						 intent.setClass(SelfPayOperation.this, ABankMain.class);
@@ -60,9 +62,9 @@ public class SelfPayOperation extends ListActivity {
 	        list.add(map2);
 	        SimpleAdapter listAdapter=new SimpleAdapter(this,list,R.layout.selfpayoperationlist,new String[]{"creditNo_key","selfPay_value"},new int[]{R.id.creditNo_key2,R.id.selfPay_value2});
 	        setListAdapter(listAdapter);
-	        pakitSpinner=(Spinner)findViewById(R.id.spinnerpay);
+	     paymuch=(EditText)findViewById(R.id.paymuch);
 	        //初始化证件类型控件值
-		       final String[] arrs=new String[]{"500","1000","2000"};
+		    /*   final String[] arrs=new String[]{"500","1000","2000"};
 		        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
 
 		        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
@@ -83,7 +85,7 @@ public class SelfPayOperation extends ListActivity {
 		                		
 		                }
 
-		            });
+		            });*/
            password=(EditText)findViewById(R.id.paypassword);
 	        
 		  //确定，取消按钮
