@@ -26,12 +26,7 @@ public class AllPaymentSer extends Activity {
 	private ArrayAdapter<String> AccTypAdapter = null;
 	private Spinner Accspinner = null;
 	private ArrayAdapter<String> Accadapter = null;
-	private TextView tvClassFirst = null;
-	private TextView tvClassSecond = null;
-	private ImageView btnReturn = null;
-	private Intent intent = null;
-	private Intent paymentre_intent = null;
-	private String ser_name = "";
+	private String ser_name1="";
 	private EditText tv_ser_num;
 
 	@Override
@@ -40,7 +35,8 @@ public class AllPaymentSer extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pay_all_ser);
 
-		paymentre_intent = getIntent();
+		
+		
 
 		TextView tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
@@ -119,24 +115,21 @@ public class AllPaymentSer extends Activity {
 		
 		
 
-		TextView tvClassFour = (TextView) this.findViewById(R.id.class_four);
-
-		ser_name = paymentre_intent.getStringExtra("ser_name");
-		System.out.println("DASDASDSADSADSADSA");
-		tvClassFour.setText(ser_name);
-		tvClassFour.setVisibility(View.VISIBLE);
+		//TextView tvClassFour = (TextView) this.findViewById(R.id.class_four);
+	  Intent paymentre_intent = getIntent();
+		ser_name1=paymentre_intent.getStringExtra("ser_name");
 
 		// 运行商选择
 		AccTypAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item);
 		AccTypAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		if (ser_name.equals("手机充值")) {
+		if (ser_name1.equals("手机充值")) {
 			AccTypAdapter.add("中国移动");
 			AccTypAdapter.add("中国联通");
 			AccTypAdapter.add("中国电信");
 		} else {
-			if (ser_name.equals("QQ")) {
+			if (ser_name1.equals("QQ")) {
 				AccTypAdapter.add("腾讯QQ");
 
 			} else  {
@@ -189,8 +182,7 @@ public class AllPaymentSer extends Activity {
 		});
 
 		TextView tv_input_ser_num = (TextView) findViewById(R.id.input_ser_num);
-		tv_input_ser_num.setText("请输入目标" + ser_name + "号：");
-
+		tv_input_ser_num.setText("请输入目标" + ser_name1 + "号：");
 		tv_ser_num = (EditText) findViewById(R.id.tv_ser_num);
 
 		// 下一步的按钮选择
@@ -202,18 +194,13 @@ public class AllPaymentSer extends Activity {
 				// TODO Auto-generated method stub
 
 				Intent pay_ser_intent = new Intent();
-
-				pay_ser_intent.putExtra("title", AllPaymentSer.this.tv_ser_num
-						.getText().toString()
-						+ ser_name);
-				pay_ser_intent.putExtra("amount", Accspinner.getSelectedItem()
-						.toString());
-				pay_ser_intent.putExtra("inputed_peo", AccTypSpinner
-						.getSelectedItem().toString());
+				pay_ser_intent.putExtra("title",ser_name1);
+				pay_ser_intent.putExtra("service_num",AllPaymentSer.this.tv_ser_num.getText().toString());				
+				pay_ser_intent.putExtra("amount", Accspinner.getSelectedItem().toString());
+				pay_ser_intent.putExtra("inputed_peo", AccTypSpinner.getSelectedItem().toString());
 				pay_ser_intent.putExtra("serialnum", "3652462");
 				pay_ser_intent.putExtra("deadline", "无");
-				pay_ser_intent
-						.setClass(AllPaymentSer.this, PaymentDetail.class);
+				pay_ser_intent.setClass(AllPaymentSer.this, PaymentSerDetail.class);
 				AllPaymentSer.this.startActivity(pay_ser_intent);
 
 			}
