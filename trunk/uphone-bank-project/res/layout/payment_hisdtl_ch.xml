@@ -39,15 +39,13 @@
 	android:orientation="vertical">
 	<TextView
 	android:id="@+id/tv_payhis_ckstart"
-       android:layout_height="wrap_content" 
-	          android:layout_width="wrap_content"
-	          android:textSize="15dp"
-	          android:text="开始日期"
-	          android:textColor="#000000"
-	          android:gravity="left"
-	          android:layout_marginTop="6dip"
-	          android:layout_marginLeft="30dip"
-	          android:layout_marginRight="10dip"
+	android:layout_width="wrap_content"
+	android:layout_height="35dip"
+	android:text="开始日期："
+	android:textSize="18dip"
+	android:textColor="#000000"
+	android:paddingLeft="20dip"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
 	android:layout_width="fill_parent"
@@ -56,18 +54,16 @@
 	/>
 	<EditText 
 	android:id="@+id/start_text"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_width="180dip"
+	android:layout_height="40dip"
 	android:textSize="18dip"
 	android:layout_marginLeft="100dip"
-	android:layout_marginTop="8dip"
-	android:layout_marginRight="20dip"
-	android:background="@drawable/selection"
+	android:layout_marginTop="2dip"
+	
 	></EditText>
 	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:layout_marginTop="3dip"
 	android:background="#cccccc"
 	/>
 	</LinearLayout>
@@ -77,36 +73,31 @@
 	android:orientation="vertical">
 	<TextView
 	android:id="@+id/tv_payhis_cksendend"
-	android:layout_height="wrap_content" 
-	          android:layout_width="wrap_content"
-	          android:textSize="15dp"
-	          android:text="结束日期"
-	          android:textColor="#000000"
-	          android:gravity="left"
-	          android:layout_marginTop="6dip"
-	          android:layout_marginLeft="30dip"
-	          android:layout_marginRight="10dip"
+	android:layout_width="wrap_content"
+	android:layout_height="35dip"
+	android:text="结束日期："
+	android:textSize="18dip"
+	android:textColor="#000000"
+	android:paddingLeft="20dip"
+	android:layout_gravity="center_vertical"
 	/>
 	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:layout_marginTop="3dip"
 	android:background="#cccccc"
 	/>
 	<EditText 
 	android:id="@+id/end_text"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
+	android:layout_width="180dip"
+	android:layout_height="40dip"
 	android:textSize="18dip"
+	android:enabled="false"
 	android:layout_marginLeft="100dip"
-	android:layout_marginTop="8dip"
-	android:layout_marginRight="20dip"
-	android:background="@drawable/selection"
+	android:layout_marginTop="2dip"
 	></EditText>
 	<TextView
 	android:layout_width="fill_parent"
 	android:layout_height="2dip"
-	android:layout_marginTop="3dip"
 	android:background="#cccccc"
 	/>
 	</LinearLayout>
@@ -121,7 +112,6 @@
 	android:layout_marginLeft="120dip"
 	android:text="@string/btn_look"
 	android:layout_marginTop="15dip"
-	android:background="@drawable/sprinner_ok1"
 	/>
 </TableRow>
 </TableLayout>
