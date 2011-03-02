@@ -16,7 +16,7 @@
 	android:id="@+id/tv_paymentdl_flag"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_gravity="left_horizontal"
+	android:layout_gravity="left"
 	android:textSize="18sp"
 	android:padding="8dip"
 />
