@@ -230,6 +230,10 @@
 			android:label="@string/app_title">
 
 		</activity>
+		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentSerDetail"
+			android:label="@string/app_title">
+
+		</activity>
 
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend"
 			android:label="@string/app_title">
