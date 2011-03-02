@@ -87,7 +87,7 @@ android:textColor="#000000"
 <Spinner
 	android:id="@+id/sourceCurrencySpinner"
 	android:layout_width="360px"
-	android:layout_height="60px"
+	android:layout_height="50px"
 	android:prompt="@string/sourcecurrency"
 	android:layout_marginLeft = "30px"
 	android:background = "@drawable/selection"
@@ -121,7 +121,7 @@ android:textColor="#000000"
 <Spinner
 	android:id="@+id/delatinCurrencySpinner"
 	android:layout_width="360px"
-	android:layout_height="60px"
+	android:layout_height="50px"
 	android:layout_marginTop = "5px"
 	android:prompt="@string/delatincurrency"
 	android:layout_marginLeft = "30px"
@@ -138,7 +138,7 @@ android:layout_height="70px"
 android:text="开始计算"
 android:layout_marginLeft = "170px"
 android:layout_marginTop = "50px"
-android:background = "@drawable/log_button"
+android:background = "@drawable/exchange_button"
 />
 </LinearLayout>
 <include layout = "@layout/financial_helper_bottom"/>
