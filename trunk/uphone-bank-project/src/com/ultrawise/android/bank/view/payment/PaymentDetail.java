@@ -78,6 +78,7 @@ public class PaymentDetail extends ListActivity {
 		 Intent paymentre_intent = getIntent();
 		
 		  String pay_title = paymentre_intent.getStringExtra("title");
+		 
 	        String pay_amount = paymentre_intent.getStringExtra("amount");
 	        String inputed_peo= paymentre_intent.getStringExtra("inputed_peo");
 	        String pay_sernum = paymentre_intent.getStringExtra("serialnum");
@@ -89,6 +90,7 @@ public class PaymentDetail extends ListActivity {
 	        paylist1.put("listimg1","项目名称：");
 	        paylist1.put("payment_list",pay_title);
 	        mainlist.add(paylist1);
+	       
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       

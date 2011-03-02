@@ -102,11 +102,6 @@ public class PaymentSelfService extends ListActivity {
 			}
 		});
 		
-		
-		
-		
-		
-      
 	      ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
 	        
 	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
@@ -126,12 +121,6 @@ public class PaymentSelfService extends ListActivity {
 	        paylist1.put("payment_list","网易点卡充值");
 	        paylist1.put("listimg2", R.drawable.trans_main2);
 	        mainlist.add(paylist1);
-        
-        
-      
-        
- 
-        
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[]{
         		"payment_list","listimg2"},new int[]{R.id.payment_11,R.id.listimg33} );
@@ -160,10 +149,6 @@ public class PaymentSelfService extends ListActivity {
 			payment_intent.putExtra("ser_name", "网易");
 			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
-//			System.out.println("id----------------"+id);
-//	    	System.out.println("position----------"+position);
-			//Intent payment_intent = new Intent();
-			//payment_intent.setClass(PaymentSelfService.this, PaymentDefAcc.class);
 		}
 	}
 }
