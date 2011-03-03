@@ -35,10 +35,11 @@ public class AccountManagement {
 	 * @author hosolo
 	 * @param funNo功能号
 	 * @param value参数
-	 * @return 返回从服务器接收回来的数据
+	 * @return JSONArray 可以直接使用
 	 */
-	public String connectHttp(String funNo, String[] value) {
+	public JSONArray connectHttp(String funNo, String[] value) {
 		String result = "error";
+		JSONArray jsonArray = new JSONArray();
 		// apache 方法
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost(SERVICE_ADDRESS);
@@ -66,6 +67,7 @@ public class AccountManagement {
 			if (entity != null) {
 				InputStream instream = entity.getContent();
 				result = convertStreamToString(instream);
+				jsonArray = parseJSON(result);
 				instream.close();
 			}
 		} catch (ClientProtocolException e) {
@@ -77,7 +79,7 @@ public class AccountManagement {
 			httpclient.getConnectionManager().shutdown();
 		}
 
-		return result;
+		return jsonArray;
 	}
 
 	/**
@@ -103,7 +105,7 @@ public class AccountManagement {
 	 * @param value
 	 * @return
 	 */
-	public static JSONArray parseJSON(String value) {
+	private static JSONArray parseJSON(String value) {
 
 		try {
 			// Parsing
