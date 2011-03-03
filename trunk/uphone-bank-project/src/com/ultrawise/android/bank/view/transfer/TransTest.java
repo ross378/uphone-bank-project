@@ -34,7 +34,7 @@ public class TransTest extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				CommonDialog commonDialog = new CommonDialog();
-				commonDialog.showDialog(title, content, buttontext, onClick);	
+				commonDialog.showDialog(title, content, buttontext,TransTest.this,TransferMain.class);	
 			}
 		});
 		button2 = (Button)findViewById(R.id.button2);
@@ -42,7 +42,7 @@ public class TransTest extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				CommonDialog commonDialog = new CommonDialog();
-				commonDialog.showDialog(title, content, buttontext, onClick);	
+				//commonDialog.showDialog(title, content, buttontext, onClick);	
 			}
 		});
 	}

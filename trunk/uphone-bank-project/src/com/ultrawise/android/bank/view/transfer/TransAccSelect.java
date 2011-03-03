@@ -153,12 +153,6 @@ public class TransAccSelect extends ListActivity {
 		}else if(id==1){
 			Intent intent = new Intent();
 			intent.putExtra("transtype", transtype);
-			intent.setClass(TransAccSelect.this, TransAccActive.class);
-			TransAccSelect.this.startActivity(intent);
-		}
-		else if(id==2){
-			Intent intent = new Intent();
-			intent.putExtra("transtype", transtype);
 			intent.setClass(TransAccSelect.this, TransAccInput.class);
 			TransAccSelect.this.startActivity(intent);
 		}

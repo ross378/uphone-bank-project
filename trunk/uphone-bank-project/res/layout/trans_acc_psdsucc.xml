@@ -42,7 +42,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 
 <TableLayout
@@ -73,7 +73,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 
 <TableLayout
@@ -104,7 +104,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 
 <TableLayout

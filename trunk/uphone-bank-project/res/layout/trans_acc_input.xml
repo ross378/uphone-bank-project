@@ -10,7 +10,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
-	android:background="@drawable/trans_main_bg"
+	android:background="#AAF2F6F9"
 	android:layout_below="@id/transabove"
 	android:layout_above="@id/transbelow"
 	>
@@ -24,12 +24,6 @@
 	android:textColor="#FF000000"
     android:text="请选择账户类型:"
     />
-<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:layout_margin="3dip"
-	android:background="#FFAAAAAA"
-	/>
 <Spinner
 	android:id="@+id/sp_trans_inptype"
 	android:layout_width="fill_parent"
@@ -44,7 +38,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="3dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 <TextView  
 	android:id="@+id/tv_trans_inpacc"
@@ -55,12 +49,6 @@
 	android:textColor="#FF000000"
     android:text="请选择账户:"
     />
-<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:layout_margin="3dip"
-	android:background="#FFAAAAAA"
-	/>
 <Spinner
 	android:id="@+id/sp_trans_inpacc"
 	android:layout_width="fill_parent"
@@ -75,7 +63,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="3dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 <Button
 	android:id="@+id/btn_trans_inpacc"
