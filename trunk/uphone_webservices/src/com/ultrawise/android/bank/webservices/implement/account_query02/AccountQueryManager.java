@@ -1,13 +1,14 @@
 package com.ultrawise.android.bank.webservices.implement.account_query02;
 
+import com.ultrawise.android.bank.webservices.base.account_Query02.IAccountQueryInfo;
 import com.ultrawise.android.bank.webservices.implement.account_query02.AccountDAOQuery;
 
 public class AccountQueryManager {
-	private AccountDAOQuery accountQueryDAO=null;
+	private IAccountQueryInfo Iacc=null;
 	private  static AccountQueryManager accountQueryMgr=null;
 	private AccountQueryManager(){
 	};
-	static{						//class load creat accountQueryDAO
+	static{						//class load creat Iacc
 		if(accountQueryMgr==null){//
 			accountQueryMgr=new AccountQueryManager(); 
 			accountQueryMgr.setDao(new AccountDAOQuery());
@@ -17,11 +18,11 @@ public class AccountQueryManager {
 		return accountQueryMgr;
 	}
 	private void setDao(AccountDAOQuery accountQueryDAO) {
-		this.accountQueryDAO=accountQueryDAO;
+		this.Iacc=accountQueryDAO;
 	}
 	//get Dao
-	private AccountDAOQuery getDao() {
-		return accountQueryDAO;
+	private IAccountQueryInfo getDao() {
+		return Iacc;
 	}
 	
 	public String getAccountQueryById(int account)
@@ -29,14 +30,14 @@ public class AccountQueryManager {
 		return getQueryById(account);
 	}
 	private String getQueryById(int account) {
-		return accountQueryDAO.getAccountQueryById(account);
+		return Iacc.getAccountQueryById(account);
 	}
 	
-	public String getAccountQueryByName(String account)
+	public String getAccountQueryByType(String type)
 	{
-		return getQueryByName(account);
+		return getQueryByType(type);
 	}
-	private String getQueryByName(String account) {
-		return accountQueryDAO.getAccountQueryByName(account);
+	private String getQueryByType(String type) {
+		return Iacc.getAccountQueryByType(type);
 	}
 }
