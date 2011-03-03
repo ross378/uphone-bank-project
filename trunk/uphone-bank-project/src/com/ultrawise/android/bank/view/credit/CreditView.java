@@ -113,8 +113,10 @@ public class CreditView extends ListActivity  {
 
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					intent = CreditView.this.getIntent();
-					intent.setClass(CreditView.this, FinancialConsultation.class);
+					Intent intent=new Intent();
+					intent.setClass(CreditView.this,  FinancialConsultation.class);
+					CreditView.this.startActivity(intent);
+					finish();
 				}
 			});
 		}
