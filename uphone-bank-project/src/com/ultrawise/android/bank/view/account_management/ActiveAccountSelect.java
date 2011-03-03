@@ -98,7 +98,7 @@ public class ActiveAccountSelect extends Activity {
 				flag=true;
 				if (flag == true) {
 					AlertDialog myDialog=new AlertDialog.Builder(ActiveAccountSelect.this)
-							.setMessage("账户" + account + "已成功激活")
+							.setMessage("账户" + account + "已成功绑定")
 							.setPositiveButton("确定",
 									new DialogInterface.OnClickListener() {
 
@@ -108,7 +108,7 @@ public class ActiveAccountSelect extends Activity {
 
 											Toast.makeText(
 													ActiveAccountSelect.this,
-													"激活成功", Toast.LENGTH_SHORT)
+													"绑定成功", Toast.LENGTH_SHORT)
 													.show();
 											finish();
 										}
@@ -118,7 +118,7 @@ public class ActiveAccountSelect extends Activity {
 //					myDialog.getWindow().setContentView(R.layout.dialog);
 				} else {
 					new AlertDialog.Builder(ActiveAccountSelect.this)
-							.setMessage("密码错误，激活失败")
+							.setMessage("密码错误，绑定失败")
 							.setPositiveButton("确定",
 									new DialogInterface.OnClickListener() {
 
@@ -128,7 +128,7 @@ public class ActiveAccountSelect extends Activity {
 
 											Toast.makeText(
 													ActiveAccountSelect.this,
-													"未激活", Toast.LENGTH_SHORT)
+													"未绑定", Toast.LENGTH_SHORT)
 													.show();
 											dialog.dismiss();
 										}

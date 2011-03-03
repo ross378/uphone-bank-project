@@ -78,7 +78,7 @@ public class AccountLostInfo extends Activity {
 		ArrayList<HashMap<String, Object>> alContent = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> item01 = new HashMap<String, Object>();
 		HashMap<String, Object> item02 = new HashMap<String, Object>();
-		HashMap<String, Object> item03 = new HashMap<String, Object>();
+//		HashMap<String, Object> item03 = new HashMap<String, Object>();
 //		HashMap<String, Object> item04 = new HashMap<String, Object>();
 //		HashMap<String, Object> item05 = new HashMap<String, Object>();
 //		HashMap<String, Object> item06 = new HashMap<String, Object>();
@@ -87,8 +87,8 @@ public class AccountLostInfo extends Activity {
 		item01.put("content", strAccountValue);
 		item02.put("name", "账户别名：");
 		item02.put("content", strAccNickName);
-		item03.put("name", "挂失原因：");
-		item03.put("content", "丢失");
+//		item03.put("name", "挂失原因：");
+//		item03.put("content", "丢失");
 //		item04.put("name", "领卡网点：");
 //		item04.put("content", "惠新路");
 //		item05.put("name", "网点地址：");
@@ -98,7 +98,7 @@ public class AccountLostInfo extends Activity {
 //		item06.put("content", strCost);
 		alContent.add(item01);
 		alContent.add(item02);
-		alContent.add(item03);
+//		alContent.add(item03);
 //		alContent.add(item04);
 //		alContent.add(item05);
 //		alContent.add(item06);
