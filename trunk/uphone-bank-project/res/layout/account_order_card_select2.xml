@@ -15,20 +15,30 @@
 				android:layout_marginLeft="21dip" android:textSize="18dip"
 				android:textColor="#ff000000" android:text="@string/accOrder_ChangeReason"
 				android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+			<TextView android:layout_height="1dip" android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
 			<Spinner android:id="@+id/accOrder_SpnrChangeReason"
 				android:background="@drawable/spinner1" android:layout_marginLeft="47dip"
 				android:layout_width="227dip" android:textSize="18dip"
 				android:layout_height="wrap_content" android:prompt="@string/accinfo_selectTypeTitle"></Spinner>
-
+			<TextView android:layout_height="1dip" android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
 			<TextView android:id="@+id/accOrder_Net" android:text="请选择换卡的网点"
 				android:layout_marginLeft="21dip" android:textSize="18dip"
 				android:textColor="#ff000000" android:layout_width="fill_parent"
 				android:layout_height="wrap_content"></TextView>
+			<TextView android:layout_height="1dip" android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
 			<Spinner android:id="@+id/accOrder_SpnrSelectNet"
 				android:background="@drawable/spinner1" android:layout_marginLeft="47dip"
 				android:layout_width="227dip" android:textSize="18dip"
 				android:layout_height="wrap_content" android:prompt="@string/accinfo_selectAccTitle"></Spinner>
-
+			<TextView android:layout_height="1dip" android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
 			<Button android:layout_gravity="center_horizontal"
 				android:textSize="18dip" android:layout_marginTop="10dip"
 				android:background="@drawable/main_next" android:layout_width="wrap_content"
