@@ -44,7 +44,7 @@ public class AccountSevericeQuery {
 		mValue = anything.split(":");
 		mAction = Integer.parseInt(mValue[0]);
 		System.out.println("前台传入的anything="+anything);
-		mJsonObj = doWrapUp("abcd");
+		mJsonObj = doWrapUp(AccountQueryManager.getInstance().getAccountQueryByName("888"));
 		// 调用功能
 //		switch (mAction) {
 //		case GET_USER_NO:
