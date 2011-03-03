@@ -41,7 +41,7 @@ public class AccManaWebServices {
 	@Path("amws/")
 	@Produces("application/json")
 	@POST
-	public JSONObject doGet(@FormParam("value") String anything) {
+	public JSONObject doPost(@FormParam("value") String anything) {
 
 		String[] mValue = doDecode(anything).split(":");
 		int action = Integer.parseInt(mValue[0]);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paypals>
+	<paypal>
+		<id>100</id>
+		<tyname>储蓄卡</tyname>
+	</paypal>
+	<paypal>
+		<id>101</id>
+		<tyname>信用卡</tyname>
+	</paypal>
+</paypals>
