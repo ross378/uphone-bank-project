@@ -86,7 +86,7 @@
  				android:layout_marginTop="10dip" 
  				android:background="@drawable/btnbg"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:layout_gravity="center_horizontal" android:textSize="15sp" />
+				android:layout_gravity="center_horizontal" android:textSize="18dip" />
 
 		</LinearLayout>
 	</ScrollView>
