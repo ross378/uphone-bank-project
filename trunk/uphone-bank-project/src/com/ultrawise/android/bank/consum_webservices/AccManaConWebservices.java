@@ -27,7 +27,7 @@ import android.util.Log;
 
 public class AccManaConWebservices {
 	private final static String TAG = "AccountManagement";
-	private final static String SERVICE_ADDRESS = "http://10.1.111.9:8080/webservices/amws/";
+	private final static String SERVICE_ADDRESS = "http://10.1.1.122:8080/webservices/amws/";
 
 	/**
 	 * 连接服务器
