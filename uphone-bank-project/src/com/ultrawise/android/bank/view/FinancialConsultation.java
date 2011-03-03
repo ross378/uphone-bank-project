@@ -154,7 +154,7 @@ public class FinancialConsultation extends Activity {
 		 
 		 public void onClick(View args0){
 			 Intent intent = new Intent();
-			 intent.setClass(FinancialConsultation.this, ABankMain.class);
+			 intent.setClass(FinancialConsultation.this, UserLogin.class);
 			 FinancialConsultation.this.startActivity(intent);
 		 }
 	 }

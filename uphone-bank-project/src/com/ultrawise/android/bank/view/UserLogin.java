@@ -73,7 +73,6 @@ public class UserLogin extends Activity {
         pyramidEditText=(EditText)findViewById(R.id.pyramidEdit);
         
         phoneBank = (ImageView)findViewById(R.id.btnMain);
-        phoneBank.setOnClickListener(new PhoneBankImageViewListener());
         helper = (ImageView)findViewById(R.id.btnHelper);
         helper.setOnClickListener(new HelperImageViewListener());
        
