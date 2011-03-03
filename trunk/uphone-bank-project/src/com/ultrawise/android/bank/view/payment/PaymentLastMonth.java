@@ -38,7 +38,7 @@ public class PaymentLastMonth extends ListActivity {
 	String start_time = "20110101";
 	String end_time = "20110130";
 	
-	private String serviceAddress = "http://10.1.1.103:8080/webservices";
+	private String serviceAddress = "http://10.1.1.115:8080/item/services";
 	private String requestParameters;
 	
 	public void onCreate(Bundle savedInstanceState) {

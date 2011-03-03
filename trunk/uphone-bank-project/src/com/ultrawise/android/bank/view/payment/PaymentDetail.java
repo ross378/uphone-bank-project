@@ -108,7 +108,7 @@ public class PaymentDetail extends ListActivity {
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       
-	        paylist1.put("listimg1","缴费流水号：");
+	        paylist1.put("listimg1","缴费合同号：");
 	        paylist1.put("payment_list",pay_sernum);
 	        mainlist.add(paylist1);
 	        
