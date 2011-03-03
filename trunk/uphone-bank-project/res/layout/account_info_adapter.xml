@@ -13,6 +13,11 @@
 		android:layout_marginLeft="130dip" android:layout_marginTop="10dip"
 		android:layout_marginBottom="10dip">
 	</TextView>
+	<TextView android:id="@+id/accInfo_ivCheck" android:textColor="#747474" android:textSize="14dip"
+		android:layout_marginTop="10dip" android:layout_marginBottom="10dip"
+		android:layout_centerVertical="true" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true"
+		android:layout_marginRight="21dip"></TextView>
 	<!--<TextView android:id="@+id/accInfo_tvChangeNickName" android:textColor="#ff000000" 
 		android:layout_centerVertical="true" android:layout_width="wrap_content" 
 		android:layout_height="wrap_content" android:layout_marginLeft="130dip"></TextView> -->

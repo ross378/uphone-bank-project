@@ -49,7 +49,8 @@ public class AccountDelInfo extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(R.layout.account_order_card_info);
 
-		((Button)this.findViewById(R.id.accOrderCardInfo_btnOrder)).setText("下一步");
+		((Button) this.findViewById(R.id.accOrderCardInfo_btnOrder))
+				.setText("下一步");
 		intent = AccountDelInfo.this.getIntent();
 		if (intent != null) {
 			// 从预约换卡页面传来的数据中获取账户类型和账户号
@@ -65,8 +66,8 @@ public class AccountDelInfo extends Activity {
 		} else {
 			// 错误的进入此界面
 		}
-		
-		//从服务器获取
+
+		// 从服务器获取
 		strAccNickName = "定期储蓄";
 		// 显示文本
 		lvContent = (ListView) this.findViewById(R.id.accOrderCardInfo_lv);
@@ -98,10 +99,38 @@ public class AccountDelInfo extends Activity {
 
 			public void onClick(View v) {
 				// TODO 发送服务器，确定是否能连上
-				flag=true;
-				intent=new Intent();
-				intent.setClass(AccountDelInfo.this, AccountDelInfo2.class);
-				AccountDelInfo.this.startActivity(intent);
+				flag = true;
+				new AlertDialog.Builder(AccountDelInfo.this)
+
+						.setMessage(
+								"活期储蓄账户33001934785902即将被删除，删除后该账户将不能再通过手机客户端操作！")
+						.setPositiveButton("确定",
+								new DialogInterface.OnClickListener() {
+
+									public void onClick(DialogInterface dialog,
+											int which) {
+										Toast.makeText(AccountDelInfo.this,
+												"删除成功", Toast.LENGTH_SHORT)
+												.show();
+										dialog.dismiss();
+										intent = new Intent();
+										intent.setClass(AccountDelInfo.this,
+												AccountManagementList.class);
+										AccountDelInfo.this
+												.startActivity(intent);
+
+										finish();
+									}
+								})
+						.setNegativeButton("取消",
+								new DialogInterface.OnClickListener() {
+
+									public void onClick(DialogInterface dialog,
+											int which) {
+										// TODO Auto-generated method stub
+										dialog.dismiss();
+									}
+								}).show();
 
 			}
 
@@ -139,7 +168,8 @@ public class AccountDelInfo extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(AccountDelInfo.this, AccountManagementList.class);
+				intent.setClass(AccountDelInfo.this,
+						AccountManagementList.class);
 				AccountDelInfo.this.startActivity(intent);
 			}
 		});
@@ -175,11 +205,13 @@ public class AccountDelInfo extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(AccountDelInfo.this, FinancialConsultation.class);
+				intent.setClass(AccountDelInfo.this,
+						FinancialConsultation.class);
 				AccountDelInfo.this.startActivity(intent);
 			}
 		});
 	}
+
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 

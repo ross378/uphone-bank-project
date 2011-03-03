@@ -178,7 +178,7 @@ public class AccountInfo2 extends ListActivity {
 		strIsActive = "已激活";
 		strOpenAdd = "建设银行深圳市梅林支行";
 		strOpenDate = "2011/3/1";
-		strAccState = "预约换卡" + CHECK;
+		strAccState = "预约换卡";
 		strNickName = "我的储蓄卡";
 		// ivOrderInfo.setText("预约换卡");
 		// btnChangeNickName.setText("我的储蓄卡");
@@ -200,23 +200,40 @@ public class AccountInfo2 extends ListActivity {
 		HashMap<String, String> item09 = new HashMap<String, String>();
 		item01.put("name", "账号：");
 		item01.put("content", strAccountValue);
+		item01.put("check", "");
+		
 		item02.put("name", "账户别名：");
 		item02.put("content", strNickName);
+		item02.put("check", "");
+		
 		item03.put("name", "账户类型：");
 		item03.put("content", strAccountTypeValue);
+		item03.put("check", "");
+		
 		item04.put("name", "币种：");
 		item04.put("content", strCoin);
+		item04.put("check", "");
+		
 		item05.put("name", "余额：");
 		item05.put("content", strBalance);
+		item05.put("check", "");
+		
 		item06.put("name", "账户状态：");
 		item06.put("content", strAccState);
+		item06.put("check", CHECK);
+		
 		// item06.put("right", "点击查看详情");
 		item07.put("name", "是否激活");
 		item07.put("content", strIsActive);
+		item07.put("check", "");
+		
 		item08.put("name", "开户行：");
 		item08.put("content", strOpenAdd);
+		item08.put("check", "");
+		
 		item09.put("name", "开户日：");
 		item09.put("content", strOpenDate);
+		item09.put("check", "");
 
 		alContent.add(item01);
 		alContent.add(item02);
@@ -230,8 +247,8 @@ public class AccountInfo2 extends ListActivity {
 		// 适配器
 		MyAdapter lvAdapter = new MyAdapter(this, alContent,
 				R.layout.account_info_adapter,
-				new String[] { "name", "content" }, new int[] {
-						R.id.accInfo_tvName, R.id.accInfo_tvInfo });
+				new String[] { "name", "content" ,"check"}, new int[] {
+						R.id.accInfo_tvName, R.id.accInfo_tvInfo ,R.id.accInfo_ivCheck});
 		this.setListAdapter(lvAdapter);
 		// holder.tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
 
