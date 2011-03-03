@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.consum_webservices;
 
+import it.sauronsoftware.base64.Base64;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +25,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-public class AccountManagement {
+public class AccManaConWebservices {
 	private final static String TAG = "AccountManagement";
 	private final static String SERVICE_ADDRESS = "http://10.1.111.9:8080/webservices/amws/";
 
@@ -37,9 +39,9 @@ public class AccountManagement {
 	 * @param value参数
 	 * @return JSONArray 可以直接使用
 	 */
-	public JSONArray connectHttp(String funNo, String[] value) {
+	public static List<String> connectHttp(String funNo, List<String> value) {
 		String result = "error";
-		JSONArray jsonArray = new JSONArray();
+		List<String> lstValue = new ArrayList<String>();
 		// apache 方法
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost(SERVICE_ADDRESS);
@@ -47,27 +49,24 @@ public class AccountManagement {
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		// 添加要传递的参数
 		params.add(new BasicNameValuePair("value", setParams(funNo, value)));
-
-		// 设置字符集
 		HttpEntity httpentity;
 		try {
+			// 设置字符集
 			httpentity = new UrlEncodedFormEntity(params, "utf-8");
 			httppost.setEntity(httpentity);
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
 		HttpResponse response;
-
 		try {
 
 			response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
 				InputStream instream = entity.getContent();
-				result = convertStreamToString(instream);
-				jsonArray = parseJSON(result);
+				result = convertStreamToString(instream);// 转字符串
+				lstValue = doDecode(parseJSON(result));// 解密和解析JSON;
 				instream.close();
 			}
 		} catch (ClientProtocolException e) {
@@ -79,7 +78,7 @@ public class AccountManagement {
 			httpclient.getConnectionManager().shutdown();
 		}
 
-		return jsonArray;
+		return lstValue;
 	}
 
 	/**
@@ -90,29 +89,34 @@ public class AccountManagement {
 	 * @param value参数
 	 * @return 格式话过的参数，like 0101:yes:haha
 	 */
-	private String setParams(String funNo, String[] value) {
+	private static String setParams(String funNo, List<String> value) {
 		String params = funNo;
-		for (int i = 0; i <= value.length; i++) {
-			params += ":" + value[i];
+		if (value.size() != 0) {
+			for (int i = 0; i < value.size(); i++) {
+				params += ":" + value.get(i);
+			}
 		}
 		return params;
 	}
 
 	/**
-	 * 解析JSON
+	 * 解析JSON，解出来的是密文
 	 * 
 	 * @author hosolo
 	 * @param value
-	 * @return
+	 * @return 解析完的数据是密码数据
 	 */
-	private static JSONArray parseJSON(String value) {
-
+	private static List<String> parseJSON(String value) {
+		List<String> lstValue = new ArrayList<String>();
 		try {
 			// Parsing
-			JSONObject json = new JSONObject();
+			JSONObject json = new JSONObject(value);
 			JSONArray nameArray = json.names();
 			JSONArray valArray = json.toJSONArray(nameArray);
-			return valArray;
+			for (int i = 0; i < valArray.length(); i++) {
+				lstValue.add(valArray.getString(i));
+			}
+
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,7 +124,7 @@ public class AccountManagement {
 		} finally {
 			Log.e(TAG, "============parse JSON done==========");
 		}
-		return null;
+		return lstValue;
 	}
 
 	/**
@@ -141,7 +145,7 @@ public class AccountManagement {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			Log.e(TAG, "==============convert Stream to String error");
+			Log.e(TAG, "===========convert Stream to String error=============");
 		} finally {
 			try {
 				is.close();
@@ -150,5 +154,23 @@ public class AccountManagement {
 			}
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * 解密
+	 * 
+	 * @param lstMiWen
+	 * @return 明文
+	 */
+	public static List<String> doDecode(List<String> lstMiWen) {
+		List<String> lstMingWen = new ArrayList<String>();
+		if (lstMiWen.size() != 0) {
+			for (String value : lstMiWen) {
+				lstMingWen.add(Base64.decode(value));// 解密
+			}
+		} else {
+			Log.e(TAG, "===========doDecode lstMiWen size == 0===============");
+		}
+		return lstMingWen;
 	}
 }
