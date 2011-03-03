@@ -45,6 +45,7 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		
 		try {
 			path=Thread.currentThread().getContextClassLoader().getResource("").getPath();
+			System.out.println("file path="+path);
 			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(path+"\\act.txt"),"utf-8"));
 			while((line=br.readLine())!=null){
 				data.append(line+"\n");
