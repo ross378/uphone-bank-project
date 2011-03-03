@@ -76,8 +76,7 @@
 						android:id="@+id/password"
 						android:password="true" 
 						android:layout_height="wrap_content" 
-    					android:layout_width="260dip"
-    					android:layout_marginLeft="4dip" 
+    					android:layout_width="270dip"
     					android:textSize="20sp" 
     					android:layout_gravity="center_horizontal"
     					/>
