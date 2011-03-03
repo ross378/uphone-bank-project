@@ -25,12 +25,6 @@
 	android:text="您选择的转账账户为："
 	/>
 <TextView
-	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
-	/>
-<TextView
 	android:id="@+id/tv_trans_msg2"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
@@ -43,7 +37,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 <TextView
 	android:id="@+id/tv_trans_msg3"
@@ -53,12 +47,6 @@
 	android:textSize="18dip"
 	android:textColor="#FF000000"
 	android:text="请输入账户密码:"
-	/>
-<TextView
-	android:layout_width="fill_parent"
-	android:layout_height="1dip"
-	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
 	/>
 <EditText
 	android:id="@+id/tv_trans_pasd"
@@ -72,7 +60,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="1dip"
 	android:layout_margin="6dip"
-	android:background="#FFAAAAAA"
+	android:background="#cccccc"
 	/>
 <Button
 	android:id="@+id/btn_trans_act"
