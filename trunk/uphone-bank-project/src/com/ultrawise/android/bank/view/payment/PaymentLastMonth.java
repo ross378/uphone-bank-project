@@ -170,13 +170,13 @@ public class PaymentLastMonth extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {
-			JSONArray json = Login("72:Test:2011-11-11");
-			try {
-				System.out.println(json.get(0));
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			JSONArray json = Login("72:Test:2011-11-11");
+//			try {
+//				System.out.println(json.get(0));
+//			} catch (JSONException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			Intent payment_intent = new Intent();
 			payment_intent.putExtra("title", "房租");
 			payment_intent.putExtra("amount", "300元");
