@@ -1,5 +1,11 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -42,6 +48,15 @@ public class AccountAdd extends Activity {
 	private ImageView btnMain;
 	private ImageView btnHelper;
 	private ImageView btnReturn;
+	//和服务器连接有关
+	private AccManaConWebservices amConWebservice = new AccManaConWebservices();
+	private List<String> lstOut = new ArrayList();
+	
+	public void getData(){
+		// 从服务器获取所需数据
+	// 获取账户类型
+		
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +65,21 @@ public class AccountAdd extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
 		this.setContentView(R.layout.account_add);
 
+		
+
 		// 从服务器获取用户号
 		String userNo = "303249578";
-		((TextView)this.findViewById(R.id.accAdd_tvUser2)).setText(userNo);
+		((TextView) this.findViewById(R.id.accAdd_tvUser2)).setText(userNo);
 
 		/**
 		 * 下拉框，账户类型:spnrSelectTpye，账户：spnrSelectAcc
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accAdd_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
-		String[] accTypeArray = this.getResources().getStringArray(
-				R.array.accinfo_accType);
+//		String[] accTypeArray = this.getResources().getStringArray(
+//				R.array.accinfo_accType);
 		adapterType = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accTypeArray);
+				android.R.layout.simple_spinner_item, amConWebservice.connectHttp("0102", lstOut));
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -110,7 +127,7 @@ public class AccountAdd extends Activity {
 													"操作完成", Toast.LENGTH_SHORT)
 													.show();
 											dialog.dismiss();
-											//清空数据
+											// 清空数据
 											dtAcc.setText("");
 											dtNickName.setText("");
 											dtPwd.setText("");
