@@ -30,13 +30,13 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		return "Id还没做";
 	}
 	
-	//按账户明查找
-	public String getAccountQueryByName(String name) {
+	//按账户类型查找
+	public String getAccountQueryByType(String type) {
 		// TODO Auto-generated method stub
-		return getByName(name);
+		return getByType(type);
 	 }
 	
-	private String getByName(String account)
+	private String getByType(String type)
 	{
 		StringBuffer data=new StringBuffer();
 		String line=null;
@@ -52,11 +52,11 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			}
 			ByteArrayInputStream stream=new ByteArrayInputStream(data.toString().getBytes("utf-8"));
 			
-			String result=parseXml(stream);
+			String result=parseXml(stream);//查询值
 			String[] results=result.split(":");
 			
 			//Integer.toString(id)
-			if(account.equals(results[0])){
+			if(type.equals(results[0])){
 				result2=results[1]+":"+results[2];
 			}
 		} catch (FileNotFoundException e) {
@@ -139,6 +139,31 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		}
 	} */	
  
+	private String parseXml2(InputStream is){
+		StringBuffer sb=new StringBuffer();
+		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
+		try {
+			DocumentBuilder db=dbf.newDocumentBuilder();
+			Document doc=db.parse(is);
+			NodeList nl = doc.getElementsByTagName("Type");
+			Node my_node = nl.item(0);
+			NamedNodeMap nnm=my_node.getAttributes();
+			String userValue=nnm.getNamedItem("name").getNodeValue();
+			System.out.println("stream="+is.toString());
+			System.out.println("userValue="+userValue);
+			sb.append(userValue+":");
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return sb.toString();
+	}
 	
 	// get from XML
 	private String parseXml(InputStream is){
@@ -155,10 +180,11 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			nl = doc.getElementsByTagName("ActNo");
 			Node my_node1 = nl.item(0);
 			String actNo=my_node1.getFirstChild().getNodeValue();
-			nl = doc.getElementsByTagName("ActPwd");
 			
+			nl = doc.getElementsByTagName("ActPwd");
 			Node my_node2 = nl.item(0);
 			String actPwd=my_node2.getFirstChild().getNodeValue();
+			
 			sb.append(userValue+":"+actNo+":"+actPwd);
 			
 		} catch (ParserConfigurationException e) {
