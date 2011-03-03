@@ -66,7 +66,7 @@ public class AllPaymentSer extends Activity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 
 		TextView tvClassThird = (TextView) this.findViewById(R.id.class_third);
-		tvClassThird.setText("便捷服务>");
+		tvClassThird.setText("便捷服务");
 		tvClassThird.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -124,7 +124,7 @@ public class AllPaymentSer extends Activity {
 				android.R.layout.simple_spinner_item);
 		AccTypAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		if (ser_name1.equals("手机充值")) {
+		if (ser_name1.equals("手机")) {
 			AccTypAdapter.add("中国移动");
 			AccTypAdapter.add("中国联通");
 			AccTypAdapter.add("中国电信");

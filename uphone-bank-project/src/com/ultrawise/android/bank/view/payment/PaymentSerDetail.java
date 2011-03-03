@@ -57,18 +57,7 @@ public class PaymentSerDetail extends ListActivity {
 		
 		
 		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
-		tvClassThird.setText("待缴费项目");
-		tvClassThird.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				Intent payment_intent = new Intent();
-				payment_intent.setClass(PaymentSerDetail.this, PaymentPend.class);
-				PaymentSerDetail.this.startActivity(payment_intent);	
-				
-			}
-		});
-		
-		
+		tvClassThird.setText("便捷服务");	
 		tvClassThird.setVisibility(View.VISIBLE);
 		
 		
@@ -94,7 +83,7 @@ public class PaymentSerDetail extends ListActivity {
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       
-	        paylist1.put("listimg1","目标号：");
+	        paylist1.put("listimg1","目标"+pay_title+"号：");
 	        paylist1.put("payment_list",ser_num);
 	        mainlist.add(paylist1);
 	        
@@ -114,7 +103,7 @@ public class PaymentSerDetail extends ListActivity {
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       
-	        paylist1.put("listimg1","缴费流水号：");
+	        paylist1.put("listimg1","缴费合同号：");
 	        paylist1.put("payment_list",pay_sernum);
 	        mainlist.add(paylist1);
 	        

@@ -136,7 +136,7 @@ public class PaymentSelfService extends ListActivity {
 
        if(id==0){
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "手机充值");
+			payment_intent.putExtra("ser_name", "手机");
 			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 			PaymentSelfService.this.startActivity(payment_intent);
 		}else if(id==1){
