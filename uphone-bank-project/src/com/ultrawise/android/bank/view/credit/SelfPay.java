@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.credit.ActivateCard.ActivateCardButtonListener;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -55,7 +56,7 @@ public class SelfPay extends Activity {
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						intent=new Intent();
-						 intent.setClass(SelfPay.this, ABankMain.class);
+						 intent.setClass(SelfPay.this, CreditView.class);
 						 SelfPay.this.startActivity(intent);
 					}
 				});
@@ -98,7 +99,17 @@ public class SelfPay extends Activity {
 					SelfPay.this.startActivity(intent);
 				}
 			});
-			
+			btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+			btnMain.setOnClickListener(new OnClickListener() {
+
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent=new Intent();
+					intent.setClass(SelfPay.this,  FinancialConsultation.class);
+					SelfPay.this.startActivity(intent);
+					finish();
+				}
+			});
 			   // 返回键设定
 			btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
 			btnReturn.setOnClickListener(new OnClickListener() {

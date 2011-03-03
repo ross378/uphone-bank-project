@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.credit;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.account_query.AccountQueryType;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -98,7 +99,7 @@ public class SelfPayAct extends Activity {
 		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
-						 intent.setClass(SelfPayAct.this, ABankMain.class);
+						 intent.setClass(SelfPayAct.this, CreditView.class);
 						 SelfPayAct.this.startActivity(intent);
 					}
 				});
@@ -110,6 +111,15 @@ public class SelfPayAct extends Activity {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						intent.setClass(SelfPayAct.this, ABankMain.class);
+						SelfPayAct.this.startActivity(intent);
+					}
+				});
+				btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+				btnMain.setOnClickListener(new OnClickListener() {
+
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						intent.setClass(SelfPayAct.this, FinancialConsultation.class);
 						SelfPayAct.this.startActivity(intent);
 					}
 				});

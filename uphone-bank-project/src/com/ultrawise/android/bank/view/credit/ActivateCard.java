@@ -109,8 +109,8 @@ public class ActivateCard extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = ActivateCard.this.getIntent();
 				intent.setClass(ActivateCard.this, FinancialConsultation.class);
+				ActivateCard.this.startActivity(intent);
 			}
 		});
 		

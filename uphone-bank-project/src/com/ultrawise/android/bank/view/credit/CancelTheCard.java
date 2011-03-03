@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view.credit;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -99,7 +100,7 @@ public class CancelTheCard extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent.setClass(CancelTheCard.this, ABankMain.class);
+				intent.setClass(CancelTheCard.this, FinancialConsultation.class);
 				CancelTheCard.this.startActivity(intent);
 			}
 		});

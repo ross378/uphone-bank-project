@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -115,7 +116,7 @@ public class SelfPayOperation extends ListActivity {
 
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					intent.setClass(SelfPayOperation.this, ABankMain.class);
+					intent.setClass(SelfPayOperation.this, FinancialConsultation.class);
 					SelfPayOperation.this.startActivity(intent);
 				}
 			});

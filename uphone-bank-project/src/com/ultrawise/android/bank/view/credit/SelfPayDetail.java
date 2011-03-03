@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_query.AccountQueryDetail;
 import com.ultrawise.android.bank.view.account_query.AccountQueryType;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -30,6 +31,7 @@ public class SelfPayDetail extends ListActivity {
 	Intent intent=null;
 	Button btnContinue;
 	Button detail;
+	ImageView btnReturn;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selepaydetail);
@@ -41,18 +43,35 @@ public class SelfPayDetail extends ListActivity {
 		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
-						 intent.setClass(SelfPayDetail.this, ABankMain.class);
+						 intent.setClass(SelfPayDetail.this, CreditView.class);
 						 SelfPayDetail.this.startActivity(intent);
 					}
 				});
 		        tvCredit.setVisibility(View.VISIBLE);
-
+		        // 返回键设定
+				btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+				btnReturn.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						onBackPressed();
+						finish();
+					}
+				});
 		        //设置底部按钮
 				btnCoustom = (ImageView) this.findViewById(R.id.btnMain);
 				btnCoustom.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						intent.setClass(SelfPayDetail.this, ABankMain.class);
+						SelfPayDetail.this.startActivity(intent);
+					}
+				});
+				btnMain = (ImageView) this.findViewById(R.id.btnHelper);
+				btnMain.setOnClickListener(new OnClickListener() {
+
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						intent.setClass(SelfPayDetail.this, FinancialConsultation.class);
 						SelfPayDetail.this.startActivity(intent);
 					}
 				});
