@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+      android:background="#66cccccc" 
+    >
+<ImageButton
+android:id="@+id/returnn"
+android:layout_width="40dip"
+android:layout_height="20dip"
+android:src="@drawable/return_to_pre"
+ android:gravity="left" 
+android:scaleType="fitXY"
+android:background="#00ffffff"
+/>
+<TextView  
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+   android:gravity="right" 
+    android:text="手机银行"
+    />
+</LinearLayout>

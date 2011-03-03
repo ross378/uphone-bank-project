@@ -5,15 +5,12 @@ import java.util.HashMap;
 
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
-import com.ultrawise.android.bank.view.account_management.AccountInfo;
-import com.ultrawise.android.bank.view.account_management.QueryAccount;
 import com.ultrawise.android.bank.view.account_query.AccountFrom;
 import com.ultrawise.android.bank.view.account_query.AccountQuery;
 import com.ultrawise.android.bank.view.account_query.inventory;
 import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -124,7 +121,7 @@ public class CreditView extends ListActivity  {
 			super.onListItemClick(l, v, position, id);
 			if (id == 0) {//帐户信息
 				Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, AccountQuery.class);
+				payment_intent.setClass(CreditView.this, CreditQuery.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==1){//交易明细查看
 				Intent payment_intent = new Intent();
