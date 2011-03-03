@@ -88,14 +88,14 @@ public class PaymentSerDetail extends ListActivity {
 	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
 	       
 	        paylist1.put("listimg1","项目名称：");
-	        paylist1.put("payment_list",pay_title);
+	        paylist1.put("payment_list",pay_title+"充值");
 	        mainlist.add(paylist1);
 	       
 	        
 	        paylist1 = new HashMap<String,Object>();
 		       
 	        paylist1.put("listimg1","目标号：");
-	        paylist1.put("payment_list",ser_num+"充值");
+	        paylist1.put("payment_list",ser_num);
 	        mainlist.add(paylist1);
 	        
 	        paylist1 = new HashMap<String,Object>();
