@@ -29,8 +29,6 @@ public class AccManaConWebservices {
 	private final static String TAG = "AccountManagement";
 	private final static String SERVICE_ADDRESS = "http://10.1.111.9:8080/webservices/amws/";
 
-	// private String value;// like: 0101:A43lEnOCi80lxEne
-
 	/**
 	 * 连接服务器
 	 * 
@@ -96,7 +94,7 @@ public class AccManaConWebservices {
 				params += ":" + value.get(i);
 			}
 		}
-		return params;
+		return doEncode(params);
 	}
 
 	/**
@@ -154,6 +152,18 @@ public class AccManaConWebservices {
 			}
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * 加密，相当与重新把数据包装成list
+	 * 
+	 * @param msg
+	 * @return 每个加密的字符串
+	 */
+	private static String doEncode(String strMingWen) {
+
+		return Base64.encode(strMingWen, "utf-8");
+
 	}
 
 	/**
