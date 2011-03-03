@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.webservices.base.account_management01;
 
+import java.util.List;
+
 import org.codehaus.jettison.json.JSONObject;
 
 public interface IAll {
@@ -10,7 +12,7 @@ public interface IAll {
 	 * @author hosolo
 	 * @return user no
 	 */
-	public String getUserNo();
+	public List<String> getUserNo();
 
 	/**
 	 * 获取所有的账户类型
@@ -18,7 +20,7 @@ public interface IAll {
 	 * @author hosolo
 	 * @return array account type
 	 */
-	public String[] getAccType();
+	public List<String> getAccType();
 
 	/**
 	 * 获取已经绑定的账户

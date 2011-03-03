@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.webservices.implement.account_management01;
 
+import java.util.List;
+
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -46,7 +48,7 @@ public class Action {
 		this.orderCard = orderCard;
 	}
 
-	public String[] performGetAccType() {
+	public List<String> performGetAccType() {
 		// TODO Auto-generated method stub
 		return all.getAccType();
 	}
@@ -72,7 +74,7 @@ public class Action {
 	}
 
 	// 功能0101
-	public String performGetUserNo() {
+	public List<String> performGetUserNo() {
 		// TODO
 		return all.getUserNo();
 	}
