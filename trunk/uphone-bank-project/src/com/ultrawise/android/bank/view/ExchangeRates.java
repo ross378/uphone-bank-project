@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view;
 
 import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
+import com.ultrawise.android.bank.view.DepositeRates.FirstTextViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.credit.ActivateCard;
 import com.ultrawise.android.bank.view.credit.ActivateCardDialog;
@@ -51,6 +52,7 @@ public class ExchangeRates extends Activity {
         firstText = (TextView)findViewById(R.id.class_first);
         firstText.setText(R.string.helper);
         firstText.setVisibility(View.VISIBLE);
+        firstText.setOnClickListener(new FirstTextViewListener());
         secondText = (TextView)findViewById(R.id.class_second);
         secondText.setText(R.string.exchange_rates);
         secondText.setVisibility(View.VISIBLE);
@@ -178,5 +180,15 @@ public class ExchangeRates extends Activity {
 			 intent.setClass(ExchangeRates.this, FinancialConsultation.class);
 			 ExchangeRates.this.startActivity(intent);
 		 }
+	 }
+	 
+class FirstTextViewListener implements OnClickListener{
+		 
+	public void onClick(View args0){
+		 ExchangeRates.this.finish();
+		 Intent intent = new Intent();
+		 intent.setClass(ExchangeRates.this, FinancialConsultation.class);
+		 ExchangeRates.this.startActivity(intent);
+	 }
 	 }
 }

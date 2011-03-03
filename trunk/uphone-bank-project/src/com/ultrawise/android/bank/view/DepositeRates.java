@@ -41,6 +41,7 @@ public class DepositeRates extends Activity {
 	        firstText = (TextView)findViewById(R.id.class_first);
 	        firstText.setText(R.string.helper);
 	        firstText.setVisibility(View.VISIBLE);
+	        firstText.setOnClickListener(new FirstTextViewListener());
 	        secondText = (TextView)findViewById(R.id.class_second);
 	        secondText.setText(R.string.deposite_rates);
 	        secondText.setVisibility(View.VISIBLE);
@@ -72,6 +73,17 @@ public class DepositeRates extends Activity {
 	 class HelperImageViewListener implements OnClickListener{
 		 
 		 public void onClick(View args0){
+			 DepositeRates.this.finish();
+			 Intent intent = new Intent();
+			 intent.setClass(DepositeRates.this, FinancialConsultation.class);
+			 DepositeRates.this.startActivity(intent);
+		 }
+	 }
+	 
+	 class FirstTextViewListener implements OnClickListener{
+		 
+		 public void onClick(View args0)
+		 {
 			 DepositeRates.this.finish();
 			 Intent intent = new Intent();
 			 intent.setClass(DepositeRates.this, FinancialConsultation.class);
