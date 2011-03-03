@@ -5,7 +5,14 @@
 	<application android:icon="@drawable/icon" android:label="@string/app_title"
 	android:theme="@android:style/Theme.NoTitleBar">
 
-
+		<!-- 过渡页面 -->
+		<activity android:name="com.ultrawise.android.bank.view.BridgePage">
+		
+    	 	<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
 		<!-- 信用卡 -->
 
 		<activity android:name="com.ultrawise.android.bank.view.ABankMain">
@@ -37,8 +44,7 @@
         </activity>
         <activity android:name="com.ultrawise.android.bank.view.credit.TransactionDetailsList">
         </activity>
-    	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">
-
+    	<activity android:name="com.ultrawise.android.bank.view.FinancialConsultation">		 	
         </activity>
         
         <activity android:name="com.ultrawise.android.bank.view.credit.ActivateCard">
@@ -144,10 +150,7 @@
 		<!-- 转账 -->
 
 		<activity android:name=".TransferMain" android:label="@string/app_title">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-		</intent-filter>
+
 		</activity>
 		<activity android:name=".TransAccSelect" android:label="@string/app_title">
 
@@ -171,7 +174,7 @@
 
         </activity>	
 		<activity android:name=".CommonDialog" android:theme="@android:style/Theme.Dialog">
-    	 	
+			
 		</activity>
 		<activity android:name=".CommonDialog2" android:theme="@android:style/Theme.Dialog">
 			
@@ -233,13 +236,9 @@
 			android:label="@string/app_title">
 
 		</activity>
-
 		<activity android:name="com.ultrawise.android.bank.view.payment.PaymentPend"
 			android:label="@string/app_title">
-
 		</activity>
-
-
 		<!-- 错误信息两个按钮 -->
 
 		<activity
