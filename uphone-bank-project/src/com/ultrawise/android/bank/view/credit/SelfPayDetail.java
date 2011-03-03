@@ -35,8 +35,6 @@ public class SelfPayDetail extends ListActivity {
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selepaydetail);
-	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
-	        iv_now.setVisibility(View.GONE);
 		    	intent = new Intent();
 		         tvCredit= (TextView)this.findViewById(R.id.class_first);
 		        tvCredit.setText("首页>信用卡>信用卡还款 ");

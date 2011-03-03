@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/accountque"
+	>
+	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
+	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
+	
+	<LinearLayout  android:layout_width="fill_parent"
+		android:layout_below="@id/accManaAbove" android:layout_height="fill_parent"
+		android:orientation="vertical">
+		<LinearLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="vertical">
+			
+			<TextView android:id="@+id/tvSelectAccTyppan" android:text="请选择账户类型:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:textColor="#ff000000"
+				android:textSize="18dip"
+				android:layout_marginTop="5px"
+				android:layout_marginBottom="5px"
+				></TextView>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
+   			<Spinner 
+    		android:id="@+id/spinnerAccTyppan" 
+    		android:textSize="18dip"
+    		android:layout_height="25dip" android:layout_width="230dip"
+    		android:layout_marginLeft="60dip"
+    		android:layout_marginTop="5px"
+    		android:background="@drawable/spinner1"/>
+			 <TextView
+			    android:layout_marginTop="5px"
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
+			<TextView 
+			android:text="请选择账户:"
+			android:textSize="18dip" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="30dip"
+			android:textColor="#ff000000"
+			android:layout_marginTop="5px"
+			android:layout_marginBottom="5px"
+			></TextView>
+			 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
+			 <Spinner 
+    		android:id="@+id/spinnerAccpan" 
+    		android:textSize="18dip"
+    		android:layout_height="28dip" android:layout_width="230dip"
+    		android:layout_marginLeft="60dip"
+    		android:layout_marginTop="5px"
+    		android:background="@drawable/spinner1"/>
+    		 <TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#cccccc"
+				android:layout_marginTop="5px"
+				>
+			</TextView>
+	</LinearLayout>
+	</LinearLayout>
+	<Button
+			android:id="@+id/btnContinuepan"
+			android:text="确定"
+			android:textSize="18dip"
+			android:layout_width="80dip"
+			android:layout_height="30dip"
+			android:layout_alignRight="@id/spinnerAcc"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="320px"
+		    android:textColor="#ff000000"
+		    android:background="@drawable/sprinner_ok1"/>
+</RelativeLayout >
