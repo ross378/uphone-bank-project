@@ -31,7 +31,7 @@ public class AccManaWebServices {
 	private final static int GET_ACC_TYPE = 102;
 
 	/**
-	 * 接收请求 1.解析json 2.解密 3.解析字符串格式 4.调用功能 5.加密 6.包装成json 7.返回json
+	 * 接收请求  1.解密 2.解析字符串格式 3.调用功能 4.加密 5.包装成json 6.返回json
 	 * 
 	 * @author hosolo
 	 * @param anything
@@ -42,13 +42,8 @@ public class AccManaWebServices {
 	@Produces("application/json")
 	@POST
 	public JSONObject doGet(@FormParam("value") String anything) {
-		// 解析json
-		// 解密
-		// 解析格式
-		// 加密
-		// 包装成json
-		// return mJsonObj;
-		String[] mValue = anything.split(":");
+
+		String[] mValue = doDecode(anything).split(":");
 		int action = Integer.parseInt(mValue[0]);
 
 		// 调用功能
@@ -67,7 +62,17 @@ public class AccManaWebServices {
 	}
 
 	/**
-	 * 将每个字符串分别加密，相当与重新把数据包装成list
+	 * 解密
+	 * 
+	 * @param strMiWen
+	 * @return
+	 */
+	private String doDecode(String strMiWen) {
+		return Base64.decode(strMiWen, "utf-8");
+	}
+
+	/**
+	 * 加密，相当与重新把数据包装成list
 	 * 
 	 * @param msg
 	 * @return 每个加密的字符串
