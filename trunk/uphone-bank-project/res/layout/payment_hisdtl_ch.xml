@@ -112,7 +112,7 @@
 	android:layout_width="80dip"
 	android:layout_marginLeft="120dip"
 	android:text="@string/btn_look"
-	android:layout_marginTop="15dip"
+	android:layout_marginTop="18dip"
 	android:background="@drawable/btnbg"
 	/>
 </TableRow>
