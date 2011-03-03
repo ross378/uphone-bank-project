@@ -57,7 +57,7 @@
 	android:layout_width="180dip"
 	android:layout_height="40dip"
 	android:textSize="18dip"
-	android:layout_marginLeft="100dip"
+	android:layout_gravity="center_horizontal"
 	android:layout_marginTop="2dip"
 	android:background="@drawable/selection"
 	
@@ -93,7 +93,7 @@
 	android:layout_height="40dip"
 	android:textSize="18dip"
 	android:background="@drawable/selection"
-	android:layout_marginLeft="100dip"
+	android:layout_gravity="center_horizontal"
 	android:layout_marginTop="2dip"
 	></Button>
 	<TextView
@@ -113,6 +113,7 @@
 	android:layout_marginLeft="120dip"
 	android:text="@string/btn_look"
 	android:layout_marginTop="15dip"
+	android:background="@drawable/btnbg"
 	/>
 </TableRow>
 </TableLayout>
