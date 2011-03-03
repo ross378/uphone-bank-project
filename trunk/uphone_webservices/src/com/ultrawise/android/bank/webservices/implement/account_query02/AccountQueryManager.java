@@ -7,8 +7,8 @@ public class AccountQueryManager {
 	private  static AccountQueryManager accountQueryMgr=null;
 	private AccountQueryManager(){
 	};
-	static{						//������¾͵���
-		if(accountQueryMgr==null){//���accountQueryM���ھ�ֱ�����ڴ������,�����ھ�ֱ�Ӵ���һ��
+	static{						//class load creat accountQueryDAO
+		if(accountQueryMgr==null){//
 			accountQueryMgr=new AccountQueryManager(); 
 			accountQueryMgr.setDao(new AccountDAOQuery());
 		}
@@ -19,16 +19,24 @@ public class AccountQueryManager {
 	private void setDao(AccountDAOQuery accountQueryDAO) {
 		this.accountQueryDAO=accountQueryDAO;
 	}
-	//˽�з�ֹ������
+	//get Dao
 	private AccountDAOQuery getDao() {
 		return accountQueryDAO;
 	}
 	
-	public String getAccountQueryById(int id)
+	public String getAccountQueryById(int account)
 	{
-		return getQueryById(id);
+		return getQueryById(account);
 	}
-	private String getQueryById(int id) {
-		return accountQueryDAO.getAccountQueryById(id);
+	private String getQueryById(int account) {
+		return accountQueryDAO.getAccountQueryById(account);
+	}
+	
+	public String getAccountQueryByName(String account)
+	{
+		return getQueryByName(account);
+	}
+	private String getQueryByName(String account) {
+		return accountQueryDAO.getAccountQueryByName(account);
 	}
 }
