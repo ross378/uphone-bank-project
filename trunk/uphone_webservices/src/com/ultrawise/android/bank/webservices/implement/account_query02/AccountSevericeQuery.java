@@ -1,5 +1,10 @@
 package com.ultrawise.android.bank.webservices.implement.account_query02;
 
+import it.sauronsoftware.base64.Base64;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -16,7 +21,7 @@ import javax.ws.rs.core.Context;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-@Path("/accquery")
+@Path("/query")
 public class AccountSevericeQuery {
 	private JSONObject mJsonObj = new JSONObject();
 	private int mAction;
@@ -33,7 +38,7 @@ public class AccountSevericeQuery {
 	 * @return
 	 */
 	@Consumes("application/x-www-form-urlencoded")
-	@Path("accquery/")
+	@Path("do/")
 	@Produces("application/json")
 	@POST
 	public JSONObject doGet(@FormParam("value") String anything) {
@@ -43,31 +48,42 @@ public class AccountSevericeQuery {
 		// String anything = "0101";
 		mValue = anything.split(":");
 		mAction = Integer.parseInt(mValue[0]);
-		System.out.println("前台传入的anything="+anything);
-		mJsonObj = doWrapUp(AccountQueryManager.getInstance().getAccountQueryByType("888"));
-		// 调用功能
-//		switch (mAction) {
-//		case GET_USER_NO:
-//			mReturnString = action.performGetUserNo();
-//			mJsonObj = doWrapUp(mReturnString);
-//			break;
-//		default:
-//			break;
-//		}
-//		// 加密
-//		// 包装成json
-		return mJsonObj;
+		System.out.println("前台传入的anything=" + anything);
+		List<String> list = AccountQueryManager.getInstance().getAccType();
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("list=" + list.get(i));
+		}
+		return wrapUp(doEncode(list));
 	}
 
-	private JSONObject doWrapUp(String value) {
+	private List<String> doEncode(List<String> lstMingWen) {
+
+		List<String> lstMiWen = new ArrayList<String>();
+		if (lstMingWen.size() != 0) {
+			for (String value : lstMingWen) {
+				lstMiWen.add(Base64.encode(value, "utf-8"));
+			}
+		}
+		return lstMiWen;
+
+	}
+
+	/**
+	 * 将每个密文包装成JSON
+	 * 
+	 * @param lstValue
+	 * @return
+	 */
+	private JSONObject wrapUp(List<String> lstMiWen) {
 		JSONObject wrapJsonObj = new JSONObject();
 		try {
-			wrapJsonObj.put("value", value);
+			for (int i = 0; i < lstMiWen.size(); i++) {
+				wrapJsonObj.put("miwen" + i, lstMiWen.get(i));
+			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return wrapJsonObj;
 	}
 }
