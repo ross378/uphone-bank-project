@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Serables>
+  <serable>
+    <id>ser01</id>
+    <prname>平安保险</prname>
+    <open>1</open>
+  </serable>
+  <serable>
+    <id>ser02</id>
+    <prname>人寿保险</prname>
+    <open>1</open>
+  </serable>
+  <serable>
+    <id>ser03</id>
+    <prname>交通惩罚</prname>
+    <open>0</open>
+  </serable>
+  <serable>
+    <id>ser04</id>
+    <prname>水费</prname>
+    <open>0</open>
+  </serable>
+  <serable>
+    <id>ser05</id>
+    <prname>电费</prname>
+    <open>1</open>
+  </serable
+  <serable>
+    <id>ser06</id>
+    <prname>报纸订阅</prname>
+    <open>0</open>
+  </serable>
+</Serables>

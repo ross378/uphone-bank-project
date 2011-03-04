@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Nes>
+  <nesfils>
+    <id>1</id>
+    <userid>zhangsan</userid>
+	<credit>60.00</credit>
+	<crenesnum>Ultrawise@163.com</crenesnum>
+	<credata>2011-2-1</credata>
+	<creno>#sT46362543</creno>
+	<operator>网易</operator>
+  </nesfils>
+</Nes>
