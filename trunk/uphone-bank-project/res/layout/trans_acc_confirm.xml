@@ -81,12 +81,14 @@
 	android:layout_width="80dip"
 	android:layout_marginLeft="80dip"
 	android:layout_marginTop="30dip"
+	android:textSize="18dip"
 	android:text="@string/btn_ok"
 	/>
 <Button
 	android:id="@+id/btn_cfm_cancle"
 	android:layout_width="80dip"
 	android:layout_marginTop="30dip"
+	android:textSize="18dip"
 	android:text="@string/btn_cancle"
 	/>
 </TableRow>

@@ -1,7 +1,6 @@
 package com.ultrawise.android.bank.view.transfer;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +15,7 @@ public class CommonDialog extends Activity {
 	private Button button;
 	protected Intent intent;
 
-	public void showDialog(String titletext, String contenttext1,String buttontxt, Context con, Class<?> cls) {
+	public void showDialog(String titletext, String contenttext1,String buttontxt) {
 		onCreate(null);
 		title = (TextView) findViewById(R.id.tv_comdlog_title);
 		title.setText(titletext);
@@ -28,8 +27,8 @@ public class CommonDialog extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent=new Intent();
-				//intent.setClass(con, cls);
-				//con.startActivity(intent);
+				intent.setClass(CommonDialog.this, TransferMain.class);
+				CommonDialog.this.startActivity(intent);
 			}
 			
 		});

@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,13 @@ public class TransAccActive extends Activity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private TextView tv_acctype;
+	private EditText tv_trans_pasd;
+	private String transtype;
+	private String username;
+	private String serviceAddress = "http://10.1.111.192:8080/uphone_webservices/transfer";
+	private String requestParameters;
+	Intent receive_intent;
 	Intent intent;
 	
 	//触摸触发
@@ -35,7 +43,10 @@ public class TransAccActive extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_acc_active);
         
+        receive_intent = getIntent();
         intent = new Intent();
+        transtype = receive_intent.getStringExtra("transtype");
+        username  = receive_intent.getStringExtra(username);
         
         //向右滑动触发后退
   		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -49,7 +60,6 @@ public class TransAccActive extends Activity {
   				return super.onScroll(e1, e2, distanceX, distanceY);
   			}
   		});
-  		intent = new Intent();
         
         //向右滑动触发后退
   		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -65,8 +75,7 @@ public class TransAccActive extends Activity {
   		});
   		
       //顶部导航文本
-        Intent receive_intent = getIntent();
-        String transtype = receive_intent.getStringExtra("transtype");
+        transtype = receive_intent.getStringExtra("transtype");
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
@@ -98,8 +107,8 @@ public class TransAccActive extends Activity {
 		btn_trans_act.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent receive_intent = getIntent();
-		        String transtype = receive_intent.getStringExtra("transtype");
+		        transtype = receive_intent.getStringExtra("transtype");
+		        username = receive_intent.getStringExtra(username);
 				Intent intent = new Intent();
 				intent.putExtra("transtype", transtype);
 				intent.setClass(TransAccActive.this, TransAccPsdSucc.class);
@@ -125,7 +134,6 @@ public class TransAccActive extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = new Intent();
 				intent.setClass(TransAccActive.this, ABankMain.class);
 				TransAccActive.this.startActivity(intent);
 			}
@@ -136,7 +144,6 @@ public class TransAccActive extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = new Intent();
 				intent.setClass(TransAccActive.this, FinancialConsultation.class);
 				TransAccActive.this.startActivity(intent);
 			}
