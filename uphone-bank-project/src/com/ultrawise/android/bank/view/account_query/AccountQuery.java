@@ -99,11 +99,18 @@ public class AccountQuery extends Activity {
 				AccountQuery.this.startActivity(intent);
 			}
 		});
-        
 		adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		adapter.add("储蓄卡");
-		adapter.add("信用卡");
+		
+		
+		
+		Intent intent=getIntent();
+		String[] reslut=intent.getStringArrayExtra("result");
+		for(int i=0;i<reslut.length;i++)
+		{
+			adapter.add(reslut[i]);
+		}
+		
 		spinner = (Spinner) findViewById(R.id.spinnerAccTyp);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -113,7 +120,7 @@ public class AccountQuery extends Activity {
 				Log.v("Test", "id = " + id + "("
 						+ spinner.getSelectedItem().toString() + ")");
 
-				if (spinner.getSelectedItem().toString() == "信用卡") {
+				if (spinner.getSelectedItem().toString().trim().equals( "信用卡")) {
 					Log.v("Test", "信用卡");
 					// 储蓄账户加载
 					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
@@ -127,13 +134,13 @@ public class AccountQuery extends Activity {
 					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
 							public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
 									Spinner spinner = (Spinner) parent;
-									System.out.println(spinner.getSelectedItem().toString());
+									System.out.println("默认第一项="+spinner.getSelectedItem().toString());
 						}
 							public void onNothingSelected(AdapterView<?> arg0) {}});
 					// 结束储蓄用户绑定
 					
 					
-				} else if (spinner.getSelectedItem().toString() == "储蓄卡") {
+				} else if (spinner.getSelectedItem().toString() .trim().equals("储蓄卡")) {
 					// 储蓄账户加载
 					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
 					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

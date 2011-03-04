@@ -1,6 +1,11 @@
 package com.ultrawise.android.bank.view;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
 import com.ultrawise.android.bank.view.account_management.AccountManagement;
@@ -98,6 +103,21 @@ public class ABankMain extends Activity {
 
 		public void onClick(View arg0) {
 			Intent intent=new Intent();
+			
+			String[] str=new String[]{"accStr","pwdStr"};
+			List<String> result=QuerySever.connectHttp("002", str);
+			for(int i=0;i<result.size();i++)
+			{
+			System.out.println("明文======"+result.get(i));	
+			}
+			
+			String[] arrResult=new String[3];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			intent.putExtra("result", arrResult);
+			
 			intent.setClass(ABankMain.this,AccountQuery.class);
 			ABankMain.this.startActivity(intent);
 			
