@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.webservices.implement.account_query02;
 
+import java.util.List;
+
 import com.ultrawise.android.bank.webservices.base.account_Query02.IAccountQueryInfo;
 import com.ultrawise.android.bank.webservices.implement.account_query02.AccountDAOQuery;
 
@@ -25,19 +27,18 @@ public class AccountQueryManager {
 		return Iacc;
 	}
 	
+	
 	public String getAccountQueryById(int account)
 	{
-		return getQueryById(account);
-	}
-	private String getQueryById(int account) {
 		return Iacc.getAccountQueryById(account);
 	}
 	
 	public String getAccountQueryByType(String type)
 	{
-		return getQueryByType(type);
-	}
-	private String getQueryByType(String type) {
 		return Iacc.getAccountQueryByType(type);
+	}
+	
+	public List<String> getAccType(){
+	return Iacc. getAccType();
 	}
 }
