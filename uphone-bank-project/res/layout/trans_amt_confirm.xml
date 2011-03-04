@@ -172,6 +172,7 @@
 		android:layout_height="40dip"
 		android:layout_marginRight="10dip"
 		android:background="@drawable/btnbg"
+		android:textSize="18dip"
 		android:text="确认转账"
 		/>
 	<Button
@@ -180,6 +181,7 @@
 		android:layout_height="40dip"
 		android:layout_marginLeft="10dip"
 		android:background="@drawable/btnbg"
+		android:textSize="18dip"
 		android:text="取消转账"
 		/>
 	</TableRow>

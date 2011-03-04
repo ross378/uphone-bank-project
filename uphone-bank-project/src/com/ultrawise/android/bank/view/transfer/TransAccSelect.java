@@ -2,7 +2,10 @@ package com.ultrawise.android.bank.view.transfer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+
+import com.ultrawise.android.bank.consum_webservices.TransferWebservicesClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 
@@ -23,7 +26,17 @@ public class TransAccSelect extends ListActivity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private String transtype;
+	private String username;
+	Intent receive_intent;
 	Intent intent;
+	
+	
+	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
+	private List<String> lstout = new ArrayList<String>();
+	private List<String> lstinfo = new ArrayList<String>();
+	
+	private CommonDialog Dialog = new CommonDialog();
 	
 	//触摸触发
 	@Override
@@ -39,6 +52,9 @@ public class TransAccSelect extends ListActivity {
         setContentView(R.layout.trans_main);
         
         intent = new Intent();
+        receive_intent = getIntent();
+        transtype = receive_intent.getStringExtra("transtype");
+        username = receive_intent.getStringExtra("username");
         
         //向右滑动触发后退
   		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -54,8 +70,6 @@ public class TransAccSelect extends ListActivity {
   		});
           
       //顶部导航文本
-  		Intent receive_intent = getIntent();
-        String transtype = receive_intent.getStringExtra("transtype");
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
@@ -89,7 +103,7 @@ public class TransAccSelect extends ListActivity {
 		TextView tv_trans_ln = (TextView)findViewById(R.id.tv_trans_ln);
 		tv_trans_ln.setVisibility(View.VISIBLE);
 		
-		//ListView
+		//ListView控件
 		 ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String,Object>>();
 	        
 	        HashMap<String,Object> map = new HashMap<String,Object>();
@@ -143,18 +157,26 @@ public class TransAccSelect extends ListActivity {
 	//ListView监听器
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Intent receive_intent = getIntent();
-        String transtype = receive_intent.getStringExtra("transtype");
 		if (id == 0) {
+			
+			lstinfo.add(username);
+			lstout=transferwebservice.connectHttp("0501", lstinfo);
+			if(lstout != null){
 			Intent intent = new Intent();
 			intent.putExtra("transtype", transtype);
+			intent.putExtra("username",username);
 			intent.setClass(TransAccSelect.this, TransAccActive.class);
 			TransAccSelect.this.startActivity(intent);
+			}else{
+				Dialog.showDialog("获取信息失败", "请确认您已经设置首选账户", "返回");
+			}
 		}else if(id==1){
 			Intent intent = new Intent();
 			intent.putExtra("transtype", transtype);
+			intent.putExtra("username",username);
 			intent.setClass(TransAccSelect.this, TransAccInput.class);
 			TransAccSelect.this.startActivity(intent);
 		}
 	}
+	
 }

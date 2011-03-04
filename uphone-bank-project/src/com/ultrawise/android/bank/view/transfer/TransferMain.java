@@ -127,10 +127,12 @@ public class TransferMain extends ListActivity {
 		Intent intent = new Intent();
 		if (id == 0) {
 			intent.putExtra("transtype", ">手机到手机转账");
+			intent.putExtra("username","zhangsan");
 			intent.setClass(TransferMain.this, TransAccSelect.class);
 			TransferMain.this.startActivity(intent);
 		}else if(id==1){
 			intent.putExtra("transtype", ">手机到签约账户转账");
+			intent.putExtra("username","zhangsan");
 			intent.setClass(TransferMain.this, TransAccSelect.class);
 			TransferMain.this.startActivity(intent);
 		}
