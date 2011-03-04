@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wtd>
+<user name="zhangsan">
+  <wtdemands month="三月份">
+    <dunum>s323454</dunum>
+    <damout>30.00</damout>
+	<date>2011-3-5</date>
+	<charger>无锡自来水公司</charger>
+	<dulimit>2011-7-12</dulimit>
+  </wtdemands>
+  </user>
+</Wtd>

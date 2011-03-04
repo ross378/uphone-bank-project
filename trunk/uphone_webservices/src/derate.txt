@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<derates>
+  <derate>
+    <id>derate</id>
+     <deratenow>1.4%</deratenow>
+	<ludethmon>1.5%</ludethmon>
+	 <sixmon>1.6%</sixmon>
+	 <oneyr>1.7%</oneyr>
+	 <twoyr>2.0%</twoyr>
+	 <thyr>2.2%</thyr>
+	 <fideonyr>1.3%</fideonyr>
+	 <fidethyr>1.7%</fidethyr>
+	 <fidefvyr>2.1%</fidefvyr>
+  </derate>
+</derates>

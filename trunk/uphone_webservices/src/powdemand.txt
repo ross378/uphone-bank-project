@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Powd>
+<user name="zhangsan">
+  <powdemands month="三月份">
+    <dunum>S342</dunum>
+    <damout>100.00</damout>
+	<date>2011-3-4</date>
+	<charger>无锡电力公司</charger>
+	<dulimit>2011-6-23</dulimit>
+  </powdemands>
+  </user>
+</Powd>

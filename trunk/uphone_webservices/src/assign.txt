@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Ass>
+  <assigns>
+    <id>as01</id>
+    <sequence>sq0001</sequence>
+	<outsub>Sun01</outsub>
+	<intsub>Sun02</intsub>
+	<inant>622202115</inant>
+	<outant>622202112</outant>
+	<amount>1000,00</amount>
+	<outdata>20110303</outdata>
+	<outphone>15261500424</outphone>
+	<incity>无锡</incity>
+	<inbank>中国农业银行</inbank>
+	<inidnum>421125198901112225</inidnum>
+  </assigns>
+  <assigns>
+    <id>as02</id>
+    <sequence>sq0002</sequence>
+	<outsub>Sun02</outsub>
+	<intsub>Sun01</intsub>
+	<inant>622202112</inant>
+	<outant>622202115</outant>
+	<amount>1000,00</amount>
+	<outdata>20110304</outdata>
+	<outphone>15261500424</outphone>
+	<incity>无锡</incity>
+	<inbank>中国农业银行</inbank>
+	<inidnum>421125198901112225</inidnum>
+  </assigns>
+</Ass>

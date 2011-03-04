@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Qrep>
+  <qreplens>
+    <id>1</id>
+    <userid>zhangsan</userid>
+	<credit>50.00</credit>
+	<creqqnum>6762551143</creqqnum>
+	<credata>2011-2-12</credata>
+	<creno>#sT5233</creno>
+	<operator>腾讯</operator>
+  </qreplens>
+</Qrep>
