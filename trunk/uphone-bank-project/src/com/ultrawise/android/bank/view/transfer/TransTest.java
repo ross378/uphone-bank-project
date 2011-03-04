@@ -42,7 +42,7 @@ public class TransTest extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				CommonDialog2 commonDialog2 = new CommonDialog2();
-				commonDialog2.showDialog(title, content, buttontext, onClick);	
+				//commonDialog2.showDialog(title, content, buttontext, onClick);	
 			}
 		});
 	}
