@@ -18,6 +18,7 @@
 	<minpayment>x</minpayment>
     <payment>x</payment>
     <actpwd>123456</actpwd>
+    <state>0</state>
  </accout>
  <accout id="622202112">
     <userid>Sun01</userid>
@@ -37,6 +38,7 @@
 	<minpayment>x</minpayment>
     <payment>x</payment>
     <actpwd>123456</actpwd>
+    <state>0</state>
  </accout>
  <accout id="622202113">
     <userid>Sun01</userid>
@@ -56,6 +58,7 @@
 	<minpayment>100,00</minpayment>
     <payment>100,10</payment>
     <actpwd>123456</actpwd>
+    <state>0</state>
   </accout>
  <accout id="622202114">
     <userid>Sun02</userid>
@@ -75,6 +78,7 @@
 	<minpayment>x</minpayment>
     <payment>x</payment>
     <actpwd>123456</actpwd>
+    <state>0</state>
   </accout>
  <accout id="622202115">
     <userid>Sun02</userid>
@@ -94,6 +98,7 @@
 	<minpayment>x</minpayment>
     <payment>x</payment>
     <actpwd>123456</actpwd>
+    <state>0</state>
   </accout>
  <accout id="622202116">
     <userid>Sun02</userid>
@@ -113,5 +118,6 @@
 	<minpayment>100,00</minpayment>
     <payment>100,00</payment>
     <actpwd>123456</actpwd>
+    <state>0</state>
   </accout>
 </Act>
