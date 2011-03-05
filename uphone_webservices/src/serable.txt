@@ -24,7 +24,7 @@
     <id>ser05</id>
     <prname>电费</prname>
     <open>1</open>
-  </serable
+  </serable>
   <serable>
     <id>ser06</id>
     <prname>报纸订阅</prname>
