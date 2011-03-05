@@ -1,5 +1,8 @@
 package com.ultrawise.android.bank.view.account_query;
 
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.credit.CreditView;
@@ -120,15 +123,28 @@ public class AccountQuery extends Activity {
 				Log.v("Test", "id = " + id + "("
 						+ spinner.getSelectedItem().toString() + ")");
 
-				if (spinner.getSelectedItem().toString().trim().equals( "信用卡")) {
-					Log.v("Test", "信用卡");
+				if (id==0) {
+					Log.v("Test", "定期储蓄卡");
 					// 储蓄账户加载
 					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
 					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					adapter2.add("信用卡99xxxx");
-					adapter2.add("dddd");
-					adapter2.add("eeeee");
-					adapter2.add("ppppppp");
+					
+
+					/**
+					 * 从后台获取数据
+					 * 
+					 * @param 功能号为022  卡的类型为：定期储蓄卡
+					 * @return定期储蓄卡的卡号
+					 */
+					adapter2.add("123");
+//					String[] str=new String[]{spinner.getSelectedItem().toString().trim()};
+//					List<String> result=QuerySever.connectHttp("021", str);
+//					for(int i=0;i<result.size();i++)
+//					{
+//					System.out.println("明文022---"+result.get(i));	
+//					adapter2.add(result.get(i));
+//					}
+					
 					spinner2 = (Spinner) findViewById(R.id.spinnerAcc);
 					spinner2.setAdapter(adapter2);
 					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -140,14 +156,27 @@ public class AccountQuery extends Activity {
 					// 结束储蓄用户绑定
 					
 					
-				} else if (spinner.getSelectedItem().toString() .trim().equals("储蓄卡")) {
+				} else if (id==1) {
 					// 储蓄账户加载
 					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
 					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					adapter2.add("611111111111");
-					adapter2.add("222222222222222");
-					adapter2.add("333333333");
-					adapter2.add("444444444");
+					adapter2.add("定期储蓄卡999");
+					adapter2.add("定期储蓄卡9000");
+					spinner2 = (Spinner) findViewById(R.id.spinnerAcc);
+					spinner2.setAdapter(adapter2);
+					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
+								public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
+										Spinner spinner = (Spinner) parent;
+										System.out.println(spinner.getSelectedItem().toString());}
+								public void onNothingSelected(AdapterView<?> arg0) {}});
+					// 结束信用卡用户绑定
+				}
+				else if (id==2) {
+					// 储蓄账户加载
+					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
+					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+					adapter2.add("信用卡3333");
+					adapter2.add("信用卡2222");
 					spinner2 = (Spinner) findViewById(R.id.spinnerAcc);
 					spinner2.setAdapter(adapter2);
 					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {

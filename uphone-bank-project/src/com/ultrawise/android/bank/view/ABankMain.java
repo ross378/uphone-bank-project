@@ -104,11 +104,17 @@ public class ABankMain extends Activity {
 		public void onClick(View arg0) {
 			Intent intent=new Intent();
 			
-			String[] str=new String[]{"accStr","pwdStr"};
-			List<String> result=QuerySever.connectHttp("002", str);
+			/**
+        	 * 从服务器上取得所需要的数据
+        	 * 
+        	 * @author gsm
+        	 * @param 功能号
+        	 * @return 返回卡的类型
+        	 */
+			List<String> result=QuerySever.connectHttp("021", null);
 			for(int i=0;i<result.size();i++)
 			{
-			System.out.println("明文======"+result.get(i));	
+			System.out.println("服务器上取得所需要的数据-明文======"+result.get(i).toString());	
 			}
 			
 			String[] arrResult=new String[3];
