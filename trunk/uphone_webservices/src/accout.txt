@@ -58,7 +58,7 @@
 	<minpayment>100,00</minpayment>
     <payment>100,10</payment>
     <actpwd>123456</actpwd>
-    <state>0</state>
+    <state>1</state>
   </accout>
  <accout id="622202114">
     <userid>Sun02</userid>
