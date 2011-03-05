@@ -7,9 +7,8 @@
 	<patype>身份证</patype>
 	<panum>422304196409081120</panum>
 	<phnum>15525258125</phnum>
-        <telephone>87654902</telephone>
+    <telephone>87654902</telephone>
 	<preant>622202111</preant>
-	<actpwd>123456789</actpwd>
 	<state>0</state>
   </user>
   <user userid="Sun02">
@@ -21,7 +20,6 @@
 	<phnum>15527278255</phnum>
         <telephone>876123678</telephone>
 	<preant>622202115</preant>
-	<actpwd>123456789</actpwd>
 	<state>0</state>
   </user>
 </users>
