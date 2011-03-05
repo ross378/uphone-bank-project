@@ -1,7 +1,5 @@
 package com.ultrawise.android.bank.view.payment;
 
-import it.sauronsoftware.base64.Base64;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +24,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -227,9 +226,9 @@ public class PaymentLastMonth extends ListActivity {
 	private JSONArray Login(String msg) {
 		// Get the public interface's value by path
 		// It's look like http://localhost:8080/hello/login/solo/123
-		String strMi = Base64.encode(msg);
-		System.out.println("加密后："+strMi);
-		requestParameters = "/payment/historydetail/"+strMi+"/";
+	//	String strMi = Base64.encode(msg);
+	//	System.out.println("加密后："+strMi);
+	//	requestParameters = "/payment/historydetail/"+strMi+"/";
 		HttpGet httpget = new HttpGet(serviceAddress + requestParameters);
 		
 		HttpClient httpclient = new DefaultHttpClient();

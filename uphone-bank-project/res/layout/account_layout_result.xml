@@ -28,5 +28,26 @@
 	android:layout_width="fill_parent"
 	android:background="#cccccc">
 </TextView>
+<LinearLayout 	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+<TextView
+	android:textSize="14dip"
+	android:paddingLeft="10dip"
+	android:paddingTop="6dip"
+	android:textColor="#253e81"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:text="描述：">
+</TextView>
+<EditText 	android:layout_width="200dip"
+            android:layout_marginLeft="30dip"
+            android:layout_gravity="left"
+            android:singleLine="false"
+	        android:layout_height="80dip"
+	        android:textSize="14dip"
+	        android:text="描述描述描述">
+</EditText>
+</LinearLayout>
 </LinearLayout>
 </RelativeLayout>

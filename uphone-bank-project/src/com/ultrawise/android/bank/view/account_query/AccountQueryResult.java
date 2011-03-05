@@ -21,8 +21,8 @@ public class AccountQueryResult extends Activity{
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
 			super.onCreate(savedInstanceState);
-			setContentView(R.layout.payment_settime);
-			this.setTitle("");
+			setContentView(R.layout.query_set_time);
+			this.setTitle("设置时间");
 			intent = this.getIntent();
 			if(intent.hasExtra("start")){
 				name = intent.getStringExtra("start");
@@ -31,8 +31,8 @@ public class AccountQueryResult extends Activity{
 			if(intent.hasExtra("end")){
 				name = intent.getStringExtra("end");
 			}
-			datePicker = (DatePicker)findViewById(R.id.datepick_payment_time);
-			time_ok = (Button)findViewById(R.id.time_ok);
+			datePicker = (DatePicker)findViewById(R.id.accountfrom_payment_time);
+			time_ok = (Button)findViewById(R.id.accountfrom_ok);
 			time_ok.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
@@ -48,9 +48,8 @@ public class AccountQueryResult extends Activity{
 					AccountQueryResult.this.startActivity(intent);
 				}
 			});
-			time_cancel = (Button)findViewById(R.id.time_cancel);
-			time_cancel.setOnClickListener(new OnClickListener() {
-				
+			time_cancel = (Button)findViewById(R.id.accountfrom_cancel);
+			time_cancel.setOnClickListener(new OnClickListener() {			
 				public void onClick(View v) {
 					Intent intent = new Intent();
 					intent.setClass(AccountQueryResult.this, inventory.class);

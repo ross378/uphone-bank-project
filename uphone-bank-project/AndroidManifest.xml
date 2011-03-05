@@ -401,7 +401,8 @@
 			android:name="com.ultrawise.android.bank.view.account_query.Query_Settime"
 			android:theme="@android:style/Theme.Dialog"></activity>
 		<activity
-			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryResult" />
+			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryResult" 
+			android:theme="@android:style/Theme.Dialog"/>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryType"></activity>
 		<activity
@@ -410,7 +411,10 @@
 			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryEinnahme"></activity>
 		<activity
 			android:name="com.ultrawise.android.bank.view.account_query.AccountQueryBalance"></activity>
-
+	    <activity
+			android:name="com.ultrawise.android.bank.view.account_query.Inventorylist"></activity>
+	    <activity
+			android:name="com.ultrawise.android.bank.view.account_query.InventoryResult"></activity>
 	</application>
 	<uses-sdk android:minSdkVersion="7" />
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission> 
