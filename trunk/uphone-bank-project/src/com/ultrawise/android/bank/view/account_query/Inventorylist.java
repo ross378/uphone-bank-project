@@ -3,7 +3,10 @@ package com.ultrawise.android.bank.view.account_query;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import android.app.Activity;
+import com.ultrawise.android.bank.view.ABankMain;
+import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.transfer.R;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,18 +18,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.ultrawise.android.bank.view.ABankMain;
-import com.ultrawise.android.bank.view.FinancialConsultation;
-import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
-import com.ultrawise.android.bank.view.payment.PaymentHistory;
-import com.ultrawise.android.bank.view.payment.PaymentLastMonth;
-import com.ultrawise.android.bank.view.payment.PaymentMain;
-import com.ultrawise.android.bank.view.payment.PaymentManage;
-import com.ultrawise.android.bank.view.payment.PaymentPend;
-import com.ultrawise.android.bank.view.payment.PaymentSelfService;
-import com.ultrawise.android.bank.view.transfer.R;
-
-public class AccountQueryEinnahme extends ListActivity {
+public class Inventorylist extends ListActivity{
 	private Intent intent=null;
 	private Button btnReturn=null;
 	private TextView acc1=null;
@@ -45,8 +37,8 @@ public class AccountQueryEinnahme extends ListActivity {
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				 Intent intent = new Intent();
-				 intent.setClass(AccountQueryEinnahme.this, ABankMain.class);
-				 AccountQueryEinnahme.this.startActivity(intent);
+				 intent.setClass(Inventorylist.this, ABankMain.class);
+				 Inventorylist.this.startActivity(intent);
 			}
 		});
 		
@@ -64,18 +56,18 @@ public class AccountQueryEinnahme extends ListActivity {
 	        tvClassSecond.setText("账户查询>");
 	        tvClassSecond.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					 intent = AccountQueryEinnahme.this.getIntent();
-					 intent.setClass(AccountQueryEinnahme.this, AccountQuery.class);
-					 AccountQueryEinnahme.this.startActivity(intent);
+					 intent = Inventorylist.this.getIntent();
+					 intent.setClass(Inventorylist.this, AccountQuery.class);
+					 Inventorylist.this.startActivity(intent);
 				}
 			});
 	        tvClassSecond.setVisibility(View.VISIBLE);
 			TextView tvClassSecond1 = (TextView) this.findViewById(R.id.class_third);
-			tvClassSecond1.setText("来帐查询");
+			tvClassSecond1.setText("明细查询");
 			tvClassSecond1.setVisibility(View.VISIBLE);
 		
 		    acc1=(TextView)findViewById(R.id.account_chance_text);
-		    acc1.setText("定期账户012345678在20101123到20100111"+"\n"+"之间的来帐记录如下：");
+		    acc1.setText("定期账户012345678在20101123到20100111"+"\n"+"之间的交易记录如下：");
 		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        
@@ -85,15 +77,15 @@ public class AccountQueryEinnahme extends ListActivity {
 	        
 	        String data="";
 	        acclist1.put("txtView1","20101123");
-	        acclist1.put("txtView2", "转账");
+	        acclist1.put("txtView2", "支出");
 	        acclist1.put("txtView3",R.drawable.account2);
 	        
 	        acclist2.put("txtView1","20101124");
-	        acclist2.put("txtView2", "汇款");
+	        acclist2.put("txtView2", "收入");
 	        acclist2.put("txtView3", R.drawable.account2);
 	        
 	        acclist3.put("txtView1","20101125");
-	        acclist3.put("txtView2", "转账");
+	        acclist3.put("txtView2", "支出");
 	        acclist3.put("txtView3",R.drawable.account2);
 	        
 	        accoutList.add(acclist1);
@@ -113,8 +105,8 @@ public class AccountQueryEinnahme extends ListActivity {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					Intent intent=new Intent();
-					intent.setClass(AccountQueryEinnahme.this, ABankMain.class);
-					AccountQueryEinnahme.this.startActivity(intent);
+					intent.setClass(Inventorylist.this, ABankMain.class);
+					Inventorylist.this.startActivity(intent);
 					finish();
 				}
 			});
@@ -125,8 +117,8 @@ public class AccountQueryEinnahme extends ListActivity {
 
 				public void onClick(View v) {
 					Intent intent=new Intent();
-					intent.setClass(AccountQueryEinnahme.this,  FinancialConsultation.class);
-					AccountQueryEinnahme.this.startActivity(intent);
+					intent.setClass(Inventorylist.this,  FinancialConsultation.class);
+					Inventorylist.this.startActivity(intent);
 					finish();
 				}
 			});
@@ -136,16 +128,16 @@ public class AccountQueryEinnahme extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		if(id==0){//账户信息及余额查询
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
-			AccountQueryEinnahme.this.startActivity(payment_intent);
+			payment_intent.setClass(Inventorylist.this, InventoryResult.class);
+			Inventorylist.this.startActivity(payment_intent);
 		}else if(id==1){//账户明细查询
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
-			AccountQueryEinnahme.this.startActivity(payment_intent);
+			payment_intent.setClass(Inventorylist.this, InventoryResult.class);
+			Inventorylist.this.startActivity(payment_intent);
 		}else if(id==2){//账户来帐查询
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
-			AccountQueryEinnahme.this.startActivity(payment_intent);
+			payment_intent.setClass(Inventorylist.this, InventoryResult.class);
+			Inventorylist.this.startActivity(payment_intent);
 		}
 	}
 }

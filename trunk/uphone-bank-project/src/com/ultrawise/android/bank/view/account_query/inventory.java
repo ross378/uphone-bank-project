@@ -104,6 +104,14 @@ public class inventory extends Activity {
 				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("start", "start");
 				inventory.this.startActivity(intent);
+//				LayoutInflater inflater = getLayoutInflater();
+//				   View layout = inflater.inflate(R.layout.timechanger,
+//				     (ViewGroup) findViewById(R.id.timechanger));
+//				   AlertDialog.Builder builder = new Builder(inventory.this);
+//				      builder.setTitle("设置起始时间");
+//				      builder.setView(layout);
+//				      builder.setPositiveButton("确定", null);
+//				      builder.setNegativeButton("取消", null).show();
 			}
 		});
 		timeOver = (Button) findViewById(R.id.timechange_to);
@@ -115,6 +123,14 @@ public class inventory extends Activity {
 				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("end", "end");
 				inventory.this.startActivity(intent);
+//				LayoutInflater inflater = getLayoutInflater();
+//				   View layout = inflater.inflate(R.layout.timechanger,
+//				     (ViewGroup) findViewById(R.id.timechanger));
+//				   AlertDialog.Builder builder = new Builder(inventory.this);
+//				      builder.setTitle("设置终止时间");
+//				      builder.setView(layout);
+//				      builder.setPositiveButton("确定", null);
+//				      builder.setNegativeButton("取消", null).show();
 			}
 		});
 
@@ -123,7 +139,7 @@ public class inventory extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent.setClass(inventory.this, AccountQueryEinnahme.class);
+				intent.setClass(inventory.this, Inventorylist.class);
 				startActivity(intent);
 			}
 		});

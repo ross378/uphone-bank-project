@@ -10,8 +10,8 @@
     >
  
 <TextView 	android:id="@+id/accountfrom_1"
-	android:textSize="15dip"
-	android:layout_width="83dip"
+	android:textSize="14dip"
+	android:layout_width="100dip"
 	android:layout_height="wrap_content"
 	android:paddingLeft="10dip"
 	android:paddingTop="6dip"
@@ -19,14 +19,12 @@
 	android:textColor="#253e81">
 </TextView>
 <TextView 	android:id="@+id/accountfrom_2"
-	android:textSize="15dip"
+	android:textSize="14dip"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:paddingTop="6dip"
 	android:singleLine="true"
-	android:textColor="#FF000000"
-	android:layout_gravity="left"
-	android:layout_marginLeft="50dip">
+	android:textColor="#FF000000">
 </TextView>
     <TextView 
 	android:id="@+id/accountfrom_3"
