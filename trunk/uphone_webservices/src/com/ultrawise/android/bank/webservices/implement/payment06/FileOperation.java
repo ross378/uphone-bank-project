@@ -63,7 +63,7 @@ public class FileOperation {
 	
 	
 	//将Document对象保存到文件中
-	public static void saveDocument(Document doc,String fileName){
+	public static boolean saveDocument(Document doc,String fileName){
 		TransformerFactory tFactory =TransformerFactory.newInstance();
 		Transformer transformer=null;
 		try {
@@ -71,6 +71,7 @@ public class FileOperation {
 		} catch (TransformerConfigurationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			return false;
 		}
 		
 		DOMSource source = new DOMSource(doc);
@@ -82,8 +83,9 @@ public class FileOperation {
 		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
-		
+		return true;
 	}
 	
 }
