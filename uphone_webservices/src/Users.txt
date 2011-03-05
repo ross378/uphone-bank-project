@@ -9,7 +9,6 @@
 	<phnum>15525258125</phnum>
     <telephone>87654902</telephone>
 	<preant>622202111</preant>
-	<state>0</state>
   </user>
   <user userid="Sun02">
     <id>account02</id>
@@ -20,6 +19,5 @@
 	<phnum>15527278255</phnum>
         <telephone>876123678</telephone>
 	<preant>622202115</preant>
-	<state>0</state>
   </user>
 </users>
