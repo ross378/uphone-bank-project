@@ -21,7 +21,7 @@ import javax.ws.rs.core.Context;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-@Path("/")
+@Path("amws")
 public class AccManaWebServices {
 	private Action mAction = new Action(new All(), null, null, null, null,
 			null, null, null, null);
@@ -37,9 +37,9 @@ public class AccManaWebServices {
 	 * @param anything
 	 * @return
 	 */
-	@Consumes("application/x-www-form-urlencoded")
-	@Path("amws/")
-	@Produces("application/json")
+	@Consumes("application/x-www-form-urlencoded")//接收表单数据
+	@Path("do")
+	@Produces("application/json")//返回json数据
 	@POST
 	public JSONObject doPost(@FormParam("value") String anything) {
 

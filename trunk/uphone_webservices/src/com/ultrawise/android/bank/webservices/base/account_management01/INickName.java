@@ -1,6 +1,6 @@
 package com.ultrawise.android.bank.webservices.base.account_management01;
 
-import org.codehaus.jettison.json.JSONObject;
+import java.util.List;
 
 public interface INickName {
 
@@ -12,6 +12,6 @@ public interface INickName {
 	 * @param nickName
 	 * @return true/flase
 	 */
-	public String setNickName(String account, String nickName);
+	public List<String> setNickName(String account, String nickName);
 
 }
