@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.TreeViewAdapter.TreeNode;
@@ -27,13 +28,12 @@ public class PaymentManage extends ListActivity {//缴费项目管理
 	
 	ImageView list_img;
 	ImageView img;
-	static int [] yy={0,0,0,1,1,1};
+	int [] yy=null;
+	String[] values = null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    setContentView(R.layout.payment_main);
+        setContentView(R.layout.payment_main);
 
-    
-        
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -46,8 +46,7 @@ public class PaymentManage extends ListActivity {//缴费项目管理
 			}
 		});
 		tvClassFirst.setVisibility(View.VISIBLE);
-		
-		
+
 		TextView tvClassSecond = (TextView)this.findViewById(R.id.class_second);
 		tvClassSecond.setText("自助缴费>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
@@ -60,66 +59,41 @@ public class PaymentManage extends ListActivity {//缴费项目管理
 			}
 		});
 		tvClassSecond.setVisibility(View.VISIBLE);
-		
-		
-		
+
 		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
 		tvClassThird.setText("缴费项目管理");
 		tvClassThird.setVisibility(View.VISIBLE);
-		
-		
-		
+
 		TextView tv_acc_typ = (TextView)this.findViewById(R.id.paymenthistory);
 		tv_acc_typ.setText("已开通项目");
     	tv_acc_typ.setVisibility(View.VISIBLE);
 		
+    	PaymentWebservices.paramsString = "payment";
+    	List<String> value = new ArrayList<String>();
+    	values = PaymentWebservices.connectHttp("60401", value);
+    	yy=new int[values.length/2];
 		
-       ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
+        ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
         
-        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
-        paylist1.put("payment_list","水费");
-        paylist1.put("listimg2", R.drawable.item_enable);
-        mainlist.add(paylist1);
-        
-        paylist1 = new HashMap<String,Object>();
-        paylist1.put("payment_list","电费");
-        paylist1.put("listimg2", R.drawable.item_enable);
-        mainlist.add(paylist1);
-        
-        paylist1 = new HashMap<String,Object>();
-        paylist1.put("payment_list","报纸订阅");
-        paylist1.put("listimg2", R.drawable.item_enable);
-        mainlist.add(paylist1);
-        
-        paylist1 = new HashMap<String,Object>();
-        paylist1.put("payment_list","人寿保险");
-        paylist1.put("listimg2", R.drawable.item_stop);
-        mainlist.add(paylist1);
-        
-        paylist1 = new HashMap<String,Object>();
-        paylist1.put("payment_list","交通罚款");
-        paylist1.put("listimg2", R.drawable.item_stop);
-        mainlist.add(paylist1);
-        
-        paylist1 = new HashMap<String,Object>();
-        paylist1.put("payment_list","平安保险");
-        paylist1.put("listimg2", R.drawable.item_stop);
-        mainlist.add(paylist1);
+        HashMap<String,Object> paylist1 = null;
+        int j = 0;
+        for(int i=0;i<values.length;i+=2){
+        	paylist1 = new HashMap<String,Object>();
+        	paylist1.put("payment_list",values[i]);
+        	if(values[i+1].equals("1")){
+        		paylist1.put("listimg2", R.drawable.item_enable);
+        	}else{
+        		paylist1.put("listimg2", R.drawable.item_stop);
+        	}
+        	yy[j++] = Integer.parseInt(values[i+1]);
+        	mainlist.add(paylist1);
+        }
 
-    
-
-        
         SimpleAdapter MainListAdapter = new SimpleAdapter(
         		this, mainlist,R.layout.payment_manage_list, new String[]{
         				"payment_list","listimg2"},new int[]{
         				R.id.manage_list_text,R.id.manage_list_img } );
         this.setListAdapter(MainListAdapter);
-        
-
-        
-        
-        
-        
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
 //        iv_now.setVisibility(View.VISIBLE);
@@ -162,42 +136,40 @@ public class PaymentManage extends ListActivity {//缴费项目管理
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		if (id == 0) {//1
-			img=(ImageView)v.findViewById(R.id.manage_list_img);
-			enAbleToStop(0);
+		
+		img=(ImageView)v.findViewById(R.id.manage_list_img);
+		int flag = (int)id;
+		List<String> params = new ArrayList<String>();
+		params.add(values[2*flag]);
+		if(yy[0]==0){
+			params.add("1");
+		}else{
+			params.add("0");
 		}
-		else if(id==1){//2
-			img=(ImageView)v.findViewById(R.id.manage_list_img);
-			enAbleToStop(1);
-		}
-		else if (id == 2) {//3
-			img=(ImageView)v.findViewById(R.id.manage_list_img);
-			enAbleToStop(2);
-        
-		}
-		else if(id==3){//4
-			img=(ImageView)v.findViewById(R.id.manage_list_img);
-			enAbleToStop(3);
-		}
-		else if (id == 4) {//5
-			img=(ImageView)v.findViewById(R.id.manage_list_img);
-			enAbleToStop(4);
-        
-		}
-		else if(id==5){//6
-			img=(ImageView)v.findViewById(R.id.manage_list_img);
-			enAbleToStop(5);
+		if(updataStatue("60402",params)){
+			enAbleToStop(flag);
 		}
 	}
 	private void enAbleToStop(int tag){
-		if(yy[tag]==0){
-            PaymentManage.this.img.setImageResource(R.drawable.item_stop);
-            yy[tag]=1;
-		}else {
+		System.out.println("---------"+yy[tag]);
 		if(yy[tag]==1){
-            PaymentManage.this.img.setImageResource(R.drawable.item_enable);
+            PaymentManage.this.img.setImageResource(R.drawable.item_stop);
             yy[tag]=0;
+		}else {
+		if(yy[tag]==0){
+            PaymentManage.this.img.setImageResource(R.drawable.item_enable);
+            yy[tag]=1;
 		}
 		}
+	}
+	
+	private boolean updataStatue(String funNo,List<String> params){
+		PaymentWebservices.paramsString = "payment";
+		String[] values=PaymentWebservices.connectHttp(funNo, params);
+		System.out.println(values[0]);
+		if(values[0].equals("true")){
+			return true;
+		}
+		return false;
 	}
 }
