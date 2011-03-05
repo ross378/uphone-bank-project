@@ -17,7 +17,7 @@ public class Serable {
 	public void setPrname(String prname) {
 		this.prname = prname;
 	}
-	public String isOpen() {
+	public String getOpen() {
 		return open;
 	}
 	public void setOpen(String open) {
