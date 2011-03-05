@@ -105,13 +105,17 @@ public class QuerySever{
         	 * @return 
         	 */
         	private static String setParams(String funNo, String[] value) {
-        		String params = funNo;
-        		for (int i = 0; i < value.length; i++) {
-        			params += ":" + value[i];
+        		String params = funNo + ":" ;
+        		if(value!=null)
+        		{
+	        		for (int i = 0; i < value.length; i++) {
+	        			params +=value[i];
+	        		}
         		}
-        		return params;
+        		return Base64.encode(params, "utf-8");//加密
         	}
-
+        	
+        	
         	/**
         	 * 解析JSON，解出来的是密文
         	 * 
@@ -176,7 +180,7 @@ public class QuerySever{
        		List<String> lstMingWen = new ArrayList<String>();
        		if (lstMiWen.size() != 0) {
        			for (String value : lstMiWen) {
-       				lstMingWen.add(Base64.decode(value));// 解密
+       				lstMingWen.add(Base64.decode(value,"utf-8"));// 解密
        			}
        		} else {
        		}
