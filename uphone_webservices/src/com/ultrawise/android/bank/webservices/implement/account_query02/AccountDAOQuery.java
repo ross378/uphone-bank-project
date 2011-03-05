@@ -26,7 +26,7 @@ import com.ultrawise.android.bank.webservices.base.account_Query02.IAccountQuery
 
 public class AccountDAOQuery implements IAccountQueryInfo{
 	private String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();;
-	private BufferedReader br;
+	
 	private String line;
 	private StringBuffer data = new StringBuffer();
 	
@@ -78,11 +78,16 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 	 * 功能号 0201
 	 */
 	public List<String> getAccType() {
+		 BufferedReader br=null;
+		 DocumentBuilderFactory dbf=null;
+		 DocumentBuilder db=null;
+		 Document doc=null;
+		 
 		// TODO 获取账户类型
 		List<String> lstStr = new ArrayList<String>();
 
 		try {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(
+			br= new BufferedReader(new InputStreamReader(new FileInputStream(
 					path + "paypal.txt"),"utf-8"));
 			while ((line = br.readLine()) != null) {
 				data.append(line + "\n");
@@ -90,11 +95,10 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			ByteArrayInputStream stream = new ByteArrayInputStream(data
 					.toString().getBytes("utf-8"));
 
-			StringBuffer sb = new StringBuffer();
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			dbf= DocumentBuilderFactory.newInstance();
 
-			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(stream);
+			db= dbf.newDocumentBuilder();
+			doc= db.parse(stream);
 			NodeList nl = doc.getElementsByTagName("tyname");// 获取所有的账户种类节点
 			for (int i = 0; i < nl.getLength(); i++) {
 				String value = nl.item(i).getFirstChild().getNodeValue();//获取节点的值
@@ -113,6 +117,16 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		finally
+		{
+			try {
+				br.close();
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		// lstStr.add("信用卡");

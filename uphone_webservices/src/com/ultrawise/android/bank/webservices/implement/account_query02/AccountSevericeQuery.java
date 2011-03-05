@@ -28,7 +28,9 @@ public class AccountSevericeQuery {
 	private String[] mValue;
 	private String mReturnString;
 	// 静态的功能标识
-	private final static int GET_USER_NO = 101;
+	private final static int GET_ACC_TYPE = 21;
+	private final static int GET_USER_NO = 22;
+	
 
 	/**
 	 * 接收请求 1.解析json 2.解密 3.解析字符串格式 4.调用功能 5.加密 6.包装成json 7.返回json
@@ -42,20 +44,42 @@ public class AccountSevericeQuery {
 	@Produces("application/json")
 	@POST
 	public JSONObject doGet(@FormParam("value") String anything) {
-		// 解析json
-		// 解密
-		// 解析格式
-		// String anything = "0101";
-		mValue = anything.split(":");
-		mAction = Integer.parseInt(mValue[0]);
+		
 		System.out.println("前台传入的anything=" + anything);
+		String[] mValue = doDecode(anything).split(":");
+		int mAction = Integer.parseInt(mValue[0]);
+		System.out.println("mValue[0]="+mValue[0]);
 		List<String> list = AccountQueryManager.getInstance().getAccType();
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println("list=" + list.get(i));
 		}
-		return wrapUp(doEncode(list));
+
+//		 调用功能
+		switch (mAction) {
+		case GET_ACC_TYPE:
+			
+			return wrapUp(doEncode(list));
+
+		case GET_USER_NO:
+			return wrapUp(doEncode(null));
+
+		default:
+			List<String> lstStr = new ArrayList<String>();
+			lstStr.add("sorry");
+			return wrapUp(lstStr);
+		}
 	}
 
+	/**
+	 * 解密
+	 * 
+	 * @param strMiWen
+	 * @return
+	 */
+	private String doDecode(String strMiWen) {
+		return Base64.decode(strMiWen, "utf-8");
+	}
+	
 	private List<String> doEncode(List<String> lstMingWen) {
 
 		List<String> lstMiWen = new ArrayList<String>();
