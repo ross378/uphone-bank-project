@@ -7,4 +7,5 @@ public interface IAccountQueryInfo {
 	public List<String> getAccountQueryByType(String type);
 	public List<String> getAccountQueryById(String id);
 	public List<String> getAccType();
+	public List<String> getByTime(String start,String end);
 }

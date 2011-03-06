@@ -28,6 +28,8 @@ public class AccountQueryManager {
 	}
 	
 	
+	
+	
 	public List<String> getAccountQueryById(String id)
 	{
 		return Iacc.getAccountQueryById(id);
@@ -41,4 +43,8 @@ public class AccountQueryManager {
 	public List<String> getAccType(){
 	return Iacc. getAccType();
 	}
+	
+	public List<String> getByTime(String start,String end){
+		return Iacc.getByTime(start, end);
+		}
 }

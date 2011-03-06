@@ -31,6 +31,7 @@ public class AccountSevericeQuery {
 	private final static int GET_ACC_TYPE = 21;
 	private final static int GET_PAYPAL_ID = 22;
 	private final static int GET_XINGXI_ID = 23;
+	private final static int GET_TIME = 24;
 	
 
 	/**
@@ -59,17 +60,22 @@ public class AccountSevericeQuery {
 			return wrapUp(doEncode(AccountQueryManager.getInstance().getAccType()));
 
 		case GET_PAYPAL_ID:
+			
 			return wrapUp(doEncode(AccountQueryManager.getInstance().getAccountQueryByType(mValue[1])));
-//			return wrapUp(doEncode(list));
 			
 		case GET_XINGXI_ID:
-			List<String> list=AccountQueryManager.getInstance().getAccountQueryById((mValue[1]));
+			
+			return wrapUp(doEncode(AccountQueryManager.getInstance().getAccountQueryById((mValue[1]))));
+			
+		case GET_TIME:
+			System.out.println(mValue[1]);
+			String[] str=mValue[1].split("#");
+			List<String> list=AccountQueryManager.getInstance().getByTime(str[0], str[1]);
 			for(String g: list )
 			{
 				System.out.println("023==="+g.toString());
 			}
 			return wrapUp(doEncode(list));
-//			return wrapUp(doEncode(list));
 		default:
 			List<String> lstStr = new ArrayList<String>();
 			lstStr.add("sorry");
