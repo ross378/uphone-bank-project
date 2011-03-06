@@ -27,7 +27,8 @@ public class PaymentWebservices {
 		String[] values = mingWen.split(":");
 		try {
 			functionNo = Integer.parseInt(values[0]);
-		    monthName=values[1];
+			if(values.length >1)
+				monthName=values[1];
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 			System.out.println("传入的功能号不是数字");
@@ -35,6 +36,7 @@ public class PaymentWebservices {
 		
 		switch (functionNo){
 		case 601:{
+			monthName=values[1];
 			PaymentDetail detail=new PaymentDetail();
 			mingWen=detail.getPaymentNameAndMoney("zhangsan", monthName);
 			System.out.println(">>>>>>>>>>><<<<<<<<<<<"+mingWen);
@@ -42,6 +44,7 @@ public class PaymentWebservices {
 			break;
 		      }
 		case 60100:{
+			monthName=values[1];
 			System.out.println(monthName);
 			PaymentDetail detail=new PaymentDetail();
 			mingWen=detail.getPaymentDetail("zhangsan","水费", monthName);
@@ -49,18 +52,21 @@ public class PaymentWebservices {
 			break;
 		      }
 		case 60101:{
+			monthName=values[1];
 			PaymentDetail detail=new PaymentDetail();
 			mingWen=detail.getPaymentDetail("zhangsan", "电费",monthName);
 			json=wrapUp(mingWen);
 			break;
 		      }
 		case 60102:{
+			monthName=values[1];
 			PaymentDetail detail=new PaymentDetail();
 			mingWen=detail.getPaymentDetail("zhangsan", "煤气费",monthName);
 			json=wrapUp(mingWen);
 			break;
 		      }
 		case 60103:{
+			monthName=values[1];
 			PaymentDetail detail=new PaymentDetail();
 			mingWen=detail.getPaymentDetail("zhangsan", "房租费",monthName);
 			json=wrapUp(mingWen);
