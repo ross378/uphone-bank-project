@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Gasd>
 <user name="zhangsan">
-  <gasdemands month="三月份">
+  <gasdemands month="三月份煤气费">
     <dunum>s45256</dunum>
     <damout>78.00</damout>
 	<date>2011-3-2</date>
