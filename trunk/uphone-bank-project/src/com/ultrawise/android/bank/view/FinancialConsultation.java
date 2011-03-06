@@ -1,6 +1,7 @@
 package com.ultrawise.android.bank.view;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import java.util.HashMap;
 
@@ -74,7 +75,11 @@ public class FinancialConsultation extends Activity {
 	class ABankButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
+			
 			Intent intent=new Intent();
+			List<String> result = WebTools.connectHttp(0, null);
+			Log.d("xiao", result.get(0));
+			intent.putStringArrayListExtra("key", (ArrayList<String>)result);
 			intent.setClass(FinancialConsultation.this,UserLogin.class);
 			FinancialConsultation.this.startActivity(intent);
 			
@@ -88,7 +93,9 @@ public class FinancialConsultation extends Activity {
 	class DepositeRatesButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
+			List<String> result = WebTools.connectHttp(1, null);
 			Intent intent=new Intent();
+			intent.putStringArrayListExtra("key", (ArrayList<String>)result);
 			intent.setClass(FinancialConsultation.this,DepositeRates.class);
 			FinancialConsultation.this.startActivity(intent);
 			
@@ -102,7 +109,9 @@ public class FinancialConsultation extends Activity {
 	class LoanRatekButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
+			List<String> result = WebTools.connectHttp(1, null);
 			Intent intent=new Intent();
+			intent.putStringArrayListExtra("key", (ArrayList<String>)result);
 			intent.setClass(FinancialConsultation.this,LoanRates.class);
 			FinancialConsultation.this.startActivity(intent);
 			
