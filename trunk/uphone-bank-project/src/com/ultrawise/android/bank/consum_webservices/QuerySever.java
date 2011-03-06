@@ -33,7 +33,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class QuerySever{
-	  private final static String SERVICE_ADDRESS = "http://10.1.1.36:8080/webservices/query/do/";
+	  private final static String SERVICE_ADDRESS = "http://120.195.155.151:8080/webservices/query/do/";
 
 	  // private String value;// like: 0101:A43lEnOCi80lxEne
 

@@ -55,30 +55,20 @@ public class inventory extends Activity {
 		tvClassSecond.setText("账户查询>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-
 				Intent intent=new Intent();
-				
 				/**
 	        	 * 从服务器上取得所需要的数据
-	        	 * 
 	        	 * @author gsm
-	        	 * @param 功能号
+	        	 * @param 功能号 021
 	        	 * @return 返回卡的类型
 	        	 */
 				List<String> result=QuerySever.connectHttp("021", null);
-				for(String g:result)
-				{
-				System.out.println("服务器上取得所需要的数据-明文======"+g.toString());	
-				}
-				
-				
 				String[] arrResult=new String[result.size()];
 				for(int i=0;i<result.size();i++)
 				{   
 					 arrResult[i]= result.get(i);
 				}
 				intent.putExtra("result", arrResult);
-				
 				intent.setClass(inventory.this,AccountQuery.class);
 				inventory.this.startActivity(intent);
 			}
@@ -150,10 +140,31 @@ public class inventory extends Activity {
 
 			public void onClick(View v) {
 				Intent intent=new Intent();
-				System.out.println("开始"+timeStart.getText());
-				System.out.println("结束"+timeOver.getText());
+				String start=timeStart.getText().toString().trim();
+				String end=timeOver.getText().toString().trim();
+				System.out.println("开始"+start);
+				System.out.println("结束"+end);
+				/**
+	        	 * 从服务器上取得所需要时间段的数据
+	        	 * 
+	        	 * @author gsm
+	        	 * @param 功能号 024
+	        	 * @return 返回卡的类型
+	        	 */
+				String[] str=new String[]{start+"#",end};
+				List<String> result=QuerySever.connectHttp("024", str);
+				for(String g:result)
+				{
+				System.out.println("时间段的数据-明文======"+g.toString());	
+				}
+				String[] arrResult=new String[result.size()];
+				for(int i=0;i<result.size();i++)
+				{   
+					 arrResult[i]= result.get(i);
+				}
+				intent.putExtra("result", arrResult);
 				intent.setClass(inventory.this, Inventorylist.class);
-				startActivity(intent);
+				inventory.this.startActivity(intent);
 			}
 		});
 		Intent intent = this.getIntent();
