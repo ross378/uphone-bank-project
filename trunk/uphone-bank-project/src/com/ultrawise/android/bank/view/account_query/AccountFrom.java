@@ -1,5 +1,8 @@
 package com.ultrawise.android.bank.view.account_query;
 
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -52,8 +55,32 @@ public class AccountFrom extends Activity{
 		tvClassSecond.setVisibility(View.VISIBLE);
         tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				 intent.setClass(AccountFrom.this,AccountQuery.class);
-				 startActivity(intent);
+
+				Intent intent=new Intent();
+				
+				/**
+	        	 * 从服务器上取得所需要的数据
+	        	 * 
+	        	 * @author gsm
+	        	 * @param 功能号
+	        	 * @return 返回卡的类型
+	        	 */
+				List<String> result=QuerySever.connectHttp("021", null);
+				for(String g:result)
+				{
+				System.out.println("服务器上取得所需要的数据-明文======"+g.toString());	
+				}
+				
+				
+				String[] arrResult=new String[result.size()];
+				for(int i=0;i<result.size();i++)
+				{   
+					 arrResult[i]= result.get(i);
+				}
+				intent.putExtra("result", arrResult);
+				
+				intent.setClass(AccountFrom.this,AccountQuery.class);
+				AccountFrom.this.startActivity(intent);
 			}
 		});
         tvClassSecond.setVisibility(View.VISIBLE);

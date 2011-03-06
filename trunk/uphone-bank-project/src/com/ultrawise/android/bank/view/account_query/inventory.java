@@ -1,5 +1,8 @@
 package com.ultrawise.android.bank.view.account_query;
 
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.PaymentHistory;
@@ -52,8 +55,32 @@ public class inventory extends Activity {
 		tvClassSecond.setText("账户查询>");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent.setClass(inventory.this, AccountQuery.class);
-				startActivity(intent);
+
+				Intent intent=new Intent();
+				
+				/**
+	        	 * 从服务器上取得所需要的数据
+	        	 * 
+	        	 * @author gsm
+	        	 * @param 功能号
+	        	 * @return 返回卡的类型
+	        	 */
+				List<String> result=QuerySever.connectHttp("021", null);
+				for(String g:result)
+				{
+				System.out.println("服务器上取得所需要的数据-明文======"+g.toString());	
+				}
+				
+				
+				String[] arrResult=new String[result.size()];
+				for(int i=0;i<result.size();i++)
+				{   
+					 arrResult[i]= result.get(i);
+				}
+				intent.putExtra("result", arrResult);
+				
+				intent.setClass(inventory.this,AccountQuery.class);
+				inventory.this.startActivity(intent);
 			}
 		});
 		tvClassSecond.setVisibility(View.VISIBLE);
@@ -65,9 +92,9 @@ public class inventory extends Activity {
 		ImageView btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
 		btnReturn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				intent.setClass(inventory.this, AccountQuery.class);
-				startActivity(intent);
+				
+				onBackPressed();
+				finish();
 			}
 		});
 		
@@ -104,14 +131,6 @@ public class inventory extends Activity {
 				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("start", "start");
 				inventory.this.startActivity(intent);
-//				LayoutInflater inflater = getLayoutInflater();
-//				   View layout = inflater.inflate(R.layout.timechanger,
-//				     (ViewGroup) findViewById(R.id.timechanger));
-//				   AlertDialog.Builder builder = new Builder(inventory.this);
-//				      builder.setTitle("设置起始时间");
-//				      builder.setView(layout);
-//				      builder.setPositiveButton("确定", null);
-//				      builder.setNegativeButton("取消", null).show();
 			}
 		});
 		timeOver = (Button) findViewById(R.id.timechange_to);
