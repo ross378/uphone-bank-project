@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Rend>
 <user name="zhangsan">
-  <rendemands month="三月份">
+  <rendemands month="三月份房租费">
     <dunum>S346546</dunum>
     <damout>2000.00</damout>
 	<date>2011-3-5</date>
