@@ -15,25 +15,60 @@ import org.codehaus.jettison.json.JSONObject;
 public class PaymentWebservices {
 	private static int functionNo = 0;
 	private JSONObject json = null;
+	String	monthName=null;
 	@Consumes("application/x-www-form-urlencoded")
 	@Produces("application/json")
 	@POST
 	public JSONObject doPost(@FormParam("value") String anything){
 		String mingWen = Base64.decode(anything,"utf-8");
+		System.out.println(mingWen);
 		String[] values = mingWen.split(":");
 		try {
 			functionNo = Integer.parseInt(values[0]);
+		    monthName=values[1];
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 			System.out.println("传入的功能号不是数字");
 		}
 		
 		switch (functionNo){
+		case 601:{
+			PaymentDetail detail=new PaymentDetail();
+			mingWen=detail.getPaymentNameAndMoney("zhangsan", monthName);
+			System.out.println(">>>>>>>>>>><<<<<<<<<<<"+mingWen);
+			json=wrapUp(mingWen);
+			break;
+		      }
 		case 60401:
 			Paymentmanage manage = new Paymentmanage();
 			mingWen = manage.getPaymentmanageName();
 			json = wrapUp(mingWen);
 			break;
+		case 60100:{
+			System.out.println(monthName);
+			PaymentDetail detail=new PaymentDetail();
+			mingWen=detail.getPaymentDetail("zhangsan","水费", monthName);
+			json=wrapUp(mingWen);
+			break;
+		      }
+		case 60101:{
+			PaymentDetail detail=new PaymentDetail();
+			mingWen=detail.getPaymentDetail("zhangsan", "电费",monthName);
+			json=wrapUp(mingWen);
+			break;
+		      }
+		case 60102:{
+			PaymentDetail detail=new PaymentDetail();
+			mingWen=detail.getPaymentDetail("zhangsan", "煤气费",monthName);
+			json=wrapUp(mingWen);
+			break;
+		      }
+		case 60103:{
+			PaymentDetail detail=new PaymentDetail();
+			mingWen=detail.getPaymentDetail("zhangsan", "房租费",monthName);
+			json=wrapUp(mingWen);
+			break;
+		      }
 			
 		}
 		
