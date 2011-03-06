@@ -27,7 +27,7 @@ import android.util.Log;
 
 public class TransferWebservicesClient{
 	private static final String TAG = "Transfer";
-	private static final String SERVICE_ADDRESS = "http://127.0.0.1:8080/webservices/transws";
+	private static final String SERVICE_ADDRESS = "http://10.1.111.192:8080/webservices/transws/do";
 
 	public static List<String> connectHttp (String funNo, List<String> Value){
 		String result = "error";
@@ -129,7 +129,7 @@ public class TransferWebservicesClient{
 		List<String> lstMingWen = new ArrayList<String>();
 		if (lstMiWen.size() != 0) {
 			for (String value : lstMiWen) {
-				lstMingWen.add(Base64.decode(value));// 解密
+				lstMingWen.add(Base64.decode(value));
 			}
 		} else {
 			Log.e(TAG, "===========doDecode lstMiWen size == 0===============");
