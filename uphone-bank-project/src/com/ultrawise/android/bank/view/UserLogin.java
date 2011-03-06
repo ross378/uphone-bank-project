@@ -1,4 +1,5 @@
 package com.ultrawise.android.bank.view;
+import java.util.List;
 import java.util.Random;
 
 import com.ultrawise.android.bank.view.ABankMain.CreditButtonListener;
@@ -12,6 +13,7 @@ import com.ultrawise.android.bank.view.transfer.TransResult;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -19,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 /**
  * 
@@ -48,16 +51,14 @@ public class UserLogin extends Activity {
 	private ImageButton randomButton = null;
 	 private ImageView phoneBank = null;
 	 private ImageView helper = null;
+	 
+	 private TextView extraCode = null;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.userlogin);
-        Random ran = new Random();
-        randomNo = ran.nextInt(999);
-        
-        randomButton = (ImageButton)findViewById(R.id.pyramidImage);
-        
+       
         //获得用户名输入框，并获得输入框中的值
         nameEditText=(EditText)findViewById(R.id.nameEdit);
         
@@ -72,6 +73,13 @@ public class UserLogin extends Activity {
         
         //获得密码输入框，并获得输入框中输入的值
         pyramidEditText=(EditText)findViewById(R.id.pyramidEdit);
+        
+        //附加码显示控件
+        extraCode = (TextView)findViewById(R.id.extraCode);
+        Intent intent = getIntent();
+        List<String> rand = intent.getStringArrayListExtra("key");
+        Log.d("xiao", rand.get(0));
+        extraCode.setText(rand.get(0));
         
         phoneBank = (ImageView)findViewById(R.id.btnMain);
         helper = (ImageView)findViewById(R.id.btnHelper);
