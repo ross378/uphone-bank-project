@@ -33,7 +33,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class QuerySever{
-	  private final static String SERVICE_ADDRESS = "http://10.1.1.169:8080/webservices/query/do/";
+	  private final static String SERVICE_ADDRESS = "http://10.1.1.36:8080/webservices/query/do/";
 
 	  // private String value;// like: 0101:A43lEnOCi80lxEne
 
@@ -184,6 +184,12 @@ public class QuerySever{
        			}
        		} else {
        		}
+
+       		
+       		for(String g:lstMingWen)
+			{
+			System.out.println("服务器上取得所需要的数据-明文11111======"+g.toString());	
+			}
        		return lstMingWen;
        	}
    }

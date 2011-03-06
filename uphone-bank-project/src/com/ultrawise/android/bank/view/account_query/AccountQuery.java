@@ -106,12 +106,15 @@ public class AccountQuery extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
 		
-		
+		/**
+		 * 讲前一个Activity传入的只放入文本框中
+		 */
 		Intent intent=getIntent();
 		String[] reslut=intent.getStringArrayExtra("result");
 		for(int i=0;i<reslut.length;i++)
 		{
-			adapter.add(reslut[i]);
+				adapter.add(reslut[i]);
+			
 		}
 		
 		spinner = (Spinner) findViewById(R.id.spinnerAccTyp);
