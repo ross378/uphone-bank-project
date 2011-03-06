@@ -17,10 +17,18 @@ public class TransAccPsdSucc extends Activity {
 	private GestureDetector mGestureDetector;
 	private Button btn_trans_reselect;
 	private Button btn_trans_next;
+	private TextView tv_account;
+	private TextView tv_accinfo;
+	private TextView tv_accbal;
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private String transtype;
+	private String balance;
+	private String account;
+	private String accinfo;
 	Intent intent;
+	Intent receive_intent;
 	
 	//触摸触发
 	@Override
@@ -35,7 +43,21 @@ public class TransAccPsdSucc extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_acc_psdsucc);
         
+        receive_intent = getIntent();
         intent = new Intent();
+        transtype = receive_intent.getStringExtra("transtype");        
+        accinfo = receive_intent.getStringExtra("accinfo");
+        account = receive_intent.getStringExtra("account");
+        balance = receive_intent.getStringExtra("balance");
+        
+        tv_account = (TextView)findViewById(R.id.tv_trans_account);
+        tv_accinfo = (TextView)findViewById(R.id.tv_trans_accinfo);
+        tv_accbal = (TextView)findViewById(R.id.tv_trans_accbal);
+        tv_account.setText(account);
+        tv_accinfo.setText(accinfo);
+        tv_accbal.setText(balance);
+        
+        
         
         //向右滑动触发后退
   		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){

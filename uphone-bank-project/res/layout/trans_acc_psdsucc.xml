@@ -28,7 +28,7 @@
 	android:text="账户："
 	/>
 <TextView
-	android:id="@+id/tv_trans_tv1"
+	android:id="@+id/tv_trans_account"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="60dip"
@@ -59,7 +59,7 @@
 	android:text="类型："
 	/>
 <TextView
-	android:id="@+id/tv_trans_tv2"
+	android:id="@+id/tv_trans_accinfo"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="60dip"
@@ -90,7 +90,7 @@
 	android:text="余额："
 	/>
 <TextView
-	android:id="@+id/tv_trans_tv3"
+	android:id="@+id/tv_trans_accbal"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_marginLeft="60dip"

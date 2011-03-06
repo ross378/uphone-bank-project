@@ -66,8 +66,8 @@
 	<item>456789012345</item>
 	</string-array>
 	<string-array name="acctype">
-	<item>  定期储蓄账户</item>
-	<item>  活期储蓄账户</item>
+	<item>定期储蓄账户</item>
+	<item>活期储蓄账户</item>
 	</string-array>
 	<string-array name="list_bank_net">
 		<item>小北储蓄所</item>

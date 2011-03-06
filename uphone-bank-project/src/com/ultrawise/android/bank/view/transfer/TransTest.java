@@ -14,6 +14,9 @@ public class TransTest extends Activity {
 	private String title = "test title";
 	private String content = "test content /n test huanhang";
 	private String buttontext = "button text";
+	private static final String TAG = "Transfer";
+	private static final String SERVICE_ADDRESS = "http://127.0.0.1:8080/webservices/transws";
+	
 	
 	OnClickListener onClick = new MyButtonListener();
 	
@@ -34,7 +37,7 @@ public class TransTest extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				CommonDialog commonDialog = new CommonDialog();
-				commonDialog.showDialog(title, content, buttontext);	
+				//commonDialog.showDialog(title, content, buttontext);	
 			}
 		});
 		button2 = (Button)findViewById(R.id.button2);

@@ -160,15 +160,25 @@ public class TransAccSelect extends ListActivity {
 		if (id == 0) {
 			
 			lstinfo.add(username);
-			lstout=transferwebservice.connectHttp("0501", lstinfo);
+			lstout=transferwebservice.connectHttp("501", lstinfo);
 			if(lstout != null){
+				String account = lstout.get(0);
+				String accinfo = lstout.get(1);
 			Intent intent = new Intent();
 			intent.putExtra("transtype", transtype);
 			intent.putExtra("username",username);
+			intent.putExtra("accinfo", accinfo);
+			intent.putExtra("account", account);
 			intent.setClass(TransAccSelect.this, TransAccActive.class);
 			TransAccSelect.this.startActivity(intent);
 			}else{
-				Dialog.showDialog("获取信息失败", "请确认您已经设置首选账户", "返回");
+				//Dialog.showDialog("获取信息失败", "请确认您已经设置首选账户", "返回");
+				Intent intent = new Intent();
+				intent.putExtra("diatitle", "获取信息失败");
+				intent.putExtra("diacontent", "请确认您已经设置首选账户");
+				intent.putExtra("btntext", "返回");
+				intent.setClass(TransAccSelect.this, CommonDialog.class);
+				TransAccSelect.this.startActivity(intent);
 			}
 		}else if(id==1){
 			Intent intent = new Intent();
