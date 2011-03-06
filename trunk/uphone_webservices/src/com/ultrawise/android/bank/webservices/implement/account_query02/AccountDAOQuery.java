@@ -27,90 +27,17 @@ import com.ultrawise.android.bank.webservices.base.account_Query02.IAccountQuery
 public class AccountDAOQuery implements IAccountQueryInfo{
 	private String path = Thread.currentThread().getContextClassLoader().getResource("").getPath();;
 	
-	private String line;
-	private StringBuffer data = new StringBuffer();
-	
-	//按账户号查找
-	public String getAccountQueryById(int id) {
-		// TODO Auto-generated method stub
-		return "Id还没做";
-	}
-	
-	//按账户类型查找
-	public String getAccountQueryByType(String type) {
-		// TODO Auto-generated method stub
-		return getByType(type);
-	 }
-	
-	private String getByType(String type)
-	{
-		StringBuffer data=new StringBuffer();
-		String line=null;
-		String result2=null;
-		String path=null;
-		
-		try {
-			path=Thread.currentThread().getContextClassLoader().getResource("").getPath();
-			System.out.println("file path="+path);
-			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(path+"\\act.txt"),"utf-8"));
-			while((line=br.readLine())!=null){
-				data.append(line+"\n");
-			}
-			ByteArrayInputStream stream=new ByteArrayInputStream(data.toString().getBytes("utf-8"));
-			
-			String result=parseXml(stream);//查询值
-			String[] results=result.split(":");
-			
-			//Integer.toString(id)
-			if(type.equals(results[0])){
-				result2=results[1]+":"+results[2];
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return result2;
-	}
 
 	/**
-	 * 功能号 0201
+	 * 功能号 021 查找账户类型
 	 */
 	public List<String> getAccType() {
-		 BufferedReader br=null;
-		 DocumentBuilderFactory dbf=null;
-		 DocumentBuilder db=null;
-		 Document doc=null;
-		 ByteArrayInputStream stream=null;
-		 Account acct=new Account();
-		 
 		// TODO 获取账户类型
 		List<String> lstStr = new ArrayList<String>();
-
 		try {
-			br= new BufferedReader(new InputStreamReader(new FileInputStream(
-					path + "paypal.txt"),"utf-8"));
-			while ((line = br.readLine()) != null) {
-				data.append(line + "\n");
-			}
-			stream = new ByteArrayInputStream(data
-					.toString().getBytes("utf-8"));
-
-			dbf= DocumentBuilderFactory.newInstance();
-
-			db= dbf.newDocumentBuilder();
-			doc= db.parse(stream);
-			
-//			NodeList nl = doc.getElementsByTagName("tyname");// 获取所有的账户种类节点
-//			for (int i = 0; i < nl.getLength(); i++) {
-//				String value = nl.item(i).getFirstChild().getNodeValue();//获取节点的值
-//				acct.setTyname(value);//
-//				lstStr.add(value);
-//			}
-			/**
-			 * 更改
-			 */
+			DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance() ;
+			DocumentBuilder db=dbf.newDocumentBuilder();
+	        Document doc=db.parse(path + "paypal.txt");
 			NodeList list=doc.getElementsByTagName("paypal");// 获取所有的账户种类节点
 			for(int i = 0; i < list.getLength();i++ ){
 				Node node = list.item(i);
@@ -125,16 +52,7 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 						typeValue=n2.item(j).getFirstChild().getNodeValue();
 						lstStr.add(typeValue);
 				}
-					
-				
 			}
-			for(String g:lstStr )
-			{
-			System.out.println("<><><>"+g.toString());
-			}
-			/**
-			 * 更改结束
-			 */
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -149,210 +67,55 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		finally
-		{
-			try {
-				br.close();
-				stream.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-		// lstStr.add("信用卡");
-		// lstStr.add("储蓄卡");
 		return lstStr;
-	}
+	}	
 
-	
-/*
- 
- public class UserDao implements IUserDao {
-
-	public String getActInfo(String name) {
-		StringBuffer data=new StringBuffer();
-		String line=null;
-		String result2=null;
-		String path=null;
+	/**
+	 * 功能号 022 按账户类型查找账户号
+	 */
+	public List<String> getAccountQueryByType(String type) {
+		// TODO 获得账户号
+		List<String> lstStr = new ArrayList<String>();
 		try {
-//			Properties property = System.getProperties();
-//
-//			String str = property.getProperty("user.dir");
-//
-//			System.out.println(str);
-
-			path=Thread.currentThread().getContextClassLoader().getResource("").getPath(); 
-
-			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(path+"\\act.txt")));
-			
-			while((line=br.readLine())!=null){
-				data.append(line+"\n");
-			}
-			ByteArrayInputStream stream=new ByteArrayInputStream(data.toString().getBytes());
-			String result=parseXml(stream);
-			
-			String[] results=result.split(":");
-			
-			
-			if(name.equals(results[0])){
-				result2=results[1]+":"+results[2];
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return result2;
-	}
-	
-	// Write to Xml
-	public void setActInfo(String actNo,String actPwd){
-		StringBuffer data=new StringBuffer();
-		String line=null;
-		String result2=null;
-		String path=null;
-		try {
-//			Properties property = System.getProperties();
-//
-//			String str = property.getProperty("user.dir");
-//
-//			System.out.println(str);
-
-			path=Thread.currentThread().getContextClassLoader().getResource("").getPath(); 
-
-			BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(path+"\\act.txt")));
-			
-			while((line=br.readLine())!=null){
-				data.append(line+"\n");
-			}
-			ByteArrayInputStream stream=new ByteArrayInputStream(data.toString().getBytes());
-			parseWriteXml(stream,actNo,actPwd);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	} */	
- 
-	private String parseXml2(InputStream is){
-		StringBuffer sb=new StringBuffer();
-		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
-		try {
+			DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance() ;
 			DocumentBuilder db=dbf.newDocumentBuilder();
-			Document doc=db.parse(is);
-			NodeList nl = doc.getElementsByTagName("Type");
-			Node my_node = nl.item(0);
-			NamedNodeMap nnm=my_node.getAttributes();
-			String userValue=nnm.getNamedItem("name").getNodeValue();
-			System.out.println("stream="+is.toString());
-			System.out.println("userValue="+userValue);
-			sb.append(userValue+":");
+	        Document doc=db.parse(path + "accout.txt");
+			NodeList list=doc.getElementsByTagName("accout");// 获取所有的账户种类节点
+			for(int i = 0; i < list.getLength();i++ ){
+				Node node = list.item(i);
+				NamedNodeMap nnm=list.item(i).getAttributes();
+				String attrValue=nnm.item(0).getNodeValue();//获得属性值
+				
+					NodeList n2 = node.getChildNodes();
+					for(int j=1;j<n2.getLength();j=j+2){
+						if(n2.item(j).getFirstChild().getNodeValue().equals(type.trim()))
+						{
+							lstStr.add(attrValue);
+						}
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		return sb.toString();
-	}
+		return lstStr;
+	 }
 	
-	// get from XML
-	private String parseXml(InputStream is){
-		StringBuffer sb=new StringBuffer();
-		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
-		try {
-			DocumentBuilder db=dbf.newDocumentBuilder();
-			Document doc=db.parse(is);
-			NodeList nl = doc.getElementsByTagName("Act");
-			Node my_node = nl.item(0);
-			NamedNodeMap nnm=my_node.getAttributes();
-			String userValue=nnm.getNamedItem("user").getNodeValue();
-			
-			nl = doc.getElementsByTagName("ActNo");
-			Node my_node1 = nl.item(0);
-			String actNo=my_node1.getFirstChild().getNodeValue();
-			
-			nl = doc.getElementsByTagName("ActPwd");
-			Node my_node2 = nl.item(0);
-			String actPwd=my_node2.getFirstChild().getNodeValue();
-			
-			sb.append(userValue+":"+actNo+":"+actPwd);
-			
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return sb.toString();
+	
+	//按账户号查找
+	public String getAccountQueryById(int id) {
+		// TODO Auto-generated method stub
+		return "Id还没做";
 	}
+ 
 }
-	
-	/*//write to XML
-	private void parseWriteXml(InputStream is,String actNo,String actPwd){
-		StringBuffer sb=new StringBuffer();
-		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
-		try {
-			DocumentBuilder db=dbf.newDocumentBuilder();
-			Document doc=db.parse(is);
-			doc.normalize();
-			
-			Text textseg;
-			Element actElement=doc.createElement("act");
-			actElement.setAttribute("user", "002");
-			
-			Element actNoElement=doc.createElement("ActNo");
-			textseg=doc.createTextNode(actNo);
-			actNoElement.appendChild(textseg);
-			actElement.appendChild(actNoElement);
-			 
-			Element actPwdElement=doc.createElement("ActPwc");
-			textseg=doc.createTextNode(actPwd);
-			actPwdElement.appendChild(textseg);
-			actElement.appendChild(actPwdElement);
-
-			doc.getDocumentElement().appendChild(actElement);
-			
-			TransformerFactory tFactory =TransformerFactory.newInstance();
-			Transformer transformer=null;
-			try {
-				transformer = tFactory.newTransformer();
-			} catch (TransformerConfigurationException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			DOMSource source = new DOMSource(doc);
-			String path=Thread.currentThread().getContextClassLoader().getResource("").getPath(); 
-			StreamResult result = new StreamResult(new java.io.File(path+"\\act.txt"));
-			try {
-				transformer.transform(source, result);
-			} catch (TransformerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-} 
-  
-*/
