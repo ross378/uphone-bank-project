@@ -28,6 +28,7 @@ import android.widget.Toast;
  *
  */
 public class UserLogin extends Activity {
+	public static String userNO = "";
 	//登陆按钮
 	private Button userLoginButton=null;
 	//用户名输入框
