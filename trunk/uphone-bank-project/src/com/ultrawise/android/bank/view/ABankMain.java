@@ -112,12 +112,13 @@ public class ABankMain extends Activity {
         	 * @return 返回卡的类型
         	 */
 			List<String> result=QuerySever.connectHttp("021", null);
-			for(int i=0;i<result.size();i++)
+			for(String g:result)
 			{
-			System.out.println("服务器上取得所需要的数据-明文======"+result.get(i).toString());	
+			System.out.println("服务器上取得所需要的数据-明文======"+g.toString());	
 			}
 			
-			String[] arrResult=new String[3];
+			
+			String[] arrResult=new String[result.size()];
 			for(int i=0;i<result.size();i++)
 			{   
 				 arrResult[i]= result.get(i);
