@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.webservices.implement.payment06;
 
+import java.util.Date;
+
 import it.sauronsoftware.base64.Base64;
 
 import javax.ws.rs.Consumes;
@@ -21,7 +23,7 @@ public class PaymentWebservices {
 	@POST
 	public JSONObject doPost(@FormParam("value") String anything){
 		String mingWen = Base64.decode(anything,"utf-8");
-		System.out.println(mingWen);
+		System.out.println("传递过来的明文："+mingWen);
 		String[] values = mingWen.split(":");
 		try {
 			functionNo = Integer.parseInt(values[0]);
@@ -39,11 +41,6 @@ public class PaymentWebservices {
 			json=wrapUp(mingWen);
 			break;
 		      }
-		case 60401:
-			Paymentmanage manage = new Paymentmanage();
-			mingWen = manage.getPaymentmanageName();
-			json = wrapUp(mingWen);
-			break;
 		case 60100:{
 			System.out.println(monthName);
 			PaymentDetail detail=new PaymentDetail();
@@ -69,6 +66,38 @@ public class PaymentWebservices {
 			json=wrapUp(mingWen);
 			break;
 		      }
+		case 60301:{
+			PaymentLastMonth  paymentLastMonth = new PaymentLastMonth();
+			Date dateNow = paymentLastMonth.StringToDate(values[2]);
+			Date beforeDate = paymentLastMonth.StringToDate(values[3]);
+			mingWen = paymentLastMonth.getLastPaymentName(values[1], dateNow, beforeDate);
+			json = wrapUp(mingWen);
+			break;
+		}
+		case 60302:{
+			PaymentLastMonth  paymentLastMonth = new PaymentLastMonth();
+			Date dateNow = paymentLastMonth.StringToDate(values[2]);
+			Date beforeDate = paymentLastMonth.StringToDate(values[3]);
+			int fileName = Integer.parseInt(values[4]);
+			int flag = Integer.parseInt(values[5]);
+			mingWen = paymentLastMonth.getLastPaymentDetail(values[1], dateNow, beforeDate, fileName, flag);
+			System.out.println("传回去的明文："+mingWen);
+			json = wrapUp(mingWen);
+			break;
+		}
+		
+		case 60401:{
+			Paymentmanage manage = new Paymentmanage();
+			mingWen = manage.getPaymentmanageName();
+			json = wrapUp(mingWen);
+			break;
+		}
+		case 60402:{
+			Paymentmanage manage = new Paymentmanage();
+			mingWen = manage.updatePayment(values[1], values[2]);
+			json = wrapUp(mingWen);
+			break;
+		}
 			
 		}
 		
@@ -84,7 +113,6 @@ public class PaymentWebservices {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return wrapJsonObj;
 	}
 }
