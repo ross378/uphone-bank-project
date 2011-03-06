@@ -27,8 +27,6 @@ public class PaymentWebservices {
 		String[] values = mingWen.split(":");
 		try {
 			functionNo = Integer.parseInt(values[0]);
-			if(values.length >1)
-				monthName=values[1];
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 			System.out.println("传入的功能号不是数字");
