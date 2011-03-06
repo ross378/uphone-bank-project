@@ -8,7 +8,14 @@ public class History2 {
 	private String credate;
 	private String creno;
 	private String operator;
+	private String account;
 	
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
 	public String getId() {
 		return id;
 	}
