@@ -19,7 +19,7 @@ public class PaymentPend implements IPaymentPend {
 			String paymentActPasswd) {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
 
 	public String getAccountBalance(String usrNo, String paymentActNo) {
 		// TODO Auto-generated method stub
