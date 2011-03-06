@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Prep>
-  <preplens>
+  <preplen>
     <id>1</id>
     <userid>zhangsan</userid>
 	<credit>10.00</credit>
@@ -8,5 +8,6 @@
 	<credata>2011-3-6</credata>
 	<creno>#sT5742534523</creno>
 	<operator>中国移动</operator>
-  </preplens>
+	<account>22222222222222</account>
+  </preplen>
 </Prep>
