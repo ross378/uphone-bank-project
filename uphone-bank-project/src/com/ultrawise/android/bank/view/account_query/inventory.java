@@ -27,23 +27,23 @@ import android.widget.TextView;
 
 public class inventory extends Activity {
 
-	Intent intent = new Intent();
 	Button timeStart, timeOver;
 	String sql = null;
 	DatePicker d;
 	static String start_time = "开始时间";
-	static String end_time = "结束时间";;
-	
+	static String end_time = "结束时间";
+	private String nomber=null;
+	private String type=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.inventory);
-
 		TextView tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				Intent intent = new Intent();
 				intent.setClass(inventory.this, ABankMain.class);
 				inventory.this.startActivity(intent);
 			}
@@ -110,12 +110,10 @@ public class inventory extends Activity {
 			}
 		});
 		
-		
 		timeStart = (Button) findViewById(R.id.timechange_from);
 		timeStart.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO Auto-generated method stub;
 
 				Intent intent = new Intent();
 				intent.setClass(inventory.this, AccountQueryResult.class);
@@ -131,19 +129,40 @@ public class inventory extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("end", "end");
+				
+				/**
+				 * 再一次放入Intent
+				 */
+				intent.putExtra("type2",type);
+				intent.putExtra("nomber2",nomber);
+				
 				inventory.this.startActivity(intent);
 			}
 		});
-
 		Button run = (Button) findViewById(R.id.Query_Run);
+		
+		
+		
+		
 		run.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				
+				/**
+				 * 
+				 * 接收从上一个Activity传递数据
+				 */
+				Intent intent_type_nomber=getIntent();
+				nomber=intent_type_nomber.getStringExtra("nomber");
+				type=intent_type_nomber.getStringExtra("type");
+				
+				
+				
+				
 				Intent intent=new Intent();
 				String start=timeStart.getText().toString().trim();
 				String end=timeOver.getText().toString().trim();
-				System.out.println("开始"+start);
-				System.out.println("结束"+end);
+				
 				/**
 	        	 * 从服务器上取得所需要时间段的数据
 	        	 * 
@@ -163,10 +182,34 @@ public class inventory extends Activity {
 					 arrResult[i]= result.get(i);
 				}
 				intent.putExtra("result", arrResult);
+				
+				
+				
+				
+				
+				
+				
+				/**
+				 * 
+				 * 包装intent传递数据
+				 */
+				intent.putExtra("type", type);
+				intent.putExtra("nomber", nomber);
+				intent.putExtra("start", start);
+				intent.putExtra("end", end);
+				
+				System.out.println("前一个avtivity出来"+type+"======"+nomber);
+				System.out.println("开始"+start);
+				System.out.println("结束"+end);
 				intent.setClass(inventory.this, Inventorylist.class);
 				inventory.this.startActivity(intent);
 			}
 		});
+		
+		
+		
+		
+		
 		Intent intent = this.getIntent();
         if(intent.hasExtra("start")){
         	String[] date = intent.getStringArrayExtra("start");
