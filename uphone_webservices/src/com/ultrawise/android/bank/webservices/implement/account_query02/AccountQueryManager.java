@@ -28,9 +28,9 @@ public class AccountQueryManager {
 	}
 	
 	
-	public String getAccountQueryById(int account)
+	public List<String> getAccountQueryById(String id)
 	{
-		return Iacc.getAccountQueryById(account);
+		return Iacc.getAccountQueryById(id);
 	}
 	
 	public List<String> getAccountQueryByType(String type)

@@ -112,10 +112,65 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 	 }
 	
 	
-	//按账户号查找
-	public String getAccountQueryById(int id) {
-		// TODO Auto-generated method stub
-		return "Id还没做";
+	/**
+	 * 获得账户号下的全部信息
+	 * 功能号 023
+	 * 参数 账户号id
+	 */
+	public List<String> getAccountQueryById(String id) {
+		List<String> lstStr = new ArrayList<String>();
+		try {
+			DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance() ;
+			DocumentBuilder db=dbf.newDocumentBuilder();
+	        Document doc=db.parse(path + "accout.txt");
+			NodeList list=doc.getElementsByTagName("accout");// 获取所有的账户种类节点
+			
+			//获得属性和属性 值
+			for(int i = 0; i < list.getLength();i++ ){
+				Node node = list.item(i);
+				NamedNodeMap nnm=list.item(i).getAttributes();
+				String attrValue=nnm.item(0).getNodeValue();//获得属性值
+				if(attrValue.equals(id.trim())){
+					NodeList n2 = node.getChildNodes();
+					for(int j=1;j<n2.getLength();j=j+2){
+						lstStr.add(n2.item(j).getFirstChild().getNodeValue());
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			/*
+			for(int i = 0; i < list.getLength();i++ ){
+				Node node = list.item(i);
+				NamedNodeMap nnm=list.item(i).getAttributes();
+				String attrValue=nnm.item(0).getNodeValue();//获得属性值
+				
+					NodeList n2 = node.getChildNodes();
+					for(int j=1;j<n2.getLength();j=j+2){
+						if(n2.item(j).getFirstChild().getNodeValue().equals(id.trim()))
+						{
+							lstStr.add(attrValue);
+						}
+				}
+			}*/
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lstStr;
 	}
  
 }

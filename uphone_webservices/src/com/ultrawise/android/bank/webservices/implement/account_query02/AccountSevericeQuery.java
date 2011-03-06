@@ -29,7 +29,8 @@ public class AccountSevericeQuery {
 	private String mReturnString;
 	// 静态的功能标识
 	private final static int GET_ACC_TYPE = 21;
-	private final static int GET_USER_NO = 22;
+	private final static int GET_PAYPAL_ID = 22;
+	private final static int GET_XINGXI_ID = 23;
 	
 
 	/**
@@ -49,19 +50,25 @@ public class AccountSevericeQuery {
 		String[] mValue = doDecode(anything).split(":");
 		int mAction = Integer.parseInt(mValue[0]);
 		System.out.println("mValue[0]="+mValue[0]);
-		List<String> list = AccountQueryManager.getInstance().getAccType();
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println("list=" + list.get(i));
-		}
+		
 
 //		 调用功能
 		switch (mAction) {
 		case GET_ACC_TYPE:
 			
-			return wrapUp(doEncode(list));
+			return wrapUp(doEncode(AccountQueryManager.getInstance().getAccType()));
 
-		case GET_USER_NO:
+		case GET_PAYPAL_ID:
 			return wrapUp(doEncode(AccountQueryManager.getInstance().getAccountQueryByType(mValue[1])));
+//			return wrapUp(doEncode(list));
+			
+		case GET_XINGXI_ID:
+			List<String> list=AccountQueryManager.getInstance().getAccountQueryById((mValue[1]));
+			for(String g: list )
+			{
+				System.out.println("023==="+g.toString());
+			}
+			return wrapUp(doEncode(list));
 //			return wrapUp(doEncode(list));
 		default:
 			List<String> lstStr = new ArrayList<String>();
