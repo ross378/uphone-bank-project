@@ -82,6 +82,10 @@ public class AccountSevericeQuery {
 	
 	private List<String> doEncode(List<String> lstMingWen) {
 
+		for(String g:lstMingWen )
+		{
+		System.out.println("======="+g.toString());
+		}
 		List<String> lstMiWen = new ArrayList<String>();
 		if (lstMingWen.size() != 0) {
 			for (String value : lstMingWen) {

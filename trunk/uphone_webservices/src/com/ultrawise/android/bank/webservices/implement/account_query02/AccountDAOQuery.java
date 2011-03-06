@@ -82,6 +82,8 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		 DocumentBuilderFactory dbf=null;
 		 DocumentBuilder db=null;
 		 Document doc=null;
+		 ByteArrayInputStream stream=null;
+		 Account acct=new Account();
 		 
 		// TODO 获取账户类型
 		List<String> lstStr = new ArrayList<String>();
@@ -92,18 +94,47 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			while ((line = br.readLine()) != null) {
 				data.append(line + "\n");
 			}
-			ByteArrayInputStream stream = new ByteArrayInputStream(data
+			stream = new ByteArrayInputStream(data
 					.toString().getBytes("utf-8"));
 
 			dbf= DocumentBuilderFactory.newInstance();
 
 			db= dbf.newDocumentBuilder();
 			doc= db.parse(stream);
-			NodeList nl = doc.getElementsByTagName("tyname");// 获取所有的账户种类节点
-			for (int i = 0; i < nl.getLength(); i++) {
-				String value = nl.item(i).getFirstChild().getNodeValue();//获取节点的值
-				lstStr.add(value);
+			
+//			NodeList nl = doc.getElementsByTagName("tyname");// 获取所有的账户种类节点
+//			for (int i = 0; i < nl.getLength(); i++) {
+//				String value = nl.item(i).getFirstChild().getNodeValue();//获取节点的值
+//				acct.setTyname(value);//
+//				lstStr.add(value);
+//			}
+			/**
+			 * 更改
+			 */
+			NodeList list=doc.getElementsByTagName("paypal");// 获取所有的账户种类节点
+			for(int i = 0; i < list.getLength();i++ ){
+				Node node = list.item(i);
+				NamedNodeMap nnm=list.item(i).getAttributes();
+				String attrValue=nnm.item(0).getNodeValue();//获得属性值
+				String typeValue=null;
+				lstStr.add(attrValue);
+//				System.out.println(attrValue);
+					NodeList n2 = node.getChildNodes();
+					for(int j=1;j<n2.getLength();j=j+2){
+//						System.out.println(n2.item(j).getFirstChild().getNodeValue());
+						typeValue=n2.item(j).getFirstChild().getNodeValue();
+						lstStr.add(typeValue);
+				}
+					
+				
 			}
+			for(String g:lstStr )
+			{
+			System.out.println("<><><>"+g.toString());
+			}
+			/**
+			 * 更改结束
+			 */
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -122,7 +153,7 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 		{
 			try {
 				br.close();
-				
+				stream.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
