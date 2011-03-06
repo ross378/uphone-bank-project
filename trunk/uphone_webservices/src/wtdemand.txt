@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wtd>
 <user name="zhangsan">
-  <wtdemands month="三月份">
+  <wtdemands month="三月份水费">
     <dunum>s323454</dunum>
     <damout>30.00</damout>
 	<date>2011-3-5</date>
