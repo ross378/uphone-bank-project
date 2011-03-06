@@ -7,10 +7,12 @@ public interface IPaymentPend {
 	//修改缴费账号的状态
 	public String updateAccountStatue(String usrNo,String paymentActNo);
 	
+	//获取缴费账号的余额
+	public String getAccountBalance(String usrNo,String paymentActNo);
+	
 	//修改缴费账户的余额
 	public String updateAccountBalance(String paymentName,double paymentAmt,String paymentActNo);
 	
-	
-	
+
 	
 }
