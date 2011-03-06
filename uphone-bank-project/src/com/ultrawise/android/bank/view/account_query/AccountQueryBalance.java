@@ -2,6 +2,7 @@ package com.ultrawise.android.bank.view.account_query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
@@ -75,19 +77,7 @@ public class AccountQueryBalance extends ListActivity {
 		    TextView tvClassthird = (TextView)this.findViewById(R.id.class_third);
 		    tvClassthird.setText("账户信息及余额查询");
 		    tvClassthird.setVisibility(View.VISIBLE);
-		
-//		    acc1=(TextView)findViewById(R.id.acc1);
-//		    acc1.setText("账户：");
-//		    acc2=(TextView)findViewById(R.id.acc2);
-//		    acc2.setText("1234578xxxx");
-//		    type1=(TextView)findViewById(R.id.type1);
-//		    type1.setText("账户类型：");
-//		    type2=(TextView)findViewById(R.id.type2);
-//		    type2.setText("定期存储(零存整取)");
-	        
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
-	        
-	         
 	        HashMap<String,String> acclist1 = new HashMap<String,String>();
 	        HashMap<String,String> acclist2 = new HashMap<String,String>();
 	        HashMap<String,String> acclist3 = new HashMap<String,String>();
@@ -95,21 +85,48 @@ public class AccountQueryBalance extends ListActivity {
 	        HashMap<String,String> acclist5 = new HashMap<String,String>();
 	        HashMap<String,String> acclist6 = new HashMap<String,String>();
 	        HashMap<String,String> acclist7 = new HashMap<String,String>();
+	       
+	        
+	        Intent intent=getIntent();
+	        String nomber=intent.getStringExtra("nomber");
+	        String type=intent.getStringExtra("type");
+	      
+	        /**
+			 * 从服务器上活动数据
+			 * 
+			 * @param 参数 功能号023, 账号nomber
+			 * @return返回当前账号的信息
+			 */
+			String[] str=new String[]{nomber};
+			List<String> result=QuerySever.connectHttp("023", str);
+			for(int i=0;i<result.size();i++)
+			{
+			System.out.println("023---023---023==="+result.get(i));	
+			}
+	        
+	        
+	        String RenBi=result.get(14).toString().trim();
+	        String YuE=result.get(13).toString().trim();
+	        String Time=result.get(15).toString().trim();
+	        String Mouth=result.get(16).toString().trim();
+	        String LiL=result.get(17).toString().trim();
+	        
+	        
 	        
 	        acclist1.put("account_list", "账户：");
-	        acclist1.put("account_list_info", "12345678xx");
+	        acclist1.put("account_list_info", nomber);
 	        acclist2.put("account_list", "账户类型：");
-	        acclist2.put("account_list_info", "定期存储（零存整取）");
+	        acclist2.put("account_list_info", type);
 	        acclist3.put("account_list", "币种：");
-	        acclist3.put("account_list_info", "人民币");
-	        acclist4.put("account_list", "余额：");
+	        acclist3.put("account_list_info", RenBi);
+	        acclist4.put("account_list", YuE);
 	        acclist4.put("account_list_info", "30000");
 	        acclist5.put("account_list", "存期：");
-	        acclist5.put("account_list_info", "三个月");
-	        acclist6.put("account_list", "起息：");
-	        acclist6.put("account_list_info", "2011.12.15");
+	        acclist5.put("account_list_info", Time);
+	        acclist6.put("account_list", "起息月：");
+	        acclist6.put("account_list_info", Mouth);
 	        acclist7.put("account_list", "利率");
-	        acclist7.put("account_list_info", "2.25%");
+	        acclist7.put("account_list_info", LiL);
 	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);
