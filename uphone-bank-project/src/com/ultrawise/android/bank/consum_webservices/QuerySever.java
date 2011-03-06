@@ -129,9 +129,11 @@ public class QuerySever{
         			// Parsing
         			JSONObject json = new JSONObject(value);
         			JSONArray nameArray = json.names();
-        			JSONArray valArray = json.toJSONArray(nameArray);
-        			for (int i = 0; i < valArray.length(); i++) {
-        				lstValue.add(valArray.getString(i));
+        			
+        			for (int i = 0; i < nameArray.length(); i++) {
+        			
+        				lstValue.add(json.get(nameArray.getString(i)).toString());
+        				//System.out.println(json.get(nameArray.getString(i)).toString()+"888888");
         			}
 
         		} catch (JSONException e) {
@@ -184,12 +186,6 @@ public class QuerySever{
        			}
        		} else {
        		}
-
-       		
-       		for(String g:lstMingWen)
-			{
-			System.out.println("服务器上取得所需要的数据-明文11111======"+g.toString());	
-			}
        		return lstMingWen;
        	}
    }

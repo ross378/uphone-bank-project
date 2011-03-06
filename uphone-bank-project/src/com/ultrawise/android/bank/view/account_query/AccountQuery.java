@@ -34,6 +34,7 @@ public class AccountQuery extends Activity {
 	private Button btnContinue = null;
 	private ImageView btnCoustom =null;
 	private ImageView btnMain =null;
+	private String[] reslut=null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -98,6 +99,13 @@ public class AccountQuery extends Activity {
 
 			public void onClick(View v) {
 				Intent intent = new Intent();
+				System.out.println("type=="+spinner.getSelectedItem().toString().trim());
+				System.out.println("nomber=="+spinner2.getSelectedItem().toString().trim());
+				
+				String type=spinner.getSelectedItem().toString().trim();
+				String nomber=spinner2.getSelectedItem().toString().trim();
+				intent.putExtra("type", type);
+				intent.putExtra("nomber", nomber);
 				intent.setClass(AccountQuery.this, AccountQueryType.class);
 				AccountQuery.this.startActivity(intent);
 			}
@@ -107,15 +115,22 @@ public class AccountQuery extends Activity {
 		
 		
 		/**
-		 * 讲前一个Activity传入的只放入文本框中
+		 * 讲前一个Activity传入的只放入文本框zho
 		 */
 		Intent intent=getIntent();
-		String[] reslut=intent.getStringArrayExtra("result");
-		for(int i=0;i<reslut.length;i++)
-		{
-				adapter.add(reslut[i]);
-			
-		}
+		reslut=intent.getStringArrayExtra("result");
+			adapter.add(reslut[2]);
+			adapter.add(reslut[4]);
+			adapter.add(reslut[1]);
+		/*
+		 *
+list=paypal01
+list=活期储蓄卡
+list=paypal02
+list=定期储蓄卡
+list=paypal03
+list=活期储蓄
+		 */
 		
 		spinner = (Spinner) findViewById(R.id.spinnerAccTyp);
 		spinner.setAdapter(adapter);
@@ -139,14 +154,16 @@ public class AccountQuery extends Activity {
 					 * @param 功能号为022  卡的类型为：定期储蓄卡
 					 * @return定期储蓄卡的卡号
 					 */
-					adapter2.add("123");
-//					String[] str=new String[]{spinner.getSelectedItem().toString().trim()};
-//					List<String> result=QuerySever.connectHttp("021", str);
-//					for(int i=0;i<result.size();i++)
-//					{
-//					System.out.println("明文022---"+result.get(i));	
-//					adapter2.add(result.get(i));
-//					}
+//					adapter2.add(reslut[3]);
+//					adapter2.add(reslut[5]);
+//					adapter2.add(reslut[0]);
+					String[] str=new String[]{reslut[3]};
+					List<String> result=QuerySever.connectHttp("022", str);
+					for(int i=0;i<result.size();i++)
+					{
+					System.out.println("明文022---"+result.get(i));	
+					adapter2.add(result.get(i));
+					}
 					
 					spinner2 = (Spinner) findViewById(R.id.spinnerAcc);
 					spinner2.setAdapter(adapter2);
@@ -163,8 +180,22 @@ public class AccountQuery extends Activity {
 					// 储蓄账户加载
 					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
 					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					adapter2.add("定期储蓄卡999");
-					adapter2.add("定期储蓄卡9000");
+					/**
+					 * 从后台获取数据
+					 * 
+					 * @param 功能号为022  卡的类型为：定期储蓄卡
+					 * @return定期储蓄卡的卡号
+					 */
+					String[] str=new String[]{reslut[5]};
+					List<String> result=QuerySever.connectHttp("022", str);
+					for(int i=0;i<result.size();i++)
+					{
+					adapter2.add(result.get(i));
+					}
+					
+					
+					
+					
 					spinner2 = (Spinner) findViewById(R.id.spinnerAcc);
 					spinner2.setAdapter(adapter2);
 					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -178,8 +209,28 @@ public class AccountQuery extends Activity {
 					// 储蓄账户加载
 					adapter2 = new ArrayAdapter<String>(AccountQuery.this,android.R.layout.simple_spinner_item);
 					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					adapter2.add("信用卡3333");
-					adapter2.add("信用卡2222");
+					
+
+					
+					
+					
+					/**
+					 * 从后台获取数据
+					 * 
+					 * @param 功能号为022  卡的类型为：定期储蓄卡
+					 * @return定期储蓄卡的卡号
+					 */
+					String[] str=new String[]{reslut[0]};
+					List<String> result=QuerySever.connectHttp("022", str);
+					for(int i=0;i<result.size();i++)
+					{
+					adapter2.add(result.get(i));
+					}
+					
+					
+					
+					
+					
 					spinner2 = (Spinner) findViewById(R.id.spinnerAcc);
 					spinner2.setAdapter(adapter2);
 					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {

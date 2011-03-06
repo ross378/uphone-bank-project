@@ -76,14 +76,16 @@ public class AccountQueryType extends ListActivity {
 			}
 		});
 		
+		Intent intent=getIntent();
+		
 	    acc1=(TextView)findViewById(R.id.acc1);
 	    acc1.setText("账户:");
 	    acc2=(TextView)findViewById(R.id.acc2);
-	    acc2.setText("1234578xxxx");
+	    acc2.setText(intent.getStringExtra("nomber"));
 	    type1=(TextView)findViewById(R.id.type1);
 	    type1.setText("账户类型：");
 	    type2=(TextView)findViewById(R.id.type2);
-	    type2.setText("定期存储(零存整取)");
+	    type2.setText(intent.getStringExtra("type"));
         ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
         
         HashMap<String,Object> acclist1 = new HashMap<String,Object>();
