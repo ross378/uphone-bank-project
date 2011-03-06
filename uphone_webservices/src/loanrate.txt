@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<loanrates>
+<mode name = "short_loanrates">
+<time name = "six_month">2.3%</time>
+<time name = "six_month_one_year">3.4%</time>
+</mode>
+<mode name = "long_loanrates">
+<time name = "one_three_year">4.5%</time>
+<time name = "three_five_year">5.5%</time>
+</mode>
+</loanrates>
