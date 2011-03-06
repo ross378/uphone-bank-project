@@ -23,4 +23,9 @@ public class PaymentPend implements IPaymentPend {
 	
 	
 
+	public String getAccountBalance(String usrNo, String paymentActNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
