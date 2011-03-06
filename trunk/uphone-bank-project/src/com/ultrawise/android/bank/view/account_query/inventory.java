@@ -142,14 +142,6 @@ public class inventory extends Activity {
 				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("end", "end");
 				inventory.this.startActivity(intent);
-//				LayoutInflater inflater = getLayoutInflater();
-//				   View layout = inflater.inflate(R.layout.timechanger,
-//				     (ViewGroup) findViewById(R.id.timechanger));
-//				   AlertDialog.Builder builder = new Builder(inventory.this);
-//				      builder.setTitle("设置终止时间");
-//				      builder.setView(layout);
-//				      builder.setPositiveButton("确定", null);
-//				      builder.setNegativeButton("取消", null).show();
 			}
 		});
 
@@ -157,7 +149,9 @@ public class inventory extends Activity {
 		run.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				Intent intent=new Intent();
+				System.out.println("开始"+timeStart.getText());
+				System.out.println("结束"+timeOver.getText());
 				intent.setClass(inventory.this, Inventorylist.class);
 				startActivity(intent);
 			}
