@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exchangerates>
+<rmb>7</rmb>
+<dollar>1</dollar>
+<yen>70</yen>
+<ouyuan>0.8</ouyuan>
+</exchangerates>
