@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IAccountQueryInfo {
 	
-	public String getAccountQueryByType(String name);
+	public List<String> getAccountQueryByType(String name);
 	public String getAccountQueryById(int id);
 	public List<String> getAccType();
 }

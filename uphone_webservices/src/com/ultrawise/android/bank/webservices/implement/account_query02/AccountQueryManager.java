@@ -33,7 +33,7 @@ public class AccountQueryManager {
 		return Iacc.getAccountQueryById(account);
 	}
 	
-	public String getAccountQueryByType(String type)
+	public List<String> getAccountQueryByType(String type)
 	{
 		return Iacc.getAccountQueryByType(type);
 	}

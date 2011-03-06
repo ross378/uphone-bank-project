@@ -61,8 +61,8 @@ public class AccountSevericeQuery {
 			return wrapUp(doEncode(list));
 
 		case GET_USER_NO:
-			return wrapUp(doEncode(null));
-
+			return wrapUp(doEncode(AccountQueryManager.getInstance().getAccountQueryByType(mValue[1])));
+//			return wrapUp(doEncode(list));
 		default:
 			List<String> lstStr = new ArrayList<String>();
 			lstStr.add("sorry");
@@ -82,10 +82,6 @@ public class AccountSevericeQuery {
 	
 	private List<String> doEncode(List<String> lstMingWen) {
 
-		for(String g:lstMingWen )
-		{
-		System.out.println("======="+g.toString());
-		}
 		List<String> lstMiWen = new ArrayList<String>();
 		if (lstMingWen.size() != 0) {
 			for (String value : lstMingWen) {
@@ -103,10 +99,11 @@ public class AccountSevericeQuery {
 	 * @return
 	 */
 	private JSONObject wrapUp(List<String> lstMiWen) {
+		
 		JSONObject wrapJsonObj = new JSONObject();
 		try {
 			for (int i = 0; i < lstMiWen.size(); i++) {
-				wrapJsonObj.put("miwen" + i, lstMiWen.get(i));
+				wrapJsonObj.put("miwen"+i , lstMiWen.get(i));
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
