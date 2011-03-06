@@ -81,12 +81,19 @@ public class AccountQueryType extends ListActivity {
 	    acc1=(TextView)findViewById(R.id.acc1);
 	    acc1.setText("账户:");
 	    acc2=(TextView)findViewById(R.id.acc2);
+	    /**
+		 * 取得上一个Activity的nomber
+		 */
 	    acc2.setText(intent.getStringExtra("nomber"));
 	    type1=(TextView)findViewById(R.id.type1);
 	    type1.setText("账户类型：");
 	    type2=(TextView)findViewById(R.id.type2);
+	    /**
+		 * 取得上一个Activity的type
+		 */
 	    type2.setText(intent.getStringExtra("type"));
-        ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
+        
+	    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
         
         HashMap<String,Object> acclist1 = new HashMap<String,Object>();
         HashMap<String,Object> acclist2 = new HashMap<String,Object>();
@@ -95,8 +102,6 @@ public class AccountQueryType extends ListActivity {
         acclist1.put("account_list1", R.drawable.account1);
         acclist1.put("account_list_info", "账户信息及余额查询");
         acclist1.put("account_list2",R.drawable.account2);
-        
-        
         
         acclist2.put("account_list1", R.drawable.account1);
         acclist2.put("account_list_info", "账户明细查询");
@@ -119,6 +124,12 @@ public class AccountQueryType extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		if(id==0){//账户信息及余额查询
 			Intent payment_intent = new Intent();
+			/**
+			 * 传递到下一个Activity
+			 */
+			payment_intent.putExtra("nomber", acc2.getText().toString().trim());
+			payment_intent.putExtra("type", type2.getText().toString().trim());
+			
 			payment_intent.setClass(AccountQueryType.this, AccountQueryBalance.class);
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==1){//账户明细查询
