@@ -137,25 +137,6 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 					}
 				}
 			}
-			
-			
-			
-			
-			
-			/*
-			for(int i = 0; i < list.getLength();i++ ){
-				Node node = list.item(i);
-				NamedNodeMap nnm=list.item(i).getAttributes();
-				String attrValue=nnm.item(0).getNodeValue();//获得属性值
-				
-					NodeList n2 = node.getChildNodes();
-					for(int j=1;j<n2.getLength();j=j+2){
-						if(n2.item(j).getFirstChild().getNodeValue().equals(id.trim()))
-						{
-							lstStr.add(attrValue);
-						}
-				}
-			}*/
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -171,6 +152,17 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			e.printStackTrace();
 		}
 		return lstStr;
+	}
+
+	
+	/**
+	 * 获得两个时间段下的全部信息
+	 * 功能号 024
+	 * 参数 开始时间 start 结束时间end
+	 */
+	public List<String> getByTime(String start, String end) {
+		// TODO Auto-generated method stub
+		return getAccType();
 	}
  
 }
