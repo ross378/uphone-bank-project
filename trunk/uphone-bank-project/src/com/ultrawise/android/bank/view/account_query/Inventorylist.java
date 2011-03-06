@@ -21,18 +21,18 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class Inventorylist extends ListActivity{
-	private Intent intent=null;
 	private Button btnReturn=null;
 	private TextView acc1=null;
 	private TextView acc2=null;
 	private TextView type1=null;
 	private TextView type2=null;
+	
+	
+    
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_chance);
         
-
-        intent = new Intent();
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -92,8 +92,14 @@ public class Inventorylist extends ListActivity{
 			tvClassSecond1.setText("明细查询");
 			tvClassSecond1.setVisibility(View.VISIBLE);
 		
+			
+			Intent type_name = getIntent();
+		    String nomber=type_name.getStringExtra("nomber");
+		    String type=type_name.getStringExtra("type");
+		    String start=type_name.getStringExtra("start");
+		    String end=type_name.getStringExtra("end");
 		    acc1=(TextView)findViewById(R.id.account_chance_text);
-		    acc1.setText("定期账户012345678在20101123到20100111"+"\n"+"之间的交易记录如下：");
+		    acc1.setText(type+nomber+"在"+start+"到+"+end+"\n"+"之间的交易记录如下：");
 		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        

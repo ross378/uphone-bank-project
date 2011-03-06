@@ -134,8 +134,13 @@ public class AccountQueryType extends ListActivity {
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==1){//账户明细查询
 			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryType.this, inventory.class);
+			/**
+			 * 传递到下一个Activity
+			 */
+			payment_intent.putExtra("nomber", acc2.getText().toString().trim());
+			payment_intent.putExtra("type", type2.getText().toString().trim());
 			
+			payment_intent.setClass(AccountQueryType.this, inventory.class);
 			AccountQueryType.this.startActivity(payment_intent);
 		}else if(id==2){//账户来帐查询
 			Intent payment_intent = new Intent();
