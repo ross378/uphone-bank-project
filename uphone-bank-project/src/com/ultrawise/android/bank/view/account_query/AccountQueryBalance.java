@@ -105,11 +105,11 @@ public class AccountQueryBalance extends ListActivity {
 			}
 	        
 	        
-	        String RenBi=result.get(14).toString().trim();
-	        String YuE=result.get(13).toString().trim();
-	        String Time=result.get(15).toString().trim();
-	        String Mouth=result.get(16).toString().trim();
-	        String LiL=result.get(17).toString().trim();
+	        String RenBi=result.get(12).toString().trim();
+	        String YuE=result.get(11).toString().trim();
+	        String Time=result.get(13).toString().trim();
+	        String Mouth=result.get(14).toString().trim();
+	        String LiL=result.get(15).toString().trim();
 	        
 	        
 	        
@@ -119,8 +119,8 @@ public class AccountQueryBalance extends ListActivity {
 	        acclist2.put("account_list_info", type);
 	        acclist3.put("account_list", "币种：");
 	        acclist3.put("account_list_info", RenBi);
-	        acclist4.put("account_list", YuE);
-	        acclist4.put("account_list_info", "30000");
+	        acclist4.put("account_list","余额:" );
+	        acclist4.put("account_list_info", YuE);
 	        acclist5.put("account_list", "存期：");
 	        acclist5.put("account_list_info", Time);
 	        acclist6.put("account_list", "起息月：");

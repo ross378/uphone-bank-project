@@ -183,7 +183,7 @@ public class inventory extends Activity {
 	        	 * @param 功能号 024
 	        	 * @return 返回卡的类型
 	        	 */
-				String[] str=new String[]{start+"#",end};
+				String[] str=new String[]{nomber+"#"+start+"#",end};
 				List<String> result=QuerySever.connectHttp("024", str);
 				for(String g:result)
 				{
@@ -194,11 +194,12 @@ public class inventory extends Activity {
 				{   
 					 arrResult[i]= result.get(i);
 				}
-				intent.putExtra("result", arrResult);
+				
 				/**
 				 * 
 				 * 包装intent传递数据
 				 */
+				intent.putExtra("result", arrResult);
 				intent.putExtra("type", type);
 				intent.putExtra("nomber", nomber);
 				intent.putExtra("start", start);
