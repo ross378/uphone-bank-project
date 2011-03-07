@@ -20,6 +20,11 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class PaymentSerDetail extends ListActivity {
+	String pay_title;
+	String ser_num;
+	String pay_amount;
+	String inputed_peo;
+	String pay_sernum;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_details);
@@ -66,12 +71,13 @@ public class PaymentSerDetail extends ListActivity {
 		
 		 Intent paymentre_intent = getIntent();
 		
-		  String pay_title = paymentre_intent.getStringExtra("title");
-		  String ser_num=paymentre_intent.getStringExtra("service_num");
-	        String pay_amount = paymentre_intent.getStringExtra("amount");
-	        String inputed_peo= paymentre_intent.getStringExtra("inputed_peo");
-	        String pay_sernum = paymentre_intent.getStringExtra("serialnum");
-	        String pay_deadline=paymentre_intent.getStringExtra("deadline");
+		  pay_title = paymentre_intent.getStringExtra("title");
+		  ser_num=paymentre_intent.getStringExtra("service_num");
+		  
+	      pay_amount = paymentre_intent.getStringExtra("amount");
+	        inputed_peo= paymentre_intent.getStringExtra("inputed_peo");
+	        pay_sernum = paymentre_intent.getStringExtra("serialnum");
+//	        String pay_deadline=paymentre_intent.getStringExtra("deadline");
 	     ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
 	        
 	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
@@ -107,11 +113,11 @@ public class PaymentSerDetail extends ListActivity {
 	        paylist1.put("payment_list",pay_sernum);
 	        mainlist.add(paylist1);
 	        
-	        paylist1 = new HashMap<String,Object>();
-		       
-	        paylist1.put("listimg1","缴费期限:");
-	        paylist1.put("payment_list",pay_deadline);
-	        mainlist.add(paylist1);
+//	        paylist1 = new HashMap<String,Object>();
+//		       
+//	        paylist1.put("listimg1","缴费期限:");
+//	        paylist1.put("payment_list",pay_deadline);
+//	        mainlist.add(paylist1);
 	        
 	        
 	       
@@ -169,6 +175,10 @@ public class PaymentSerDetail extends ListActivity {
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){
         		Intent transconok_intent = new Intent();
+        		//将项目名字，号码，收费方 ，合同号，  	
+        		transconok_intent.putExtra("pay_name", pay_title+"$"+ser_num+"$"+inputed_peo+"$"+pay_sernum);	
+        		transconok_intent.putExtra("pay_num", pay_amount);//将项目缴费金额传递
+        		
         		transconok_intent.setClass(PaymentSerDetail.this, PaymentSelectAccountType.class);
         		startActivity(transconok_intent);
         	}
