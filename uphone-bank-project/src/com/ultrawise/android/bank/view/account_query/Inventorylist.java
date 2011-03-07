@@ -26,6 +26,7 @@ public class Inventorylist extends ListActivity{
 	private TextView acc2=null;
 	private TextView type1=null;
 	private TextView type2=null;
+	private String[] reslut=null;
 	
 	
     
@@ -105,6 +106,14 @@ public class Inventorylist extends ListActivity{
 		    acc1=(TextView)findViewById(R.id.account_chance_text);
 		    acc1.setText(type+nomber+"在"+start+"到"+end+"\n"+"之间的交易记录如下：");
 		    
+		    
+		    reslut=type_name.getStringArrayExtra("result");
+			for(String g:reslut)
+			{
+				System.out.println(g+"=====================>>>>>>>");
+			}
+		    
+		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        
 	        HashMap<String,Object> acclist1 = new HashMap<String,Object>();
@@ -112,15 +121,15 @@ public class Inventorylist extends ListActivity{
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
 	        String data="";
-	        acclist1.put("txtView1","20101123");
+	        acclist1.put("txtView1",reslut[2]);
 	        acclist1.put("txtView2", "支出");
 	        acclist1.put("txtView3",R.drawable.account2);
 	        
-	        acclist2.put("txtView1","20101124");
+	        acclist2.put("txtView1",reslut[4]);
 	        acclist2.put("txtView2", "收入");
 	        acclist2.put("txtView3", R.drawable.account2);
 	        
-	        acclist3.put("txtView1","20101125");
+	        acclist3.put("txtView1",reslut[1]);
 	        acclist3.put("txtView2", "支出");
 	        acclist3.put("txtView3",R.drawable.account2);
 	        

@@ -185,10 +185,6 @@ public class inventory extends Activity {
 	        	 */
 				String[] str=new String[]{nomber+"#"+start+"#",end};
 				List<String> result=QuerySever.connectHttp("024", str);
-				for(String g:result)
-				{
-				System.out.println("时间段的数据-明文======"+g.toString());	
-				}
 				String[] arrResult=new String[result.size()];
 				for(int i=0;i<result.size();i++)
 				{   
