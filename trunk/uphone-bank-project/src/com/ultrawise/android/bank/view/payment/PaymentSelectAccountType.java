@@ -95,6 +95,10 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
         //接受上一个界面传来的缴费项目和金额
         Intent up_intent=getIntent();
       payName=up_intent.getStringExtra("pay_name");
+      if(up_intent.getStringExtra("crenesnum")==null){
+    	  
+    	  System.out.println("_+_+_+_+_+_+_+_+_+_+_+");
+      }
       payNum=up_intent.getStringExtra("pay_num");
 
         
