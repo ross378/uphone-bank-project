@@ -1,4 +1,8 @@
 package com.ultrawise.android.bank.view.credit;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.credit.CreditView;
@@ -20,6 +24,8 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class CreditQuery extends Activity {
+	private String SelectAcc="411";
+	public String commit="412";
 	private Spinner spinner = null;
 	private ArrayAdapter<String> adapter = null;
 	private Spinner spinner2 = null;
@@ -30,12 +36,16 @@ public class CreditQuery extends Activity {
 	private Button btnContinue = null;
 	private ImageView btnCoustom =null;
 	private ImageView btnMain =null;
-
+ String accountpyte;
+ String accountNo;
+ List<String> ll=new ArrayList<String>();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.account_querypan);
+		 Intent receive_intent = getIntent();
+	        accountpyte = receive_intent.getStringExtra("accountpyte");
 		// 跳转到主界面
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
         tvClassFirst.setText("首页>信用卡>");
@@ -98,11 +108,13 @@ public class CreditQuery extends Activity {
 				CreditQuery.this.startActivity(intent);
 			}
 		});
-        
+        String[] card=accountpyte.split(":");
 		adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		adapter.add("储蓄卡");
-		adapter.add("信用卡");
+		for(int i=0;i<card.length;i++)
+		{
+			adapter.add(card[i]);
+		}
 		spinner = (Spinner) findViewById(R.id.spinnerAccTyppan);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -111,44 +123,26 @@ public class CreditQuery extends Activity {
 				Spinner spinner = (Spinner) parent;
 				Log.v("Test", "id = " + id + "("
 						+ spinner.getSelectedItem().toString() + ")");
-
-				if (spinner.getSelectedItem().toString() == "信用卡") {
-					Log.v("Test", "信用卡");
-					// 储蓄账户加载
-					adapter2 = new ArrayAdapter<String>(CreditQuery.this,android.R.layout.simple_spinner_item);
-					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					adapter2.add("信用卡99xxxx");
-					adapter2.add("dddd");
-					adapter2.add("eeeee");
-					adapter2.add("ppppppp");
-					spinner2 = (Spinner) findViewById(R.id.spinnerAccpan);
-					spinner2.setAdapter(adapter2);
-					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
-							public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
-									Spinner spinner = (Spinner) parent;
-									System.out.println(spinner.getSelectedItem().toString());
-						}
-							public void onNothingSelected(AdapterView<?> arg0) {}});
-					// 结束储蓄用户绑定
-					
-					
-				} else if (spinner.getSelectedItem().toString() == "储蓄卡") {
-					// 储蓄账户加载
-					adapter2 = new ArrayAdapter<String>(CreditQuery.this,android.R.layout.simple_spinner_item);
-					adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-					adapter2.add("611111111111");
-					adapter2.add("222222222222222");
-					adapter2.add("333333333");
-					adapter2.add("444444444");
-					spinner2 = (Spinner) findViewById(R.id.spinnerAccpan);
-					spinner2.setAdapter(adapter2);
-					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
-								public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
-										Spinner spinner = (Spinner) parent;
-										System.out.println(spinner.getSelectedItem().toString());}
-								public void onNothingSelected(AdapterView<?> arg0) {}});
-					// 结束信用卡用户绑定
+				ll.add(spinner.getSelectedItem().toString());
+				//请求服务器
+				List<String> accuss=CreditClient.connectHttp(SelectAcc, ll);
+				ll.clear();
+				String[] creditNo=accuss.get(0).split(":");
+				adapter2 = new ArrayAdapter<String>(CreditQuery.this,android.R.layout.simple_spinner_item);
+				adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				for(int i=0;i<creditNo.length;i++)
+				{
+					adapter2.add(creditNo[i]);
 				}
+				spinner2 = (Spinner) findViewById(R.id.spinnerAccpan);
+				spinner2.setAdapter(adapter2);
+				spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
+						public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
+								Spinner spinner = (Spinner) parent;
+								System.out.println(spinner.getSelectedItem().toString());
+					}
+						public void onNothingSelected(AdapterView<?> arg0) {}});
+			
 			}
 					    public void onNothingSelected(AdapterView<?> arg0) {}
 		});

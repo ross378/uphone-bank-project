@@ -34,15 +34,14 @@ android:paddingLeft="12dip"
 android:textColor="#000000"
 >
 </TextView>
-<Spinner
-	android:id="@+id/creditNoSpinner1"
-	android:layout_width="wrap_content"
-	android:layout_height="35dip"
-	android:prompt="@string/creditnumber"
-	android:layout_marginLeft="17dip"
-	android:layout_marginRight="1dip"
-	android:background="@drawable/spinner1"/>
-/>
+<EditText
+android:id="@+id/orderidEdit"
+android:layout_width="wrap_content"
+android:layout_height="40dip"
+android:textSize="14dip"
+android:layout_marginLeft="15dip"
+>
+</EditText>
 </TableRow>
 <View android:layout_height="1dip"         android:background="#cccccc" /> 
 

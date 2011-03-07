@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.credit;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -25,36 +29,38 @@ import android.widget.TextView;
  */
 
 public class CancelTheCard extends Activity {
+	private String funNo="451";
 	//销卡按钮
 	private Button cancelCardButton=null;
-	//信用卡号选择下拉框
-	private Spinner creditNoSpinner=null;
+	//信用卡号输入框
+	private EditText orderidEdit=null;
 	//证件类型选择下拉框
 	private Spinner pakitSpinner=null;
 	//证件号输入框
-	private EditText pakitNoEdit=null;
+//	private EditText pakitNoEdit=null;
 	//用户名号输入框
-	private EditText userNameEdit=null;
+//	private EditText userNameEdit=null;
 	//手机号输入框
-	private EditText mobileNoEdit=null;
+	//private EditText mobileNoEdit=null;
 	//信用卡密码输入框
 	private EditText creditPasswdEdit=null;
 	//信用卡号
-	private String creditNo=null;
+	//private String creditNo=null;
 	//用户名
-	private String userName=null;
+	//private String userName=null;
 	//证件类型值
-	private String pakitValue=null;
+	//private String pakitValue=null;
 	//证件号
-	private String pakitNo=null;
+	//private String pakitNo=null;
 	//手机号
-	private String mobileNo=null;
+	//private String mobileNo=null;
 	//信用卡密码
-	private String creditPasswd=null;
+	//private String creditPasswd=null;
 	Intent intent;
 	ImageView btnCoustom;
 	ImageView btnMain;
 	ImageView btnReturn;
+	  List<String> l=new ArrayList<String>();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,27 +114,25 @@ public class CancelTheCard extends Activity {
         //获得证件类型控件对象
         pakitSpinner=(Spinner)findViewById(R.id.pakitSpinner1);
         //获得信用卡号选择框对象
-        creditNoSpinner=(Spinner)findViewById(R.id.creditNoSpinner1);
+        orderidEdit=(EditText)findViewById(R.id.orderidEdit);
         
         //获得销卡按钮对象
         cancelCardButton=(Button)findViewById(R.id.cancelCard1);
         cancelCardButton.setOnClickListener(new CancelCardButtonListener());
         
         //获得用户名输入框对象
-        userNameEdit=(EditText)findViewById(R.id.userNameEdit1);
+        //userNameEdit=(EditText)findViewById(R.id.userNameEdit1);
         //获得证件号输入框对象
-        pakitNoEdit=(EditText)findViewById(R.id.pakitNoEdit1);
+       // pakitNoEdit=(EditText)findViewById(R.id.pakitNoEdit1);
         //获得手机号输入框对象
-        mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit1);
+       // mobileNoEdit=(EditText)findViewById(R.id.mobileNoEdit1);
       //获得信用卡密码输入框对象
         creditPasswdEdit=(EditText)findViewById(R.id.creditpasswordEdit1);
-        
-        
         final String[] arrs1=new String[]{"身份证","学生证","工作证","军人证"};
-        final String[] arrs2=new String[10];
-        for(int i=0;i<10;i++){
+      /*  final String[] arrs2=new String[5];
+        for(int i=0;i<5;i++){
         	arrs2[i]="1111222233334444"+i;
-        }
+        }*/
         pakitSpinner= (Spinner)findViewById(R.id.pakitSpinner1); 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrs1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
@@ -143,7 +147,7 @@ public class CancelTheCard extends Activity {
                 }
 
             });
-        creditNoSpinner= (Spinner)findViewById(R.id.creditNoSpinner1); 
+        /*creditNoSpinner= (Spinner)findViewById(R.id.creditNoSpinner1); 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrs2);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
         creditNoSpinner.setAdapter(adapter2);  
@@ -156,36 +160,37 @@ public class CancelTheCard extends Activity {
                 public void onNothingSelected(AdapterView<?> arg0){
                 }
 
-            });
+            });*/
         //creditNo=creditNoSpinner.getSelectedItem().toString();
+        
 	}
 	class CancelCardButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
+			String orderid=orderidEdit.getText().toString();
+	       // String name=userNameEdit.getText().toString();
+	        //String patype= pakitSpinner .getSelectedItem().toString();
+	       // String panum= pakitNoEdit.getText().toString();
+	       String password=creditPasswdEdit.getText().toString();
+	       l.add(orderid);
+	     //  l.add(name);
+	      // l.add(patype);
+	    //   l.add(panum);
+	       l.add(password);
+	       System.out.println(l.size());
+			List<String> accuss=CreditClient.connectHttp(funNo, l);
 			int cancelFlag=0;
 			String info=null;
 			String flag=null;
-			userName=userNameEdit.getText().toString();
-			creditNo="1111111111";
-			pakitValue="身份证";
 			
-			pakitNo=pakitNoEdit.getText().toString();;
-			mobileNo=mobileNoEdit.getText().toString();;
-			creditPasswd=creditPasswdEdit.getText().toString();
-			
-			if(userName==null || userName.trim().length()==0 ||
-				creditNo==null || creditNo.trim().length()==0 ||
-				pakitValue==null || pakitValue.trim().length()==0 || 
-				pakitNo==null || pakitNo.trim().length()==0 || 
-				mobileNo==null || mobileNo.trim().length()==0 ||
-				creditPasswd==null || creditPasswd.trim().length()==0){
+			if(accuss.get(0).equals("false")){
 				cancelFlag=1;
 				flag="失败提示：";
 				info="        销卡失败!请确认所               \n       填信息是否正确!            ";
 			}else{
 				cancelFlag=2;
 				flag="成功提示：";
-				info="         销卡成功！                \n";
+				info="         销卡成功!这只是口头销卡设置，\n需要到实体银行办理销卡手续完成销卡.";
 			}
 			Intent intent = new Intent();
 			intent.putExtra("flag", flag);

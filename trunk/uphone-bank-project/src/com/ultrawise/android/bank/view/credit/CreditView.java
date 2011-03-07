@@ -2,7 +2,9 @@ package com.ultrawise.android.bank.view.credit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_query.AccountFrom;
@@ -26,6 +28,7 @@ public class CreditView extends ListActivity  {
 		ImageView btnCoustom;
 		ImageView btnMain;
 		ImageView btnReturn;
+		 List<String> ll=new ArrayList<String>();
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);  
@@ -120,7 +123,9 @@ public class CreditView extends ListActivity  {
 		protected void onListItemClick(ListView l, View v, int position, long id) {
 			super.onListItemClick(l, v, position, id);
 			if (id == 0) {//帐户信息
+				List<String> accuss=CreditClient.connectHttp("410", ll);
 				Intent payment_intent = new Intent();
+				payment_intent.putExtra("accountpyte", accuss.get(0));
 				payment_intent.setClass(CreditView.this, CreditQuery.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==1){//交易明细查看
@@ -137,6 +142,7 @@ public class CreditView extends ListActivity  {
 				payment_intent.setClass(CreditView.this,ActivateCard.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==4){//销卡
+				
 				Intent payment_intent = new Intent();
 				payment_intent.setClass(CreditView.this, CancelTheCard.class);
 				CreditView.this.startActivity(payment_intent);
