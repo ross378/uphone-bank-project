@@ -44,7 +44,11 @@ public class AccountQueryManager {
 	return Iacc. getAccType();
 	}
 	
-	public List<String> getByTime(String start,String end){
-		return Iacc.getByTime(start, end);
+	public List<String> getByTime(String no,String start,String end){
+		return Iacc.getByTime(no,start, end);
 		}
+	public List<String> getByTimeAcct(String no, String type) {
+		// TODO Auto-generated method stub
+		return Iacc.getByTimeAcct(no,type);
+	}
 }

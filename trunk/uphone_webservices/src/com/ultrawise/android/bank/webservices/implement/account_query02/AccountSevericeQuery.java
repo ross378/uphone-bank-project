@@ -31,7 +31,8 @@ public class AccountSevericeQuery {
 	private final static int GET_ACC_TYPE = 21;
 	private final static int GET_PAYPAL_ID = 22;
 	private final static int GET_XINGXI_ID = 23;
-	private final static int GET_TIME = 24;
+	private final static int GET_TIME = 24;//时间段查询
+	private final static int GET_TIME_QNE = 25;//例如转账
 	
 
 	/**
@@ -70,12 +71,33 @@ public class AccountSevericeQuery {
 		case GET_TIME:
 			System.out.println(mValue[1]);
 			String[] str=mValue[1].split("#");
-			List<String> list=AccountQueryManager.getInstance().getByTime(str[0], str[1]);
+			System.out.println("str[0]="+str[0]);
+			System.out.println("str[1]="+str[1]);
+			System.out.println("str[2]="+str[2]);
+			
+			
+			List<String> list=AccountQueryManager.getInstance().getByTime(str[0], str[1],str[2]);
 			for(String g: list )
 			{
 				System.out.println("023==="+g.toString());
 			}
 			return wrapUp(doEncode(list));
+			
+		case GET_TIME_QNE://例如转账
+			
+			System.out.println(mValue[1]);
+			String[] str2=mValue[1].split("#");
+			System.out.println("str[0]="+str2[0]);
+			System.out.println("str[1]="+str2[1]);
+			
+			
+			List<String> list2=AccountQueryManager.getInstance().getByTimeAcct(str2[0], str2[1]);
+			for(String g: list2 )
+			{
+				System.out.println("023==="+g.toString());
+			}
+			return wrapUp(doEncode(list2));
+			
 		default:
 			List<String> lstStr = new ArrayList<String>();
 			lstStr.add("sorry");
