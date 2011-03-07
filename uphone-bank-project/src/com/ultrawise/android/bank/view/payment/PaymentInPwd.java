@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.payment;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.AccountAdd;
@@ -20,8 +24,11 @@ import android.widget.TextView;
 
 public class PaymentInPwd extends Activity {//账户信息显示和密码输入
 	EditText tv_pasword;
+	TextView tv_pay_num;
 	TextView tv_balance_num;
 	int acc_balance;
+	int item_num;
+	String payName;
 	String file_password;
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +65,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
 		tvClassThird.setVisibility(View.VISIBLE);
 		
 		TextView tv_select_acc = (TextView)findViewById(R.id.select_acc);
-        TextView tv_pay_num = (TextView)findViewById(R.id.pay_num);
+        tv_pay_num = (TextView)findViewById(R.id.pay_num);
         TextView tv_acc_balance = (TextView)findViewById(R.id.acc_balance);   
         tv_balance_num = (TextView)findViewById(R.id.balance_num);
         TextView tv_input_psswrd=(TextView)findViewById(R.id.input_psswrd);
@@ -69,17 +76,20 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
          
         
         String pay_num = paymentre_intent.getStringExtra("Account"); 
-         
-        acc_balance= Integer.parseInt(paymentre_intent.getStringExtra("acc_balance")); 
-        
+        String[] a=  paymentre_intent.getStringExtra("acc_balance").split(",");
+        System.out.println(a[0]);
+        payName=paymentre_intent.getStringExtra("pay_name");
+        System.out.println(payName);
+        String[]  payNumArr=paymentre_intent.getStringExtra("pay_num").split("元");
+        System.out.println(payNumArr[0]+"------------===================");
+        //密码
+        file_password=paymentre_intent.getStringExtra("pwd"); 
+       //账户余额
+        acc_balance= Integer.parseInt(a[0]);
+      //缴费项目要的金额
+        item_num=(int)(Double.parseDouble(payNumArr[0]));
         tv_pay_num.setText(pay_num); 
-        
-        
-        file_password="324";
-        
-        
-        tv_balance_num.setText(acc_balance+"元");
-        
+        tv_balance_num.setText(acc_balance+"元");       
         btn_pay_ok.setText("确认缴费");
         
         ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
@@ -120,34 +130,35 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         
         //确认缴费按钮的监听
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
-        	
-//        	Intent trans_intent = new Intent();
         	public void onClick(View v){
-        		if(tv_pasword.getText().toString().equals(file_password)){
-        		
-        			
-        			if((acc_balance>=500)){
-        			Intent btnok_intent = new Intent();
+        		if(tv_pasword.getText().toString().equals(file_password)){        			
+        			if((acc_balance>=item_num)){
+        				      				
+        				List<String> lstValue = new ArrayList<String>();
+        				lstValue.add(payName);
+        				lstValue.add(tv_pay_num.getText().toString().trim());
+        				lstValue.add((acc_balance-item_num)+"");
+        				PaymentWebservices pay=new PaymentWebservices();		
+        			    pay.connectHttp("60204",lstValue);        				
+        			Intent btnok_intent = new Intent();	
         			btnok_intent.putExtra("flag", "成功提示");
-        			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-500));
+        			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-item_num)+".00元");
         			btnok_intent.setClass(PaymentInPwd.this, PaymentResult.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			}	else {
             			Intent btnok_intent = new Intent();
+            			btnok_intent.putExtra("pay_name", payName);
+            			btnok_intent.putExtra("pay_num",item_num+".00元");
             			btnok_intent.putExtra("flag", "失败提示");
             			btnok_intent.putExtra("info", "缴费账户的余额不足！");
             			btnok_intent.setClass(PaymentInPwd.this, PaymentFailResultTwo.class);
             			PaymentInPwd.this.startActivity(btnok_intent);
-            			
-            			
-            		}
-        			
-        			
-        			
+            			        			
+            		}    			
         		}
         		else{
         			Intent btnok_intent = new Intent();
-        		 btnok_intent.putExtra("flag", "失败提示");
+        		    btnok_intent.putExtra("flag", "失败提示");
         			btnok_intent.putExtra("info", "密码错误！");
         			btnok_intent.setClass(PaymentInPwd.this,PaymentFailResultOne.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
