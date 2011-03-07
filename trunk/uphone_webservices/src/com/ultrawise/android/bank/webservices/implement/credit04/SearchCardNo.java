@@ -57,7 +57,6 @@ public class SearchCardNo implements ICreditNo{
 				{
 					Node parentNode =my_node.getParentNode(); 
 					NamedNodeMap norderid=parentNode.getAttributes();
-					 System.out.println(norderid.getNamedItem("id").getNodeValue());
 					list.add(norderid.getNamedItem("id").getNodeValue());
 					list.add(":");
 				}
@@ -105,7 +104,6 @@ public class SearchCardNo implements ICreditNo{
 				{
 					Node parentNode =my_node.getParentNode(); 
 					NamedNodeMap norderid=parentNode.getAttributes();
-					System.out.println("----"+norderid.getNamedItem("id").getNodeValue());
 					return norderid.getNamedItem("id").getNodeValue(); 
 				}	
 			}	
