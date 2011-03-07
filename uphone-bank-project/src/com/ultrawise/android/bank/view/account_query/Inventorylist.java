@@ -92,6 +92,10 @@ public class Inventorylist extends ListActivity{
 			tvClassSecond1.setText("明细查询");
 			tvClassSecond1.setVisibility(View.VISIBLE);
 		
+			/**
+			 * 接收上一个Activity传过来的值并放在相应位置
+			 * 
+			 */
 			
 			Intent type_name = getIntent();
 		    String nomber=type_name.getStringExtra("nomber");
@@ -99,7 +103,7 @@ public class Inventorylist extends ListActivity{
 		    String start=type_name.getStringExtra("start");
 		    String end=type_name.getStringExtra("end");
 		    acc1=(TextView)findViewById(R.id.account_chance_text);
-		    acc1.setText(type+nomber+"在"+start+"到+"+end+"\n"+"之间的交易记录如下：");
+		    acc1.setText(type+nomber+"在"+start+"到"+end+"\n"+"之间的交易记录如下：");
 		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        
