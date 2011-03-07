@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.transfer;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.TransferWebservicesClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 
@@ -11,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +26,31 @@ public class TransAmtConfirm extends Activity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private TextView conacc;
+	private TextView conamt;
+	private TextView confee;
+	private TextView conamtph;
+	private TextView conpayee;
+	
+	
+	private String transtype;
+	private String username;
+	private String balance;
+	private String account;
+	private String accinfo;
+	
+	private String amtnum;
+	private String amtph;
+	private String amtfee;
+	private String amtpayee;
 	Intent intent;
+	Intent receive_intent;
+	
+	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
+	private List<String> lstout = new ArrayList<String>();
+	private List<String> lstinfo = new ArrayList<String>();
+	
+	private CommonDialog Dialog = new CommonDialog();
 	
 	//触摸触发
 	@Override
@@ -36,7 +65,27 @@ public class TransAmtConfirm extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_amt_confirm);
         
+        receive_intent = getIntent();
         intent = new Intent();
+        transtype = receive_intent.getStringExtra("transtype"); 
+        username = receive_intent.getStringExtra("username");
+        accinfo = receive_intent.getStringExtra("accinfo");
+        account = receive_intent.getStringExtra("account");
+        balance = receive_intent.getStringExtra("balance");
+        amtnum = receive_intent.getStringExtra("amtnum");
+        amtph = receive_intent.getStringExtra("amtph");
+        
+        conacc = (TextView)findViewById(R.id.tv_trans_confirmacc);
+        conamt = (TextView)findViewById(R.id.tv_trans_confirmamt);
+        confee = (TextView)findViewById(R.id.tv_trans_confirmamtpay);
+        conamtph = (TextView)findViewById(R.id.tv_trans_confirmamtph);
+        conpayee = (TextView)findViewById(R.id.tv_trans_confirmamtname);
+        
+        conacc.setText(account);
+        conamt.setText(amtnum);
+        confee.setText(amtfee);
+        conamtph.setText(amtph);
+        conpayee.setText(amtpayee);
         
         //向右滑动触发后退
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -52,13 +101,11 @@ public class TransAmtConfirm extends Activity {
 		});
         
 		//顶部导航文本
-        Intent receive_intent = getIntent();
-        String transtype = receive_intent.getStringExtra("transtype");
+        transtype = receive_intent.getStringExtra("transtype");
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAmtConfirm.this, ABankMain.class);
 				TransAmtConfirm.this.startActivity(intent);
 			}
@@ -69,7 +116,6 @@ public class TransAmtConfirm extends Activity {
 		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAmtConfirm.this, TransferMain.class);
 				TransAmtConfirm.this.startActivity(intent);
 			}

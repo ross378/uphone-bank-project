@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.transfer;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.TransferWebservicesClient;
 import com.ultrawise.android.bank.view.ABankMain;
 
 import android.app.Activity;
@@ -24,11 +28,18 @@ public class TransAccPsdSucc extends Activity {
 	private ImageView btnMain;
 	private ImageView btnHelper;
 	private String transtype;
+	private String username;
 	private String balance;
 	private String account;
 	private String accinfo;
 	Intent intent;
 	Intent receive_intent;
+	
+	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
+	private List<String> lstout = new ArrayList<String>();
+	private List<String> lstinfo = new ArrayList<String>();
+	
+	private CommonDialog Dialog = new CommonDialog();
 	
 	//触摸触发
 	@Override
@@ -45,7 +56,8 @@ public class TransAccPsdSucc extends Activity {
         
         receive_intent = getIntent();
         intent = new Intent();
-        transtype = receive_intent.getStringExtra("transtype");        
+        transtype = receive_intent.getStringExtra("transtype"); 
+        username = receive_intent.getStringExtra("username");
         accinfo = receive_intent.getStringExtra("accinfo");
         account = receive_intent.getStringExtra("account");
         balance = receive_intent.getStringExtra("balance");
@@ -56,7 +68,6 @@ public class TransAccPsdSucc extends Activity {
         tv_account.setText(account);
         tv_accinfo.setText(accinfo);
         tv_accbal.setText(balance);
-        
         
         
         //向右滑动触发后退
@@ -73,13 +84,10 @@ public class TransAccPsdSucc extends Activity {
   		});
           
   		//顶部导航文本
-        Intent receive_intent = getIntent();
-        String transtype = receive_intent.getStringExtra("transtype");
         TextView tvClassFirst = (TextView)this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccPsdSucc.this, ABankMain.class);
 				TransAccPsdSucc.this.startActivity(intent);
 			}
@@ -90,7 +98,6 @@ public class TransAccPsdSucc extends Activity {
 		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccPsdSucc.this, TransferMain.class);
 				TransAccPsdSucc.this.startActivity(intent);
 			}
@@ -110,20 +117,23 @@ public class TransAccPsdSucc extends Activity {
 		        String transtype = receive_intent.getStringExtra("transtype");
 				Intent trans_intent = new Intent();
 				trans_intent.putExtra("transtype", transtype);
+				trans_intent.putExtra("username", username);
 				trans_intent.setClass(TransAccPsdSucc.this,TransAccSelect.class);
 				TransAccPsdSucc.this.startActivity(trans_intent);
 			}
         });
         
-        //next
+        //确认转账
         btn_trans_next = (Button)findViewById(R.id.btn_trans_next);
         btn_trans_next.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent receive_intent = getIntent();
-		        String transtype = receive_intent.getStringExtra("transtype");
 				Intent trans_intent = new Intent();
 				trans_intent.putExtra("transtype", transtype);
+				trans_intent.putExtra("username", username);
+				trans_intent.putExtra("accinfo", accinfo);
+				trans_intent.putExtra("account", account);
+				trans_intent.putExtra("balance", balance);
 				trans_intent.setClass(TransAccPsdSucc.this,TransAmtInput.class);
 				TransAccPsdSucc.this.startActivity(trans_intent);
 			}

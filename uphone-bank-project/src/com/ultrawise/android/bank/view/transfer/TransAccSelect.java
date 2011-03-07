@@ -35,6 +35,8 @@ public class TransAccSelect extends ListActivity {
 	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
 	private List<String> lstout = new ArrayList<String>();
 	private List<String> lstinfo = new ArrayList<String>();
+	private List<String> lstacctype = new ArrayList<String>();
+	private List<String> lstaccount = new ArrayList<String>();
 	
 	private CommonDialog Dialog = new CommonDialog();
 	
@@ -74,7 +76,6 @@ public class TransAccSelect extends ListActivity {
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccSelect.this, ABankMain.class);
 				TransAccSelect.this.startActivity(intent);
 			}
@@ -85,7 +86,6 @@ public class TransAccSelect extends ListActivity {
 		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccSelect.this, TransferMain.class);
 				TransAccSelect.this.startActivity(intent);
 			}
@@ -136,7 +136,6 @@ public class TransAccSelect extends ListActivity {
 
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					intent = new Intent();
 					intent.setClass(TransAccSelect.this, ABankMain.class);
 					TransAccSelect.this.startActivity(intent);
 				}
@@ -147,7 +146,6 @@ public class TransAccSelect extends ListActivity {
 
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					intent = new Intent();
 					intent.setClass(TransAccSelect.this, FinancialConsultation.class);
 					TransAccSelect.this.startActivity(intent);
 				}
@@ -164,13 +162,14 @@ public class TransAccSelect extends ListActivity {
 			if(lstout != null){
 				String account = lstout.get(0);
 				String accinfo = lstout.get(1);
-			Intent intent = new Intent();
-			intent.putExtra("transtype", transtype);
-			intent.putExtra("username",username);
-			intent.putExtra("accinfo", accinfo);
-			intent.putExtra("account", account);
-			intent.setClass(TransAccSelect.this, TransAccActive.class);
-			TransAccSelect.this.startActivity(intent);
+				
+				Intent intent = new Intent();
+				intent.putExtra("transtype", transtype);
+				intent.putExtra("username",username);
+				intent.putExtra("accinfo", accinfo);
+				intent.putExtra("account", account);
+				intent.setClass(TransAccSelect.this, TransAccActive.class);
+				TransAccSelect.this.startActivity(intent);
 			}else{
 				//Dialog.showDialog("获取信息失败", "请确认您已经设置首选账户", "返回");
 				Intent intent = new Intent();
@@ -181,9 +180,14 @@ public class TransAccSelect extends ListActivity {
 				TransAccSelect.this.startActivity(intent);
 			}
 		}else if(id==1){
+			
+			//lstinfo.add(username);
+			//lstacctype=transferwebservice.connectHttp("502", lstinfo);
+			
 			Intent intent = new Intent();
 			intent.putExtra("transtype", transtype);
 			intent.putExtra("username",username);
+			
 			intent.setClass(TransAccSelect.this, TransAccInput.class);
 			TransAccSelect.this.startActivity(intent);
 		}
