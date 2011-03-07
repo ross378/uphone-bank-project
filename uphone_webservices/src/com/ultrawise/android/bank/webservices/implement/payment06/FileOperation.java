@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -94,7 +96,11 @@ public class FileOperation {
 	
 	//向xml文件中插入结点
 	public static Document insertNode(Document doc,String value){
-		String[] values = value.split("$");
+		System.out.println(value+"_______________________________");
+		String[] values = value.split("#");
+		Calendar cal=new GregorianCalendar();
+		System.out.println(values.length);
+
 		NodeList n1 = doc.getElementsByTagName(values[0]);
 		Node root = n1.item(0);
 		Element node = doc.createElement(values[1]);
@@ -105,37 +111,38 @@ public class FileOperation {
 		node.appendChild(node1);
 		
 		Element node2 = doc.createElement("userid");
-		Text text2 = doc.createTextNode("");
+		Text text2 = doc.createTextNode("zhangsan");
 		node2.appendChild(text2);
 		node.appendChild(node2);
-		
+		//金额
 		Element node3 = doc.createElement("credit");
-		Text text3 = doc.createTextNode("");
+		Text text3 = doc.createTextNode(values[6]);
 		node3.appendChild(text3);
 		node.appendChild(node3);
-		
+		//号码
 		Element node4 = doc.createElement("creqqnum");
-		Text text4 = doc.createTextNode("");
+		Text text4 = doc.createTextNode(values[3]);
 		node4.appendChild(text4);
 		node.appendChild(node4);
-		
+		//日期
 		Element node5 = doc.createElement("credata");
-		Text text5 = doc.createTextNode("");
+		Text text5 = doc.createTextNode(cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH)+1)
+				+ "-" + cal.get(Calendar.DAY_OF_MONTH));
 		node5.appendChild(text5);
 		node.appendChild(node5);
 		
 		Element node6 = doc.createElement("creno");
-		Text text6 = doc.createTextNode("");
+		Text text6 = doc.createTextNode(values[5]);
 		node6.appendChild(text6);
 		node.appendChild(node6);
 		
 		Element node7 = doc.createElement("operator");
-		Text text7 = doc.createTextNode("");
+		Text text7 = doc.createTextNode(values[4]);
 		node7.appendChild(text7);
 		node.appendChild(node7);
 		
 		Element node8 = doc.createElement("account");
-		Text text8 = doc.createTextNode("");
+		Text text8 = doc.createTextNode(values[7]);
 		node8.appendChild(text8);
 		node.appendChild(node8);
 		
