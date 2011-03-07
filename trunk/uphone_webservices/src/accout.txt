@@ -20,7 +20,6 @@
     <state>0</state>
  </accout>
  <accout id="622202112" userid="Sun01">
-    
 	<orderid>110</orderid>
 	<actype>paypal02</actype>
 	<signup>否</signup>
@@ -40,7 +39,6 @@
     <state>0</state>
  </accout>
  <accout id="622202113" userid="Sun01">
-    
 	<orderid>110</orderid>
 	<actype>paypal03</actype>
 	<signup>否</signup>
@@ -60,7 +58,6 @@
     <state>1</state>
   </accout>
  <accout id="622202114" userid="Sun02">
-    
 	<orderid>110</orderid>
 	<actype>paypal01</actype>
 	<signup>否</signup>
@@ -80,7 +77,6 @@
     <state>0</state>
   </accout>
  <accout id="622202115" userid="Sun02">
-
 	<orderid>110</orderid>
 	<actype>paypal02</actype>
 	<signup>否</signup>
@@ -99,8 +95,7 @@
     <actpwd>123456</actpwd>
     <state>0</state>
   </accout>
- <accout id="622202116" userid="Sun02">
-    
+ <accout id="622202116" userid="Sun02">  
 	<orderid>110</orderid>
 	<actype>paypal03</actype>
 	<signup>否</signup>
