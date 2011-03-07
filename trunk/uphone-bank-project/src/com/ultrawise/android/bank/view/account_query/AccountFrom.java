@@ -183,7 +183,7 @@ public class AccountFrom extends Activity {
 	        	 * @param 功能号 024
 	        	 * @return 返回卡的类型
 	        	 */
-				String[] str=new String[]{start+"#",end};
+				String[] str=new String[]{nomber+"#"+start+"#",end};
 				List<String> result=QuerySever.connectHttp("024", str);
 				for(String g:result)
 				{
