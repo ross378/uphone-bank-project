@@ -2,7 +2,10 @@ package com.ultrawise.android.bank.webservices.base.payment06;
 
 public interface IPaymentServices {
 	//获取便捷服务的项目名称
-	public String getServicesName(String userNo);
+	public String getServicesName();
+	
+	//获取某项目便捷服务的运营商
+	public String getServicesOperator(String id);
 	
 	//获取用户缴费的账户
 	public String getUserAccount(String userNo);
