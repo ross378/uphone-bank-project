@@ -30,7 +30,8 @@ public class CancleCreditService {
 	private final static int Active_Credit =441;//开卡
 	private final static int Cancle_Credit = 451;//销卡
 	private final static int SearchPyte=410;//获取帐号类型
-	private final static int SearchNo=411;
+	private final static int SearchNo=411;//获取帐号
+	private final static int CardDetail=412;//获取帐号信息
 
 	/**
 	 * 接收请求  1.解密 2.解析字符串格式 3.调用功能 4.加密 5.包装成json 6.返回json
@@ -61,6 +62,9 @@ public class CancleCreditService {
 		case SearchNo:
 			SearchCardNo searNo=new SearchCardNo();
 			return wrapUp(Base64.encode(searNo.SearchNoByCardPyte(mValue[1]),"utf-8"));
+		case CardDetail:
+			CardDetail card=new CardDetail();
+			return wrapUp(Base64.encode(card.SearchCardDetail(mValue[1]),"utf-8"));
 		default:
 		
 			String lstStr="sorry";
