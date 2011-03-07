@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Selservices>
+     <service>
+	<id>1</id>
+	<payname>手机充值</payname>
+        <operator>
+	   <ope>中国移动</ope>
+	   <ope>中国联通</ope>
+	   <ope>中国电信</ope>
+	</operator>
+	<serviceno>#sT5742534523</serviceno>
+     </service>
+     <service>
+	<id>2</id>
+	<payname>Q币充值</payname>
+        <operator>
+	   <ope>腾讯QQ</ope>
+	</operator>
+	<serviceno>#sT5233</serviceno>
+     </service>
+     <service>
+	<id>3</id>
+	<payname>网易充值</payname>
+        <operator>
+	   <ope>网易</ope>
+	</operator>
+	<serviceno>#sT46362543</serviceno>
+     </service>
+</Selservices>
