@@ -10,7 +10,7 @@
 	<dic>朋友急需用钱，特此转账</dic>
   </trans>
    <trans id="622202114" zhantype="进账">
-    <date>2011-3-8</date>
+    <date>2011-3-9</date>
 	<amount>1000,00</amount>
 	<name>张奎</name>
 	<inbank>中国工商银行</inbank>
@@ -19,7 +19,7 @@
 	<dic>发工资</dic>
   </trans>
    <trans id="622202114" zhantype="汇款">
-    <date>2011-3-8</date>
+    <date>2011-3-10</date>
 	<amount>1000,00</amount>
 	<name>王兰</name>
 	<inbank>中国工商银行</inbank>
