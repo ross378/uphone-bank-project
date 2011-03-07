@@ -10,6 +10,8 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 
 	public class PaymentFailResultTwo extends Activity {
+		String payName;
+		 String payNum;
 		 @Override
 		    public void onCreate(Bundle savedInstanceState) {
 		        super.onCreate(savedInstanceState);
@@ -23,8 +25,10 @@ import android.view.View.OnClickListener;
 		    	Button btna_gain = (Button)findViewById(R.id.btn_paymentdl_again);
 		    	
 		        Intent receive_intent = getIntent();
-		      String flag = receive_intent.getStringExtra("flag");
+		        String flag = receive_intent.getStringExtra("flag");
 		        String info = receive_intent.getStringExtra("info");
+		        payName= receive_intent.getStringExtra("pay_name");
+		        payNum= receive_intent.getStringExtra("pay_num");
 		        tvflag.setText(flag);
 		        tvshow.setText(info);
 		        
@@ -34,7 +38,8 @@ import android.view.View.OnClickListener;
 					
 					public void onClick(View v) {
 						Intent transinfo_intent = new Intent();
-						
+						transinfo_intent.putExtra("pay_name", payName);
+						transinfo_intent.putExtra("pay_num",payNum);	
 			    		transinfo_intent.setClass(PaymentFailResultTwo.this, PaymentSelectAccount.class);
 			    		startActivity(transinfo_intent);
 					}
@@ -45,6 +50,7 @@ import android.view.View.OnClickListener;
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					Intent transinfo_intent = new Intent();
+					
 		    		transinfo_intent.setClass(PaymentFailResultTwo.this, PaymentMain.class);
 		    		startActivity(transinfo_intent);
 				}
