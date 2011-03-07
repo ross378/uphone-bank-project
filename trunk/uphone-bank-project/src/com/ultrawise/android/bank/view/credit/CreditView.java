@@ -147,7 +147,9 @@ public class CreditView extends ListActivity  {
 				payment_intent.setClass(CreditView.this, CancelTheCard.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==5){//信用卡还款
+				List<String> accuss=CreditClient.connectHttp("460", ll);
 				Intent payment_intent = new Intent();
+				payment_intent.putExtra("bindCardNo", accuss.get(0));
 				payment_intent.setClass(CreditView.this,SelfPay.class);
 				CreditView.this.startActivity(payment_intent);
 		}

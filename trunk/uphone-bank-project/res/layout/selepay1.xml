@@ -12,7 +12,7 @@
    android:layout_marginLeft="40dip"
     android:textColor="#000000"
     />
-<Button  
+<TextView  
     android:id="@+id/selfPaya"
     android:layout_width="60dip"
     android:layout_height="wrap_content"

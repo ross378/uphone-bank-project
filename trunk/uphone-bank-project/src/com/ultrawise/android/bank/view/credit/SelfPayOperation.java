@@ -30,15 +30,17 @@ public class SelfPayOperation extends ListActivity {
 	Intent intent;
 	ImageView btnCoustom;
 	ImageView btnMain;
-	private Spinner pakitSpinner = null;
 	Button queren;
 	Button cancle;
 	EditText password;
 	EditText paymuch;
+	String cardDetail;
+	String creditNo;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selfpayoperation);
-	        
+	        Intent receive_intent = getIntent();
+	        cardDetail = receive_intent.getStringExtra("cardDetail");
 	        ImageView iv_now = (ImageView)this.findViewById(R.id.btnCoustom);
 	        iv_now.setVisibility(View.GONE);
 		    	intent = new Intent();
@@ -55,40 +57,19 @@ public class SelfPayOperation extends ListActivity {
 	        ArrayList<HashMap<String,String>> list=new ArrayList<HashMap<String,String>>();
 	        HashMap<String,String> map1=new HashMap<String,String>();
 	        HashMap<String,String> map2=new HashMap<String,String>();
+	        String[] str=cardDetail.split(":");
 	        map1.put("creditNo_key", "还款账户：");
-	        map1.put("selfPay_value", "11111111111111111111");
+	        map1.put("selfPay_value", str[0]);
 	        map2.put("creditNo_key","账户余额：");
-	        map2.put("selfPay_value", "￥100000");
+	        map2.put("selfPay_value", str[2]);
 	        list.add(map1);
 	        list.add(map2);
 	        SimpleAdapter listAdapter=new SimpleAdapter(this,list,R.layout.selfpayoperationlist,new String[]{"creditNo_key","selfPay_value"},new int[]{R.id.creditNo_key2,R.id.selfPay_value2});
 	        setListAdapter(listAdapter);
 	     paymuch=(EditText)findViewById(R.id.paymuch);
-	        //初始化证件类型控件值
-		    /*   final String[] arrs=new String[]{"500","1000","2000"};
-		        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
-
-		        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);   
-
-		        pakitSpinner.setAdapter(adapter);  
-		        pakitSpinner.setSelection(1,true);
-
-		         pakitSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
-
-		                public void onItemSelected(AdapterView<?> parent, View arg1, int position, long arg3){
-
-
-		                	//pakitPostion=parent.getSelectedItemPosition();
-		                	parent.setVisibility(View.VISIBLE);
-
-		                }
-		                public void onNothingSelected(AdapterView<?> parent){
-		                		
-		                }
-
-		            });*/
+	     
            password=(EditText)findViewById(R.id.paypassword);
-	        
+	        creditNo=str[0];
 		  //确定，取消按钮
 		         queren=(Button)findViewById(R.id.btn_paymentOk);
 		         cancle=(Button)findViewById(R.id.btn_paymentCancle);
@@ -123,19 +104,6 @@ public class SelfPayOperation extends ListActivity {
 	    }
 	 public void onListItemClick(ListView l,View v,int position,long id){
 	    	super.onListItemClick(l, v, position, id);
-	    	/*HashMap<String,String> map=(HashMap<String,String>)l.getItemAtPosition(position);
-	    	System.out.println(map);
-	    	String selfPayBal=map.get(1);
-	    	System.out.print(selfPayBal);
-	    	String selfPayActNo=null;
-	    	Iterator<String> iter=map.keySet().iterator();
-	    	if(iter.hasNext())selfPayActNo=iter.next();
-	    	System.out.print(selfPayActNo);
-	    	Intent intent=new Intent();
-	    	intent.putExtra("selfPayActNo",selfPayBal);
-	    	intent.putExtra("selfPayBal",selfPayActNo);
-	    	intent.setClass(SelfPayOperation.this,SelfPayAct.class);
-	    	SelfPayOperation.this.startActivity(intent);*/
 	    }
 	 class payButtonListener implements OnClickListener{
 
@@ -144,7 +112,14 @@ public class SelfPayOperation extends ListActivity {
 				String info=null;
 				String flag=null;
 				String creditPasswd;
-				
+				double money;
+				try{
+					money=Double.parseDouble(paymuch.getText().toString());
+				}catch(Exception e)
+				{
+					Toast.makeText(SelfPayOperation.this, "请输入正确的还款金额", Toast.LENGTH_SHORT).show();
+					return;
+				}
 				
 				creditPasswd=password.getText().toString();
 				
