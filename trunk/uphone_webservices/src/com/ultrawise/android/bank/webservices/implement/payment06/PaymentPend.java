@@ -123,7 +123,7 @@ public class PaymentPend implements IPaymentPend {
 		}
 	    if(pay_Name.equals("QQ")){
 	    	Document doc1=file.insertNode(file.getFileDocument("qreplen"),"Qrep"+"#"+"qreplen"+"#"+paymentName);
-			file.saveDocument(doc1, "qreplen");
+	    	file.saveDocument(doc1, "qreplen");
 			
 		}
 	   if(pay_Name.equals("网易")){
