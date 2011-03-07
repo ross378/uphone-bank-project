@@ -110,7 +110,7 @@ public class PaymentSelfService extends ListActivity {
 	       
 	        PaymentWebservices.paramsString="payment";
 	        List<String> params = new ArrayList<String>();
-	        String[] values = PaymentWebservices.connectHttp("60201", params);
+	        String[] values = PaymentWebservices.connectHttp("60211", params);
 	        for(String val:values){
 	        	paylist1 = new HashMap<String,Object>();
 	        	paylist1.put("payment_list",val);
@@ -134,22 +134,6 @@ public class PaymentSelfService extends ListActivity {
 		payment_intent.putExtra("ser_name", String.valueOf(id + 1));
 		payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
 		PaymentSelfService.this.startActivity(payment_intent);
-		
-//       if(id==0){
-//			Intent payment_intent = new Intent();
-//			payment_intent.putExtra("ser_name", "手机");
-//			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
-//			PaymentSelfService.this.startActivity(payment_intent);
-//		}else if(id==1){
-//			Intent payment_intent = new Intent();
-//			payment_intent.putExtra("ser_name", "QQ");
-//			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
-//			PaymentSelfService.this.startActivity(payment_intent);
-//		}else if(id==2){			
-//			Intent payment_intent = new Intent();
-//			payment_intent.putExtra("ser_name", "网易");
-//			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
-//			PaymentSelfService.this.startActivity(payment_intent);
-//		}
+
 	}
 }
