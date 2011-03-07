@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.payment;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.AccountManagement;
@@ -28,6 +32,7 @@ public class AllPaymentSer extends Activity {
 	private ArrayAdapter<String> Accadapter = null;
 	private String ser_name1="";
 	private EditText tv_ser_num;
+	private String contract_no = "";      //合同号
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -118,24 +123,21 @@ public class AllPaymentSer extends Activity {
 		//TextView tvClassFour = (TextView) this.findViewById(R.id.class_four);
 	  Intent paymentre_intent = getIntent();
 		ser_name1=paymentre_intent.getStringExtra("ser_name");
-
+		PaymentWebservices.paramsString="payment";
+        List<String> params = new ArrayList<String>();
+        params.add(ser_name1);
+        String[] values = PaymentWebservices.connectHttp("60202", params);
+        contract_no = values[1];
+        String[] operator = values[0].split(",");
+		
 		// 运行商选择
 		AccTypAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item);
 		AccTypAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		if (ser_name1.equals("手机")) {
-			AccTypAdapter.add("中国移动");
-			AccTypAdapter.add("中国联通");
-			AccTypAdapter.add("中国电信");
-		} else {
-			if (ser_name1.equals("QQ")) {
-				AccTypAdapter.add("腾讯QQ");
-
-			} else  {
-				AccTypAdapter.add("网易");
-
-			}
+		
+		for(String oper:operator){
+			AccTypAdapter.add(oper);
 		}
 
 		AccTypSpinner = (Spinner) findViewById(R.id.spinner_pay_typ);
