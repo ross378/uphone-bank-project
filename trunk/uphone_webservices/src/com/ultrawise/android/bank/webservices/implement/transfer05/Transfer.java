@@ -13,7 +13,7 @@ public class Transfer implements ITransfer {
 		if (username.equals("zhangsan"))
 			{
 				String useracc = "123456789";
-				String accinfo = "活期储蓄";
+				String accinfo = "活期储蓄账户[]";
 				lstuserinfo.add(accinfo);
 				lstuserinfo.add(useracc);
 				return lstuserinfo;
@@ -34,8 +34,8 @@ public class Transfer implements ITransfer {
 		if(userinfo.equals("zhangsan")){
 			
 			//String flag = "succeed";
-			String acctype1 = "活期储蓄账户[]";
-			String acctype2 = "定期储蓄账户[]";
+			String acctype1 = "活期储蓄账户";
+			String acctype2 = "定期储蓄账户";
 			//lstacctype.add(flag);
 			lstacctype.add(acctype1);
 			lstacctype.add(acctype2);
@@ -53,13 +53,13 @@ public class Transfer implements ITransfer {
 	public List<String> getcomacc(String accinfo) {
 		// TODO Auto-generated method stub
 		List<String> lstcomacc = new ArrayList<String>();
-		if(accinfo.equals("活期储蓄账户[]")){
+		if(accinfo.equals("活期储蓄账户")){
 			lstcomacc.add("123456789");
 			lstcomacc.add("234567891");
 			lstcomacc.add("345678912");
 			lstcomacc.add("456789123");
 			return lstcomacc;
-		}else if(accinfo.equals("定期储蓄账户[]")){
+		}else if(accinfo.equals("定期储蓄账户")){
 			lstcomacc.add("023456789");
 			lstcomacc.add("234567890");
 			lstcomacc.add("345678902");
@@ -90,6 +90,21 @@ public class Transfer implements ITransfer {
 			lstuserinfo.add(balance);
 			return lstuserinfo;
 		}
+	}
+
+	public List<String> contransfer(String account, String amtnum, String amtpsd, String amtph) {
+		// TODO Auto-generated method stub
+		List<String> flag = new ArrayList<String>();
+		if(account.equals("123456789")&& amtpsd.equals("123456")){
+			flag.add("true");
+		}
+		
+		return null;
+	}
+
+	public List<String> transfer(String account, String amtnum, String amtph) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
