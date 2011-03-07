@@ -32,10 +32,22 @@ public class inventory extends Activity {
 	DatePicker d;
 	static String start_time = "开始时间";
 	static String end_time = "结束时间";
-	private String nomber=null;
-	private String type=null;
+	private static  String nomber=null;
+	private static  String type=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
+		
+		/**
+		 * 
+		 * 接收从上一个Activity传递数据
+		 */
+		Intent intent_type_nomber=getIntent();
+		nomber=intent_type_nomber.getStringExtra("nomber");
+		type=intent_type_nomber.getStringExtra("type");
+		
+		
+		
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.inventory);
@@ -110,14 +122,27 @@ public class inventory extends Activity {
 			}
 		});
 		
+		/**
+		 * 
+		 * 起始时间按钮
+		 */
+		
 		timeStart = (Button) findViewById(R.id.timechange_from);
 		timeStart.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
 				Intent intent = new Intent();
-				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("start", "start");
+				
+				/**
+				 * 第一次传
+				 */
+				intent.putExtra("nomber", nomber);
+				intent.putExtra("type",type);
+				
+				
+				intent.setClass(inventory.this, AccountQueryResult.class);
 				inventory.this.startActivity(intent);
 			}
 		});
@@ -125,17 +150,16 @@ public class inventory extends Activity {
 		timeOver.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				
 				Intent intent = new Intent();
-				intent.setClass(inventory.this, AccountQueryResult.class);
 				intent.putExtra("end", "end");
-				
 				/**
-				 * 再一次放入Intent
+				 * 第二次传
 				 */
-				intent.putExtra("type2",type);
-				intent.putExtra("nomber2",nomber);
+				intent.putExtra("nomber", nomber);
+				intent.putExtra("type",type);
 				
+				intent.setClass(inventory.this, AccountQueryResult.class);
 				inventory.this.startActivity(intent);
 			}
 		});
@@ -147,17 +171,6 @@ public class inventory extends Activity {
 		run.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				
-				/**
-				 * 
-				 * 接收从上一个Activity传递数据
-				 */
-				Intent intent_type_nomber=getIntent();
-				nomber=intent_type_nomber.getStringExtra("nomber");
-				type=intent_type_nomber.getStringExtra("type");
-				
-				
-				
 				
 				Intent intent=new Intent();
 				String start=timeStart.getText().toString().trim();
@@ -182,13 +195,6 @@ public class inventory extends Activity {
 					 arrResult[i]= result.get(i);
 				}
 				intent.putExtra("result", arrResult);
-				
-				
-				
-				
-				
-				
-				
 				/**
 				 * 
 				 * 包装intent传递数据
@@ -201,24 +207,30 @@ public class inventory extends Activity {
 				System.out.println("前一个avtivity出来"+type+"======"+nomber);
 				System.out.println("开始"+start);
 				System.out.println("结束"+end);
+				
+				
 				intent.setClass(inventory.this, Inventorylist.class);
 				inventory.this.startActivity(intent);
 			}
 		});
 		
-		
-		
-		
-		
 		Intent intent = this.getIntent();
         if(intent.hasExtra("start")){
         	String[] date = intent.getStringArrayExtra("start");
+        	nomber=date[3];
+        	type=date[4];
+        	
         	start_time = date[0]+"-"+date[1]+"-"+date[2];
+        	
         }
         timeStart.setText(start_time);
+        
         if(intent.hasExtra("end")){
         	String[] date = intent.getStringArrayExtra("end");
         	end_time = date[0]+"-"+date[1]+"-"+date[2];
+        	
+        	nomber=date[3];
+        	type=date[4];
         }
         timeOver.setText(end_time);
 	}

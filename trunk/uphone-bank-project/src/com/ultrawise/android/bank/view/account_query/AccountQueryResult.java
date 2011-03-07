@@ -11,12 +11,14 @@ import android.widget.DatePicker;
 
 
 public class AccountQueryResult extends Activity{
-	    String[] time=new String[3];
+	    String[] time=new String[5];
 		Button time_ok = null;
 		Button time_cancel = null;
 		DatePicker datePicker = null;
 		Intent intent = null;
 		String name = "";
+		String nomber = "";
+		String type = "";
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
@@ -26,10 +28,19 @@ public class AccountQueryResult extends Activity{
 			intent = this.getIntent();
 			if(intent.hasExtra("start")){
 				name = intent.getStringExtra("start");
+				/**
+				 * 接收类型和账号
+				 */
+				nomber = intent.getStringExtra("nomber");
+				type = intent.getStringExtra("type");
 				System.out.println(name);
 			}
 			if(intent.hasExtra("end")){
 				name = intent.getStringExtra("end");
+				nomber = intent.getStringExtra("nomber");
+				type = intent.getStringExtra("type");
+				
+				
 			}
 			datePicker = (DatePicker)findViewById(R.id.accountfrom_payment_time);
 			time_ok = (Button)findViewById(R.id.accountfrom_ok);
@@ -42,8 +53,11 @@ public class AccountQueryResult extends Activity{
 					time[0]=String.valueOf(year);
 					time[1]=String.valueOf(month+1);
 					time[2]=String.valueOf(day);
+					time[3]=nomber;
+					time[4]=type;
 					Intent intent = new Intent();
 					intent.putExtra(AccountQueryResult.this.name, time);
+					
 					intent.setClass(AccountQueryResult.this, inventory.class);
 					AccountQueryResult.this.startActivity(intent);
 				}
