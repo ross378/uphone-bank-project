@@ -135,7 +135,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         			if((acc_balance>=item_num)){
         				      				
         				List<String> lstValue = new ArrayList<String>();
-        				lstValue.add(payName);
+        				lstValue.add(payName+"$"+item_num);
         				lstValue.add(tv_pay_num.getText().toString().trim());
         				lstValue.add((acc_balance-item_num)+"");
         				PaymentWebservices pay=new PaymentWebservices();		
