@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.payment;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -136,7 +140,13 @@ public class PaymentHistory extends Activity {
 			Intent payhisch_intent = new Intent();
 			payhisch_intent.putExtra("start_time", start_time);
 			payhisch_intent.putExtra("end_time", end_time);
-			
+			/*
+			PaymentWebservices.paramsString = "payment";
+			List<String> params = new ArrayList<String>();
+			params.add("");
+			String[] values = PaymentWebservices.connectHttp("funNo", params);
+			payhisch_intent.putExtra("values", values);
+			*/
 			payhisch_intent.setClass(PaymentHistory.this, PaymentLastMonth.class);
 			PaymentHistory.this.startActivity(payhisch_intent);
 		}
