@@ -75,10 +75,16 @@ public static List<String> readRates(InputStream inStream){
 			e.printStackTrace();
 		}
 		List<String> back = new ArrayList<String>();
+		String str;
 		for(int i = 0; i < ratesData.size(); i ++)
 		{
-			back.add(ratesData.get(i).trim());
+			str = ratesData.get(i).trim();
+			if(str.endsWith("%"))
+			{
+				back.add(str);
+			}
 		}
+		System.out.println("one" + back);
 		return back;		
 	}
 }

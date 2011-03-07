@@ -36,8 +36,6 @@ public class ConnectTxtFileHelper {
 		}catch(IOException e2){
 			e2.printStackTrace();
 		}	
-		//System.out.println(data.toString());
-		
 		return stream;
 	}
 
