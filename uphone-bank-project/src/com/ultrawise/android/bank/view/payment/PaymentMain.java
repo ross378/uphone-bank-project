@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.json.JSONArray;
 
-import com.ultrawise.android.bank.consum_webservices.AccountManagement;
 import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
@@ -35,7 +34,7 @@ public class PaymentMain extends ListActivity {// 自助缴费主页面
 	String funNo = null;
 	TextView pay_name;
 	SplitUtil spu = new SplitUtil();
-	AccountManagement accMan = new AccountManagement();
+
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
