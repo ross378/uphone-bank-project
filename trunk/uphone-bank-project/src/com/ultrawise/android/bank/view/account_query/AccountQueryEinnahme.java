@@ -29,18 +29,18 @@ import com.ultrawise.android.bank.view.payment.PaymentSelfService;
 import com.ultrawise.android.bank.view.transfer.R;
 
 public class AccountQueryEinnahme extends ListActivity {
-	private Intent intent=null;
+	
 	private Button btnReturn=null;
 	private TextView acc1=null;
 	private TextView acc2=null;
 	private TextView type1=null;
 	private TextView type2=null;
+	private String[] reslut=null;
+	private String nomber=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_chance);
         
-
-        intent = new Intent();
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -67,13 +67,11 @@ public class AccountQueryEinnahme extends ListActivity {
 	        tvClassSecond.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 
-					Intent intent=new Intent();
-					
 					/**
 		        	 * 从服务器上取得所需要的数据
 		        	 * 
 		        	 * @author gsm
-		        	 * @param 功能号
+		        	 * @param 功能号021
 		        	 * @return 返回卡的类型
 		        	 */
 					List<String> result=QuerySever.connectHttp("021", null);
@@ -88,6 +86,7 @@ public class AccountQueryEinnahme extends ListActivity {
 					{   
 						 arrResult[i]= result.get(i);
 					}
+					Intent intent=new Intent();
 					intent.putExtra("result", arrResult);
 					
 					intent.setClass(AccountQueryEinnahme.this,AccountQuery.class);
@@ -105,12 +104,23 @@ public class AccountQueryEinnahme extends ListActivity {
 			 */
 			
 			Intent type_name = getIntent();
-		    String nomber=type_name.getStringExtra("nomber");
+			nomber=type_name.getStringExtra("nomber");
 		    String type=type_name.getStringExtra("type");
 		    String start=type_name.getStringExtra("start");
 		    String end=type_name.getStringExtra("end");
 		    acc1=(TextView)findViewById(R.id.account_chance_text);
 		    acc1.setText(type+nomber+"在"+start+"到"+end+"\n"+"之间的交易记录如下：");
+		    
+		    
+		    /**
+		     * 接收参数
+		     */
+		    reslut=type_name.getStringArrayExtra("result");
+			for(String g:reslut)
+			{
+				System.out.println(g+"=====================>>>>>>>");
+			}
+		    
 		    
 		    ArrayList<HashMap<String,Object>> accoutList = new ArrayList<HashMap<String,Object>>();
 	        
@@ -119,16 +129,16 @@ public class AccountQueryEinnahme extends ListActivity {
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
 	        String data="";
-	        acclist1.put("txtView1","20101123");
-	        acclist1.put("txtView2", "转账");
+	        acclist1.put("txtView1",reslut[2]);//转账
+	        acclist1.put("txtView2",reslut[3]);
 	        acclist1.put("txtView3",R.drawable.account2);
 	        
-	        acclist2.put("txtView1","20101124");
-	        acclist2.put("txtView2", "汇款");
+	        acclist2.put("txtView1",reslut[4]);//进账
+	        acclist2.put("txtView2", reslut[5]);
 	        acclist2.put("txtView3", R.drawable.account2);
 	        
-	        acclist3.put("txtView1","20101125");
-	        acclist3.put("txtView2", "转账");
+	        acclist3.put("txtView1",reslut[1]);//汇款
+	        acclist3.put("txtView2", reslut[0]);
 	        acclist3.put("txtView3",R.drawable.account2);
 	        
 	        accoutList.add(acclist1);
@@ -169,15 +179,37 @@ public class AccountQueryEinnahme extends ListActivity {
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		if(id==0){//账户信息及余额查询
+		if(id==0){//转账
+			
+			/**
+        	 * @author gsm
+        	 * @param 功能号025,账号，转账
+        	 * @return 返回转账的信息nomber+"#"+start+"#"
+        	 */
+			String[] str=new String[]{nomber+"#"+"转账"};
+			List<String> result=QuerySever.connectHttp("025", str);
+			for(String g:result)
+			{
+			System.out.println("转账---明文======"+g.toString());	
+			}
+			
+			
+			String[] arrResult=new String[result.size()];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			Intent intent=new Intent();
+			intent.putExtra("result", arrResult);
+			intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
+			AccountQueryEinnahme.this.startActivity(intent);
+			
+			
+		}else if(id==1){//进账
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
 			AccountQueryEinnahme.this.startActivity(payment_intent);
-		}else if(id==1){//账户明细查询
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
-			AccountQueryEinnahme.this.startActivity(payment_intent);
-		}else if(id==2){//账户来帐查询
+		}else if(id==2){//汇款
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
 			AccountQueryEinnahme.this.startActivity(payment_intent);

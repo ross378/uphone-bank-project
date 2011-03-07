@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -26,14 +27,14 @@ import com.ultrawise.android.bank.view.payment.PaymentSelfService;
 import com.ultrawise.android.bank.view.transfer.R;
 
 public class AccountQueryDetail extends ListActivity {
-	private Intent intent=null;
 	private Button btnReturn=null;
+	private String[] reslut=null;
+	private EditText txt_M=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_layout_result);
         
 
-        intent = new Intent();
         TextView  tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
@@ -41,6 +42,7 @@ public class AccountQueryDetail extends ListActivity {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				 Intent intent=new Intent();
 				 intent = AccountQueryDetail.this.getIntent();
 				 intent.setClass(AccountQueryDetail.this, ABankMain.class);
 				 startActivity(intent);
@@ -50,6 +52,7 @@ public class AccountQueryDetail extends ListActivity {
         tvClassSecond.setText("账户查询>");
         tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				 Intent intent=new Intent();
 				 intent = AccountQueryDetail.this.getIntent();
 				 intent.setClass(AccountQueryDetail.this, AccountQuery.class);
 				 startActivity(intent);
@@ -63,9 +66,10 @@ public class AccountQueryDetail extends ListActivity {
 		tvClassFirst1.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				 intent.setClass(AccountQueryDetail.this, inventory.class);
-				 startActivity(intent);
+
+				Intent intent=new Intent();
+				intent.setClass(AccountQueryDetail.this, inventory.class);
+				startActivity(intent);
 			}
 		});
 		
@@ -79,8 +83,20 @@ public class AccountQueryDetail extends ListActivity {
 			}
 		});
 	   
-
-	                
+        /**
+         * 
+         * 接收上一个Activity传来的值
+         */
+        Intent intent=getIntent();
+        reslut=intent.getStringArrayExtra("result");
+		for(String g:reslut)
+		{
+			System.out.println(g+"=====================>>>>>>>");
+		}
+		txt_M=(EditText)findViewById(R.id.txt_M);
+		txt_M.setText(reslut[2].toString().trim()) ;  
+		
+		
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
 	                
 	        HashMap<String,String> acclist1 = new HashMap<String,String>();
@@ -88,20 +104,21 @@ public class AccountQueryDetail extends ListActivity {
 	        HashMap<String,String> acclist3 = new HashMap<String,String>();
 	        HashMap<String,String> acclist4 = new HashMap<String,String>();
 	        HashMap<String,String> acclist5 = new HashMap<String,String>();
-	        HashMap<String,String> acclist6 = new HashMap<String,String>(); 	  
+	        HashMap<String,String> acclist6 = new HashMap<String,String>(); 
 	        
-	        acclist1.put("account_list", "来帐时间：");
-	        acclist1.put("account_list_info", "20110224");
+	        
+	        acclist1.put("account_list", "来帐时间：");//"来帐时间："
+	        acclist1.put("account_list_info", reslut[4]);//"20110224"
 	        acclist2.put("account_list", "来帐类型：");
-	        acclist2.put("account_list_info", "转账");
+	        acclist2.put("account_list_info", "转账");//"转账"
 	        acclist3.put("account_list", "来帐金额:");
-	        acclist3.put("account_list_info", "10,000,00");
+	        acclist3.put("account_list_info", reslut[3]);
 	        acclist4.put("account_list", "付款人姓名：");
-	        acclist4.put("account_list_info", "王五");
-	        acclist5.put("account_list", "付款账号储种：");
-	        acclist5.put("account_list_info", "活期");
+	        acclist4.put("account_list_info", reslut[6]);
+	        acclist5.put("account_list", "付款账号种类：");
+	        acclist5.put("account_list_info", reslut[5]);
 	        acclist6.put("account_list", "付款账号：");
-	        acclist6.put("account_list_info", "2346327879");
+	        acclist6.put("account_list_info", reslut[0]);
 	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);
