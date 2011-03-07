@@ -30,18 +30,15 @@ public class AllPaymentSer extends Activity {
 	private ArrayAdapter<String> AccTypAdapter = null;
 	private Spinner Accspinner = null;
 	private ArrayAdapter<String> Accadapter = null;
-	private String ser_name1="";
+	private String ser_name1 = "";
 	private EditText tv_ser_num;
-	private String contract_no = "";      //合同号
+	private String contract_no = ""; // 合同号
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pay_all_ser);
-
-		
-		
 
 		TextView tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
@@ -83,60 +80,70 @@ public class AllPaymentSer extends Activity {
 			}
 		});
 		tvClassThird.setVisibility(View.VISIBLE);
-		
-	       //返回键设定
-	       ImageView    btnReturn = (ImageView)this.findViewById(R.id.returnToPre);
-	       btnReturn.setOnClickListener(new OnClickListener(){
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					onBackPressed();
-					finish();
-				}
-				
-			});
-			
-			//底部两个按钮
-	       ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
-	       btnMain.setOnClickListener(new OnClickListener() {
 
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					Intent intent = new Intent();
-					intent.setClass(AllPaymentSer.this, ABankMain.class);
-					AllPaymentSer.this.startActivity(intent);
-				}
-			});
-			
-	       ImageView	btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
-	       btnHelper.setOnClickListener(new OnClickListener() {
+		// 返回键设定
+		ImageView btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
+		btnReturn.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				onBackPressed();
+				finish();
+			}
 
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					Intent	intent = new Intent();
-					intent.setClass(AllPaymentSer.this, FinancialConsultation.class);
-					AllPaymentSer.this.startActivity(intent);
-				}
-			});
-		
-		
+		});
 
-		//TextView tvClassFour = (TextView) this.findViewById(R.id.class_four);
-	  Intent paymentre_intent = getIntent();
-		ser_name1=paymentre_intent.getStringExtra("ser_name");
-		PaymentWebservices.paramsString="payment";
-        List<String> params = new ArrayList<String>();
-        params.add(ser_name1);
-        String[] values = PaymentWebservices.connectHttp("60202", params);
-        contract_no = values[1];
-        String[] operator = values[0].split(",");
-		
+		// 底部两个按钮
+		ImageView btnMain = (ImageView) this.findViewById(R.id.btnMain);
+		btnMain.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(AllPaymentSer.this, ABankMain.class);
+				AllPaymentSer.this.startActivity(intent);
+			}
+		});
+
+		ImageView btnHelper = (ImageView) this.findViewById(R.id.btnHelper);
+		btnHelper.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent
+						.setClass(AllPaymentSer.this,
+								FinancialConsultation.class);
+				AllPaymentSer.this.startActivity(intent);
+			}
+		});
+
+		// TextView tvClassFour = (TextView) this.findViewById(R.id.class_four);
+		Intent paymentre_intent = getIntent();
+		String ser = paymentre_intent.getStringExtra("ser_name");
+		if (ser.equals("1")) {
+			ser_name1 = "手机";
+		} else {
+			if (ser.equals("2")) {
+			ser_name1 = "QQ";
+			} else {
+			ser_name1 = "网易";
+			}
+
+		}
+		PaymentWebservices.paramsString = "payment";
+		List<String> params = new ArrayList<String>();
+		params.add(ser);
+		String[] values = PaymentWebservices.connectHttp("60212", params);
+		contract_no = values[1];
+		String[] operator = values[0].split(",");
+
 		// 运行商选择
 		AccTypAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item);
 		AccTypAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		
-		for(String oper:operator){
+
+		for (String oper : operator) {
 			AccTypAdapter.add(oper);
 		}
 
@@ -196,13 +203,17 @@ public class AllPaymentSer extends Activity {
 				// TODO Auto-generated method stub
 
 				Intent pay_ser_intent = new Intent();
-				pay_ser_intent.putExtra("title",ser_name1);
-				pay_ser_intent.putExtra("service_num",AllPaymentSer.this.tv_ser_num.getText().toString());				
-				pay_ser_intent.putExtra("amount", Accspinner.getSelectedItem().toString());
-				pay_ser_intent.putExtra("inputed_peo", AccTypSpinner.getSelectedItem().toString());
+				pay_ser_intent.putExtra("title", ser_name1);
+				pay_ser_intent.putExtra("service_num",
+						AllPaymentSer.this.tv_ser_num.getText().toString());
+				pay_ser_intent.putExtra("amount", Accspinner.getSelectedItem()
+						.toString());
+				pay_ser_intent.putExtra("inputed_peo", AccTypSpinner
+						.getSelectedItem().toString());
 				pay_ser_intent.putExtra("serialnum", "3652462");
-				pay_ser_intent.putExtra("deadline", "无");
-				pay_ser_intent.setClass(AllPaymentSer.this, PaymentSerDetail.class);
+//				pay_ser_intent.putExtra("deadline", "无");
+				pay_ser_intent.setClass(AllPaymentSer.this,
+						PaymentSerDetail.class);
 				AllPaymentSer.this.startActivity(pay_ser_intent);
 
 			}
