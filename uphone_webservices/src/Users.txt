@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <users>
   <user userid="Sun01">
-        <id>account01</id>
-	<password>1234</password>
-	<name>段誉</name>
-	<patype>身份证</patype>
+  <name>zhangsan</name>
+  <password>1234</password>
+  <lastlogintime>3:12</lastlogintime>
+	<logintimes>3</logintimes>
+   <id>account01</id>
 	<panum>422304196409081120</panum>
 	<phnum>15525258125</phnum>
     <telephone>87654902</telephone>
-	<preant>622202111</preant>
+	<preant>622202111</preant>	
   </user>
   <user userid="Sun02">
+  <name>lisi</name>
+  <password>1234</password>
+  <lastlogintime>6:16</lastlogintime>
+	<logintimes>9</logintimes>
     <id>account02</id>
-	<password>1234</password>
-	<name>李渊</name>
-	<patype>身份证</patype>
 	<panum>422202199511230010</panum>
 	<phnum>15527278255</phnum>
         <telephone>876123678</telephone>
-	<preant>622202115</preant>
+	<preant>622202115</preant>	
   </user>
 </users>
