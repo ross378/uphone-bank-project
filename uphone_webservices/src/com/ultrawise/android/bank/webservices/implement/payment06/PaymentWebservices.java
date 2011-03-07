@@ -70,6 +70,18 @@ public class PaymentWebservices {
 			json=wrapUp(mingWen);
 			break;
 		      }
+		case 60211:{
+			PaymentServices paymentServices = new PaymentServices();
+			mingWen = paymentServices.getServicesName();
+			json = wrapUp(mingWen);
+			break;
+		}
+		case 60212:{
+			PaymentServices paymentServices = new PaymentServices();
+			mingWen = paymentServices.getServicesOperator(values[1]);
+			json = wrapUp(mingWen);
+			break;
+		}
 		case 60200:{
 			PaymentAccountSelect accSelect=new PaymentAccountSelect();
 			mingWen=accSelect.getFirstAccNum("用户");
