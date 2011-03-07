@@ -100,7 +100,6 @@ public class FileOperation {
 		String[] values = value.split("#");
 		Calendar cal=new GregorianCalendar();
 		System.out.println(values.length);
-
 		NodeList n1 = doc.getElementsByTagName(values[0]);
 		Node root = n1.item(0);
 		Element node = doc.createElement(values[1]);
