@@ -29,7 +29,6 @@ public class PaymentSetTimeDialog extends Activity {
 		intent = this.getIntent();
 		if(intent.hasExtra("start")){
 			name = intent.getStringExtra("start");
-			System.out.println(name);
 		}
 		if(intent.hasExtra("end")){
 			name = intent.getStringExtra("end");
