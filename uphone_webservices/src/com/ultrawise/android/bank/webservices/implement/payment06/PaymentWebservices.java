@@ -70,6 +70,41 @@ public class PaymentWebservices {
 			json=wrapUp(mingWen);
 			break;
 		      }
+		case 60200:{
+			PaymentAccountSelect accSelect=new PaymentAccountSelect();
+			mingWen=accSelect.getFirstAccNum("用户");
+			System.out.println(mingWen);
+			json=wrapUp(mingWen);
+			break;
+			
+		}
+		case 60201:{
+			System.out.println("jjjjjjjjjjjjjjj,.,.,.,.,.,.,.,");
+			PaymentAccountSelect accSelect=new PaymentAccountSelect();
+			mingWen=accSelect.getAccountTypeAndNum();
+			System.out.println(mingWen);
+			json=wrapUp(mingWen);
+			break;
+		}
+		case 60203:{//选择账户后的操作
+		String	accNum=values[1];
+			PaymentPend accSelect=new PaymentPend();
+			mingWen=accSelect.getAccountBalance("用户", accNum);
+			System.out.println(mingWen);
+			json=wrapUp(mingWen);
+			break;
+		}
+		case 60204:{
+			String	pay_name=values[1];
+			System.out.println(values.length);
+			PaymentPend accSelect=new PaymentPend();
+			//写入日期和帐号
+			accSelect.addPaymentDate("zhangsan",pay_name,values[2] );
+			//项目名，帐号,帐号新的余额
+			//根据帐号来修改余额
+			accSelect.updateAccountBalance("zhangsan", values[2], values[3]);			
+			break;
+		}
 		case 60301:{
 			PaymentLastMonth  paymentLastMonth = new PaymentLastMonth();
 			Date dateNow = paymentLastMonth.StringToDate(values[2]);
