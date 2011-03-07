@@ -22,6 +22,8 @@ public class TransferMain extends ListActivity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	private String username;
+	Intent receive_intent;
 	Intent intent;
 	
 	//触摸触发
@@ -38,6 +40,9 @@ public class TransferMain extends ListActivity {
         setContentView(R.layout.trans_main);
         
         intent = new Intent();
+        receive_intent = getIntent();
+        
+        username =  receive_intent.getStringExtra(username);
         
       //向右滑动触发后退
 		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -57,7 +62,6 @@ public class TransferMain extends ListActivity {
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransferMain.this, ABankMain.class);
 				TransferMain.this.startActivity(intent);
 			}

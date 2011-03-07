@@ -29,11 +29,15 @@ public class TransAccActive extends Activity {
 	private ImageView btnHelper;
 	private TextView tv_acctype;
 	private EditText tv_trans_pasd;
+	private Button btn_trans_act;
+	private String atvaccinfo;
 	private String transtype;
 	private String username;
 	private String password;
 	private String account;
 	private String accinfo;
+	private String balance;
+	private String flag;
 	Intent receive_intent;
 	Intent intent;
 	
@@ -62,20 +66,7 @@ public class TransAccActive extends Activity {
         username  = receive_intent.getStringExtra("username");
         
         accinfo = receive_intent.getStringExtra("accinfo");
-        account = receive_intent.getStringExtra("acc");
-        
-        //向右滑动触发后退
-  		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
-  			@Override
-  			public boolean onScroll(MotionEvent e1, MotionEvent e2,
-  					float distanceX, float distanceY) {
-  				// TODO Auto-generated method stub
-  				if (distanceY == 0 && distanceX < 0)
-  					onBackPressed();
-
-  				return super.onScroll(e1, e2, distanceX, distanceY);
-  			}
-  		});
+        account = receive_intent.getStringExtra("account");
         
         //向右滑动触发后退
   		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -96,7 +87,6 @@ public class TransAccActive extends Activity {
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccActive.this, ABankMain.class);
 				TransAccActive.this.startActivity(intent);
 			}
@@ -107,7 +97,6 @@ public class TransAccActive extends Activity {
 		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccActive.this, TransferMain.class);
 				TransAccActive.this.startActivity(intent);
 			}
@@ -119,10 +108,10 @@ public class TransAccActive extends Activity {
 		tvClassThird.setVisibility(View.VISIBLE);
 		
 		tv_acctype = (TextView)findViewById(R.id.tv_trans_atvacc);
-		String atvaccinfo = accinfo + "账户:" +account;
+		atvaccinfo = accinfo + ":" +account;
 		tv_acctype.setText(atvaccinfo);
 		//next
-		Button btn_trans_act = (Button)findViewById(R.id.btn_trans_act);
+		btn_trans_act = (Button)findViewById(R.id.btn_trans_act);
 		btn_trans_act.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -130,18 +119,16 @@ public class TransAccActive extends Activity {
 				tv_trans_pasd = (EditText)findViewById(R.id.et_trans_atvpsd);
 				password = tv_trans_pasd.getText().toString();
 				
-		        transtype = receive_intent.getStringExtra("transtype");
-		        username = receive_intent.getStringExtra(username);
-		        account = receive_intent.getStringExtra("acc");
 		        lstinfo.add(account);
 		        lstinfo.add(password);
 		        
 		        lstout=transferwebservice.connectHttp("504", lstinfo);
-		        String balance = lstout.get(0);
-		        String flag = lstout.get(1);
+		        balance = lstout.get(0);
+		        flag = lstout.get(1);
 		    if(flag.equals("true")){
 				Intent intent = new Intent();
 				intent.putExtra("transtype", transtype);
+				intent.putExtra("username", username);
 				intent.putExtra("account", account);
 				intent.putExtra("accinfo", accinfo);
 				intent.putExtra("balance", balance);
@@ -151,7 +138,7 @@ public class TransAccActive extends Activity {
 				//Dialog.showDialog("密码错误", "请您输入的密码不正确！", "返回");
 				Intent intent = new Intent();
 				intent.putExtra("diatitle", "密码错误");
-				intent.putExtra("diacontent", "请您输入的密码\n不正确！请输入\n正确密码！");
+				intent.putExtra("diacontent", "请您输入的密码不正确！");
 				intent.putExtra("btntext", "返回");
 				intent.setClass(TransAccActive.this, CommonDialog.class);
 				TransAccActive.this.startActivity(intent);

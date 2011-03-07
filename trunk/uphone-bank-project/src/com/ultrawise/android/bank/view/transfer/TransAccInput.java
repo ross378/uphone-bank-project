@@ -45,13 +45,14 @@ public class TransAccInput extends Activity {
 	
 	
 	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
-	private List<String> lstout = new ArrayList<String>();
-	private List<String> lstinfo = new ArrayList<String>();
-	private List<String> lstacctype = new ArrayList<String>();
+	private List<String> lstacctypeout = new ArrayList<String>();
+	private List<String> lstusername = new ArrayList<String>();
+	private List<String> lstacctypein = new ArrayList<String>();
 	private List<String> lstaccount = new ArrayList<String>();
 	private List<String> lstaccountnew = new ArrayList<String>();
 	
 	private CommonDialog Dialog = new CommonDialog();
+	
 	
 	//触摸触发
 	@Override
@@ -66,18 +67,16 @@ public class TransAccInput extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trans_acc_input);
         
-        intent = new Intent();
-        lstacctype.add("活期储蓄账户<>");
-        lstacctype.add("定期储蓄账户<>");
-        lstaccount.add("1111111111");
-        lstaccount.add("2222222222");
-        lstaccount.add("3333333333");
-        
+        intent = new Intent();        
         receive_intent = getIntent();
         username = receive_intent.getStringExtra("username");
-    	lstinfo.add(username);
-    	lstout=transferwebservice.connectHttp("502", lstinfo);
+        lstusername.add(username);
+    	lstacctypeout=transferwebservice.connectHttp("502", lstusername);
         
+    	lstaccount.add("1111111111");
+    	lstaccount.add("1111111111");
+    	lstaccount.add("1111111111");
+    	
         //向右滑动触发后退
 		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
 			@Override
@@ -97,7 +96,6 @@ public class TransAccInput extends Activity {
 		tvClassFirst.setText("首页");
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccInput.this, ABankMain.class);
 				TransAccInput.this.startActivity(intent);
 			}
@@ -108,7 +106,6 @@ public class TransAccInput extends Activity {
 		tvClassSecond.setText(">转账汇款");
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
 				intent.setClass(TransAccInput.this, TransferMain.class);
 				TransAccInput.this.startActivity(intent);
 			}
@@ -121,18 +118,16 @@ public class TransAccInput extends Activity {
         
 		//Spinner
         sp_trans_inptype = (Spinner)findViewById(R.id.sp_trans_inptype);
-        spadapter1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lstout);
+        spadapter1 = new ArrayAdapter<String>(TransAccInput.this,android.R.layout.simple_spinner_item,lstacctypeout);
         spadapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_trans_inptype.setAdapter(spadapter1);
         
         sp_trans_inpacc = (Spinner)findViewById(R.id.sp_trans_inpacc);
-        spadapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,lstaccount);
+        spadapter2 = new ArrayAdapter<String>(TransAccInput.this, android.R.layout.simple_spinner_item,lstaccount);
         spadapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp_trans_inpacc.setAdapter(spadapter2);
         
-        spadapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,lstaccountnew);
-        //spadapter3.setDropDownViewResource();
-        spadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        
         
         sp_trans_inptype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { 
             public void onItemSelected(AdapterView<?> adapterView, View view, 
@@ -141,10 +136,13 @@ public class TransAccInput extends Activity {
             	
             	accinfo = adapterView.getItemAtPosition(position).toString();
             	Toast.makeText(getApplicationContext(), accinfo,Toast.LENGTH_SHORT).show();
-            	lstinfo.add(accinfo);
-            	lstaccountnew =transferwebservice.connectHttp("503", lstinfo);
+            	lstacctypein.clear();
+            	lstacctypein.add(accinfo);
+            	lstaccountnew =transferwebservice.connectHttp("503", lstacctypein);
+            	spadapter3 = new ArrayAdapter<String>(TransAccInput.this, android.R.layout.simple_spinner_item,lstaccountnew);
+                spadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             	
-            	//sp_trans_inpacc.setAdapter(spadapter2);
+            	sp_trans_inpacc.setAdapter(spadapter3);
             	//flag = lstout.get(0);
                 
             } 
@@ -160,8 +158,6 @@ public class TransAccInput extends Activity {
                 //被选中时候发生的动作
             	account = adapterView.getItemAtPosition(position).toString();
             	Toast.makeText(getApplicationContext(), account,Toast.LENGTH_SHORT).show();
-            	
-            	
             	
             } 
             public void onNothingSelected(AdapterView<?> arg0) { 
