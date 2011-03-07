@@ -25,7 +25,6 @@ public class PaymentHisDetail extends ListActivity {
         setContentView(R.layout.payment_main);
         
         Intent payhisdtl_intent = getIntent();
-        
         String tvtitle = payhisdtl_intent.getStringExtra("title");
         String tvamount = payhisdtl_intent.getStringExtra("amount");
         String tvtime = payhisdtl_intent.getStringExtra("time");
