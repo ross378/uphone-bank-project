@@ -62,7 +62,7 @@ android:orientation = "vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
-		android:id = "@+id/notice_deposite_one_day"
+		android:id = "@+id/loan_one_1"
 		android:layout_width = "wrap_content"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "30px"
@@ -90,7 +90,7 @@ android:orientation = "vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
-		android:id = "@+id/notice_deposite_seven_day"
+		android:id = "@+id/loan_one_2"
 		android:layout_width = "wrap_content"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "30px"
@@ -147,7 +147,7 @@ android:orientation = "vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
-		android:id = "@+id/notice_deposite_one_day"
+		android:id = "@+id/loan_two_1"
 		android:layout_width = "wrap_content"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "45px"
@@ -175,7 +175,7 @@ android:orientation = "vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
-		android:id = "@+id/notice_deposite_seven_day"
+		android:id = "@+id/loan_two_2"
 		android:layout_width = "wrap_content"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "45px"
