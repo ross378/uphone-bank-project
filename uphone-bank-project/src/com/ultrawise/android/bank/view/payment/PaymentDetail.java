@@ -20,6 +20,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class PaymentDetail extends ListActivity {
+	String[] inmation;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_details);
@@ -70,56 +71,23 @@ public class PaymentDetail extends ListActivity {
 		
 		
 		tvClassThird.setVisibility(View.VISIBLE);
-		
-		
-
-		
-		
-		 Intent paymentre_intent = getIntent();
-		
-		  String pay_title = paymentre_intent.getStringExtra("title");
-		 
-	        String pay_amount = paymentre_intent.getStringExtra("amount");
-	        String inputed_peo= paymentre_intent.getStringExtra("inputed_peo");
-	        String pay_sernum = paymentre_intent.getStringExtra("serialnum");
-	        String pay_deadline=paymentre_intent.getStringExtra("deadline");
-	     ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
-	        
-	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
 	       
-	        paylist1.put("listimg1","项目名称：");
-	        paylist1.put("payment_list",pay_title);
-	        mainlist.add(paylist1);
-	       
-	        
-	        paylist1 = new HashMap<String,Object>();
-		       
-	        paylist1.put("listimg1","缴费金额：");
-	        paylist1.put("payment_list",pay_amount);
-	        mainlist.add(paylist1);
-	        
-	        
-	        paylist1 = new HashMap<String,Object>();
-		       
-	        paylist1.put("listimg1","收费方：");
-	        paylist1.put("payment_list",inputed_peo);
-	        mainlist.add(paylist1);
-	        
-	        
-	        paylist1 = new HashMap<String,Object>();
-		       
-	        paylist1.put("listimg1","缴费合同号：");
-	        paylist1.put("payment_list",pay_sernum);
-	        mainlist.add(paylist1);
-	        
-	        paylist1 = new HashMap<String,Object>();
-		       
-	        paylist1.put("listimg1","缴费期限:");
-	        paylist1.put("payment_list",pay_deadline);
-	        mainlist.add(paylist1);
-	        
-	        
-	       
+	        /*从上一个界面传过来
+	         * 其中的过程是先从上一个页面将参数和功能号传递到服务器，
+	         * 并经过处理后返回一个String过来
+	         * 
+	        */  
+	        Intent get_intent = getIntent();
+	      inmation=get_intent.getStringArrayExtra("pay_arr");
+	     // 用到了inmation中的各个项      其中inmation【1】和inmation【3】中分别表示的是项目名和金额的值
+	      //后面也需要这两个参数 
+		 ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();		        
+	      for(int i=0;i<inmation.length;i=i+2){
+	      HashMap<String,Object> paylist1 = new HashMap<String,Object>();
+	      paylist1.put("listimg1",inmation[i]+":");
+	      paylist1.put("payment_list",inmation[i+1]);
+	      mainlist.add(paylist1);
+	      }      
 	        SimpleAdapter MainListAdapter = new SimpleAdapter(
 	        		this, mainlist,R.layout.payment_details_list, new String[]{
 	        				"listimg1","payment_list"},new int[]{R.id.payment_list,R.id.payment_list2} );
@@ -140,8 +108,7 @@ public class PaymentDetail extends ListActivity {
 				finish();
 			}
 			
-		});
-		
+		});	
 		//底部两个按钮
        ImageView	btnMain = (ImageView) this.findViewById(R.id.btnMain);
        btnMain.setOnClickListener(new OnClickListener() {
@@ -173,7 +140,11 @@ public class PaymentDetail extends ListActivity {
         
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){
+        		//取出inmation中的连个关键值 传到后面
+        		
         		Intent transconok_intent = new Intent();
+        		transconok_intent.putExtra("pay_name", inmation[1]);//将项目名字传递
+        		transconok_intent.putExtra("pay_num", inmation[3]);//将项目缴费金额传递
         		transconok_intent.setClass(PaymentDetail.this, PaymentSelectAccountType.class);
         		startActivity(transconok_intent);
         	}
