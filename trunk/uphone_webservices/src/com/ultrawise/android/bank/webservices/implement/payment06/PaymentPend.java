@@ -90,29 +90,47 @@ public class PaymentPend implements IPaymentPend {
 		return numAndBlance.toString();
 	}
 
-	// 添加缴费日期
+	// 添加缴费日期和 添加便捷服务的记录
 	public void addPaymentDate(String userNo, String paymentName,String paymentActNo) {
 		// TODO Auto-generated method stub
-		if(paymentName.equals("三月份水费"))
+		String pay_Name=paymentName.split("#")[0];
+		System.out.println(pay_Name+"/////////////");
+		if(pay_Name.equals("三月份水费"))
 		{
 			addDate("wtdemand",userNo,paymentName,paymentActNo);
 			
 		}
-		if(paymentName.equals("三月份电费"))
+		if(pay_Name.equals("三月份电费"))
 		{
 			addDate("powdemand",userNo,paymentName,paymentActNo);
 			
 		}
-		if(paymentName.equals("三月份煤气费"))
+		if(pay_Name.equals("三月份煤气费"))
 		{
 			addDate("gasdemand",userNo,paymentName,paymentActNo);
 			
 		}
-		if(paymentName.equals("三月份房租费"))
+		if(pay_Name.equals("三月份房租费"))
 		{
 			addDate("rendemand",userNo,paymentName,paymentActNo);
 			
 		}
+		if(pay_Name.equals("手机")){
+			
+			Document doc1=file.insertNode(file.getFileDocument("preplen"),"Prep"+"#"+"preplen"+"#"+paymentName);
+			file.saveDocument(doc1, "preplen");
+			
+		}
+	    if(pay_Name.equals("QQ")){
+	    	Document doc1=file.insertNode(file.getFileDocument("qreplen"),"Qrep"+"#"+"qreplen"+"#"+paymentName);
+			file.saveDocument(doc1, "qreplen");
+			
+		}
+	   if(pay_Name.equals("网易")){
+		
+		   Document doc1=file.insertNode(file.getFileDocument("nesfil"),"Nes"+"#"+"nesfil"+"#"+paymentName);
+			file.saveDocument(doc1, "nesfil");
+	  }
 
 	}
 
