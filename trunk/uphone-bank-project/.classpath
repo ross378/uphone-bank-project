@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="/media/study/Share/jiami/javabase64-1.3.1/javabase64-1.3.1.jar"/>
+	<classpathentry kind="lib" path="E:/Users/Administrator/androidTools/javabase64-1.3.1/javabase64-1.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
