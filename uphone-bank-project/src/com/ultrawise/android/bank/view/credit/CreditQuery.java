@@ -38,6 +38,7 @@ public class CreditQuery extends Activity {
 	private ImageView btnMain =null;
  String accountpyte;
  String accountNo;
+ String no;
  List<String> ll=new ArrayList<String>();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -103,7 +104,15 @@ public class CreditQuery extends Activity {
 		btnContinue.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				String type=spinner.getSelectedItem().toString();
+				//请求服务器
+				no=spinner2.getSelectedItem().toString();
+				ll.clear();
+				ll.add(no);
+				List<String> accuss=CreditClient.connectHttp(commit, ll);
 				Intent intent = new Intent();
+				intent.putExtra("type", type);
+				intent.putExtra("cardDetail", accuss.get(0));
 				intent.setClass(CreditQuery.this,AccountQueryBalancepan.class);
 				CreditQuery.this.startActivity(intent);
 			}
