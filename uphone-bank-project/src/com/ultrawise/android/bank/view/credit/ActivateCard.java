@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.credit;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -25,6 +29,7 @@ import android.widget.Toast;
  *
  */
 public class ActivateCard extends Activity {
+	private String funNo="441";
 	//开卡按钮
 	private Button activateCardButton=null;
 	//客户姓名输入框
@@ -64,6 +69,7 @@ public class ActivateCard extends Activity {
 	ImageView btnCoustom;
 	ImageView btnMain;
 	ImageView btnReturn;
+	  List<String> l=new ArrayList<String>();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,7 +145,7 @@ public class ActivateCard extends Activity {
         
         
         Intent intent=this.getIntent();
-        if(intent!=null){
+       /* if(intent!=null){
         	userName=intent.getStringExtra("userName");
         	creditNo=intent.getStringExtra("creditNo");
         	//pakitPostion=Integer.parseInt(intent.getStringExtra("pakitPostion"));
@@ -156,7 +162,7 @@ public class ActivateCard extends Activity {
         	phoneNoEdit.setText(phone);
         	//pakitSpinner.setSelection(pakitPostion,true);
         	
-        }
+        }*/
     	
         //初始化证件类型控件值
        final String[] arrs=new String[]{"身份证","学生证","工作证","军人证"};
@@ -192,16 +198,18 @@ public class ActivateCard extends Activity {
 	class ActivateCardButtonListener implements OnClickListener{
 
 		public void onClick(View arg0) {
-			userName=userNameEditText.getText().toString();
-	        creditNo=activateCardNumberEditText.getText().toString();
-	        
-	    	dateEnable=creditEnabledDateText.getText().toString();
+			String orderid=activateCardNumberEditText.getText().toString();
+			String password=passwordEdit.getText().toString();
+			//userName=userNameEditText.getText().toString();
+	       // creditNo=activateCardNumberEditText.getText().toString();
+	    	//dateEnable=creditEnabledDateText.getText().toString();
+			  l.add(orderid);
+			  l.add(password);
+			List<String> accuss=CreditClient.connectHttp(funNo, l);
 	    	String info=null;
 	    	String flag=null;
 	    	int activateFlag=0;
-	    	if(userName==null ||userName.trim().length()==0||
-	    			creditNo==null || creditNo.trim().length()==0||
-	    			dateEnable==null || dateEnable.trim().length()==0){
+	    	if(accuss.get(0).equals("false")){
 	    			activateFlag=1;
 	    			flag="失败提示：";
 	    			info="     开卡失败！请验证所\n           填信息是否正确！";
