@@ -1,5 +1,8 @@
 package com.ultrawise.android.bank.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.FirstTextViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
@@ -10,6 +13,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -43,6 +47,9 @@ public class ExchangeRates extends Activity {
 	//界面级别显示文本试图
 	TextView firstText = null;
 	TextView secondText = null;
+	
+	private List<String> params = new ArrayList<String>();
+	private List<String> exchangeRates = new ArrayList<String>();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         //设置布局
@@ -88,6 +95,20 @@ public class ExchangeRates extends Activity {
                 public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
 
                     arg0.setVisibility(View.VISIBLE);
+                    if(arg2 == 0)
+                    {
+                    	params.add("dollar");
+                    }else if(arg2 == 1)
+                    {
+                    	params.add("rmb");
+                    }else if(arg2 == 2)
+                    {
+                    	params.add("ouyuan");
+                    }else 
+                    {
+                    	params.add("yen");
+                    }
+                    Log.d("out", params.get(0));
                 }
                 public void onNothingSelected(AdapterView<?> arg0){
                 }
@@ -108,6 +129,21 @@ public class ExchangeRates extends Activity {
                 public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3){
 
                     arg0.setVisibility(View.VISIBLE);
+                    if(arg2 == 0)
+                    {
+                    	params.add("dollar");
+                    }else if(arg2 == 1)
+                    {
+                    	params.add("rmb");
+                    }else if(arg2 == 2)
+                    {
+                    	params.add("ouyuan");
+                    }else 
+                    {
+                    	params.add("yen");
+                    }
+                   
+                    Log.d("out", params.get(1));
                 }
                 public void onNothingSelected(AdapterView<?> arg0){
                 }
@@ -135,16 +171,24 @@ public class ExchangeRates extends Activity {
 			String delatinCurrencyDW=delatinCurrencySpinner.getSelectedItem().toString();
 			System.out.println(delatinCurrencyDW);
 			//判断货币面值为空
+			Log.d("out", "one");
 			if(currencyBal==null ||currencyBal.trim().length()==0){
 				currencyFlag=1;
 				info="货币面值不能为空";
 			}else{
+				Log.d("out", "one-" + params.toString());
+				exchangeRates = WebTools.connectHttp(3, params);
+				double value = Double.valueOf(currencyInputEdit.getText().toString());
+				double oneExchange = Double.valueOf(exchangeRates.get(0));
+				double twoExchange = Double.valueOf(exchangeRates.get(1));
+				
 				currencyFlag=2;
 				//计算兑换结果
-				String jieguo=null;
+				String jieguo= String.valueOf(value * (twoExchange / oneExchange));
 				flag=currencyBal+" "+sourceCurrencyDW+"兑换\n";
 				info=jieguo+" "+delatinCurrencyDW+"\n";
 			}
+			
 			
 			intent.putExtra("flag",flag);
 			intent.putExtra("info", info);

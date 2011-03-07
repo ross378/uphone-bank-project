@@ -45,6 +45,9 @@ public class FinancialConsultation extends Activity {
 	
 	private ImageView phoneBank = null;
 	 private ImageView helper = null;
+	 
+	 public static boolean loggingStatus = false;
+	 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         //设置布局
@@ -77,10 +80,16 @@ public class FinancialConsultation extends Activity {
 		public void onClick(View arg0) {
 			
 			Intent intent=new Intent();
-			List<String> result = WebTools.connectHttp(0, null);
-			Log.d("xiao", result.get(0));
-			intent.putStringArrayListExtra("key", (ArrayList<String>)result);
-			intent.setClass(FinancialConsultation.this,UserLogin.class);
+			if(FinancialConsultation.loggingStatus == false)
+			{
+				List<String> result = WebTools.connectHttp(0, null);
+				intent.putStringArrayListExtra("key", (ArrayList<String>)result);
+				intent.setClass(FinancialConsultation.this,UserLogin.class);
+			}else
+			{
+				intent.setClass(FinancialConsultation.this, ABankMain.class);
+			}
+			
 			FinancialConsultation.this.startActivity(intent);
 			
 		}

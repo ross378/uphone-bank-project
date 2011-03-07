@@ -1,5 +1,8 @@
 package com.ultrawise.android.bank.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ultrawise.android.bank.view.DepositeRates.BackImageViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.FirstTextViewListener;
 import com.ultrawise.android.bank.view.DepositeRates.PhoneBankImageViewListener;
@@ -83,5 +86,22 @@ public class LoanRates extends Activity {
 				 intent.setClass(LoanRates.this, FinancialConsultation.class);
 				 LoanRates.this.startActivity(intent);
 			 }
-			 }
+	 }
+	 
+	 private void showDataToView(){
+		 
+		 List<String> data = new ArrayList<String>();
+		 
+		 List<TextView> ratesText = new ArrayList<TextView>();
+		 
+		 ratesText.add((TextView)findViewById(R.id.loan_one_1));
+		 ratesText.add((TextView)findViewById(R.id.loan_one_2));
+		 ratesText.add((TextView)findViewById(R.id.loan_two_1));
+		 ratesText.add((TextView)findViewById(R.id.loan_two_2));
+		 
+		 for(int i = 0; i < ratesText.size(); i ++)
+		 {
+			ratesText.get(i).setText(data.get(i));
+		 }
+	 }
 }

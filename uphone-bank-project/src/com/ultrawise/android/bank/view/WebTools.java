@@ -26,7 +26,7 @@ import android.util.Log;
 
 public class WebTools {
 	
-	private final static String SERVICE_ADDRESS = "http://10.1.1.106:8080/webservices/aaa/dd";
+	private final static String SERVICE_ADDRESS = "http://10.1.1.130:8080/webservices/aaa/dd";
 
     public static List<String> connectHttp(int funNo, List<String> viewParams) {
 		String result = "error";
@@ -42,13 +42,20 @@ public class WebTools {
 			transfParam = funNo + ":";
 		}else if(funNo == 1)
 		{
+			
 			transfParam = funNo + ":";
 		}else if(funNo == 2)
 		{
 			transfParam = funNo + ":";
-		}else
+		}else if(funNo == 3)
 		{
-			transfParam = funNo + ":" + viewParams.get(1) + ":" + viewParams.get(2);
+			
+			transfParam = funNo + ":" + viewParams.get(0) + ":" + viewParams.get(1);
+			
+		}else 
+		{
+			transfParam = funNo + ":" + viewParams.get(0) + ":" + viewParams.get(1) + ":" + viewParams.get(2);
+			
 		}
 		// 添加要传递的参数
 		params.add(new BasicNameValuePair("value", Base64.encode(transfParam)));
@@ -83,6 +90,9 @@ public class WebTools {
 					}else if(funNo == 3)
 					{
 						result = json.getString("exchangerates");
+					}else
+					{
+						result = json.getString("userLogin");
 					}
 				    
 				} catch (JSONException e) {

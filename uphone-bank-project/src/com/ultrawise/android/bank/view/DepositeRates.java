@@ -15,6 +15,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.FeatureInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -38,7 +39,7 @@ public class DepositeRates extends Activity {
 	        super.onCreate(savedInstanceState);
 	       
 	        setContentView(R.layout.depositereates);
-	       
+	        this.showDataToView();
 	        firstText = (TextView)findViewById(R.id.class_first);
 	        firstText.setText(R.string.helper);
 	        firstText.setVisibility(View.VISIBLE);
@@ -90,5 +91,40 @@ public class DepositeRates extends Activity {
 			 intent.setClass(DepositeRates.this, FinancialConsultation.class);
 			 DepositeRates.this.startActivity(intent);
 		 }
+	 }
+	 
+	 private void showDataToView(){
+		 
+		 List<TextView> ratesText = new ArrayList<TextView>();
+		 ratesText.add((TextView)findViewById(R.id.current_rates));
+		 ratesText.add((TextView)findViewById(R.id.two_1_1));
+		 ratesText.add((TextView)findViewById(R.id.two_1_2));
+		 ratesText.add((TextView)findViewById(R.id.two_1_3));
+		 ratesText.add((TextView)findViewById(R.id.two_1_4));
+		 ratesText.add((TextView)findViewById(R.id.two_1_5));
+		 ratesText.add((TextView)findViewById(R.id.two_1_6));
+		 ratesText.add((TextView)findViewById(R.id.two_2_1));
+		 ratesText.add((TextView)findViewById(R.id.two_2_2));
+		 ratesText.add((TextView)findViewById(R.id.two_2_3));
+		 ratesText.add((TextView)findViewById(R.id.two_3_1));
+		 ratesText.add((TextView)findViewById(R.id.two_3_2));
+		 ratesText.add((TextView)findViewById(R.id.two_3_3));
+		 ratesText.add((TextView)findViewById(R.id.three_1));
+		 ratesText.add((TextView)findViewById(R.id.three_1));
+		 ratesText.add((TextView)findViewById(R.id.four));
+		 
+		 Intent intent = getIntent();
+		 List<String> data = intent.getStringArrayListExtra("key");
+		 
+		 for(int i = 0; i < ratesText.size(); i ++)
+		 {
+		 	//Log.d("xiao", data.get(i));
+			 ratesText.get(i).setText(data.get(i).trim());
+		 }
+		// Log.d("xiao", ratesText.size() + "");
+		 Log.d("xiao", data.size() + "");
+		 
+		 
+		 
 	 }
 }
