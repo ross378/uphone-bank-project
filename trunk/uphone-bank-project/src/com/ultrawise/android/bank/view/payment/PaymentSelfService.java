@@ -2,7 +2,9 @@ package com.ultrawise.android.bank.view.payment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -104,23 +106,17 @@ public class PaymentSelfService extends ListActivity {
 		
 	      ArrayList<HashMap<String,Object>> mainlist = new ArrayList<HashMap<String,Object>>();
 	        
-	        HashMap<String,Object> paylist1 = new HashMap<String,Object>();
+	        HashMap<String,Object> paylist1 = null;
 	       
-
-	        paylist1.put("payment_list","手机充值");
-	        paylist1.put("listimg2", R.drawable.trans_main2);
-	        mainlist.add(paylist1);
-	        
-	        
-	        paylist1 = new HashMap<String,Object>();
-	        paylist1.put("payment_list","Q币充值");
-	        paylist1.put("listimg2", R.drawable.trans_main2);
-	        mainlist.add(paylist1);
-	        
-	        paylist1 = new HashMap<String,Object>();
-	        paylist1.put("payment_list","网易点卡充值");
-	        paylist1.put("listimg2", R.drawable.trans_main2);
-	        mainlist.add(paylist1);
+	        PaymentWebservices.paramsString="payment";
+	        List<String> params = new ArrayList<String>();
+	        String[] values = PaymentWebservices.connectHttp("60201", params);
+	        for(String val:values){
+	        	paylist1 = new HashMap<String,Object>();
+	        	paylist1.put("payment_list",val);
+		        paylist1.put("listimg2", R.drawable.trans_main2);
+		        mainlist.add(paylist1);
+	        }
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_list, new String[]{
         		"payment_list","listimg2"},new int[]{R.id.payment_11,R.id.listimg33} );
@@ -133,22 +129,27 @@ public class PaymentSelfService extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-
-       if(id==0){
-			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "手机");
-			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
-			PaymentSelfService.this.startActivity(payment_intent);
-		}else if(id==1){
-			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "QQ");
-			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
-			PaymentSelfService.this.startActivity(payment_intent);
-		}else if(id==2){			
-			Intent payment_intent = new Intent();
-			payment_intent.putExtra("ser_name", "网易");
-			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
-			PaymentSelfService.this.startActivity(payment_intent);
-		}
+		
+		Intent payment_intent = new Intent();
+		payment_intent.putExtra("ser_name", String.valueOf(id + 1));
+		payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
+		PaymentSelfService.this.startActivity(payment_intent);
+		
+//       if(id==0){
+//			Intent payment_intent = new Intent();
+//			payment_intent.putExtra("ser_name", "手机");
+//			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
+//			PaymentSelfService.this.startActivity(payment_intent);
+//		}else if(id==1){
+//			Intent payment_intent = new Intent();
+//			payment_intent.putExtra("ser_name", "QQ");
+//			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
+//			PaymentSelfService.this.startActivity(payment_intent);
+//		}else if(id==2){			
+//			Intent payment_intent = new Intent();
+//			payment_intent.putExtra("ser_name", "网易");
+//			payment_intent.setClass(PaymentSelfService.this, AllPaymentSer.class);
+//			PaymentSelfService.this.startActivity(payment_intent);
+//		}
 	}
 }
