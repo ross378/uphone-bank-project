@@ -2,7 +2,9 @@ package com.ultrawise.android.bank.view.payment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -21,6 +23,8 @@ import android.view.View.OnClickListener;
 
 public class PaymentSelectAccountType extends ListActivity {//自助缴费主页面
 
+	String  payName;
+	String  payNum;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     setContentView(R.layout.payment_main);
@@ -86,9 +90,12 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
         paylist1.put("listimg2", R.drawable.trans_main2);
         mainlist.add(paylist1);
         
-
-
-    
+        
+        
+        //接受上一个界面传来的缴费项目和金额
+        Intent up_intent=getIntent();
+      payName=up_intent.getStringExtra("pay_name");
+      payNum=up_intent.getStringExtra("pay_num");
 
         
         SimpleAdapter MainListAdapter = new SimpleAdapter(this, mainlist,R.layout.payment_main_list, new String[]{"payment_list","listimg2"},new int[]{R.id.payment_list,R.id.listimg2 } );
@@ -136,13 +143,27 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {//首选账户
+			String[] value;
+			List<String> lstValue = new ArrayList<String>();
+			lstValue.add("dasdsa");
+			PaymentWebservices pay=new PaymentWebservices();		
+		    value=	pay.connectHttp("6020"+(int)id,lstValue);  
 			Intent payment_intent = new Intent();
-			payment_intent.putExtra("Account", "67324623461");
-			payment_intent.putExtra("acc_balance","399");
+			System.out.println(value[0]);
+			System.out.println(value[1]);
+			System.out.println(value[2]);
+			payment_intent.putExtra("Account", value[0]);
+			payment_intent.putExtra("acc_balance",value[1]);
+			payment_intent.putExtra("pwd",value[2]);
+			payment_intent.putExtra("pay_name", payName);
+			payment_intent.putExtra("pay_num",payNum);
+			System.out.println(payNum);
 			payment_intent.setClass(PaymentSelectAccountType.this,PaymentInPwd.class);
 			PaymentSelectAccountType.this.startActivity(payment_intent);
-		}else if(id==1){//其他账户
-			Intent payment_intent = new Intent();
+		}else if(id==1){//其他账户	    
+		    Intent payment_intent = new Intent();
+			payment_intent.putExtra("pay_name", payName);
+			payment_intent.putExtra("pay_num",payNum);		    
 			payment_intent.setClass(PaymentSelectAccountType.this,PaymentSelectAccount.class);
 			PaymentSelectAccountType.this.startActivity(payment_intent);
 		}
