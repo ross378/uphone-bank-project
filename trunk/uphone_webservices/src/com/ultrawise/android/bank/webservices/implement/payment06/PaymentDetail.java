@@ -78,8 +78,7 @@ public class PaymentDetail implements IPaymentDetail {
 							for (int q = 1; q < n3.getLength(); q += 2) {
 								Node my_node2 = n3.item(q);
 								if (my_node2.getNodeName().equals("damout")) {// 金额
-									damout = my_node2.getFirstChild()
-											.getNodeValue();
+									damout = my_node2.getFirstChild().getNodeValue();
 									System.out.println(damout);
 								}
 								if (my_node2.getNodeName().equals("charger")) {// 收费方
