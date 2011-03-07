@@ -21,11 +21,12 @@ public class TransferService {
 
 	
 	
-	private final static int GET_USER_ACC = 501;
+	private final static int GET_FIR_ACC = 501;
 	private final static int GET_COM_ACCTPYE = 502;
 	private final static int GET_COM_ACC = 503;
-	private final static int GET_USER_ACC_PSD = 504;
-	private final static int GET_USER_BAL = 505;
+	private final static int GET_USER_ACC_ACTIVE = 504;
+	private final static int CON_TRANSFER = 505;
+	private final static int TRANSFER = 507;
 	
 	
 	@Consumes("application/x-www-form-urlencoded")
@@ -38,7 +39,7 @@ public class TransferService {
 		String[] mValue = doDecode(anything).split(":");
 		int action = Integer.parseInt(mValue[0]);
 		
-		if(action == GET_USER_ACC){
+		if(action == GET_FIR_ACC){
 			
 			String username = mValue[1];
 			
@@ -62,7 +63,7 @@ public class TransferService {
 			
 			return wrapUp(doEncode(comacc));
 			
-		}else if(action == GET_USER_ACC_PSD){
+		}else if(action == GET_USER_ACC_ACTIVE){
 			
 			String useracc = mValue[1];
 			String userpasd = mValue[2];
@@ -70,6 +71,24 @@ public class TransferService {
 			
 			return wrapUp(doEncode(flag));
 			
+		}else if(action == CON_TRANSFER){
+			String useracc = mValue[1];
+			String amtnum = mValue[2];
+			String amtpsd = mValue[3];
+			String amtph = mValue[4];
+			
+			List<String> flag = transfer.contransfer(useracc,amtnum,amtpsd,amtph);
+			
+			return wrapUp(doEncode(flag));
+		}else if(action == TRANSFER){
+			String useracc = mValue[1];
+			String amtnum = mValue[2];
+			String amtpsd = mValue[3];
+			String amtph = mValue[4];
+			
+			List<String> flag = transfer.transfer(useracc,amtnum,amtph);
+			
+			return wrapUp(doEncode(flag));
 		}
 		return null;
 	}
