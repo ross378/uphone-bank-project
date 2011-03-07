@@ -176,7 +176,7 @@ public class PaymentSerDetail extends ListActivity {
         	public void onClick(View v){
         		Intent transconok_intent = new Intent();
         		//将项目名字，号码，收费方 ，合同号，  	
-        		transconok_intent.putExtra("pay_name", pay_title+"$"+ser_num+"$"+inputed_peo+"$"+pay_sernum);	
+        		transconok_intent.putExtra("pay_name", pay_title+"#"+ser_num+"#"+inputed_peo+"#"+pay_sernum);	
         		transconok_intent.putExtra("pay_num", pay_amount);//将项目缴费金额传递
         		
         		transconok_intent.setClass(PaymentSerDetail.this, PaymentSelectAccountType.class);
