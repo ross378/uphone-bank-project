@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_query.AccountQueryDetail;
@@ -28,19 +29,23 @@ public class SelfPayDetail extends ListActivity {
 	TextView  tvCredit;
 	ImageView btnCoustom;
 	ImageView btnMain;
-	Intent intent=null;
 	Button btnContinue;
 	Button detail;
 	ImageView btnReturn;
+	String payDetail;
+	String[] cardDetail;
+	 List<String> params=new ArrayList<String>();
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.selepaydetail);
-		    	intent = new Intent();
+	        Intent receive_intent = getIntent();
+	        payDetail = receive_intent.getStringExtra("payDetail");
 		         tvCredit= (TextView)this.findViewById(R.id.class_first);
 		        tvCredit.setText("首页>信用卡>信用卡还款 ");
 		        tvCredit.setTextSize(13);
 		        tvCredit.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
+						Intent intent = new Intent();
 						 intent.setClass(SelfPayDetail.this, CreditView.class);
 						 SelfPayDetail.this.startActivity(intent);
 					}
@@ -60,6 +65,7 @@ public class SelfPayDetail extends ListActivity {
 				btnCoustom.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
+						Intent intent = new Intent();
 						intent.setClass(SelfPayDetail.this, ABankMain.class);
 						SelfPayDetail.this.startActivity(intent);
 					}
@@ -69,11 +75,12 @@ public class SelfPayDetail extends ListActivity {
 
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
+						Intent intent = new Intent();
 						intent.setClass(SelfPayDetail.this, FinancialConsultation.class);
 						SelfPayDetail.this.startActivity(intent);
 					}
 				});
-	        
+	         cardDetail=payDetail.split(":");
 	        ArrayList<HashMap<String,Object>> list=new ArrayList<HashMap<String,Object>>();
 	        HashMap<String,Object> map1=new HashMap<String,Object>();
 	        HashMap<String,Object> map2=new HashMap<String,Object>();
@@ -81,15 +88,15 @@ public class SelfPayDetail extends ListActivity {
 	        HashMap<String,Object> map4=new HashMap<String,Object>();
 	        HashMap<String,Object> map5=new HashMap<String,Object>();
 	        map1.put("creditNo_key2", "信用卡帐户：");
-	        map1.put("selfPay_value2", "6432554325423456");
+	        map1.put("selfPay_value2", cardDetail[0]);
 	        map2.put("creditNo_key2","持卡人姓名：");
-	        map2.put("selfPay_value2", "关锋");
+	        map2.put("selfPay_value2", cardDetail[1]);
 	        map3.put("creditNo_key2","本期应还款额：");
-	        map3.put("selfPay_value2","500");
+	        map3.put("selfPay_value2", cardDetail[2]);
 	        map4.put("creditNo_key2", "本期最低还款额：");
-	        map4.put("selfPay_value2", "300");
+	        map4.put("selfPay_value2", cardDetail[3]);
 	        map5.put("creditNo_key2","本期到期还款日：");
-	        map5.put("selfPay_value2", "2011年5月2日");
+	        map5.put("selfPay_value2",  cardDetail[4]);
 	        list.add(map1);
 	        list.add(map2);
 	        list.add(map3);
@@ -114,9 +121,11 @@ public class SelfPayDetail extends ListActivity {
 			btnContinue.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
-					Intent intent = new Intent();
-					intent.setClass(SelfPayDetail.this, SelfPayAct.class);
-					SelfPayDetail.this.startActivity(intent);
+					List<String> accuss=CreditClient.connectHttp("410", params);
+					Intent payment_intent = new Intent();
+					payment_intent.putExtra("accountpyte", accuss.get(0));
+					payment_intent.setClass(SelfPayDetail.this, SelfPayAct.class);
+					SelfPayDetail.this.startActivity(payment_intent);
 				}
 			});
 	    }
