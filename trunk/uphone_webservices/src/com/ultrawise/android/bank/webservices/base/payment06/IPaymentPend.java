@@ -11,8 +11,9 @@ public interface IPaymentPend {
 	public String getAccountBalance(String usrNo,String paymentActNo);
 	
 	//修改缴费账户的余额
-	public String updateAccountBalance(String paymentName,double paymentAmt,String paymentActNo);
+	public void updateAccountBalance(String usrNo,String paymentActNo,String  paymentAmt);
 	
-
+	//添加缴费日期
+	public void addPaymentDate(String usrNo,String paymentName,String paymentActNo);
 	
 }
