@@ -44,7 +44,18 @@ public class LoanRates {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		return ratesData;
+		List<String> back = new ArrayList<String>();
+		String str;
+		for(int i = 0; i < ratesData.size(); i ++)
+		{
+			str = ratesData.get(i).trim();
+			if(str.endsWith("%"))
+			{
+				back.add(str);
+			}
+		}
+		System.out.println("one" + back);
+		return back;		
 	}
 
 }

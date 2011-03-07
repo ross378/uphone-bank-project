@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 public class ExchangeRates {
 	
 	public static List<String> readRates(InputStream inStream, String[] condition){
+		
 		List<String> ratesData = new ArrayList<String>();
 		StringBuffer sb = new StringBuffer();
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -23,9 +24,11 @@ public class ExchangeRates {
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(inStream);
 			NodeList nodeL = doc.getElementsByTagName(condition[1]);
-			ratesData.add(nodeL.item(0).getChildNodes().item(1).getTextContent());
+			
+			ratesData.add(nodeL.item(0).getTextContent());
 			nodeL = doc.getElementsByTagName(condition[2]);
-			ratesData.add(nodeL.item(0).getChildNodes().item(1).getTextContent());
+			
+			ratesData.add(nodeL.item(0).getTextContent());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,7 +39,8 @@ public class ExchangeRates {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		return ratesData;
+
+		return ratesData;		
 	}
 
 }

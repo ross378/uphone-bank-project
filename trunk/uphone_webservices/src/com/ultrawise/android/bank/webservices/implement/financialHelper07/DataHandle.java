@@ -13,7 +13,6 @@ public class DataHandle {
 		
 		StringBuffer sb = new StringBuffer();
 		JSONObject json = new JSONObject();
-	
 		for(int i = 0; i < valueArray.size(); i ++)
 		{
 			if(i == 0)
@@ -24,6 +23,7 @@ public class DataHandle {
 				sb.append(":" + valueArray.get(i));
 			}
 		}
+		
 		String value = doEncode(sb.toString());	
 			try {
 				json.put(key, value);
