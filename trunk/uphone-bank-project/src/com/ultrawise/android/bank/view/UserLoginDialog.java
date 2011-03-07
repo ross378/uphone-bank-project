@@ -5,6 +5,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -48,7 +49,8 @@ public class UserLoginDialog extends Activity {
 				intent.setClass(UserLoginDialog.this, ABankMain.class);
     		//其他值为登陆失败
 			}else{
-				intent.setClass(UserLoginDialog.this, UserLogin.class);
+				Log.d("out", loginFlag + "");
+				intent.setClass(UserLoginDialog.this, FinancialConsultation.class);
 			}
 			startActivity(intent);
 		}

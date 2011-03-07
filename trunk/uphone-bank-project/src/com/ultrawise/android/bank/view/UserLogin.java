@@ -1,4 +1,5 @@
 package com.ultrawise.android.bank.view;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import com.ultrawise.android.bank.view.transfer.TransResult;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -100,6 +102,10 @@ public class UserLogin extends Activity {
 			userName=nameEditText.getText().toString();
 			passwd=passwdEditText.getText().toString();
 			pyramid=pyramidEditText.getText().toString();
+			List<String> loginInfo = new ArrayList<String>();
+			loginInfo.add(userName);
+			loginInfo.add(passwd);
+			loginInfo.add(pyramid);
 			
 			//判断用户名，密码，附加码为空或输入空白
 			if(userName==null || userName.trim().length()==0||
@@ -108,23 +114,31 @@ public class UserLogin extends Activity {
 				info="用户名，密码，附加码不能为空!";
 				loginFlag=1;
 			//判断正确的用户名，密码
-			}else if(userName.equals("zhangsan") && passwd.equals("123")){
-				info="尊敬的客户"+userName+"\n您上次登陆的时间为\n"+"2010-1-13 16:20:20\n这是你第20次登录系统！\n";
-				loginFlag=2;
-			//判断错误的用户名，密码，附加码
-			}else{
-				info="用户名，密码，附加码错误!";
-				loginFlag=3;
+			}else
+			{
+				
+				List<String> backInfo = WebTools.connectHttp(10, loginInfo);
+				
+				if(backInfo.get(0).equals("true"))
+				{
+					info="尊敬的客户"+backInfo.get(1)+"\n您上次登陆的时间为\n"+backInfo.get(2) + "\n这是你第" + backInfo.get(3) + "次登录系统！\n";
+					loginFlag = 2;
+					FinancialConsultation.loggingStatus = true;
+				}else
+				{
+					info = backInfo.get(1);
+					loginFlag = 3;
+				}
 			}
+//			
+			
 			Intent intent=new Intent();
 				intent.putExtra("flag", flag);
 				intent.putExtra("info", info);
 				intent.putExtra("loginFlag",loginFlag+"");
 				intent.setClass(UserLogin.this,UserLoginDialog.class);
 				UserLogin.this.startActivity(intent);
-			
-			
-			
+					
 		}
 		
 	}
@@ -148,5 +162,22 @@ public class UserLogin extends Activity {
 			 UserLogin.this.startActivity(intent);
 		 }
 	 }
+	 
+//	 public void Text(){
+//		// 移动运营商允许每次发送的字节数据有限,我们可以使用Android给我们提供 的短信工具
+//
+//		 SmsManager smsManager = SmsManager.getDefault();
+//		 PendingIntent sendIntent = PendingIntent.getBroadcast(SmsActivity.this, 0, new Intent(), 0);
+//		 // 如果短信没有超过限制长度,则返回一个长度的List
+//		 ArrayList<String> messages = smsManager.divideMessage(msg);
+//		 for (String message : messages) {
+//		 smsManager.sendTextMessage(mobile,// 接收方的手机号码
+//		 null,// 发送方的手机号码
+//		 message,// 信息内容
+//		 sendIntent,// 发送是否成功的回执
+//		 null// 接收是否成功的回执
+//
+//
+//	 }
 
 }

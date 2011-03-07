@@ -24,9 +24,9 @@ public class ExchangeRatesDialog extends Activity {
 	private int currencyFlag=0;
 	 public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        
-	        setContentView(R.layout.dialog);
 	        requestWindowFeature(Window.FEATURE_NO_TITLE);
+	        setContentView(R.layout.dialog);
+	       
 	        //获得外汇汇率Activity传入的信息值并显示
 	        TextView tvflag = (TextView)findViewById(R.id.flag);
 	    	TextView tvshow = (TextView)findViewById(R.id.info);
@@ -35,8 +35,8 @@ public class ExchangeRatesDialog extends Activity {
 	        Intent receive_intent = getIntent();
 	        String flag = receive_intent.getStringExtra("flag");
 	        String info = receive_intent.getStringExtra("info");
-//	        tvflag.setText(flag);
-//	        tvshow.setText(info);
+	        tvflag.setText(flag);
+	        tvshow.setText(info);
 	        //获得货币面值是否有值标志
 	        currencyFlag=Integer.parseInt(receive_intent.getStringExtra("currencyFlag"));
 	        btnok.setOnClickListener(new BtnOkCL());
