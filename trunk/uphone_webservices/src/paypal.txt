@@ -7,6 +7,6 @@
 		<tyname>定期储蓄卡</tyname>
 	</paypal>
 	<paypal id="paypal03">
-		<tyname>活期储蓄</tyname>
+		<tyname>信用卡</tyname>
 	</paypal>
 </paypals>
