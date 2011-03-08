@@ -174,8 +174,8 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			String timeStart="2011-3-7";
 			String timeend="2011-3-19";
 			
-			Date date1 = Date.valueOf(timeStart);
-			Date date2 = Date.valueOf(timeend);
+			Date date1 = Date.valueOf(start);
+			Date date2 = Date.valueOf(end);
 			
 			
 			
@@ -244,22 +244,6 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 					}
 				}
 			}
-			
-			
-			
-			
-			/*//获得属性和属性 值
-			for(int i = 0; i < list.getLength();i++ ){
-				Node node = list.item(i);
-				NamedNodeMap nnm=list.item(i).getAttributes();
-				String attrValue=nnm.item(0).getNodeValue();//获得属性值
-				if(attrValue.equals(id.trim())){
-					NodeList n2 = node.getChildNodes();
-					for(int j=1;j<n2.getLength();j=j+2){
-						lstStr.add(n2.item(j).getFirstChild().getNodeValue());
-					}
-				}
-			}*/
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
