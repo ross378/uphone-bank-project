@@ -138,9 +138,6 @@ public class PaymentMain extends ListActivity {// 自助缴费主页面
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		if (id == 0) {// 待缴费
-
-			// String[]
-			// pay_arr={"三月份水费","2","三月份电费","4","5","6","7","8","9","10"};
 			Intent payment_intent = new Intent();
 			pay_name = (TextView)findViewById(R.id.payment_list);
 			String[] value;
@@ -148,55 +145,25 @@ public class PaymentMain extends ListActivity {// 自助缴费主页面
 			lstValue.add(pay_name.getText().toString());
 			PaymentWebservices pay = new PaymentWebservices();
 			value = pay.connectHttp("601", lstValue);
-			for (int i = 0; i < value.length; i++) {
-
-				Log.v("test", value[i]);
-
-			}
 			payment_intent.putExtra("pay_arr", value);
 			payment_intent.setClass(PaymentMain.this, PaymentPend.class);
 			PaymentMain.this.startActivity(payment_intent);
 		} else if (id == 1) {// 便捷
 			Intent payment_intent = new Intent();
-			// //参数 数组
-			// String[] value={"便捷服务"};
-			// //接受传递回来的json数组
-			// JSONArray json=accMan.parseJSON(accMan.connectHttp("602",value));
-			// //将接受回来的Json数组并解析成一个一维的字符串数组
-			// payment_intent.putExtra("pay_arr", spu.JsonToString(json));
 			payment_intent.setClass(PaymentMain.this, PaymentSelfService.class);
 			PaymentMain.this.startActivity(payment_intent);
 
 		} else if (id == 2) {
-			// //参数 数组
-			// String[] value={"最近一个月的缴费记录"};
-			// //接受传递回来的json数组
-			// JSONArray json=accMan.parseJSON(accMan.connectHttp("603",value));
-			// //将接受回来的Json数组并解析成一个一维的字符串数组
-			// payment_intent.putExtra("pay_arr", spu.JsonToString(json));
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentLastMonth.class);
 			PaymentMain.this.startActivity(payment_intent);
 		} else if (id == 3) {
-			// //参数 数组
-			// String[] value={"历史缴费记录"};
-			// //接受传递回来的json数组
-			// JSONArray json=accMan.parseJSON(accMan.connectHttp("604",value));
-			// 将接受回来的Json数组并解析成一个一维的字符串数组
-			// payment_intent.putExtra("pay_arr", spu.JsonToString(json));
 			Intent payment_intent = new Intent();
 			payment_intent.setClass(PaymentMain.this, PaymentHistory.class);
 			PaymentMain.this.startActivity(payment_intent);
 
 		} else if (id == 4) {
-			// //参数 数组
-			// String[] value={"缴费项目管理"};
-			// //接受传递回来的json数组
-			// JSONArray json=accMan.parseJSON(accMan.connectHttp("605",value));
-			// //将接受回来的Json数组并解析成一个一维的字符串数组
-			// payment_intent.putExtra("pay_arr", spu.JsonToString(json));
 			Intent payment_intent = new Intent();
-			// payment_intent.setClass(PaymentMain.this, PaymentManage.class);
 			payment_intent.setClass(PaymentMain.this, PaymentManage.class);
 			PaymentMain.this.startActivity(payment_intent);
 
