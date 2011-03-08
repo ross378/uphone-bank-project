@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -19,6 +20,11 @@ import android.widget.TextView;
 public class InventoryResult extends ListActivity{
 	private Intent intent=null;
 	private Button btnReturn=null;
+	private String[] reslut=null;
+	private String  disc=null;
+	private String  type=null;
+	private EditText txt_M=null;
+	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_layout_result);
@@ -70,7 +76,22 @@ public class InventoryResult extends ListActivity{
 			}
 		});
 	   
-
+		/**
+         * 
+         * 接收上一个Activity传来的值
+         */
+        Intent intent=getIntent();
+        reslut=intent.getStringArrayExtra("result");
+        disc=intent.getStringExtra("disc");
+        type=intent.getStringExtra("type");
+		for(String g:reslut)
+		{
+			System.out.println(g+"=========支出中============>>>>>>>");
+		}
+		txt_M=(EditText)findViewById(R.id.txt_M);
+		txt_M.setText(disc) ;  
+		
+		
 	                
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
 	                
@@ -81,13 +102,13 @@ public class InventoryResult extends ListActivity{
 	       // HashMap<String,String> acclist5 = new HashMap<String,String>();
 	               	        
 	        acclist1.put("account_list", "交易日期：");
-	        acclist1.put("account_list_info", "20110224");
+	        acclist1.put("account_list_info", reslut[4]);
 	        acclist2.put("account_list", "来帐账户：");
-	        acclist2.put("account_list_info", "238723589732856");
-	        acclist3.put("account_list", "收入:");
-	        acclist3.put("account_list_info", "10000");
+	        acclist2.put("account_list_info", reslut[0]);
+	        acclist3.put("account_list", type);
+	        acclist3.put("account_list_info", reslut[3]);
 	        acclist4.put("account_list", "余额：");
-	        acclist4.put("account_list_info", "25000000000");
+	        acclist4.put("account_list_info", "25000.00");
 	        
 	        
 	        accoutList.add(acclist1);

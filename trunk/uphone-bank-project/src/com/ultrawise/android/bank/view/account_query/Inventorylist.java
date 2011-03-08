@@ -27,6 +27,7 @@ public class Inventorylist extends ListActivity{
 	private TextView type1=null;
 	private TextView type2=null;
 	private String[] reslut=null;
+	private String nomber=null;
 	
 	
     
@@ -99,7 +100,7 @@ public class Inventorylist extends ListActivity{
 			 */
 			
 			Intent type_name = getIntent();
-		    String nomber=type_name.getStringExtra("nomber");
+			nomber =type_name.getStringExtra("nomber");
 		    String type=type_name.getStringExtra("type");
 		    String start=type_name.getStringExtra("start");
 		    String end=type_name.getStringExtra("end");
@@ -107,10 +108,13 @@ public class Inventorylist extends ListActivity{
 		    acc1.setText(type+nomber+"在"+start+"到"+end+"\n"+"之间的交易记录如下：");
 		    
 		    
+		    /**
+		     * 接收参数
+		     */
 		    reslut=type_name.getStringArrayExtra("result");
 			for(String g:reslut)
 			{
-				System.out.println(g+"=====================>>>>>>>");
+				System.out.println(g+"=====支出等等================>>>>>>>");
 			}
 		    
 		    
@@ -171,18 +175,84 @@ public class Inventorylist extends ListActivity{
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		if(id==0){//账户信息及余额查询
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(Inventorylist.this, InventoryResult.class);
-			Inventorylist.this.startActivity(payment_intent);
-		}else if(id==1){//账户明细查询
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(Inventorylist.this, InventoryResult.class);
-			Inventorylist.this.startActivity(payment_intent);
-		}else if(id==2){//账户来帐查询
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(Inventorylist.this, InventoryResult.class);
-			Inventorylist.this.startActivity(payment_intent);
+		if(id==0){//支出
+			/**
+        	 * @author gsm
+        	 * @param 功能号025,账号，转账
+        	 * @return 返回转账的信息nomber+"#"+start+"#"
+        	 */
+			String[] str=new String[]{nomber+"#"+"转账"};
+			List<String> result=QuerySever.connectHttp("025", str);
+			for(String g:result)
+			{
+			System.out.println("转账---明文======"+g.toString());	
+			}
+			
+			
+			String[] arrResult=new String[result.size()];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			Intent intent=new Intent();
+			intent.putExtra("result", arrResult);
+			intent.putExtra("disc", "家乐福消费");
+			intent.putExtra("type", "支出:");
+			
+			intent.setClass(Inventorylist.this, InventoryResult.class);
+			Inventorylist.this.startActivity(intent);
+		}else if(id==1){//收入
+			/**
+        	 * @author gsm
+        	 * @param 功能号025,账号，转账
+        	 * @return 返回转账的信息nomber+"#"+start+"#"
+        	 */
+			String[] str=new String[]{nomber+"#"+"进账"};
+			List<String> result=QuerySever.connectHttp("025", str);
+			for(String g:result)
+			{
+			System.out.println("转账---明文======"+g.toString());	
+			}
+			
+			
+			String[] arrResult=new String[result.size()];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			Intent intent=new Intent();
+			intent.putExtra("result", arrResult);
+			intent.putExtra("disc", "发工资");
+			intent.putExtra("type", "收入:");
+			
+			intent.setClass(Inventorylist.this, InventoryResult.class);
+			Inventorylist.this.startActivity(intent);
+		}else if(id==2){//支出
+			/**
+        	 * @author gsm
+        	 * @param 功能号025,账号，转账
+        	 * @return 返回转账的信息nomber+"#"+start+"#"
+        	 */
+			String[] str=new String[]{nomber+"#"+"汇款"};
+			List<String> result=QuerySever.connectHttp("025", str);
+			for(String g:result)
+			{
+			System.out.println("转账---明文======"+g.toString());	
+			}
+			
+			
+			String[] arrResult=new String[result.size()];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			Intent intent=new Intent();
+			intent.putExtra("result", arrResult);
+			intent.putExtra("disc", "电费,水费");
+			intent.putExtra("type", "支出:");
+			
+			intent.setClass(Inventorylist.this, InventoryResult.class);
+			Inventorylist.this.startActivity(intent);
 		}
 	}
 }
