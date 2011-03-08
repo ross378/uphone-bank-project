@@ -26,8 +26,9 @@ public class TransferService {
 	private final static int GET_COM_ACC = 503;
 	private final static int GET_USER_ACC_ACTIVE = 504;
 	private final static int CON_TRANSFER = 505;
-	private final static int TRANSFER = 507;
-	
+	private final static int TRANSFER = 506;
+	private final static int CON_TRANSFER2 = 507;
+	private final static int TRANSFER2 = 508;
 	
 	@Consumes("application/x-www-form-urlencoded")
 	@Path("do")
@@ -57,9 +58,9 @@ public class TransferService {
 			
 		}else if(action == GET_COM_ACC){
 			
-			String acctype = mValue[1];
-			
-			List<String> comacc = transfer.getcomacc(acctype);
+			String username = mValue[1];
+			String acctype = mValue[2];
+			List<String> comacc = transfer.getcomacc(username,acctype);
 			
 			return wrapUp(doEncode(comacc));
 			
@@ -73,20 +74,26 @@ public class TransferService {
 			
 		}else if(action == CON_TRANSFER){
 			String useracc = mValue[1];
-			String amtnum = mValue[2];
-			String amtpsd = mValue[3];
-			String amtph = mValue[4];
-			
+			String amtpsd = mValue[2];
+			String amtph = mValue[3];
+			String amtnum = mValue[4];
 			List<String> flag = transfer.contransfer(useracc,amtnum,amtpsd,amtph);
 			
 			return wrapUp(doEncode(flag));
 		}else if(action == TRANSFER){
 			String useracc = mValue[1];
 			String amtnum = mValue[2];
-			String amtpsd = mValue[3];
-			String amtph = mValue[4];
+			String amtph = mValue[3];
 			
 			List<String> flag = transfer.transfer(useracc,amtnum,amtph);
+			
+			return wrapUp(doEncode(flag));
+		}else if(action == CON_TRANSFER2){
+			String useracc = mValue[1];
+			String amtpsd = mValue[2];
+			String amtph = mValue[3];
+			String amtnum = mValue[4];
+			List<String> flag = transfer.contransfer2(useracc,amtnum,amtpsd,amtph);
 			
 			return wrapUp(doEncode(flag));
 		}

@@ -7,8 +7,10 @@ import java.util.List;
 public interface ITransfer {
 	 List<String> getfiracc(String userinfo);
 	 List<String> getcomacctype(String userinfo);
-	 List<String> getcomacc(String acctype);
+	 List<String> getcomacc(String username,String acctype);
 	 List<String> getuserpsd(String useracc,String userpasd);
 	 List<String> contransfer(String account, String amtnum, String amtpsd, String amtph);
 	 List<String> transfer(String account, String amtnum, String amtph);
+	 List<String> contransfer2(String account, String amtnum, String amtpsd, String amtph);
+	 List<String> transfer2(String account, String amtnum, String amtph);
 }
