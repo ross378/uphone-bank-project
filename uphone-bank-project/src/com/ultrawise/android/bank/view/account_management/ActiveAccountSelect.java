@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.AccountInfoSelect.SpinnerSelectedListener;
@@ -56,11 +60,9 @@ public class ActiveAccountSelect extends Activity {
 		 * 下拉框，账户类型:spnrSelectTpye，账户：spnrSelectAcc
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accAct_SpnrSelectType);
-		// 将可选内容与ArrayAdapter连接起来
-		String[] accTypeArray = this.getResources().getStringArray(
-				R.array.accinfo_accType);
 		adapterType = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accTypeArray);
+				android.R.layout.simple_spinner_item,
+				AccManaConWebservices.connectHttp(this, "0101", null));
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -70,34 +72,37 @@ public class ActiveAccountSelect extends Activity {
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
 		spnrSelectAcc = (Spinner) this.findViewById(R.id.accAct_SpnrSelectAcc);
-		String[] accArray = this.getResources().getStringArray(
-				R.array.accinfo_acc);
 		adapterAcc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accArray);
+				android.R.layout.simple_spinner_item);
 		adapterAcc
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnrSelectAcc.setAdapter(adapterAcc);
 		spnrSelectAcc.setOnItemSelectedListener(new SpinnerSelectedListener());
 		spnrSelectAcc.setClickable(false);
 
-		// 获取输入的密码
 		dtPwd = (EditText) this.findViewById(R.id.accAct_dtPwd);
-		String password = dtPwd.getText().toString();
 
-		// 按钮 激活
+		// 按钮 绑定
 		btnActive = (Button) this.findViewById(R.id.accAct_btnActive);
 		btnActive.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				// 从服务器比较密码是否正确
-
-				// 获取选中的账户
 				String account = spnrSelectAcc.getSelectedItem().toString();
+				List<String> lstOut = new ArrayList<String>();
+				lstOut.add(account);
+				lstOut.add(dtPwd.getText().toString());
+				// 连接服务器
+				List<String> lstIn = AccManaConWebservices.connectHttp(
+						ActiveAccountSelect.this, "0106", lstOut);
+				if ((lstIn.get(0)).equals("true"))
+					flag = true;
+				else
+					flag = false;
 				// 弹出对话框
-				flag=true;
 				if (flag == true) {
-					AlertDialog myDialog=new AlertDialog.Builder(ActiveAccountSelect.this)
+					AlertDialog myDialog = new AlertDialog.Builder(
+							ActiveAccountSelect.this)
 							.setMessage("账户" + account + "已成功绑定")
 							.setPositiveButton("确定",
 									new DialogInterface.OnClickListener() {
@@ -113,12 +118,11 @@ public class ActiveAccountSelect extends Activity {
 											finish();
 										}
 									}).show();
-					
-					
-//					myDialog.getWindow().setContentView(R.layout.dialog);
+
+					// myDialog.getWindow().setContentView(R.layout.dialog);
 				} else {
 					new AlertDialog.Builder(ActiveAccountSelect.this)
-							.setMessage("密码错误，绑定失败")
+							.setMessage("密码错误或未连接上服务器，绑定失败")
 							.setPositiveButton("确定",
 									new DialogInterface.OnClickListener() {
 
@@ -210,7 +214,8 @@ public class ActiveAccountSelect extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(ActiveAccountSelect.this, FinancialConsultation.class);
+				intent.setClass(ActiveAccountSelect.this,
+						FinancialConsultation.class);
 				ActiveAccountSelect.this.startActivity(intent);
 			}
 		});
@@ -224,11 +229,28 @@ public class ActiveAccountSelect extends Activity {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
 			case R.id.accAct_SpnrSelectType:
-				spnrSelectTpye.setSelection(position);
-				spnrSelectAcc.setClickable(true);
+				String accTypeName = spnrSelectTpye.getSelectedItem()
+						.toString();
+				List<String> lstOut = new ArrayList<String>();
+				lstOut.clear();
+				// lstOut.add(UserLogin.userNO);// 用户号
+				lstOut.add("Sun01");
+				lstOut.add(accTypeName);
+				List<String> lstAcc = AccManaConWebservices.connectHttp(
+						ActiveAccountSelect.this, "0105", lstOut);// 从服务器获取账户
+				adapterAcc.clear();
+				if (lstAcc.size() != 0) {
+					for (String s : lstAcc) {
+						adapterAcc.add(s);
+					}
+					spnrSelectAcc.setClickable(true);
+				} else {
+					spnrSelectAcc.setClickable(false);
+				}
+				spnrSelectAcc.setAdapter(adapterAcc);
 				break;
 			case R.id.accAct_SpnrSelectAcc:
-				spnrSelectAcc.setSelection(position);
+
 				break;
 			}
 			switch (view.getId()) {

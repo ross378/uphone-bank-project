@@ -1,7 +1,12 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.UserLogin;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -43,14 +48,14 @@ public class AccountInfoSelect extends Activity {
 	 * 静态变量，用于指示作用
 	 */
 	private final static String TAG = "AccountInfoSelect";
-	public final static String ACCOUNT_TYPE="accountType";
-	public final static String ACCOUNT="account";
+	public final static String ACCOUNT_TYPE = "accountType";
+	public final static String ACCOUNT = "account";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		//去标题栏
+		// 去标题栏
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.setContentView(R.layout.account_info_select);
 
@@ -59,10 +64,9 @@ public class AccountInfoSelect extends Activity {
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accinfo_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
-		String[] accTypeArray = this.getResources().getStringArray(
-				R.array.accinfo_accType);
 		adapterType = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accTypeArray);
+				android.R.layout.simple_spinner_item,
+				AccManaConWebservices.connectHttp(this, "0101", null));
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -72,10 +76,8 @@ public class AccountInfoSelect extends Activity {
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
 		spnrSelectAcc = (Spinner) this.findViewById(R.id.accinfo_SpnrSelectAcc);
-		String[] accArray = this.getResources().getStringArray(
-				R.array.accinfo_acc);
 		adapterAcc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accArray);
+				android.R.layout.simple_spinner_item);
 		adapterAcc
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnrSelectAcc.setAdapter(adapterAcc);
@@ -84,39 +86,42 @@ public class AccountInfoSelect extends Activity {
 
 		// 按钮 继续
 		btnGoOn = (Button) this.findViewById(R.id.accinfo_btnGoOn);
-		btnGoOn.setOnClickListener(new OnClickListener(){
+		btnGoOn.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent=new Intent();
-				intent.putExtra(AccountInfoSelect.ACCOUNT_TYPE, spnrSelectTpye.getSelectedItem().toString());
-				intent.putExtra(AccountInfoSelect.ACCOUNT, spnrSelectAcc.getSelectedItem().toString());
+				intent = new Intent();
+				intent.putExtra(AccountInfoSelect.ACCOUNT_TYPE, spnrSelectTpye
+						.getSelectedItem().toString());
+				intent.putExtra(AccountInfoSelect.ACCOUNT, spnrSelectAcc
+						.getSelectedItem().toString());
 				intent.setClass(AccountInfoSelect.this, AccountInfo2.class);
 				AccountInfoSelect.this.startActivity(intent);
 			}
-			
-		});
-		
-		//向右滑动触发后退
-		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
-			@Override
-			public boolean onScroll(MotionEvent e1, MotionEvent e2,
-					float distanceX, float distanceY) {
-				// TODO Auto-generated method stub
-				if (distanceY == 0 && distanceX < 0)
-					onBackPressed();
 
-				return super.onScroll(e1, e2, distanceX, distanceY);
-			}
 		});
-		
+
+		// 向右滑动触发后退
+		mGestureDetector = new GestureDetector(this,
+				new GestureDetector.SimpleOnGestureListener() {
+					@Override
+					public boolean onScroll(MotionEvent e1, MotionEvent e2,
+							float distanceX, float distanceY) {
+						// TODO Auto-generated method stub
+						if (distanceY == 0 && distanceX < 0)
+							onBackPressed();
+
+						return super.onScroll(e1, e2, distanceX, distanceY);
+					}
+				});
+
 		// 设置层级关系
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
 		tvClassFirst.setText("首页>");
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent=new Intent();
+				intent = new Intent();
 				intent.setClass(AccountInfoSelect.this, ABankMain.class);
 				AccountInfoSelect.this.startActivity(intent);
 			}
@@ -128,8 +133,9 @@ public class AccountInfoSelect extends Activity {
 		tvClassSecond.setClickable(true);
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent=new Intent();
-				intent.setClass(AccountInfoSelect.this, AccountManagementList.class);
+				intent = new Intent();
+				intent.setClass(AccountInfoSelect.this,
+						AccountManagementList.class);
 				AccountInfoSelect.this.startActivity(intent);
 
 			}
@@ -138,7 +144,7 @@ public class AccountInfoSelect extends Activity {
 		tvClassThrid = (TextView) this.findViewById(R.id.class_third);
 		tvClassThrid.setText("账户信息");
 		tvClassThrid.setVisibility(View.VISIBLE);
-		
+
 		// 返回键设定
 		btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
 		btnReturn.setOnClickListener(new OnClickListener() {
@@ -166,13 +172,15 @@ public class AccountInfoSelect extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(AccountInfoSelect.this, FinancialConsultation.class);
+				intent.setClass(AccountInfoSelect.this,
+						FinancialConsultation.class);
 				AccountInfoSelect.this.startActivity(intent);
 			}
 		});
-		
+
 	}
-	//触摸触发
+
+	// 触摸触发
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
@@ -180,7 +188,7 @@ public class AccountInfoSelect extends Activity {
 
 	}
 
-	//选择下拉框选项触发
+	// 选择下拉框选项触发
 	class SpinnerSelectedListener implements OnItemSelectedListener {
 
 		public void onItemSelected(AdapterView<?> parent, View view,
@@ -188,15 +196,32 @@ public class AccountInfoSelect extends Activity {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
 			case R.id.accinfo_SpnrSelectType:
-				spnrSelectTpye.setSelection(position);
-				spnrSelectAcc.setClickable(true);
+				String accTypeName = spnrSelectTpye.getSelectedItem()
+						.toString();
+				List<String> lstOut = new ArrayList<String>();
+				lstOut.clear();
+				// lstOut.add(UserLogin.userNO);// 用户号
+				lstOut.add("Sun01");
+				lstOut.add(accTypeName);
+				List<String> lstAcc = AccManaConWebservices.connectHttp(
+						AccountInfoSelect.this, "0102", lstOut);// 从服务器获取账户
+				adapterAcc.clear();
+				if (lstAcc.size() != 0) {
+					for (String s : lstAcc) {
+						adapterAcc.add(s);
+					}
+					spnrSelectAcc.setClickable(true);
+				} else {
+					spnrSelectAcc.setClickable(false);
+				}
+				spnrSelectAcc.setAdapter(adapterAcc);
 				break;
 			case R.id.accinfo_SpnrSelectAcc:
-				spnrSelectAcc.setSelection(position);
+
 				break;
 			}
-			switch(view.getId()){
-				
+			switch (view.getId()) {
+
 			}
 
 		}

@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -81,17 +82,16 @@ public class OrderCardSelect2 extends Activity {
 
 		spnrSelectNet = (Spinner) this
 				.findViewById(R.id.accOrder_SpnrSelectNet);
-		String[] netArray = this.getResources().getStringArray(
-				R.array.list_bank_net);
+
 		adapterAcc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, netArray);
+				android.R.layout.simple_spinner_item,
+				AccManaConWebservices.connectHttp(this, "0110", null));
 		adapterAcc
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnrSelectNet.setAdapter(adapterAcc);
 		spnrSelectNet.setOnItemSelectedListener(new SpinnerSelectedListener());
 		spnrSelectNet.setClickable(false);
 
-		
 		// 按钮 激活
 		btnNext = (Button) this.findViewById(R.id.accOrder_btnNextTo3);
 		btnNext.setOnClickListener(new OnClickListener() {
@@ -144,7 +144,8 @@ public class OrderCardSelect2 extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardSelect2.this, AccountManagementList.class);
+				intent.setClass(OrderCardSelect2.this,
+						AccountManagementList.class);
 				OrderCardSelect2.this.startActivity(intent);
 			}
 		});
@@ -162,7 +163,7 @@ public class OrderCardSelect2 extends Activity {
 				finish();
 			}
 		});
-		
+
 		// 底部按钮设置
 		btnMain = (ImageView) this.findViewById(R.id.btnMain);
 		btnMain.setOnClickListener(new OnClickListener() {
@@ -181,7 +182,8 @@ public class OrderCardSelect2 extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(OrderCardSelect2.this, FinancialConsultation.class);
+				intent.setClass(OrderCardSelect2.this,
+						FinancialConsultation.class);
 				OrderCardSelect2.this.startActivity(intent);
 			}
 		});
@@ -195,11 +197,8 @@ public class OrderCardSelect2 extends Activity {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
 			case R.id.accOrder_SpnrChangeReason:
-				spnrChangeReason.setSelection(position);
-				spnrSelectNet.setClickable(true);
 				break;
 			case R.id.accOrder_SpnrSelectNet:
-				spnrSelectNet.setSelection(position);
 				break;
 			}
 			switch (view.getId()) {

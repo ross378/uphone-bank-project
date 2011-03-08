@@ -1,7 +1,12 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.UserLogin;
 import com.ultrawise.android.bank.view.account_management.AccountDel.SpinnerSelectedListener;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -36,6 +41,8 @@ public class AccountNickNameSelect extends Activity {
 	private View btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	// 和服务器连接有关
+	private List<String> lstOut = new ArrayList<String>();// 专门用来放需要传输的数据
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +56,9 @@ public class AccountNickNameSelect extends Activity {
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accinfo_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
-		String[] accTypeArray = this.getResources().getStringArray(
-				R.array.accinfo_accType);
 		adapterType = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accTypeArray);
+				android.R.layout.simple_spinner_item,
+				AccManaConWebservices.connectHttp(this, "0101", null));// 获取账户类型
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -62,10 +68,9 @@ public class AccountNickNameSelect extends Activity {
 		spnrSelectTpye.setOnItemSelectedListener(new SpinnerSelectedListener());
 
 		spnrSelectAcc = (Spinner) this.findViewById(R.id.accinfo_SpnrSelectAcc);
-		String[] accArray = this.getResources().getStringArray(
-				R.array.accinfo_acc);
+
 		adapterAcc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accArray);
+				android.R.layout.simple_spinner_item);
 		adapterAcc
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnrSelectAcc.setAdapter(adapterAcc);
@@ -166,6 +171,7 @@ public class AccountNickNameSelect extends Activity {
 				AccountNickNameSelect.this.startActivity(intent);
 			}
 		});
+
 	}
 
 	// 触摸触发
@@ -184,11 +190,22 @@ public class AccountNickNameSelect extends Activity {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
 			case R.id.accinfo_SpnrSelectType:
-				spnrSelectTpye.setSelection(position);
+				String accTypeName = spnrSelectTpye.getSelectedItem()
+						.toString();
+				lstOut.clear();
+				// lstOut.add(UserLogin.userNO);// 用户号
+				lstOut.add("Sun01");
+				lstOut.add(accTypeName);
+				List<String> lstAcc = AccManaConWebservices.connectHttp(
+						AccountNickNameSelect.this, "0102", lstOut);// 从服务器获取账户
+				adapterAcc.clear();
+				for (String s : lstAcc) {
+					adapterAcc.add(s);
+				}
+				spnrSelectAcc.setAdapter(adapterAcc);
 				spnrSelectAcc.setClickable(true);
-				break;
 			case R.id.accinfo_SpnrSelectAcc:
-				spnrSelectAcc.setSelection(position);
+				
 				break;
 			}
 			switch (view.getId()) {

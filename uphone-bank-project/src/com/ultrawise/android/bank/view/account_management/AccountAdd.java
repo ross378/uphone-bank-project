@@ -52,22 +52,13 @@ public class AccountAdd extends Activity {
 	private AccManaConWebservices amConWebservice = new AccManaConWebservices();
 	private List<String> lstOut = new ArrayList<String>();// 专门用来放需要传输的数据
 
-	private List<String> lstAccType = new ArrayList<String>();
-
-	public void getData() {
-		// 从服务器获取所需数据
-		// 获取账户类型
-		lstAccType = amConWebservice.connectHttp("0102", lstOut);
-	}
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去标题栏
 		this.setContentView(R.layout.account_add);
-		getData();
-		
+
 		// 从服务器获取用户号
 		String userNo = "303249578";
 		((TextView) this.findViewById(R.id.accAdd_tvUser2)).setText(userNo);
@@ -77,10 +68,9 @@ public class AccountAdd extends Activity {
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accAdd_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
-//		String[] accTypeArray = this.getResources().getStringArray(
-//				R.array.accinfo_accType);
 		adapterType = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, lstAccType);
+				android.R.layout.simple_spinner_item,
+				amConWebservice.connectHttp(this, "0102", lstOut));// 从服务器获取账户类型
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

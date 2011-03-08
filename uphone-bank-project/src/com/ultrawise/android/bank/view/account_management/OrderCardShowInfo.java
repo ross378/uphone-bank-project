@@ -2,7 +2,9 @@ package com.ultrawise.android.bank.view.account_management;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -70,6 +72,15 @@ public class OrderCardShowInfo extends Activity {
 			// 错误的进入此界面
 		}
 
+		List<String> lstOut = new ArrayList<String>();
+		lstOut.add(strAccountValue);
+		strAccNickName = AccManaConWebservices
+				.connectHttp(this, "0108", lstOut).get(0);
+		lstOut.clear();
+		lstOut.add(strNet);
+		strAddress = AccManaConWebservices.connectHttp(this, "0111", lstOut)
+				.get(0);
+		strCost = AccManaConWebservices.connectHttp(this, "0109", null).get(0);
 		// 显示文本
 		lvContent = (ListView) this.findViewById(R.id.accOrderCardInfo_lv);
 		// 生成内容
@@ -83,20 +94,14 @@ public class OrderCardShowInfo extends Activity {
 		HashMap<String, Object> item07 = new HashMap<String, Object>();
 		item01.put("name", "预约换卡的账户：");
 		item01.put("content", strAccountValue);
-		// 从服务器端获取账户别名
-		strAccNickName = "我的信用卡";
 		item02.put("name", "账户别名：");
 		item02.put("content", strAccNickName);
 		item03.put("name", "更换原因：");
 		item03.put("content", strChangeReason);
 		item04.put("name", "领卡网点：");
 		item04.put("content", strNet);
-		// 从服务器端获取网点地址
-		strAddress = "xxx路xxxx号";
 		item05.put("name", "网点地址：");
 		item05.put("content", strAddress);
-		// 从服务气短获取工本费用
-		strCost = "10元";
 		item06.put("name", "工本费用：");
 		item06.put("content", strCost);
 		alContent.add(item01);
@@ -120,7 +125,14 @@ public class OrderCardShowInfo extends Activity {
 
 			public void onClick(View v) {
 				// TODO 发送服务器，确定是否能连上
-				flag = true;
+				List<String> lstOut = new ArrayList<String>();
+				lstOut.add(strAccountValue);
+				List<String> lstIn = AccManaConWebservices.connectHttp(
+						OrderCardShowInfo.this, "0112", lstOut);
+				if (lstIn.get(0).equals("true"))
+					flag = true;
+				else
+					flag = false;
 				// 弹出对话框
 				if (flag == true) {
 					new AlertDialog.Builder(OrderCardShowInfo.this)
