@@ -15,6 +15,7 @@
   	android:layout_width = "160px"
   	android:layout_height = "50px"
   	android:layout_marginLeft = "160px"
+  	android:layout_gravity = "center_vertical"
   	android:background = "@drawable/ubank2"></ImageView>  
   </LinearLayout>
 </RelativeLayout>

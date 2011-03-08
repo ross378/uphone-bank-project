@@ -156,7 +156,7 @@ android:layout_height="wrap_content"
 android:text="&#20449;&#29992;&#21345;"
 android:textStyle="bold"
 android:gravity="center"
-android:layout_marginLeft="50px"
+android:layout_marginLeft="35px"
 android:textColor="#ffffff"
 >
 </TextView>

@@ -11,7 +11,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 
 <ScrollView
 	android:layout_width="fill_parent"
-	android:layout_height="580px"
+	android:layout_height="560px"
 	android:layout_below = "@id/headLayout"
 	android:layout_above = "@id/bottomLayout"
 	android:layout_marginTop = "20px"
@@ -38,6 +38,7 @@ android:id = "@+id/liner_one"
 		android:layout_marginLeft = "50px"
 		android:textSize = "24px"
 		android:textColor = "#000000"
+		android:gravity = "center_vertical"
 		android:text = "活期存款"	
 		>
 	</TextView>
@@ -56,6 +57,7 @@ android:id = "@+id/liner_one"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "100px"
 		android:text = "当前利率"
+		android:gravity = "center_vertical"
 		android:textColor = "#000000"
 		android:textSize = "22px">
 	</TextView>
@@ -65,6 +67,7 @@ android:id = "@+id/liner_one"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "120px"
 		android:text = "0.36%"
+		android:gravity = "center_vertical"
 		android:textColor = "#000000"
 		android:textSize = "22px">
 	</TextView>
@@ -89,6 +92,7 @@ android:id = "@+id/liner_two"
 	android:textSize = "24px"
 	android:layout_marginLeft = "50px"
 	android:textColor = "#000000"
+	android:gravity = "center_vertical"
 	android:text = "定期存款"></TextView>
 <!-- 划线 -->
 <TextView 
@@ -109,6 +113,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "100px"
        android:textSize = "22px"
        android:textColor = "#000000"
+      android:gravity = "center_vertical"
        android:text = "整存零取"></TextView>
        <!-- 划线 -->
 		<TextView 
@@ -128,6 +133,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textSize = "20px"
        android:textColor = "#000000"
+       android:gravity = "center_vertical"
        android:text = "三个月"></TextView>
        <TextView
        android:id = "@+id/two_1_1"
@@ -136,6 +142,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "100px"
        android:textSize = "20px"
        android:textColor = "#000000"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        <!-- 划线 -->
@@ -156,6 +163,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textSize = "20px"
        android:textColor = "#000000"
+       android:gravity = "center_vertical"
        android:text = "六个月"></TextView>
        <TextView
        android:id = "@+id/two_1_2"
@@ -164,6 +172,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "100px"
        android:textSize = "20px"
        android:textColor = "#000000"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        <!-- 划线 -->
@@ -184,6 +193,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "一年"></TextView>
        <TextView
        android:id = "@+id/two_1_3"
@@ -192,6 +202,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        <!-- 划线 -->
@@ -212,6 +223,7 @@ android:id = "@+id/liner_two"
        android:textColor = "#000000"
        android:layout_marginLeft = "150px"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "二年"></TextView>
        <TextView
        android:id = "@+id/two_1_4"
@@ -220,6 +232,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>    
        <!-- 划线 -->
@@ -240,6 +253,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "三年"></TextView>
        <TextView
        android:id = "@+id/two_1_5"
@@ -248,6 +262,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textSize = "20px"
        android:textColor = "#000000"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>    
        <!-- 划线 -->
@@ -268,6 +283,7 @@ android:id = "@+id/liner_two"
        android:textColor = "#000000"
        android:layout_marginLeft = "150px"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "五年"></TextView>
        <TextView
        android:id = "@+id/two_1_6"
@@ -276,6 +292,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textSize = "20px"
        android:textColor = "#000000"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        </LinearLayout>   
@@ -300,6 +317,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "100px"
        android:textColor = "#000000"
        android:textSize = "22px"
+       android:gravity = "center_vertical"
        android:text = "零存整取"></TextView>
        
        <!-- 划线 -->
@@ -320,6 +338,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "一年"></TextView>
        <TextView
        android:id = "@+id/two_2_1"
@@ -328,6 +347,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        
@@ -349,6 +369,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "三年"></TextView>
        <TextView
        android:id = "@+id/two_2_2"
@@ -357,6 +378,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>    
        <!-- 划线 -->
@@ -377,6 +399,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "五年"></TextView>
        <TextView
        android:id = "@+id/two_2_3"
@@ -385,6 +408,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        </LinearLayout>   
@@ -410,6 +434,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "100px"
        android:textColor = "#000000"
        android:textSize = "22px"
+       android:gravity = "center_vertical"
        android:text = "存本取息"></TextView>
        
        <!-- 划线 -->
@@ -430,6 +455,7 @@ android:id = "@+id/liner_two"
        android:textColor = "#000000"
        android:layout_marginLeft = "150px"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "一年"></TextView>
        <TextView
        android:id = "@+id/two_3_1"
@@ -438,6 +464,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        
@@ -459,6 +486,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "三年"></TextView>
        <TextView
        android:id = "@+id/two_3_2"
@@ -467,6 +495,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>    
        <!-- 划线 -->
@@ -487,6 +516,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "150px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "五年"></TextView>
        <TextView
        android:id = "@+id/two_3_3"
@@ -495,6 +525,7 @@ android:id = "@+id/liner_two"
        android:layout_marginLeft = "120px"
        android:textColor = "#000000"
        android:textSize = "20px"
+       android:gravity = "center_vertical"
        android:text = "0.12%"></TextView>
        </LinearLayout>   
        </LinearLayout>   
@@ -517,6 +548,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "50px"
 		android:textColor = "#000000"
 		android:textSize = "24px"
+		android:gravity = "center_vertical"
 		android:text = "通知存款"			
 		>
 	</TextView>
@@ -541,6 +573,7 @@ android:id = "@+id/liner_two"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "100px"
 		android:text = "一天"
+		android:gravity = "center_vertical"
 		android:textColor = "#000000"
 		android:textSize = "22px">
 	</TextView>
@@ -551,6 +584,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "165px"
 		android:textColor = "#000000"
 		android:text = "0.81%"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	</LinearLayout>
@@ -570,6 +604,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "100px"
 		android:textColor = "#000000"
 		android:text = "七天"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
@@ -579,6 +614,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "165px"
 		android:textColor = "#000000"
 		android:text = "1.35%"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	</LinearLayout>
@@ -600,6 +636,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "50px"
 		android:textColor = "#000000"
 		android:textSize = "24px"
+		android:gravity = "center_vertical"
 		android:text = "协定存款"	
 		>
 	</TextView>
@@ -619,6 +656,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "100px"
 		android:textColor = "#000000"
 		android:text = "当前利率"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
@@ -628,6 +666,7 @@ android:id = "@+id/liner_two"
 		android:layout_marginLeft = "120px"
 		android:textColor = "#000000"
 		android:text = "0.36%"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	</LinearLayout>
