@@ -23,6 +23,8 @@ import android.widget.TextView;
 public class PaymentLastMonth extends ListActivity {
 	String start_time = "2011-3-1";
 	String end_time = "2011-3-31";
+	List<String> service = new ArrayList<String>();
+	String[] values = null;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,12 +72,20 @@ public class PaymentLastMonth extends ListActivity {
         
         HashMap<String,Object> paylist1 = null;
  
+        service.add("水费");
+        service.add("电费");
+        service.add("天然气");
+        service.add("房租");
+        service.add("手机充值");
+        service.add("Q币充值");
+        service.add("网易充值");
+        
         List<String> params = new ArrayList<String>();
 		params.add("zhangsan");
 		params.add(end_time);
 		params.add(start_time);
         PaymentWebservices.paramsString="payment";
-		String[] values = PaymentWebservices.connectHttp("60301", params);
+		values = PaymentWebservices.connectHttp("60301", params);
 		for(int i = 0 ;i < values.length;i+=2){
 			paylist1 = new HashMap<String,Object>();
 			paylist1.put("payment_list",values[i]);
@@ -135,8 +145,9 @@ public class PaymentLastMonth extends ListActivity {
 		params.add("zhangsan");
 		params.add(end_time);
 		params.add(start_time);
-		params.add(String.valueOf(id));
-		if(id>3){
+		int index = service.indexOf(values[(int)id*2+1]);
+		params.add(String.valueOf(index));
+		if(index>3){
 			params.add("2");
 		}else{
 			params.add("1");
