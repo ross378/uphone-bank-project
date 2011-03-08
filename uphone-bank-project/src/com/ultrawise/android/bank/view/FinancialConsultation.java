@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -70,6 +71,12 @@ public class FinancialConsultation extends Activity {
         phoneBank.setOnClickListener(new PhoneBankImageViewListener());
         helper = (ImageView)findViewById(R.id.buttonHelper);
         helper.setOnClickListener(new HelperImageViewListener());
+	}
+	
+	public boolean onKeyDown(int keyCode, KeyEvent event){
+		
+		
+		return false;
 	}
 	/*
 	 * 手机银行按钮响应事件
@@ -172,7 +179,15 @@ public class FinancialConsultation extends Activity {
 		 
 		 public void onClick(View args0){
 			 Intent intent = new Intent();
-			 intent.setClass(FinancialConsultation.this, UserLogin.class);
+			 if(FinancialConsultation.loggingStatus == false)
+			 {
+				 List<String> result = WebTools.connectHttp(0, null);
+					intent.putStringArrayListExtra("key", (ArrayList<String>)result);
+					intent.setClass(FinancialConsultation.this,UserLogin.class);
+			 }else
+			 {
+				 intent.setClass(FinancialConsultation.this, ABankMain.class);
+			 }
 			 FinancialConsultation.this.startActivity(intent);
 		 }
 	 }
