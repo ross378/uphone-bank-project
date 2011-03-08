@@ -75,9 +75,10 @@
 				<EditText 
 						android:id="@+id/password"
 						android:password="true" 
-						android:layout_height="wrap_content" 
+						android:layout_height="37dip" 
+						android:gravity="center_vertical"
     					android:layout_width="270dip"
-    					android:textSize="20sp" 
+    					android:textSize="15sp" 
     					android:layout_gravity="center_horizontal"
     					/>
 <TextView android:layout_width="fill_parent" android:layout_height="1dip" android:background="#cccccc" />
