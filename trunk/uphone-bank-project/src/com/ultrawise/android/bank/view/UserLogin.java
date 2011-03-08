@@ -1,4 +1,7 @@
 package com.ultrawise.android.bank.view;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,6 +16,7 @@ import com.ultrawise.android.bank.view.transfer.TransResult;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +24,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -48,6 +53,11 @@ public class UserLogin extends Activity {
 	private String passwd=null;
 	//附加码
 	private String pyramid=null;
+	//记录用户名的单选框
+	private CheckBox checkBox = null;
+	//从文件中读出的用户名和密码
+	String result = "";
+	
 	
 	private int randomNo = 0;
 	private ImageButton randomButton = null;
@@ -76,6 +86,8 @@ public class UserLogin extends Activity {
         //获得密码输入框，并获得输入框中输入的值
         pyramidEditText=(EditText)findViewById(R.id.pyramidEdit);
         
+        checkBox = (CheckBox)findViewById(R.id.notesPasswdCheckBox);
+        
         //附加码显示控件
         extraCode = (TextView)findViewById(R.id.extraCode);
         Intent intent = getIntent();
@@ -86,6 +98,20 @@ public class UserLogin extends Activity {
         phoneBank = (ImageView)findViewById(R.id.btnMain);
         helper = (ImageView)findViewById(R.id.btnHelper);
         helper.setOnClickListener(new HelperImageViewListener());
+        
+        //从手机内存中读取已经保存的用户名和密码，并显示在对应的输入框中
+		try {
+			InputStream inStream = this.openFileInput("user.txt");
+			result = RecordUser.getFile(inStream);
+			if(!"".equals(result)||result != null){
+				nameEditText.setText(result.split(":")[0]);
+				passwdEditText.setText(result.split(":")[1]);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
        
 	}
 	/**
@@ -121,6 +147,17 @@ public class UserLogin extends Activity {
 				
 				if(backInfo.get(0).equals("true"))
 				{
+					//勾选了记录用户 ，则将用户名和密码保存在手机的内存中
+					if(checkBox.isChecked()){
+						String userinfor = userName+":"+passwd;
+						try {
+							OutputStream outStream = UserLogin.this.openFileOutput("user.txt", Context.MODE_PRIVATE);
+							RecordUser.saveFile(outStream, userinfor);
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
 					info="尊敬的客户"+backInfo.get(1)+"\n您上次登陆的时间为\n"+backInfo.get(2) + "\n这是你第" + backInfo.get(3) + "次登录系统！\n";
 					loginFlag = 2;
 					FinancialConsultation.loggingStatus = true;
