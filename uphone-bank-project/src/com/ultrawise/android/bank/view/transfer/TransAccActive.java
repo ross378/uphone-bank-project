@@ -138,7 +138,7 @@ public class TransAccActive extends Activity {
 				//Dialog.showDialog("密码错误", "请您输入的密码不正确！", "返回");
 				Intent intent = new Intent();
 				intent.putExtra("diatitle", "密码错误");
-				intent.putExtra("diacontent", "请您输入的密码不正确！");
+				intent.putExtra("diacontent", "您输入的密码不正确！");
 				intent.putExtra("btntext", "返回");
 				intent.setClass(TransAccActive.this, CommonDialog.class);
 				TransAccActive.this.startActivity(intent);

@@ -27,7 +27,7 @@ import android.util.Log;
 
 public class TransferWebservicesClient{
 	private static final String TAG = "Transfer";
-	private static final String SERVICE_ADDRESS = "http://10.1.111.192:8080/webservices/transws/do";
+	private static final String SERVICE_ADDRESS = "http://192.168.0.106:8080/webservices/transws/do";
 
 	public static List<String> connectHttp (String funNo, List<String> Value){
 		String result = "error";

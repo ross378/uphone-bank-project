@@ -46,6 +46,9 @@ public class TransAmtConfirm extends Activity {
 	Intent intent;
 	Intent receive_intent;
 	
+	private String flag = "false";
+	private String newbal = null;
+	
 	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
 	private List<String> lstout = new ArrayList<String>();
 	private List<String> lstinfo = new ArrayList<String>();
@@ -74,6 +77,8 @@ public class TransAmtConfirm extends Activity {
         balance = receive_intent.getStringExtra("balance");
         amtnum = receive_intent.getStringExtra("amtnum");
         amtph = receive_intent.getStringExtra("amtph");
+        amtfee = receive_intent.getStringExtra("fee");
+        amtpayee = receive_intent.getStringExtra("receiver");
         
         conacc = (TextView)findViewById(R.id.tv_trans_confirmacc);
         conamt = (TextView)findViewById(R.id.tv_trans_confirmamt);
@@ -82,8 +87,8 @@ public class TransAmtConfirm extends Activity {
         conpayee = (TextView)findViewById(R.id.tv_trans_confirmamtname);
         
         conacc.setText(account);
-        conamt.setText(amtnum);
-        confee.setText(amtfee);
+        conamt.setText(amtnum+"元");
+        confee.setText(amtfee+"元");
         conamtph.setText(amtph);
         conpayee.setText(amtpayee);
         
@@ -131,10 +136,34 @@ public class TransAmtConfirm extends Activity {
         btn_trans_cofok.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent trans_amt_cofcan = new Intent();
+				lstinfo.add(account);
+				lstinfo.add(amtnum);
+				lstinfo.add(amtph);
+				
+				lstout = transferwebservice.connectHttp("506", lstinfo);
+				
+				newbal = lstout.get(0);
+				flag = lstout.get(1);
+				if(flag.equals("succeed")){
+					Intent intent = new Intent();
+					intent.putExtra("diatitle", "转账成功");
+					intent.putExtra("diacontent", "账户："+account+"\n"+"余额："+newbal+"\n"+"交易流水号：1122");
+					intent.putExtra("btntext", "返回");
+					intent.setClass(TransAmtConfirm.this, CommonDialog.class);	
+					TransAmtConfirm.this.startActivity(intent);
+				}else{
+					Intent intent = new Intent();
+					intent.putExtra("diatitle", "错误信息");
+					intent.putExtra("diacontent", "未知错误！");
+					intent.putExtra("btntext", "返回");
+					intent.setClass(TransAmtConfirm.this, CommonDialog.class);
+					TransAmtConfirm.this.startActivity(intent);
+				}
+				
+				/*Intent trans_amt_cofcan = new Intent();
 				trans_amt_cofcan.setClass(TransAmtConfirm.this, TransSuccDialog.class);
 				TransAmtConfirm.this.startActivity(trans_amt_cofcan);
-				TransAmtConfirm.this.startActivity(trans_amt_cofcan);
+				TransAmtConfirm.this.startActivity(trans_amt_cofcan);*/
 			}
         	
         });
