@@ -122,7 +122,9 @@ public class SelfPayOperation extends ListActivity {
 				}
 				
 				creditPasswd=password.getText().toString();
-				
+				if(creditPasswd!=null)
+				{
+					
 				if(creditPasswd.trim().equals("123")==false)
 				{
 					cancelFlag=3;
@@ -139,7 +141,10 @@ public class SelfPayOperation extends ListActivity {
 				intent.putExtra("cancelFlag",cancelFlag+"");
 	    		intent.setClass(SelfPayOperation.this, CancelCardDialog.class);
 	    		SelfPayOperation.this.startActivity(intent);
-				
+				}else
+				{
+					Toast.makeText(SelfPayOperation.this, "请输入密码", Toast.LENGTH_SHORT).show();
+				}
 			}
 	 }
 }
