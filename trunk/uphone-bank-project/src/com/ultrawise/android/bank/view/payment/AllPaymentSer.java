@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -193,6 +194,9 @@ public class AllPaymentSer extends Activity {
 		TextView tv_input_ser_num = (TextView) findViewById(R.id.input_ser_num);
 		tv_input_ser_num.setText("请输入目标" + ser_name1 + "号：");
 		tv_ser_num = (EditText) findViewById(R.id.tv_ser_num);
+		  //无焦点时屏蔽软件盘的出现
+        InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);     
+        imm.hideSoftInputFromWindow(tv_ser_num.getWindowToken(), 0); 
 
 		// 下一步的按钮选择
 		Button btn_next = (Button) findViewById(R.id.btn_next);
