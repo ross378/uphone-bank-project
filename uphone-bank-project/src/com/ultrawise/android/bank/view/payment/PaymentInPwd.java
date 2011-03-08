@@ -143,6 +143,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         			Intent btnok_intent = new Intent();	
         			btnok_intent.putExtra("flag", "成功提示");
         			btnok_intent.putExtra("info", "缴费成功，余额为:"+(PaymentInPwd.this.acc_balance-item_num)+".00元");
+        			
         			btnok_intent.setClass(PaymentInPwd.this, PaymentResult.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			}	else {
@@ -160,6 +161,7 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         			Intent btnok_intent = new Intent();
         		    btnok_intent.putExtra("flag", "失败提示");
         			btnok_intent.putExtra("info", "密码错误！");
+        			btnok_intent.putExtra("btnText", "重输密码");
         			btnok_intent.setClass(PaymentInPwd.this,PaymentFailResultOne.class);
         			PaymentInPwd.this.startActivity(btnok_intent);
         			
