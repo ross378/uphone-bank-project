@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AccountFrom extends Activity {
 
@@ -172,6 +173,8 @@ public class AccountFrom extends Activity {
 
 			public void onClick(View v) {
 				
+				
+				if(!start_time.equals("开始时间")&&!end_time.equals("结束时间")){
 				Intent intent=new Intent();
 				String start=timeStart.getText().toString().trim();
 				String end=timeOver.getText().toString().trim();
@@ -211,6 +214,14 @@ public class AccountFrom extends Activity {
 				
 				intent.setClass(AccountFrom.this, AccountQueryEinnahme.class);
 				AccountFrom.this.startActivity(intent);
+				 }
+				else{
+				    Intent btnok_intent = new Intent();
+	       		    btnok_intent.putExtra("flag", "失败提示");
+	       			btnok_intent.putExtra("info", "请输入开始时间和结束时间");
+	       			btnok_intent.setClass(AccountFrom.this,FailOk.class);
+	       			AccountFrom.this.startActivity(btnok_intent);
+			    }
 			}
 		});
 		

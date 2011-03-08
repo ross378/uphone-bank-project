@@ -60,6 +60,7 @@ public class Query_Settime extends Activity{
 					
 					intent.setClass(Query_Settime.this, AccountFrom.class);
 					Query_Settime.this.startActivity(intent);
+					Query_Settime.this.finish();
 				}
 			});
 			time_cancel = (Button)findViewById(R.id.accountfrom_cancel);
@@ -68,6 +69,7 @@ public class Query_Settime extends Activity{
 					Intent intent = new Intent();
 					intent.setClass(Query_Settime.this, AccountFrom.class);
 					Query_Settime.this.startActivity(intent);
+					Query_Settime.this.finish();
 				}
 			});
 		}

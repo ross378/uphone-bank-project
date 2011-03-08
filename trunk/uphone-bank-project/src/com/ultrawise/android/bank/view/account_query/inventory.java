@@ -5,25 +5,19 @@ import java.util.List;
 import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
-import com.ultrawise.android.bank.view.payment.PaymentHistory;
-import com.ultrawise.android.bank.view.payment.PaymentSetTimeDialog;
+import com.ultrawise.android.bank.view.payment.PaymentFailResultOne;
+import com.ultrawise.android.bank.view.payment.PaymentInPwd;
 import com.ultrawise.android.bank.view.transfer.R;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class inventory extends Activity {
 
@@ -34,6 +28,8 @@ public class inventory extends Activity {
 	static String end_time = "结束时间";
 	private static  String nomber=null;
 	private static  String type=null;
+	private String start=null;
+	private String end=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -172,10 +168,13 @@ public class inventory extends Activity {
 
 			public void onClick(View v) {
 				
-				Intent intent=new Intent();
-				String start=timeStart.getText().toString().trim();
-				String end=timeOver.getText().toString().trim();
+				start=timeStart.getText().toString().trim();
+			    end=timeOver.getText().toString().trim();
 				
+			    
+			    if(!start_time.equals("开始时间")&&!end_time.equals("结束时间")){
+				
+			     Intent intent=new Intent();
 				/**
 	        	 * 从服务器上取得所需要时间段的数据
 	        	 * 
@@ -205,9 +204,16 @@ public class inventory extends Activity {
 				System.out.println("开始"+start);
 				System.out.println("结束"+end);
 				
-				
 				intent.setClass(inventory.this, Inventorylist.class);
 				inventory.this.startActivity(intent);
+			  }
+			    else{
+			    Intent btnok_intent = new Intent();
+       		    btnok_intent.putExtra("flag", "失败提示");
+       			btnok_intent.putExtra("info", "请输入开始时间和结束时间");
+       			btnok_intent.setClass(inventory.this,FailOk.class);
+       			inventory.this.startActivity(btnok_intent);
+			    }
 			}
 		});
 		
