@@ -53,6 +53,7 @@ import android.view.View.OnClickListener;
 					
 		    		transinfo_intent.setClass(PaymentFailResultTwo.this, PaymentMain.class);
 		    		startActivity(transinfo_intent);
+		    		PaymentFailResultTwo.this.finish();
 				}
 		    }
 	}
