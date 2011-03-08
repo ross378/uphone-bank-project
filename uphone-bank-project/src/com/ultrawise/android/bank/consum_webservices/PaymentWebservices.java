@@ -27,8 +27,9 @@ import android.util.Log;
 
 public class PaymentWebservices {
 	private static final String TAG = "Payment";
-	private static String SERVICE_ADDRESS = "http://10.1.1.103:8080/webservices/";
-	public static String  paramsString="";
+	private static String SERVICE_ADDRESS = "http://10.1.1.129:8080/webservices/";
+	public static String  paramsString="payment";
+
 	public static String[] connectHttp (String funNo, List<String> Value){
 		String result = "error";
 		String[] values = null;
