@@ -200,14 +200,18 @@ public class AllPaymentSer extends Activity {
 		btn_next.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				String hh = tv_ser_num.getText().toString();
+				System.out.println(hh);
 				// TODO Auto-generated method stub
-				if (AllPaymentSer.this.tv_ser_num.getText().toString() == "") {
-					
+				if (hh == null || hh.trim().length() == 0) {
+
 					Intent btnok_intent = new Intent();
-        		    btnok_intent.putExtra("flag", "警告");
-        			btnok_intent.putExtra("info", "号码不能为空");
-        			btnok_intent.setClass(AllPaymentSer.this,PaymentFailResultOne.class);
-        			AllPaymentSer.this.startActivity(btnok_intent);
+					btnok_intent.putExtra("flag", "警告");
+					btnok_intent.putExtra("info", "号码不能为空");
+					btnok_intent.putExtra("btnText", "确定");
+					btnok_intent.setClass(AllPaymentSer.this,
+							PaymentFailResultOne.class);
+					AllPaymentSer.this.startActivity(btnok_intent);
 				} else {
 
 					Intent pay_ser_intent = new Intent();
