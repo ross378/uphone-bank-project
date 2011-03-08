@@ -62,7 +62,7 @@ public class AccountQueryDetail extends ListActivity {
         tvClassSecond.setVisibility(View.VISIBLE);
         
         TextView  tvClassFirst1 = (TextView) this.findViewById(R.id.class_third);
-		tvClassFirst1.setText("明细查询>");
+		tvClassFirst1.setText("明细查询");
 		tvClassFirst1.setVisibility(View.VISIBLE);
 		tvClassFirst1.setOnClickListener(new OnClickListener() {
 			
