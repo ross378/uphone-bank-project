@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -70,6 +71,9 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
         tv_balance_num = (TextView)findViewById(R.id.balance_num);
         TextView tv_input_psswrd=(TextView)findViewById(R.id.input_psswrd);
         tv_pasword=(EditText)findViewById(R.id.password);
+        //无焦点时屏蔽软件盘的出现
+        InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);     
+        imm.hideSoftInputFromWindow(tv_pasword.getWindowToken(), 0); 
         
         Button btn_pay_ok = (Button)findViewById(R.id.rg_pay_ok);    
         Intent paymentre_intent = getIntent();
@@ -127,6 +131,9 @@ public class PaymentInPwd extends Activity {//账户信息显示和密码输入
 				PaymentInPwd.this.startActivity(intent);
 			}
 		});
+        
+        
+        
         
         //确认缴费按钮的监听
         btn_pay_ok.setOnClickListener(new View.OnClickListener(){
