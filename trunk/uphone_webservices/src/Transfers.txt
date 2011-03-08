@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Transfer>
-   <trans id="622202114" zhantype="转账">
+   <trans id="622202111" zhantype="转账">
     <date>2011-3-8</date>
 	<amount>1000,00</amount>
 	<name>李华</name>
@@ -14,7 +14,7 @@
     <outphone>15261500424</outphone>
     <incity>无锡</incity>
   </trans>
-   <trans id="622202114" zhantype="进账">
+   <trans id="622202111" zhantype="进账">
     <date>2011-3-9</date>
 	<amount>1000,00</amount>
 	<name>张奎</name>
@@ -28,7 +28,7 @@
 	<outphone>15261500424</outphone>
 	<incity>无锡</incity>
   </trans>
-   <trans id="622202114" zhantype="汇款">
+   <trans id="622202111" zhantype="汇款">
     <date>2011-3-10</date>
 	<amount>1000,00</amount>
 	<name>王兰</name>
