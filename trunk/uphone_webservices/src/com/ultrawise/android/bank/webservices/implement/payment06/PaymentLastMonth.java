@@ -83,14 +83,12 @@ public class PaymentLastMonth implements IPaymentLastMonth {
 		if(str != null && !str.equals("")){
 			sb.append(str).append(":").append("网易充值");
 		}
-		
-		
+
 		return sb.toString();
 	}
 	
 	public List<History1> selectHistory1(Document doc,String userNo,String node){
 		List<History1> historyList = new ArrayList<History1>();
-		History1 history = null;
 		NodeList n1 = doc.getElementsByTagName(node);
 		for(int i = 0; i < n1.getLength();i++ ){
 			Node my_node = n1.item(i);
@@ -100,50 +98,94 @@ public class PaymentLastMonth implements IPaymentLastMonth {
 					NodeList n2 = my_node.getChildNodes();
 					for(int j = 0 ;j < n2.getLength();j++){
 						Node node1 = n2.item(j);
-						NodeList n3 = node1.getChildNodes();
-						if(n3.getLength()>0){
-							history = new History1();
-							
-							history.setDunum(n3.item(1).getFirstChild().getNodeValue());
-							history.setDamout(n3.item(3).getFirstChild().getNodeValue());
-							history.setDate(n3.item(5).getFirstChild().getNodeValue());
-							history.setCharger(n3.item(7).getFirstChild().getNodeValue());
-							history.setDulimit(n3.item(9).getFirstChild().getNodeValue());
-							history.setAccount(n3.item(11).getFirstChild().getNodeValue());
-							
-							historyList.add(history);
+						if(node1.getNodeType() == Node.ELEMENT_NODE){
+							selectChildrenNode(node1,historyList);
 						}
 					}
 				}
-				
 			}
 		}
 		return historyList;
 	}
 	
+	private void selectChildrenNode(Node node1,List<History1> historyList){
+		History1 history = new History1();
+		NodeList n3 = node1.getChildNodes();
+		for(int x = 0;x < n3.getLength();x++){
+			
+			Node node3 = n3.item(x);
+			if(node3.getNodeType()==Node.ELEMENT_NODE){
+				if(node3.getNodeName().equals("dunum")){
+					history.setDunum(node3.getFirstChild().getNodeValue());
+				}
+				if(node3.getNodeName().equals("damout")){
+					history.setDamout(node3.getFirstChild().getNodeValue());
+				}
+				if(node3.getNodeName().equals("date")){
+					history.setDate(node3.getFirstChild().getNodeValue());
+				}
+				if(node3.getNodeName().equals("charger")){
+					history.setCharger(node3.getFirstChild().getNodeValue());
+				}
+				if(node3.getNodeName().equals("dulimit")){
+					history.setDulimit(node3.getFirstChild().getNodeValue());
+				}
+				if(node3.getNodeName().equals("account")){
+					history.setAccount(node3.getFirstChild().getNodeValue());
+				}
+			}
+		}
+		historyList.add(history);
+	}
+	
 	public List<History2> selectHistory2(Document doc,String userNo,String node){
 		List<History2> historyList = new ArrayList<History2>();
-		History2 history = null;
 		NodeList n1 = doc.getElementsByTagName(node);
 		for(int i = 0; i < n1.getLength();i++ ){
 			Node my_node = n1.item(i);
-			NodeList n2 = my_node.getChildNodes();
-			String user = n2.item(3).getFirstChild().getNodeValue();
-			if(userNo.equals(user)){
-				history = new History2();
-				history.setId(n2.item(1).getFirstChild().getNodeValue());
-				history.setId(user);
-				history.setCredit(n2.item(5).getFirstChild().getNodeValue());
-				history.setCrepnum(n2.item(7).getFirstChild().getNodeValue());
-				history.setCredate(n2.item(9).getFirstChild().getNodeValue());
-				history.setCreno(n2.item(11).getFirstChild().getNodeValue());
-				history.setOperator(n2.item(13).getFirstChild().getNodeValue());
-				history.setAccount(n2.item(15).getFirstChild().getNodeValue());
-				
-				historyList.add(history);
+			if(my_node.getNodeType() == Node.ELEMENT_NODE){
+				selectChildrenNode(my_node, historyList,userNo);
 			}
 		}
 		return historyList;
+	}
+	
+	private void selectChildrenNode(Node node,List<History2> historyList,String userNo){
+		History2 history = new History2();
+		NodeList n = node.getChildNodes();
+		for(int i = 0;i < n.getLength();i++){
+			Node node1 = n.item(i);
+			if(node1.getNodeType()==Node.ELEMENT_NODE){
+				if(node1.getNodeName().equals("id")){
+					history.setId(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("userid")){
+					history.setUserid(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("credit")){
+					history.setCredit(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("crenesnum")){
+					history.setCrepnum(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("credata")){
+					history.setCredate(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("creno")){
+					history.setCreno(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("operator")){
+					history.setOperator(node1.getFirstChild().getNodeValue());
+				}
+				if(node1.getNodeName().equals("account")){
+					history.setAccount(node1.getFirstChild().getNodeValue());
+				}
+			}
+		}
+		if(userNo.equals(history.getUserid())){
+			historyList.add(history);
+		}
+		
 	}
 	
 	private String ListToString(List list,int flag,Date paymentDateNow, Date paymentDateBeforeAMonth,int all){
