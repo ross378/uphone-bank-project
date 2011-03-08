@@ -37,7 +37,7 @@ public class CreditCardBindDialog extends Activity {
 				if(mobileNoFlag==2){
 					intent.setClass(CreditCardBindDialog.this, CreditView.class);
 				}else{
-					intent.setClass(CreditCardBindDialog.this, CreditCardBind.class);
+					intent.setClass(CreditCardBindDialog.this, CreditResult.class);
 				}
 	    		
 	    		CreditCardBindDialog.this.startActivity(intent);

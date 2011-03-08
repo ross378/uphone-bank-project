@@ -109,8 +109,13 @@ public class SelfPayDetail extends ListActivity {
 	        detail.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
+					List<String> ll=new ArrayList<String>();
+					ll.add( cardDetail[0]);
+					List<String> accuss=CreditClient.connectHttp("412", ll);
 					Intent intent = new Intent();
-					intent.setClass(SelfPayDetail.this, AccountQueryDetail.class);
+					intent.putExtra("type", "活期储蓄卡");
+					intent.putExtra("cardDetail", accuss.get(0));
+					intent.setClass(SelfPayDetail.this,AccountQueryBalancepan.class);
 					SelfPayDetail.this.startActivity(intent);
 				}
 			});

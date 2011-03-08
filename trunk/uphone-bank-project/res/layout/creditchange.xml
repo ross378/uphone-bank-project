@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/accountque"
+    >
+<include android:id="@+id/paymentabove" layout="@layout/main_bank_above" />
+<include android:id="@+id/paymentbelow" layout="@layout/main_bank_bottom" />
+<LinearLayout
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:layout_below="@id/paymentabove"
+	android:layout_above="@id/paymentbelow"
+	>
+<TextView       android:id="@+id/account_chance_textt"
+		        android:singleLine="false"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:textSize="15dip"
+				android:textColor="#404040">
+			</TextView>
+<TextView
+				android:layout_height="1dip"
+				android:layout_width="fill_parent"
+				android:background="#cccccc">
+			</TextView>
+<ListView
+	android:id="@id/android:list"
+	android:divider="#cccccc" 
+    android:dividerHeight="2px"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:drawSelectorOnTop="true"
+    android:scrollbars="vertical"
+    />
+<TextView
+	android:layout_height="1dip"
+	android:layout_width="fill_parent"
+	android:background="#cccccc">
+</TextView>
+</LinearLayout>
+</RelativeLayout>

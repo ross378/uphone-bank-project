@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout android:layout_width="fill_parent"
+              android:id="@+id/inventory" 
+	          android:layout_height="fill_parent" 
+	          xmlns:android="http://schemas.android.com/apk/res/android"
+	          android:background="@drawable/accountque">
+	<include android:id="@+id/accManaAbove" layout="@layout/main_bank_above" />
+	<include android:id="@+id/accManaBottom" layout="@layout/main_bank_bottom" />
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_below="@id/accManaAbove" android:layout_height="fill_parent"
+		android:orientation="vertical">
+		<TextView android:id="@+id/inventory11"
+	          android:layout_height="wrap_content" 
+	          android:layout_width="wrap_content"
+	          android:textSize="18dp"
+	          android:text="请输入你要查询的时间区间"
+	          android:layout_marginLeft="50dip"
+	          android:textColor="#000000">
+	        </TextView>
+	    <TextView 
+	          android:layout_height="1dip" 
+	          android:layout_width="fill_parent"
+	          android:background="#cccccc"
+	          android:layout_marginTop="3dip">
+	        </TextView>
+<TableLayout android:layout_width="wrap_content"
+		android:layout_below="@id/accManaAbove" android:layout_height="wrap_content">
+	        <TableRow>
+			<TextView android:id="@+id/inventory_cc"
+	          android:layout_height="wrap_content" 
+	          android:layout_width="wrap_content"
+	          android:textSize="15dp"
+	          android:text="从："
+	          android:textColor="#000000"
+	          android:gravity="left"
+	          android:layout_marginTop="10dip"
+	          android:layout_marginLeft="30dip"
+	          android:layout_marginRight="6dip"/>
+	        <Button  android:id="@+id/timechange_fromm"
+	          android:layout_height="wrap_content" 
+	          android:layout_width="fill_parent"
+	          android:gravity="center"
+	          android:layout_marginTop="10dip"
+	          android:layout_marginRight="30dip"
+	          android:text="起始时间"
+	          android:background="@drawable/selection">
+	        </Button>
+	        </TableRow>
+</TableLayout>
+<TableLayout android:layout_width="wrap_content"
+		android:layout_below="@id/accManaAbove" android:layout_height="wrap_content">
+	        <TableRow>
+			<TextView android:id="@+id/inventory_cc"
+	          android:layout_height="wrap_content" 
+	          android:layout_width="wrap_content"
+	          android:textSize="15dp"
+	          android:text="到："
+	          android:textColor="#000000"
+	          android:gravity="left"
+	          android:layout_marginTop="10dip"
+	          android:layout_marginRight="6dip"
+	          android:layout_marginLeft="30dip">
+	        </TextView>
+	        <Button  android:id="@+id/timechange_too"
+	          android:layout_height="wrap_content" 
+	          android:layout_width="fill_parent"
+	          android:gravity="center"
+	          android:layout_marginTop="10dip"
+	          android:layout_marginRight="30dip"
+	          android:text="结束时间"
+	          android:background="@drawable/selection">
+	        </Button>
+	    </TableRow>
+</TableLayout>
+	        <TextView 
+	          android:layout_height="1dip" 
+	          android:layout_width="fill_parent"
+	          android:background="#cccccc"
+	          android:layout_marginTop="1dip">
+	        </TextView>
+			<Button  android:id="@+id/Query_Runn"
+	          android:layout_height="wrap_content" 
+	          android:layout_width="wrap_content"
+	          android:text="查 询"
+	          android:layout_marginTop="30dip"
+	          android:layout_marginLeft="130dip"
+	          android:textSize="18dip"
+	          android:background="@drawable/sprinner_ok1">
+	        </Button>
+	</LinearLayout>
+</RelativeLayout>

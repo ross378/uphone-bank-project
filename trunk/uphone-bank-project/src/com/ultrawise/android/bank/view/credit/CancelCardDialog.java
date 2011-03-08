@@ -41,11 +41,11 @@ public class CancelCardDialog extends Activity {
 				}else if(cancelFlag==1){
 					intent.setClass(CancelCardDialog.this, CancelTheCard.class);
 				}else if(cancelFlag==4){
-					intent.setClass(CancelCardDialog.this, SelfPay.class);
+					intent.setClass(CancelCardDialog.this, CreditView.class);
 				}
 				else if(cancelFlag==3)
 				{
-					intent.setClass(CancelCardDialog.this, SelfPayOperation.class);
+					finish();
 				}
 	    		CancelCardDialog.this.startActivity(intent);
 			}
