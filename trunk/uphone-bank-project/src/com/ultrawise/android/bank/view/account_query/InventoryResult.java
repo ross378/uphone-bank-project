@@ -2,7 +2,9 @@ package com.ultrawise.android.bank.view.account_query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.transfer.R;
 
@@ -47,15 +49,37 @@ public class InventoryResult extends ListActivity{
         tvClassSecond.setText("账户查询>");
         tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				 intent = InventoryResult.this.getIntent();
-				 intent.setClass(InventoryResult.this, AccountQuery.class);
-				 startActivity(intent);
+				Intent intent=new Intent();
+				
+				/**
+	        	 * 从服务器上取得所需要的数据
+	        	 * 
+	        	 * @author gsm
+	        	 * @param 功能号021
+	        	 * @return 返回卡的类型
+	        	 */
+				List<String> result=QuerySever.connectHttp("021", null);
+				for(String g:result)
+				{
+				System.out.println("服务器上取得所需要的数据-明文======"+g.toString());	
+				}
+				
+				
+				String[] arrResult=new String[result.size()];
+				for(int i=0;i<result.size();i++)
+				{   
+					 arrResult[i]= result.get(i);
+				}
+				intent.putExtra("result", arrResult);
+				
+				intent.setClass(InventoryResult.this,AccountQuery.class);
+				InventoryResult.this.startActivity(intent);
 			}
 		});
         tvClassSecond.setVisibility(View.VISIBLE);
         
         TextView  tvClassFirst1 = (TextView) this.findViewById(R.id.class_third);
-		tvClassFirst1.setText("明细查询>");
+		tvClassFirst1.setText("明细查询");
 		tvClassFirst1.setVisibility(View.VISIBLE);
 		tvClassFirst1.setOnClickListener(new OnClickListener() {
 			
@@ -102,11 +126,11 @@ public class InventoryResult extends ListActivity{
 	       // HashMap<String,String> acclist5 = new HashMap<String,String>();
 	               	        
 	        acclist1.put("account_list", "交易日期：");
-	        acclist1.put("account_list_info", reslut[1]);
+	        acclist1.put("account_list_info", reslut[0]);
 	        acclist2.put("account_list", "来帐账户：");
-	        acclist2.put("account_list_info", reslut[3]);
+	        acclist2.put("account_list_info", reslut[2]);
 	        acclist3.put("account_list", type);
-	        acclist3.put("account_list_info", reslut[0]);
+	        acclist3.put("account_list_info", reslut[1]);
 	        acclist4.put("account_list", "余额：");
 	        acclist4.put("account_list_info", "25000.00");
 	        

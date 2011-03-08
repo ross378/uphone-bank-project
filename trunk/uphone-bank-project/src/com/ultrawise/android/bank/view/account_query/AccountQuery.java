@@ -119,9 +119,12 @@ public class AccountQuery extends Activity {
 		 */
 		Intent intent=getIntent();
 		reslut=intent.getStringArrayExtra("result");
-			adapter.add(reslut[2]);
-			adapter.add(reslut[4]);
-			adapter.add(reslut[1]);
+		for(int i=1;i<reslut.length;i+=2){
+			adapter.add(reslut[i]);
+		}
+//			adapter.add(reslut[2]);
+//			adapter.add(reslut[4]);
+//			adapter.add(reslut[1]);
 		/*
 		 *
 list=paypal01
@@ -157,7 +160,7 @@ list=活期储蓄
 //					adapter2.add(reslut[3]);
 //					adapter2.add(reslut[5]);
 //					adapter2.add(reslut[0]);
-					String[] str=new String[]{reslut[3]};
+					String[] str=new String[]{reslut[0]};
 					List<String> result=QuerySever.connectHttp("022", str);
 					for(int i=0;i<result.size();i++)
 					{
@@ -186,7 +189,7 @@ list=活期储蓄
 					 * @param 功能号为022  卡的类型为：定期储蓄卡
 					 * @return定期储蓄卡的卡号
 					 */
-					String[] str=new String[]{reslut[5]};
+					String[] str=new String[]{reslut[2]};
 					List<String> result=QuerySever.connectHttp("022", str);
 					for(int i=0;i<result.size();i++)
 					{
@@ -220,7 +223,7 @@ list=活期储蓄
 					 * @param 功能号为022  卡的类型为：定期储蓄卡
 					 * @return定期储蓄卡的卡号
 					 */
-					String[] str=new String[]{reslut[0]};
+					String[] str=new String[]{reslut[4]};
 					List<String> result=QuerySever.connectHttp("022", str);
 					for(int i=0;i<result.size();i++)
 					{
