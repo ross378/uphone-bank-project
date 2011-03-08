@@ -78,18 +78,8 @@ public class PaymentSelectAccount extends Activity {
 		tvClassSecond.setVisibility(View.VISIBLE);
 
 		TextView tvClassThird = (TextView) this.findViewById(R.id.class_third);
-		tvClassThird.setText("待缴费项目");
+		tvClassThird.setText("其他账户选择");
 		tvClassThird.setVisibility(View.VISIBLE);
-		tvClassThird.setOnClickListener(new OnClickListener() {
-
-			public void onClick(View v) {
-				Intent payment_intent = new Intent();
-				payment_intent.setClass(PaymentSelectAccount.this,
-						PaymentPend.class);
-				PaymentSelectAccount.this.startActivity(payment_intent);
-
-			}
-		});
 
 		// 返回键设定
 		ImageView btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
