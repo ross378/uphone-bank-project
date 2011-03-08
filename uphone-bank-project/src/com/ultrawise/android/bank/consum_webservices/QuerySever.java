@@ -23,17 +23,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
 public class QuerySever{
-	  private final static String SERVICE_ADDRESS = "http://192.168.182.1:8080/webservices/query/do/";
+	  private final static String SERVICE_ADDRESS = "http://10.1.1.36:8080/webservices/query/do/";
 
 	  // private String value;// like: 0101:A43lEnOCi80lxEne
 

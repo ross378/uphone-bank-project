@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.account_query;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.ultrawise.android.bank.consum_webservices.QuerySever;
@@ -35,6 +36,8 @@ public class AccountFrom extends Activity {
 	static String end_time = "结束时间";
 	private static  String nomber=null;
 	private static  String type=null;
+	private String start=null;
+	private String end=null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -172,13 +175,20 @@ public class AccountFrom extends Activity {
 		run.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				start=timeStart.getText().toString().trim();
+			    end=timeOver.getText().toString().trim();
 				
-				
-				if(!start_time.equals("开始时间")&&!end_time.equals("结束时间")){
-				Intent intent=new Intent();
-				String start=timeStart.getText().toString().trim();
-				String end=timeOver.getText().toString().trim();
-				
+			    
+			    if(!start_time.equals("开始时间")&&!end_time.equals("结束时间")){
+			    	String time1="2011-3-8";
+					String time2="2011-3-10";
+					Date date1 = Date.valueOf(time1);
+					Date date2 = Date.valueOf(time2);
+					Date date3 = Date.valueOf(start);
+					Date date4 = Date.valueOf(end);
+
+					if(date3.before(date1)&&date4.after(date2)){
+			     Intent intent=new Intent();
 				/**
 	        	 * 从服务器上取得所需要时间段的数据
 	        	 * 
@@ -188,20 +198,28 @@ public class AccountFrom extends Activity {
 	        	 */
 				String[] str=new String[]{nomber+"#"+start+"#",end};
 				List<String> result=QuerySever.connectHttp("024", str);
-				for(String g:result)
-				{
-				System.out.println("时间段的数据-明文======"+g.toString());	
-				}
 				String[] arrResult=new String[result.size()];
 				for(int i=0;i<result.size();i++)
 				{   
+					System.out.println(result.get(i));
 					 arrResult[i]= result.get(i);
 				}
-				intent.putExtra("result", arrResult);
+				
+				if(result.size()==1){
+					System.out.println("记录为空！");
+					Intent btnok_intent = new Intent();
+	       		    btnok_intent.putExtra("flag", "失败提示");
+	       			btnok_intent.putExtra("info", "本账号没有记录");
+	       			btnok_intent.setClass(AccountFrom.this,FailOk.class);
+	       			AccountFrom.this.startActivity(btnok_intent);
+	       			return;
+				}else{
+				
 				/**
 				 * 
 				 * 包装intent传递数据
 				 */
+				intent.putExtra("result", arrResult);
 				intent.putExtra("type", type);
 				intent.putExtra("nomber", nomber);
 				intent.putExtra("start", start);
@@ -211,16 +229,24 @@ public class AccountFrom extends Activity {
 				System.out.println("开始"+start);
 				System.out.println("结束"+end);
 				
-				
 				intent.setClass(AccountFrom.this, AccountQueryEinnahme.class);
 				AccountFrom.this.startActivity(intent);
-				 }
-				else{
+				}
+			   }else{
+				   
 				    Intent btnok_intent = new Intent();
 	       		    btnok_intent.putExtra("flag", "失败提示");
-	       			btnok_intent.putExtra("info", "请输入开始时间和结束时间");
+	       			btnok_intent.putExtra("info", "本时间段没有记录");
 	       			btnok_intent.setClass(AccountFrom.this,FailOk.class);
 	       			AccountFrom.this.startActivity(btnok_intent);
+			   }
+			  }
+			    else{
+			    Intent btnok_intent = new Intent();
+       		    btnok_intent.putExtra("flag", "失败提示");
+       			btnok_intent.putExtra("info", "请输入开始时间和结束时间");
+       			btnok_intent.setClass(AccountFrom.this,FailOk.class);
+       			AccountFrom.this.startActivity(btnok_intent);
 			    }
 			}
 		});

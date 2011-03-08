@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.account_query;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.ultrawise.android.bank.consum_webservices.QuerySever;
@@ -173,7 +174,14 @@ public class inventory extends Activity {
 				
 			    
 			    if(!start_time.equals("开始时间")&&!end_time.equals("结束时间")){
-				
+			    	String time1="2011-3-8";
+					String time2="2011-3-10";
+					Date date1 = Date.valueOf(time1);
+					Date date2 = Date.valueOf(time2);
+					Date date3 = Date.valueOf(start);
+					Date date4 = Date.valueOf(end);
+
+					if(date3.before(date1)&&date4.after(date2)){
 			     Intent intent=new Intent();
 				/**
 	        	 * 从服务器上取得所需要时间段的数据
@@ -187,8 +195,19 @@ public class inventory extends Activity {
 				String[] arrResult=new String[result.size()];
 				for(int i=0;i<result.size();i++)
 				{   
+					System.out.println(result.get(i));
 					 arrResult[i]= result.get(i);
 				}
+				
+				if(result.size()==1){
+					System.out.println("记录为空！");
+					Intent btnok_intent = new Intent();
+	       		    btnok_intent.putExtra("flag", "失败提示");
+	       			btnok_intent.putExtra("info", "本账号没有记录");
+	       			btnok_intent.setClass(inventory.this,FailOk.class);
+	       			inventory.this.startActivity(btnok_intent);
+	       			return;
+				}else{
 				
 				/**
 				 * 
@@ -206,6 +225,15 @@ public class inventory extends Activity {
 				
 				intent.setClass(inventory.this, Inventorylist.class);
 				inventory.this.startActivity(intent);
+				}
+			   }else{
+				   
+				    Intent btnok_intent = new Intent();
+	       		    btnok_intent.putExtra("flag", "失败提示");
+	       			btnok_intent.putExtra("info", "本时间段没有记录");
+	       			btnok_intent.setClass(inventory.this,FailOk.class);
+	       			inventory.this.startActivity(btnok_intent);
+			   }
 			  }
 			    else{
 			    Intent btnok_intent = new Intent();
