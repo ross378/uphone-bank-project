@@ -76,7 +76,7 @@ public class AccountSevericeQuery {
 			System.out.println("str[2]="+str[2]);
 			
 			
-			List<String> list=AccountQueryManager.getInstance().getByTime("622202114", str[1],str[2]);
+			List<String> list=AccountQueryManager.getInstance().getByTime(str[0], str[1],str[2]);
 			for(String g: list )
 			{
 				System.out.println("023==="+g.toString());
@@ -91,7 +91,7 @@ public class AccountSevericeQuery {
 			System.out.println("str[1]="+str2[1]);
 			
 			
-			List<String> list2=AccountQueryManager.getInstance().getByTimeAcct(str2[0], str2[1]);
+			List<String> list2=AccountQueryManager.getInstance().getByTimeAcct("622202111", str2[1]);
 			for(String g: list2 )
 			{
 				System.out.println("023==="+g.toString());
@@ -117,53 +117,21 @@ public class AccountSevericeQuery {
 	
 	
 	
-//	/**
-//	 *加密
-//	 * 
-//	 * @param strMingWen
-//	 * @return
-//	 */
-//
-//	private String doEncode(List<String> lstMingWen) {
-//
-//		String listMiWe="";
-//			for (String value : lstMingWen) {
-//				listMiWe+=value+":";
-//			}
-//		
-//		return Base64.encode(listMiWe,"UTF-8");
-//	}
-//
-//	/**
-//	 * 将每个密文包装成JSON
-//	 * 
-//	 * @param lstValue
-//	 * @return
-//	 */
-//	
-//	private JSONObject wrapUp(String lstMiWen) {
-//		
-//		JSONObject wrapJsonObj = new JSONObject();
-//		try {
-//				wrapJsonObj.put("miwen", lstMiWen);
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return wrapJsonObj;
-//	}
+	/**
+	 *加密
+	 * 
+	 * @param strMingWen
+	 * @return
+	 */
 
-	
-	private List<String> doEncode(List<String> lstMingWen) {
+	private String doEncode(List<String> lstMingWen) {
 
-		List<String> lstMiWen = new ArrayList<String>();
-		if (lstMingWen.size() != 0) {
+		String listMiWe="";
 			for (String value : lstMingWen) {
-				lstMiWen.add(Base64.encode(value, "utf-8"));
+				listMiWe+=value+":";
 			}
-		}
-		return lstMiWen;
-
+		
+		return Base64.encode(listMiWe,"UTF-8");
 	}
 
 	/**
@@ -173,13 +141,11 @@ public class AccountSevericeQuery {
 	 * @return
 	 */
 	
-	private JSONObject wrapUp(List<String> lstMiWen) {
+	private JSONObject wrapUp(String lstMiWen) {
 		
 		JSONObject wrapJsonObj = new JSONObject();
 		try {
-			for (int i = 0; i < lstMiWen.size(); i++) {
-				wrapJsonObj.put("miwen"+i , lstMiWen.get(i));
-			}
+				wrapJsonObj.put("miwen", lstMiWen);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
