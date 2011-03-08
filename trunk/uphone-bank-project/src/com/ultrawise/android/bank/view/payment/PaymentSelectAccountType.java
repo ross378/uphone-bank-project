@@ -60,16 +60,7 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
 		
 		
 		TextView tvClassThird = (TextView)this.findViewById(R.id.class_third);
-		tvClassThird.setText("待缴费项目");
-		tvClassThird.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				Intent payment_intent = new Intent();
-				payment_intent.setClass(PaymentSelectAccountType.this, PaymentPend.class);
-				PaymentSelectAccountType.this.startActivity(payment_intent);	
-				
-			}
-		});
+		tvClassThird.setText("账户类型选择");
 		tvClassThird.setVisibility(View.VISIBLE);
 		
 		
@@ -95,10 +86,6 @@ public class PaymentSelectAccountType extends ListActivity {//自助缴费主页
         //接受上一个界面传来的缴费项目和金额
         Intent up_intent=getIntent();
       payName=up_intent.getStringExtra("pay_name");
-      if(up_intent.getStringExtra("crenesnum")==null){
-    	  
-    	  System.out.println("_+_+_+_+_+_+_+_+_+_+_+");
-      }
       payNum=up_intent.getStringExtra("pay_num");
 
         
