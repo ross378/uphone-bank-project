@@ -76,7 +76,7 @@ public class AccountSevericeQuery {
 			System.out.println("str[2]="+str[2]);
 			
 			
-			List<String> list=AccountQueryManager.getInstance().getByTime(str[0], str[1],str[2]);
+			List<String> list=AccountQueryManager.getInstance().getByTime("622202114", str[1],str[2]);
 			for(String g: list )
 			{
 				System.out.println("023==="+g.toString());
@@ -101,7 +101,7 @@ public class AccountSevericeQuery {
 		default:
 			List<String> lstStr = new ArrayList<String>();
 			lstStr.add("sorry");
-			return wrapUp(lstStr);
+			return wrapUp(doEncode(lstStr));
 		}
 	}
 
@@ -114,6 +114,45 @@ public class AccountSevericeQuery {
 	private String doDecode(String strMiWen) {
 		return Base64.decode(strMiWen, "utf-8");
 	}
+	
+	
+	
+//	/**
+//	 *加密
+//	 * 
+//	 * @param strMingWen
+//	 * @return
+//	 */
+//
+//	private String doEncode(List<String> lstMingWen) {
+//
+//		String listMiWe="";
+//			for (String value : lstMingWen) {
+//				listMiWe+=value+":";
+//			}
+//		
+//		return Base64.encode(listMiWe,"UTF-8");
+//	}
+//
+//	/**
+//	 * 将每个密文包装成JSON
+//	 * 
+//	 * @param lstValue
+//	 * @return
+//	 */
+//	
+//	private JSONObject wrapUp(String lstMiWen) {
+//		
+//		JSONObject wrapJsonObj = new JSONObject();
+//		try {
+//				wrapJsonObj.put("miwen", lstMiWen);
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return wrapJsonObj;
+//	}
+
 	
 	private List<String> doEncode(List<String> lstMingWen) {
 
@@ -133,6 +172,7 @@ public class AccountSevericeQuery {
 	 * @param lstValue
 	 * @return
 	 */
+	
 	private JSONObject wrapUp(List<String> lstMiWen) {
 		
 		JSONObject wrapJsonObj = new JSONObject();
