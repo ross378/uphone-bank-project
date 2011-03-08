@@ -7,8 +7,7 @@
 
 		<!-- 过渡页面 -->
 		<activity android:name="com.ultrawise.android.bank.view.BridgePage">
-		
-    	 	<intent-filter>
+		 	<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
@@ -415,6 +414,8 @@
 			android:name="com.ultrawise.android.bank.view.account_query.Inventorylist"></activity>
 	    <activity
 			android:name="com.ultrawise.android.bank.view.account_query.InventoryResult"></activity>
+		<activity
+			android:name="com.ultrawise.android.bank.view.account_query.FailOk" android:theme="@android:style/Theme.Dialog"></activity>
 	</application>
 	<uses-sdk android:minSdkVersion="7" />
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission> 
