@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Transfer>
-  <trans id="622202114" zhantype="转账">
+   <trans id="622202114" zhantype="转账">
     <date>2011-3-8</date>
 	<amount>1000,00</amount>
 	<name>李华</name>
@@ -8,6 +8,11 @@
 	<inidnum>421125198901112225</inidnum>
 	<tel>13951574663</tel>
 	<dic>朋友急需用钱，特此转账</dic>
+	<outsub>20110308120032906</outsub>
+    <inant>888888888888</inant>
+    <inphone>13437167700</inphone>
+    <outphone>15261500424</outphone>
+    <incity>无锡</incity>
   </trans>
    <trans id="622202114" zhantype="进账">
     <date>2011-3-9</date>
@@ -17,6 +22,11 @@
 	<inidnum>421125198901112227</inidnum>
 	<tel>13951574632</tel>
 	<dic>发工资</dic>
+    <outsub>20110308120032906</outsub>
+    <inant>888888888888</inant>
+	<inphone>13437167700</inphone>
+	<outphone>15261500424</outphone>
+	<incity>无锡</incity>
   </trans>
    <trans id="622202114" zhantype="汇款">
     <date>2011-3-10</date>
@@ -26,5 +36,10 @@
 	<inidnum>421125198901112229</inidnum>
 	<tel>13951574609</tel>
 	<dic>无</dic>
+	<outsub>20110308120032906</outsub>
+	<inant>888888888888</inant>
+	<inphone>13437167700</inphone>
+	<outphone>15261500424</outphone>
+	<incity>无锡</incity>
   </trans>
 </Transfer>
