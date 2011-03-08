@@ -48,6 +48,7 @@ public class PaymentSetTimeDialog extends Activity {
 				intent.putExtra(PaymentSetTimeDialog.this.name, time);
 				intent.setClass(PaymentSetTimeDialog.this, PaymentHistory.class);
 				PaymentSetTimeDialog.this.startActivity(intent);
+				System.exit(0);
 			}
 		});
 		time_cancel = (Button)findViewById(R.id.time_cancel);
@@ -57,6 +58,7 @@ public class PaymentSetTimeDialog extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(PaymentSetTimeDialog.this, PaymentHistory.class);
 				PaymentSetTimeDialog.this.startActivity(intent);
+				System.exit(0);
 			}
 		});
 	}
