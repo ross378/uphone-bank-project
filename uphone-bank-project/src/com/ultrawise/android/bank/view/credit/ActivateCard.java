@@ -131,7 +131,7 @@ public class ActivateCard extends Activity {
         
         //获得卡片有效期至输入框对象，并设置其鼠标单击事件监听
         creditEnabledDateText=(EditText)findViewById(R.id.creditEnabledDateEdit);
-        creditEnabledDateText.setOnClickListener(new CreditEnabledDateTextListener());
+      //  creditEnabledDateText.setOnClickListener(new CreditEnabledDateTextListener());
         //获得证件类型控件对象
         pakitSpinner=(Spinner)findViewById(R.id.pakitSpinner);
         //获得手机号码输入框对象
@@ -228,12 +228,12 @@ public class ActivateCard extends Activity {
 		}
 		
 	}
-	/**
+/*	*//**
 	 * 
 	 * 信用卡有效期输入框单击响应
-	 * 跳转到有效期选择对话框Activity-CreditEnabledDateActivity
+	 * 跳转到有效期选择对话框Activity-CreditInventoryResult
 	 *
-	 */
+	 *//*
 	class CreditEnabledDateTextListener implements OnClickListener{
 
 		public void onClick(View arg0) {
@@ -251,10 +251,10 @@ public class ActivateCard extends Activity {
 	    	intent.putExtra("pakitNo", pakitNo);
 	    	intent.putExtra("mobileNo", mobileNo);
 	    	intent.putExtra("phone", phone);
-			intent.setClass(ActivateCard.this,CreditEnabledDateActivity.class);
+			intent.setClass(ActivateCard.this,CreditInventoryResult.class);
 			ActivateCard.this.startActivity(intent);
 			
 		}
-		
-	}
+		*/
+	
 }

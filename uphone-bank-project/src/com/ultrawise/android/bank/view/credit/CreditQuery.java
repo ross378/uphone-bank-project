@@ -39,6 +39,7 @@ public class CreditQuery extends Activity {
  String accountpyte;
  String accountNo;
  String no;
+ int select;
  List<String> ll=new ArrayList<String>();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class CreditQuery extends Activity {
 		setContentView(R.layout.account_querypan);
 		 Intent receive_intent = getIntent();
 	        accountpyte = receive_intent.getStringExtra("accountpyte");
+	        select= Integer.parseInt(receive_intent.getStringExtra("select"));
 		// 跳转到主界面
 		tvClassFirst = (TextView) this.findViewById(R.id.class_first);
         tvClassFirst.setText("首页>信用卡>");
@@ -109,12 +111,30 @@ public class CreditQuery extends Activity {
 				no=spinner2.getSelectedItem().toString();
 				ll.clear();
 				ll.add(no);
+				if(select==1){
 				List<String> accuss=CreditClient.connectHttp(commit, ll);
 				Intent intent = new Intent();
 				intent.putExtra("type", type);
 				intent.putExtra("cardDetail", accuss.get(0));
 				intent.setClass(CreditQuery.this,AccountQueryBalancepan.class);
 				CreditQuery.this.startActivity(intent);
+				}else if(select==2)
+				{
+					no=spinner2.getSelectedItem().toString();
+					System.out.println("axc"+no);
+					Intent intent = new Intent();
+					intent.putExtra("cardNo", no);
+					intent.setClass(CreditQuery.this,CreditInventory.class);
+					CreditQuery.this.startActivity(intent);
+				}else
+				{
+					no=spinner2.getSelectedItem().toString();
+					System.out.println("axc"+no);
+					Intent intent = new Intent();
+					intent.putExtra("cardNo", no);
+					intent.setClass(CreditQuery.this,CreditInventory.class);
+					CreditQuery.this.startActivity(intent);
+				}
 			}
 		});
         String[] card=accountpyte.split(":");

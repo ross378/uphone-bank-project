@@ -126,15 +126,22 @@ public class CreditView extends ListActivity  {
 				List<String> accuss=CreditClient.connectHttp("410", ll);
 				Intent payment_intent = new Intent();
 				payment_intent.putExtra("accountpyte", accuss.get(0));
+				payment_intent.putExtra("select", "1");
 				payment_intent.setClass(CreditView.this, CreditQuery.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==1){//交易明细查看
+				List<String> accuss=CreditClient.connectHttp("410", ll);
 				Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, inventory.class);
+				payment_intent.putExtra("accountpyte", accuss.get(0));
+				payment_intent.putExtra("select", "2");
+				payment_intent.setClass(CreditView.this, CreditQuery.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==2){//帐户来帐查看
-			    Intent payment_intent = new Intent();
-				payment_intent.setClass(CreditView.this, AccountFrom.class);
+				List<String> accuss=CreditClient.connectHttp("410", ll);
+				Intent payment_intent = new Intent();
+				payment_intent.putExtra("accountpyte", accuss.get(0));
+				payment_intent.putExtra("select", "3");
+				payment_intent.setClass(CreditView.this, CreditQuery.class);
 				CreditView.this.startActivity(payment_intent);	
 			}
 			else if(id==3){//开卡
