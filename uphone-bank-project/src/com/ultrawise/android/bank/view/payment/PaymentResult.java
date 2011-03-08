@@ -38,6 +38,7 @@ public class PaymentResult extends Activity {
 				Intent transinfo_intent = new Intent();				
 	    		transinfo_intent.setClass(PaymentResult.this, PaymentMain.class);
 	    		startActivity(transinfo_intent);
+	    		PaymentResult.this.finish();
 			}
 	}
 }
