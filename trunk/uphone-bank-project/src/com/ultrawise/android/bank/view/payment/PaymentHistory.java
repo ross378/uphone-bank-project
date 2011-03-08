@@ -20,8 +20,8 @@ import android.widget.TextView;
 
 
 public class PaymentHistory extends Activity {
-	static String start_time = "2011-1-1";
-	static String end_time = "2011-1-31";
+	static String start_time = "2011-3-1";
+	static String end_time = "2011-3-31";
 	Button start_text = null;
 	Button end_text = null;
 	
