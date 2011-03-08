@@ -96,7 +96,7 @@ public class AccountQueryDetail extends ListActivity {
 			System.out.println(g+"=====================>>>>>>>");
 		}
 		txt_M=(EditText)findViewById(R.id.txt_M);
-		txt_M.setText(reslut[2].toString().trim()) ;  
+		txt_M.setText(reslut[7].toString().trim()) ;  
 		
 		
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
@@ -110,17 +110,17 @@ public class AccountQueryDetail extends ListActivity {
 	        
 	        
 	        acclist1.put("account_list", "来帐时间：");//"来帐时间："
-	        acclist1.put("account_list_info", reslut[4]);//"20110224"
+	        acclist1.put("account_list_info", reslut[1]);//"20110224"
 	        acclist2.put("account_list", "来帐类型：");
 	        acclist2.put("account_list_info", type);//"转账"
 	        acclist3.put("account_list", "来帐金额:");
-	        acclist3.put("account_list_info", reslut[3]);
+	        acclist3.put("account_list_info", reslut[0]);
 	        acclist4.put("account_list", "付款人姓名：");
-	        acclist4.put("account_list_info", reslut[6]);
+	        acclist4.put("account_list_info", reslut[3]);
 	        acclist5.put("account_list", "付款账号种类：");
-	        acclist5.put("account_list_info", reslut[5]);
+	        acclist5.put("account_list_info", reslut[2]);
 	        acclist6.put("account_list", "付款账号：");
-	        acclist6.put("account_list_info", reslut[0]);
+	        acclist6.put("account_list_info", reslut[4]);
 	        
 	        accoutList.add(acclist1);
 	        accoutList.add(acclist2);

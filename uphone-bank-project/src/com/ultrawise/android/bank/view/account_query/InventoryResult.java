@@ -102,11 +102,11 @@ public class InventoryResult extends ListActivity{
 	       // HashMap<String,String> acclist5 = new HashMap<String,String>();
 	               	        
 	        acclist1.put("account_list", "交易日期：");
-	        acclist1.put("account_list_info", reslut[4]);
+	        acclist1.put("account_list_info", reslut[1]);
 	        acclist2.put("account_list", "来帐账户：");
-	        acclist2.put("account_list_info", reslut[0]);
+	        acclist2.put("account_list_info", reslut[3]);
 	        acclist3.put("account_list", type);
-	        acclist3.put("account_list_info", reslut[3]);
+	        acclist3.put("account_list_info", reslut[0]);
 	        acclist4.put("account_list", "余额：");
 	        acclist4.put("account_list_info", "25000.00");
 	        
