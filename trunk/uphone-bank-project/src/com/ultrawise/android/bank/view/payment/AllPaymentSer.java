@@ -124,9 +124,9 @@ public class AllPaymentSer extends Activity {
 			ser_name1 = "手机";
 		} else {
 			if (ser.equals("2")) {
-			ser_name1 = "QQ";
+				ser_name1 = "QQ";
 			} else {
-			ser_name1 = "网易";
+				ser_name1 = "网易";
 			}
 
 		}
@@ -201,24 +201,31 @@ public class AllPaymentSer extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (AllPaymentSer.this.tv_ser_num.getText().toString() == "") {
+					
+					Intent btnok_intent = new Intent();
+        		    btnok_intent.putExtra("flag", "警告");
+        			btnok_intent.putExtra("info", "号码不能为空");
+        			btnok_intent.setClass(AllPaymentSer.this,PaymentFailResultOne.class);
+        			AllPaymentSer.this.startActivity(btnok_intent);
+				} else {
 
-				Intent pay_ser_intent = new Intent();
-				pay_ser_intent.putExtra("title", ser_name1);
-				pay_ser_intent.putExtra("service_num",
-						AllPaymentSer.this.tv_ser_num.getText().toString());
-				pay_ser_intent.putExtra("amount", Accspinner.getSelectedItem()
-						.toString());
-				pay_ser_intent.putExtra("inputed_peo", AccTypSpinner
-						.getSelectedItem().toString());
-				pay_ser_intent.putExtra("serialnum", "3652462");
-//				pay_ser_intent.putExtra("deadline", "无");
-				pay_ser_intent.setClass(AllPaymentSer.this,
-						PaymentSerDetail.class);
-				AllPaymentSer.this.startActivity(pay_ser_intent);
-
+					Intent pay_ser_intent = new Intent();
+					pay_ser_intent.putExtra("title", ser_name1);
+					pay_ser_intent.putExtra("service_num",
+							AllPaymentSer.this.tv_ser_num.getText().toString());
+					pay_ser_intent.putExtra("amount", Accspinner
+							.getSelectedItem().toString());
+					pay_ser_intent.putExtra("inputed_peo", AccTypSpinner
+							.getSelectedItem().toString());
+					pay_ser_intent.putExtra("serialnum", "#3652462");
+					// pay_ser_intent.putExtra("deadline", "无");
+					pay_ser_intent.setClass(AllPaymentSer.this,
+							PaymentSerDetail.class);
+					AllPaymentSer.this.startActivity(pay_ser_intent);
+				}
 			}
 		});
 
 	}
-
 }
