@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -81,14 +82,11 @@ public class AccountInfo2 extends ListActivity {
 					.getStringExtra(AccountInfoSelect.ACCOUNT_TYPE);
 			strAccountValue = intent.getStringExtra(AccountInfoSelect.ACCOUNT);
 
-			if (strAccountTypeValue != null && strAccountValue != null) {
-
-			} else {
-				// 进错页面了吧你
+			if (strAccountTypeValue == null && strAccountValue == null) {
+				// 进错了啦你
 				finish();
 			}
-		} else {
-			// 错误的进入此界面
+		}else{
 			finish();
 		}
 
@@ -98,6 +96,7 @@ public class AccountInfo2 extends ListActivity {
 		tvClassFirst.setVisibility(View.VISIBLE);
 		tvClassFirst.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				intent = new Intent();
 				intent.setClass(AccountInfo2.this, ABankMain.class);
 				AccountInfo2.this.startActivity(intent);
 			}
@@ -109,7 +108,7 @@ public class AccountInfo2 extends ListActivity {
 		tvClassSecond.setClickable(true);
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				intent = AccountInfo2.this.getIntent();
+				intent = new Intent();
 				intent.setClass(AccountInfo2.this, AccountManagementList.class);
 				AccountInfo2.this.startActivity(intent);
 
@@ -167,25 +166,19 @@ public class AccountInfo2 extends ListActivity {
 					}
 				});
 
-		// lvContent = (ListView) this.findViewById(R.id.accInfo_lv);
-		// TextView tvChiangeNickName = new TextView(this);
-		// tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
-		// tvChangeNickName.setText("我的储蓄卡在此");
-
+		List<String> lstOut = new ArrayList<String>();
+		lstOut.add(strAccountValue);
 		// 从服务器获取和此账号有关的信息
-		strCoin = "人民币";
-		strBalance = "¥3500";
-		strIsActive = "已激活";
-		strOpenAdd = "建设银行深圳市梅林支行";
-		strOpenDate = "2011/3/1";
-		strAccState = "预约换卡";
-		strNickName = "我的储蓄卡";
-		// ivOrderInfo.setText("预约换卡");
-		// btnChangeNickName.setText("我的储蓄卡");
+		List<String> lstIn = AccManaConWebservices.connectHttp(this, "0103", lstOut);
 
-		// ivNickName=(TextView)this.findViewById(R.id.accInfo_ivChangeNickName);
-		// ivNickName.setText("我的储蓄卡");
-
+		strNickName = lstIn.get(6);
+		strCoin = lstIn.get(15);
+		strBalance = lstIn.get(14);
+		strAccState = lstIn.get(7);
+		strIsActive = lstIn.get(13);
+		strOpenAdd = lstIn.get(5);
+		strOpenDate = lstIn.get(0);
+		
 		// 显示文本
 		// 生成内容
 		ArrayList<HashMap<String, String>> alContent = new ArrayList<HashMap<String, String>>();
@@ -201,36 +194,40 @@ public class AccountInfo2 extends ListActivity {
 		item01.put("name", "账号：");
 		item01.put("content", strAccountValue);
 		item01.put("check", "");
-		
+
 		item02.put("name", "账户别名：");
 		item02.put("content", strNickName);
 		item02.put("check", "");
-		
+
 		item03.put("name", "账户类型：");
 		item03.put("content", strAccountTypeValue);
 		item03.put("check", "");
-		
+
 		item04.put("name", "币种：");
 		item04.put("content", strCoin);
 		item04.put("check", "");
-		
+
 		item05.put("name", "余额：");
 		item05.put("content", strBalance);
 		item05.put("check", "");
-		
+
 		item06.put("name", "账户状态：");
 		item06.put("content", strAccState);
-		item06.put("check", CHECK);
+		if(strAccState.equals("预约换卡")){
+			item06.put("check", CHECK);	
+		}else{
+			item06.put("check", "");
+		}
 		
 		// item06.put("right", "点击查看详情");
 		item07.put("name", "是否激活");
 		item07.put("content", strIsActive);
 		item07.put("check", "");
-		
+
 		item08.put("name", "开户行：");
 		item08.put("content", strOpenAdd);
 		item08.put("check", "");
-		
+
 		item09.put("name", "开户日：");
 		item09.put("content", strOpenDate);
 		item09.put("check", "");
@@ -246,17 +243,10 @@ public class AccountInfo2 extends ListActivity {
 		alContent.add(item09);
 		// 适配器
 		MyAdapter lvAdapter = new MyAdapter(this, alContent,
-				R.layout.account_info_adapter,
-				new String[] { "name", "content" ,"check"}, new int[] {
-						R.id.accInfo_tvName, R.id.accInfo_tvInfo ,R.id.accInfo_ivCheck});
+				R.layout.account_info_adapter, new String[] { "name",
+						"content", "check" }, new int[] { R.id.accInfo_tvName,
+						R.id.accInfo_tvInfo, R.id.accInfo_ivCheck });
 		this.setListAdapter(lvAdapter);
-		// holder.tvChangeNickName.setBackgroundResource(R.drawable.accinfo_changename);
-
-		// RelativeLayout ll = (RelativeLayout) lvContent.getChildAt(0);// 获得子级
-		// TextView tvChangeName = (TextView) ll
-		// .findViewById(R.id.accInfo_tvChangeNickName);// 从子级中获得控件
-		// Button btnCheck = (Button) ll.findViewById(R.id.accInfo_ivCheck);
-		// tvChangeName.setOnClickListener(new BtnOnClickListener());
 
 	}
 
@@ -272,10 +262,12 @@ public class AccountInfo2 extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		if (id == 5) {
-			intent = new Intent();
-			intent.putExtra(ACCOUNT, strAccountValue);
-			intent.setClass(AccountInfo2.this, OrderShowInfo2.class);
-			AccountInfo2.this.startActivity(intent);
+			if(strAccState.equals("预约换卡")){
+				intent = new Intent();
+				intent.putExtra(ACCOUNT, strAccountValue);
+				intent.setClass(AccountInfo2.this, OrderShowInfo2.class);
+				AccountInfo2.this.startActivity(intent);
+			}	
 		}
 	}
 

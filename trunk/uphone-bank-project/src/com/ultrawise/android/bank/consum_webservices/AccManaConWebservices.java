@@ -3,12 +3,19 @@ package com.ultrawise.android.bank.consum_webservices;
 import it.sauronsoftware.base64.Base64;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -22,12 +29,21 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import com.ultrawise.android.bank.view.account_management.ActiveAccountSelect;
+
+import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 public class AccManaConWebservices {
 	private final static String TAG = "AccountManagement";
-	private final static String SERVICE_ADDRESS = "http://10.1.1.122:8080/webservices/amws/";
+	private final static String URL_PATH = "http://10.1.111.10:8080/webservices/amws/do";
 
 	/**
 	 * 连接服务器
@@ -37,29 +53,26 @@ public class AccManaConWebservices {
 	 * @param value参数
 	 * @return JSONArray 可以直接使用
 	 */
-	public static List<String> connectHttp(String funNo, List<String> value) {
+	public static List<String> connectHttp(Activity activity, String funNo,
+			List<String> value) {
 		String result = "error";
 		List<String> lstValue = new ArrayList<String>();
+
 		// apache 方法
 		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httppost = new HttpPost(SERVICE_ADDRESS);
+		HttpPost httppost = new HttpPost(URL_PATH);
 		// 使用NameValuePair来保存要传递的Post参数
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		// 添加要传递的参数
 		params.add(new BasicNameValuePair("value", setParams(funNo, value)));
 		HttpEntity httpentity;
+		HttpResponse response;
 		try {
 			// 设置字符集
 			httpentity = new UrlEncodedFormEntity(params, "utf-8");
 			httppost.setEntity(httpentity);
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		HttpResponse response;
-		try {
-
 			response = httpclient.execute(httppost);
+			System.out.println();
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
 				InputStream instream = entity.getContent();
@@ -67,9 +80,13 @@ public class AccManaConWebservices {
 				lstValue = doDecode(parseJSON(result));// 解密和解析JSON;
 				instream.close();
 			}
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			Toast.makeText(activity, "服务器未连接", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
 		} finally {
 			httppost.abort();
@@ -89,9 +106,11 @@ public class AccManaConWebservices {
 	 */
 	private static String setParams(String funNo, List<String> value) {
 		String params = funNo;
-		if (value.size() != 0) {
-			for (int i = 0; i < value.size(); i++) {
-				params += ":" + value.get(i);
+		if (value != null) {
+			if (value.size() != 0) {
+				for (int i = 0; i < value.size(); i++) {
+					params += ":" + value.get(i);
+				}
 			}
 		}
 		return doEncode(params);
@@ -106,21 +125,22 @@ public class AccManaConWebservices {
 	 */
 	private static List<String> parseJSON(String value) {
 		List<String> lstValue = new ArrayList<String>();
-		try {
-			// Parsing
-			JSONObject json = new JSONObject(value);
-			JSONArray nameArray = json.names();
-			JSONArray valArray = json.toJSONArray(nameArray);
-			for (int i = 0; i < valArray.length(); i++) {
-				lstValue.add(valArray.getString(i));
+		if (!value.equals("") || value == null) {
+			try {
+				// Parsing
+				JSONObject json = new JSONObject(value);
+				JSONArray nameArray = json.names();
+				JSONArray valArray = json.toJSONArray(nameArray);
+				if (valArray != null) {
+					for (int i = 0; i < valArray.length(); i++) {
+						lstValue.add(valArray.getString(i));
+					}
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				Log.e(TAG, "============parse JSON error==========");
 			}
-
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Log.e(TAG, "============parse JSON error==========");
-		} finally {
-			Log.e(TAG, "============parse JSON done==========");
 		}
 		return lstValue;
 	}
@@ -182,5 +202,59 @@ public class AccManaConWebservices {
 			Log.e(TAG, "===========doDecode lstMiWen size == 0===============");
 		}
 		return lstMingWen;
+	}
+
+	/**
+	 * 暂不实现
+	 * 
+	 * @author hosolo
+	 * @param activity
+	 * @return
+	 */
+	public static String readUrl(Activity activity) {
+		String urlPath = "";
+		String filePath = activity.getFilesDir().getPath();
+		Log.v(TAG, "===============" + filePath);
+		try {
+			String path = "";
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(path + "/url.txt"), "utf-8"));
+			String line;
+			StringBuffer data = new StringBuffer();
+			while ((line = br.readLine()) != null) {
+				data.append(line + "\n");
+			}
+			ByteArrayInputStream stream = new ByteArrayInputStream(data
+					.toString().getBytes("utf-8"));
+
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document doc = db.parse(stream);
+			NodeList nl = doc.getElementsByTagName("url");// 获取url节点
+			for (int i = 0; i < nl.getLength(); i++) {
+				Node node = nl.item(i);// 获取节点的值
+				NamedNodeMap nnm = node.getAttributes();
+				node = nnm.getNamedItem("id");
+				String funNo = node.getNodeValue();// 获取url属性id的值（即功能号）
+				if (funNo.equals("01")) {
+					urlPath = node.getTextContent();
+				}
+			}
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return urlPath;
 	}
 }

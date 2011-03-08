@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.account_management.ActiveAccountSelect.SpinnerSelectedListener;
@@ -63,10 +67,9 @@ public class OrderCardSelect extends Activity {
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accOrder_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
-		String[] accTypeArray = this.getResources().getStringArray(
-				R.array.accinfo_accType);
 		adapterType = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accTypeArray);
+				android.R.layout.simple_spinner_item,
+				AccManaConWebservices.connectHttp(this, "0101", null));
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -77,24 +80,22 @@ public class OrderCardSelect extends Activity {
 
 		spnrSelectAcc = (Spinner) this
 				.findViewById(R.id.accOrder_SpnrSelectAcc);
-		String[] accArray = this.getResources().getStringArray(
-				R.array.accinfo_acc);
 		adapterAcc = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, accArray);
+				android.R.layout.simple_spinner_item);
 		adapterAcc
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spnrSelectAcc.setAdapter(adapterAcc);
 		spnrSelectAcc.setOnItemSelectedListener(new SpinnerSelectedListener());
 		spnrSelectAcc.setClickable(false);
 
-		// 获取账户类型和账户号
-		accountTypeValue = spnrSelectTpye.getSelectedItem().toString();
-		accountValue = spnrSelectAcc.getSelectedItem().toString();
 		// 按钮 激活
 		btnNext = (Button) this.findViewById(R.id.accOrder_btnNextTo2);
 		btnNext.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				// 获取账户类型和账户号
+				accountTypeValue = spnrSelectTpye.getSelectedItem().toString();
+				accountValue = spnrSelectAcc.getSelectedItem().toString();
 				// TODO 跳转至选择换卡原因和换卡网点的页面
 				intent = new Intent();
 				intent.putExtra(OrderCardSelect.ACCOUNT_TYPE, accountTypeValue);
@@ -138,7 +139,8 @@ public class OrderCardSelect extends Activity {
 		tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, AccountManagementList.class);
+				intent.setClass(OrderCardSelect.this,
+						AccountManagementList.class);
 				OrderCardSelect.this.startActivity(intent);
 
 			}
@@ -157,7 +159,7 @@ public class OrderCardSelect extends Activity {
 				finish();
 			}
 		});
-		
+
 		// 底部按钮设置
 		btnMain = (ImageView) this.findViewById(R.id.btnMain);
 		btnMain.setOnClickListener(new OnClickListener() {
@@ -176,7 +178,8 @@ public class OrderCardSelect extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				intent = new Intent();
-				intent.setClass(OrderCardSelect.this, FinancialConsultation.class);
+				intent.setClass(OrderCardSelect.this,
+						FinancialConsultation.class);
 				OrderCardSelect.this.startActivity(intent);
 			}
 		});
@@ -190,11 +193,28 @@ public class OrderCardSelect extends Activity {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
 			case R.id.accOrder_SpnrSelectType:
-				spnrSelectTpye.setSelection(position);
-				spnrSelectAcc.setClickable(true);
+				String accTypeName = spnrSelectTpye.getSelectedItem()
+						.toString();
+				List<String> lstOut = new ArrayList<String>();
+				lstOut.clear();
+				// lstOut.add(UserLogin.userNO);// 用户号
+				lstOut.add("Sun01");
+				lstOut.add(accTypeName);
+				List<String> lstAcc = AccManaConWebservices.connectHttp(
+						OrderCardSelect.this, "0113", lstOut);// 从服务器获取账户
+				adapterAcc.clear();
+				if (lstAcc.size() != 0) {
+					for (String s : lstAcc) {
+						adapterAcc.add(s);
+					}
+					spnrSelectAcc.setClickable(true);
+				} else {
+					spnrSelectAcc.setClickable(false);
+				}
+				spnrSelectAcc.setAdapter(adapterAcc);
 				break;
 			case R.id.accOrder_SpnrSelectAcc:
-				spnrSelectAcc.setSelection(position);
+
 				break;
 			}
 			switch (view.getId()) {

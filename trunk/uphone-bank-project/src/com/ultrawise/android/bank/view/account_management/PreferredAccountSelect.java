@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -14,7 +18,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,8 +43,9 @@ public class PreferredAccountSelect extends Activity {
 	protected Intent intent;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-	private TextView tvPreAccClick;
-	private String[] array;
+	private Spinner tvPreAccClick;
+	private List<String> array;
+	private ArrayAdapter<String> adapterType;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,83 +54,154 @@ public class PreferredAccountSelect extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
 		setContentView(R.layout.account_preferred_select);
 
-		// 从服务器获取账号
-		array = getResources().getStringArray(R.array.accinfo_acc);
+		List<String> lstOut = new ArrayList<String>();
+		// lstOut.add(UserLogin.userNO);
+		// 用户号
+		lstOut.add("Sun01");
+		tvPreAccClick = (Spinner) this.findViewById(R.id.accPre_tvPreAccClick);
+		adapterType = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item,
+				AccManaConWebservices.connectHttp(PreferredAccountSelect.this,
+						"0116", lstOut));
+		// 设置下拉列表的风格
+		adapterType
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// 将adapter 添加到spinner中
+		tvPreAccClick.setAdapter(adapterType);
+		// 添加事件Spinner事件监听
+		tvPreAccClick.setOnItemSelectedListener(new OnItemSelectedListener() {
 
-		tvPreAccClick = (TextView) this.findViewById(R.id.accPre_tvPreAccClick);
-		tvPreAccClick.setText("123****0239");
-		tvPreAccClick.setClickable(true);
-		tvPreAccClick.setOnClickListener(new OnClickListener() {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				List<String> lstOut = new ArrayList<String>();
+				// lstOut.add(UserLogin.userNO);
+				// 用户号
+				lstOut.add("Sun01");
+				lstOut.add(tvPreAccClick.getSelectedItem().toString());
+				List<String> lstIn = AccManaConWebservices.connectHttp(
+						PreferredAccountSelect.this, "0115", lstOut);
+				if (lstIn.get(0).equals("true"))
+					flag = true;
+				else
+					flag = false;
+				if (flag == true) {
+					Toast.makeText(PreferredAccountSelect.this, "设置首选成功",
+							Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(PreferredAccountSelect.this, "设置首选不成功",
+							Toast.LENGTH_SHORT).show();
+				}
+			}
 
-			public void onClick(View v) {
-
-				// 弹出list对话框
-				new AlertDialog.Builder(PreferredAccountSelect.this)
-						.setTitle("请选择要设置为首选的账户")
-						.setItems(R.array.accinfo_acc,
-								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog,
-											int which) {
-										// TODO 设置当前所选的账户
-										strPreAcc = array[which];
-										// 弹出对话框
-										new AlertDialog.Builder(
-												PreferredAccountSelect.this)
-												.setTitle("确认对话框")
-												.setMessage(array[which])
-												.setPositiveButton(
-														"确认",
-														new DialogInterface.OnClickListener() {
-															public void onClick(
-																	DialogInterface dialog,
-																	int which) {
-																// TODO 连接服务器
-
-																if (flag == true) {
-																	tvPreAccClick
-																			.setText(strPreAcc);
-																	Toast.makeText(
-																			PreferredAccountSelect.this,
-																			"设置首选成功",
-																			Toast.LENGTH_SHORT)
-																			.show();
-
-																} else {
-																	// 如果设置出错
-																	Toast.makeText(
-																			PreferredAccountSelect.this,
-																			"设置首选出错，未成功",
-																			Toast.LENGTH_SHORT)
-																			.show();
-																}
-																dialog.dismiss();
-																//finish();
-															}
-														})
-												.setNegativeButton(
-														"取消",
-														new DialogInterface.OnClickListener() {
-
-															public void onClick(
-																	DialogInterface dialog,
-																	int which) {
-																dialog.dismiss();
-															}
-														}).show();
-									}
-								})
-						.setNegativeButton("取消",
-								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog,
-											int which) {
-
-										dialog.dismiss();
-									}
-								}).show();
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
 
 			}
 
 		});
+		// 首选
+		// AccManaConWebservices.connectHttp(PreferredAccountSelect.this,
+		// "0114",
+		// lstOut).get(0);
+
+		// tvPreAccClick.setOnClickListener(new OnClickListener() {
+		//
+		// public void onClick(View v) {
+		// // 从服务器获取账号
+		// List<String> lstOut = new ArrayList<String>();
+		// // lstOut.add(UserLogin.userNO);
+		// // 用户号
+		// lstOut.add("Sun01");
+		// List<String> preAcc = AccManaConWebservices.connectHttp(
+		// PreferredAccountSelect.this, "0116", lstOut);
+		// array = preAcc;
+		// String[] array2 = new String[1];
+		// for (int i = 0; i < preAcc.size(); i++) {
+		// array2[i] = preAcc.get(i);
+		// }
+		// // 弹出list对话框
+		// new AlertDialog.Builder(PreferredAccountSelect.this)
+		// .setTitle("请选择要设置为首选的账户")
+		// .setItems(array2,
+		// new DialogInterface.OnClickListener() {
+		// public void onClick(DialogInterface dialog,
+		// int which) {
+		// // TODO 设置当前所选的账户
+		// strPreAcc = array.get(which);
+		// // 弹出对话框
+		// new AlertDialog.Builder(
+		// PreferredAccountSelect.this)
+		// .setTitle("确认对话框")
+		// .setMessage(array.get(which))
+		// .setPositiveButton(
+		// "确认",
+		// new DialogInterface.OnClickListener() {
+		// public void onClick(
+		// DialogInterface dialog,
+		// int which) {
+		// // TODO 连接服务器
+		// List<String> lstOut = new ArrayList<String>();
+		// // lstOut.add(UserLogin.userNO);
+		// // 用户号
+		// lstOut.add("Sun01");
+		// lstOut.add(array
+		// .get(which));
+		// List<String> lstIn = AccManaConWebservices
+		// .connectHttp(
+		// PreferredAccountSelect.this,
+		// "0115",
+		// lstOut);
+		// if (lstIn
+		// .get(0)
+		// .equals("true"))
+		// flag = true;
+		// else
+		// flag = false;
+		// if (flag == true) {
+		//
+		// Toast.makeText(
+		// PreferredAccountSelect.this,
+		// "设置首选成功",
+		// Toast.LENGTH_SHORT)
+		// .show();
+		//
+		// } else {
+		// // 如果设置出错
+		// Toast.makeText(
+		// PreferredAccountSelect.this,
+		// "设置首选出错，未成功",
+		// Toast.LENGTH_SHORT)
+		// .show();
+		// }
+		// dialog.dismiss();
+		// // finish();
+		// }
+		// })
+		// .setNegativeButton(
+		// "取消",
+		// new DialogInterface.OnClickListener() {
+		//
+		// public void onClick(
+		// DialogInterface dialog,
+		// int which) {
+		// dialog.dismiss();
+		// }
+		// }).show();
+		// }
+		// })
+		// .setNegativeButton("取消",
+		// new DialogInterface.OnClickListener() {
+		// public void onClick(DialogInterface dialog,
+		// int which) {
+		//
+		// dialog.dismiss();
+		// }
+		// }).show();
+		//
+		// }
+		//
+		// });
 
 		// 向右滑动触发后退
 		mGestureDetector = new GestureDetector(this,
@@ -196,7 +276,6 @@ public class PreferredAccountSelect extends Activity {
 				PreferredAccountSelect.this.startActivity(intent);
 			}
 		});
-		
 
 	}
 

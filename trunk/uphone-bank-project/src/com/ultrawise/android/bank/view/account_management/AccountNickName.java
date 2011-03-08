@@ -1,5 +1,9 @@
 package com.ultrawise.android.bank.view.account_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -33,6 +37,9 @@ public class AccountNickName extends Activity {
 	private TextView tvClassThrid;
 	private ImageView btnMain;
 	private ImageView btnHelper;
+	// 和服务器连接有关
+	private AccManaConWebservices amConWebservice = new AccManaConWebservices();
+	private List<String> lstOut = new ArrayList<String>();// 专门用来放需要传输的数据
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +73,8 @@ public class AccountNickName extends Activity {
 
 									public void onClick(DialogInterface dialog,
 											int which) {
-										tvAccNickClick.setText(et.getText().toString());
+										tvAccNickClick.setText(et.getText()
+												.toString());
 										Toast.makeText(AccountNickName.this,
 												"设置成功", Toast.LENGTH_SHORT)
 												.show();
