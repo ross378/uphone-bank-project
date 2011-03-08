@@ -23,6 +23,7 @@
 	android:id="@+id/tv_payhis_ckst"
 	android:layout_width="wrap_content"
 	android:layout_height="35dip"
+	android:gravity="center_vertical"
 	android:text="@string/pay_chstart"
 	android:textSize="18dip"
 	android:textColor="#000000"
@@ -41,11 +42,13 @@
 	android:id="@+id/tv_payhis_ckstart"
 	android:layout_width="wrap_content"
 	android:layout_height="35dip"
+	android:gravity="center_vertical"
+	android:layout_gravity="center_vertical"
 	android:text="开始日期："
 	android:textSize="18dip"
 	android:textColor="#000000"
 	android:paddingLeft="20dip"
-	android:layout_gravity="center_vertical"
+	
 	/>
 	<TextView
 	android:layout_width="fill_parent"
@@ -54,8 +57,8 @@
 	/>
 	<Button
 	android:id="@+id/start_text"
-	android:layout_width="180dip"
-	android:layout_height="40dip"
+	android:layout_width="220dip"
+	android:layout_height="35dip"
 	android:textSize="18dip"
 	android:layout_gravity="center_horizontal"
 	android:layout_marginTop="2dip"
@@ -77,6 +80,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="35dip"
 	android:text="结束日期："
+	android:gravity="center_vertical"
 	android:textSize="18dip"
 	android:textColor="#000000"
 	android:paddingLeft="20dip"
@@ -89,8 +93,8 @@
 	/>
 	<Button 
 	android:id="@+id/end_text"
-	android:layout_width="180dip"
-	android:layout_height="40dip"
+	android:layout_width="220dip"
+	android:layout_height="35dip"
 	android:textSize="18dip"
 	android:background="@drawable/selection"
 	android:layout_gravity="center_horizontal"
