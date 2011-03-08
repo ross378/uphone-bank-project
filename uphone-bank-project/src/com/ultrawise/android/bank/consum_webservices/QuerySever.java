@@ -76,11 +76,8 @@ public class QuerySever{
         			if (entity != null) {
         				InputStream instream = entity.getContent();
         				String result = convertStreamToString(instream);//将服务器返回的流转换为字符串
-        				//服务器返回的密文JSON
-        				List<String> listMi=parseJSON(result);
-        				//解析为明文
-        				ListMing=doDecode(listMi);
-        				
+        				//服务器返回的密文JSON：→解析JSON  →转换 为明文     ←返回明文ListMing
+        				ListMing=parseJSON(result);
         				instream.close();
         			}
         		} catch (ClientProtocolException e) {
@@ -123,19 +120,25 @@ public class QuerySever{
         	 * @param value
         	 * @return 解析完的数据是密文数据
         	 */
-        	private static List<String> parseJSON(String value) {
+        	
+        	
+        	
+           	private static List<String> parseJSON(String value) {
         		List<String> lstValue = new ArrayList<String>();
         		try {
         			// Parsing
         			JSONObject json = new JSONObject(value);
         			JSONArray nameArray = json.names();
+        			JSONArray valArray = json.toJSONArray(nameArray);
+        			String strMiWen=valArray.getString(0);//得到密文字符串strMiWen
         			
-        			for (int i = 0; i < nameArray.length(); i++) {
-        			
-        				lstValue.add(json.get(nameArray.getString(i)).toString());
-        				//System.out.println(json.get(nameArray.getString(i)).toString()+"888888");
+        			String strMingWen=Base64.decode(strMiWen,"UTF-8");//解析为明文
+        			String[] strArr=strMingWen.split(":");
+        			for(int i=0;i<strArr.length;i++)
+        			{
+        				lstValue.add(strArr[i]);
+        				System.out.println("客户端解析后的明文"+strArr[i]);
         			}
-
         		} catch (JSONException e) {
         			// TODO Auto-generated catch block
         			e.printStackTrace();
@@ -171,21 +174,4 @@ public class QuerySever{
         		}
         		return sb.toString();
         	}
-        	
-        /**
-       	 * 解密
-       	 * 
-       	 * @param lstMiWen
-       	 * @return 明文
-       	 */
-       	public static List<String> doDecode(List<String> lstMiWen) {
-       		List<String> lstMingWen = new ArrayList<String>();
-       		if (lstMiWen.size() != 0) {
-       			for (String value : lstMiWen) {
-       				lstMingWen.add(Base64.decode(value,"utf-8"));// 解密
-       			}
-       		} else {
-       		}
-       		return lstMingWen;
-       	}
    }

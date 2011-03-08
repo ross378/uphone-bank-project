@@ -66,9 +66,22 @@ public class AccountQueryBalance extends ListActivity {
 	        tvClassSecond.setText("账户查询>");
 	        tvClassSecond.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					 Intent intent = new Intent();
-					 intent = AccountQueryBalance.this.getIntent();
-					 intent.setClass(AccountQueryBalance.this, AccountQueryType.class);
+					Intent intent=new Intent();
+					/**
+		        	 * 从服务器上取得所需要的数据
+		        	 * @author gsm
+		        	 * @param 功能号 021
+		        	 * @return 返回卡的类型
+		        	 */
+					List<String> result=QuerySever.connectHttp("021", null);
+					String[] arrResult=new String[result.size()];
+					for(int i=0;i<result.size();i++)
+					{   
+						 arrResult[i]= result.get(i);
+					}
+					intent.putExtra("result", arrResult);
+					
+					 intent.setClass(AccountQueryBalance.this, AccountQuery.class);
 					 AccountQueryBalance.this.startActivity(intent);
 				}
 			});
@@ -104,12 +117,11 @@ public class AccountQueryBalance extends ListActivity {
 			System.out.println("023---023---023==="+result.get(i));	
 			}
 	        
-	        
-	        String RenBi=result.get(12).toString().trim();
-	        String YuE=result.get(11).toString().trim();
-	        String Time=result.get(13).toString().trim();
-	        String Mouth=result.get(14).toString().trim();
-	        String LiL=result.get(15).toString().trim();
+	        String YuE=result.get(4).toString().trim();
+	        String RenBi=result.get(5).toString().trim();
+	        String Time=result.get(6).toString().trim();
+	        String Mouth=result.get(7).toString().trim();
+	        String LiL=result.get(8).toString().trim();
 	        
 	        
 	        

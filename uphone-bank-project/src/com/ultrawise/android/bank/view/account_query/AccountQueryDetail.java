@@ -2,6 +2,7 @@ package com.ultrawise.android.bank.view.account_query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.ultrawise.android.bank.consum_webservices.QuerySever;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.payment.PaymentDefAcc;
 import com.ultrawise.android.bank.view.payment.PaymentHistory;
@@ -53,10 +55,31 @@ public class AccountQueryDetail extends ListActivity {
         tvClassSecond.setText("账户查询>");
         tvClassSecond.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				 Intent intent=new Intent();
-				 intent = AccountQueryDetail.this.getIntent();
-				 intent.setClass(AccountQueryDetail.this, AccountQuery.class);
-				 startActivity(intent);
+				Intent intent=new Intent();
+				
+				/**
+	        	 * 从服务器上取得所需要的数据
+	        	 * 
+	        	 * @author gsm
+	        	 * @param 功能号
+	        	 * @return 返回卡的类型
+	        	 */
+				List<String> result=QuerySever.connectHttp("021", null);
+				for(String g:result)
+				{
+				System.out.println("服务器上取得所需要的数据-明文======"+g.toString());	
+				}
+				
+				
+				String[] arrResult=new String[result.size()];
+				for(int i=0;i<result.size();i++)
+				{   
+					 arrResult[i]= result.get(i);
+				}
+				intent.putExtra("result", arrResult);
+				
+				intent.setClass(AccountQueryDetail.this,AccountQuery.class);
+				AccountQueryDetail.this.startActivity(intent);
 			}
 		});
         tvClassSecond.setVisibility(View.VISIBLE);
@@ -96,7 +119,7 @@ public class AccountQueryDetail extends ListActivity {
 			System.out.println(g+"=====================>>>>>>>");
 		}
 		txt_M=(EditText)findViewById(R.id.txt_M);
-		txt_M.setText(reslut[7].toString().trim()) ;  
+		txt_M.setText(reslut[6].toString().trim()) ;  
 		
 		
 	        ArrayList<HashMap<String,String>> accoutList = new ArrayList<HashMap<String,String>>();
@@ -110,15 +133,15 @@ public class AccountQueryDetail extends ListActivity {
 	        
 	        
 	        acclist1.put("account_list", "来帐时间：");//"来帐时间："
-	        acclist1.put("account_list_info", reslut[1]);//"20110224"
+	        acclist1.put("account_list_info", reslut[0]);//"20110224"
 	        acclist2.put("account_list", "来帐类型：");
 	        acclist2.put("account_list_info", type);//"转账"
 	        acclist3.put("account_list", "来帐金额:");
-	        acclist3.put("account_list_info", reslut[0]);
+	        acclist3.put("account_list_info", reslut[1]);
 	        acclist4.put("account_list", "付款人姓名：");
-	        acclist4.put("account_list_info", reslut[3]);
+	        acclist4.put("account_list_info", reslut[2]);
 	        acclist5.put("account_list", "付款账号种类：");
-	        acclist5.put("account_list_info", reslut[2]);
+	        acclist5.put("account_list_info", reslut[3]);
 	        acclist6.put("account_list", "付款账号：");
 	        acclist6.put("account_list_info", reslut[4]);
 	        

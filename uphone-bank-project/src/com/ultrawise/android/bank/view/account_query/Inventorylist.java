@@ -125,15 +125,15 @@ public class Inventorylist extends ListActivity{
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
 	        String data="";
-	        acclist1.put("txtView1",reslut[2]);
+	        acclist1.put("txtView1",reslut[1]);
 	        acclist1.put("txtView2", "支出");
 	        acclist1.put("txtView3",R.drawable.account2);
 	        
-	        acclist2.put("txtView1",reslut[4]);
+	        acclist2.put("txtView1",reslut[3]);
 	        acclist2.put("txtView2", "收入");
 	        acclist2.put("txtView3", R.drawable.account2);
 	        
-	        acclist3.put("txtView1",reslut[1]);
+	        acclist3.put("txtView1",reslut[5]);
 	        acclist3.put("txtView2", "支出");
 	        acclist3.put("txtView3",R.drawable.account2);
 	        

@@ -129,16 +129,16 @@ public class AccountQueryEinnahme extends ListActivity {
 	        HashMap<String,Object> acclist3 = new HashMap<String,Object>();
 	        
 	        String data="";
-	        acclist1.put("txtView1",reslut[2]);//转账
-	        acclist1.put("txtView2",reslut[3]);
+	        acclist1.put("txtView1",reslut[1]);//转账
+	        acclist1.put("txtView2",reslut[0]);
 	        acclist1.put("txtView3",R.drawable.account2);
 	        
-	        acclist2.put("txtView1",reslut[4]);//进账
-	        acclist2.put("txtView2", reslut[5]);
+	        acclist2.put("txtView1",reslut[3]);//进账
+	        acclist2.put("txtView2", reslut[2]);
 	        acclist2.put("txtView3", R.drawable.account2);
 	        
-	        acclist3.put("txtView1",reslut[1]);//汇款
-	        acclist3.put("txtView2", reslut[0]);
+	        acclist3.put("txtView1",reslut[5]);//汇款
+	        acclist3.put("txtView2", reslut[4]);
 	        acclist3.put("txtView3",R.drawable.account2);
 	        
 	        accoutList.add(acclist1);
