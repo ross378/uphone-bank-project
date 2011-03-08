@@ -10,5 +10,5 @@ public interface IAccountLoss {
 	 * @param unlossAccount
 	 * @return true/false
 	 */
-	public String setLoss(String unlossAccount);
+	public boolean setLoss(String unlossAccount);
 }

@@ -5,7 +5,8 @@ import java.util.List;
 import org.codehaus.jettison.json.JSONObject;
 
 public interface IAll {
-	public final static String USER_NO="userno";
+	public final static String USER_NO = "userno";
+
 	/**
 	 * 获取用户号
 	 * 
@@ -29,7 +30,7 @@ public interface IAll {
 	 * @param accType
 	 * @return array account
 	 */
-	public String[] getBindAcc(String UserNo, String accType);
+	public List<String> getBindAcc(String UserNo, String accType);
 
 	/**
 	 * 获取已经绑定的账户别名
@@ -41,18 +42,18 @@ public interface IAll {
 	public String getNickName(String account);
 
 	/**
-	 * 获取网点地址
-	 * 
-	 * @author hosolo
-	 * @return array net
-	 */
-	public String[] getNet();
-
-	/**
-	 * 获取工本费用
+	 * 获取挂失工本费用
 	 * 
 	 * @author hosolo
 	 * @return cost
 	 */
-	public String getCost();
+	public String getLossCost();
+
+	/**
+	 * 获取预约工本费
+	 * 
+	 * @author hosolo
+	 * @return
+	 */
+	public String getOrderCost();
 }

@@ -11,6 +11,6 @@ public interface IAccountDel {
 	 * @param bindAccount
 	 * @return true/false
 	 */
-	public String deleteAccount(String bindAccount);
+	public boolean deleteAccount(String bindAccount);
 
 }
