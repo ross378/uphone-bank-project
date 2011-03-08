@@ -35,6 +35,7 @@ android:orientation = "vertical"
 		android:layout_marginLeft = "50px"
 		android:textColor = "#000000"
 		android:textSize = "24px"
+		android:gravity = "center_vertical"
 		android:text = "短期贷款"			
 		>
 	</TextView>
@@ -58,6 +59,7 @@ android:orientation = "vertical"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "80px"
 		android:text = "六个月以内（含六个月）"
+		android:gravity = "center_vertical"
 		android:textColor = "#000000"
 		android:textSize = "22px">
 	</TextView>
@@ -67,6 +69,7 @@ android:orientation = "vertical"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "30px"
 		android:textColor = "#000000"
+		android:gravity = "center_vertical"
 		android:text = "0.81%"
 		android:textSize = "22px">
 	</TextView>
@@ -87,6 +90,7 @@ android:orientation = "vertical"
 		android:layout_marginLeft = "80px"
 		android:textColor = "#000000"
 		android:text = "六个月至一年（含一年）"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
@@ -95,6 +99,7 @@ android:orientation = "vertical"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "30px"
 		android:textColor = "#000000"
+		android:gravity = "center_vertical"
 		android:text = "1.35%"
 		android:textSize = "22px">
 	</TextView>
@@ -120,6 +125,7 @@ android:orientation = "vertical"
 		android:layout_marginLeft = "50px"
 		android:textColor = "#000000"
 		android:textSize = "24px"
+		android:gravity = "center_vertical"
 		android:text = "中长期贷款"			
 		>
 	</TextView>
@@ -143,6 +149,7 @@ android:orientation = "vertical"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "80px"
 		android:text = "一年至三年（含三年）"
+		android:gravity = "center_vertical"
 		android:textColor = "#000000"
 		android:textSize = "22px">
 	</TextView>
@@ -152,6 +159,7 @@ android:orientation = "vertical"
 		android:layout_height = "40px"
 		android:layout_marginLeft = "45px"
 		android:textColor = "#000000"
+		android:gravity = "center_vertical"
 		android:text = "0.81%"
 		android:textSize = "22px">
 	</TextView>
@@ -172,6 +180,7 @@ android:orientation = "vertical"
 		android:layout_marginLeft = "80px"
 		android:textColor = "#000000"
 		android:text = "三年至五年（含五年）"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	<TextView
@@ -181,6 +190,7 @@ android:orientation = "vertical"
 		android:layout_marginLeft = "45px"
 		android:textColor = "#000000"
 		android:text = "1.35%"
+		android:gravity = "center_vertical"
 		android:textSize = "22px">
 	</TextView>
 	</LinearLayout>
