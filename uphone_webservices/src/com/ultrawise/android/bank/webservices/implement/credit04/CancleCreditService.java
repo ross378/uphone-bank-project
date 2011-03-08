@@ -32,6 +32,7 @@ public class CancleCreditService {
 	private final static int SearchPyte=410;//获取帐号类型
 	private final static int SearchNo=411;//获取帐号
 	private final static int CardDetail=412;//获取帐号信息
+	private final static int CardJiaoyi=420;//交易明细查看
 	private final static int BindCardNO=460;//绑定信用卡查询
 	private final static int PayDetail=461;//还款信息
 
@@ -73,8 +74,11 @@ public class CancleCreditService {
 		case PayDetail:
 			PayCredit pay=new PayCredit();
 			return wrapUp(Base64.encode(pay.PayDetailByNo(mValue[1]),"utf-8"));
+		case CardJiaoyi:
+			CardDetail ca=new CardDetail();
+			return wrapUp(Base64.encode(ca.getByTime(mValue[1], mValue[2], mValue[3]),"utf-8"));
 		default:
-		
+		      
 			String lstStr="sorry";
 			return wrapUp(lstStr);
 		}
