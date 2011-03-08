@@ -27,18 +27,28 @@ public class TransAmtInput extends Activity {
 	private EditText transamt;
 	private EditText transph;
 	private EditText transpsd;
+	private TextView tv_trans_type;
 	private Button btn_trans_amtnext;
 	private String amtnum;
 	private String amtph;
 	private String amtpsd;
+	private String fee;
+	private String receiver;
 	
 	private String transtype;
 	private String username;
 	private String balance;
 	private String account;
 	private String accinfo;
+	
+	private String flagph;
+	private String flagpwd;
 	Intent intent;
 	Intent receive_intent;
+	
+	private double dblamt;
+	private double dblbal;
+	private String balance2;
 	
 	private TransferWebservicesClient transferwebservice = new TransferWebservicesClient();
 	private List<String> lstout = new ArrayList<String>();
@@ -70,11 +80,9 @@ public class TransAmtInput extends Activity {
         transamt = (EditText)findViewById(R.id.et_trans_amt);
         transph = (EditText)findViewById(R.id.et_trans_amtph);
         transpsd = (EditText)findViewById(R.id.et_trans_amtpsd);
-        
-        amtnum = transamt.getText().toString();
-        amtph = transph.getText().toString();
-        amtpsd = transpsd.getText().toString();
-        
+        tv_trans_type = (TextView)findViewById(R.id.tv_trans_amttv2);
+        if(transtype.equals(">手机到签约账户转账")){tv_trans_type.setText("请输入转入账户：");System.out.print(transtype);}
+        System.out.println(transtype);
       //向右滑动触发后退
 		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
 			@Override
@@ -119,22 +127,73 @@ public class TransAmtInput extends Activity {
         btn_trans_amtnext.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				 
+		        amtnum = transamt.getText().toString();
+		        amtph = transph.getText().toString();
+		        amtpsd = transpsd.getText().toString();
+		        
+		        balance2 = balance.replaceAll(",", "");
+				dblamt = Double.parseDouble(amtnum);
+				dblbal = Double.parseDouble(balance2);
+				
+				if(dblamt > dblbal){
+					Intent intent = new Intent();
+					intent.putExtra("diatitle", "余额不足");
+					intent.putExtra("diacontent", "您的账户余额不足！");
+					intent.putExtra("btntext", "返回");
+					intent.setClass(TransAmtInput.this, CommonDialog.class);
+					TransAmtInput.this.startActivity(intent);
+					//Toast.makeText(getApplicationContext(), "您的账户余额不足！",Toast.LENGTH_SHORT).show();
+				}else{
 				
 				lstinfo.add(account);
-				lstinfo.add(amtnum);
 				lstinfo.add(amtpsd);
 				lstinfo.add(amtph);
+				lstinfo.add(amtnum);
+				if(transtype.equals(">手机到签约账户转账")){
+					lstout=transferwebservice.connectHttp("507", lstinfo);
+				}else{
+					lstout=transferwebservice.connectHttp("505", lstinfo);
+				}
+				flagpwd = lstout.get(0);
+				flagph = lstout.get(1);
+				receiver= lstout.get(2);
+				fee = lstout.get(3);
 				
-				lstout=transferwebservice.connectHttp("505", lstinfo);
-				
-				Intent trans_amtnext = new Intent();
-				trans_amtnext.putExtra("transtype", transtype);
-				trans_amtnext.putExtra("account", account);
-				trans_amtnext.putExtra("amtnum", amtnum);
-				trans_amtnext.putExtra("amtph", amtph);
-				
-				trans_amtnext.setClass(TransAmtInput.this, TransAmtConfirm.class);
-				TransAmtInput.this.startActivity(trans_amtnext);
+				if(flagpwd.equals("truepwd")){
+					if(flagph.equals("trueph")){
+						
+						Intent trans_amtnext = new Intent();
+						trans_amtnext.putExtra("transtype", transtype);
+						trans_amtnext.putExtra("account", account);
+						trans_amtnext.putExtra("amtnum", amtnum);
+						trans_amtnext.putExtra("fee", fee);
+						trans_amtnext.putExtra("receiver", receiver);
+						trans_amtnext.putExtra("amtph", amtph);
+						
+						
+						trans_amtnext.setClass(TransAmtInput.this, TransAmtConfirm.class);
+						TransAmtInput.this.startActivity(trans_amtnext);
+						
+					}else{
+						Intent intent = new Intent();
+						intent.putExtra("diatitle", "错误信息");
+						intent.putExtra("diacontent", "您输入的手机号无效，请您确认对方以开通手机银行业务！");
+						intent.putExtra("btntext", "返回");
+						intent.setClass(TransAmtInput.this, CommonDialog.class);
+						TransAmtInput.this.startActivity(intent);
+						//Toast.makeText(getApplicationContext(), "您输入的手机号无效，请您确认对方以开通手机银行业务！",Toast.LENGTH_SHORT).show();
+					}
+				}else{
+					Intent intent = new Intent();
+					intent.putExtra("diatitle", "密码错误");
+					intent.putExtra("diacontent", "您输入的密码不正确！");
+					intent.putExtra("btntext", "返回");
+					intent.setClass(TransAmtInput.this, CommonDialog.class);
+					TransAmtInput.this.startActivity(intent);
+					//Toast.makeText(getApplicationContext(), "请您输入的密码不正确！",Toast.LENGTH_SHORT).show();
+				}
+				}
 			}
         	
         });

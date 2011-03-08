@@ -35,7 +35,7 @@ public class TransAccInput extends Activity {
 	private ArrayAdapter spadapter3;
 	private Button btn_trans_next;
 	private String transtype;
-	private String username;
+	private static String username;
 	private String accinfo;
 	private String account;
 	private String flag;
@@ -137,6 +137,7 @@ public class TransAccInput extends Activity {
             	accinfo = adapterView.getItemAtPosition(position).toString();
             	Toast.makeText(getApplicationContext(), accinfo,Toast.LENGTH_SHORT).show();
             	lstacctypein.clear();
+            	lstacctypein.add(username);
             	lstacctypein.add(accinfo);
             	lstaccountnew =transferwebservice.connectHttp("503", lstacctypein);
             	spadapter3 = new ArrayAdapter<String>(TransAccInput.this, android.R.layout.simple_spinner_item,lstaccountnew);

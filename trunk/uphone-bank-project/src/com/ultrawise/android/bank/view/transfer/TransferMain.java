@@ -22,7 +22,7 @@ public class TransferMain extends ListActivity {
 	private ImageView btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-	private String username;
+	private static String username;
 	Intent receive_intent;
 	Intent intent;
 	
@@ -131,12 +131,12 @@ public class TransferMain extends ListActivity {
 		Intent intent = new Intent();
 		if (id == 0) {
 			intent.putExtra("transtype", ">手机到手机转账");
-			intent.putExtra("username","zhangsan");
+			intent.putExtra("username","Sun01");
 			intent.setClass(TransferMain.this, TransAccSelect.class);
 			TransferMain.this.startActivity(intent);
 		}else if(id==1){
 			intent.putExtra("transtype", ">手机到签约账户转账");
-			intent.putExtra("username","zhangsan");
+			intent.putExtra("username","Sun01");
 			intent.setClass(TransferMain.this, TransAccSelect.class);
 			TransferMain.this.startActivity(intent);
 		}

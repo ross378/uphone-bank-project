@@ -27,7 +27,7 @@ public class TransAccSelect extends ListActivity {
 	private ImageView btnMain;
 	private ImageView btnHelper;
 	private String transtype;
-	private String username;
+	private static String username;
 	Intent receive_intent;
 	Intent intent;
 	
