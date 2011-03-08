@@ -46,9 +46,20 @@ public class Paymentmanage implements IPaymentmanage {
 			Node my_node = n1.item(i);
 			
 			NodeList n2 = my_node.getChildNodes();
-			serable.setId(n2.item(1).getFirstChild().getNodeValue());
-			serable.setPrname(n2.item(3).getFirstChild().getNodeValue());
-			serable.setOpen(n2.item(5).getFirstChild().getNodeValue());
+			for(int j = 0;j < n2.getLength();j++){
+				Node node = n2.item(j);
+				if(node.getNodeType() == Node.ELEMENT_NODE){
+					if(node.getNodeName().equals("id")){
+						serable.setId(node.getFirstChild().getNodeValue());
+					}
+					if(node.getNodeName().equals("prname")){
+						serable.setPrname(node.getFirstChild().getNodeValue());
+					}
+					if(node.getNodeName().equals("open")){
+						serable.setOpen(node.getFirstChild().getNodeValue());
+					}
+				}
+			}
 			
 			serableList.add(serable);
 			
