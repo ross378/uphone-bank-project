@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.webservices.base.account_management01;
 
+import java.util.List;
+
 import org.codehaus.jettison.json.JSONObject;
 
 public interface IAccountPre {
@@ -10,7 +12,7 @@ public interface IAccountPre {
 	 * @param account
 	 * @return true/false
 	 */
-	public String setPreAccount(String account);
+	public boolean setPreAccount(String userNo,String account);
 
 	/**
 	 * 获取首选账户
@@ -28,6 +30,6 @@ public interface IAccountPre {
 	 * @param userNo
 	 * @return array unpre account
 	 */
-	public String[] getUnpreAccount(String userNo);
+	public List<String> getUnpreAccount(String userNo);
 
 }

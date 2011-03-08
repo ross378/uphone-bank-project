@@ -14,7 +14,7 @@ public interface IAccountAdd {
 	 * @param password
 	 * @return true/false
 	 */
-	public String addAccount(String accountType, String account,
-			String accountNickName, String password);
+	public String addAccount(String userNo, String accId, String accountType,
+			String account, String accountNickName, String password);
 
 }
