@@ -29,6 +29,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 public class AccountQueryDetail extends ListActivity {
 	private Button btnReturn=null;
 	private String[] reslut=null;
+	private String type=null;
 	private EditText txt_M=null;
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +90,7 @@ public class AccountQueryDetail extends ListActivity {
          */
         Intent intent=getIntent();
         reslut=intent.getStringArrayExtra("result");
+        type=intent.getStringExtra("type");
 		for(String g:reslut)
 		{
 			System.out.println(g+"=====================>>>>>>>");
@@ -110,7 +112,7 @@ public class AccountQueryDetail extends ListActivity {
 	        acclist1.put("account_list", "来帐时间：");//"来帐时间："
 	        acclist1.put("account_list_info", reslut[4]);//"20110224"
 	        acclist2.put("account_list", "来帐类型：");
-	        acclist2.put("account_list_info", "转账");//"转账"
+	        acclist2.put("account_list_info", type);//"转账"
 	        acclist3.put("account_list", "来帐金额:");
 	        acclist3.put("account_list_info", reslut[3]);
 	        acclist4.put("account_list", "付款人姓名：");

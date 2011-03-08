@@ -118,7 +118,7 @@ public class AccountQueryEinnahme extends ListActivity {
 		    reslut=type_name.getStringArrayExtra("result");
 			for(String g:reslut)
 			{
-				System.out.println(g+"=====================>>>>>>>");
+				System.out.println(g+"=====转账等等================>>>>>>>");
 			}
 		    
 		    
@@ -201,18 +201,63 @@ public class AccountQueryEinnahme extends ListActivity {
 			}
 			Intent intent=new Intent();
 			intent.putExtra("result", arrResult);
+			intent.putExtra("type", "转账");
 			intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
 			AccountQueryEinnahme.this.startActivity(intent);
 			
 			
 		}else if(id==1){//进账
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
-			AccountQueryEinnahme.this.startActivity(payment_intent);
+			
+			/**
+        	 * @author gsm
+        	 * @param 功能号025,账号，转账
+        	 * @return 返回转账的信息nomber+"#"+start+"#"
+        	 */
+			String[] str=new String[]{nomber+"#"+"进账"};
+			List<String> result=QuerySever.connectHttp("025", str);
+			for(String g:result)
+			{
+			System.out.println("转账---明文======"+g.toString());	
+			}
+			
+			
+			String[] arrResult=new String[result.size()];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			Intent intent=new Intent();
+			intent.putExtra("result", arrResult);
+			intent.putExtra("type", "进账");
+			
+			intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
+			AccountQueryEinnahme.this.startActivity(intent);
 		}else if(id==2){//汇款
-			Intent payment_intent = new Intent();
-			payment_intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
-			AccountQueryEinnahme.this.startActivity(payment_intent);
+
+			/**
+        	 * @author gsm
+        	 * @param 功能号025,账号，转账
+        	 * @return 返回转账的信息nomber+"#"+start+"#"
+        	 */
+			String[] str=new String[]{nomber+"#"+"汇款"};
+			List<String> result=QuerySever.connectHttp("025", str);
+			for(String g:result)
+			{
+			System.out.println("转账---明文======"+g.toString());	
+			}
+			
+			
+			String[] arrResult=new String[result.size()];
+			for(int i=0;i<result.size();i++)
+			{   
+				 arrResult[i]= result.get(i);
+			}
+			Intent intent=new Intent();
+			intent.putExtra("result", arrResult);
+			intent.putExtra("type", "汇款");
+			
+			intent.setClass(AccountQueryEinnahme.this, AccountQueryDetail.class);
+			AccountQueryEinnahme.this.startActivity(intent);
 		}
 	}
 }
