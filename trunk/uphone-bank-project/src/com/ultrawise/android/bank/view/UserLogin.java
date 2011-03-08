@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -92,7 +93,6 @@ public class UserLogin extends Activity {
         extraCode = (TextView)findViewById(R.id.extraCode);
         Intent intent = getIntent();
         List<String> rand = intent.getStringArrayListExtra("key");
-        Log.d("xiao", rand.get(0));
         extraCode.setText(rand.get(0));
         
         phoneBank = (ImageView)findViewById(R.id.btnMain);
@@ -114,6 +114,8 @@ public class UserLogin extends Activity {
         
        
 	}
+	
+	
 	/**
 	 * 登陆按钮响应
 	 * @author Administrator
