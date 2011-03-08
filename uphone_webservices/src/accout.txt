@@ -18,6 +18,9 @@
     <payment>x</payment>
     <actpwd>123456</actpwd>
     <state>0</state>
+    <orderstate>预约换卡</orderstate>
+    <openbank>建设银行深圳市梅林支行</openbank>
+    <opendate>2011/3/8</opendate>
  </accout>
  <accout id="622202112" userid="Sun01">
 	<orderid>110</orderid>
@@ -37,6 +40,9 @@
     <payment>x</payment>
     <actpwd>123456</actpwd>
     <state>0</state>
+    <orderstate>预约换卡</orderstate>
+    <openbank>建设银行深圳市梅林支行</openbank>
+    <opendate>2011/3/8</opendate>
  </accout>
  <accout id="622202113" userid="Sun01">
 	<orderid>110</orderid>
@@ -56,6 +62,9 @@
     <payment>100,10</payment>
     <actpwd>123456</actpwd>
     <state>1</state>
+    <orderstate>预约换卡</orderstate>
+    <openbank>建设银行深圳市梅林支行</openbank>
+    <opendate>2011/3/8</opendate>
   </accout>
  <accout id="622202114" userid="Sun02">
 	<orderid>110</orderid>
@@ -75,6 +84,9 @@
     <payment>x</payment>
     <actpwd>123456</actpwd>
     <state>0</state>
+    <orderstate>预约换卡</orderstate>
+    <openbank>建设银行深圳市梅林支行</openbank>
+    <opendate>2011/3/8</opendate>
   </accout>
  <accout id="622202115" userid="Sun02">
 	<orderid>110</orderid>
@@ -94,6 +106,9 @@
     <payment>x</payment>
     <actpwd>123456</actpwd>
     <state>0</state>
+    <orderstate>预约换卡</orderstate>
+    <openbank>建设银行深圳市梅林支行</openbank>
+    <opendate>2011/3/8</opendate>
   </accout>
  <accout id="622202116" userid="Sun02">  
 	<orderid>110</orderid>
@@ -113,5 +128,8 @@
     <payment>100,00</payment>
     <actpwd>123456</actpwd>
     <state>0</state>
+    <orderstate>预约换卡</orderstate>
+    <openbank>建设银行深圳市梅林支行</openbank>
+    <opendate>2011/3/8</opendate>
   </accout>
 </Act>
