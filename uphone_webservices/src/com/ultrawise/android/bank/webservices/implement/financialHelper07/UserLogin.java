@@ -56,6 +56,7 @@ public class UserLogin {
 				int times = 0;
 				int nameNo = -1;
 				int passwordNo = -1;
+				int userIdNo = -1;
 				int loginTimesNo = -1;
 				int lastLoginTimeNo = -1;
 				for(int j = 0; j < userChild.getLength(); j ++)
@@ -84,10 +85,15 @@ public class UserLogin {
 //					{
 //						lastLoginTimeNo = j;
 //					}
-					if(times == 2)
+					
+					if(times == 2 && j != -1)
 					{
 						ratesData.add("true");
 						ratesData.add(userChild.item(nameNo).getTextContent());
+						
+						NamedNodeMap map = nodeL.item(i).getAttributes();
+						
+						ratesData.add(nodeL.item(i).getAttributes().getNamedItem("userid").getNodeValue());
 //						ratesData.add(userChild.item(lastLoginTimeNo).getTextContent());
 //						ratesData.add(userChild.item(loginTimesNo).getTextContent());
 						break;
