@@ -6,7 +6,7 @@
     <credit>60.00</credit>
 	<crenesnum>Ultrawise@163.com</crenesnum>
 	<credata>2011-3-8</credata>
-	<creno>#sT46362543</creno>
+	<creno>sT46362543</creno>
 	<operator>网易</operator>
 	<account>622202116</account>
   </nesfil>
