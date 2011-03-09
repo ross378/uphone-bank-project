@@ -163,6 +163,8 @@ public class UserLogin extends Activity {
 					info="尊敬的客户"+backInfo.get(1)+"\n您上次登陆的时间为\n8:15\n这是你第3次登录系统！\n";
 					loginFlag = 2;
 					FinancialConsultation.loggingStatus = true;
+					UserLogin.userNO = backInfo.get(2);
+					Log.d("out", UserLogin.userNO);
 				}else
 				{
 					info = backInfo.get(1);
