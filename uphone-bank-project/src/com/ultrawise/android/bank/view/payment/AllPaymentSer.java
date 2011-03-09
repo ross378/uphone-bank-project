@@ -2,6 +2,7 @@ package com.ultrawise.android.bank.view.payment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.ultrawise.android.bank.consum_webservices.PaymentWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
@@ -218,6 +219,8 @@ public class AllPaymentSer extends Activity {
 					AllPaymentSer.this.startActivity(btnok_intent);
 				} else {
 
+					Random rad=new Random();
+				int s=	rad.nextInt();
 					Intent pay_ser_intent = new Intent();
 					pay_ser_intent.putExtra("title", ser_name1);
 					pay_ser_intent.putExtra("service_num",
@@ -226,8 +229,7 @@ public class AllPaymentSer extends Activity {
 							.getSelectedItem().toString());
 					pay_ser_intent.putExtra("inputed_peo", AccTypSpinner
 							.getSelectedItem().toString());
-					pay_ser_intent.putExtra("serialnum", "#3652462");
-					// pay_ser_intent.putExtra("deadline", "无");
+					pay_ser_intent.putExtra("serialnum", "sT"+s);
 					pay_ser_intent.setClass(AllPaymentSer.this,
 							PaymentSerDetail.class);
 					AllPaymentSer.this.startActivity(pay_ser_intent);
