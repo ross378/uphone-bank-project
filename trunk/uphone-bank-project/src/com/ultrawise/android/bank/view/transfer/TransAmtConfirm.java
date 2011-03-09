@@ -31,7 +31,7 @@ public class TransAmtConfirm extends Activity {
 	private TextView confee;
 	private TextView conamtph;
 	private TextView conpayee;
-	
+	private TextView tv_trans_type;
 	
 	private String transtype;
 	private String username;
@@ -85,12 +85,15 @@ public class TransAmtConfirm extends Activity {
         confee = (TextView)findViewById(R.id.tv_trans_confirmamtpay);
         conamtph = (TextView)findViewById(R.id.tv_trans_confirmamtph);
         conpayee = (TextView)findViewById(R.id.tv_trans_confirmamtname);
+        tv_trans_type = (TextView)findViewById(R.id.tv_trans_amtconfinph);
         
         conacc.setText(account);
         conamt.setText(amtnum+"元");
         confee.setText(amtfee+"元");
         conamtph.setText(amtph);
         conpayee.setText(amtpayee);
+        
+        if(transtype.equals(">手机到签约账户转账")){tv_trans_type.setText("转入账户：");}
         
         //向右滑动触发后退
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
@@ -140,7 +143,11 @@ public class TransAmtConfirm extends Activity {
 				lstinfo.add(amtnum);
 				lstinfo.add(amtph);
 				
-				lstout = transferwebservice.connectHttp("506", lstinfo);
+				if(transtype.equals(">手机到签约账户转账")){
+					lstout=transferwebservice.connectHttp("508", lstinfo);
+				}else{
+					lstout = transferwebservice.connectHttp("506", lstinfo);
+				}
 				
 				newbal = lstout.get(0);
 				flag = lstout.get(1);
