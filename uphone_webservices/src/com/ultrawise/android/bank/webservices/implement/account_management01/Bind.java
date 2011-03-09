@@ -72,6 +72,7 @@ public class Bind implements IBind {
 		boolean isSameType = false;
 		boolean isNotBind = false;
 		boolean isNotLoss = false;
+		boolean isAdd = false;
 
 		String accTypeId = All.getAccTypeId(accTypeName);// 获取账户类型id
 		NodeList nl = All.readTxt("accout.txt").getElementsByTagName("accout");
@@ -108,13 +109,21 @@ public class Bind implements IBind {
 								isNotLoss = true;
 							}
 						}
-						if (isSameType && isNotBind && isNotLoss) {
+						if (nName.equals("isadd")) {
+							String isadd = nl2.item(y).getFirstChild()
+									.getNodeValue();
+							if (isadd.equals("是")) {
+								isAdd = true;
+							}
+						}
+						if (isSameType && isNotBind && isNotLoss && isAdd) {
 							String accId = att.getNamedItem("id")
 									.getNodeValue();
 							lstStr.add(accId);
 							isSameType = false;
 							isNotBind = false;
 							isNotLoss = false;
+							isAdd = false;
 						}
 					}
 				}
@@ -122,6 +131,7 @@ public class Bind implements IBind {
 			isSameType = false;
 			isNotBind = false;
 			isNotLoss = false;
+			isAdd = false;
 		}
 		return lstStr;
 	}

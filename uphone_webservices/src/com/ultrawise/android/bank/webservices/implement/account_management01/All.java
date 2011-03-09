@@ -211,7 +211,7 @@ public class All implements IAll {
 		ArrayList<String> lstStr = new ArrayList<String>();
 		boolean isSameType = false;
 		boolean isBind = false;
-
+		boolean isAdd = false;
 		String accTypeId = getAccTypeId(accTypeName);// 获取账户类型id
 		NodeList nl = readTxt("accout.txt").getElementsByTagName("accout");
 		for (int i = 0; i < nl.getLength(); i++) {
@@ -242,20 +242,27 @@ public class All implements IAll {
 								isBind = true;
 							}
 						}
-						if (isSameType && isBind) {
+						if (nName.equals("isadd")) {
+							String isadd = nl2.item(y).getFirstChild()
+									.getNodeValue();
+							if (isadd.equals("是")) {
+								isAdd = true;
+							}
+						}
+						if (isSameType && isBind && isAdd) {
 							String accId = att.getNamedItem("id")
 									.getNodeValue();
 							lstStr.add(accId);
 							isSameType = false;
 							isBind = false;
-
+							isAdd = false;
 						}
 					}
 				}
 			}
 			isSameType = false;
 			isBind = false;
-
+			isAdd = false;
 		}
 		return lstStr;
 	}

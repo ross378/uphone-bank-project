@@ -12,6 +12,6 @@ public interface INickName {
 	 * @param nickName
 	 * @return true/flase
 	 */
-	public void setNickName(String account, String nickName);
+	public boolean setNickName(String account, String nickName);
 
 }

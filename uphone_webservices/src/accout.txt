@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Act>
+<accout id="999999999" userid="Sun01">
+	<orderid>110</orderid>
+	<actype>paypal02</actype>
+	<signup>是</signup>
+	<aliss>x</aliss>
+	<balance>100，000</balance>
+	<montype>金币</montype>
+	<period>三个月</period>
+	<months>201011</months>
+	<rate>1.5%</rate>
+	<pvality>五年</pvality>
+	<bind>否</bind>
+	<repayment>x</repayment>
+	<duedata>x</duedata>
+	<minpayment>x</minpayment>
+    <payment>x</payment>
+    <actpwd>123456</actpwd>
+    <state>0</state>
+    <orderstate>否</orderstate>
+    <openbank>茉莉花银行</openbank>
+    <opendate>2011/3/8</opendate>
+    <loss>x</loss>
+    <isadd>否</isadd>
+ </accout>
  <accout id="622202111" userid="Sun01">
 	<orderid>110</orderid>
 	<actype>paypal01</actype>
-	<signup>No</signup>
-	<aliss>我的存蓄卡</aliss>
-	<balance>1000,00</balance>
+	<signup>是</signup>
+	<aliss>活着没有期望的存蓄卡</aliss>
+	<balance>100，000</balance>
 	<montype>人民币</montype>
 	<period>三个月</period>
 	<months>201011</months>
@@ -22,13 +46,14 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <isadd>是</isadd>
  </accout>
  <accout id="622202112" userid="Sun01">
 	<orderid>110</orderid>
 	<actype>paypal02</actype>
-	<signup>否</signup>
-	<aliss>我的存蓄卡</aliss>
-	<balance>5000,00</balance>
+	<signup>是</signup>
+	<aliss>定期要杯具的存蓄卡</aliss>
+	<balance>500，000</balance>
 	<montype>人民币</montype>
 	<period>一年</period>
 	<months>201012</months>
@@ -45,29 +70,31 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <isadd>是</isadd>
  </accout>
  <accout id="622202113" userid="Sun01">
 	<orderid>110</orderid>
 	<actype>paypal03</actype>
 	<signup>否</signup>
-	<aliss>我的信用卡</aliss>
-	<balance>5000,00</balance>
-	<montype>人民币</montype>
+	<aliss>这张没有钱的信用卡</aliss>
+	<balance>100</balance>
+	<montype>美元</montype>
 	<period>三年</period>
 	<months>200112</months>
 	<rate>2.0%</rate>
 	<pvality>五年</pvality>
-	<bind>是</bind>
+	<bind>否</bind>
 	<repayment>100,00</repayment>
 	<duedata>两年</duedata>
 	<minpayment>100,00</minpayment>
     <payment>100,10</payment>
     <actpwd>123456</actpwd>
     <state>1</state>
-    <orderstate>预约换卡</orderstate>
+    <orderstate>x</orderstate>
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <isadd>是</isadd>
   </accout>
  <accout id="622202114" userid="Sun02">
 	<orderid>110</orderid>
@@ -91,6 +118,7 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <isadd>是</isadd>
   </accout>
  <accout id="622202115" userid="Sun02">
 	<orderid>110</orderid>
@@ -114,6 +142,7 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <isadd>是</isadd>
   </accout>
  <accout id="622202116" userid="Sun02">  
 	<orderid>110</orderid>
@@ -137,5 +166,6 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <isadd>是</isadd>
   </accout>
 </Act>

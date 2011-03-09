@@ -1,5 +1,7 @@
 package com.ultrawise.android.bank.webservices.base.account_management01;
 
+import java.util.List;
+
 import org.codehaus.jettison.json.JSONObject;
 
 public interface IAccountAdd {
@@ -14,7 +16,7 @@ public interface IAccountAdd {
 	 * @param password
 	 * @return true/false
 	 */
-	public String addAccount(String userNo, String accId, String accountType,
-			String account, String accountNickName, String password);
+	public boolean addAccount(String userNo, String accountType, String account,
+			String accountNickName, String password);
 
 }

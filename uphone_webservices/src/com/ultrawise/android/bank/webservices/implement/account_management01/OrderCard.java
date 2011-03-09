@@ -92,7 +92,7 @@ public class OrderCard implements IOrderCard {
 		ArrayList<String> lstStr = new ArrayList<String>();
 		boolean isSameType = false;
 		boolean isNotOrder = false;
-
+		boolean isAdd = false;
 		String accTypeId = All.getAccTypeId(accTypeName);// 获取账户类型id
 		NodeList nl = All.readTxt("accout.txt").getElementsByTagName("accout");
 		for (int i = 0; i < nl.getLength(); i++) {
@@ -120,18 +120,27 @@ public class OrderCard implements IOrderCard {
 								isNotOrder = true;
 							}
 						}
-						if (isSameType && isNotOrder) {
+						if (nName.equals("isadd")) {
+							String isadd = nl2.item(y).getFirstChild()
+									.getNodeValue();
+							if (isadd.equals("是")) {
+								isAdd = true;
+							}
+						}
+						if (isSameType && isNotOrder && isAdd) {
 							String accId = att.getNamedItem("id")
 									.getNodeValue();
 							lstStr.add(accId);
 							isSameType = false;
 							isNotOrder = false;
+							isAdd = false;
 						}
 					}
 				}
 			}
 			isSameType = false;
 			isNotOrder = false;
+			isAdd = false;
 		}
 		return lstStr;
 	}

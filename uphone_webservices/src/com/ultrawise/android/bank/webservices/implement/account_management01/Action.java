@@ -174,10 +174,43 @@ public class Action {
 		return accountPre.getUnpreAccount(userNo);
 	}
 
-	// 功能
-	public void performSetNickName(String account, String name) {
+	// 功能0117
+	public List<String> performAddAcc(String userNo, String accTypeName,
+			String account, String accountNickName, String password) {
+		boolean isDone = accountAdd.addAccount(userNo, accTypeName, account,
+				accountNickName, password);
+		List<String> lstBool = new ArrayList<String>();
+		if (isDone)
+			lstBool.add("true");
+		else
+			lstBool.add("false");
+
+		return lstBool;
+	}
+
+	// 功能0118
+	public List<String> performDeleteAccount(String bindAccount) {
+		boolean isDone = accountDel.deleteAccount(bindAccount);
+		List<String> lstBool = new ArrayList<String>();
+		if (isDone)
+			lstBool.add("true");
+		else
+			lstBool.add("false");
+
+		return lstBool;
+	}
+
+	// 功能0119
+	public List<String> performSetNickName(String account, String name) {
 		// TODO Auto-generated method stub
-		nickName.setNickName(account, name);
+		boolean isDone = nickName.setNickName(account, name);
+		List<String> lstBool = new ArrayList<String>();
+		if (isDone)
+			lstBool.add("true");
+		else
+			lstBool.add("false");
+
+		return lstBool;
 	}
 
 }
