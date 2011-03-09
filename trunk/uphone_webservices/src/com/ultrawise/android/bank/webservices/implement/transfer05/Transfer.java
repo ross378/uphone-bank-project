@@ -419,11 +419,12 @@ public class Transfer implements ITransfer {
 				String recid = nnm2.getNamedItem("userid").getNodeValue();
 				//查询用户表
 				Document doc = oxf.getFileDocument("Users");
-				NodeList nl = doc.getElementsByTagName("userid");
+				NodeList nl = doc.getElementsByTagName("user");
 				for(int i=0; i < nl.getLength(); i++){
-					Node my_node = nl.item(i);
-					receiid = my_node.getFirstChild().getNodeValue();
-					if(receiid.equals(recid)){
+					Node mynode3 = nl.item(i);
+					NamedNodeMap nnm3 = mynode3.getAttributes();
+					String alluserid = nnm3.getNamedItem("userid").getNodeValue();
+					if(alluserid.equals(recid)){
 						NodeList nl2 = doc.getElementsByTagName("name");
 						Node user_name = nl2.item(i);
 						receiver = user_name.getFirstChild().getNodeValue();
@@ -443,7 +444,89 @@ public class Transfer implements ITransfer {
 
 	public List<String> transfer2(String account, String amtnum, String amtph) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		List<String> flag = new ArrayList<String>();
+		
+		String balance = null;
+		String balance2 = null;
+		String newbal2 = null;
+		Double dbamtfee = null;
+		Double transamt = null;
+		Double newbal = null;
+		Boolean savexml = false;
+		Boolean savexml2 = false;
+		
+		String userph = null;
+		String recpreant = null;
+		String recbalance = null;
+		String recbalance2 = null;
+		String recnewbal2 = null;
+		Double recnewbal = null;
+		
+		String flag1 = "failed";
+		
+		dbamtfee = (Double.parseDouble(amtnum)*0.002);
+		transamt = Double.parseDouble(amtnum);
+		OperateXmlFile oxf = new OperateXmlFile();
+		flag.clear();
+		
+		//查询账户表
+		Document doc2 = oxf.getFileDocument("accout");
+		NodeList nl3 = doc2.getElementsByTagName("accout");
+		for(int j=0; j<nl3.getLength(); j++){
+			Node mynode2 = nl3.item(j);
+			NamedNodeMap nnm2 = mynode2.getAttributes();
+			String allacc = nnm2.getNamedItem("id").getNodeValue();
+			//System.out.print(allacc+ "\n");
+			if(allacc.equals(account)){
+				NodeList nl4 = doc2.getElementsByTagName("balance");
+				Node nodebal = nl4.item(j);
+				balance = nodebal.getFirstChild().getNodeValue();
+				//System.out.print(acctype + "\n");
+				
+				balance2 = balance.replaceAll(",", "");
+				Double dbbal = Double.parseDouble(balance2);
+				newbal = dbbal - transamt - dbamtfee;
+				newbal2 = newbal.toString();
+				
+				Node nodebal2 = nl4.item(j);
+				nodebal2.getFirstChild().setNodeValue(newbal2);
+				savexml = oxf.saveDocument(doc2, "accout");
+				
+				break;
+			}
+		}
+				
+				//查询账户表
+				Document doc3 = oxf.getFileDocument("accout");
+				NodeList nl5 = doc2.getElementsByTagName("accout");
+				for(int j=0; j<nl3.getLength(); j++){
+					Node mynode2 = nl3.item(j);
+					NamedNodeMap nnm2 = mynode2.getAttributes();
+					String allacc = nnm2.getNamedItem("id").getNodeValue();
+					//System.out.print(allacc+ "\n");
+					if(allacc.equals(amtph)){
+						NodeList nl4 = doc3.getElementsByTagName("balance");
+						Node recbal = nl4.item(j);
+						recbalance = recbal.getFirstChild().getNodeValue();
+						
+						recbalance2 = recbalance.replaceAll(",", "");
+						Double dbrecbal = Double.parseDouble(recbalance2);
+						recnewbal = dbrecbal + transamt;
+						recnewbal2 = recnewbal.toString();
+						
+						Node recbal2 = nl4.item(j);
+						recbal2.getFirstChild().setNodeValue(recnewbal2);
+						savexml2 = oxf.saveDocument(doc3, "accout");
+						
+						break;
+					}
+				}
+		if(savexml == true && savexml2 == true){flag1 = "succeed";}
+		flag.add(flag1);
+		flag.add(newbal2);
+		return flag;
+		
 	}
 
 }
