@@ -60,12 +60,12 @@ public class ActivateCardDialog extends Activity {
 				if(activateFlag==2){
 					intent.setClass(ActivateCardDialog.this, CreditView.class);
 					Toast.makeText(ActivateCardDialog.this, "开卡成功", Toast.LENGTH_SHORT).show();
+					ActivateCardDialog.this.startActivity(intent);
 				    finish();
 				}else{
-					
-					intent.setClass(ActivateCardDialog.this, ActivateCard.class);
 				}
-	    		ActivateCardDialog.this.startActivity(intent);
+	    	
+	    		finish();
 			}
 	    }
 }

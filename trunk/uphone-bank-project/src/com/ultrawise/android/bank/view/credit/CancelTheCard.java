@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 /**
  * 
  * @author weijuajn
@@ -168,14 +169,9 @@ public class CancelTheCard extends Activity {
 
 		public void onClick(View arg0) {
 			String orderid=orderidEdit.getText().toString();
-	       // String name=userNameEdit.getText().toString();
-	        //String patype= pakitSpinner .getSelectedItem().toString();
-	       // String panum= pakitNoEdit.getText().toString();
 	       String password=creditPasswdEdit.getText().toString();
+	       if(orderid.length()>0&&password.length()>0){
 	       l.add(orderid);
-	     //  l.add(name);
-	      // l.add(patype);
-	    //   l.add(panum);
 	       l.add(password);
 	       System.out.println(l.size());
 			List<String> accuss=CreditClient.connectHttp(funNo, l);
@@ -198,7 +194,10 @@ public class CancelTheCard extends Activity {
 			intent.putExtra("cancelFlag",cancelFlag+"");
     		intent.setClass(CancelTheCard.this, CancelCardDialog.class);
     		CancelTheCard.this.startActivity(intent);
-			
+	       }else
+	       {
+	    	   Toast.makeText(CancelTheCard.this, "输入有误", Toast.LENGTH_SHORT).show();
+	       }
 		}
 		
 	}

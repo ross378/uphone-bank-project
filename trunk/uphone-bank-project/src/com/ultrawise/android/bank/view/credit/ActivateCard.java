@@ -200,9 +200,8 @@ public class ActivateCard extends Activity {
 		public void onClick(View arg0) {
 			String orderid=activateCardNumberEditText.getText().toString();
 			String password=passwordEdit.getText().toString();
-			//userName=userNameEditText.getText().toString();
-	       // creditNo=activateCardNumberEditText.getText().toString();
-	    	//dateEnable=creditEnabledDateText.getText().toString();
+		System.out.println("=="+orderid+"==="+password);
+		 if(orderid.length()>0&&password.length()>0){
 			  l.add(orderid);
 			  l.add(password);
 			List<String> accuss=CreditClient.connectHttp(funNo, l);
@@ -224,7 +223,10 @@ public class ActivateCard extends Activity {
 			intent.putExtra("activateFlag",activateFlag+"");
 			intent.setClass(ActivateCard.this,ActivateCardDialog.class);
 			ActivateCard.this.startActivity(intent);
-			
+			}else
+			{
+				Toast.makeText(ActivateCard.this, "输入有误", Toast.LENGTH_SHORT).show();
+			}
 		}
 		
 	}

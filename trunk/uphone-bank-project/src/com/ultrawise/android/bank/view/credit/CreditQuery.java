@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -66,7 +67,6 @@ public class CreditQuery extends Activity {
 		btnReturn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				onBackPressed();
 				finish();
 			}
 		});	
@@ -152,6 +152,7 @@ public class CreditQuery extends Activity {
 				Spinner spinner = (Spinner) parent;
 				Log.v("Test", "id = " + id + "("
 						+ spinner.getSelectedItem().toString() + ")");
+				ll.clear();
 				ll.add(spinner.getSelectedItem().toString());
 				//请求服务器
 				List<String> accuss=CreditClient.connectHttp(SelectAcc, ll);

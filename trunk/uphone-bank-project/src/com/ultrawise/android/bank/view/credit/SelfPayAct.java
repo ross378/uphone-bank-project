@@ -69,6 +69,7 @@ public class SelfPayAct extends Activity {
 					Spinner spinner = (Spinner) parent;
 					Log.v("Test", "id = " + id + "("
 							+ spinner.getSelectedItem().toString() + ")");
+					ll.clear();
 					ll.add(spinner.getSelectedItem().toString());
 					//请求服务器
 					List<String> accuss=CreditClient.connectHttp(SelectAcc, ll);
