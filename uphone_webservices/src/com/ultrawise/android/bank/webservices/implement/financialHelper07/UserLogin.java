@@ -53,32 +53,57 @@ public class UserLogin {
 				ratesData.clear();
 				Node user = nodeL.item(i);
 				NodeList userChild = user.getChildNodes();
-				
-				if(userChild.item(1).getTextContent().equals(userLoginInfo[1]))
+				int times = 0;
+				int nameNo = -1;
+				int passwordNo = -1;
+				int loginTimesNo = -1;
+				int lastLoginTimeNo = -1;
+				for(int j = 0; j < userChild.getLength(); j ++)
 				{
-					
-					if(userChild.item(3).getTextContent().equals(userLoginInfo[2]))
+					if(userChild.item(j).getNodeName().equals("name"))
+					{
+						if(userChild.item(j).getTextContent().equals(userLoginInfo[1]))
+						{
+							times ++;
+							nameNo = j;
+						}
+					}
+					if(userChild.item(j).getNodeName().equals("password"))
+					{
+						if(userChild.item(j).getTextContent().equals(userLoginInfo[2]))
+						{
+							times ++;
+							passwordNo = j;
+						}
+					}
+//					if(userChild.item(j).getNodeName().equals("logintimes"))
+//					{
+//						loginTimesNo = j;
+//					}
+//					if(userChild.item(j).getNodeName().equals("lastlogintime"))
+//					{
+//						lastLoginTimeNo = j;
+//					}
+					if(times == 2)
 					{
 						ratesData.add("true");
-						ratesData.add(userChild.item(1).getTextContent());
-						ratesData.add(userChild.item(5).getTextContent());
-						ratesData.add(userChild.item(7).getTextContent());
-						
-					}else
-					{
-						ratesData.add("false");
-						ratesData.add("user name or password error!");
+						ratesData.add(userChild.item(nameNo).getTextContent());
+//						ratesData.add(userChild.item(lastLoginTimeNo).getTextContent());
+//						ratesData.add(userChild.item(loginTimesNo).getTextContent());
+						break;
 					}
+					
+				}
+				if(ratesData.get(0) != null && ratesData.get(0).equals("true"))
+				{
+					break;
 				}else
 				{
 					ratesData.add("false");
 					ratesData.add("user name or password error!");
 				}
-				if(ratesData.get(0).equals("true"))
-				{
-					break;
-				}
-			}
+			
+		}
 			
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
