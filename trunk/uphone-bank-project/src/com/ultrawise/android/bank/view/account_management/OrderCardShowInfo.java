@@ -91,7 +91,6 @@ public class OrderCardShowInfo extends Activity {
 		HashMap<String, Object> item04 = new HashMap<String, Object>();
 		HashMap<String, Object> item05 = new HashMap<String, Object>();
 		HashMap<String, Object> item06 = new HashMap<String, Object>();
-		HashMap<String, Object> item07 = new HashMap<String, Object>();
 		item01.put("name", "预约换卡的账户：");
 		item01.put("content", strAccountValue);
 		item02.put("name", "账户别名：");
@@ -110,7 +109,6 @@ public class OrderCardShowInfo extends Activity {
 		alContent.add(item04);
 		alContent.add(item05);
 		alContent.add(item06);
-		alContent.add(item07);
 		// 适配器
 		SimpleAdapter lvAdapter = new SimpleAdapter(this, alContent,
 				R.layout.account_order_card_info_adapter, new String[] {
@@ -154,16 +152,6 @@ public class OrderCardShowInfo extends Activity {
 													AccountManagementList.class);
 											OrderCardShowInfo.this
 													.startActivity(intent);
-										}
-									})
-							.setNegativeButton("取消",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											// TODO Auto-generated method stub
-											dialog.dismiss();
 										}
 									}).show();
 				} else {

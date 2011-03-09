@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class AccountLostSelect extends Activity {
@@ -84,13 +85,20 @@ public class AccountLostSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				intent = new Intent();
-				intent.putExtra(ACCOUNT_TYPE, spnrSelectTpye.getSelectedItem()
-						.toString());
-				intent.putExtra(ACCOUNT, spnrSelectAcc.getSelectedItem()
-						.toString());
-				intent.setClass(AccountLostSelect.this, AccountLostInfo.class);
-				AccountLostSelect.this.startActivity(intent);
+				if (spnrSelectTpye.getSelectedItem() != null
+						&& spnrSelectAcc.getSelectedItem() != null) {
+					intent = new Intent();
+					intent.putExtra(ACCOUNT_TYPE, spnrSelectTpye
+							.getSelectedItem().toString());
+					intent.putExtra(ACCOUNT, spnrSelectAcc.getSelectedItem()
+							.toString());
+					intent.setClass(AccountLostSelect.this,
+							AccountLostInfo.class);
+					AccountLostSelect.this.startActivity(intent);
+				} else {
+					Toast.makeText(AccountLostSelect.this, "此账户类型中没有你的账号",
+							Toast.LENGTH_SHORT).show();
+				}
 			}
 
 		});

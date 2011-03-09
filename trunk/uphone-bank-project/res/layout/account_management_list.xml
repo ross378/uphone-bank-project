@@ -13,7 +13,7 @@
 				android:dividerHeight="2px" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:drawSelectorOnTop="true"
 				android:scrollbars="vertical"></ListView>
-			<TextView android:layout_height="1dip" android:layout_width="fill_parent"
+			<TextView android:layout_height="2dip" android:layout_width="fill_parent"
 				android:background="#cccccc">
 			</TextView>
 		</LinearLayout>

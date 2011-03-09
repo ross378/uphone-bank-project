@@ -65,6 +65,9 @@ public class PreferredAccountSelect extends Activity {
 		tvPre.setText(AccManaConWebservices.connectHttp(
 				PreferredAccountSelect.this, "0114", lstOut).get(0));
 
+		TextView tvPre2 = (TextView) this.findViewById(R.id.accPre_tvPreAcc4);
+		tvPre2.setVisibility(View.VISIBLE);
+		tvPre2.setText("重新选择首选账户：");
 		List<String> lstOut2 = new ArrayList<String>();
 		// lstOut.add(UserLogin.userNO);
 		// 用户号

@@ -88,55 +88,63 @@ public class ActiveAccountSelect extends Activity {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				String account = spnrSelectAcc.getSelectedItem().toString();
-				List<String> lstOut = new ArrayList<String>();
-				lstOut.add(account);
-				lstOut.add(dtPwd.getText().toString());
-				// 连接服务器
-				List<String> lstIn = AccManaConWebservices.connectHttp(
-						ActiveAccountSelect.this, "0106", lstOut);
-				if ((lstIn.get(0)).equals("true"))
-					flag = true;
-				else
-					flag = false;
-				// 弹出对话框
-				if (flag == true) {
-					AlertDialog myDialog = new AlertDialog.Builder(
-							ActiveAccountSelect.this)
-							.setMessage("账户" + account + "已成功绑定")
-							.setPositiveButton("确定",
-									new DialogInterface.OnClickListener() {
+				if (spnrSelectTpye.getSelectedItem() != null
+						&& spnrSelectAcc.getSelectedItem() != null) {
+					String account = spnrSelectAcc.getSelectedItem().toString();
+					List<String> lstOut = new ArrayList<String>();
+					lstOut.add(account);
+					lstOut.add(dtPwd.getText().toString());
+					// 连接服务器
+					List<String> lstIn = AccManaConWebservices.connectHttp(
+							ActiveAccountSelect.this, "0106", lstOut);
+					if ((lstIn.get(0)).equals("true"))
+						flag = true;
+					else
+						flag = false;
+					// 弹出对话框
+					if (flag == true) {
+						AlertDialog myDialog = new AlertDialog.Builder(
+								ActiveAccountSelect.this)
+								.setMessage("账户" + account + "已成功绑定")
+								.setPositiveButton("确定",
+										new DialogInterface.OnClickListener() {
 
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
 
-											Toast.makeText(
-													ActiveAccountSelect.this,
-													"绑定成功", Toast.LENGTH_SHORT)
-													.show();
-											finish();
-										}
-									}).show();
+												Toast.makeText(
+														ActiveAccountSelect.this,
+														"绑定成功",
+														Toast.LENGTH_SHORT)
+														.show();
+												finish();
+											}
+										}).show();
 
-					// myDialog.getWindow().setContentView(R.layout.dialog);
+						// myDialog.getWindow().setContentView(R.layout.dialog);
+					} else {
+						new AlertDialog.Builder(ActiveAccountSelect.this)
+								.setMessage("密码错误或未连接上服务器，绑定失败")
+								.setPositiveButton("确定",
+										new DialogInterface.OnClickListener() {
+
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+
+												Toast.makeText(
+														ActiveAccountSelect.this,
+														"未绑定",
+														Toast.LENGTH_SHORT)
+														.show();
+												dialog.dismiss();
+											}
+										}).show();
+					}
 				} else {
-					new AlertDialog.Builder(ActiveAccountSelect.this)
-							.setMessage("密码错误或未连接上服务器，绑定失败")
-							.setPositiveButton("确定",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-
-											Toast.makeText(
-													ActiveAccountSelect.this,
-													"未绑定", Toast.LENGTH_SHORT)
-													.show();
-											dialog.dismiss();
-										}
-									}).show();
+					Toast.makeText(ActiveAccountSelect.this,
+							"此账户类型中没有你的账号", Toast.LENGTH_SHORT).show();
 				}
 
 			}

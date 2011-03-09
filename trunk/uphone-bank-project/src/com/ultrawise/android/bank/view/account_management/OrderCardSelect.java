@@ -93,16 +93,24 @@ public class OrderCardSelect extends Activity {
 		btnNext.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// 获取账户类型和账户号
-				accountTypeValue = spnrSelectTpye.getSelectedItem().toString();
-				accountValue = spnrSelectAcc.getSelectedItem().toString();
-				// TODO 跳转至选择换卡原因和换卡网点的页面
-				intent = new Intent();
-				intent.putExtra(OrderCardSelect.ACCOUNT_TYPE, accountTypeValue);
-				intent.putExtra(OrderCardSelect.ACCOUNT, accountValue);
-				intent.setClass(OrderCardSelect.this, OrderCardSelect2.class);
-				OrderCardSelect.this.startActivity(intent);
-
+				if (spnrSelectTpye.getSelectedItem() != null
+						&& spnrSelectAcc.getSelectedItem() != null) {
+					// 获取账户类型和账户号
+					accountTypeValue = spnrSelectTpye.getSelectedItem()
+							.toString();
+					accountValue = spnrSelectAcc.getSelectedItem().toString();
+					// TODO 跳转至选择换卡原因和换卡网点的页面
+					intent = new Intent();
+					intent.putExtra(OrderCardSelect.ACCOUNT_TYPE,
+							accountTypeValue);
+					intent.putExtra(OrderCardSelect.ACCOUNT, accountValue);
+					intent.setClass(OrderCardSelect.this,
+							OrderCardSelect2.class);
+					OrderCardSelect.this.startActivity(intent);
+				} else {
+					Toast.makeText(OrderCardSelect.this, "此账户类型中没有你的账号",
+							Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 
