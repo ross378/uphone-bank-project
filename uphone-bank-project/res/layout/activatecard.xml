@@ -90,6 +90,7 @@ android:id="@+id/creditEnabledDateEdit"
 android:layout_width="180dip"
 android:layout_height="35dip"
 android:textSize="12dip"
+android:text="以(2011-03-05)格式填写"
 android:layout_marginLeft="15dip"
 >
 </EditText>
