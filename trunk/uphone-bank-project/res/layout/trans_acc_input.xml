@@ -27,7 +27,7 @@
 <Spinner
 	android:id="@+id/sp_trans_inptype"
 	android:layout_width="fill_parent"
-	android:layout_height="40dip"
+	android:layout_height="35dip"
 	android:drawSelectorOnTop="true"
 	android:layout_marginLeft="60dip"
 	android:layout_marginRight="60dip"
@@ -52,7 +52,7 @@
 <Spinner
 	android:id="@+id/sp_trans_inpacc"
 	android:layout_width="fill_parent"
-	android:layout_height="40dip"
+	android:layout_height="35dip"
 	android:drawSelectorOnTop="true"
 	android:layout_marginLeft="60dip"
 	android:layout_marginRight="60dip"
