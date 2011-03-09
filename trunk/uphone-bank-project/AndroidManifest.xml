@@ -7,10 +7,12 @@
 
 		<!-- 过渡页面 -->
 		<activity android:name="com.ultrawise.android.bank.view.BridgePage">
+
 		 	<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
+
 		</activity>
 		<!-- 信用卡 -->
 
