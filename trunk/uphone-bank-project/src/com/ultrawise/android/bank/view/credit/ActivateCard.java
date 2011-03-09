@@ -142,28 +142,6 @@ public class ActivateCard extends Activity {
         passwordEdit=(EditText)findViewById(R.id.accoutpasswordEdit);
         //获得证件号输入框对象
         pakitNoEditText=(EditText)findViewById(R.id.pakitNoEditText);
-        
-        
-        Intent intent=this.getIntent();
-       /* if(intent!=null){
-        	userName=intent.getStringExtra("userName");
-        	creditNo=intent.getStringExtra("creditNo");
-        	//pakitPostion=Integer.parseInt(intent.getStringExtra("pakitPostion"));
-        	pakitNo=intent.getStringExtra("pakitNo");
-        	mobileNo=intent.getStringExtra("mobileNo");
-        	phone=intent.getStringExtra("phone");
-        	accountPassword=intent.getStringExtra("accountPassword");
-        	dateEnable=intent.getStringExtra("dateEnable");
-        	userNameEditText.setText(userName);
-        	activateCardNumberEditText.setText(creditNo);
-        	creditEnabledDateText.setText(dateEnable);
-        	pakitNoEditText.setText(pakitNo);
-        	mobileNoEdit.setText(mobileNo);
-        	phoneNoEdit.setText(phone);
-        	//pakitSpinner.setSelection(pakitPostion,true);
-        	
-        }*/
-    	
         //初始化证件类型控件值
        final String[] arrs=new String[]{"身份证","学生证","工作证","军人证"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arrs);
@@ -175,33 +153,24 @@ public class ActivateCard extends Activity {
 
          pakitSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
-                public void onItemSelected(AdapterView<?> parent, View arg1, int position, long arg3){
-
-
-                	//pakitPostion=parent.getSelectedItemPosition();
-                	parent.setVisibility(View.VISIBLE);
-                	
-
-
+         public void onItemSelected(AdapterView<?> parent, View arg1, int position, long arg3){
+                	parent.setVisibility(View.VISIBLE);            
                 }
-                public void onNothingSelected(AdapterView<?> parent){
-                	
-                	
+                public void onNothingSelected(AdapterView<?> parent){             	             	
                 }
-
             });
-
     }
-
-        
-	
 	class ActivateCardButtonListener implements OnClickListener{
-
 		public void onClick(View arg0) {
 			String orderid=activateCardNumberEditText.getText().toString();
 			String password=passwordEdit.getText().toString();
+			String user=userNameEditText.getText().toString();
+			String enabledDate=creditEnabledDateText.getText().toString();
+			String pakitNo=pakitNoEditText.getText().toString();
 		System.out.println("=="+orderid+"==="+password);
-		 if(orderid.length()>0&&password.length()>0){
+		 if(orderid.length()>0&&password.length()>0&&
+				 user.length()>0&&enabledDate.length()>0&&
+				 pakitNo.length()>0){
 			  l.add(orderid);
 			  l.add(password);
 			List<String> accuss=CreditClient.connectHttp(funNo, l);
@@ -225,7 +194,7 @@ public class ActivateCard extends Activity {
 			ActivateCard.this.startActivity(intent);
 			}else
 			{
-				Toast.makeText(ActivateCard.this, "输入有误", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ActivateCard.this, "带*号的必需填写数据", Toast.LENGTH_SHORT).show();
 			}
 		}
 		
