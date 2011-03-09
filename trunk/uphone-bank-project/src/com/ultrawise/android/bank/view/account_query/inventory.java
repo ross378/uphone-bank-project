@@ -225,6 +225,8 @@ public class inventory extends Activity {
 				
 				intent.setClass(inventory.this, Inventorylist.class);
 				inventory.this.startActivity(intent);
+				start_time = "开始时间";
+			    end_time = "结束时间";
 				}
 			   }else{
 				   

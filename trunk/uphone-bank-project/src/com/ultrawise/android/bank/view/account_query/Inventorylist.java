@@ -12,6 +12,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -21,6 +22,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class Inventorylist extends ListActivity{
+
+
 	private Button btnReturn=null;
 	private TextView acc1=null;
 	private TextView acc2=null;
@@ -172,6 +175,16 @@ public class Inventorylist extends ListActivity{
 				}
 			});
 	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+		Intent intent=new Intent();
+		intent.setClass(Inventorylist.this,  inventory.class);
+		Inventorylist.this.startActivity(intent);
+		return false;
+	}
+	
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
