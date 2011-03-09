@@ -231,6 +231,8 @@ public class AccountFrom extends Activity {
 				
 				intent.setClass(AccountFrom.this, AccountQueryEinnahme.class);
 				AccountFrom.this.startActivity(intent);
+				start_time = "开始时间";
+			    end_time = "结束时间";
 				}
 			   }else{
 				   
