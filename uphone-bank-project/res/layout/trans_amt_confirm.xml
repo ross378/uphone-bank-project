@@ -111,6 +111,7 @@
 	/>
 	<TableRow>
 	<TextView
+		android:id="@+id/tv_trans_amtconfinph"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginLeft="30dip"

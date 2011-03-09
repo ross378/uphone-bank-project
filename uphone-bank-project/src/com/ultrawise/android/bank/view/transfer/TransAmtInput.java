@@ -82,7 +82,7 @@ public class TransAmtInput extends Activity {
         transpsd = (EditText)findViewById(R.id.et_trans_amtpsd);
         tv_trans_type = (TextView)findViewById(R.id.tv_trans_amttv2);
         if(transtype.equals(">手机到签约账户转账")){tv_trans_type.setText("请输入转入账户：");System.out.print(transtype);}
-        System.out.println(transtype);
+        //System.out.println(transtype);
       //向右滑动触发后退
 		mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener(){
 			@Override
