@@ -23,9 +23,9 @@ import org.codehaus.jettison.json.JSONObject;
 
 @Path("amws")
 public class AccManaWebServices {
-	private Action mAction = new Action(new All(), null, null,
-			new AccountInfo(), new AccountLoss(), new AccountPre(), new Bind(),
-			new NickName(), new OrderCard());
+	private Action mAction = new Action(new All(), new AccountAdd(),
+			new AccountDel(), new AccountInfo(), new AccountLoss(),
+			new AccountPre(), new Bind(), new NickName(), new OrderCard());
 
 	// 静态的功能标识
 	private final static int GET_ACC_TYPE = 101;
@@ -45,6 +45,8 @@ public class AccManaWebServices {
 	private final static int SET_PRE_ACC = 115;
 	private final static int GET_UNPRE_ACC = 116;
 	private final static int ADD_ACC = 117;
+	private final static int DEL_ACC = 118;
+	private final static int SET_NICKNAME = 119;
 
 	/**
 	 * 接收请求 1.解密 2.解析字符串格式 3.调用功能 4.加密 5.包装成json 6.返回json
@@ -63,10 +65,22 @@ public class AccManaWebServices {
 		int action = Integer.parseInt(value[0]);
 		String value02 = "";
 		String value03 = "";
+		String value04 = "";
+		String value05 = "";
+		String value06 = "";
 		if (value.length > 1) {
 			value02 = value[1];
 			if (value.length > 2) {
 				value03 = value[2];
+				if (value.length > 3) {
+					value04 = value[3];
+					if (value.length > 4) {
+						value05 = value[4];
+						if (value.length > 5) {
+							value06 = value[5];
+						}
+					}
+				}
 			}
 		}
 		// 调用功能
@@ -94,7 +108,7 @@ public class AccManaWebServices {
 			// params:unlossAcc
 			return wrapUp(doEncode(mAction.performSetLoss(value02)));
 		case GET_NICK_NAME:
-			// params:acc,nickName
+			// params:acc
 			return wrapUp(doEncode(mAction.performGetNickName(value02)));
 		case GET_LOSS_COST:
 			return wrapUp(doEncode(mAction.performGetlossCost()));
@@ -121,7 +135,14 @@ public class AccManaWebServices {
 			return wrapUp(doEncode(mAction.performGetUnpreAcc(value02)));
 		case ADD_ACC:
 			// params:accountType,account,accountNickName,password
-
+			return wrapUp(doEncode(mAction.performAddAcc(value02, value03,
+					value04, value05, value06)));
+		case DEL_ACC:
+			// params:acc
+			return wrapUp(doEncode(mAction.performDeleteAccount(value02)));
+		case SET_NICKNAME:
+			// params:acc,nickName
+			return wrapUp(doEncode(mAction.performSetNickName(value02, value03)));
 		default:
 			return null;
 		}

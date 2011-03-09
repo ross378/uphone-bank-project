@@ -33,10 +33,11 @@ public class AccountPre implements IAccountPre {
 	}
 
 	public List<String> getUnpreAccount(String userNo) {
-		// 需要绑定的，但不是挂失的
+		// 需要绑定的和添加过的，但不是挂失的
 		ArrayList<String> lstStr = new ArrayList<String>();
 		boolean isNotLoss = false;
 		boolean isBind = false;
+		boolean isAdd = false;
 
 		NodeList nl = All.readTxt("accout.txt").getElementsByTagName("accout");
 		for (int i = 0; i < nl.getLength(); i++) {
@@ -67,20 +68,27 @@ public class AccountPre implements IAccountPre {
 								isBind = true;
 							}
 						}
-						if (isNotLoss && isBind) {
+						if (nName.equals("isadd")) {
+							String isadd = nl2.item(y).getFirstChild()
+									.getNodeValue();
+							if (isadd.equals("是")) {
+								isAdd = true;
+							}
+						}
+						if (isNotLoss && isBind && isAdd) {
 							String accId = att.getNamedItem("id")
 									.getNodeValue();
 							lstStr.add(accId);
 							isNotLoss = false;
 							isBind = false;
-
+							isAdd = false;
 						}
 					}
 				}
 			}
 			isNotLoss = false;
 			isBind = false;
-
+			isAdd = false;
 		}
 		return lstStr;
 	}

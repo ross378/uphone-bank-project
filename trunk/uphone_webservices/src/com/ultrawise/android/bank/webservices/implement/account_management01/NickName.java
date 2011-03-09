@@ -19,9 +19,9 @@ import com.ultrawise.android.bank.webservices.base.account_management01.INickNam
 public class NickName implements INickName {
 
 	/**
-	 * 功能号0103
+	 * 功能号0119
 	 */
-	public void setNickName(String account, String nickName) {
+	public boolean setNickName(String account, String nickName) {
 		List<String> lstStr = new ArrayList<String>();
 		// TODO 设置别名
 		Document doc = All.readTxt("accout.txt");
@@ -31,7 +31,6 @@ public class NickName implements INickName {
 		for (int i = 0; i < nl.getLength(); i++) {
 			if (nl.item(i).hasAttributes()) {// 如果有属性
 				NamedNodeMap nnm = nl.item(i).getAttributes();// 获取节点的属性
-
 				String attValue = nnm.getNamedItem("id").getNodeValue();
 				if (attValue.equals(account)) {
 					// 如果值和参数相同
@@ -42,11 +41,13 @@ public class NickName implements INickName {
 							nl.item(z).getFirstChild().setNodeValue(nickName);// 设置节点的值
 							// 写入文件
 							All.writeTxt(doc, "accout.txt");
+							return true;
 						}
 					}
 				}
 
 			}
 		}
+		return false;
 	}
 }
