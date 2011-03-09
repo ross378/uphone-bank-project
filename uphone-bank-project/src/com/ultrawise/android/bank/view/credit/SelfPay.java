@@ -154,8 +154,9 @@ public class SelfPay extends Activity {
 		        nextButton.setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						ll.clear();
 						creditname=(EditText)findViewById(R.id.creditNameEdit);
+						if(creditname.getText().toString().length()>0){
+						ll.clear();
 						ll.add(creditname.getText().toString());
 						//System.out.println("---------------------------------"+card[arg2]);
 						List<String> accuss=CreditClient.connectHttp("461", ll);
@@ -169,8 +170,11 @@ public class SelfPay extends Activity {
 						{
 							Toast.makeText(SelfPay.this, "没有此帐号", Toast.LENGTH_SHORT).show();
 						}
+						}else
+						{
+							Toast.makeText(SelfPay.this, "请输入", Toast.LENGTH_SHORT).show();
 						}
-					
+					}
 				});
 	    }
 }
