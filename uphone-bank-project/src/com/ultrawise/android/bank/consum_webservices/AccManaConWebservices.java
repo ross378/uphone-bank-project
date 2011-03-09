@@ -43,7 +43,7 @@ import android.widget.Toast;
 
 public class AccManaConWebservices {
 	private final static String TAG = "AccountManagement";
-	private final static String URL_PATH = "http://10.1.111.10:8080/webservices/amws/do";
+	private final static String URL_PATH = "http://10.1.1.103:8080/webservices/amws/do";
 
 	/**
 	 * 连接服务器
