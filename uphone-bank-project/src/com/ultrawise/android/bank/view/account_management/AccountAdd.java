@@ -82,6 +82,7 @@ public class AccountAdd extends Activity {
 		btnAdd.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+
 				// 获取输入的账户类型
 				String accTpyeValue = spnrSelectTpye.getSelectedItem()
 						.toString();
@@ -97,62 +98,71 @@ public class AccountAdd extends Activity {
 				dtPwd = (EditText) AccountAdd.this
 						.findViewById(R.id.accAdd_dtPwd);
 				String pwdValue = dtPwd.getText().toString();
-				// 向服务器添加账户
-				List<String> lstOut = new ArrayList<String>();
-				// lstOut.add(UserLogin.userNO);// 用户号
-				lstOut.add("Sun01");
-				lstOut.add(accTpyeValue);
-				lstOut.add(accountValue);
-				lstOut.add(nickName);
-				lstOut.add(pwdValue);
-				String isDone = AccManaConWebservices.connectHttp(
-						AccountAdd.this, "0117", lstOut).get(0);
-				if (isDone.equals("true"))
-					flag = true;
-				else
-					flag = false;
-				// 弹出对话框
+				if (spnrSelectTpye.getSelectedItem() != null
+						&& accountValue.length() > 0 && nickName.length() > 0
+						&& pwdValue.length() > 0) {
+					// 向服务器添加账户
+					List<String> lstOut = new ArrayList<String>();
+					// lstOut.add(UserLogin.userNO);// 用户号
+					lstOut.add("Sun01");
+					lstOut.add(accTpyeValue);
+					lstOut.add(accountValue);
+					lstOut.add(nickName);
+					lstOut.add(pwdValue);
+					String isDone = AccManaConWebservices.connectHttp(
+							AccountAdd.this, "0117", lstOut).get(0);
+					if (isDone.equals("true"))
+						flag = true;
+					else
+						flag = false;
+					// 弹出对话框
 
-				if (flag == true) {
-					new AlertDialog.Builder(AccountAdd.this)
-							.setTitle("成功提示：")
-							.setMessage("账户添加成功")
-							.setPositiveButton("确定",
-									new DialogInterface.OnClickListener() {
+					if (flag == true) {
+						new AlertDialog.Builder(AccountAdd.this)
+								.setTitle("成功提示：")
+								.setMessage("账户添加成功")
+								.setPositiveButton("确定",
+										new DialogInterface.OnClickListener() {
 
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
 
-											Toast.makeText(AccountAdd.this,
-													"操作完成", Toast.LENGTH_SHORT)
-													.show();
-											dialog.dismiss();
-											// 清空数据
-											dtAcc.setText("");
-											dtNickName.setText("");
-											dtPwd.setText("");
-										}
-									}).show();
+												Toast.makeText(AccountAdd.this,
+														"操作完成",
+														Toast.LENGTH_SHORT)
+														.show();
+												dialog.dismiss();
+												// 清空数据
+												dtAcc.setText("");
+												dtNickName.setText("");
+												dtPwd.setText("");
+											}
+										}).show();
+					} else {
+						new AlertDialog.Builder(AccountAdd.this)
+								.setTitle("失败提示：")
+								.setMessage("添加账户失败，密码错误；输入的账号不存在或账户类型与账户不匹配")
+								.setPositiveButton("确定",
+										new DialogInterface.OnClickListener() {
+
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+
+												Toast.makeText(AccountAdd.this,
+														"操作完成",
+														Toast.LENGTH_SHORT)
+														.show();
+												dialog.dismiss();
+											}
+										}).show();
+
+					}
 				} else {
-					new AlertDialog.Builder(AccountAdd.this)
-							.setTitle("失败提示：")
-							.setMessage("添加账户失败，密码错误；输入的账号不存在或账户类型与账户不匹配")
-							.setPositiveButton("确定",
-									new DialogInterface.OnClickListener() {
-
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-
-											Toast.makeText(AccountAdd.this,
-													"操作完成", Toast.LENGTH_SHORT)
-													.show();
-											dialog.dismiss();
-										}
-									}).show();
+					Toast.makeText(AccountAdd.this, "请输入完整的信息",
+							Toast.LENGTH_SHORT).show();
 				}
-
 			}
 
 		});
