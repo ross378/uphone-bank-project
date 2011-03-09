@@ -96,6 +96,13 @@ public class TransferService {
 			List<String> flag = transfer.contransfer2(useracc,amtnum,amtpsd,amtph);
 			
 			return wrapUp(doEncode(flag));
+		}else if(action == TRANSFER2){
+			String useracc = mValue[1];
+			String amtnum = mValue[2];
+			String amtph = mValue[3];
+			List<String> flag = transfer.transfer2(useracc,amtnum,amtph);
+			
+			return wrapUp(doEncode(flag));
 		}
 		return null;
 	}
