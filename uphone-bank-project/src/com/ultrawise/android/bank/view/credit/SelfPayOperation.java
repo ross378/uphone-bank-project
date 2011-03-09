@@ -77,7 +77,7 @@ public class SelfPayOperation extends ListActivity {
 		         cancle.setOnClickListener(new OnClickListener() {
 						public void onClick(View v) {
 							// TODO Auto-generated method stub
-							intent.setClass(SelfPayOperation.this, SelfPay.class);
+							intent.setClass(SelfPayOperation.this, CreditView.class);
 							SelfPayOperation.this.startActivity(intent);
 						}
 					});
@@ -122,7 +122,7 @@ public class SelfPayOperation extends ListActivity {
 				}
 				
 				creditPasswd=password.getText().toString();
-				if(creditPasswd!=null)
+				if(creditPasswd.length()>0)
 				{
 					
 				if(creditPasswd.trim().equals("123")==false)
