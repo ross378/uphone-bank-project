@@ -24,7 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class QuerySever{
-	  private final static String SERVICE_ADDRESS = "http://10.1.1.36:8080/webservices/query/do/";
+	  private final static String SERVICE_ADDRESS = "http://10.1.1.103:8080/webservices/query/do/";
 
 	  // private String value;// like: 0101:A43lEnOCi80lxEne
 
