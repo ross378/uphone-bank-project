@@ -105,7 +105,7 @@ public class FileOperation {
 		Element node = doc.createElement(values[1]);
 		
 		Element node1 = doc.createElement("id");
-		Text text1 = doc.createTextNode("");
+		Text text1 = doc.createTextNode("1");
 		node1.appendChild(text1);
 		node.appendChild(node1);
 		
