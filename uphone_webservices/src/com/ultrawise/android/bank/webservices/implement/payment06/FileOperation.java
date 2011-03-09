@@ -115,7 +115,7 @@ public class FileOperation {
 		node.appendChild(node2);
 		//金额
 		Element node3 = doc.createElement("credit");
-		Text text3 = doc.createTextNode(values[6]);
+		Text text3 = doc.createTextNode(values[6]+".00");
 		node3.appendChild(text3);
 		node.appendChild(node3);
 		//号码
