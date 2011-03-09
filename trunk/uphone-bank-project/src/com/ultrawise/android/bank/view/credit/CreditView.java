@@ -3,13 +3,9 @@ package com.ultrawise.android.bank.view.credit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
-import com.ultrawise.android.bank.view.account_query.AccountFrom;
-import com.ultrawise.android.bank.view.account_query.AccountQuery;
-import com.ultrawise.android.bank.view.account_query.inventory;
 import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -21,7 +17,6 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-
 public class CreditView extends ListActivity  {
 		TextView  tvCredit;
 		Intent intent;
@@ -32,9 +27,7 @@ public class CreditView extends ListActivity  {
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);  
-	        
 	        setContentView(R.layout.credit);  
-	        
 	     // 返回键设定
 			btnReturn = (ImageView) this.findViewById(R.id.returnToPre);
 			btnReturn.setOnClickListener(new OnClickListener() {
@@ -104,9 +97,9 @@ public class CreditView extends ListActivity  {
 					// TODO Auto-generated method stub
 					intent.setClass(CreditView.this, ABankMain.class);
 					CreditView.this.startActivity(intent);
+					finish();
 				}
 			});
-			//btnCoustom.setVisibility(View.VISIBLE);
 			
 		btnMain = (ImageView) this.findViewById(R.id.btnHelper);
 			btnMain.setOnClickListener(new OnClickListener() {
@@ -149,7 +142,6 @@ public class CreditView extends ListActivity  {
 				payment_intent.setClass(CreditView.this,ActivateCard.class);
 				CreditView.this.startActivity(payment_intent);
 			}else if(id==4){//销卡
-				
 				Intent payment_intent = new Intent();
 				payment_intent.setClass(CreditView.this, CancelTheCard.class);
 				CreditView.this.startActivity(payment_intent);
