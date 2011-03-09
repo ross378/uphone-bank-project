@@ -2,7 +2,9 @@ package com.ultrawise.android.bank.view.account_management;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.ultrawise.android.bank.consum_webservices.AccManaConWebservices;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
 import com.ultrawise.android.bank.view.transfer.R;
@@ -67,8 +69,11 @@ public class AccountDelInfo extends Activity {
 			// 错误的进入此界面
 		}
 
+		List<String> lstOut = new ArrayList<String>();
+		lstOut.add(strAccountValue);
 		// 从服务器获取
-		strAccNickName = "定期储蓄";
+		strAccNickName = AccManaConWebservices
+				.connectHttp(this, "0108", lstOut).get(0);
 		// 显示文本
 		lvContent = (ListView) this.findViewById(R.id.accOrderCardInfo_lv);
 		// 生成内容
@@ -98,28 +103,46 @@ public class AccountDelInfo extends Activity {
 		btnNext.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				// TODO 发送服务器，确定是否能连上
-				flag = true;
-				new AlertDialog.Builder(AccountDelInfo.this)
 
-						.setMessage(
-								"活期储蓄账户33001934785902即将被删除，删除后该账户将不能再通过手机客户端操作！")
+				new AlertDialog.Builder(AccountDelInfo.this)
+						.setTitle("提示：")
+						.setMessage("账户即将被删除，删除后该账户将不能再通过手机客户端操作！")
 						.setPositiveButton("确定",
 								new DialogInterface.OnClickListener() {
 
 									public void onClick(DialogInterface dialog,
 											int which) {
-										Toast.makeText(AccountDelInfo.this,
-												"删除成功", Toast.LENGTH_SHORT)
-												.show();
-										dialog.dismiss();
-										intent = new Intent();
-										intent.setClass(AccountDelInfo.this,
-												AccountManagementList.class);
-										AccountDelInfo.this
-												.startActivity(intent);
+										// 发送删除指令
+										List<String> lstOut = new ArrayList<String>();
+										lstOut.add(strAccountValue);
+										List<String> lstIn = AccManaConWebservices
+												.connectHttp(
+														AccountDelInfo.this,
+														"0118", lstOut);
+										if (lstIn.get(0).equals("true"))
+											flag = true;
+										else
+											flag = false;
+										if (flag) {
+											dialog.dismiss();
+											Toast.makeText(AccountDelInfo.this,
+													"删除成功", Toast.LENGTH_SHORT)
+													.show();
 
-										finish();
+											intent = new Intent();
+											intent.setClass(
+													AccountDelInfo.this,
+													AccountManagementList.class);
+											AccountDelInfo.this
+													.startActivity(intent);
+
+											finish();
+										} else {
+											dialog.dismiss();
+											Toast.makeText(AccountDelInfo.this,
+													"没有删除成功",
+													Toast.LENGTH_SHORT).show();
+										}
 									}
 								})
 						.setNegativeButton("取消",
@@ -131,7 +154,6 @@ public class AccountDelInfo extends Activity {
 										dialog.dismiss();
 									}
 								}).show();
-
 			}
 
 		});
