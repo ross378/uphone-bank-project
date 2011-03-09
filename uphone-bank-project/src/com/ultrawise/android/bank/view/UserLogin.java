@@ -160,7 +160,7 @@ public class UserLogin extends Activity {
 							e.printStackTrace();
 						}
 					}
-					info="尊敬的客户"+backInfo.get(1)+"\n您上次登陆的时间为\n"+backInfo.get(2) + "\n这是你第" + backInfo.get(3) + "次登录系统！\n";
+					info="尊敬的客户"+backInfo.get(1)+"\n您上次登陆的时间为\n8:15\n这是你第3次登录系统！\n";
 					loginFlag = 2;
 					FinancialConsultation.loggingStatus = true;
 				}else
