@@ -76,10 +76,7 @@ public class ABankMain extends Activity {
 		intent.setClass(ABankMain.this, BridgePage.class);
 	
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //注意本行的FLAG设置
-	
 		startActivity(intent);
-
-
 		return false;
 	}
 	
