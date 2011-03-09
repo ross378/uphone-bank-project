@@ -71,7 +71,15 @@ public class ABankMain extends Activity {
 	
 	public boolean onKeyDown(int keyCode, KeyEvent event){
 		
-		
+		Intent intent = new Intent();
+
+		intent.setClass(ABankMain.this, BridgePage.class);
+	
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //注意本行的FLAG设置
+	
+		startActivity(intent);
+
+
 		return false;
 	}
 	

@@ -13,7 +13,12 @@ public class BridgePage extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bridge_page);
-		
+		if(FinancialConsultation.loggingStatus == true)
+		{
+			FinancialConsultation.loggingStatus = false;
+			this.finish();
+			
+		}
 		TimeThread time = new TimeThread();
 		time.start();
 	}
