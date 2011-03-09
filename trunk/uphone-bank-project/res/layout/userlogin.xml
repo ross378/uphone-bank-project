@@ -79,9 +79,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_height = "72px"
 					android:textSize = "24px"
 					android:textColor = "#000000"
-					android:text = "附加码：   "	
-					android:layout_marginLeft = "25px"				
-					android:gravity = "center_vertical"></TextView>
+					android:text = "附加码： "	
+					android:layout_marginLeft = "30px"				
+					android:gravity = "center_vertical"></TextView> 
 				<EditText
 					android:id="@+id/pyramidEdit"
 					android:layout_width = "120px"
@@ -98,7 +98,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 					android:paddingBottom = "5px"
 					android:background = "#808080ff"
 					android:layout_gravity = "center_vertical"
-					android:layout_marginLeft = "30px"></TextView>
+					android:layout_marginLeft = "40px"></TextView>
 			</TableRow>
 		</TableLayout>
 	</TableRow>
