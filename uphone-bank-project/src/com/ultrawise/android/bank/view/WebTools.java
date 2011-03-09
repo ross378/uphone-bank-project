@@ -26,7 +26,7 @@ import android.util.Log;
 
 public class WebTools {
 	
-	private final static String SERVICE_ADDRESS = "http://10.1.1.130:8080/webservices/aaa/dd";
+	private final static String SERVICE_ADDRESS = "http://10.1.1.103:8080/webservices/aaa/dd";
 
     public static List<String> connectHttp(int funNo, List<String> viewParams) {
 		String result = "error";
