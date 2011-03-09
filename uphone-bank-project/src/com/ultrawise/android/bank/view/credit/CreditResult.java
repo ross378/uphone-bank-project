@@ -62,6 +62,7 @@ public class CreditResult extends Activity{
 					intent.putExtra("cardNo", cardNo);
 					intent.setClass(CreditResult.this, CreditInventory.class);
 					CreditResult.this.startActivity(intent);
+					finish();
 				}
 			});
 			time_cancel = (Button)findViewById(R.id.accountfrom_cancell);
@@ -70,6 +71,7 @@ public class CreditResult extends Activity{
 					Intent intent = new Intent();
 					intent.setClass(CreditResult.this, CreditInventory.class);
 					CreditResult.this.startActivity(intent);
+					finish();
 				}
 			});
 		}

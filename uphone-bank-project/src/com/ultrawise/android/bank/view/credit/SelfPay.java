@@ -7,6 +7,7 @@ import java.util.List;
 import com.ultrawise.android.bank.consum_webservices.CreditClient;
 import com.ultrawise.android.bank.view.ABankMain;
 import com.ultrawise.android.bank.view.FinancialConsultation;
+import com.ultrawise.android.bank.view.account_query.Query_Settime;
 import com.ultrawise.android.bank.view.transfer.R;
 
 import android.app.Activity;
@@ -134,7 +135,7 @@ public class SelfPay extends Activity {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					onBackPressed();
-					finish();
+				//	SelfPay.this.finish();
 				}
 			});
 		               	//btnCoustom.setVisibility(View.VISIBLE);

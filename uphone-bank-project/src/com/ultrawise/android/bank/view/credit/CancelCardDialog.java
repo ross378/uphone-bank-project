@@ -38,16 +38,20 @@ public class CancelCardDialog extends Activity {
 				Intent intent = new Intent();
 				if(cancelFlag==2){
 					intent.setClass(CancelCardDialog.this, CreditView.class);
+					CancelCardDialog.this.startActivity(intent);
 				}else if(cancelFlag==1){
 					intent.setClass(CancelCardDialog.this, CancelTheCard.class);
+					CancelCardDialog.this.startActivity(intent);
 				}else if(cancelFlag==4){
 					intent.setClass(CancelCardDialog.this, CreditView.class);
+					CancelCardDialog.this.startActivity(intent);
 				}
 				else if(cancelFlag==3)
 				{
-					finish();
 				}
-	    		CancelCardDialog.this.startActivity(intent);
+	    		
+	    		finish();
+	    		
 			}
 	    }
 }

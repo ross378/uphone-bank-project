@@ -12,6 +12,7 @@ import com.ultrawise.android.bank.view.transfer.R;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class CreditInventorylist extends ListActivity{
 	String listview;
 	String start;
 	String end;
+	String nopay="没有交易";
+	int i=0;
     ArrayList<String> noarr=new ArrayList<String>();
     ArrayList<String> jiao=new  ArrayList<String>();
     ArrayList<String> name=new  ArrayList<String>();
@@ -117,7 +120,8 @@ public class CreditInventorylist extends ListActivity{
                            }
                         }else
                         {
-                        	 acclist1.put("txtView1","没有交易");
+                        	i++;
+                        	 acclist1.put("txtView1",nopay);
                  	        acclist1.put("txtView2", "请选择其它时间段");
                  	        acclist1.put("txtView3",R.drawable.account2);
                         }
@@ -158,11 +162,23 @@ public class CreditInventorylist extends ListActivity{
 		super.onListItemClick(l, v, position, id);
 	
 			Intent intent=new Intent();
+			if(i!=1){
 			intent.putExtra("date", noarr.get((int)id));
 			intent.putExtra("name", name.get((int)id));
 			intent.putExtra("amount", amount.get((int)id));
 			intent.putExtra("jiao", jiao.get((int)id));
 			intent.setClass(CreditInventorylist.this, CreditInventoryResult.class);
-			CreditInventorylist.this.startActivity(intent);
+			CreditInventorylist.this.startActivity(intent);}
 	}
+
+	/*@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		Intent t_intent=new Intent();
+		t_intent.putExtra("cardNo", cardNo);
+		t_intent.setClass(CreditInventorylist.this, CreditInventory.class);
+		CreditInventorylist.this.startActivity(t_intent);
+		return false;
+	}*/
+	
 }

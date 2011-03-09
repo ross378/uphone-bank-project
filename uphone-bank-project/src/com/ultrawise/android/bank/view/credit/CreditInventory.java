@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.view.credit;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +35,8 @@ public class CreditInventory extends Activity {
 	static String end_time = "结束时间";
 	private static  String nomber=null;
 	private static  String type=null;
+	private String start=null;
+	private String end=null;
 	String cardNo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +100,6 @@ public class CreditInventory extends Activity {
 				Intent intent=new Intent();
 				intent.setClass(CreditInventory.this,  FinancialConsultation.class);
 				CreditInventory.this.startActivity(intent);
-				finish();
 			}
 		});
 		
@@ -109,7 +112,7 @@ public class CreditInventory extends Activity {
 		timeStart.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-
+               
 				Intent intent = new Intent();
 				intent.putExtra("start", "start");
 				
@@ -122,13 +125,14 @@ public class CreditInventory extends Activity {
 				
 				intent.setClass(CreditInventory.this, CreditResult.class);
 				CreditInventory.this.startActivity(intent);
+				//finish();
 			}
 		});
 		timeOver = (Button) findViewById(R.id.timechange_too);
 		timeOver.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				
+			
 				Intent intent = new Intent();
 				intent.putExtra("end", "end");
 				/**
@@ -149,7 +153,19 @@ public class CreditInventory extends Activity {
 		run.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				start=timeStart.getText().toString().trim();
+			    end=timeOver.getText().toString().trim();
 				
+			    
+			    if(!start_time.equals("开始时间")&&!end_time.equals("结束时间")){
+			    	/*String time1="2011-3-8";
+					String time2="2011-3-10";
+					Date date1 = Date.valueOf(time1);
+					Date date2 = Date.valueOf(time2);*/
+					Date date3 = Date.valueOf(start);
+					Date date4 = Date.valueOf(end);
+
+					if(date3.before(date4)){
 				Intent intent=new Intent();
 				intent.putExtra("cardNo",cardNo);
 				String start=timeStart.getText().toString().trim();
@@ -164,7 +180,19 @@ public class CreditInventory extends Activity {
 			    intent.putExtra("start", start);
 				intent.putExtra("end", end);
 				intent.setClass(CreditInventory.this, CreditInventorylist.class);
-				CreditInventory.this.startActivity(intent);
+				start_time = "开始时间";
+				end_time = "结束时间";
+				CreditInventory.this.startActivity(intent);}
+				else
+				{
+					Toast.makeText(CreditInventory.this, "输入时间不对", Toast.LENGTH_SHORT).show();
+				}
+			    }
+					else
+					{
+						Toast.makeText(CreditInventory.this, "输入时间不对", Toast.LENGTH_SHORT).show();
+					}
+				//finish();
 			}
 		});
 		
