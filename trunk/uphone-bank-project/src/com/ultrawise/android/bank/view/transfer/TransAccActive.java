@@ -119,31 +119,36 @@ public class TransAccActive extends Activity {
 				tv_trans_pasd = (EditText)findViewById(R.id.et_trans_atvpsd);
 				password = tv_trans_pasd.getText().toString();
 				
-		        lstinfo.add(account);
+		        if(password == null || password.equals("")){
+		        	Toast.makeText(getApplicationContext(), "请输入密码！",Toast.LENGTH_SHORT).show();
+		        }else{
+		    	lstinfo.add(account);
 		        lstinfo.add(password);
-		        
-		        lstout=transferwebservice.connectHttp("504", lstinfo);
-		        balance = lstout.get(0);
-		        flag = lstout.get(1);
-		    if(flag.equals("true")){
-				Intent intent = new Intent();
-				intent.putExtra("transtype", transtype);
-				intent.putExtra("username", username);
-				intent.putExtra("account", account);
-				intent.putExtra("accinfo", accinfo);
-				intent.putExtra("balance", balance);
-				intent.setClass(TransAccActive.this, TransAccPsdSucc.class);
-				TransAccActive.this.startActivity(intent);
-			}else{
-				//Dialog.showDialog("密码错误", "请您输入的密码不正确！", "返回");
-				Intent intent = new Intent();
-				intent.putExtra("diatitle", "密码错误");
-				intent.putExtra("diacontent", "您输入的密码不正确！");
-				intent.putExtra("btntext", "返回");
-				intent.setClass(TransAccActive.this, CommonDialog.class);
-				TransAccActive.this.startActivity(intent);
-				//Toast.makeText(getApplicationContext(), "请您输入的密码不正确！",Toast.LENGTH_SHORT).show();
-			}
+		    	
+		    	lstout=transferwebservice.connectHttp("504", lstinfo);
+	        	balance = lstout.get(0);
+	        	flag = lstout.get(1);
+	        
+	        	if(flag.equals("true")){
+	        		Intent intent = new Intent();
+	        		intent.putExtra("transtype", transtype);
+	        		intent.putExtra("username", username);
+	        		intent.putExtra("account", account);
+	        		intent.putExtra("accinfo", accinfo);
+	        		intent.putExtra("balance", balance);
+	        		intent.setClass(TransAccActive.this, TransAccPsdSucc.class);
+	        		TransAccActive.this.startActivity(intent);
+	        	}else{
+	        		//Dialog.showDialog("密码错误", "请您输入的密码不正确！", "返回");
+	        		Intent intent = new Intent();
+	        		intent.putExtra("diatitle", "密码错误");
+	        		intent.putExtra("diacontent", "您输入的密码不正确！");
+	        		intent.putExtra("btntext", "返回");
+	        		intent.setClass(TransAccActive.this, CommonDialog.class);
+	        		TransAccActive.this.startActivity(intent);
+	        		//Toast.makeText(getApplicationContext(), "请您输入的密码不正确！",Toast.LENGTH_SHORT).show();
+	        	}
+		    }
 			}
 		});
 		
