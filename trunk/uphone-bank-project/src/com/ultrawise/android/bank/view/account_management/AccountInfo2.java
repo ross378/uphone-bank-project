@@ -86,7 +86,7 @@ public class AccountInfo2 extends ListActivity {
 				// 进错了啦你
 				finish();
 			}
-		}else{
+		} else {
 			finish();
 		}
 
@@ -169,16 +169,16 @@ public class AccountInfo2 extends ListActivity {
 		List<String> lstOut = new ArrayList<String>();
 		lstOut.add(strAccountValue);
 		// 从服务器获取和此账号有关的信息
-		List<String> lstIn = AccManaConWebservices.connectHttp(this, "0103", lstOut);
+		List<String> lstIn = AccManaConWebservices.connectHttp(this, "0103",
+				lstOut);
+		strOpenDate = lstIn.get(2);
+		strOpenAdd = lstIn.get(7);
+		strNickName = lstIn.get(8);
+		strAccState = lstIn.get(9);
+		strIsActive = lstIn.get(15);
+		strBalance = lstIn.get(16);
+		strCoin = lstIn.get(17);
 
-		strNickName = lstIn.get(6);
-		strCoin = lstIn.get(15);
-		strBalance = lstIn.get(14);
-		strAccState = lstIn.get(7);
-		strIsActive = lstIn.get(13);
-		strOpenAdd = lstIn.get(5);
-		strOpenDate = lstIn.get(0);
-		
 		// 显示文本
 		// 生成内容
 		ArrayList<HashMap<String, String>> alContent = new ArrayList<HashMap<String, String>>();
@@ -213,14 +213,14 @@ public class AccountInfo2 extends ListActivity {
 
 		item06.put("name", "账户状态：");
 		item06.put("content", strAccState);
-		if(strAccState.equals("预约换卡")){
-			item06.put("check", CHECK);	
-		}else{
+		if (strAccState.equals("预约换卡")) {
+			item06.put("check", CHECK);
+		} else {
 			item06.put("check", "");
 		}
-		
+
 		// item06.put("right", "点击查看详情");
-		item07.put("name", "是否激活");
+		item07.put("name", "是否绑定");
 		item07.put("content", strIsActive);
 		item07.put("check", "");
 
@@ -262,12 +262,12 @@ public class AccountInfo2 extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		if (id == 5) {
-			if(strAccState.equals("预约换卡")){
+			if (strAccState.equals("预约换卡")) {
 				intent = new Intent();
 				intent.putExtra(ACCOUNT, strAccountValue);
 				intent.setClass(AccountInfo2.this, OrderShowInfo2.class);
 				AccountInfo2.this.startActivity(intent);
-			}	
+			}
 		}
 	}
 

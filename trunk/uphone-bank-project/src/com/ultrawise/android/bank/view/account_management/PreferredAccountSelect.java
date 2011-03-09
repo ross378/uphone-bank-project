@@ -46,6 +46,8 @@ public class PreferredAccountSelect extends Activity {
 	private Spinner tvPreAccClick;
 	private List<String> array;
 	private ArrayAdapter<String> adapterType;
+	private boolean isFirst = true;
+	private TextView tvPre;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,44 +56,62 @@ public class PreferredAccountSelect extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
 		setContentView(R.layout.account_preferred_select);
 
+		// 首选
 		List<String> lstOut = new ArrayList<String>();
 		// lstOut.add(UserLogin.userNO);
 		// 用户号
 		lstOut.add("Sun01");
+		tvPre = (TextView) this.findViewById(R.id.accPre_tvPreAccClick3);
+		tvPre.setText(AccManaConWebservices.connectHttp(
+				PreferredAccountSelect.this, "0114", lstOut).get(0));
+
+		List<String> lstOut2 = new ArrayList<String>();
+		// lstOut.add(UserLogin.userNO);
+		// 用户号
+		lstOut2.add("Sun01");
 		tvPreAccClick = (Spinner) this.findViewById(R.id.accPre_tvPreAccClick);
 		adapterType = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item,
 				AccManaConWebservices.connectHttp(PreferredAccountSelect.this,
-						"0116", lstOut));
+						"0116", lstOut2));
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// 将adapter 添加到spinner中
 		tvPreAccClick.setAdapter(adapterType);
+
 		// 添加事件Spinner事件监听
 		tvPreAccClick.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				List<String> lstOut = new ArrayList<String>();
-				// lstOut.add(UserLogin.userNO);
-				// 用户号
-				lstOut.add("Sun01");
-				lstOut.add(tvPreAccClick.getSelectedItem().toString());
-				List<String> lstIn = AccManaConWebservices.connectHttp(
-						PreferredAccountSelect.this, "0115", lstOut);
-				if (lstIn.get(0).equals("true"))
-					flag = true;
-				else
-					flag = false;
-				if (flag == true) {
-					Toast.makeText(PreferredAccountSelect.this, "设置首选成功",
-							Toast.LENGTH_SHORT).show();
+				if (isFirst) {
+					// 如果是第一次
+					isFirst = false;
 				} else {
-					Toast.makeText(PreferredAccountSelect.this, "设置首选不成功",
-							Toast.LENGTH_SHORT).show();
+					List<String> lstOut3 = new ArrayList<String>();
+					// lstOut.add(UserLogin.userNO);
+					// 用户号
+					lstOut3.add("Sun01");
+					lstOut3.add(tvPreAccClick.getSelectedItem().toString());
+					List<String> lstIn = AccManaConWebservices.connectHttp(
+							PreferredAccountSelect.this, "0115", lstOut3);
+					if (lstIn.get(0).equals("true"))
+						flag = true;
+					else
+						flag = false;
+					if (flag == true) {
+						tvPre.setText(tvPreAccClick.getSelectedItem()
+								.toString());
+						Toast.makeText(PreferredAccountSelect.this, "设置首选成功",
+								Toast.LENGTH_SHORT).show();
+					} else {
+						Toast.makeText(PreferredAccountSelect.this, "设置首选不成功",
+								Toast.LENGTH_SHORT).show();
+					}
 				}
+
 			}
 
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -100,18 +120,12 @@ public class PreferredAccountSelect extends Activity {
 			}
 
 		});
-		// 首选
-		// AccManaConWebservices.connectHttp(PreferredAccountSelect.this,
-		// "0114",
-		// lstOut).get(0);
 
 		// tvPreAccClick.setOnClickListener(new OnClickListener() {
-		//
 		// public void onClick(View v) {
 		// // 从服务器获取账号
 		// List<String> lstOut = new ArrayList<String>();
-		// // lstOut.add(UserLogin.userNO);
-		// // 用户号
+		// // lstOut.add(UserLogin.userNO);// 用户号
 		// lstOut.add("Sun01");
 		// List<String> preAcc = AccManaConWebservices.connectHttp(
 		// PreferredAccountSelect.this, "0116", lstOut);
@@ -198,7 +212,6 @@ public class PreferredAccountSelect extends Activity {
 		// dialog.dismiss();
 		// }
 		// }).show();
-		//
 		// }
 		//
 		// });

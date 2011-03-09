@@ -48,9 +48,6 @@ public class AccountAdd extends Activity {
 	private ImageView btnMain;
 	private ImageView btnHelper;
 	private ImageView btnReturn;
-	// 和服务器连接有关
-	private AccManaConWebservices amConWebservice = new AccManaConWebservices();
-	private List<String> lstOut = new ArrayList<String>();// 专门用来放需要传输的数据
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +65,10 @@ public class AccountAdd extends Activity {
 		 */
 		spnrSelectTpye = (Spinner) findViewById(R.id.accAdd_SpnrSelectType);
 		// 将可选内容与ArrayAdapter连接起来
+
 		adapterType = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item,
-				amConWebservice.connectHttp(this, "0102", lstOut));// 从服务器获取账户类型
+				AccManaConWebservices.connectHttp(this, "0101", null));// 从服务器获取账户类型
 		// 设置下拉列表的风格
 		adapterType
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -100,9 +98,21 @@ public class AccountAdd extends Activity {
 						.findViewById(R.id.accAdd_dtPwd);
 				String pwdValue = dtPwd.getText().toString();
 				// 向服务器添加账户
-
+				List<String> lstOut = new ArrayList<String>();
+				// lstOut.add(UserLogin.userNO);// 用户号
+				lstOut.add("Sun01");
+				lstOut.add(accTpyeValue);
+				lstOut.add(accountValue);
+				lstOut.add(nickName);
+				lstOut.add(pwdValue);
+				String isDone = AccManaConWebservices.connectHttp(
+						AccountAdd.this, "0117", lstOut).get(0);
+				if (isDone.equals("true"))
+					flag = true;
+				else
+					flag = false;
 				// 弹出对话框
-				flag = true;
+
 				if (flag == true) {
 					new AlertDialog.Builder(AccountAdd.this)
 							.setTitle("成功提示：")
@@ -127,7 +137,7 @@ public class AccountAdd extends Activity {
 				} else {
 					new AlertDialog.Builder(AccountAdd.this)
 							.setTitle("失败提示：")
-							.setMessage("添加账户已存在或输入输入信息有误")
+							.setMessage("添加账户失败，密码错误；输入的账号不存在或账户类型与账户不匹配")
 							.setPositiveButton("确定",
 									new DialogInterface.OnClickListener() {
 

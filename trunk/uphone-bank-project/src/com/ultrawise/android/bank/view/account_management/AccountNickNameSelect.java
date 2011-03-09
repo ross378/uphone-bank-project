@@ -41,8 +41,6 @@ public class AccountNickNameSelect extends Activity {
 	private View btnReturn;
 	private ImageView btnMain;
 	private ImageView btnHelper;
-	// 和服务器连接有关
-	private List<String> lstOut = new ArrayList<String>();// 专门用来放需要传输的数据
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -192,6 +190,7 @@ public class AccountNickNameSelect extends Activity {
 			case R.id.accinfo_SpnrSelectType:
 				String accTypeName = spnrSelectTpye.getSelectedItem()
 						.toString();
+				List<String> lstOut = new ArrayList<String>();
 				lstOut.clear();
 				// lstOut.add(UserLogin.userNO);// 用户号
 				lstOut.add("Sun01");
@@ -199,17 +198,18 @@ public class AccountNickNameSelect extends Activity {
 				List<String> lstAcc = AccManaConWebservices.connectHttp(
 						AccountNickNameSelect.this, "0102", lstOut);// 从服务器获取账户
 				adapterAcc.clear();
-				for (String s : lstAcc) {
-					adapterAcc.add(s);
+				if (lstAcc.size() != 0) {
+					for (String s : lstAcc) {
+						adapterAcc.add(s);
+					}
+					spnrSelectAcc.setClickable(true);
+				} else {
+					spnrSelectAcc.setClickable(false);
 				}
 				spnrSelectAcc.setAdapter(adapterAcc);
-				spnrSelectAcc.setClickable(true);
 			case R.id.accinfo_SpnrSelectAcc:
-				
-				break;
-			}
-			switch (view.getId()) {
 
+				break;
 			}
 
 		}

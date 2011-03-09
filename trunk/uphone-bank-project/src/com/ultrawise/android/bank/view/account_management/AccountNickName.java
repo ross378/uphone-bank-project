@@ -20,6 +20,7 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +40,8 @@ public class AccountNickName extends Activity {
 	private ImageView btnHelper;
 	// 和服务器连接有关
 	private AccManaConWebservices amConWebservice = new AccManaConWebservices();
-	private List<String> lstOut = new ArrayList<String>();// 专门用来放需要传输的数据
+	private String strAccountTypeValue;
+	private String strAccountValue;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +50,35 @@ public class AccountNickName extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
 		setContentView(R.layout.account_preferred_select);
 
-		// 从服务器获取账号
-		array = getResources().getStringArray(R.array.accinfo_acc);
+		intent = AccountNickName.this.getIntent();
+		if (intent != null) {
+			// 从账户选择页面传来的数据中获取账户类型和账户号
+			strAccountTypeValue = intent
+					.getStringExtra(AccountInfoSelect.ACCOUNT_TYPE);
+			strAccountValue = intent.getStringExtra(AccountInfoSelect.ACCOUNT);
+
+			if (strAccountTypeValue == null && strAccountValue == null) {
+				// 进错了啦你
+				finish();
+			}
+		} else {
+			finish();
+		}
 
 		((TextView) this.findViewById(R.id.accPre_tvPreAcc))
 				.setText("请设置账户的别名");
+		((TextView) this.findViewById(R.id.accPre_tvPreAccClick3))
+				.setVisibility(View.GONE);
+		((Spinner) this.findViewById(R.id.accPre_tvPreAccClick))
+				.setVisibility(View.GONE);
+
 		tvAccNickClick = (TextView) this
-				.findViewById(R.id.accPre_tvPreAccClick);
-		tvAccNickClick.setText("我的储蓄卡");
+				.findViewById(R.id.accPre_tvPreAccClick2);
+		tvAccNickClick.setVisibility(View.VISIBLE);
+		List<String> lstOut = new ArrayList<String>();
+		lstOut.add(strAccountValue);
+		tvAccNickClick.setText(AccManaConWebservices.connectHttp(this, "0108",
+				lstOut).get(0));
 		tvAccNickClick.setClickable(true);
 		tvAccNickClick.setOnClickListener(new OnClickListener() {
 
@@ -73,15 +96,48 @@ public class AccountNickName extends Activity {
 
 									public void onClick(DialogInterface dialog,
 											int which) {
-										tvAccNickClick.setText(et.getText()
-												.toString());
-										Toast.makeText(AccountNickName.this,
-												"设置成功", Toast.LENGTH_SHORT)
-												.show();
-										dialog.dismiss();
+										if (et.getText().toString().trim()
+												.length() > 0) {
+											List<String> lstOut = new ArrayList<String>();
+											lstOut.add(strAccountValue);
+											lstOut.add(et.getText().toString());
+											String isDone = AccManaConWebservices
+													.connectHttp(
+															AccountNickName.this,
+															"0119", lstOut)
+													.get(0);
+											if (isDone.equals("true"))
+												flag = true;
+											else
+												flag = false;
+
+											if (flag) {
+												tvAccNickClick.setText(et
+														.getText().toString());
+												dialog.dismiss();
+												Toast.makeText(
+														AccountNickName.this,
+														"设置成功",
+														Toast.LENGTH_SHORT)
+														.show();
+											} else {
+												dialog.dismiss();
+												Toast.makeText(
+														AccountNickName.this,
+														"没有设置成功",
+														Toast.LENGTH_SHORT)
+														.show();
+											}
+										} else {
+											dialog.dismiss();
+											Toast.makeText(
+													AccountNickName.this,
+													"请输入别名", Toast.LENGTH_SHORT)
+													.show();
+										}
+
 									}
 								}).show();
-
 			}
 
 		});
