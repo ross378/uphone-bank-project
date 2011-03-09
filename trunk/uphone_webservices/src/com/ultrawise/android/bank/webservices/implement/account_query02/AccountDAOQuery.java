@@ -174,8 +174,8 @@ public class AccountDAOQuery implements IAccountQueryInfo{
 			String timeStart="2011-3-7";
 			String timeend="2011-3-19";
 			
-			Date date1 = Date.valueOf(start);
-			Date date2 = Date.valueOf(end);
+			Date date1 = Date.valueOf(timeStart);
+			Date date2 = Date.valueOf(timeend);
 			
 			
 			
