@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TransAmtInput extends Activity {
 	private GestureDetector mGestureDetector;
@@ -131,71 +132,89 @@ public class TransAmtInput extends Activity {
 		        amtnum = transamt.getText().toString();
 		        amtph = transph.getText().toString();
 		        amtpsd = transpsd.getText().toString();
-		        
-		        balance2 = balance.replaceAll(",", "");
-				dblamt = Double.parseDouble(amtnum);
-				dblbal = Double.parseDouble(balance2);
-				
-				if(dblamt > dblbal){
-					Intent intent = new Intent();
-					intent.putExtra("diatitle", "余额不足");
-					intent.putExtra("diacontent", "您的账户余额不足！");
-					intent.putExtra("btntext", "返回");
-					intent.setClass(TransAmtInput.this, CommonDialog.class);
-					TransAmtInput.this.startActivity(intent);
-					//Toast.makeText(getApplicationContext(), "您的账户余额不足！",Toast.LENGTH_SHORT).show();
-				}else{
-				
-				lstinfo.add(account);
-				lstinfo.add(amtpsd);
-				lstinfo.add(amtph);
-				lstinfo.add(amtnum);
-				if(transtype.equals(">手机到签约账户转账")){
-					lstout=transferwebservice.connectHttp("507", lstinfo);
-				}else{
-					lstout=transferwebservice.connectHttp("505", lstinfo);
-				}
-				flagpwd = lstout.get(0);
-				flagph = lstout.get(1);
-				receiver= lstout.get(2);
-				fee = lstout.get(3);
-				
-				if(flagpwd.equals("truepwd")){
-					if(flagph.equals("trueph")){
-						
-						Intent trans_amtnext = new Intent();
-						trans_amtnext.putExtra("transtype", transtype);
-						trans_amtnext.putExtra("account", account);
-						trans_amtnext.putExtra("amtnum", amtnum);
-						trans_amtnext.putExtra("fee", fee);
-						trans_amtnext.putExtra("receiver", receiver);
-						trans_amtnext.putExtra("amtph", amtph);
-						
-						
-						trans_amtnext.setClass(TransAmtInput.this, TransAmtConfirm.class);
-						TransAmtInput.this.startActivity(trans_amtnext);
-						
-					}else{
-						Intent intent = new Intent();
-						intent.putExtra("diatitle", "错误信息");
-						intent.putExtra("diacontent", "您输入的手机号无效，请您确认对方以开通手机银行业务！");
-						intent.putExtra("btntext", "返回");
-						intent.setClass(TransAmtInput.this, CommonDialog.class);
-						TransAmtInput.this.startActivity(intent);
-						//Toast.makeText(getApplicationContext(), "您输入的手机号无效，请您确认对方以开通手机银行业务！",Toast.LENGTH_SHORT).show();
-					}
-				}else{
-					Intent intent = new Intent();
-					intent.putExtra("diatitle", "密码错误");
-					intent.putExtra("diacontent", "您输入的密码不正确！");
-					intent.putExtra("btntext", "返回");
-					intent.setClass(TransAmtInput.this, CommonDialog.class);
-					TransAmtInput.this.startActivity(intent);
-					//Toast.makeText(getApplicationContext(), "请您输入的密码不正确！",Toast.LENGTH_SHORT).show();
-				}
-				}
+		        if(amtnum == null || amtnum.equals("")){
+		        	Toast.makeText(getApplicationContext(), "请输入转账金额！",Toast.LENGTH_SHORT).show();
+		        }else{
+		        	if(amtph == null || amtph.equals("")){
+		        		if(transtype.equals(">手机到签约账户转账")){
+		        			Toast.makeText(getApplicationContext(), "请输入转入账户！",Toast.LENGTH_SHORT).show();
+		        		}else{
+		        			Toast.makeText(getApplicationContext(), "请输入目标手机号！",Toast.LENGTH_SHORT).show();
+		        		}
+			        }else{
+			        	if(amtpsd == null || amtpsd.equals("")){
+				        	Toast.makeText(getApplicationContext(), "请输入密码！",Toast.LENGTH_SHORT).show();
+				        }else{
+				        	
+
+					        balance2 = balance.replaceAll(",", "");
+							dblamt = Double.parseDouble(amtnum);
+							dblbal = Double.parseDouble(balance2);
+							
+							if(dblamt > dblbal){
+								Intent intent = new Intent();
+								intent.putExtra("diatitle", "余额不足");
+								intent.putExtra("diacontent", "您的账户余额不足！");
+								intent.putExtra("btntext", "返回");
+								intent.setClass(TransAmtInput.this, CommonDialog.class);
+								TransAmtInput.this.startActivity(intent);
+								//Toast.makeText(getApplicationContext(), "您的账户余额不足！",Toast.LENGTH_SHORT).show();
+							}else{
+							
+							lstinfo.add(account);
+							lstinfo.add(amtpsd);
+							lstinfo.add(amtph);
+							lstinfo.add(amtnum);
+							if(transtype.equals(">手机到签约账户转账")){
+								lstout=transferwebservice.connectHttp("507", lstinfo);
+							}else{
+								lstout=transferwebservice.connectHttp("505", lstinfo);
+							}
+							flagpwd = lstout.get(0);
+							flagph = lstout.get(1);
+							receiver= lstout.get(2);
+							fee = lstout.get(3);
+							
+							if(flagpwd.equals("truepwd")){
+								if(flagph.equals("trueph")){
+									
+									Intent trans_amtnext = new Intent();
+									trans_amtnext.putExtra("transtype", transtype);
+									trans_amtnext.putExtra("account", account);
+									trans_amtnext.putExtra("amtnum", amtnum);
+									trans_amtnext.putExtra("fee", fee);
+									trans_amtnext.putExtra("receiver", receiver);
+									trans_amtnext.putExtra("amtph", amtph);
+									
+									
+									trans_amtnext.setClass(TransAmtInput.this, TransAmtConfirm.class);
+									TransAmtInput.this.startActivity(trans_amtnext);
+									
+								}else{
+									Intent intent = new Intent();
+									intent.putExtra("diatitle", "错误信息");
+									intent.putExtra("diacontent", "您输入的手机号无效，请您确认对方以开通手机银行业务！");
+									intent.putExtra("btntext", "返回");
+									intent.setClass(TransAmtInput.this, CommonDialog.class);
+									TransAmtInput.this.startActivity(intent);
+									//Toast.makeText(getApplicationContext(), "您输入的手机号无效，请您确认对方以开通手机银行业务！",Toast.LENGTH_SHORT).show();
+								}
+							}else{
+								Intent intent = new Intent();
+								intent.putExtra("diatitle", "密码错误");
+								intent.putExtra("diacontent", "您输入的密码不正确！");
+								intent.putExtra("btntext", "返回");
+								intent.setClass(TransAmtInput.this, CommonDialog.class);
+								TransAmtInput.this.startActivity(intent);
+								//Toast.makeText(getApplicationContext(), "请您输入的密码不正确！",Toast.LENGTH_SHORT).show();
+							}
+							}	
+				        	
+				        	
+				        }
+			        }
+		        }
 			}
-        	
         });
         
       //返回键设定
