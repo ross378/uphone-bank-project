@@ -26,24 +26,4 @@ public interface IHelper {
 	 */
 	public double getExchangeResult(double currencyDenomination,String sourceCurrencyType,String destinationCurrencyType);
 	
-	/**
-	 * 从服务器获取和模块有关的网点
-	 * @param operNo		
-	 * @return				所有的网点
-	 */
-	public List<String> getNet(String operNo);
-	
-	/**
-	 * 查询某个网点的地址
-	 * @param net	
-	 * @return		该网点的地址
-	 */
-	public String getNetAddress(String net);
-	
-	/**
-	 * 获取操作的工本费
-	 * @param operNo   
-	 * @return		        该操作的工本费
-	 */
-	public double getCast(String operNo);
 }

@@ -29,10 +29,10 @@ public interface IQuery {
 
 	/**
 	 * 	自助缴费时的激活判断
-	 * @param paymentActNo  
+	 * @param actNo  
 	 * @return   是否激活
 	 */
-	public boolean acctIsActive(String paymentActNo);
+	public boolean acctIsActive(String actNo);
 	
 	/**
 	 * 转账模块
