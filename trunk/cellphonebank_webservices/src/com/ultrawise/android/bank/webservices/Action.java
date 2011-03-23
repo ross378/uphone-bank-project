@@ -7,13 +7,14 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.ultrawise.android.bank.base.IQuery;
+import com.ultrawise.android.bank.implement.Account;
 
 public class Action {
 	private static Action mAction;
 	private IQuery mAccount;
 
 	protected Action() {
-		mAccount = new Account();
+		//mAccount = new Account();
 	}
 
 	/**
@@ -34,17 +35,17 @@ public class Action {
 	 * @return
 	 */
 	public JSONObject performGetAccType() {
-		List<String> lst = mAccount.getAccType();
+//		List<String> lst = mAccount.getAccType();
 		JSONObject jsonObj = new JSONObject();
-		// 和顺序没有关系的可以直接添加
-		for (String s : lst) {
-			try {
-				jsonObj.put(s, s);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		// 和顺序没有关系的可以直接添加
+//		for (String s : lst) {
+//			try {
+//				jsonObj.put(s, s);
+//			} catch (JSONException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 
 		return jsonObj;
 	}
@@ -56,16 +57,16 @@ public class Action {
 	 * @return 账户信息
 	 */
 	public JSONObject performGetAccInfo(String account) {
-		Map<String, String> map = mAccount.getAccInfoOnAccMana(account);
+//		Map<String, String> map = mAccount.getAccInfoOnAccMana(account);
 		JSONObject jsonObj = new JSONObject();
-		// 如果和顺序有关系，则分别加入键值对
-		try {
-			jsonObj.put("nickname", map.get("nickname"));
-			jsonObj.put("state", map.get("state"));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		// 如果和顺序有关系，则分别加入键值对
+//		try {
+//			jsonObj.put("nickname", map.get("nickname"));
+//			jsonObj.put("state", map.get("state"));
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return jsonObj;
 	}
 }

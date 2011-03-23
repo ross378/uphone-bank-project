@@ -6,7 +6,6 @@ import java.util.Map;
 
 public interface IQuery {
 	/**
-	 * 
 	 * @param acc   
 	 * @return   账号的别名
 	 */
