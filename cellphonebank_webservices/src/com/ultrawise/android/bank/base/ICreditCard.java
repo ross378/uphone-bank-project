@@ -23,4 +23,15 @@ public interface ICreditCard {
 	 * @return			信用卡的还款信息
 	 */
 	public HashMap<String,String> getCreditRepaymentInfor(String account);
+	
+	/**
+	 * 信用卡还款
+	 * 
+	 * @param account
+	 * @param password
+	 * @param payamt
+	 * @return 是否还款成功
+	 */
+	public boolean creditRepayment(String account, String password,
+			double payamt);
 }

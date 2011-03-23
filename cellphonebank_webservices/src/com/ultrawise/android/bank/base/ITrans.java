@@ -1,6 +1,5 @@
 package com.ultrawise.android.bank.base;
 
-import java.util.Date;
 import java.util.HashMap;
 
 public interface ITrans {
@@ -25,17 +24,6 @@ public interface ITrans {
 	public HashMap<String,String> transfeAct(String account,String password,String amtph,double amtnum);
 	
 	/**
-	 * 来账查询
-	 * @param userid			
-	 * @param transStartDate	
-	 * @param transEndDate		
-	 * @return					在查询时间段内的所有记录
-	 */
-	public HashMap<String,String> getComeQuery(String userid,Date transStartDate,Date transEndDate);
-	
-	public HashMap<String,String> getListQuery(String userid,Date transStartDate,Date transEndDate);
-	
-	/**
 	 * 某条明细的查询
 	 * @param id	
 	 * @return		某条明细的详细信息
@@ -58,14 +46,38 @@ public interface ITrans {
 	public boolean setDetail(String serNo,String detail);
 	
 	/**
-	 * 信用卡还款
-	 * 
-	 * @param account
-	 * @param password
-	 * @param payamt
-	 * @return 是否还款成功
+	 * 查询某条历史缴费记录的详细信息
+	 * @param id 		历史缴费记录的id
+	 * @return			历史缴费记录的详细记录
 	 */
-	public boolean creditRepayment(String account, String password,
-			double payamt);
+	public HashMap<String,String> getPaymentHisInfo(String id);
 	
+	/**
+	 * 查看自助缴费的信息
+	 * @param paymentName   
+	 * @param paymentActNo	
+	 * @param paymentAmt	
+	 * @param paymentPhoneNum 
+	 * @return  缴费项目的信息  键值对
+	 */
+	public HashMap<String,String> getRechargeInfo(String paymentName,String paymentActNo,double paymentAmt,String paymentPhoneNum);
+	
+	/**
+	 * 确认自助缴费
+	 * @param paymentName   缴费项目名称
+	 * @param paymentAmt	缴费金额
+	 * @param paymentActNo	缴费账号
+	 * @param paymentActPasswd  缴费账号密码
+	 * 
+	 * id  
+	 * @return
+	 */
+	public HashMap<String,String> recharge(String paymentName,double paymentAmt,String paymentActNo,String paymentActPasswd);
+	
+	/**
+	 * 根据未缴费项的id查询详细信息
+	 * @param id
+	 * @return	缴费项的详细信息
+	 */
+	public HashMap<String,String> getPaymentInfo(String id);
 }
