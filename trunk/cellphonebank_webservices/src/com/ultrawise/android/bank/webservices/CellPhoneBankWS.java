@@ -10,8 +10,10 @@ import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
+import com.ultrawise.android.bank.Enum.EOperation;
 import com.ultrawise.log.Log;
 
+@Path("cellphone")
 public class CellPhoneBankWS {
 	Logger log = Log.getInstance().getLogger();// 日志对象
 
@@ -28,8 +30,8 @@ public class CellPhoneBankWS {
 		}
 
 		/* 获取枚举功能号 */
-		Eoperation eo = Eoperation.getEoperation(arrayParams[0]);
-		/* 数据校验 */
+		EOperation eo = EOperation.getEoperation(arrayParams[0]);
+		/* 数据校验，判断功能号是否找不到 */
 		if (eo == null) {
 			log.error("Enum operation isn't find,pelse check the form param");
 			throw new NullPointerException(
