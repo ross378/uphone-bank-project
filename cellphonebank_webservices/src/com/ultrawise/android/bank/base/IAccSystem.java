@@ -57,7 +57,7 @@ public interface IAccSystem {
 	 * @param accState
 	 * @return 账户列表
 	 */
-	List<String> getAcc(String accType, AccState accState);
+	List<String> getAcc(String userId, String accType, AccState accState);
 
 	// List<String> getBindAcc(String accType);
 
@@ -217,5 +217,13 @@ public interface IAccSystem {
 	 * @return
 	 */
 	Map<String, String> getPaymentInfo(String userId);
+
+	/**
+	 * 取得账号，返回的账号带有别名
+	 * 
+	 * @return 返回键值对，<我的储蓄卡，440301198810282153>
+	 */
+	Map<String, String> getAccWithNickName(String userId, String accType,
+			AccState accState);
 
 }

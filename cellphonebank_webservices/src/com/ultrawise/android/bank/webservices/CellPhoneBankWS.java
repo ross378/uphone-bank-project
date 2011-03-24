@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
+import com.ultrawise.android.bank.Enum.AccState;
 import com.ultrawise.android.bank.Enum.EOperation;
 import com.ultrawise.log.Log;
 
@@ -23,20 +24,20 @@ public class CellPhoneBankWS {
 	@Path("do")
 	public JSONObject doPost(@FormParam("params") String params) {
 		String[] arrayParams = params.split(":");
-		/* 数据校验，参数是否为空 */
-		if (arrayParams.length == 0) {
-			log.error("Array params length is 0");
-			throw new IllegalArgumentException(">Array params length is 0");
-		}
+		// /* 数据校验，参数是否为空 */
+		// if (arrayParams.length == 0) {
+		// log.error("Array params length is 0");
+		// throw new IllegalArgumentException(">Array params length is 0");
+		// }
 
 		/* 获取枚举功能号 */
 		EOperation eo = EOperation.getEoperation(arrayParams[0]);
-		/* 数据校验，判断功能号是否找不到 */
-		if (eo == null) {
-			log.error("Enum operation isn't find,pelse check the form param");
-			throw new NullPointerException(
-					">I can't find Enum operation,so it is null");
-		}
+		// /* 数据校验，判断功能号是否找不到 */
+		// if (eo == null) {
+		// log.error("Enum operation isn't find,pelse check the form param");
+		// throw new NullPointerException(
+		// ">I can't find Enum operation,so it is null");
+		// }
 
 		/* 根据第一个参数获得得功能号进行功能选择 */
 		Action action = Action.getAction();
@@ -46,6 +47,11 @@ public class CellPhoneBankWS {
 
 		case GET_ACC_INFO:
 			return action.performGetAccInfo(arrayParams[1]);
+
+		case GET_ACC_WITH_NICKNAME:
+			/* 数据校验 */
+			return action.performGetAccWithNickName(arrayParams[1],
+					arrayParams[2], AccState.getAccState(arrayParams[3]));
 
 		default:
 			JSONObject jsonObj = null;

@@ -2,19 +2,26 @@ package com.ultrawise.android.bank.webservices;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
+import com.ultrawise.android.bank.Enum.AccState;
+import com.ultrawise.android.bank.Helper.Helper;
+import com.ultrawise.android.bank.base.IAccSystem;
 import com.ultrawise.android.bank.base.IQuery;
+import com.ultrawise.android.bank.implement.AccSystem;
 import com.ultrawise.android.bank.implement.Account;
 
 public class Action {
 	private static Action mAction;
 	private IQuery mAccount;
+	private IAccSystem mAccSystem;
 
 	protected Action() {
-		//mAccount = new Account();
+		// mAccount = new Account();
+		mAccSystem = new AccSystem();
 	}
 
 	/**
@@ -35,19 +42,22 @@ public class Action {
 	 * @return
 	 */
 	public JSONObject performGetAccType() {
-//		List<String> lst = mAccount.getAccType();
-		JSONObject jsonObj = new JSONObject();
-//		// 和顺序没有关系的可以直接添加
-//		for (String s : lst) {
-//			try {
-//				jsonObj.put(s, s);
-//			} catch (JSONException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
+		return Helper.wrapUp(mAccSystem.getAccType());
+	}
 
-		return jsonObj;
+	/**
+	 * 取得所有账户信息，带有别名
+	 * 
+	 * @param userId
+	 * @param accType
+	 * @param accState
+	 * @return
+	 */
+	public JSONObject performGetAccWithNickName(String userId, String accType,
+			AccState accState) {
+		return Helper.wrapUp(mAccSystem.getAccWithNickName(userId, accType,
+				accState));
+
 	}
 
 	/**
@@ -57,16 +67,16 @@ public class Action {
 	 * @return 账户信息
 	 */
 	public JSONObject performGetAccInfo(String account) {
-//		Map<String, String> map = mAccount.getAccInfoOnAccMana(account);
+		// Map<String, String> map = mAccount.getAccInfoOnAccMana(account);
 		JSONObject jsonObj = new JSONObject();
-//		// 如果和顺序有关系，则分别加入键值对
-//		try {
-//			jsonObj.put("nickname", map.get("nickname"));
-//			jsonObj.put("state", map.get("state"));
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		// // 如果和顺序有关系，则分别加入键值对
+		// try {
+		// jsonObj.put("nickname", map.get("nickname"));
+		// jsonObj.put("state", map.get("state"));
+		// } catch (JSONException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 		return jsonObj;
 	}
 }
