@@ -64,5 +64,16 @@ public class CurrentDeposit extends Account implements ITrans {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	public HashMap<String, String> getComeQueryInfo(String id) {
+		// TODO Auto-generated method stub
+		return super.getComeQueryInfo(id);
+	}
+	
+	@Override
+	public HashMap<String, String> getListQueryInfo(String id) {
+		// TODO Auto-generated method stub
+		return super.getListQueryInfo(id);
+	}
 }
