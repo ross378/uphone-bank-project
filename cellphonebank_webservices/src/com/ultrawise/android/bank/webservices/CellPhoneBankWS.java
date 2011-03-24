@@ -52,7 +52,28 @@ public class CellPhoneBankWS {
 			/* 数据校验 */
 			return action.performGetAccWithNickName(arrayParams[1],
 					arrayParams[2], AccState.getAccState(arrayParams[3]));
-
+			
+		case GET_TRARGETPHONEINFO:
+			// 转账信息
+			return action.performGetTargetPhoneInfo(arrayParams[1],
+					arrayParams[2], arrayParams[3], Double.parseDouble(arrayParams[4]));
+		
+		case GET_TRANSFEACT:
+			//确认转账
+			return action.performGetTransfeAct(arrayParams[1],
+					arrayParams[2], arrayParams[3], Double.parseDouble(arrayParams[4]));
+		
+		case GET_LISTQUERYINFO:
+			//明细信息
+			return action.performGetListQueryInfo(arrayParams[1]);
+			
+		case GET_COMEQUERYINFO:
+			//来账信息
+			return action.performGetComeQueryInfo(arrayParams[1]);
+			
+		case GET_SET_DETAIL:
+			//设置描述信息
+			
 		default:
 			JSONObject jsonObj = null;
 			try {
