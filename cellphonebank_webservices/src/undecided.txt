@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<undecided>
+	<user>
+		<userid>1</userid>
+		<decided>
+			<id>1</id>
+			<paymentNam>三月份水费</paymentNam>
+			<paymentAmt>300</paymentAmt>
+			<charge>无锡自来水公司</charge>
+			<deadline>2010-12-31</deadline>
+			<concordat>3274198256</concordat>
+			<isPay>0</isPay>
+		</decided>
+	</user>
+</undecided>

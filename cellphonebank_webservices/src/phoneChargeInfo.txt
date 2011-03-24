@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PhoneChargeInfo primarykey = "id">
+  <chargeRecord>
+    <id>0</id>
+    <userid>1</userid>
+    <credit>10.00</credit>
+    <crepnum>13877583869</crepnum>
+    <credata>2011-3-6</credata>
+    <creno>sT5742534523</creno>
+    <operator>中国移动</operator>
+    <account>622202115</account>
+  </chargeRecord>
+</PhoneChargeInfo>

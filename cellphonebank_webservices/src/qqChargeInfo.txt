@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<QQChargeInfo primarykey = "id">
+ <chargeRecord>
+    <id>0</id>
+    <userid>1</userid>
+    <credit>50.00</credit>
+    <creqqnum>6762551143</creqqnum>
+    <credata>2011-3-12</credata>
+    <creno>sT5233</creno>
+    <operator>腾讯</operator>
+    <account>622202116</account>
+  </chargeRecord>
+</QQChargeInfo>
