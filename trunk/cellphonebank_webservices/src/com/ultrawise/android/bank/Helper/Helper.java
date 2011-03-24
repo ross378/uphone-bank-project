@@ -36,4 +36,24 @@ public class Helper {
 		}
 		return jsonObj;
 	}
+	
+	public static JSONObject wrapUp(boolean result) {
+		JSONObject jsonObj = new JSONObject();
+		if(result){
+			try {
+				jsonObj.put("result", "true");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			try {
+				jsonObj.put("result", "false");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return jsonObj;
+	}
 }
