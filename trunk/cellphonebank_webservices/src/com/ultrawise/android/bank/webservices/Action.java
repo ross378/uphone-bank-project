@@ -84,7 +84,9 @@ public class Action {
 		return jsonObj;
 	}
 	/**
-	 * @author 王  亭
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
 	 * @param account
 	 * @param password
 	 * @param amtph
@@ -98,6 +100,16 @@ public class Action {
 		return jsonObj;
 	}
 	
+	/**
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
+	 * @param account
+	 * @param password
+	 * @param amtph
+	 * @param amtnum
+	 * @return
+	 */
 	public JSONObject performGetTransfeAct(String account, String password,
 			String amtph, double amtnum){
 		JSONObject jsonObj = new JSONObject();
@@ -105,21 +117,80 @@ public class Action {
 		return jsonObj;
 	}
 	
+	/**
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
+	 * @param id
+	 * @return
+	 */
 	public JSONObject performGetComeQueryInfo(String id){
 		JSONObject jsonObj = new JSONObject();
 		jsonObj = Helper.wrapUp(mCurrentDepositt.getComeQueryInfo(id));
 		return jsonObj;
 	}
 	
+	/**
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
+	 * @param id
+	 * @return
+	 */
 	public JSONObject performGetListQueryInfo(String id){
 		JSONObject jsonObj = new JSONObject();
 		jsonObj = Helper.wrapUp(mCurrentDepositt.getListQueryInfo(id));
 		return jsonObj;
 	}
 	
+	/**
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
+	 * @param serNo
+	 * @param detail
+	 * @return
+	 */
 	public JSONObject performSetDetail(String serNo, String detail){
 		JSONObject jsonObj = new JSONObject();
 		jsonObj = Helper.wrapUp(mCurrentDepositt.setDetail(serNo, detail));
+		return jsonObj;
+	}
+	
+	/**
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
+	 * @param id
+	 * @param paymentNam
+	 * @return
+	 */
+	public JSONObject performGetPaymentHisInfo(String id,String paymentNam){
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mCurrentDepositt.getPaymentHisInfo(id, paymentNam));
+		return jsonObj;
+	}
+	/**
+	 * 
+	 * @author 王   亭
+	 * 2011-3-24
+	 * @param paymentName
+	 * @param paymentAmt
+	 * @param paymentActNo
+	 * @param paymentActPasswd
+	 * @param paymentNum
+	 * @return
+	 */
+	public JSONObject performRecharge(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum){
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mCurrentDepositt.recharge(paymentName, paymentAmt, paymentActNo, paymentActPasswd, paymentNum));
+		return jsonObj;
+	}
+	
+	public JSONObject performGetPaymentInfo(String id) {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mCurrentDepositt.getPaymentInfo(id));
 		return jsonObj;
 	}
 }

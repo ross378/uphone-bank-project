@@ -73,7 +73,19 @@ public class CellPhoneBankWS {
 			
 		case GET_SET_DETAIL:
 			//设置描述信息
+			return action.performSetDetail(arrayParams[1], arrayParams[2]);
+		
+		case GET_PAYMENTHISINFO:
+			//查看某条历史缴费记录的详细信息
+			return action.performGetPaymentHisInfo(arrayParams[1], arrayParams[2]);
 			
+		case GET_RECHARGE:
+			//确认缴费
+			return action.performRecharge(arrayParams[1], Double.parseDouble(arrayParams[2]), 
+					arrayParams[3], arrayParams[4], arrayParams[4]);
+		case GET_PAYMENTINFO:
+			//查看某条待缴费的详细信息
+			return action.performGetPaymentInfo(arrayParams[1]);
 		default:
 			JSONObject jsonObj = null;
 			try {
