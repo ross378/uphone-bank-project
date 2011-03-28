@@ -73,14 +73,7 @@ public class Action {
 	public JSONObject performGetAccInfo(String account) {
 		// Map<String, String> map = mAccount.getAccInfoOnAccMana(account);
 		JSONObject jsonObj = new JSONObject();
-		// // 如果和顺序有关系，则分别加入键值对
-		// try {
-		// jsonObj.put("nickname", map.get("nickname"));
-		// jsonObj.put("state", map.get("state"));
-		// } catch (JSONException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		jsonObj = Helper.wrapUp(mCurrentDepositt.getAccInfo(account));
 		return jsonObj;
 	}
 	/**
@@ -165,9 +158,9 @@ public class Action {
 	 * @param paymentNam
 	 * @return
 	 */
-	public JSONObject performGetPaymentHisInfo(String id,String paymentNam){
+	public JSONObject performGetPaymentHisInfo(String paymentNam,String id){
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getPaymentHisInfo(id, paymentNam));
+		jsonObj = Helper.wrapUp(mCurrentDepositt.getPaymentHisInfo(paymentNam,id));
 		return jsonObj;
 	}
 	/**
