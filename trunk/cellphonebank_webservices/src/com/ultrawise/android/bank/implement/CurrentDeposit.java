@@ -77,9 +77,7 @@ public class CurrentDeposit extends Account implements ITrans {
 	public HashMap<String, String> recharge(String paymentName,
 			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum) {
 		HashMap<String,String> recharge = new HashMap<String, String>();
-		if("手机充值".equals(paymentName)){
-			
-		}
+		
 		return recharge;
 	}
 
@@ -92,8 +90,35 @@ public class CurrentDeposit extends Account implements ITrans {
 
 	public HashMap<String, String> transfeAct(String account, String password,
 			String amtph, double amtnum) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String,String> transInfo = new HashMap<String, String>();
+		HashMap<String,String> accInfo = DataAccessModel.newInstances().createQueryTools().query("accout","orderid",account);
+		if(password.equals(accInfo.get("actpwd"))){
+			double balance = Double.parseDouble(accInfo.get("balance"));
+			balance -= amtnum;
+			boolean result = DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid:"+account, "balance",String.valueOf(balance));
+			if(result){
+				HashMap<String,String> userInfo = DataAccessModel.newInstances().createQueryTools().query("userInfo","phnum",amtph);
+				String userid = userInfo.get("userid");
+				HashMap<String,String> accInfo1 = DataAccessModel.newInstances().createQueryTools().query("accout","userid",userid);
+				double balance1 = Double.parseDouble(accInfo1.get("balance"));
+				balance1 += amtnum;
+				boolean result1 =DataAccessModel.newInstances().createUpdataTools().updata("accout", "userid:"+userid, "balance",String.valueOf(balance1));
+				if(result1){
+					transInfo.put("result", "转账成功");
+					transInfo.put("balance", String.valueOf(balance));
+				}else{
+					balance += amtnum;
+					DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid:"+account, "balance",String.valueOf(balance));
+					transInfo.put("result", "转账失败");
+				}
+			}else{
+				transInfo.put("result", "转账失败");
+			}
+		}else{
+			transInfo.put("result", "密码错误");
+		}
+		
+		return transInfo;
 	}
 	
 	@Override
