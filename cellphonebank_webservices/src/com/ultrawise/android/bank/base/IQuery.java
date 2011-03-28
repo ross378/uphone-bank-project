@@ -33,19 +33,6 @@ public interface IQuery {
 	 */
 	public boolean acctIsActive(String actNo);
 	
-	/**
-	 * 转账模块
-	 * @param id  
-	 * @return	某条明细的信息  键值对
-	 */
-	public HashMap<String,String> getListQueryInfo(String id);
-	
-	/**
-	 * 转账模块
-	 * @param id  
-	 * @return 某条来向账的信息  键值对
-	 */
-	public HashMap<String,String> getComeQueryInfo(String id);
 	
 	
 }
