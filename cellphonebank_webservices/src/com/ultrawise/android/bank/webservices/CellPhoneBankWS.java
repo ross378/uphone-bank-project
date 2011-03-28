@@ -42,17 +42,11 @@ public class CellPhoneBankWS {
 		/* 根据第一个参数获得得功能号进行功能选择 */
 		Action action = Action.getAction();
 		switch (eo) {
-		case GET_ACC_TYPE:
-			return action.performGetAccType();
 
 		case GET_ACC_INFO:
+			//查询账号信息
 			return action.performGetAccInfo(arrayParams[1]);
 
-		case GET_ACC_WITH_NICKNAME:
-			/* 数据校验 */
-			return action.performGetAccWithNickName(arrayParams[1],
-					arrayParams[2], AccState.getAccState(arrayParams[3]));
-			
 		case GET_TRARGETPHONEINFO:
 			// 转账信息
 			return action.performGetTargetPhoneInfo(arrayParams[1],
