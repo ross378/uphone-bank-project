@@ -211,12 +211,12 @@ public interface IAccSystem {
 	 */
 	boolean updatePaymentState(String payName, String state);
 
-	/**
-	 * 
-	 * @param userId
-	 * @return
-	 */
-	Map<String, String> getPaymentInfo(String userId);
+	// /**
+	// *
+	// * @param userId
+	// * @return
+	// */
+	// Map<String, String> getPaymentInfo(String userId);
 
 	/**
 	 * 取得账号，返回的账号带有别名

@@ -9,6 +9,12 @@ import org.codehaus.jettison.json.JSONObject;
 
 public class Helper {
 
+	/**
+	 * 把list包装成json object
+	 * 
+	 * @param list
+	 * @return
+	 */
 	public static JSONObject wrapUp(List<String> list) {
 		JSONObject jsonObj = new JSONObject();
 		/* 和顺序没有关系的可以直接添加 */
@@ -24,6 +30,12 @@ public class Helper {
 		return jsonObj;
 	}
 
+	/**
+	 * 把map包装成json object
+	 * 
+	 * @param map
+	 * @return
+	 */
 	public static JSONObject wrapUp(Map<String, String> map) {
 		JSONObject jsonObj = new JSONObject();
 		for (Entry<String, String> kv : map.entrySet()) {
@@ -36,11 +48,31 @@ public class Helper {
 		}
 		return jsonObj;
 	}
+
+	/**
+	 * 把字符串包装成json object
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static JSONObject wrapUp(String str) {
+		JSONObject jsonObj = new JSONObject();
+		try {
+			jsonObj.put(str, str);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return jsonObj;
+	}
+
+
 	
 	public static JSONObject wrapUp(boolean result) {
 		JSONObject jsonObj = new JSONObject();
 		if(result){
 			try {
+				
 				jsonObj.put("result", "true");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block

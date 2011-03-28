@@ -118,6 +118,7 @@ public class AccSystem implements IAccSystem {
 
 	public Map<String, String> getPaymentInfo(String userId) {
 		// TODO Auto-generated method stub
+		// 不实现
 		return null;
 	}
 
