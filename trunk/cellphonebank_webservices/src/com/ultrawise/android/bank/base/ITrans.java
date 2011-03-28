@@ -50,7 +50,7 @@ public interface ITrans {
 	 * @param id 		历史缴费记录的id
 	 * @return			历史缴费记录的详细记录
 	 */
-	public HashMap<String,String> getPaymentHisInfo(String id,String paymentNam);
+	public HashMap<String,String> getPaymentHisInfo(String paymentNam,String id);
 	
 	/**
 	 * 查看自助缴费的信息
