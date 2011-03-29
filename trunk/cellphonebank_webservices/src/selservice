@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<ser>
+		<name>手机充值</name>
+		<operator1>中国移动</operator1>
+		<operator2>中国联通</operator2>
+		<operator3>中国电信</operator3>
+		<serNo>sT5742534523</serNo>
+	</ser>
+	<ser>
+		<name>Q币充值</name>
+		<operator1>腾讯</operator1>
+		<serNo>sT5233</serNo>
+	</ser>
+	<ser>
+		<name>网易充值</name>
+		<operator1>网易</operator1>
+		<serNo>sT46362543</serNo>
+	</ser>
+</service>
