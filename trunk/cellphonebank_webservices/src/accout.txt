@@ -23,6 +23,7 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <activation>0</activation>
  </accout>
  <accout>
     <userid>2</userid>
@@ -47,5 +48,6 @@
     <openbank>建设银行深圳市梅林支行</openbank>
     <opendate>2011/3/8</opendate>
     <loss>x</loss>
+    <activation>1</activation>
  </accout>
 </Act>
