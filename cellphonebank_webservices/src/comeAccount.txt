@@ -11,8 +11,8 @@
 		<amount>1000,00</amount>
 		<outdata>20110303</outdata>
 		<outphone>15261500424</outphone>
-		<incity>无锡</incity>
-		<inbank>中国农业银行</inbank>
+		<incity>鏃犻敗</incity>
+		<inbank>涓浗鍐滀笟閾惰</inbank>
 		<inidnum>421125198901112225</inidnum>
 	</trans>
 </Transfer>

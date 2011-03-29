@@ -2,10 +2,10 @@
 <patype>
 	<pat>
 		<id>1</id>
-		<name>йж╩ЗЁДж╣</name>
+		<name>Ф┴▀Ф°╨Е┘┘Е─╪</name>
 		<id>2</id>
-		<name>QQ╠рЁДж╣</name>
+		<name>QQЕ╦│Е┘┘Е─╪</name>
 		<id>3</id>
-		<name>мЬрвЁДж╣</name>
+		<name>Г╫▒Ф≤⌠Е┘┘Е─╪</name>
 	</pat>
 </patype>

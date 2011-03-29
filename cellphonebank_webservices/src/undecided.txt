@@ -4,9 +4,9 @@
 		<userid>1</userid>
 		<decided>
 			<id>1</id>
-			<paymentNam>ÈýÔÂ·ÝË®·Ñ</paymentNam>
+			<paymentNam>ä¸‰æœˆä»½æ°´è´¹</paymentNam>
 			<paymentAmt>300</paymentAmt>
-			<charge>ÎÞÎý×ÔÀ´Ë®¹«Ë¾</charge>
+			<charge>æ— é”¡è‡ªæ¥æ°´å…¬å¸</charge>
 			<deadline>2010-12-31</deadline>
 			<concordat>3274198256</concordat>
 			<isPay>0</isPay>
