@@ -5,7 +5,7 @@
 	    <userid>1</userid>
 	    <credit>60.00</credit>
 	    <crenesnum>Ultrawise@163.com</crenesnum>
-	    <credata>2011-3-8</credata>
+	    <credata>2011-03-08</credata>
 	    <creno>sT46362543</creno>
 	    <operator>网易</operator>
 	    <account>622202116</account>

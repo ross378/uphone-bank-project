@@ -8,7 +8,7 @@
 	<inant>622202115</inant>
 	<outant>622202112</outant>
 	<amount>1000,00</amount>
-	<outdata>20110303</outdata>
+	<outdata>2011-03-03</outdata>
 	<outphone>15261500424</outphone>
 	<incity>无锡</incity>
 	<inbank>中国农业银行</inbank>

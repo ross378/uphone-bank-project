@@ -4,7 +4,7 @@
 		<id>0</id>
 		<type>currentDeposite</type>
 		<childType>null</childType>
-		<time>null</time>
+		<time>sixMonth</time>
 		<rate>0.03%</rate>
 	</depositeRate>
 	<depositeRate>
