@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.ultrawise.android.bank.Enum.AccState;
+import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.base.IAccSystem;
 
 public class AccSystem implements IAccSystem {
@@ -16,7 +16,7 @@ public class AccSystem implements IAccSystem {
 		return true;
 	}
 
-	public List<String> getAcc(String userId, String accType, AccState accState) {
+	public List<String> getAcc(String userId, String accType, EAccState accState) {
 		// TODO Auto-generated method stub
 		System.out.println(userId + accType + accState);
 		List<String> list = new ArrayList<String>();
@@ -26,7 +26,7 @@ public class AccSystem implements IAccSystem {
 	}
 
 	public Map<String, String> getAccWithNickName(String userId,
-			String accType, AccState accState) {
+			String accType, EAccState accState) {
 		// TODO Auto-generated method stub
 		System.out.println(userId + accType + accState);
 		Map<String, String> map = new HashMap<String, String>();
@@ -125,6 +125,7 @@ public class AccSystem implements IAccSystem {
 	public List<String> getPaymentName(String userId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

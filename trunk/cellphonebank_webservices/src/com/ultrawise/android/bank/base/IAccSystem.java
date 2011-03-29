@@ -3,7 +3,7 @@ package com.ultrawise.android.bank.base;
 import java.util.List;
 import java.util.Map;
 
-import com.ultrawise.android.bank.Enum.AccState;
+import com.ultrawise.android.bank.Enum.EAccState;
 
 public interface IAccSystem {
 	/**
@@ -57,7 +57,7 @@ public interface IAccSystem {
 	 * @param accState
 	 * @return 账户列表
 	 */
-	List<String> getAcc(String userId, String accType, AccState accState);
+	List<String> getAcc(String userId, String accType, EAccState accState);
 
 	// List<String> getBindAcc(String accType);
 
@@ -224,6 +224,6 @@ public interface IAccSystem {
 	 * @return 返回键值对，<我的储蓄卡，440301198810282153>
 	 */
 	Map<String, String> getAccWithNickName(String userId, String accType,
-			AccState accState);
+			EAccState accState);
 
 }

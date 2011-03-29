@@ -6,6 +6,7 @@ import java.util.Map;
 import com.ultrawise.android.bank.base.IQuery;
 
 public abstract class Account implements IQuery {
+	// 这些方法应该是抽象的
 
 	public abstract boolean acctIsActive(String paymentActNo);
 

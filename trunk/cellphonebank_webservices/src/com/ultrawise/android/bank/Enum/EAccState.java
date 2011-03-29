@@ -2,20 +2,20 @@ package com.ultrawise.android.bank.Enum;
 
 import com.ultrawise.log.Log;
 
-public enum AccState {
+public enum EAccState {
 
 	BIND("bind"), UNBIND("unbind"), ACTIVE("active"), UNACTIVE("unactive"), LOSS(
 			"loss"), UNLOSS("unloss"), ORDER("order"), UNORDER("unorder");
 
 	private final String mName;
 
-	private AccState(String name) {
+	private EAccState(String name) {
 		mName = name;
 	}
 
-	public static AccState getAccState(String name) {
+	public static EAccState getAccState(String name) {
 
-		for (AccState a : AccState.values()) {
+		for (EAccState a : EAccState.values()) {
 			if (a.mName.equals(name)) {
 				return a;
 			}
@@ -26,7 +26,7 @@ public enum AccState {
 				"I can't find Enum AccState,so it is null");
 	}
 
-	public static String getStateName(AccState a) {
+	public static String getStateName(EAccState a) {
 		return a.mName;
 	}
 }
