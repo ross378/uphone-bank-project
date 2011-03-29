@@ -3,6 +3,8 @@
 	<classpathentry kind="src" output="WebRoot/WEB-INF/classes" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/hosolo/Workspaces/MyEclipse/cellphonebank_webservices/WebRoot/WEB-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/Users/Administrator/Workspaces/MyEclipseforSpring8.6/cellphonebank_webservices/WebRoot/WEB-INF/lib/DAOProject.jar"/>
+	<classpathentry kind="lib" path="D:/Users/Administrator/Workspaces/MyEclipseforSpring8.6/cellphonebank_webservices/WebRoot/WEB-INF/lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
