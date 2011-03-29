@@ -6,7 +6,7 @@
 		  <month>三月份水费</month>
 		  <dunum>s323454</dunum>
 		  <damout>30.00</damout>
-		  <date>2011-3-5</date>
+		  <date>2011-03-05</date>
 		   <charger>无锡自来水公司</charger>
 		  <dulimit>2011-7-12</dulimit>
 		  <account>622202113</account>

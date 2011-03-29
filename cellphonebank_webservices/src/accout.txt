@@ -9,7 +9,7 @@
 	<balance>1000,00</balance>
 	<montype>人民币</montype>
 	<period>三个月</period>
-	<months>201011</months>
+	<months>2010-11</months>
 	<rate>1.5%</rate>
 	<pvality>五年</pvality>
 	<bind>是</bind>
@@ -21,7 +21,7 @@
     <state>0</state>
     <orderstate>预约换卡</orderstate>
     <openbank>建设银行深圳市梅林支行</openbank>
-    <opendate>2011/3/8</opendate>
+    <opendate>2011-03-18</opendate>
     <loss>x</loss>
     <activation>0</activation>
  </accout>
@@ -34,7 +34,7 @@
 	<balance>1000,00</balance>
 	<montype>人民币</montype>
 	<period>三个月</period>
-	<months>201011</months>
+	<months>2010-10</months>
 	<rate>1.5%</rate>
 	<pvality>五年</pvality>
 	<bind>是</bind>
@@ -46,7 +46,7 @@
     <state>0</state>
     <orderstate>预约换卡</orderstate>
     <openbank>建设银行深圳市梅林支行</openbank>
-    <opendate>2011/3/8</opendate>
+    <opendate>2011-11-21</opendate>
     <loss>x</loss>
     <activation>1</activation>
  </accout>

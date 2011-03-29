@@ -6,9 +6,9 @@
 	  	 <month>三月份煤气费</month>
 	  	 <dunum>s45256</dunum>
 	  	 <damout>78.00</damout>
-	  	 <date>2011-3-2</date>
+	  	 <date>2011-03-02</date>
 	 	 <charger>无锡能源公司</charger>
-	 	 <dulimit>2011-3-29</dulimit>
+	 	 <dulimit>2011-03-29</dulimit>
 	  	 <account>622202116</account>
 	  </costRecord>
 </GasCostInfo>
