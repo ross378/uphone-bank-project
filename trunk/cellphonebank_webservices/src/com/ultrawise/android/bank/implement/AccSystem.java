@@ -7,13 +7,39 @@ import java.util.Map;
 
 import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.base.IAccSystem;
+import com.ultrawise.android.bank.base.IQuery;
+import com.ultrawise.bank.base.dao.IDataInsertTools;
+import com.ultrawise.bank.base.dao.IDataQueryTools;
+import com.ultrawise.bank.implement.dao.DataAccessModel;
+import com.ultrawise.bank.implement.dao.XMLAccessModel;
+
 
 public class AccSystem implements IAccSystem {
+	
+	private DataAccessModel xmlAccM = null;
+	private IDataInsertTools insertTools = null;
+	private IDataQueryTools queryTools = null;
+	
+	public AccSystem()
+	{
+		this.xmlAccM = DataAccessModel.newInstances();
+		IDataInsertTools insertTools = xmlAccM.createInsertTools();
+		queryTools = this.xmlAccM.createQueryTools();
+	}
 
 	public boolean addAcc(String userId, String accNo, String accType,
 			String accNickName, String accPwd) {
 		// TODO Auto-generated method stub
-		return true;
+		
+		
+		boolean result = insertTools.insertThree("assign", userId, accNo, accType, accNickName, accPwd);
+		
+		if(result)
+		{
+			return true;
+		}else
+			return false;
+		
 	}
 
 	public List<String> getAcc(String userId, String accType, EAccState accState) {
@@ -38,6 +64,8 @@ public class AccSystem implements IAccSystem {
 	public List<String> getAccType() {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<String>();
+		
+		
 		list.add("活期");
 		list.add("信用卡");
 		return list;
@@ -45,10 +73,18 @@ public class AccSystem implements IAccSystem {
 
 	public List<String> getAccTypeAll() {
 		// TODO Auto-generated method stub
+		
+		
 		List<String> list = new ArrayList<String>();
-		list.add("定期");
-		list.add("活期");
-		list.add("信用卡");
+		List<HashMap> records = this.queryTools.query("paypal");
+		int i = 0;
+		while(i < records.size())
+		{
+			list.add((String)records.get(i).get("tyname"));
+			i ++;
+		}
+	
+		System.out.println("--***---"+records.get(1).get("id"));
 		return list;
 	}
 
@@ -137,7 +173,12 @@ public class AccSystem implements IAccSystem {
 
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		
+		HashMap<String, String> record = queryTools.query("accout", "userid", userId);
+		String state = record.get("state");
+		
+		return state;
 	}
 
 	public List<String> getSelServiceName() {

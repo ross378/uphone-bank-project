@@ -13,5 +13,5 @@
 	<incity>无锡</incity>
 	<inbank>中国农业银行</inbank>
 	<inidnum>421125198901112225</inidnum>
-  <assign>
+  </assign>
 </assigns>
