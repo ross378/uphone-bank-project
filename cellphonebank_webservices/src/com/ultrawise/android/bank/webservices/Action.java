@@ -22,7 +22,7 @@ public class Action {
 	private static Action mAction;
 	private IQuery mQuery;
 	private IAccSystem mAccSystem;
-	private CurrentDeposit mCurrentDepositt;
+	// private CurrentDeposit mCurrentDepositt;
 	private IUpdate mUpdate;
 	private ITrans mTrans;
 	private ICreditCard mCc;
@@ -89,7 +89,7 @@ public class Action {
 	 */
 	public JSONObject performGetAccInfo(String account) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getAccInfo(account));
+		jsonObj = Helper.wrapUp(mQuery.getAccInfo(account));
 		return jsonObj;
 	}
 
@@ -368,8 +368,7 @@ public class Action {
 
 	/**
 	 * 
-	 * @author 王 亭 2011-3-24 =======
-	 * @author 王 亭 2011-3-24 >>>>>>> .r844
+	 * @author 王 亭 2011-3-24
 	 * @param account
 	 * @param password
 	 * @param amtph
@@ -379,8 +378,8 @@ public class Action {
 	public JSONObject performGetTargetPhoneInfo(String account,
 			String password, String amtph, double amtnum) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getTargetPhoneInfo(account,
-				password, amtph, amtnum));
+		jsonObj = Helper.wrapUp(mTrans.getTargetPhoneInfo(account, password,
+				amtph, amtnum));
 		return jsonObj;
 	}
 
@@ -393,11 +392,11 @@ public class Action {
 	 * @param amtnum
 	 * @return
 	 */
-	public JSONObject performGetTransfeAct(String account, String password,
+	public JSONObject performTransfeAct(String account, String password,
 			String amtph, double amtnum) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.transfeAct(account, password,
-				amtph, amtnum));
+		jsonObj = Helper.wrapUp(mTrans.transfeAct(account, password, amtph,
+				amtnum));
 		return jsonObj;
 	}
 
@@ -409,7 +408,7 @@ public class Action {
 	 */
 	public JSONObject performGetComeQueryInfo(String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getComeQueryInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.getComeQueryInfo(id));
 		return jsonObj;
 	}
 
@@ -421,7 +420,7 @@ public class Action {
 	 */
 	public JSONObject performGetListQueryInfo(String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getListQueryInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.getListQueryInfo(id));
 		return jsonObj;
 	}
 
@@ -434,7 +433,7 @@ public class Action {
 	 */
 	public JSONObject performSetDetail(String serNo, String detail) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.setDetail(serNo, detail));
+		jsonObj = Helper.wrapUp(mTrans.setDetail(serNo, detail));
 		return jsonObj;
 	}
 
@@ -447,8 +446,7 @@ public class Action {
 	 */
 	public JSONObject performGetPaymentHisInfo(String paymentNam, String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getPaymentHisInfo(paymentNam,
-				id));
+		jsonObj = Helper.wrapUp(mTrans.getPaymentHisInfo(paymentNam, id));
 		return jsonObj;
 	}
 
@@ -465,8 +463,8 @@ public class Action {
 	public JSONObject performRecharge(String paymentName, double paymentAmt,
 			String paymentActNo, String paymentActPasswd, String paymentNum) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.recharge(paymentName,
-				paymentAmt, paymentActNo, paymentActPasswd, paymentNum));
+		jsonObj = Helper.wrapUp(mTrans.recharge(paymentName, paymentAmt,
+				paymentActNo, paymentActPasswd, paymentNum));
 		return jsonObj;
 	}
 
@@ -478,7 +476,7 @@ public class Action {
 	 */
 	public JSONObject performGetPaymentInfo(String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mCurrentDepositt.getPaymentInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(id));
 		return jsonObj;
 	}
 }
