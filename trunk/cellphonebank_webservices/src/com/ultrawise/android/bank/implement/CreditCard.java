@@ -45,4 +45,38 @@ public class CreditCard extends Account implements ITrans {
 		return null;
 	}
 
+	@Override
+	public boolean acctIsActive(String paymentActNo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public HashMap<String, String> getAccInfo(String acc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getNickName(String acc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<String, String> getOrderInfo(String acc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getComeQueryInfo(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getListQueryInfo(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

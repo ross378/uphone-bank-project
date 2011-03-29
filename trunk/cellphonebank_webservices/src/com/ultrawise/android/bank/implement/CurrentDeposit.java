@@ -5,7 +5,7 @@ import java.util.HashMap;
 import com.ultrawise.android.bank.Enum.EOperation;
 import com.ultrawise.android.bank.Enum.TableName;
 import com.ultrawise.android.bank.base.ITrans;
-import com.ultrawise.android.bank.file.implement.DataAccessModel;
+import com.ultrawise.bank.implement.dao.DataAccessModel;
 
 public class CurrentDeposit extends Account implements ITrans {
 
@@ -121,14 +121,12 @@ public class CurrentDeposit extends Account implements ITrans {
 		return transInfo;
 	}
 	
-	@Override
 	public HashMap<String, String> getComeQueryInfo(String id) {
 		HashMap<String, String> comeQueryInfo = new HashMap<String, String>();
 		HashMap<String,String> temp = DataAccessModel.newInstances().createQueryTools().query("comeAccount","id",id);
 		return comeQueryInfo;
 	}
 	
-	@Override
 	public HashMap<String, String> getListQueryInfo(String id) {
 		HashMap<String, String> listQueryInfo = new HashMap<String, String>();
 		HashMap<String,String> temp = DataAccessModel.newInstances().createQueryTools().query("outAccount","id",id);
@@ -146,5 +144,23 @@ public class CurrentDeposit extends Account implements ITrans {
 			accInfo.put("balance", temp.get("balance"));
 		}
 		return accInfo;
+	}
+
+	@Override
+	public boolean acctIsActive(String paymentActNo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getNickName(String acc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<String, String> getOrderInfo(String acc) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
