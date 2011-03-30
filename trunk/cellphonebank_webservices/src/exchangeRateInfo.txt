@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ExchangeRateInfo>
 	<exchangeRate>
-		<id>1</id>
+		<id>0</id>
 		<coin>RMB</coin>
 		<rate>7</rate>
 	</exchangeRate>
 	<exchangeRate>
-		<id>2</id>
+		<id>1</id>
 		<coin>Dollar</coin>
 		<rate>1</rate>
 	</exchangeRate>
@@ -16,7 +16,7 @@
 		<rate>40</rate>
 	</exchangeRate>
 	<exchangeRate>
-		<id></id>
+		<id>2</id>
 		<coin>Eurn</coin>
 		<rate>0.6</rate>
 	</exchangeRate>
