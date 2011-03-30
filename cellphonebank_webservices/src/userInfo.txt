@@ -2,10 +2,10 @@
 <UserInfo primarykey = "userId">
   <user>
 		<id>0</id>
-		<userid>1</userid>
+		<userid></userid>
 		<userName>zhangsan</userName>
 		<password>1234</password>
-		<lastLoginTime>3:12</lastLoginTime>
+		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
 		<loginStatus>false</loginStatus>
 		<panum>422304196409081120</panum>
