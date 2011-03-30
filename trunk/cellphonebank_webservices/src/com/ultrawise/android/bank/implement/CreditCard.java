@@ -32,10 +32,11 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public HashMap<String,String> recharge(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum,String operator) {
 
-	public HashMap<String, String> recharge(String paymentName,
-			double paymentAmt, String paymentActNo, String paymentActPasswd,
-			String paymentNum) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
