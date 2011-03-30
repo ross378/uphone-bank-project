@@ -11,7 +11,7 @@
 		  <dulimit>2011-7-12</dulimit>
 		  <state>0</state>//表示缴费状态
 </pendingCost>
-<costRecord>
+<pendingCost>
           <userid>1111</userid>
 		  <id>2</id>
 		  <month>三月份电费</month>
@@ -21,5 +21,5 @@
 		  <charger>无锡电力公司</charger>
 		  <dulimit>2011-7-12</dulimit>
 		  <account>622202113</account>
-</costRecord>
+</pendingCost>
 </PendingForm>
