@@ -10,6 +10,17 @@ import org.codehaus.jettison.json.JSONObject;
 
 public class Helper {
 
+	public static JSONObject wrapUp(double dbl) {
+		JSONObject jsonObj = new JSONObject();
+		try {
+			jsonObj.put("double", String.valueOf(dbl));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return jsonObj;
+	}
+
 	/**
 	 * 把list包装成json object
 	 * 
@@ -67,19 +78,23 @@ public class Helper {
 		return jsonObj;
 	}
 
-
-	
+	/**
+	 * 把boolean变量包装成json object
+	 * 
+	 * @param result
+	 * @return
+	 */
 	public static JSONObject wrapUp(boolean result) {
 		JSONObject jsonObj = new JSONObject();
-		if(result){
+		if (result) {
 			try {
-				
+
 				jsonObj.put("result", "true");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else{
+		} else {
 			try {
 				jsonObj.put("result", "false");
 			} catch (JSONException e) {

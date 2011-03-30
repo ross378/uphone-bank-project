@@ -13,15 +13,13 @@ import com.ultrawise.bank.base.dao.IDataQueryTools;
 import com.ultrawise.bank.implement.dao.DataAccessModel;
 import com.ultrawise.bank.implement.dao.XMLAccessModel;
 
-
 public class AccSystem implements IAccSystem {
-	
+
 	private DataAccessModel xmlAccM = null;
 	private IDataInsertTools insertTools = null;
 	private IDataQueryTools queryTools = null;
-	
-	public AccSystem()
-	{
+
+	public AccSystem() {
 		this.xmlAccM = DataAccessModel.newInstances();
 		IDataInsertTools insertTools = xmlAccM.createInsertTools();
 		queryTools = this.xmlAccM.createQueryTools();
@@ -30,16 +28,15 @@ public class AccSystem implements IAccSystem {
 	public boolean addAcc(String userId, String accNo, String accType,
 			String accNickName, String accPwd) {
 		// TODO Auto-generated method stub
-		
-		
-		boolean result = insertTools.insertThree("assign", userId, accNo, accType, accNickName, accPwd);
-		
-		if(result)
-		{
+
+		boolean result = insertTools.insertThree("assign", userId, accNo,
+				accType, accNickName, accPwd);
+
+		if (result) {
 			return true;
-		}else
+		} else
 			return false;
-		
+
 	}
 
 	public List<String> getAcc(String userId, String accType, EAccState accState) {
@@ -64,8 +61,7 @@ public class AccSystem implements IAccSystem {
 	public List<String> getAccType() {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<String>();
-		
-		
+
 		list.add("活期");
 		list.add("信用卡");
 		return list;
@@ -73,18 +69,16 @@ public class AccSystem implements IAccSystem {
 
 	public List<String> getAccTypeAll() {
 		// TODO Auto-generated method stub
-		
-		
+
 		List<String> list = new ArrayList<String>();
-		List<HashMap> records = this.queryTools.query("paypal");
+		List<HashMap<String, String>> records = this.queryTools.query("paypal");
 		int i = 0;
-		while(i < records.size())
-		{
-			list.add((String)records.get(i).get("tyname"));
-			i ++;
+		while (i < records.size()) {
+			list.add((String) records.get(i).get("tyname"));
+			i++;
 		}
-	
-		System.out.println("--***---"+records.get(1).get("id"));
+
+		System.out.println("--***---" + records.get(1).get("id"));
 		return list;
 	}
 
@@ -102,6 +96,11 @@ public class AccSystem implements IAccSystem {
 	}
 
 	public String getCost(String costType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<String> getBindCreditCard(String userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -161,7 +160,7 @@ public class AccSystem implements IAccSystem {
 	public List<String> getPaymentName(String userId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
-		
+
 		return null;
 	}
 
@@ -173,11 +172,11 @@ public class AccSystem implements IAccSystem {
 
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
-		
-		
-		HashMap<String, String> record = queryTools.query("accout", "userid", userId);
+
+		HashMap<String, String> record = queryTools.query("accout", "userid",
+				userId);
 		String state = record.get("state");
-		
+
 		return state;
 	}
 

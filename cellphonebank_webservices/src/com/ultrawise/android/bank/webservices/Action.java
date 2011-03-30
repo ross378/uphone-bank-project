@@ -1,22 +1,20 @@
 package com.ultrawise.android.bank.webservices;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-
-import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.Helper.Helper;
 import com.ultrawise.android.bank.base.IAccSystem;
 import com.ultrawise.android.bank.base.ICreditCard;
+import com.ultrawise.android.bank.base.IHelper;
 import com.ultrawise.android.bank.base.IQuery;
 import com.ultrawise.android.bank.base.ITrans;
 import com.ultrawise.android.bank.base.IUpdate;
 import com.ultrawise.android.bank.implement.AccSystem;
-import com.ultrawise.android.bank.implement.Account;
-import com.ultrawise.android.bank.implement.CurrentDeposit;
+import com.ultrawise.android.bank.implement.FinaHelper;
 
 public class Action {
 	private static Action mAction;
@@ -26,6 +24,7 @@ public class Action {
 	private IUpdate mUpdate;
 	private ITrans mTrans;
 	private ICreditCard mCc;
+	private IHelper mhelper;
 
 	// protected Action() {
 	// // 这个构造器废弃
@@ -35,6 +34,8 @@ public class Action {
 	// }
 
 	private Action(IQuery query, IUpdate update, ITrans trans, ICreditCard cc) {
+		this.mAccSystem = new AccSystem();
+		this.mhelper = new FinaHelper();
 		this.mQuery = query;
 		this.mUpdate = update;
 		this.mTrans = trans;
@@ -54,6 +55,7 @@ public class Action {
 		return mAction;
 	}
 
+	// ----------------------------系统
 	/**
 	 * 功能号:0101
 	 * 
@@ -81,21 +83,6 @@ public class Action {
 	}
 
 	/**
-	 * 传入账户号，取得账户管理所需要得账户信息
-	 * 
-	 * @author 王亭
-	 * @param account
-	 * @return 账户信息
-	 */
-	public JSONObject performGetAccInfo(String account) {
-		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mQuery.getAccInfo(account));
-		return jsonObj;
-	}
-
-	/**
-	 * 
-	 <<<<<<< .mine
 	 * 
 	 * @author hosolo
 	 * @param userId
@@ -188,7 +175,7 @@ public class Action {
 	 * @author hosolo
 	 * @return
 	 */
-	public JSONObject performExtraCode() {
+	public JSONObject performGetExtraCode() {
 		return Helper.wrapUp(mAccSystem.getExtraCode());
 	}
 
@@ -254,16 +241,16 @@ public class Action {
 				endDate));
 	}
 
-	// /**
-	// * 0117
-	// *
-	// * @author hosolo
-	// * @param userId
-	// * @return
-	// */
-	// public JSONObject performGetPaymentInfo(String userId) {
-	// return Helper.wrapUp(mAccSystem.getPaymentInfo(userId));
-	// }
+	/**
+	 * 0117
+	 * 
+	 * @author hosolo
+	 * @param userId
+	 * @return
+	 */
+	public JSONObject performGetBindCreditCard(String userId) {
+		return Helper.wrapUp(mAccSystem.getBindCreditCard(userId));
+	}
 
 	/**
 	 * 0118
@@ -366,40 +353,36 @@ public class Action {
 		return Helper.wrapUp(mAccSystem.updatePaymentState(payName, state));
 	}
 
-	/**
-	 * 
-	 * @author 王 亭 2011-3-24
-	 * @param account
-	 * @param password
-	 * @param amtph
-	 * @param amtnum
-	 * @return
-	 */
-	public JSONObject performGetTargetPhoneInfo(String account,
-			String password, String amtph, double amtnum) {
-		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getTargetPhoneInfo(account, password,
-				amtph, amtnum));
-		return jsonObj;
+	// ----------------------------查询
+	public JSONObject performAcctIsActive(String actNo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**
+	 * 传入账户号，取得账户管理所需要得账户信息
 	 * 
-	 * @author 王 亭 2011-3-24
+	 * @author 王亭
 	 * @param account
-	 * @param password
-	 * @param amtph
-	 * @param amtnum
-	 * @return
+	 * @return 账户信息
 	 */
-	public JSONObject performTransfeAct(String account, String password,
-			String amtph, double amtnum) {
+	public JSONObject performGetAccInfo(String account) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.transfeAct(account, password, amtph,
-				amtnum));
+		jsonObj = Helper.wrapUp(mQuery.getAccInfo(account));
 		return jsonObj;
 	}
 
+	public JSONObject performGetNickName(String acc) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mQuery.getNickName(acc));
+	}
+
+	public JSONObject performGetOrderInfo(String acc) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mQuery.getOrderInfo(acc));
+	}
+
+	// ----------------------------转账
 	/**
 	 * 
 	 * @author 王 亭 2011-3-24
@@ -427,19 +410,6 @@ public class Action {
 	/**
 	 * 
 	 * @author 王 亭 2011-3-24
-	 * @param serNo
-	 * @param detail
-	 * @return
-	 */
-	public JSONObject performSetDetail(String serNo, String detail) {
-		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.setDetail(serNo, detail));
-		return jsonObj;
-	}
-
-	/**
-	 * 
-	 * @author 王 亭 2011-3-24
 	 * @param id
 	 * @param paymentNam
 	 * @return
@@ -447,6 +417,42 @@ public class Action {
 	public JSONObject performGetPaymentHisInfo(String paymentNam, String id) {
 		JSONObject jsonObj = new JSONObject();
 		jsonObj = Helper.wrapUp(mTrans.getPaymentHisInfo(paymentNam, id));
+		return jsonObj;
+	}
+
+	/**
+	 * 
+	 * @author 王 亭 2011-3-28
+	 * @param id
+	 * @return
+	 */
+	public JSONObject performGetPaymentInfo(String id) {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(id));
+		return jsonObj;
+	}
+
+	public JSONObject performGetRechargeInfo(String paymentName,
+			String paymentActNo, double paymentAmt, String paymentPhoneNum) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mTrans.getRechargeInfo(paymentName, paymentActNo,
+				paymentAmt, paymentPhoneNum));
+	}
+
+	/**
+	 * 
+	 * @author 王 亭 2011-3-24
+	 * @param account
+	 * @param password
+	 * @param amtph
+	 * @param amtnum
+	 * @return
+	 */
+	public JSONObject performGetTargetPhoneInfo(String account,
+			String password, String amtph, double amtnum) {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mTrans.getTargetPhoneInfo(account, password,
+				amtph, amtnum));
 		return jsonObj;
 	}
 
@@ -470,13 +476,107 @@ public class Action {
 
 	/**
 	 * 
-	 * @author 王 亭 2011-3-28
-	 * @param id
+	 * @author 王 亭 2011-3-24
+	 * @param serNo
+	 * @param detail
 	 * @return
 	 */
-	public JSONObject performGetPaymentInfo(String id) {
+	public JSONObject performSetDetail(String serNo, String detail) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.setDetail(serNo, detail));
 		return jsonObj;
+	}
+
+	/**
+	 * 
+	 * @author 王 亭 2011-3-24
+	 * @param account
+	 * @param password
+	 * @param amtph
+	 * @param amtnum
+	 * @return
+	 */
+	public JSONObject performTransfeAct(String account, String password,
+			String amtph, double amtnum) {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mTrans.transfeAct(account, password, amtph,
+				amtnum));
+		return jsonObj;
+	}
+
+	// ---------------------------- 更新，修改
+	public JSONObject performDeleAcc(String accNo) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mUpdate.deleAcc(accNo));
+	}
+
+	public JSONObject performLossRegister(String accNo) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mUpdate.lossRegister(accNo));
+	}
+
+	public JSONObject performSetActActive(String accNo, String accPwd) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mUpdate.setActActive(accNo, accPwd));
+	}
+
+	public JSONObject performSetBind(String accNo) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mUpdate.setBind(accNo));
+	}
+
+	public JSONObject performSetNickName(String accNo, String name) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mUpdate.setNickName(accNo, name));
+	}
+
+	public JSONObject performSetOrderCard(String accNo) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mUpdate.setOrderCard(accNo));
+	}
+
+	// ----------------------------信用卡专用
+	public JSONObject performCreditRepayment(String account, String password,
+			double payamt) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mCc.creditRepayment(account, password, payamt));
+	}
+
+	public JSONObject performDestroyCard(String userName, String creditCardNo,
+			String idNo, String cellPhone, String pwd) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mCc.destroyCard(userName, creditCardNo, idNo,
+				cellPhone, pwd));
+	}
+
+	public JSONObject performGetCreditRepaymentInfor(String account) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mCc.getCreditRepaymentInfor(account));
+	}
+
+	public JSONObject performOpenCard(String userName, String creditCardNo,
+			String availbDate, String idNo, String cellPhone, String tel,
+			String pwd) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mCc.openCard(userName, creditCardNo, availbDate,
+				idNo, cellPhone, tel, pwd));
+	}
+
+	// ----------------------------助手
+	public JSONObject performGetExchangeResult(double currencyDenomination,
+			String sourceCurrencyType, String destinationCurrencyType) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mhelper.getExchangeResult(currencyDenomination,
+				sourceCurrencyType, destinationCurrencyType));
+	}
+
+	public JSONObject performGetRate(String type) {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mhelper.getRate(type));
+	}
+
+	public JSONObject performGetMoneyType() {
+		// TODO Auto-generated method stub
+		return Helper.wrapUp(mhelper.getMoneyType());
 	}
 }
