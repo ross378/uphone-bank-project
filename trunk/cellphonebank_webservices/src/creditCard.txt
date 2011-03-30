@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CreditCard>
+	<record>
+		<orderid>110</orderid>
+		<actpwd>123456</actpwd>	
+		<balance>1000,00</balance>
+		<pvality>五年</pvality>
+		<montype>人民币</montype>
+		<period>三个月</period>
+		<months>2010-11</months>
+		<repayment>x</repayment>
+		<duedata>x</duedata>
+		<minpayment>x</minpayment>
+		<payment>x</payment>
+		<state>0</state>
+	</record>
+</CreditCard>

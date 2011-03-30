@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<openserviceinfo>
+   <service>
+		<userid>1</userid>
+		<openType>1</openType>
+		<open>是</open>
+   </service>
+   <service>
+		<userid>2</userid>
+		<openType>2</openType>
+		<open>否</open>
+   </service>
+</openserviceinfo>
