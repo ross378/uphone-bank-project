@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.Helper;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -87,5 +88,22 @@ public class Helper {
 			}
 		}
 		return jsonObj;
+	}
+	
+	/**
+	 * 获取系统的当前时间
+	 * @author 王   亭
+	 * 2011-3-29
+	 * @return
+	 */
+	public static String getCurrentTime(){
+		Calendar calendar = Calendar.getInstance();
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH) + 1;
+		int day = calendar.get(Calendar.DATE);
+		
+		String now = year + "-" + month + "-" + day;
+		
+		return now;
 	}
 }
