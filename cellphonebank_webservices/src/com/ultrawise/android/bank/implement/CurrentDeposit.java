@@ -1,9 +1,11 @@
 package com.ultrawise.android.bank.implement;
 
+import java.util.Date;
 import java.util.HashMap;
 
 import com.ultrawise.android.bank.Enum.EOperation;
 import com.ultrawise.android.bank.Enum.TableName;
+import com.ultrawise.android.bank.Helper.Helper;
 import com.ultrawise.android.bank.base.ITrans;
 import com.ultrawise.android.bank.base.IUpdate;
 import com.ultrawise.bank.implement.dao.DataAccessModel;
@@ -78,6 +80,57 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		return null;
 	}
 
+	public HashMap<String, String> recharge(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum,String operator) {
+		HashMap<String,String> recharge = new HashMap<String, String>();
+		System.out.println(paymentName);
+		TableName tn = TableName.getTableName(paymentName);
+		String fileName = "";
+		switch (tn){
+		case WATERCOSTINFO:
+			fileName = "waterCostInfo";
+			break;
+		case POWERCOSTINFO:
+			fileName = "powerCostInfo";
+			break;
+		case GASCOSTINFO:
+			fileName = "gasCoseInfo";
+			break;
+		case HOUSERENDCOSEINFO:
+			fileName = "houseRendCoseInfo";
+			break;
+		case QQCHARGEINFO:
+			fileName = "qqChargeInfo";
+			break;
+		case PHONECHARGEINFO:
+			fileName = "phoneChargeInfo";
+			break;
+		case WYCARDCHARGEINFO:
+			fileName = "WYCardChargeInfo";
+			break;
+		default :
+			recharge.put("error", "缴费的表不存在！");
+			return recharge;
+		}
+		boolean isActive = acctIsActive(paymentActNo);
+		if (!isActive) {
+			DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid:"+paymentActNo, "activation","1");
+		}
+		HashMap<String,String> temp = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",paymentActNo);
+		if(paymentActPasswd.equals(temp.get("actpwd"))){
+			double balance = Double.parseDouble(temp.get("balance"));
+			balance -= paymentAmt;
+			DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",paymentActNo, "balance",String.valueOf(balance));
+			HashMap<String,String> temp1 = DataAccessModel.newInstances().createQueryTools().query("selservice", "name",paymentName);
+			String serNo = temp1.get("serNo");
+			DataAccessModel.newInstances().createInsertTools().insertThree(fileName,"id:2","userid:"+temp.get("userid"),
+					"crepnum:"+paymentNum,"credata:"+Helper.getCurrentTime(),"serNo:"+serNo,"operator:"+operator,"account:"+paymentActNo);
+			recharge.put("serNo", serNo);
+			recharge.put("result", "true");
+		}
+		return recharge;
+	}
+	
 	public boolean setDetail(String serNo, String detail) {
 		if ("1".equals(serNo)) {
 			return true;
@@ -160,7 +213,10 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
 	@Override
 	public boolean acctIsActive(String paymentActNo) {
-		// TODO Auto-generated method stub
+		HashMap<String,String> accInfo = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",paymentActNo);
+		if("1".equals(accInfo.get("activation"))){
+			return true;
+		}
 		return false;
 	}
 
