@@ -10,6 +10,7 @@ import com.ultrawise.android.bank.base.IAccSystem;
 import com.ultrawise.android.bank.base.IQuery;
 import com.ultrawise.bank.base.dao.IDataInsertTools;
 import com.ultrawise.bank.base.dao.IDataQueryTools;
+import com.ultrawise.bank.base.dao.IDataUpdataTools;
 import com.ultrawise.bank.implement.dao.DataAccessModel;
 import com.ultrawise.bank.implement.dao.XMLAccessModel;
 
@@ -18,11 +19,15 @@ public class AccSystem implements IAccSystem {
 	private DataAccessModel xmlAccM = null;
 	private IDataInsertTools insertTools = null;
 	private IDataQueryTools queryTools = null;
-
+	private IDataUpdataTools updataTools = null;
+	
 	public AccSystem() {
+
 		this.xmlAccM = DataAccessModel.newInstances();
-		IDataInsertTools insertTools = xmlAccM.createInsertTools();
+		insertTools = this.xmlAccM.createInsertTools();
 		queryTools = this.xmlAccM.createQueryTools();
+		updataTools = this.xmlAccM.createUpdataTools();
+		
 	}
 
 	public boolean addAcc(String userId, String accNo, String accType,
@@ -61,9 +66,10 @@ public class AccSystem implements IAccSystem {
 	public List<String> getAccType() {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<String>();
-
-		list.add("活期");
-		list.add("信用卡");
+	
+		HashMap<String, String> record = this.queryTools.query("paypal", "id", "paypal01");
+		list.add(record.get("tyname"));
+		
 		return list;
 	}
 
@@ -175,7 +181,7 @@ public class AccSystem implements IAccSystem {
 
 		HashMap<String, String> record = queryTools.query("accout", "userid",
 				userId);
-		String state = record.get("state");
+		String state = record.get("orderid");
 
 		return state;
 	}
@@ -205,7 +211,9 @@ public class AccSystem implements IAccSystem {
 
 	public boolean setPreAcc(String userId, String accNo) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		boolean result = this.updataTools.updata("accout", "userid", userId, "orderid", accNo);
+		return result;
 	}
 
 	public boolean updatePaymentState(String payName, String state) {
