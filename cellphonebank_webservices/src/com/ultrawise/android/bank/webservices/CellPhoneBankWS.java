@@ -134,7 +134,7 @@ public class CellPhoneBankWS {
 			// 确认缴费
 			return action.performRecharge(arrayParams[1], Double
 					.parseDouble(arrayParams[2]), arrayParams[3],
-					arrayParams[4], arrayParams[4]);
+					arrayParams[4], arrayParams[5],arrayParams[6]);
 		case GET_PAYMENT_INFO:
 			// 查看某条待缴费的详细信息
 			return action.performGetPaymentInfo(arrayParams[1]);
