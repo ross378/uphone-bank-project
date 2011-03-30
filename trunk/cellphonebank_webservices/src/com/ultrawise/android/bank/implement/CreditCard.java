@@ -51,7 +51,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public HashMap<String, String> getComeQueryInfo(String id) {
 		// TODO Auto-generated method stub
 		return null;
@@ -106,7 +106,15 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return false;
 	}
 
-	public boolean destroyCard(HashMap<String, String> userInfo) {
+	public boolean destroyCard(String userName, String creditCardNo,
+			String idNo, String cellPhone, String pwd) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean openCard(String userName, String creditCardNo,
+			String availbDate, String idNo, String cellPhone, String tel,
+			String pwd) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -114,11 +122,6 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	public HashMap<String, String> getCreditRepaymentInfor(String account) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public boolean openCard(HashMap<String, String> userInfo) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	// -------信用卡专用---------
@@ -148,4 +151,5 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return null;
 	}
 	// -------查询---------
+
 }

@@ -62,7 +62,15 @@ public interface IAccSystem {
 	// List<String> getBindAcc(String accType);
 
 	/**
-	 * 取得已注册的信用卡
+	 * 取得已绑定的信用卡
+	 * 
+	 * @param userId
+	 * @return 信用卡列表
+	 */
+	List<String> getBindCreditCard(String userId);
+
+	/**
+	 * 取得所有的信用卡
 	 * 
 	 * @param userId
 	 * @return 信用卡列表

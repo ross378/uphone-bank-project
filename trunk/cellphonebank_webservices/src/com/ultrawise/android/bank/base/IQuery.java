@@ -6,6 +6,7 @@ import java.util.Map;
 
 public interface IQuery {
 	/**
+	 * 获取账号的别名
 	 * @param acc   
 	 * @return   账号的别名
 	 */
@@ -20,14 +21,14 @@ public interface IQuery {
 	public HashMap<String,String> getAccInfo(String acc);
 	
 	/**
-	 * 
+	 * 获取预约信息
 	 * @param acc  
 	 * @return	账户的预约信息键值对
 	 */
 	public HashMap<String,String> getOrderInfo(String acc);
 
 	/**
-	 * 	自助缴费时的激活判断
+	 * 	激活判断
 	 * @param actNo  
 	 * @return   是否激活
 	 */
