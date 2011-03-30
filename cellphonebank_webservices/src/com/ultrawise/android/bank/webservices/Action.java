@@ -461,10 +461,10 @@ public class Action {
 	 * @return
 	 */
 	public JSONObject performRecharge(String paymentName, double paymentAmt,
-			String paymentActNo, String paymentActPasswd, String paymentNum) {
+			String paymentActNo, String paymentActPasswd, String paymentNum,String operator) {
 		JSONObject jsonObj = new JSONObject();
 		jsonObj = Helper.wrapUp(mTrans.recharge(paymentName, paymentAmt,
-				paymentActNo, paymentActPasswd, paymentNum));
+				paymentActNo, paymentActPasswd, paymentNum,operator));
 		return jsonObj;
 	}
 
