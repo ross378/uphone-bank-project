@@ -71,7 +71,7 @@ public interface ITrans {
 	 * @param paymentNum  	缴费的目标号
 	 * @return
 	 */
-	public HashMap<String,String> recharge(String paymentName,double paymentAmt,String paymentActNo,String paymentActPasswd,String paymentNum);
+	public HashMap<String,String> recharge(String paymentName,double paymentAmt,String paymentActNo,String paymentActPasswd,String paymentNum,String operator);
 	
 	/**
 	 * 根据未缴费项的id查询详细信息
