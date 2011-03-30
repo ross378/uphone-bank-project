@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<patype>
+	<pat>
+		<id>1</id>
+		<name>手机充值</name>
+		<id>2</id>
+		<name>QQ币充值</name>
+		<id>3</id>
+		<name>网易充值</name>
+	</pat>
+</patype>
