@@ -8,9 +8,10 @@
 		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
 		<loginStatus>false</loginStatus>
-		<panum>422304196409081120</panum>
-		<phnum>15525258125</phnum>
-		<telephone>87654902</telephone>
-		<preant>622202111</preant>	
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258125</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
   </user>
 </UserInfo>
