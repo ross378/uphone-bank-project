@@ -109,7 +109,7 @@ public interface IAccSystem {
 
 	/**
 	 * 取得某用户的便捷缴费项目名称，如果便捷缴费项目和用户有关，就实现这个
-	 * 
+	 *暂时不实现
 	 * @param userId
 	 * @return 便捷缴费项目名称列表
 	 */
@@ -128,7 +128,7 @@ public interface IAccSystem {
 	 * @param paymentName
 	 * @return 运营商列表
 	 */
-	List<String> getOperator(String paymentName);
+	List<String> getOperator(String paymentId);
 
 	/**
 	 * 取得明细历史记录列表，比如：<2011.1.1,支出>
