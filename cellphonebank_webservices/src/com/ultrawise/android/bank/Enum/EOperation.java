@@ -72,6 +72,11 @@ public enum EOperation {
 
 		/* 如果有多个相同操作号，就报错。PS: 没有找到更合适的控制不能重复添加，只能延迟到代码执行的时候才知道 */
 		if (list.size() > 1) {
+			Log
+					.getInstance()
+					.getLogger()
+					.error(
+							"It's not client's fault.Operation has been here! don't input again");
 			throw new IllegalArgumentException(
 					"It's not client's fault.Operation has been here! don't input again");
 		}

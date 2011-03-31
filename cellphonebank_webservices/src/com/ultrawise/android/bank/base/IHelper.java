@@ -3,6 +3,8 @@ package com.ultrawise.android.bank.base;
 import java.util.List;
 import java.util.Map;
 
+import com.ultrawise.android.bank.Enum.ERateType;
+
 public interface IHelper {
 	/**
 	 * 查询币种的类型
@@ -17,7 +19,7 @@ public interface IHelper {
 	 * @param type
 	 * @return 利率的详细信息
 	 */
-	public Map<String, String> getRate(String type);
+	public Map<String, String> getRate(ERateType type);
 
 	/**
 	 * 货币的兑换
