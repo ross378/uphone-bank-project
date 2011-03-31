@@ -14,6 +14,7 @@ import org.codehaus.jettison.json.JSONObject;
 import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.Enum.EAccType;
 import com.ultrawise.android.bank.Enum.EOperation;
+import com.ultrawise.android.bank.Enum.ERateType;
 import com.ultrawise.android.bank.implement.CreditCard;
 import com.ultrawise.android.bank.implement.CurrentDeposit;
 import com.ultrawise.android.bank.implement.TimeDeposits;
@@ -27,8 +28,9 @@ public class CellPhoneBankWS {
 	@Consumes("application/x-www-form-urlencoded")
 	@POST
 	@Path("do")
-	public JSONObject doPost(@FormParam("params") String params,
-			@FormParam("accType") @DefaultValue("信用卡") String accType) {
+	public JSONObject doPost(
+			@FormParam("accType") @DefaultValue("0") String accTypeId,
+			@FormParam("params") String params) {
 		/* 获取参数 */
 		String[] arrayParams = params.split(":");
 		String operationNo = "";
@@ -59,25 +61,33 @@ public class CellPhoneBankWS {
 			sevenParam = arrayParams[7];
 		}
 
-		/* 确定账户类型，根据账户类型然后给Action赋值 */
-		EAccType ea = EAccType.getEAccType(accType);
+		// CurrentDeposit cd = new CurrentDeposit();
+		// Action action = Action.getAction(cd, cd, cd, null);
+
 		Action action = null;
-		switch (ea) {
-		case CREDIT_CARD:
-			// 信用卡
-			CreditCard cc = new CreditCard();
-			action = Action.getAction(cc, cc, cc, cc);
-			break;
-		case CURRENT_DEPOSIT:
-			// 活期储蓄卡
-			CurrentDeposit cd = new CurrentDeposit();
-			action = Action.getAction(cd, cd, cd, null);
-			break;
-		case TIME_DEPOSITS:
-			// 定期储蓄卡
-			TimeDeposits td = new TimeDeposits();
-			action = Action.getAction(td, td, null, null);
-			break;
+		if (accTypeId.equals("0")) {
+			// 如果账户类型为默认值0，即操作与实体信用卡和储蓄卡没有关系，将调用无参数构造的action
+			action = Action.getNewAction();
+		} else {
+			/* 确定账户类型，根据账户类型然后给Action赋值 */
+			EAccType ea = EAccType.getEAccTypeById(accTypeId);
+			switch (ea) {
+			case CREDIT_CARD:
+				// 信用卡
+				CreditCard cc = new CreditCard();
+				action = Action.getAction(cc, cc, cc, cc);
+				break;
+			case CURRENT_DEPOSIT:
+				// 活期储蓄卡
+				CurrentDeposit cd = new CurrentDeposit();
+				action = Action.getAction(cd, cd, cd, null);
+				break;
+			case TIME_DEPOSITS:
+				// 定期储蓄卡
+				TimeDeposits td = new TimeDeposits();
+				action = Action.getAction(td, td, null, null);
+				break;
+			}
 		}
 
 		/* 获取枚举功能号 */
@@ -268,7 +278,7 @@ public class CellPhoneBankWS {
 			return action.performGetMoneyType();
 		case GET_RATE:
 			// 获取利率
-			return action.performGetRate(firstValue);
+			return action.performGetRate(ERateType.getRateType(firstValue));
 		case GET_EXCHANGE_RESULT:
 			// 获取汇率转换的结果
 			return action.performGetExchangeResult(Double

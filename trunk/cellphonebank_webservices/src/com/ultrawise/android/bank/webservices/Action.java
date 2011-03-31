@@ -6,6 +6,7 @@ import java.util.Map;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.ultrawise.android.bank.Enum.EAccState;
+import com.ultrawise.android.bank.Enum.ERateType;
 import com.ultrawise.android.bank.Helper.Helper;
 import com.ultrawise.android.bank.base.IAccSystem;
 import com.ultrawise.android.bank.base.ICreditCard;
@@ -26,12 +27,10 @@ public class Action {
 	private ICreditCard mCc;
 	private IHelper mhelper;
 
-	// protected Action() {
-	// // 这个构造器废弃
-	// // mAccount = new Account();
-	// mAccSystem = new AccSystem();
-	// mCurrentDepositt = new CurrentDeposit();
-	// }
+	private Action() {
+		this.mAccSystem = new AccSystem();
+		this.mhelper = new FinaHelper();
+	}
 
 	private Action(IQuery query, IUpdate update, ITrans trans, ICreditCard cc) {
 		this.mAccSystem = new AccSystem();
@@ -43,16 +42,22 @@ public class Action {
 	}
 
 	/**
+	 * 获取无参数构造器，这个构造器不能提供单例
+	 * 
+	 * @return
+	 */
+	public static Action getNewAction() {
+		return new Action();
+	}
+
+	/**
 	 * 取得Action对象，可以用于调用不同功能
 	 * 
 	 * @return Action对象
 	 */
 	public static Action getAction(IQuery query, IUpdate update, ITrans trans,
 			ICreditCard cc) {
-		if (mAction == null) {
-			return new Action(query, update, trans, cc);
-		}
-		return mAction;
+		return new Action(query, update, trans, cc);
 	}
 
 	// ----------------------------系统
@@ -467,10 +472,11 @@ public class Action {
 	 * @return
 	 */
 	public JSONObject performRecharge(String paymentName, double paymentAmt,
-			String paymentActNo, String paymentActPasswd, String paymentNum,String operator) {
+			String paymentActNo, String paymentActPasswd, String paymentNum,
+			String operator) {
 		JSONObject jsonObj = new JSONObject();
 		jsonObj = Helper.wrapUp(mTrans.recharge(paymentName, paymentAmt,
-				paymentActNo, paymentActPasswd, paymentNum,operator));
+				paymentActNo, paymentActPasswd, paymentNum, operator));
 		return jsonObj;
 	}
 
@@ -570,7 +576,7 @@ public class Action {
 				sourceCurrencyType, destinationCurrencyType));
 	}
 
-	public JSONObject performGetRate(String type) {
+	public JSONObject performGetRate(ERateType type) {
 		// TODO Auto-generated method stub
 		return Helper.wrapUp(mhelper.getRate(type));
 	}
