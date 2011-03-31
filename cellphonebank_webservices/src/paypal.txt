@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paypals primaryKey="id">
 	<paypal>
-		<id>paypal01</id>
+		<id></id>
 		<tyname>活期储蓄卡</tyname>
-		<id>paypal02</id>
+		<id></id>
 		<tyname>定期储蓄卡</tyname>
-		<id>paypal03</id>
+		<id></id>
 		<tyname>信用卡</tyname>
 	</paypal>
 </paypals>
