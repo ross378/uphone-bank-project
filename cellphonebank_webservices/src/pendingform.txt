@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PendingForm>
 <pendingCost>
-          <userid>1111</userid>
+          <userid>1</userid>
 		  <id>1</id>
 		  <dunum>s323454</dunum>
 		  <damout>30.00</damout>
@@ -11,7 +11,7 @@
 		  <state>0</state>//表示缴费状态
 </pendingCost>
 <costRecord>
-          <userid>1111</userid>
+          <userid>1</userid>
 		  <id>2</id>
 		  <dunum>s0101000</dunum>
 		  <damout>80.00</damout>
