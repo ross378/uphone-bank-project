@@ -144,8 +144,11 @@ public class AccSystem implements IAccSystem {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public List<String> getOperator(String paymentName) {
+	/**
+	 * gsm
+	 * 2011.3.31
+	 */
+	public List<String> getOperator(String paymentId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
 		return null;
@@ -162,18 +165,32 @@ public class AccSystem implements IAccSystem {
 		// 不实现
 		return null;
 	}
-
+	
+	/**
+	 * gsm
+	 * 2011.3.31
+	 */
 	public List<String> getPaymentName(String userId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
-
-		return null;
+		HashMap<String, String>	hm=DataAccessModel.newInstances().createQueryTools().query("pendingform", "userid",userId,
+				"state","1");//表示未缴费的
+		String name=hm.get("name");
+		list.add(name);
+		return list;
 	}
 
+	/**
+	 * gsm
+	 * 2011.3.31
+	 */
 	public List<String> getPaymentNameOnMana() {
 		List<String> list = new ArrayList<String>();
-		// TODO Auto-generated method stub
-		return null;
+		List<HashMap<String, String>> listHashMaps=DataAccessModel.newInstances().createQueryTools().query("openServiceInfo");
+		for (HashMap<String, String> hm:listHashMaps) {
+			list.add(hm.get("prname"));
+		}
+		return list;
 	}
 
 	public String getPreAcc(String userId) {
@@ -186,12 +203,21 @@ public class AccSystem implements IAccSystem {
 		return state;
 	}
 
+	/**
+	 * gsm
+	 * 2011.3.31
+	 */
 	public List<String> getSelServiceName() {
 		List<String> list = new ArrayList<String>();
-		// TODO Auto-generated method stub
-		return null;
+
+		List<HashMap<String, String>> list2=DataAccessModel.newInstances().createQueryTools().query("patype");
+		for(HashMap<String, String> hm: list2){
+			list.add(hm.get("name"));
+		}
+		return list;
 	}
 
+	//暂时不实现
 	public List<String> getSelServiceNameByUserId(String userId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
