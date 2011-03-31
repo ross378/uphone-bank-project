@@ -12,8 +12,7 @@ import com.ultrawise.bank.implement.dao.DataAccessModel;
 
 public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
-	public HashMap<String, String> getPaymentHisInfo(String paymentNam,
-			String id) {
+	public HashMap<String, String> getPaymentHisInfo(String id) {
 		HashMap<String, String> paymentHisInfo = new HashMap<String, String>();
 		
 		HashMap<String, String> temp = DataAccessModel.newInstances()
@@ -28,22 +27,17 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		return paymentHisInfo;
 	}
 
-	public HashMap<String, String> getPaymentInfo(String id) {
+	public HashMap<String, String> getPaymentInfo(String userid,String id) {
 		HashMap<String, String> paymentInfo = new HashMap<String, String>();
 
 		HashMap<String, String> temp = DataAccessModel.newInstances()
-				.createQueryTools().query("undecided", "id", id);
+				.createQueryTools().query("pendingform","userid",userid, "id", id);
 		if (temp != null) {
-			System.out.println(temp.get("paymentNam"));
-			paymentInfo.put("paymentNam", temp.get("paymentNam"));
-			System.out.println(temp.get("paymentAmt"));
-			paymentInfo.put("paymentAmt", temp.get("paymentAmt"));
-			System.out.println(temp.get("charge"));
-			paymentInfo.put("charge", temp.get("charge"));
-			System.out.println(temp.get("concordat"));
-			paymentInfo.put("concordat", temp.get("concordat"));
-			System.out.println(temp.get("deadline"));
-			paymentInfo.put("deadline", temp.get("deadline"));
+			paymentInfo.put("paymentNam", temp.get("name"));
+			paymentInfo.put("paymentAmt", temp.get("damout"));
+			paymentInfo.put("charger", temp.get("charger"));
+			paymentInfo.put("concordat", temp.get("dunum"));
+			paymentInfo.put("deadline", temp.get("dulimit"));
 		}
 		return paymentInfo;
 	}
@@ -51,63 +45,46 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	public HashMap<String, String> getRechargeInfo(String paymentName,
 			String paymentActNo, double paymentAmt, String paymentPhoneNum) {
 		HashMap<String, String> recharfeInfo = new HashMap<String, String>();
-
+		
 		return recharfeInfo;
 	}
 
 	public HashMap<String, String> getTargetPhoneInfo(String account,
 			String password, String amtph, double amtnum) {
-
+		
 		return null;
 	}
 
 	public HashMap<String, String> recharge(String paymentName,
-			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum,String operator) {
-		HashMap<String,String> recharge = new HashMap<String, String>();
-		System.out.println(paymentName);
-		TableName tn = TableName.getTableName(paymentName);
-		String fileName = "";
-		switch (tn){
-		case WATERCOSTINFO:
-			fileName = "waterCostInfo";
-			break;
-		case POWERCOSTINFO:
-			fileName = "powerCostInfo";
-			break;
-		case GASCOSTINFO:
-			fileName = "gasCoseInfo";
-			break;
-		case HOUSERENDCOSEINFO:
-			fileName = "houseRendCoseInfo";
-			break;
-		case QQCHARGEINFO:
-			fileName = "qqChargeInfo";
-			break;
-		case PHONECHARGEINFO:
-			fileName = "phoneChargeInfo";
-			break;
-		case WYCARDCHARGEINFO:
-			fileName = "WYCardChargeInfo";
-			break;
-		default :
-			recharge.put("error", "缴费的表不存在！");
-			return recharge;
-		}
+			double paymentAmt, String paymentActNo, String paymentActPasswd,
+			String paymentNum, String operator) {
+		HashMap<String, String> recharge = new HashMap<String, String>();
 		boolean isActive = acctIsActive(paymentActNo);
 		if (!isActive) {
-			DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid:"+paymentActNo, "activation","1");
+			DataAccessModel.newInstances().createUpdataTools().updata("accout",
+					"orderid:" + paymentActNo, "activation", "1");
 		}
-		HashMap<String,String> temp = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",paymentActNo);
-		if(paymentActPasswd.equals(temp.get("actpwd"))){
+		HashMap<String, String> temp = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", paymentActNo);
+		if (paymentActPasswd.equals(temp.get("actpwd"))) {
 			double balance = Double.parseDouble(temp.get("balance"));
 			balance -= paymentAmt;
-			DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",paymentActNo, "balance",String.valueOf(balance));
-			HashMap<String,String> temp1 = DataAccessModel.newInstances().createQueryTools().query("selservice", "name",paymentName);
-			String serNo = temp1.get("serNo");
-			DataAccessModel.newInstances().createInsertTools().insertThree(fileName,"id:2","userid:"+temp.get("userid"),
-					"crepnum:"+paymentNum,"credata:"+Helper.getCurrentTime(),"serNo:"+serNo,"operator:"+operator,"account:"+paymentActNo);
+			HashMap<String, String> temp1 = DataAccessModel.newInstances()
+					.createQueryTools().query("patype", "name", paymentName);
+			String serNo = temp1.get("dunum");
+			DataAccessModel.newInstances().createInsertTools().insertThree(
+					"rechargeform", "id:2", "userid:" + temp.get("userid"),
+					"name:"+ paymentName, "credit:" + paymentAmt,
+					"creqqnum:" + paymentNum,
+					"date:" + Helper.getCurrentTime(), "creno:" + serNo,
+					"operator:" + operator, "account:" + paymentActNo);
+			DataAccessModel.newInstances().createUpdataTools()
+					.updata("accout", "orderid", paymentActNo, "balance",
+							String.valueOf(balance));
 			recharge.put("serNo", serNo);
 			recharge.put("result", "true");
+		} else {
+			recharge.put("error", "密码错误");
 		}
 		return recharge;
 	}
@@ -128,21 +105,23 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 			double balance = Double.parseDouble(accInfo.get("balance"));
 			balance -= amtnum;
 			boolean result = DataAccessModel.newInstances().createUpdataTools()
-					.updata("accout", "orderid:" + account, "balance",
+					.updata("accout", "orderid" , account, "balance",
 							String.valueOf(balance));
 			if (result) {
 				HashMap<String, String> userInfo = DataAccessModel
 						.newInstances().createQueryTools().query("userInfo",
 								"phnum", amtph);
 				String userid = userInfo.get("userid");
+				System.out.println(userid);
 				HashMap<String, String> accInfo1 = DataAccessModel
 						.newInstances().createQueryTools().query("accout",
 								"userid", userid);
 				double balance1 = Double.parseDouble(accInfo1.get("balance"));
 				balance1 += amtnum;
+				System.out.println(balance1);
 				boolean result1 = DataAccessModel.newInstances()
 						.createUpdataTools().updata("accout",
-								"userid:" + userid, "balance",
+								"userid" , userid, "balance",
 								String.valueOf(balance1));
 				if (result1) {
 					transInfo.put("result", "转账成功");
@@ -248,5 +227,39 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	public boolean setOrderCard(String accNo) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public HashMap<String, String> payment(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,
+			String charger) {
+		HashMap<String, String> payment = new HashMap<String, String>();
+		boolean isActive = acctIsActive(paymentActNo);
+		if (!isActive) {
+			DataAccessModel.newInstances().createUpdataTools().updata("accout",
+					"orderid:" + paymentActNo, "activation", "1");
+		}
+		HashMap<String, String> temp = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", paymentActNo);
+		if (paymentActPasswd.equals(temp.get("actpwd"))) {
+			double balance = Double.parseDouble(temp.get("balance"));
+			balance -= paymentAmt;
+			HashMap<String, String> temp1 = DataAccessModel.newInstances()
+					.createQueryTools().query("pendingform", "name",
+							paymentName);
+			String serNo = temp1.get("dunum");
+			DataAccessModel.newInstances().createInsertTools().insertThree(
+					"paymentform", "id:2", "userid:" + temp.get("userid"),
+					"name:" + paymentName, "dunum:" + serNo,
+					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
+					"charger:" + charger, "account:" + paymentActNo);
+			DataAccessModel.newInstances().createUpdataTools()
+			.updata("accout", "orderid", paymentActNo, "balance",
+					String.valueOf(balance));
+			payment.put("serNo", serNo);
+			payment.put("result", "true");
+		} else {
+			payment.put("error", "密码错误");
+		}
+		return payment;
 	}
 }
