@@ -9,7 +9,7 @@
 		  <date>2011-03-05</date>
 		  <charger>无锡自来水公司</charger>
 		  <dulimit>2011-7-12</dulimit>
-		  <state>0</state>//表示缴费状态
+		  <state>0</state>//0表示未缴费
 </pendingCost>
 <costRecord>
           <userid>1</userid>
@@ -20,6 +20,6 @@
 		  <date>2011-03-25</date>
 		  <charger>无锡电力公司</charger>
 		  <dulimit>2011-7-12</dulimit>
-		  <state>1</state>//表示缴费状态
+		  <state>1</state>//1表示缴费
 </costRecord>
 </PendingForm>
