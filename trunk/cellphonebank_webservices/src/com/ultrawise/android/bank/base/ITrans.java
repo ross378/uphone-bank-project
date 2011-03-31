@@ -50,7 +50,7 @@ public interface ITrans {
 	 * @param id 		历史缴费记录的id
 	 * @return			历史缴费记录的详细记录
 	 */
-	public HashMap<String,String> getPaymentHisInfo(String paymentNam,String id);
+	public HashMap<String,String> getPaymentHisInfo(String id);
 	
 	/**
 	 * 查看自助缴费的信息
@@ -78,5 +78,18 @@ public interface ITrans {
 	 * @param id
 	 * @return	缴费项的详细信息
 	 */
-	public HashMap<String,String> getPaymentInfo(String id);
+	public HashMap<String,String> getPaymentInfo(String userid,String id);
+	/**
+	 * 自助缴费的付款
+	 * @author 王   亭
+	 * 2011-3-31
+	 * @param paymentName
+	 * @param paymentAmt
+	 * @param paymentActNo
+	 * @param paymentActPasswd
+	 * @param paymentNum
+	 * @param charger
+	 * @return
+	 */
+	public HashMap<String, String> payment(String paymentName,double paymentAmt,String paymentActNo,String paymentActPasswd,String charger);
 }
