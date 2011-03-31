@@ -3,6 +3,7 @@
 <pendingCost>
           <userid>1</userid>
 		  <id>1</id>
+		  <name>水费</name>
 		  <dunum>s323454</dunum>
 		  <damout>30.00</damout>
 		  <date>2011-03-05</date>
@@ -13,6 +14,7 @@
 <costRecord>
           <userid>1</userid>
 		  <id>2</id>
+		  <name>电费</name>
 		  <dunum>s0101000</dunum>
 		  <damout>80.00</damout>
 		  <date>2011-03-25</date>
