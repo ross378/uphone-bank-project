@@ -10,13 +10,12 @@ import com.ultrawise.bank.implement.dao.DataAccessModel;
 
 public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard {
 	// -------转账---------
-	public HashMap<String, String> getPaymentHisInfo(String id,
-			String paymentNam) {
+	public HashMap<String, String> getPaymentHisInfo(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public HashMap<String, String> getPaymentInfo(String id) {
+	public HashMap<String, String> getPaymentInfo(String userid,String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,6 +36,13 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum,String operator) {
 
 
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public HashMap<String, String> payment(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,
+			String charger) {
 		// TODO Auto-generated method stub
 		return null;
 	}
