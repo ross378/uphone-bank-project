@@ -3,8 +3,12 @@
 	<paypal>
 		<id>1</id>
 		<tyname>活期储蓄卡</tyname>
+	</paypal>
+	<paypal>
 		<id>2</id>
 		<tyname>定期储蓄卡</tyname>
+	</paypal>
+	<paypal>
 		<id>3</id>
 		<tyname>信用卡</tyname>
 	</paypal>
