@@ -238,17 +238,22 @@ public class CellPhoneBankWS {
 			return action.performSetDetail(firstValue, secondValue);
 		case GET_PAYMENT_HIS_INFO:
 			// 查看某条历史缴费记录的详细信息
-			return action.performGetPaymentHisInfo(firstValue, secondValue);
+			return action.performGetPaymentHisInfo(firstValue);
 		case GET_RECHARGE_INFO:
 			// 获取缴费信息
 		case RECHARGE:
-			// 确认缴费
-			return action.performRecharge(firstValue, Double
-					.parseDouble(secondValue), thirdParam, fourParam,
+			// 确认充值
+			return action.performRecharge(firstValue,Double
+					.parseDouble(secondValue),thirdParam, fourParam,
 					fiveParam, sixParam);
+		case PAYMENT:
+				//确认缴费
+				return action.performPayment(firstValue,Double
+					.parseDouble(secondValue),thirdParam, fourParam,
+					fiveParam);
 		case GET_PAYMENT_INFO:
 			// 查看某条待缴费的详细信息
-			return action.performGetPaymentInfo(firstValue);
+			return action.performGetPaymentInfo(firstValue,secondValue);
 
 			/**
 			 * 信用卡部分
