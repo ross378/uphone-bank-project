@@ -419,9 +419,9 @@ public class Action {
 	 * @param paymentNam
 	 * @return
 	 */
-	public JSONObject performGetPaymentHisInfo(String paymentNam, String id) {
+	public JSONObject performGetPaymentHisInfo(String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getPaymentHisInfo(paymentNam, id));
+		jsonObj = Helper.wrapUp(mTrans.getPaymentHisInfo(id));
 		return jsonObj;
 	}
 
@@ -431,9 +431,9 @@ public class Action {
 	 * @param id
 	 * @return
 	 */
-	public JSONObject performGetPaymentInfo(String id) {
+	public JSONObject performGetPaymentInfo(String userid,String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(userid,id));
 		return jsonObj;
 	}
 
@@ -479,7 +479,24 @@ public class Action {
 				paymentActNo, paymentActPasswd, paymentNum, operator));
 		return jsonObj;
 	}
-
+	/**
+	 * 
+	 * @author 王   亭   2011-3-31
+	 * @param paymentName
+	 * @param paymentAmt
+	 * @param paymentActNo
+	 * @param paymentActPasswd
+	 * @param paymentNum
+	 * @param charger
+	 * @return
+	 */
+	public JSONObject performPayment(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,
+			String charger) {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mTrans.payment(paymentName, paymentAmt, paymentActNo, paymentActPasswd, charger));
+		return jsonObj;
+	}
 	/**
 	 * 
 	 * @author 王 亭 2011-3-24
