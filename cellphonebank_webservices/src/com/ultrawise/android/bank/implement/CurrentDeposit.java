@@ -14,31 +14,12 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
 	public HashMap<String, String> getPaymentHisInfo(String paymentNam,
 			String id) {
-		System.out.println(paymentNam);
 		HashMap<String, String> paymentHisInfo = new HashMap<String, String>();
-		TableName tn = TableName.getTableName(paymentNam);
-		String fileName = "";
-		switch (tn) {
-		case WATERCOSTINFO:
-			fileName = "waterCostInfo";
-			break;
-		case POWERCOSTINFO:
-			fileName = "powerCostInfo";
-			break;
-		case GASCOSTINFO:
-			fileName = "gasCoseInfo";
-			break;
-		case HOUSERENDCOSEINFO:
-			fileName = "houseRendCoseInfo";
-			break;
-		default:
-			paymentHisInfo.put("error", "查询的表不存在！");
-			return paymentHisInfo;
-		}
+		
 		HashMap<String, String> temp = DataAccessModel.newInstances()
-				.createQueryTools().query(fileName, "id", id);
+				.createQueryTools().query("paymentform", "id", id);
 		if (temp != null) {
-			paymentHisInfo.put("paymentNam", paymentNam);
+			paymentHisInfo.put("paymentNam", temp.get("name"));
 			paymentHisInfo.put("paymentAmt", temp.get("damout"));
 			paymentHisInfo.put("paymentTim", temp.get("date"));
 			paymentHisInfo.put("paymentSer", temp.get("dunum"));
