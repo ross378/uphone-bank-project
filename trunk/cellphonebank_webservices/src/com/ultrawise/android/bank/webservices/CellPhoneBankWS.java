@@ -28,11 +28,10 @@ public class CellPhoneBankWS {
 	@Consumes("application/x-www-form-urlencoded")
 	@POST
 	@Path("do")
-	public JSONObject doPost(
-			@FormParam("accType") @DefaultValue("0") String accTypeId,
-			@FormParam("params") String params) {
-		/* 获取参数 */
+	public JSONObject doPost(@FormParam("params") String params) {
+		/* 获取参数 格式，账户类型(可null):功能号:参数1,参数2 */
 		String[] arrayParams = params.split(":");
+		String accTypeId = "0";
 		String operationNo = "";
 		String firstValue = "";
 		String secondValue = "";
@@ -42,23 +41,23 @@ public class CellPhoneBankWS {
 		String sixParam = "";
 		String sevenParam = "";
 		int len = arrayParams.length;
-		if (len > 0)
-			operationNo = arrayParams[0];
-		if (len > 1)
-			firstValue = arrayParams[1];
-		if (len > 2)
-			secondValue = arrayParams[2];
-		if (len > 3)
-			thirdParam = arrayParams[3];
-		if (len > 4)
-			fourParam = arrayParams[4];
+		if (len > 8)
+			sevenParam = arrayParams[8];
+		if (len > 7)
+			sixParam = arrayParams[7];
+		if (len > 6)
+			fiveParam = arrayParams[6];
 		if (len > 5)
-			fiveParam = arrayParams[5];
-		if (len > 6) {
-			sixParam = arrayParams[6];
-		}
-		if (len > 7) {
-			sevenParam = arrayParams[7];
+			fourParam = arrayParams[5];
+		if (len > 4)
+			thirdParam = arrayParams[4];
+		if (len > 3)
+			secondValue = arrayParams[3];
+		if (len > 2)
+			firstValue = arrayParams[2];
+		if (len > 1) {
+			operationNo = arrayParams[1];
+			accTypeId = arrayParams[0];
 		}
 
 		// CurrentDeposit cd = new CurrentDeposit();
