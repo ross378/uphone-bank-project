@@ -3,12 +3,12 @@
  <chargeRecord>
 	    <id>0</id>
 	    <userid>1</userid>
-	    <name>ÊÖ»ú³äÖµ</name>
+	    <name>æ‰‹æœºå……å€¼</name>
 	    <credit>50.00</credit>
 	    <creqqnum>6762551143</creqqnum>
-	    <credata>2011-03-12</credata>
+	    <data>2011-03-12</data>
 	    <creno>sT5233</creno>
-	    <operator>ÌÚÑ¶</operator>
+	    <operator>ä¸­å›½ç§»åŠ¨</operator>
 	    <account>622202116</account>
   </chargeRecord>
 </RechargeFrom>
