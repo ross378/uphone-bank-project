@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CreditCard>
 	<record>
+		<userid>1</userid>
 		<orderid>110</orderid>
 		<actpwd>123456</actpwd>	
 		<balance>100000</balance>
@@ -8,10 +9,11 @@
 		<montype>人民币</montype>
 		<period>三个月</period>
 		<months>2010-11</months>
-		<repayment>x</repayment>
-		<duedata>x</duedata>
-		<minpayment>x</minpayment>
-		<payment>x</payment>
+		<repayment>1000</repayment>
+		<duedata>2011-01-01</duedata>
+		<minpayment>500</minpayment>
+		<payment>500</payment>
 		<state>0</state>
+		<bind>1</bind>
 	</record>
 </CreditCard>
