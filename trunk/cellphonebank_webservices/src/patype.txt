@@ -3,9 +3,16 @@
 	<pat>
 		<id>1</id>
 		<name>手机充值</name>
+		<serNo>sT5335</serNo>
+	</pat>
+	<pat>
 		<id>2</id>
-		<name>QQ币充值</name>
+		<name>Q币充值</name>
+		<serNo>sT6334</serNo>
+	</pat>
+	<pat>
 		<id>3</id>
 		<name>网易充值</name>
+		<serNo>sT7433</serNo>
 	</pat>
 </patype>
