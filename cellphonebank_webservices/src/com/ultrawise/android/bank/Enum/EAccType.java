@@ -4,7 +4,7 @@ import com.ultrawise.log.Log;
 
 public enum EAccType {
 	CREDIT_CARD("信用卡", "cc"), CURRENT_DEPOSIT("活期储蓄卡", "cd"), TIME_DEPOSITS(
-			"定期储蓄卡", "td");
+			"定期储蓄卡", "td"), NULL("没有", "null");
 
 	private final String mName;
 	private final String mId;

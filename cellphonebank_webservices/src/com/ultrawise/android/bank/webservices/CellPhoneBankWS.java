@@ -31,7 +31,7 @@ public class CellPhoneBankWS {
 	public JSONObject doPost(@FormParam("params") String params) {
 		/* 获取参数 格式，账户类型(可null):功能号:参数1,参数2 */
 		String[] arrayParams = params.split(":");
-		String accTypeId = "0";
+		String accTypeId = "";
 		String operationNo = "";
 		String firstValue = "";
 		String secondValue = "";
@@ -64,12 +64,12 @@ public class CellPhoneBankWS {
 		// Action action = Action.getAction(cd, cd, cd, null);
 
 		Action action = null;
-		if (accTypeId.equals("0")) {
+		/* 确定账户类型，根据账户类型然后给Action赋值 */
+		EAccType ea = EAccType.getEAccTypeById(accTypeId);
+		if (ea == EAccType.NULL) {
 			// 如果账户类型为默认值0，即操作与实体信用卡和储蓄卡没有关系，将调用无参数构造的action
 			action = Action.getNewAction();
 		} else {
-			/* 确定账户类型，根据账户类型然后给Action赋值 */
-			EAccType ea = EAccType.getEAccTypeById(accTypeId);
 			switch (ea) {
 			case CREDIT_CARD:
 				// 信用卡
