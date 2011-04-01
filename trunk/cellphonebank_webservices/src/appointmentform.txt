@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appointment>
+	<account>
+		<id></id>
+		<orderid></orderid>
+		<aliss></aliss>
+		<reason></reson>
+		<net></net>
+		<netaddress></netaddress>
+	</account>
+</appointment>
