@@ -57,7 +57,8 @@ public class TimeDeposits extends Account implements IUpdate {
 		return false;
 	}
 
-	public boolean setOrderCard(String accNo) {
+	public boolean setOrderCard(String accNo, String aliss, String reason,
+			String net, String netaddress,double cost) {
 		// TODO Auto-generated method stub
 		return false;
 	}
