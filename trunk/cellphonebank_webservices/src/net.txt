@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nets>
+	<net>
+		<name>小北储蓄所</name>
+		<dress>天堂区小北路08号</dress>
+	</net>
+	<net>
+		<name>大众储蓄所</name>
+		<dress>地狱省最牛营业厅22号</dress>
+	</net>
+</nets>
