@@ -21,6 +21,9 @@
 		<orderstate>1</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
+    	<loss>0</loss>//挂失
+    	<delete>0</delete>
+    	<activation>1</activation>//激活
 	</record>
 	<record>
 		<userid>2</userid>
@@ -43,6 +46,9 @@
 		<orderstate>1</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
+    	<loss>0</loss>//挂失
+    	<delete>0</delete>
+    	<activation>1</activation>//激活
 	</record>
 	<record>
 		<userid>3</userid>
@@ -65,5 +71,8 @@
 		<orderstate>1</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
+    	<loss>0</loss>//挂失
+    	<delete>0</delete>
+    	<activation>1</activation>//激活
 	</record>
 </CreditCard>
