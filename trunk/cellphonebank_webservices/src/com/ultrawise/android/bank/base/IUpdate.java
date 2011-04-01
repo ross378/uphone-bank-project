@@ -25,7 +25,8 @@ public interface IUpdate {
 	 * @param accNo
 	 * @return 是否预约成功
 	 */
-	boolean setOrderCard(String accNo);
+	boolean setOrderCard(String accNo, String aliss, String reason,
+			String net, String netaddress,double cost);
 
 	/**
 	 * 挂失账户
