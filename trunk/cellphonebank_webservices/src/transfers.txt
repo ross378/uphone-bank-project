@@ -2,6 +2,7 @@
 <Transfer primaryKey="id">
 	<trans>
 	    <id>1</id>
+	    <userid>1</userid>
 	    <sequence>tf00001</sequence>//流水号
 		<outsub>张三</outsub>//转出人
 		<intsub>李四</intsub>
@@ -18,6 +19,7 @@
 	</trans>
 	<trans>
 	    <id>2</id>
+	    <userid>2</userid>
 	    <sequence>tf00002</sequence>//流水号
 		<outsub>张三</outsub>//转出人
 		<intsub>王五</intsub>
@@ -34,6 +36,7 @@
 	</trans>
 	<trans>
 	    <id>3</id>
+	    <userid>3</userid>
 	    <sequence>tf00002</sequence>//流水号
 		<outsub>张三</outsub>//转出人
 		<intsub>小何</intsub>
@@ -50,6 +53,7 @@
 	</trans>
 	<trans>
 	    <id>4</id>
+	    <userid>4</userid>
 	    <sequence>tf00003</sequence>//流水号
 		<outsub>张三</outsub>//转出人
 		<intsub>啊牛</intsub>
