@@ -9,7 +9,7 @@
 		<outant>110</outant>
 		<inphone>13934552456</inphone>
 		<amount>100000</amount>//转出金额
-		<outdata>2011.03.03</outdata>
+		<outdata>2011-03-03</outdata>
 		<outphone>15954556325</outphone>
 		<incity>无锡</incity>
 		<inbank>中国农业银行</inbank>
@@ -25,7 +25,7 @@
 		<outant>111</outant>
 		<inphone>13576035395</inphone>
 		<amount>340000</amount>//转出金额
-		<outdata>2011.03.03</outdata>
+		<outdata>2011-03-04</outdata>
 		<outphone>18904535744</outphone>
 		<incity>手机转出</incity>
 		<inbank>中国农业银行</inbank>
@@ -41,7 +41,7 @@
 		<outant>114</outant>
 		<inphone>152566436848</inphone>
 		<amount>3000</amount>//转出金额
-		<outdata>2011-03-03</outdata>
+		<outdata>2011-03-06</outdata>
 		<outphone>15255673880</outphone>
 		<incity>无锡</incity>
 		<inbank>中国农业银行</inbank>
@@ -57,7 +57,7 @@
 		<outant>110</outant>
 		<inphone>13507923980</inphone>
 		<amount>1000</amount>//转出金额
-		<outdata>2011-03-03</outdata>
+		<outdata>2011-03-09</outdata>
 		<outphone>1890340852</outphone>
 		<incity>手机转出</incity>
 		<inbank>中国农业银行</inbank>
