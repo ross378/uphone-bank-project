@@ -19,7 +19,7 @@
 		  <damout>80.00</damout>
 		  <date>2011-03-25</date>
 		  <charger>无锡电力公司</charger>
-		  <dulimit>2011-7-12</dulimit>
+		  <date>2011-7-12</date>
 		  <state>1</state>//1表示缴费
 </costRecord>
 </PendingForm>
