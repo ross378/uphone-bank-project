@@ -17,7 +17,8 @@
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
     	<loss>0</loss>//挂失
-    	<activation>0</activation>//激活
+    	<delete>0</delete>
+    	<activation>1</activation>//激活
 	</accout>
   	<accout>//第二个账户
     	<userid>2</userid>
@@ -36,6 +37,7 @@
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
     	<loss>1</loss>//挂失
+    	<delete>0</delete>
     	<activation>0</activation>//激活
  	</accout>
   	<accout>//第三个账户
@@ -55,6 +57,7 @@
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
     	<loss>0</loss>//挂失
+    	<delete>0</delete>
     	<activation>0</activation>//激活
  	</accout>
   	<accout>//第四个账户
@@ -74,6 +77,7 @@
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
     	<loss>1</loss>//挂失
+    	<delete>0</delete>
     	<activation>0</activation>//激活
  	</accout>
 	<accout>//第五个账户
@@ -93,6 +97,7 @@
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
     	<loss>1</loss>//挂失
+    	<delete>0</delete>
     	<activation>0</activation>//激活
 	</accout>
 	<accout>//第六个账户
@@ -112,6 +117,7 @@
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011.03.18</opendate>
     	<loss>0</loss>//挂失
+    	<delete>0</delete>
     	<activation>0</activation>//激活
 	</accout>
 </Act>
