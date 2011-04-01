@@ -98,7 +98,8 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return false;
 	}
 
-	public boolean setOrderCard(String accNo) {
+	public boolean setOrderCard(String accNo, String aliss, String reason,
+			String net, String netaddress,double cost) {
 		// TODO Auto-generated method stub
 		return false;
 	}
