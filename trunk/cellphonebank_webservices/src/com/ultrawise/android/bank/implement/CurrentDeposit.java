@@ -90,10 +90,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	}
 	
 	public boolean setDetail(String serNo, String detail) {
-		if ("1".equals(serNo)) {
-			return true;
-		}
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata("transfers","id",serNo,"description",detail);
 	}
 
 	public HashMap<String, String> transfeAct(String account, String password,
@@ -182,8 +179,8 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
 	@Override
 	public String getNickName(String acc) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, String> accInfo = DataAccessModel.newInstances().createQueryTools().query("accout","orderid",acc);
+		return accInfo.get("aliss");
 	}
 
 	@Override
@@ -192,36 +189,33 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		return null;
 	}
 
-	public HashMap<String, String> recharge(String paymentName,
-			double paymentAmt, String paymentActNo, String paymentActPasswd,
-			String paymentNum) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public boolean deleAcc(String accNo) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",accNo,"delete","1");
 	}
 
 	public boolean lossRegister(String accNo) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",accNo,"loss","1");
 	}
 
 	public boolean setActActive(String accNo, String accPwd) {
-		// TODO Auto-generated method stub
-		return false;
+		HashMap<String, String> accInfo = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",accNo);
+		if(accPwd.equals(accInfo.get("pwd"))){
+			return DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",accNo,"activation","1");
+		}else {
+			return false;
+		}
 	}
 
 	public boolean setBind(String accNo) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",accNo,"bind","1");
 	}
 
 	public boolean setNickName(String accNo, String name) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata("accout", "orderid",accNo,"aliss",name);
 	}
 
 	public boolean setOrderCard(String accNo) {
