@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.ultrawise.android.bank.Enum.ECoin;
 import com.ultrawise.android.bank.Enum.ERateType;
 import com.ultrawise.android.bank.base.IHelper;
 import com.ultrawise.bank.implement.dao.DataAccessModel;
@@ -13,27 +14,62 @@ import com.ultrawise.bank.implement.dao.DataAccessModel;
 public class FinaHelper implements IHelper {
 
 	public double getExchangeResult(double currencyDenomination,
-			String sourceCurrencyType, String destinationCurrencyType) {
+			ECoin sourceCurrencyType, ECoin destinationCurrencyType) {
 		// TODO Auto-generated method stub
+		double dExchange = 0;
+
+		// boolean isDollar = false;
+		boolean isSource = false;
+		boolean isDestin = false;
+		String dollarRate = "1.0";
+		String SourceRate = "";
+		String DestinRate = "";
 		List<HashMap<String, String>> rate = DataAccessModel.newInstances()
 				.createQueryTools().query("exchangeRateInfo");
 		for (HashMap<String, String> hashMap : rate) {
-
 			for (Entry<String, String> e : hashMap.entrySet()) {
+				// 如果是源，保存
 				if (e.getKey().equals("coin")) {
-					// 如果是美元保存
-					if (e.getValue().equals("美元")) {
-
+					if (e.getValue().equals(
+							ECoin.getCoinName(sourceCurrencyType))) {
+						isSource = true;
 					}
 				}
-
 				if (e.getKey().equals("rate")) {
-					// 所有的汇率全部都放在一起
-
+					SourceRate = e.getValue();
+				}
+				if (isSource && !SourceRate.equals("")) {
+					break;
 				}
 			}
 		}
-		return 0;
+		for (HashMap<String, String> hashMap : rate) {
+			for (Entry<String, String> e : hashMap.entrySet()) {
+				// 如果是目标，保存
+				if (e.getKey().equals("coin")) {
+					if (e.getValue().equals(
+							ECoin.getCoinName(destinationCurrencyType))) {
+						isDestin = true;
+						break;
+					}
+				}
+				if (e.getKey().equals("rate")) {
+					DestinRate = e.getValue();
+				}
+				if (isDestin && !DestinRate.equals("")) {
+					break;
+				}
+			}
+		}
+		if (isSource && isDestin) {
+			// 进行计算
+			double dDollar = Double.parseDouble(dollarRate);
+			double dSource = Double.parseDouble(SourceRate);
+			double dDestin = Double.parseDouble(DestinRate);
+			dExchange = (dDollar / dSource) * dDestin;
+			return dExchange;
+		}
+		return dExchange;
 	}
 
 	public Map<String, String> getRate(ERateType type) {

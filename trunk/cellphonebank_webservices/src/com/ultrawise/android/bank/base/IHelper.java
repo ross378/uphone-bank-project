@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.base;
 import java.util.List;
 import java.util.Map;
 
+import com.ultrawise.android.bank.Enum.ECoin;
 import com.ultrawise.android.bank.Enum.ERateType;
 
 public interface IHelper {
@@ -30,6 +31,6 @@ public interface IHelper {
 	 * @return 兑换后的金额
 	 */
 	public double getExchangeResult(double currencyDenomination,
-			String sourceCurrencyType, String destinationCurrencyType);
+			ECoin sourceCurrencyType, ECoin destinationCurrencyType);
 
 }

@@ -58,7 +58,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return null;
 	}
 
-	public HashMap<String, String> getComeQueryInfo(String type,String id) {
+	public HashMap<String, String> getComeQueryInfo(String type, String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -121,10 +121,34 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	// -------更新---------
 
 	// -------信用卡专用---------
-	public boolean creditRepayment(String account, String password,
-			double payamt) {
+	public HashMap<String, String> creditRepayment(String account,
+			String password, String tarAcc, double payamt) {
 		// TODO Auto-generated method stub
-		return false;
+		HashMap<String, String> transInfo = new HashMap<String, String>();
+		// 转出人 的 账号信息
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", account);
+		// 转出人的信息
+		HashMap<String, String> outuser = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid",
+						accInfo.get("userid"));
+		// 转入人信息
+		HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", tarAcc);
+		HashMap<String, String> inuser = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid",
+						accInfo.get("userid"));
+
+		// 判断转出人输入的密码是否正确
+		if (password.equals(accInfo.get("actpwd"))) {
+			double balance = CurrentDeposit.transfer(payamt, accInfo, outuser,
+					inuser, accInfo1);
+			transInfo.put("result", "转账成功");
+			transInfo.put("balance", String.valueOf(balance));
+		} else {
+			transInfo.put("result", "密码错误");
+		}
+		return transInfo;
 	}
 
 	public boolean destroyCard(String userName, String creditCardNo,
@@ -154,7 +178,8 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 
 	public HashMap<String, String> getCreditRepaymentInfor(String account) {
 		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException(
+				"CreditCard.java -> getCreditRepaymentInfor");
 	}
 
 	// -------信用卡专用---------
