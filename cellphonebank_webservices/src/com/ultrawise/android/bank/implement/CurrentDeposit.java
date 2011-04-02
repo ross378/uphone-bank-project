@@ -162,7 +162,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	 * @param accInfo1
 	 * @return
 	 */
-	public double transfer(double amtnum, HashMap<String, String> accInfo,
+	public static double transfer(double amtnum, HashMap<String, String> accInfo,
 			HashMap<String, String> outuser, HashMap<String, String> userInfo,
 			HashMap<String, String> accInfo1) {
 		double balance = Double.parseDouble(accInfo.get("balance"));
@@ -175,7 +175,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				"inant:" + accInfo1.get("orderid"),
 				"outant:" + accInfo.get("orderid"),
 				"inphone:" + userInfo.get("phnum"), "amount:" + amtnum,
-				"outdata:" + Helper.getCurrentTime(),
+				"date:" + Helper.getCurrentTime(),
 				"outphone:" + outuser.get("phnum"), "incity:手机转出",
 				"inbank:中国工商银行", "inidnum:" + userInfo.get("panum"),
 				"description:手机转出");
@@ -191,27 +191,53 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
 	public HashMap<String, String> getComeQueryInfo(String type, String id) {
 		HashMap<String, String> comeQueryInfo = new HashMap<String, String>();
-		HashMap<String, String> temp;
+		HashMap<String, String> temp = null;
+		//根据不同的来账的类型   在不同的表中查找来账记录
 		if ("汇款".equals(type)) {
-			temp = DataAccessModel.newInstances()
-			.createQueryTools().query("transfers", "id", id);
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"remit", "id", id);
 		} else {
-			temp = DataAccessModel.newInstances()
-			.createQueryTools().query("transfers", "id", id);
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"transfers", "id", id);
 		}
-		temp = DataAccessModel.newInstances()
-				.createQueryTools().query("transfers", "id", id);
-		
+		//根据账号  得到 账号的类型id
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid",
+						temp.get("outant"));
+		//根据账号id 得到 账号的类型名称
+		HashMap<String, String> accType = DataAccessModel.newInstances()
+				.createQueryTools()
+				.query("paypal", "id", accInfo.get("actype"));
+		comeQueryInfo.put("date", temp.get("date"));
+		comeQueryInfo.put("amount", temp.get("amount"));
+		comeQueryInfo.put("outsub", temp.get("outsub"));
+		comeQueryInfo.put("outant", temp.get("outant"));
+		comeQueryInfo.put("type", accType.get("tyname"));
 		return comeQueryInfo;
 	}
 
-	public HashMap<String, String> getListQueryInfo(String id) {
+	public HashMap<String, String> getListQueryInfo(String type,String id) {
 		HashMap<String, String> listQueryInfo = new HashMap<String, String>();
-		HashMap<String, String> temp = DataAccessModel.newInstances()
-				.createQueryTools().query("outAccount", "id", id);
-		if (temp != null) {
-
+		HashMap<String, String> temp = null;
+		//根据查找不同的类型   到相应的表中按id进行查找
+		if ("汇款".equals(type)) {
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"remit", "id", id);
+		} 
+		if ("转账".equals(type)) {
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"transfers", "id", id);
+		} 
+		if ("缴费".equals(type)) {
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"paymentform", "id", id);
+		} 
+		if ("充值".equals(type)) {
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"rechargeform", "id", id);
 		}
+		listQueryInfo.put("date", temp.get("date"));
+		listQueryInfo.put("account", temp.get("account"));
 		return listQueryInfo;
 	}
 
