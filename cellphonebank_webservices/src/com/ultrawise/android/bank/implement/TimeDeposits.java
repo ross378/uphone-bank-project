@@ -7,31 +7,58 @@ import com.ultrawise.android.bank.base.IUpdate;
 import com.ultrawise.bank.implement.dao.DataAccessModel;
 
 public class TimeDeposits extends Account implements IUpdate {
-
+	//----查询----
 	@Override
 	public boolean acctIsActive(String paymentActNo) {
-		// TODO Auto-generated method stub
+		HashMap<String,String> accInfo = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",paymentActNo);
+		if("1".equals(accInfo.get("activation"))){
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public HashMap<String, String> getAccInfo(String acc) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, String> accInfo = new HashMap<String, String>();
+		HashMap<String, String> temp = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", acc);
+		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances().createQueryTools().query("paypal", "id",temp.get("actype"));
+		if (temp != null) {
+			accInfo.put("account", temp.get("orderid"));
+			accInfo.put("accType", accTypeHashMap.get("tyname"));
+			accInfo.put("montype", temp.get("montype"));
+			accInfo.put("balance", temp.get("balance"));
+			accInfo.put("period", temp.get("period"));
+			accInfo.put("months", temp.get("months"));
+			accInfo.put("rate", temp.get("rate"));
+		}
+		return accInfo;
 	}
 
 	@Override
 	public String getNickName(String acc) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, String> accInfo = DataAccessModel.newInstances().createQueryTools().query("accout","orderid",acc);
+		return accInfo.get("aliss");
 	}
 
 	@Override
 	public HashMap<String, String> getOrderInfo(String acc) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, String> orderInfo = new HashMap<String, String>();
+		HashMap<String, String> temp = DataAccessModel.newInstances().createQueryTools().query("appointmentform", "orderid",acc);
+		if(temp != null){
+			orderInfo.put("account", temp.get("orderid"));
+			orderInfo.put("aliss", temp.get("aliss"));
+			orderInfo.put("reason", temp.get("reason"));
+			orderInfo.put("net", temp.get("net"));
+			orderInfo.put("netaddress", temp.get("netaddress"));
+			orderInfo.put("cost", temp.get("cost"));
+		}else{
+			orderInfo.put("not find", "该账号没有预约信息");
+		}
+		return orderInfo;
 	}
-
+	//----查询----
+	
 	// ----更新-----
 	public boolean deleAcc(String accNo) {
 		// TODO Auto-generated method stub
