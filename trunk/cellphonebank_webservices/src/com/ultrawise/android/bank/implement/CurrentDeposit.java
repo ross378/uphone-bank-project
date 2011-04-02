@@ -246,7 +246,11 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		HashMap<String, String> accInfo = new HashMap<String, String>();
 		HashMap<String, String> temp = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", acc);
+		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances().createQueryTools().query("paypal", "id",temp.get("actype"));
 		if (temp != null) {
+			accInfo.put("account", temp.get("orderid"));
+			accInfo.put("accType", accTypeHashMap.get("tyname"));
+			accInfo.put("montype", temp.get("montype"));
 			accInfo.put("balance", temp.get("balance"));
 		}
 		return accInfo;
