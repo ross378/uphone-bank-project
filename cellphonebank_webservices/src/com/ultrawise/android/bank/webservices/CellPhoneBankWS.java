@@ -13,6 +13,7 @@ import org.codehaus.jettison.json.JSONObject;
 
 import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.Enum.EAccType;
+import com.ultrawise.android.bank.Enum.ECoin;
 import com.ultrawise.android.bank.Enum.EOperation;
 import com.ultrawise.android.bank.Enum.ERateType;
 import com.ultrawise.android.bank.implement.CreditCard;
@@ -275,7 +276,7 @@ public class CellPhoneBankWS {
 		case CREDIT_REPAYMENT:
 			// 信用卡还款
 			return action.performCreditRepayment(firstValue, secondValue,
-					Double.parseDouble(thirdParam));
+					thirdParam, Double.parseDouble(fourParam));
 
 			/**
 			 * 助手部分
@@ -289,7 +290,8 @@ public class CellPhoneBankWS {
 		case GET_EXCHANGE_RESULT:
 			// 获取汇率转换的结果
 			return action.performGetExchangeResult(Double
-					.parseDouble(firstValue), secondValue, thirdParam);
+					.parseDouble(firstValue), ECoin.getCoin(secondValue), ECoin
+					.getCoin(thirdParam));
 		default:
 			JSONObject jsonObj = null;
 			try {

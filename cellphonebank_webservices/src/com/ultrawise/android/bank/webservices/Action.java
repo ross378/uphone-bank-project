@@ -6,6 +6,7 @@ import java.util.Map;
 import org.codehaus.jettison.json.JSONObject;
 
 import com.ultrawise.android.bank.Enum.EAccState;
+import com.ultrawise.android.bank.Enum.ECoin;
 import com.ultrawise.android.bank.Enum.ERateType;
 import com.ultrawise.android.bank.Helper.Helper;
 import com.ultrawise.android.bank.base.IAccSystem;
@@ -564,9 +565,10 @@ public class Action {
 
 	// ----------------------------信用卡专用
 	public JSONObject performCreditRepayment(String account, String password,
-			double payamt) {
+			String tarAcc, double payamt) {
 		// TODO Auto-generated method stub
-		return Helper.wrapUp(mCc.creditRepayment(account, password, payamt));
+		return Helper.wrapUp(mCc.creditRepayment(account, password, tarAcc,
+				payamt));
 	}
 
 	public JSONObject performDestroyCard(String userName, String creditCardNo,
@@ -591,7 +593,7 @@ public class Action {
 
 	// ----------------------------助手
 	public JSONObject performGetExchangeResult(double currencyDenomination,
-			String sourceCurrencyType, String destinationCurrencyType) {
+			ECoin sourceCurrencyType, ECoin destinationCurrencyType) {
 		// TODO Auto-generated method stub
 		return Helper.wrapUp(mhelper.getExchangeResult(currencyDenomination,
 				sourceCurrencyType, destinationCurrencyType));

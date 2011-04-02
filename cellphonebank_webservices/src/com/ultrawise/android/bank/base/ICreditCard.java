@@ -38,6 +38,6 @@ public interface ICreditCard {
 	 * @param payamt
 	 * @return 是否还款成功
 	 */
-	public boolean creditRepayment(String account, String password,
-			double payamt);
+	public HashMap<String, String> creditRepayment(String account, String password,
+			String tarAcc, double payamt);
 }
