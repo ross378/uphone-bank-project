@@ -202,7 +202,7 @@ public class CellPhoneBankWS {
 			return action.performSetNickName(firstValue, secondValue);
 		case SET_ORDER_CARD:
 			// 预约换卡
-			return action.performSetOrderCard(firstValue);
+			return action.performSetOrderCard(firstValue,secondValue,thirdParam,fourParam,firstValue,Double.parseDouble(sixParam));
 		case SET_BIND:
 			// 绑定账户
 			return action.performSetBind(firstValue);
@@ -232,7 +232,7 @@ public class CellPhoneBankWS {
 			return action.performGetListQueryInfo(firstValue);
 		case GET_COMEQUERY_INFO:
 			// 来账信息
-			return action.performGetComeQueryInfo(firstValue);
+			return action.performGetComeQueryInfo(firstValue,secondValue);
 		case SET_DETAIL:
 			// 设置描述信息
 			return action.performSetDetail(firstValue, secondValue);
