@@ -28,7 +28,7 @@ public interface ITrans {
 	 * @param id	
 	 * @return		某条明细的详细信息
 	 */
-	public HashMap<String,String> getListQueryInfo(String id);
+	public HashMap<String,String> getListQueryInfo(String type,String id);
 	
 	/**
 	 * 某条来账的查询
