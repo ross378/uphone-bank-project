@@ -58,7 +58,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return null;
 	}
 
-	public HashMap<String, String> getComeQueryInfo(String id) {
+	public HashMap<String, String> getComeQueryInfo(String type,String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
