@@ -79,25 +79,33 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 			double paymentAmt, String paymentActNo, String paymentActPasswd,
 			String paymentNum, String operator) {
 		HashMap<String, String> recharge = new HashMap<String, String>();
+		//判断账号是否已经激活
 		boolean isActive = acctIsActive(paymentActNo);
 		if (!isActive) {
+		//账号没有激活，则激活账号
 			DataAccessModel.newInstances().createUpdataTools().updata("accout",
 					"orderid:" + paymentActNo, "activation", "1");
 		}
+		//根据账号 获取账号的信息
 		HashMap<String, String> temp = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", paymentActNo);
+		//判断输入的密码是否正确
 		if (paymentActPasswd.equals(temp.get("actpwd"))) {
+			//获取账号的余额
 			double balance = Double.parseDouble(temp.get("balance"));
 			balance -= paymentAmt;
+			//根据缴费名称获取缴费的合同号
 			HashMap<String, String> temp1 = DataAccessModel.newInstances()
 					.createQueryTools().query("patype", "name", paymentName);
 			String serNo = temp1.get("dunum");
+			//插入一条充值记录
 			DataAccessModel.newInstances().createInsertTools().insertThree(
 					"rechargeform", "id:2", "userid:" + temp.get("userid"),
 					"name:"+ paymentName, "credit:" + paymentAmt,
 					"creqqnum:" + paymentNum,
 					"date:" + Helper.getCurrentTime(), "creno:" + serNo,
 					"operator:" + operator, "account:" + paymentActNo);
+			//更新账号的余额
 			DataAccessModel.newInstances().createUpdataTools()
 					.updata("accout", "orderid", paymentActNo, "balance",
 							String.valueOf(balance));
@@ -116,35 +124,24 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	public HashMap<String, String> transfeAct(String account, String password,
 			String amtph, double amtnum) {
 		HashMap<String, String> transInfo = new HashMap<String, String>();
+		//转出人  的 账号信息
 		HashMap<String, String> accInfo = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", account);
+		//转出人的信息
 		HashMap<String, String> outuser = DataAccessModel.newInstances()
 				.createQueryTools().query("userInfo", "userid",
 						accInfo.get("userid"));
+		//转入人的信息
+		HashMap<String, String> userInfo = DataAccessModel.newInstances()
+		.createQueryTools().query("userInfo", "phnum", amtph);
+		String userid = userInfo.get("userid");
+		//转入人的账号信息
+		HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
+		.createQueryTools().query("accout", "userid", userid);
+		//判断转出人输入的密码是否正确
 		if (password.equals(accInfo.get("actpwd"))) {
-			double balance = Double.parseDouble(accInfo.get("balance"));
-			HashMap<String, String> userInfo = DataAccessModel.newInstances()
-					.createQueryTools().query("userInfo", "phnum", amtph);
-			String userid = userInfo.get("userid");
-			HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
-					.createQueryTools().query("accout", "userid", userid);
-			double balance1 = Double.parseDouble(accInfo1.get("balance"));
-			balance1 += amtnum;
-			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"transfers", "id:5","userid:"+userInfo.get("userid"), "sequence:tf00005",
-					"outsub:" + outuser.get("userName"),
-					"intsub:" + userInfo.get("userName"),
-					"inant:" + accInfo1.get("orderid"), "outant:" + account,
-					"inphone:" + userInfo.get("phnum"), "amount:" + amtnum,
-					"outdata:" + Helper.getCurrentTime(),
-					"outphone:" + outuser.get("phnum"), "incity:手机转出",
-					"inbank:中国工商银行", "inidnum:" + userInfo.get("panum"),
-					"description:手机转出");
-			balance -= amtnum;
-			DataAccessModel.newInstances().createUpdataTools().updata("accout",
-					"orderid", account, "balance", String.valueOf(balance));
-			DataAccessModel.newInstances().createUpdataTools().updata("accout",
-					"userid", userid, "balance", String.valueOf(balance1));
+			double balance = transfer(account, amtnum, accInfo, outuser,
+					userInfo, accInfo1);
 			transInfo.put("result", "转账成功");
 			transInfo.put("balance", String.valueOf(balance));
 		} else {
@@ -153,10 +150,54 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
 		return transInfo;
 	}
+	/**
+	 * 转账时  修改  两个账号中的余额
+	 * @author 王   亭
+	 * 2011-4-2
+	 * @param account
+	 * @param amtnum
+	 * @param accInfo
+	 * @param outuser
+	 * @param userInfo
+	 * @param accInfo1
+	 * @return
+	 */
+	public double transfer(String account, double amtnum,
+			HashMap<String, String> accInfo, HashMap<String, String> outuser,
+			HashMap<String, String> userInfo, HashMap<String, String> accInfo1) {
+		double balance = Double.parseDouble(accInfo.get("balance"));
+		double balance1 = Double.parseDouble(accInfo1.get("balance"));
+		balance1 += amtnum;
+		DataAccessModel.newInstances().createInsertTools().insertThree(
+				"transfers", "id:5", "userid:" + userInfo.get("userid"),
+				"sequence:tf00005", "outsub:" + outuser.get("userName"),
+				"intsub:" + userInfo.get("userName"),
+				"inant:" + accInfo1.get("orderid"), "outant:" + account,
+				"inphone:" + userInfo.get("phnum"), "amount:" + amtnum,
+				"outdata:" + Helper.getCurrentTime(),
+				"outphone:" + outuser.get("phnum"), "incity:手机转出",
+				"inbank:中国工商银行", "inidnum:" + userInfo.get("panum"),
+				"description:手机转出");
+		balance -= amtnum;
+		DataAccessModel.newInstances().createUpdataTools().updata("accout",
+				"orderid", account, "balance", String.valueOf(balance));
+		DataAccessModel.newInstances().createUpdataTools().updata("accout",
+				"userid", userInfo.get("userid"), "balance",
+				String.valueOf(balance1));
+		return balance;
+	}
 
-	public HashMap<String, String> getComeQueryInfo(String id) {
+	public HashMap<String, String> getComeQueryInfo(String type, String id) {
 		HashMap<String, String> comeQueryInfo = new HashMap<String, String>();
-		HashMap<String, String> temp = DataAccessModel.newInstances()
+		HashMap<String, String> temp;
+		if ("汇款".equals(type)) {
+			temp = DataAccessModel.newInstances()
+			.createQueryTools().query("transfers", "id", id);
+		} else {
+			temp = DataAccessModel.newInstances()
+			.createQueryTools().query("transfers", "id", id);
+		}
+		temp = DataAccessModel.newInstances()
 				.createQueryTools().query("transfers", "id", id);
 		
 		return comeQueryInfo;
