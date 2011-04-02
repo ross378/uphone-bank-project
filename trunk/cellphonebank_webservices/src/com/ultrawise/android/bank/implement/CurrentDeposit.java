@@ -124,24 +124,24 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	public HashMap<String, String> transfeAct(String account, String password,
 			String amtph, double amtnum) {
 		HashMap<String, String> transInfo = new HashMap<String, String>();
-		//转出人  的 账号信息
+		// 转出人 的 账号信息
 		HashMap<String, String> accInfo = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", account);
-		//转出人的信息
+		// 转出人的信息
 		HashMap<String, String> outuser = DataAccessModel.newInstances()
 				.createQueryTools().query("userInfo", "userid",
 						accInfo.get("userid"));
-		//转入人的信息
+		// 转入人的信息
 		HashMap<String, String> userInfo = DataAccessModel.newInstances()
-		.createQueryTools().query("userInfo", "phnum", amtph);
+				.createQueryTools().query("userInfo", "phnum", amtph);
 		String userid = userInfo.get("userid");
-		//转入人的账号信息
+		// 转入人的账号信息
 		HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
-		.createQueryTools().query("accout", "userid", userid);
-		//判断转出人输入的密码是否正确
+				.createQueryTools().query("accout", "userid", userid);
+		// 判断转出人输入的密码是否正确
 		if (password.equals(accInfo.get("actpwd"))) {
-			double balance = transfer(account, amtnum, accInfo, outuser,
-					userInfo, accInfo1);
+			double balance = transfer(amtnum, accInfo, outuser, userInfo,
+					accInfo1);
 			transInfo.put("result", "转账成功");
 			transInfo.put("balance", String.valueOf(balance));
 		} else {
@@ -162,9 +162,9 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	 * @param accInfo1
 	 * @return
 	 */
-	public double transfer(String account, double amtnum,
-			HashMap<String, String> accInfo, HashMap<String, String> outuser,
-			HashMap<String, String> userInfo, HashMap<String, String> accInfo1) {
+	public double transfer(double amtnum, HashMap<String, String> accInfo,
+			HashMap<String, String> outuser, HashMap<String, String> userInfo,
+			HashMap<String, String> accInfo1) {
 		double balance = Double.parseDouble(accInfo.get("balance"));
 		double balance1 = Double.parseDouble(accInfo1.get("balance"));
 		balance1 += amtnum;
@@ -172,7 +172,8 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				"transfers", "id:5", "userid:" + userInfo.get("userid"),
 				"sequence:tf00005", "outsub:" + outuser.get("userName"),
 				"intsub:" + userInfo.get("userName"),
-				"inant:" + accInfo1.get("orderid"), "outant:" + account,
+				"inant:" + accInfo1.get("orderid"),
+				"outant:" + accInfo.get("orderid"),
 				"inphone:" + userInfo.get("phnum"), "amount:" + amtnum,
 				"outdata:" + Helper.getCurrentTime(),
 				"outphone:" + outuser.get("phnum"), "incity:手机转出",
@@ -180,7 +181,8 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				"description:手机转出");
 		balance -= amtnum;
 		DataAccessModel.newInstances().createUpdataTools().updata("accout",
-				"orderid", account, "balance", String.valueOf(balance));
+				"orderid", accInfo.get("orderid"), "balance",
+				String.valueOf(balance));
 		DataAccessModel.newInstances().createUpdataTools().updata("accout",
 				"userid", userInfo.get("userid"), "balance",
 				String.valueOf(balance1));
