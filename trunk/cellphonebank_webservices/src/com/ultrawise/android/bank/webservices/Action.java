@@ -394,9 +394,9 @@ public class Action {
 	 * @param id
 	 * @return
 	 */
-	public JSONObject performGetComeQueryInfo(String id) {
+	public JSONObject performGetComeQueryInfo(String type,String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getComeQueryInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.getComeQueryInfo(type,id));
 		return jsonObj;
 	}
 
@@ -553,9 +553,10 @@ public class Action {
 		return Helper.wrapUp(mUpdate.setNickName(accNo, name));
 	}
 
-	public JSONObject performSetOrderCard(String accNo) {
+	public JSONObject performSetOrderCard(String accNo, String aliss, String reason,
+			String net, String netaddress,double cost) {
 		// TODO Auto-generated method stub
-		return Helper.wrapUp(mUpdate.setOrderCard(accNo));
+		return Helper.wrapUp(mUpdate.setOrderCard(accNo,aliss,reason,net,netaddress,cost));
 	}
 
 	// ----------------------------信用卡专用
