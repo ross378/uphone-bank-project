@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LoanRateInfo primarykey = "id">
+<LoanRateInfo primarykey = "id">//贷款利率
 	<loanRate>
 		<id>0</id>
 		<type>shortTerm</type>

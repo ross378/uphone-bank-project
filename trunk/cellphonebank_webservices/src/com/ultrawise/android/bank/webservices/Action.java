@@ -394,9 +394,9 @@ public class Action {
 	 * @param id
 	 * @return
 	 */
-	public JSONObject performGetComeQueryInfo(String type,String id) {
+	public JSONObject performGetComeQueryInfo(String type, String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getComeQueryInfo(type,id));
+		jsonObj = Helper.wrapUp(mTrans.getComeQueryInfo(type, id));
 		return jsonObj;
 	}
 
@@ -431,9 +431,9 @@ public class Action {
 	 * @param id
 	 * @return
 	 */
-	public JSONObject performGetPaymentInfo(String userid,String id) {
+	public JSONObject performGetPaymentInfo(String userid, String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(userid,id));
+		jsonObj = Helper.wrapUp(mTrans.getPaymentInfo(userid, id));
 		return jsonObj;
 	}
 
@@ -479,9 +479,10 @@ public class Action {
 				paymentActNo, paymentActPasswd, paymentNum, operator));
 		return jsonObj;
 	}
+
 	/**
 	 * 
-	 * @author 王   亭   2011-3-31
+	 * @author 王 亭 2011-3-31
 	 * @param paymentName
 	 * @param paymentAmt
 	 * @param paymentActNo
@@ -490,13 +491,14 @@ public class Action {
 	 * @param charger
 	 * @return
 	 */
-	public JSONObject performPayment(String paymentName,
-			double paymentAmt, String paymentActNo, String paymentActPasswd,
-			String charger) {
+	public JSONObject performPayment(String paymentName, double paymentAmt,
+			String paymentActNo, String paymentActPasswd, String charger) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.payment(paymentName, paymentAmt, paymentActNo, paymentActPasswd, charger));
+		jsonObj = Helper.wrapUp(mTrans.payment(paymentName, paymentAmt,
+				paymentActNo, paymentActPasswd, charger));
 		return jsonObj;
 	}
+
 	/**
 	 * 
 	 * @author 王 亭 2011-3-24
@@ -553,10 +555,11 @@ public class Action {
 		return Helper.wrapUp(mUpdate.setNickName(accNo, name));
 	}
 
-	public JSONObject performSetOrderCard(String accNo, String aliss, String reason,
-			String net, String netaddress,double cost) {
+	public JSONObject performSetOrderCard(String accNo, String aliss,
+			String reason, String net, String netaddress, double cost) {
 		// TODO Auto-generated method stub
-		return Helper.wrapUp(mUpdate.setOrderCard(accNo,aliss,reason,net,netaddress,cost));
+		return Helper.wrapUp(mUpdate.setOrderCard(accNo, aliss, reason, net,
+				netaddress, cost));
 	}
 
 	// ----------------------------信用卡专用
