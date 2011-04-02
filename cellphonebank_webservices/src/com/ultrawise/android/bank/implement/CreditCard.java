@@ -15,7 +15,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return null;
 	}
 
-	public HashMap<String, String> getPaymentInfo(String userid,String id) {
+	public HashMap<String, String> getPaymentInfo(String userid, String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -31,15 +31,15 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public HashMap<String,String> recharge(String paymentName,
-			double paymentAmt, String paymentActNo, String paymentActPasswd,String paymentNum,String operator) {
 
+	public HashMap<String, String> recharge(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,
+			String paymentNum, String operator) {
 
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public HashMap<String, String> payment(String paymentName,
 			double paymentAmt, String paymentActNo, String paymentActPasswd,
 			String charger) {
@@ -74,34 +74,48 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	public boolean deleAcc(String accNo) {
 		// TODO Auto-generated method stub
 		return DataAccessModel.newInstances().createUpdataTools().updata(
-				"accout", "orderid", accNo, "bind", "否");
-
+				"creditCard", "orderid", accNo, "bind", "0");
 	}
 
 	public boolean lossRegister(String accNo) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"creditCard", "orderid", accNo, "loss", "0");
 	}
 
 	public boolean setActActive(String accNo, String accPwd) {
 		// TODO Auto-generated method stub
-		return false;
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("creditCard", "orderid", accNo);
+		if (accPwd.equals(accInfo.get("pwd"))) {
+			return DataAccessModel.newInstances().createUpdataTools().updata(
+					"accout", "orderid", accNo, "activation", "1");
+		} else {
+			return false;
+		}
 	}
 
 	public boolean setBind(String accNo) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"creditCard", "orderid", accNo, "bind", "1");
 	}
 
 	public boolean setNickName(String accNo, String name) {
 		// TODO Auto-generated method stub
-		return false;
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"creditCard", "orderid", accNo, "aliss", name);
 	}
 
 	public boolean setOrderCard(String accNo, String aliss, String reason,
-			String net, String netaddress,double cost) {
+			String net, String netaddress, double cost) {
 		// TODO Auto-generated method stub
-		return false;
+		DataAccessModel.newInstances().createInsertTools().insertThree(
+				"appointmentform", "orderid:" + accNo, "aliss:" + aliss,
+				"reason:" + reason, "net:" + net, "netaddress:" + netaddress,
+				"cost:" + String.valueOf(cost));
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"accout", "orderid", accNo, "orderstate", "1");
 	}
 
 	// -------更新---------
@@ -116,14 +130,26 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	public boolean destroyCard(String userName, String creditCardNo,
 			String idNo, String cellPhone, String pwd) {
 		// TODO Auto-generated method stub
-		return false;
+		// 如果用户名，证件号，电话，密码都正确
+		//
+		//
+		//
+		//
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"creditCard", "orderid", creditCardNo, "state", "0");
 	}
 
 	public boolean openCard(String userName, String creditCardNo,
 			String availbDate, String idNo, String cellPhone, String tel,
 			String pwd) {
 		// TODO Auto-generated method stub
-		return false;
+		// 如果所有条件都正确的话
+		//
+		//
+		//
+		//
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"creditCard", "orderid", creditCardNo, "state", "1");
 	}
 
 	public HashMap<String, String> getCreditRepaymentInfor(String account) {

@@ -202,7 +202,9 @@ public class CellPhoneBankWS {
 			return action.performSetNickName(firstValue, secondValue);
 		case SET_ORDER_CARD:
 			// 预约换卡
-			return action.performSetOrderCard(firstValue,secondValue,thirdParam,fourParam,firstValue,Double.parseDouble(sixParam));
+			return action.performSetOrderCard(firstValue, secondValue,
+					thirdParam, fourParam, fiveParam, Double
+							.parseDouble(sixParam));
 		case SET_BIND:
 			// 绑定账户
 			return action.performSetBind(firstValue);
@@ -232,7 +234,7 @@ public class CellPhoneBankWS {
 			return action.performGetListQueryInfo(firstValue);
 		case GET_COMEQUERY_INFO:
 			// 来账信息
-			return action.performGetComeQueryInfo(firstValue,secondValue);
+			return action.performGetComeQueryInfo(firstValue, secondValue);
 		case SET_DETAIL:
 			// 设置描述信息
 			return action.performSetDetail(firstValue, secondValue);
@@ -243,17 +245,18 @@ public class CellPhoneBankWS {
 			// 获取缴费信息
 		case RECHARGE:
 			// 确认充值
-			return action.performRecharge(firstValue,Double
-					.parseDouble(secondValue),thirdParam, fourParam,
+			return action.performRecharge(firstValue, Double
+					.parseDouble(secondValue), thirdParam, fourParam,
 					fiveParam, sixParam);
 		case PAYMENT:
-				//确认缴费
-				return action.performPayment(firstValue,Double
-					.parseDouble(secondValue),thirdParam, fourParam,
-					fiveParam);
+			// 确认缴费
+			return action
+					.performPayment(firstValue,
+							Double.parseDouble(secondValue), thirdParam,
+							fourParam, fiveParam);
 		case GET_PAYMENT_INFO:
 			// 查看某条待缴费的详细信息
-			return action.performGetPaymentInfo(firstValue,secondValue);
+			return action.performGetPaymentInfo(firstValue, secondValue);
 
 			/**
 			 * 信用卡部分
