@@ -231,7 +231,7 @@ public class CellPhoneBankWS {
 					thirdParam, Double.parseDouble(fourParam));
 		case GET_LISTQUERY_INFO:
 			// 明细信息
-			return action.performGetListQueryInfo(firstValue);
+			return action.performGetListQueryInfo(firstValue,secondValue);
 		case GET_COMEQUERY_INFO:
 			// 来账信息
 			return action.performGetComeQueryInfo(firstValue, secondValue);

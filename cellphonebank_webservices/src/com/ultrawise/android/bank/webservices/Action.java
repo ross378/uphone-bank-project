@@ -406,9 +406,9 @@ public class Action {
 	 * @param id
 	 * @return
 	 */
-	public JSONObject performGetListQueryInfo(String id) {
+	public JSONObject performGetListQueryInfo(String type,String id) {
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.getListQueryInfo(id));
+		jsonObj = Helper.wrapUp(mTrans.getListQueryInfo(type,id));
 		return jsonObj;
 	}
 
