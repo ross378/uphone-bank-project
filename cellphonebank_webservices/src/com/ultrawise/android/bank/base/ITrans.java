@@ -35,7 +35,7 @@ public interface ITrans {
 	 * @param id	
 	 * @return		某条来账的详细信息
 	 */
-	public HashMap<String,String> getComeQueryInfo(String id);
+	public HashMap<String,String> getComeQueryInfo(String type,String id);
 	
 	/**
 	 * 设置记录的描述信息
