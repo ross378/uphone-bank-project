@@ -3,19 +3,20 @@
 	<record>
 		<userid>1</userid>
 		<orderid>210</orderid>
-		<actype>1</actype>
+		<actype>3</actype>
 		<signup>0</signup>//签约
 		<aliss>我的信用卡</aliss>//别名
-		<actpwd>123456</actpwd>	
+		<actpwd>123456</actpwd>	//密码
 		<balance>100000</balance>
-		<pvality>5年</pvality>
-		<montype>人民币</montype>
-		<period>三个月</period>
-		<months>2010-11</months>
-		<repayment>1000</repayment>
-		<duedata>2011-01-01</duedata>
-		<minpayment>500</minpayment>
-		<payment>500</payment>
+		<pvality>5年</pvality>//卡的有效期
+		<montype>人民币</montype>//
+		<integrity>100000</integrity>//信用额度
+		<availability>10000</availability>//可用度
+		<billdate>25</billdate>//每月的账单日
+		<repayment>1000</repayment>//本期还款额
+		<duedata>2011-01-31</duedata>//到期还款日
+		<minpayment>500</minpayment>//最低还款额
+		<payment>500</payment>//预借现金可用度
 		<state>0</state>//开卡  销卡
 		<bind>1</bind>
 		<orderstate>1</orderstate>//预约换卡
@@ -28,19 +29,20 @@
 	<record>
 		<userid>2</userid>
 		<orderid>211</orderid>
-		<actype>1</actype>
+		<actype>3</actype>
 		<signup>0</signup>//签约
 		<aliss>我的信用卡</aliss>//别名
-		<actpwd>123456</actpwd>	
+		<actpwd>123456</actpwd>	//密码
 		<balance>100000</balance>
-		<pvality>5年</pvality>
-		<montype>人民币</montype>
-		<period>三个月</period>
-		<months>2010-11</months>
-		<repayment>1000</repayment>
-		<duedata>2011-01-01</duedata>
-		<minpayment>500</minpayment>
-		<payment>500</payment>
+		<pvality>5年</pvality>//卡的有效期
+		<montype>人民币</montype>//
+		<integrity>100000</integrity>//信用额度
+		<availability>10000</availability>//可用度
+		<billdate>25</billdate>//每月的账单日
+		<repayment>1000</repayment>//本期应还款额
+		<duedata>2011-01-31</duedata>//到期还款日
+		<minpayment>500</minpayment>//最低还款额
+		<payment>500</payment>//预借现金可用度
 		<state>0</state>//开卡  销卡
 		<bind>1</bind>
 		<orderstate>1</orderstate>//预约换卡
@@ -51,21 +53,22 @@
     	<activation>1</activation>//激活
 	</record>
 	<record>
-		<userid>3</userid>
+		<userid>2</userid>
 		<orderid>212</orderid>
-		<actype>1</actype>
+		<actype>3</actype>
 		<signup>0</signup>//签约
 		<aliss>我的信用卡</aliss>//别名
-		<actpwd>123456</actpwd>	
+		<actpwd>123456</actpwd>	//密码
 		<balance>100000</balance>
-		<pvality>5年</pvality>
-		<montype>人民币</montype>
-		<period>三个月</period>
-		<months>2010-11</months>
-		<repayment>1000</repayment>
-		<duedata>2011-01-01</duedata>
-		<minpayment>500</minpayment>
-		<payment>500</payment>
+		<pvality>5年</pvality>//卡的有效期
+		<montype>人民币</montype>//
+		<integrity>100000</integrity>//信用额度
+		<availability>10000</availability>//可用度
+		<billdate>25</billdate>//每月的账单日
+		<repayment>1000</repayment>//本期还款额
+		<duedata>2011-01-31</duedata>//到期还款日
+		<minpayment>500</minpayment>//最低还款额
+		<payment>500</payment>//预借现金可用度
 		<state>0</state>//开卡  销卡
 		<bind>1</bind>
 		<orderstate>1</orderstate>//预约换卡
