@@ -17,7 +17,7 @@
   <user>
 		<id>2</id>
 		<userid>2</userid>
-		<userName>zhangsan</userName>
+		<userName>李四</userName>
 		<password>1234</password>
 		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
@@ -31,7 +31,7 @@
   <user>
 		<id>3</id>
 		<userid>3</userid>
-		<userName>zhangsan</userName>
+		<userName>王五</userName>
 		<password>1234</password>
 		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
@@ -45,7 +45,7 @@
   <user>
 		<id>4</id>
 		<userid>4</userid>
-		<userName>zhangsan</userName>
+		<userName>张奎</userName>
 		<password>1234</password>
 		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
@@ -59,7 +59,7 @@
   <user>
 		<id>5</id>
 		<userid>5</userid>
-		<userName>zhangsan</userName>
+		<userName>李华</userName>
 		<password>1234</password>
 		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
@@ -73,7 +73,7 @@
   <user>
 		<id>6</id>
 		<userid>6</userid>
-		<userName>zhangsan</userName>
+		<userName>张力</userName>
 		<password>1234</password>
 		<lastLoginTime>2011-03-12</lastLoginTime>
 		<loginTimes>3</loginTimes>
