@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<costs>
+	<cost>
+		<type>0</type>//0表示挂失
+		<money>10<money>
+	</cost>
+	<cost>
+		<type>1</type>//1表示预约
+		<money>5<money>
+	</cost>
+</costs>
