@@ -5,7 +5,7 @@
 	<actype>paypal02</actype>
 	<signup>是</signup>
 	<aliss>x</aliss>
-	<balance>100，000</balance>
+	<balance>1000,000</balance>
 	<montype>金币</montype>
 	<period>三个月</period>
 	<months>201011</months>
@@ -29,7 +29,7 @@
 	<actype>paypal01</actype>
 	<signup>是</signup>
 	<aliss>活着没有期望的存蓄卡</aliss>
-	<balance>100，000</balance>
+	<balance>100,000</balance>
 	<montype>人民币</montype>
 	<period>三个月</period>
 	<months>201011</months>
@@ -53,7 +53,7 @@
 	<actype>paypal02</actype>
 	<signup>是</signup>
 	<aliss>定期要杯具的存蓄卡</aliss>
-	<balance>500，000</balance>
+	<balance>500,000</balance>
 	<montype>人民币</montype>
 	<period>一年</period>
 	<months>201012</months>
@@ -101,7 +101,7 @@
 	<actype>paypal01</actype>
 	<signup>否</signup>
 	<aliss>我的存蓄卡</aliss>
-	<balance>5000,00</balance>
+	<balance>50000,00</balance>
 	<montype>人民币</montype>
 	<period>三年</period>
 	<months>199912</months>
@@ -125,7 +125,7 @@
 	<actype>paypal02</actype>
 	<signup>否</signup>
 	<aliss>我的存蓄卡</aliss>
-	<balance>5000,00</balance>
+	<balance>50000,00</balance>
 	<montype>人民币</montype>
 	<period>三年</period>
 	<months>200912</months>
@@ -159,7 +159,7 @@
 	<repayment>200,00</repayment>
 	<duedata>两年</duedata>
 	<minpayment>100,00</minpayment>
-    <payment>100,00</payment>
+    <payment>10000,00</payment>
     <actpwd>123456</actpwd>
     <state>0</state>
     <orderstate>预约换卡</orderstate>
