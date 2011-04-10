@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cost>
-	<losscost>10元</losscost>
+	<losscost>1000000元</losscost>
 </cost>
