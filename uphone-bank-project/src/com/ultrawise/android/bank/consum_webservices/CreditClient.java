@@ -27,7 +27,7 @@ import android.util.Log;
 
 public class CreditClient {
 	private final static String TAG = "Credit";
-	private final static String SERVICE_ADDRESS = "http://10.1.1.103:8080/webservices/credit/";
+	private final static String SERVICE_ADDRESS = "http://10.1.1.36:8080/webservices/credit/";
 
 	/**
 	 * 连接服务器
