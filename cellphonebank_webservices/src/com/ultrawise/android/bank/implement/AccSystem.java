@@ -423,7 +423,11 @@ public class AccSystem implements IAccSystem {
 		return list;
 	}
 
-	//暂时不实现
+	/**
+	 * gsm
+	 * 暂时不实现
+	 */
+	
 	public List<String> getSelServiceNameByUserId(String userId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
