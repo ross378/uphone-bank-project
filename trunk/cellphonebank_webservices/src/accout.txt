@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Act primaryKey="userid">
 	<accout>//第一个账户
     	<userid>1</userid>
@@ -49,7 +49,7 @@
 		<balance>20000</balance>
 		<montype>人民币</montype>//币种
 		<period>六个月</period>//存期
-		<<months>2010-01-01</months>//起息月
+		<months>2010-01-01</months>//起息月
 		<rate>1.5%</rate>
 		<bind>1</bind>	
     	<actpwd>123456</actpwd> 
