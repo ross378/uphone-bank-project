@@ -45,14 +45,82 @@ public class AccSystem implements IAccSystem {
 			return false;
 
 	}
-
+/**
+ * 钟小会
+ */
 	public List<String> getAcc(String userId, String accType, EAccState accState) {
-		// TODO Auto-generated method stub
-		System.out.println(userId + accType + accState);
-		List<String> list = new ArrayList<String>();
-		list.add("440301198810282153");
-		list.add("398450928901759384");
-		return list;
+		List<String> result = new ArrayList<String>();
+		HashMap<String, String> records = null;
+		switch(accState)
+		{
+			case BIND:
+			{
+				return null;
+			}
+			case UNBIND:
+			{
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"bind","0");
+				if(records == null)
+				{
+					return null;
+				}
+				result.add(records.get("orderid"));
+				break;
+			}
+			case LOSS:
+			{
+				return null;
+			}
+			case UNLOSS:
+			{
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","0");
+				if(records == null)
+				{
+					return null;
+				}
+				if(records.get("orderstate").equals("0") && records.get("bind").equals("1"))
+				{
+					result.add(records.get("orderid"));
+				}
+				break;
+			}
+			case ACTIVE:
+			{
+				return null;
+			}
+			case UNACTIVE:
+			{
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","0");
+				if(records == null)
+				{
+					return null;
+				}
+				if(records.get("loss").equals("1") && records.get("bind").equals("1"))
+				{
+					result.add(records.get("orderid"));
+				}
+				break;
+			}
+			case ORDER:
+			{
+				return null;
+			}
+			case UNORDER:
+			{
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","0");
+				if(records == null)
+				{
+					return null;
+				}
+				if(records.get("loss").equals("1") && records.get("bind").equals("1"))
+				{
+					result.add(records.get("orderid"));
+				}
+				break;
+			}		
+		}
+			
+		return result;
 	}
 /**
  * 钟小会
@@ -68,6 +136,9 @@ public class AccSystem implements IAccSystem {
 		return map;
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public List<String> getAccType() {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<String>();
