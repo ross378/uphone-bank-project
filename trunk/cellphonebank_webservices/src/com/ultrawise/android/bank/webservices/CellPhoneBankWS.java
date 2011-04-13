@@ -30,7 +30,7 @@ public class CellPhoneBankWS {
 	@POST
 	@Path("do")
 	public JSONObject doPost(@FormParam("params") String params) {
-		/* 获取参数 格式，账户类型(可null):功能号:参数1,参数2 */
+		/* 获取参数格式，账户类型(可null):功能号:参数1,参数2 */
 		String[] arrayParams = params.split(":");
 		String accTypeId = "";
 		String operationNo = "";
