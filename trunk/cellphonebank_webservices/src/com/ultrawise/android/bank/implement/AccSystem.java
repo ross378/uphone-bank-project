@@ -29,7 +29,9 @@ public class AccSystem implements IAccSystem {
 		updataTools = this.xmlAccM.createUpdataTools();
 		
 	}
-
+/**
+ * 钟小会
+ */
 	public boolean addAcc(String userId, String accNo, String accType,
 			String accNickName, String accPwd) {
 		// TODO Auto-generated method stub
@@ -52,7 +54,10 @@ public class AccSystem implements IAccSystem {
 		list.add("398450928901759384");
 		return list;
 	}
-
+/**
+ * 钟小会
+ * 此方法没做
+ */
 	public Map<String, String> getAccWithNickName(String userId,
 			String accType, EAccState accState) {
 		// TODO Auto-generated method stub
@@ -73,6 +78,9 @@ public class AccSystem implements IAccSystem {
 		return list;
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public List<String> getAccTypeAll() {
 		// TODO Auto-generated method stub
 
@@ -88,11 +96,19 @@ public class AccSystem implements IAccSystem {
 		return list;
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public List<String> getAccTypeOnCreditCard() {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
-		list.add("活期");
-		return null;
+		HashMap<String, String> records = this.queryTools.query("paypal", "id", "3");
+		if(records == null)
+		{
+			return null;
+		}
+		list.add(records.get("tyname"));
+		return list;
 	}
 
 	/**
@@ -133,21 +149,53 @@ public class AccSystem implements IAccSystem {
 		return null;
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public List<String> getCreditCard(String userId) {
-		List<String> list = new ArrayList<String>();
+		List<String> result = new ArrayList<String>();
 		// TODO Auto-generated method stub
-		return null;
+		List<HashMap<String, String>> records = this.queryTools.query("creditCard");
+		if(records == null)
+		{
+			return null;
+		}
+		for(int i = 0; i < records.size(); i ++)
+		{
+			if(records.get(i).get("userid").equals(userId))
+			{
+				result.add(records.get(i).get("orderid"));
+			}
+		}
+		return result;
 	}
-
+/**
+ * 钟小会
+ * 此方法没做
+ */
 	public String getExtraCode() {
 		// TODO Auto-generated method stub
-		return null;
+		return "1234";
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public List<String> getIdType() {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
-		return null;
+		
+		List<HashMap<String, String>> records = this.queryTools.query("credentialsInfo");
+		if(records == null)
+		{
+			return null;
+		}
+		for(int i = 0; i < records.size(); i ++)
+		{
+			list.add(records.get(i).get("name"));
+		}
+		
+		return list;
 	}
 
 	/**
@@ -277,6 +325,9 @@ public class AccSystem implements IAccSystem {
 		return list;
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
 
@@ -307,18 +358,36 @@ public class AccSystem implements IAccSystem {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+/**
+ * 钟小会
+ * 此方法没做
+ */
 	public List<String> getUsedCreditCard(String userId) {
 		List<String> list = new ArrayList<String>();
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+/**
+ * 钟小会
+ */
 	public boolean login(String userId, String userPwd, String exCode) {
-		// TODO Auto-generated method stub
-		return false;
+		HashMap<String, String> record = this.queryTools.query("userInfo", "userid", userId);
+		if(record == null)
+		{
+			return false;
+		}
+		if(userPwd.equals(record.get("password")) && exCode.equals("***"))
+		{
+			return true;
+		}else
+		{
+			return false;
+		}
 	}
 
+	/**
+	 * 钟小会
+	 */
 	public boolean setPreAcc(String userId, String accNo) {
 		// TODO Auto-generated method stub
 		
