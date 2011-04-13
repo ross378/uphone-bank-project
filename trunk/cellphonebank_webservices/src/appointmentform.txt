@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appointment>
+	<account>
+		<orderid>110</orderid>
+		<aliss>我的存蓄卡</aliss>
+		<reason>卡损坏</reason>
+		<net>无锡网点</net>
+		<netaddress>无锡</netaddress>
+		<cost>10</cost>
+	</account>
+</appointment>

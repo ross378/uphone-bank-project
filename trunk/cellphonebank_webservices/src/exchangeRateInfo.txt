@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExchangeRateInfo>
+	<exchangeRate>
+		<id>0</id>
+		<coin>人民币</coin>
+		<rate>7</rate>
+	</exchangeRate>
+	<exchangeRate>
+		<id>1</id>
+		<coin>美元</coin>
+		<rate>1</rate>
+	</exchangeRate>
+	<exchangeRate>
+		<id>3</id>
+		<coin>日元</coin>
+		<rate>40</rate>
+	</exchangeRate>
+	<exchangeRate>
+		<id>2</id>
+		<coin>欧元</coin>
+		<rate>0.6</rate>
+	</exchangeRate>
+</ExchangeRateInfo>

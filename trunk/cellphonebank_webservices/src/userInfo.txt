@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserInfo primarykey = "userId">
+  <user>
+		<id>1</id>
+		<userid>1</userid>
+		<userName>zhangsan</userName>
+		<password>1234</password>
+		<lastLoginTime>2011-03-12</lastLoginTime>
+		<loginTimes>3</loginTimes>
+		<loginStatus>false</loginStatus>
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258126</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
+  </user>
+  <user>
+		<id>2</id>
+		<userid>2</userid>
+		<userName>李四</userName>
+		<password>1234</password>
+		<lastLoginTime>2011-03-12</lastLoginTime>
+		<loginTimes>3</loginTimes>
+		<loginStatus>false</loginStatus>
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258125</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
+  </user>
+  <user>
+		<id>3</id>
+		<userid>3</userid>
+		<userName>王五</userName>
+		<password>1234</password>
+		<lastLoginTime>2011-03-12</lastLoginTime>
+		<loginTimes>3</loginTimes>
+		<loginStatus>false</loginStatus>
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258125</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
+  </user>
+  <user>
+		<id>4</id>
+		<userid>4</userid>
+		<userName>张奎</userName>
+		<password>1234</password>
+		<lastLoginTime>2011-03-12</lastLoginTime>
+		<loginTimes>3</loginTimes>
+		<loginStatus>false</loginStatus>
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258125</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
+  </user>
+  <user>
+		<id>5</id>
+		<userid>5</userid>
+		<userName>李华</userName>
+		<password>1234</password>
+		<lastLoginTime>2011-03-12</lastLoginTime>
+		<loginTimes>3</loginTimes>
+		<loginStatus>false</loginStatus>
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258125</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
+  </user>
+  <user>
+		<id>6</id>
+		<userid>6</userid>
+		<userName>张力</userName>
+		<password>1234</password>
+		<lastLoginTime>2011-03-12</lastLoginTime>
+		<loginTimes>3</loginTimes>
+		<loginStatus>false</loginStatus>
+		<panum>422304196409081120</panum>  //证件号
+		<phnum>15525258125</phnum>  //手机号
+		<telephone>87654902</telephone>  //固定电话
+		<preant>622202111</preant>	  //首选账户
+		<state>0</state>  //开通状态
+  </user>
+</UserInfo>
