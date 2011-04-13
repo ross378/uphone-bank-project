@@ -50,72 +50,54 @@ public class AccSystem implements IAccSystem {
  */
 	public List<String> getAcc(String userId, String accType, EAccState accState) {
 		List<String> result = new ArrayList<String>();
-		HashMap<String, String> records = null;
+		HashMap<String, String> records = new HashMap<String, String>();
 		switch(accState)
 		{
 			case BIND:
 			{
-				return null;
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"bind","1");
+				result.add(records.get("orderid"));
+				break;
 			}
 			case UNBIND:
 			{
 				records = this.queryTools.query("accout","userid",userId,"actype",accType,"bind","0");
-				if(records == null)
-				{
-					return null;
-				}
 				result.add(records.get("orderid"));
 				break;
 			}
 			case LOSS:
 			{
-				return null;
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","1");
+				result.add(records.get("orderid"));
+				break;
 			}
 			case UNLOSS:
 			{
 				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","0");
-				if(records == null)
-				{
-					return null;
-				}
-				if(records.get("orderstate").equals("0") && records.get("bind").equals("1"))
-				{
-					result.add(records.get("orderid"));
-				}
+				result.add(records.get("orderid"));
 				break;
 			}
 			case ACTIVE:
 			{
-				return null;
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"activation","1");
+				result.add(records.get("orderid"));
+				break;
 			}
 			case UNACTIVE:
 			{
-				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","0");
-				if(records == null)
-				{
-					return null;
-				}
-				if(records.get("loss").equals("1") && records.get("bind").equals("1"))
-				{
-					result.add(records.get("orderid"));
-				}
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"activation","0");
+				result.add(records.get("orderid"));
 				break;
 			}
 			case ORDER:
 			{
-				return null;
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"orderstate","1");
+				result.add(records.get("orderid"));
 			}
 			case UNORDER:
 			{
-				records = this.queryTools.query("accout","userid",userId,"actype",accType,"loss","0");
-				if(records == null)
-				{
-					return null;
-				}
-				if(records.get("loss").equals("1") && records.get("bind").equals("1"))
-				{
-					result.add(records.get("orderid"));
-				}
+				records = this.queryTools.query("accout","userid",userId,"actype",accType,"orderstate","0");
+				result.add(records.get("orderid"));
 				break;
 			}		
 		}
