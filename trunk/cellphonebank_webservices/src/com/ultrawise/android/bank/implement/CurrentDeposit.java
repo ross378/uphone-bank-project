@@ -13,6 +13,7 @@ import com.ultrawise.bank.implement.dao.DataAccessModel;
 
 public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
+	//---转账---
 	public HashMap<String, String> getPaymentHisInfo(String id) {
 		HashMap<String, String> paymentHisInfo = new HashMap<String, String>();
 
@@ -245,7 +246,43 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		listQueryInfo.put("account", temp.get("account"));
 		return listQueryInfo;
 	}
-
+	
+	public HashMap<String, String> payment(String paymentName,
+			double paymentAmt, String paymentActNo, String paymentActPasswd,
+			String charger) {
+		HashMap<String, String> payment = new HashMap<String, String>();
+		boolean isActive = acctIsActive(paymentActNo);
+		if (!isActive) {
+			DataAccessModel.newInstances().createUpdataTools().updata("accout",
+					"orderid:" + paymentActNo, "activation", "1");
+		}
+		HashMap<String, String> temp = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", paymentActNo);
+		if (paymentActPasswd.equals(temp.get("actpwd"))) {
+			double balance = Double.parseDouble(temp.get("balance"));
+			balance -= paymentAmt;
+			HashMap<String, String> temp1 = DataAccessModel.newInstances()
+					.createQueryTools().query("pendingform", "name",
+							paymentName);
+			String serNo = temp1.get("dunum");
+			DataAccessModel.newInstances().createInsertTools().insertThree(
+					"paymentform", "id:2", "userid:" + temp.get("userid"),
+					"name:" + paymentName, "dunum:" + serNo,
+					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
+					"charger:" + charger, "account:" + paymentActNo);
+			DataAccessModel.newInstances().createUpdataTools()
+			.updata("accout", "orderid", paymentActNo, "balance",
+					String.valueOf(balance));
+			payment.put("serNo", serNo);
+			payment.put("result", "true");
+		} else {
+			payment.put("error", "密码错误");
+		}
+		return payment;
+	}
+	//---转账---
+	
+	//---查询---
 	@Override
 	public HashMap<String, String> getAccInfo(String acc) {
 		HashMap<String, String> accInfo = new HashMap<String, String>();
@@ -296,7 +333,9 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		}
 		return orderInfo;
 	}
-
+	//---查询---
+	
+	//---更新---
 	public boolean deleAcc(String accNo) {
 		// TODO Auto-generated method stub
 		return DataAccessModel.newInstances().createUpdataTools().updata(
@@ -342,38 +381,5 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		return DataAccessModel.newInstances().createUpdataTools().updata(
 				"accout", "orderid", accNo, "orderstate", "1");
 	}
-
-	public HashMap<String, String> payment(String paymentName,
-			double paymentAmt, String paymentActNo, String paymentActPasswd,
-			String charger) {
-		HashMap<String, String> payment = new HashMap<String, String>();
-		boolean isActive = acctIsActive(paymentActNo);
-		if (!isActive) {
-			DataAccessModel.newInstances().createUpdataTools().updata("accout",
-					"orderid:" + paymentActNo, "activation", "1");
-		}
-		HashMap<String, String> temp = DataAccessModel.newInstances()
-				.createQueryTools().query("accout", "orderid", paymentActNo);
-		if (paymentActPasswd.equals(temp.get("actpwd"))) {
-			double balance = Double.parseDouble(temp.get("balance"));
-			balance -= paymentAmt;
-			HashMap<String, String> temp1 = DataAccessModel.newInstances()
-					.createQueryTools().query("pendingform", "name",
-							paymentName);
-			String serNo = temp1.get("dunum");
-			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"paymentform", "id:2", "userid:" + temp.get("userid"),
-					"name:" + paymentName, "dunum:" + serNo,
-					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
-					"charger:" + charger, "account:" + paymentActNo);
-			DataAccessModel.newInstances().createUpdataTools()
-					.updata("accout", "orderid", paymentActNo, "balance",
-							String.valueOf(balance));
-			payment.put("serNo", serNo);
-			payment.put("result", "true");
-		} else {
-			payment.put("error", "密码错误");
-		}
-		return payment;
-	}
+	//---更新---
 }
