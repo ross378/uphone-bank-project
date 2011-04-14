@@ -93,12 +93,12 @@ public interface IAccSystem {
 	List<String> getAccTypeOnCreditCard();
 
 	/**
-	 * 获取待缴费项目的名称，例如：三月水费，五月电费，保险费等
-	 * 
+	 * 获取待缴费项目的名称，例如：水费  30元，电费 1000等
+	 * gsm 2011.04.14修改
 	 * @param userId
 	 * @return 待缴费项目的列表
 	 */
-	List<String> getPaymentName(String userId);
+	Map<String, String> getPaymentName(String userId);
 
 	/**
 	 * 取得便捷缴费项目名称，像手机充值，Q币充值

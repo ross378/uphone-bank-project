@@ -17,9 +17,31 @@
 		  <name>电费</name>
 		  <dunum>s0101000</dunum>
 		  <damout>80.00</damout>
-		  <date>2011-03-25</date>
+		  <date>2011-03-05</date>
 		  <charger>无锡电力公司</charger>
 		  <dulimit>2011-7-12</dulimit>
-		  <state>1</state>//1表示缴费
+		  <state>0</state>//0表示缴费
+</costRecord>
+<costRecord>
+          <userid>1</userid>
+		  <id>2</id>
+		  <name>煤气费</name>
+		  <dunum>s0101000</dunum>
+		  <damout>150.00</damout>
+		  <date>2011-03-05</date>
+		  <charger>无锡煤气公司</charger>
+		  <dulimit>2011-7-12</dulimit>
+		  <state>0</state>//0表示缴费
+</costRecord>
+<costRecord>
+          <userid>1</userid>
+		  <id>2</id>
+		  <name>房租费</name>
+		  <dunum>s0101000</dunum>
+		  <damout>200.00</damout>
+		  <date>2011-03-05</date>
+		  <charger>无锡房地产公司</charger>
+		  <dulimit>2011-7-12</dulimit>
+		  <state>0</state>//0表示缴费
 </costRecord>
 </PendingForm>
