@@ -56,7 +56,7 @@ public class AccSystem implements IAccSystem {
 		HashMap<String, String> records = new HashMap<String, String>();
 		//根据不同类型的卡 访问不同的表
 		if("信用卡".equals(accType)){
-			tableName = "cresitCard";
+			tableName = "creditCard";
 		}else {
 			tableName = "accout";
 		}
