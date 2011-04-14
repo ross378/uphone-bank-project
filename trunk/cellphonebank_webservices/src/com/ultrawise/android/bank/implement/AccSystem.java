@@ -52,53 +52,71 @@ public class AccSystem implements IAccSystem {
 	 */
 	public List<String> getAcc(String userId, String accType, EAccState accState) {
 		List<String> result = new ArrayList<String>();
+		String tableName = "";
 		HashMap<String, String> records = new HashMap<String, String>();
+		//根据不同类型的卡 访问不同的表
+		if("信用卡".equals(accType)){
+			tableName = "cresitCard";
+		}else {
+			tableName = "accout";
+		}
+		//根据客户端传过来的账户类型  找到账户类型对应的id
+		String accTypeId = this.queryTools.query("paypal","tyname",accType).get("id"); 
+		//根据要查询的不同账户状态来选择账户
 		switch (accState) {
 		case BIND: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "bind", "1");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "bind", "1");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 			break;
 		}
 		case UNBIND: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "bind", "0");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "bind", "0");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 			break;
 		}
 		case LOSS: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "loss", "1");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "loss", "1");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 			break;
 		}
 		case UNLOSS: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "loss", "0");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "loss", "0");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 			break;
 		}
 		case ACTIVE: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "activation", "1");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "activation", "1");
+			if(records.get("orderid")!=null)	
+				result.add(records.get("orderid"));
 			break;
 		}
 		case UNACTIVE: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "activation", "0");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "activation", "0");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 			break;
 		}
 		case ORDER: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "orderstate", "1");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "orderstate", "1");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 		}
 		case UNORDER: {
-			records = this.queryTools.query("accout", "userid", userId,
-					"actype", accType, "orderstate", "0");
-			result.add(records.get("orderid"));
+			records = this.queryTools.query(tableName, "userid", userId,
+					"actype", accTypeId, "orderstate", "0");
+			if(records.get("orderid")!=null)
+				result.add(records.get("orderid"));
 			break;
 		}
 		}
