@@ -193,7 +193,7 @@ public class AccSystem implements IAccSystem {
 				.queryByTime("transfers", "userid", userId, startDate, endDate,
 						"outdata").get("inant");
 		/**
-		 * 再查accout表得到改账号的所有信息
+		 * 再查accout表得到转账号的所有信息
 		 */
 		HashMap<String, String> hmap = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", inantString);
@@ -288,6 +288,7 @@ public class AccSystem implements IAccSystem {
 							"name", "收入").get("time");
 
 			// 包装成HashMap<String,String>
+			hMap.put("id", "汇款");
 			hMap.put("typeRemt", "汇款");
 			hMap.put("remtTime", remtTime);
 			hMap.put("typeIncome", "收入");
