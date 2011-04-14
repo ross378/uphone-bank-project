@@ -3,7 +3,7 @@
 	<accout>//第一个账户
     	<userid>1</userid>
 		<orderid>110</orderid>//账户号
-		<actype>1</actype>
+		<actype>2</actype>
 		<signup>0</signup>//签约
 		<aliss>我的存蓄卡</aliss>//别名
 		<balance>100000</balance>
