@@ -103,7 +103,7 @@
 	<accout>//第六个账户
     	<userid>6</userid>
 		<orderid>115</orderid>//账户号
-		<actype></actype>
+		<actype>2</actype>
 		<signup>1</signup>//签约
 		<aliss>我的第六个账户</aliss>//别名
 		<balance>90000</balance>
