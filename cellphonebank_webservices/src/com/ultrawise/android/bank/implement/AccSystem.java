@@ -362,16 +362,27 @@ public class AccSystem implements IAccSystem {
 
 	/**
 	 * gsm 2011.3.31
+	 * 功能号 0118 
+	 * 需访问表pendingform
+	 * 1.首先遍历整张表找到所有记录
+	 * 2.将所有结果的userId和传进来进行比较,查到相等的返回
 	 */
-	public List<String> getPaymentName(String userId) {
-		List<String> list = new ArrayList<String>();
-		// TODO Auto-generated method stub
-		HashMap<String, String> hm = DataAccessModel.newInstances()
-				.createQueryTools().query("pendingform", "userid", userId,
-						"state", "1");// 表示未缴费的
-		String name = hm.get("name");
-		list.add(name);
-		return list;
+	public Map<String, String> getPaymentName(String userId) {
+
+		Map<String, String> map = new HashMap<String, String>();
+		// 查到整张表的记录
+		List<HashMap<String, String>> list2 = DataAccessModel.newInstances()
+				.createQueryTools().query("pendingform");
+		//遍历list2中的每一项
+		for(int i=0;i<list2.size();i++){
+			HashMap<String, String> hm=list2.get(i);
+			//判断userid 和缴费状态state 0表示未缴费
+			if(hm.get("userid").equals(userId)&&hm.get("state").equals("0")){
+				map.put(hm.get("name"), hm.get("damout"));
+				System.out.println("----"+hm.get("name")+hm.get("damout"));
+			}
+		}
+		return map;
 	}
 
 	/**
