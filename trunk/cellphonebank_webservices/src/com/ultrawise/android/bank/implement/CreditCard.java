@@ -328,16 +328,16 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 				.createQueryTools().query("creditCard", "orderid", acc);
 		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances().createQueryTools().query("paypal", "id",temp.get("actype"));
 		if (temp != null) {
-			accInfo.put("account", temp.get("orderid"));
-			accInfo.put("accType", accTypeHashMap.get("tyname"));
-			accInfo.put("montype", temp.get("montype"));
-			accInfo.put("integrity", temp.get("integrity"));
-			accInfo.put("availability", temp.get("availability"));
-			accInfo.put("payment", temp.get("payment"));
-			accInfo.put("billdate", temp.get("billdate"));
-			accInfo.put("repayment", temp.get("repayment"));
-			accInfo.put("minpayment", temp.get("minpayment"));
-			accInfo.put("duedata",temp.get("duedata") );
+			accInfo.put("账户", temp.get("orderid"));
+			accInfo.put("账户类型", accTypeHashMap.get("tyname"));
+			accInfo.put("币种", temp.get("montype"));
+			accInfo.put("信用额度", temp.get("integrity"));
+			accInfo.put("可用度", temp.get("availability"));
+			accInfo.put("预借现金可用度", temp.get("payment"));
+			accInfo.put("每月的账单日", temp.get("billdate"));
+			accInfo.put("本期还款额", temp.get("repayment"));
+			accInfo.put("最低还款额", temp.get("minpayment"));
+			accInfo.put("到期还款日",temp.get("duedata") );
 		}
 		return accInfo;
 	}

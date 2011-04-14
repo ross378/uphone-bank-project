@@ -24,13 +24,13 @@ public class TimeDeposits extends Account implements IUpdate {
 				.createQueryTools().query("accout", "orderid", acc);
 		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances().createQueryTools().query("paypal", "id",temp.get("actype"));
 		if (temp != null) {
-			accInfo.put("account", temp.get("orderid"));
-			accInfo.put("accType", accTypeHashMap.get("tyname"));
-			accInfo.put("montype", temp.get("montype"));
-			accInfo.put("balance", temp.get("balance"));
-			accInfo.put("period", temp.get("period"));
-			accInfo.put("months", temp.get("months"));
-			accInfo.put("rate", temp.get("rate"));
+			accInfo.put("账户", temp.get("orderid"));
+			accInfo.put("账户类型", accTypeHashMap.get("tyname"));
+			accInfo.put("币种", temp.get("montype"));
+			accInfo.put("余额", temp.get("balance"));
+			accInfo.put("存期", temp.get("period"));
+			accInfo.put("起息月", temp.get("months"));
+			accInfo.put("利率", temp.get("rate"));
 		}
 		return accInfo;
 	}
