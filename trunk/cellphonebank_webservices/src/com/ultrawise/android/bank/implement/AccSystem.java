@@ -379,7 +379,6 @@ public class AccSystem implements IAccSystem {
 			//判断userid 和缴费状态state 0表示未缴费
 			if(hm.get("userid").equals(userId)&&hm.get("state").equals("0")){
 				map.put(hm.get("name"), hm.get("damout"));
-				System.out.println("----"+hm.get("name")+hm.get("damout"));
 			}
 		}
 		return map;
