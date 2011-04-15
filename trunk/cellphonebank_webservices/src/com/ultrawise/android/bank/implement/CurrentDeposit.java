@@ -299,12 +299,12 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		HashMap<String, String> temp = DataAccessModel.newInstances()
 				.createQueryTools().query("appointmentform", "orderid", acc);
 		if (temp != null) {
-			orderInfo.put("account", temp.get("orderid"));
-			orderInfo.put("aliss", temp.get("aliss"));
-			orderInfo.put("reason", temp.get("reason"));
-			orderInfo.put("net", temp.get("net"));
-			orderInfo.put("netaddress", temp.get("netaddress"));
-			orderInfo.put("cost", temp.get("cost"));
+			orderInfo.put("账号", temp.get("orderid"));
+			orderInfo.put("账户别名", temp.get("aliss"));
+			orderInfo.put("更换原因", temp.get("reason"));
+			orderInfo.put("领卡网点", temp.get("net"));
+			orderInfo.put("网点地址", temp.get("netaddress"));
+			orderInfo.put("工本费用", temp.get("cost"));
 		} else {
 			orderInfo.put("not find", "该账号没有预约信息");
 		}
@@ -334,10 +334,14 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		}
 	}
 
-	public boolean setBind(String accNo) {
+	public boolean setBind(String accNo,String password) {
 		// TODO Auto-generated method stub
-		return DataAccessModel.newInstances().createUpdataTools().updata(
-				"accout", "orderid", accNo, "bind", "1");
+		HashMap<String, String> accHashMap = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",accNo);
+		if (password.equals(accHashMap.get("actpwd"))) {
+			return DataAccessModel.newInstances().createUpdataTools().updata(
+					"accout", "orderid", accNo, "bind", "1");
+		}
+		return false;
 	}
 
 	public boolean setNickName(String accNo, String name) {

@@ -222,10 +222,14 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		}
 	}
 
-	public boolean setBind(String accNo) {
+	public boolean setBind(String accNo,String password) {
 		// TODO Auto-generated method stub
-		return DataAccessModel.newInstances().createUpdataTools().updata(
-				"creditCard", "orderid", accNo, "bind", "1");
+		HashMap<String, String> accHashMap = DataAccessModel.newInstances().createQueryTools().query("creditCard", "orderid",accNo);
+		if (password.equals(accHashMap.get("actpwd"))) {
+			return DataAccessModel.newInstances().createUpdataTools().updata(
+					"creditCard", "orderid", accNo, "bind", "1");
+		}
+		return false;
 	}
 
 	public boolean setNickName(String accNo, String name) {
@@ -329,6 +333,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances().createQueryTools().query("paypal", "id",temp.get("actype"));
 		if (temp != null) {
 			accInfo.put("账户", temp.get("orderid"));
+			accInfo.put("账户别名", temp.get("aliss"));
 			accInfo.put("账户类型", accTypeHashMap.get("tyname"));
 			accInfo.put("币种", temp.get("montype"));
 			accInfo.put("信用额度", temp.get("integrity"));
@@ -338,6 +343,10 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			accInfo.put("本期还款额", temp.get("repayment"));
 			accInfo.put("最低还款额", temp.get("minpayment"));
 			accInfo.put("到期还款日",temp.get("duedata") );
+			accInfo.put("账户状态", "预约换卡");
+			accInfo.put("是否绑定", temp.get("bind").equals("1")?"是":"否");
+			accInfo.put("开户行", temp.get("openbank"));
+			accInfo.put("开户日", temp.get("opendate"));
 		}
 		return accInfo;
 	}
@@ -354,12 +363,12 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		HashMap<String, String> orderInfo = new HashMap<String, String>();
 		HashMap<String, String> temp = DataAccessModel.newInstances().createQueryTools().query("appointmentform", "orderid",acc);
 		if(temp != null){
-			orderInfo.put("account", temp.get("orderid"));
-			orderInfo.put("aliss", temp.get("aliss"));
-			orderInfo.put("reason", temp.get("reason"));
-			orderInfo.put("net", temp.get("net"));
-			orderInfo.put("netaddress", temp.get("netaddress"));
-			orderInfo.put("cost", temp.get("cost"));
+			orderInfo.put("账号", temp.get("orderid"));
+			orderInfo.put("账户别名", temp.get("aliss"));
+			orderInfo.put("更换原因", temp.get("reason"));
+			orderInfo.put("领卡网点", temp.get("net"));
+			orderInfo.put("网点地址", temp.get("netaddress"));
+			orderInfo.put("工本费用", temp.get("cost"));
 		}else{
 			orderInfo.put("not find", "该账号没有预约信息");
 		}

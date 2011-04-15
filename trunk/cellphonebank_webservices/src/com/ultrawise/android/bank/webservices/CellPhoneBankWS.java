@@ -209,7 +209,7 @@ public class CellPhoneBankWS {
 							.parseDouble(sixParam));
 		case SET_BIND:
 			// 绑定账户
-			return action.performSetBind(firstValue);
+			return action.performSetBind(firstValue,secondValue);
 		case LOSS_REGISTER:
 			// 挂失账户
 			return action.performLossRegister(firstValue);

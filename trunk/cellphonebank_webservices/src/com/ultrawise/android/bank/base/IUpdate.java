@@ -17,7 +17,7 @@ public interface IUpdate {
 	 * @param account
 	 * @return 是否绑定成功
 	 */
-	boolean setBind(String accNo);
+	boolean setBind(String accNo,String password);
 
 	/**
 	 * 预约换卡
