@@ -143,7 +143,7 @@ public class AccSystem implements IAccSystem {
 		List<String> list = new ArrayList<String>();
 
 		HashMap<String, String> record = this.queryTools.query("paypal", "id",
-				"paypal01");
+				"1");
 		list.add(record.get("tyname"));
 
 		return list;
