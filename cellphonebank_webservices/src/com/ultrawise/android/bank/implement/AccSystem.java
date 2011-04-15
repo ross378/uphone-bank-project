@@ -403,11 +403,33 @@ public class AccSystem implements IAccSystem {
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
 
-		HashMap<String, String> record = queryTools.query("accout", "userid",
+		HashMap<String, String> record = queryTools.query("userInfo", "userid",
 				userId);
-		String state = record.get("orderid")+"#"+record.get("balance");
-
-		return state;
+		String orderid = record.get("preant");//取得账号
+/**
+ * 利用账号 在account中查到余额和类型
+ * <userid>5</userid>
+ *<orderid>114</orderid>//账户号
+ *<actype>1</actype>
+ *<balance>80000</balance>
+ */
+		HashMap<String, String>  hm= queryTools.query("accout", "orderid",
+				orderid);
+		String balance = hm.get("balance");//取得余额
+		String acctype=hm.get("actype");//取得类型
+		
+		/**
+		 * 通过类型在paypal表中查到该类型的名称
+		 * <paypal>
+		 *<id>1</id>
+		 *<tyname>活期储蓄卡</tyname>
+	     *</paypal>
+		 */
+		HashMap<String, String>  hm2= queryTools.query("paypal", "id",
+				acctype);
+		String tyname = hm2.get("tyname");//取得名称
+		return acctype+"#"+orderid+"#"+balance+"#"+tyname;
+//		return orderid;
 	}
 
 	/**
