@@ -405,7 +405,7 @@ public class AccSystem implements IAccSystem {
 
 		HashMap<String, String> record = queryTools.query("accout", "userid",
 				userId);
-		String state = record.get("orderid")+record.get("balance");
+		String state = record.get("orderid")+"#"+record.get("balance");
 
 		return state;
 	}
