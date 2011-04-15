@@ -255,9 +255,14 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				.createQueryTools().query("paypal", "id", temp.get("actype"));
 		if (temp != null) {
 			accInfo.put("账户", temp.get("orderid"));
+			accInfo.put("账户别名", temp.get("aliss"));
 			accInfo.put("账户类型", accTypeHashMap.get("tyname"));
 			accInfo.put("币种", temp.get("montype"));
 			accInfo.put("余额", temp.get("balance"));
+			accInfo.put("账户状态", "预约换卡");
+			accInfo.put("是否绑定", temp.get("bind").equals("1")?"是":"否");
+			accInfo.put("开户行", temp.get("openbank"));
+			accInfo.put("开户日", temp.get("opendate"));
 		}
 		return accInfo;
 	}
@@ -269,6 +274,15 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		if ("1".equals(accInfo.get("activation"))) {
 			return true;
 		}
+		return false;
+	}
+	
+	public boolean verifyPassword(String account,String password) {
+		HashMap<String, String> accHashMap = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",account);
+		if (password.equals(accHashMap.get("actpwd"))) {
+			return true;
+		}
+		
 		return false;
 	}
 
@@ -376,4 +390,5 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		}
 		return payment;
 	}
+
 }

@@ -34,6 +34,14 @@ public interface IQuery {
 	 */
 	public boolean acctIsActive(String actNo);
 	
-	
+	/**
+	 * 验证密码
+	 * @author 王   亭
+	 * 2011-4-15
+	 * @param account
+	 * @param password
+	 * @return
+	 */
+	public boolean verifyPassword(String account,String password);
 	
 }

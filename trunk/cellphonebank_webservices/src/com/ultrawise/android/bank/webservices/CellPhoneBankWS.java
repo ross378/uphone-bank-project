@@ -194,7 +194,8 @@ public class CellPhoneBankWS {
 		case ACC_IS_ACTIVE:
 			// 是否激活
 			return action.performAcctIsActive(firstValue);
-
+		case GET_VERIFY_PASSWORD:
+			return action.performVerifyPassword(firstValue, secondValue);
 			/**
 			 * 修改功能
 			 */

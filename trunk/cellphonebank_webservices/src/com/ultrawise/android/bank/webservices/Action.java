@@ -512,6 +512,12 @@ public class Action {
 		jsonObj = Helper.wrapUp(mTrans.setDetail(serNo, detail));
 		return jsonObj;
 	}
+	
+	public JSONObject performVerifyPassword(String account,String password){
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mQuery.verifyPassword(account, password));
+		return jsonObj;
+	}
 
 	/**
 	 * 
