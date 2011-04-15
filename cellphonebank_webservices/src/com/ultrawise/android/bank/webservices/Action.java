@@ -552,9 +552,9 @@ public class Action {
 		return Helper.wrapUp(mUpdate.setActActive(accNo, accPwd));
 	}
 
-	public JSONObject performSetBind(String accNo) {
+	public JSONObject performSetBind(String accNo,String password) {
 		// TODO Auto-generated method stub
-		return Helper.wrapUp(mUpdate.setBind(accNo));
+		return Helper.wrapUp(mUpdate.setBind(accNo,password));
 	}
 
 	public JSONObject performSetNickName(String accNo, String name) {
