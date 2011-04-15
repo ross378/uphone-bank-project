@@ -365,6 +365,15 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		}
 		return orderInfo;
 	}
+
+	public boolean verifyPassword(String account,String password) {
+		HashMap<String, String> accHashMap = DataAccessModel.newInstances().createQueryTools().query("creditCard", "orderid",account);
+		if (password.equals(accHashMap.get("actpwd"))) {
+			return true;
+		}
+		
+		return false;
+	}
 	// -------查询---------
 
 }

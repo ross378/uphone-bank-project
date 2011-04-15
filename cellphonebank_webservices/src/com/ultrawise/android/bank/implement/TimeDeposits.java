@@ -57,6 +57,15 @@ public class TimeDeposits extends Account implements IUpdate {
 		}
 		return orderInfo;
 	}
+	
+	public boolean verifyPassword(String account,String password) {
+		HashMap<String, String> accHashMap = DataAccessModel.newInstances().createQueryTools().query("accout", "orderid",account);
+		if (password.equals(accHashMap.get("actpwd"))) {
+			return true;
+		}
+		
+		return false;
+	}
 	//----查询----
 	
 	// ----更新-----
@@ -107,4 +116,6 @@ public class TimeDeposits extends Account implements IUpdate {
 				"accout", "orderid", accNo, "orderstate", "1");
 	}
 	// ----更新-----
+
+	
 }
