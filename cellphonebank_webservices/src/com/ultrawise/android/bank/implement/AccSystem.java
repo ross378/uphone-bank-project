@@ -7,12 +7,10 @@ import java.util.Map;
 
 import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.base.IAccSystem;
-import com.ultrawise.android.bank.base.IQuery;
 import com.ultrawise.bank.base.dao.IDataInsertTools;
 import com.ultrawise.bank.base.dao.IDataQueryTools;
 import com.ultrawise.bank.base.dao.IDataUpdataTools;
 import com.ultrawise.bank.implement.dao.DataAccessModel;
-import com.ultrawise.bank.implement.dao.XMLAccessModel;
 
 public class AccSystem implements IAccSystem {
 
@@ -400,13 +398,14 @@ public class AccSystem implements IAccSystem {
 
 	/**
 	 * 钟小会
+	 * gsm 2011.04.15中午修改过返回值新加了金额 balance
 	 */
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
 
 		HashMap<String, String> record = queryTools.query("accout", "userid",
 				userId);
-		String state = record.get("orderid");
+		String state = record.get("orderid")+record.get("balance");
 
 		return state;
 	}
