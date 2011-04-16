@@ -11,7 +11,7 @@
 		<panum>422304196409081120</panum>  //证件号
 		<phnum>15525258126</phnum>  //手机号
 		<telephone>87654902</telephone>  //固定电话
-		<preant>114</preant>	  //首选账户
+		<preant>110</preant>	  //首选账户
 		<state>0</state>  //开通状态
   </user>
   <user>
