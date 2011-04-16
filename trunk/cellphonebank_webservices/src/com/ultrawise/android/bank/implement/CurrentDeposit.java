@@ -361,6 +361,9 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				"accout", "orderid", accNo, "orderstate", "1");
 	}
 
+	/**
+	 * 缴费格式cd:0210:水费:30:110:123456:运营商
+	 */
 	public HashMap<String, String> payment(String paymentName,
 			double paymentAmt, String paymentActNo, String paymentActPasswd,
 			String charger) {
@@ -368,10 +371,11 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		boolean isActive = acctIsActive(paymentActNo);
 		if (!isActive) {
 			DataAccessModel.newInstances().createUpdataTools().updata("accout",
-					"orderid:" + paymentActNo, "activation", "1");
+					"orderid" + paymentActNo, "activation", "1");
 		}
 		HashMap<String, String> temp = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", paymentActNo);
+		
 		if (paymentActPasswd.equals(temp.get("actpwd"))) {
 			double balance = Double.parseDouble(temp.get("balance"));
 			balance -= paymentAmt;
@@ -379,6 +383,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 					.createQueryTools().query("pendingform", "name",
 							paymentName);
 			String serNo = temp1.get("dunum");
+//			System.out.println("|"+temp.get("actpwd")+"|-----");//获得密码
 			DataAccessModel.newInstances().createInsertTools().insertThree(
 					"paymentform", "id:2", "userid:" + temp.get("userid"),
 					"name:" + paymentName, "dunum:" + serNo,
