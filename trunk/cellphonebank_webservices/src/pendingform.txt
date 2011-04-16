@@ -15,7 +15,7 @@
           <userid>1</userid>
 		  <id>2</id>
 		  <name>电费</name>
-		  <dunum>s0101000</dunum>
+		  <dunum>s0101001</dunum>
 		  <damout>80.00</damout>
 		  <date>2011-03-05</date>
 		  <charger>无锡电力公司</charger>
@@ -24,9 +24,9 @@
 </costRecord>
 <costRecord>
           <userid>1</userid>
-		  <id>2</id>
+		  <id>3</id>
 		  <name>煤气费</name>
-		  <dunum>s0101000</dunum>
+		  <dunum>s0101002</dunum>
 		  <damout>150.00</damout>
 		  <date>2011-03-05</date>
 		  <charger>无锡煤气公司</charger>
@@ -35,9 +35,9 @@
 </costRecord>
 <costRecord>
           <userid>1</userid>
-		  <id>2</id>
+		  <id>4</id>
 		  <name>房租费</name>
-		  <dunum>s0101000</dunum>
+		  <dunum>s0101003</dunum>
 		  <damout>200.00</damout>
 		  <date>2011-03-05</date>
 		  <charger>无锡房地产公司</charger>
