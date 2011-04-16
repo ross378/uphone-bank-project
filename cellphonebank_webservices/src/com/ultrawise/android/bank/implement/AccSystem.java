@@ -433,6 +433,8 @@ public class AccSystem implements IAccSystem {
 
 	/**
 	 * gsm 2011.3.31
+	 * 功能号"0121"
+	 * 需访问表patype
 	 */
 	public List<String> getSelServiceName() {
 		List<String> list = new ArrayList<String>();
