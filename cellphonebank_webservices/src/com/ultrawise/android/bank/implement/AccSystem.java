@@ -402,7 +402,6 @@ public class AccSystem implements IAccSystem {
 	 */
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
-
 		HashMap<String, String> record = queryTools.query("userInfo", "userid",
 				userId);
 		String orderid = record.get("preant");//取得账号
