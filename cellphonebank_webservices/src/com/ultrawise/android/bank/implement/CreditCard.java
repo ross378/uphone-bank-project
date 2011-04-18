@@ -384,6 +384,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			accInfo.put("是否绑定", temp.get("bind").equals("1")?"是":"否");
 			accInfo.put("开户行", temp.get("openbank"));
 			accInfo.put("开户日", temp.get("opendate"));
+			accInfo.put("余额", temp.get("balance"));
 		}
 		return accInfo;
 	}
