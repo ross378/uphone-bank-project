@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Remit primaryKey="id">
 	<remit>
+		<id>1</id>
 		<sequence>tf00001</sequence>//流水号
 	    <outant>112</outant>//转出账号
 		<name>汇款</name>//操作名字
 		<outsub>张三</outsub>//转出人
 		<amount>100000</amount>//转出金额
-		<time>2011-03-03</time>
+		<date>2011-03-03</date>
 		<outphone>15954556325</outphone>
 		<incity>无锡</incity>
 		<inbank>中国农业银行</inbank>
@@ -14,12 +15,13 @@
 		<description>这个是张三转给李四的</description>
 	</remit>
 	<remit>
+		<id>1</id>
 	    <sequence>tf00001</sequence>//流水号
 	    <outant>112</outant>//转出账号
 		<name>收入</name>//操作名字
 		<outsub>张三</outsub>//转出人
 		<amount>100000</amount>//转出金额
-		<time>2011-03-04</time>
+		<date>2011-03-04</date>
 		<outphone>15954556325</outphone>
 		<incity>无锡</incity>
 		<inbank>中国农业银行</inbank>
