@@ -535,6 +535,14 @@ public class Action {
 				amtnum));
 		return jsonObj;
 	}
+	
+	public JSONObject preformTransfeActToAct(String account, String password,
+			String amtAct, double amtnum){
+		JSONObject jsonObj = new JSONObject();
+		jsonObj = Helper.wrapUp(mTrans.transfeAct(account, password, amtAct,
+				amtnum));
+		return jsonObj;
+	}
 
 	// ---------------------------- 更新，修改
 	public JSONObject performDeleAcc(String accNo) {
