@@ -357,7 +357,6 @@ public class AccSystem implements IAccSystem {
 		HashMap<String, String> hMap = DataAccessModel.newInstances()
 				.createQueryTools().queryByTime("pendingform", "id", userId,
 						startDate, endDate, "dulimit");
-		System.out.println(hMap.get("state"));
 //		if (hMap.get("state").equals("1")) {// 1表示缴费
 //			hM = hMap;
 //		}
