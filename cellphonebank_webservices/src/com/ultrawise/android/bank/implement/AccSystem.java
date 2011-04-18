@@ -348,18 +348,20 @@ public class AccSystem implements IAccSystem {
 
 	/**
 	 * gsm 2011.04.01 功能号 0116 需查pendingform表 表中时间为2011-7-12
+	 * "pendingform", "id","1","2011-7-4","2011-7-14","dulimit"
 	 */
 	public Map<String, String> getPaymentHistory(String userId,
 			String startDate, String endDate) {
-		HashMap<String, String> hM = null;
+		startDate="2011-7-4";
+		endDate="2011-7-14";
 		HashMap<String, String> hMap = DataAccessModel.newInstances()
 				.createQueryTools().queryByTime("pendingform", "id", userId,
 						startDate, endDate, "dulimit");
 		System.out.println(hMap.get("state"));
-		if (hMap.get("state").equals("1")) {// 1表示缴费
-			hM = hMap;
-		}
-		return hM;
+//		if (hMap.get("state").equals("1")) {// 1表示缴费
+//			hM = hMap;
+//		}
+		return hMap;
 	}
 
 	public Map<String, String> getPaymentInfo(String userId) {
