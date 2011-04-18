@@ -362,7 +362,7 @@ public class Action {
 	// ----------------------------查询
 	public JSONObject performAcctIsActive(String actNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return Helper.wrapUp(mQuery.acctIsActive(actNo));
 	}
 
 	/**

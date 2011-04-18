@@ -355,7 +355,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 	public boolean setActActive(String accNo, String accPwd) {
 		HashMap<String, String> accInfo = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid", accNo);
-		if (accPwd.equals(accInfo.get("pwd"))) {
+		if (accPwd.equals(accInfo.get("actpwd"))) {
 			return DataAccessModel.newInstances().createUpdataTools().updata(
 					"accout", "orderid", accNo, "activation", "1");
 		} else {
