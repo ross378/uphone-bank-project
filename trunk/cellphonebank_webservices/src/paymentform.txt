@@ -6,7 +6,7 @@
 	  	 <name>煤气费</name>
 	  	 <dunum>s45256</dunum>
 	  	 <damout>78.00</damout>
-	  	 <date>2011-03-02</date>
+	  	 <date>2011-04-16</date>
 	 	 <charger>无锡能源公司</charger>
 	  	 <account>622202116</account>
 	  </costRecord>
