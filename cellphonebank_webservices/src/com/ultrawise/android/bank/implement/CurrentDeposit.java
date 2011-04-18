@@ -153,6 +153,35 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 
 		return transInfo;
 	}
+	
+	public HashMap<String, String> transfeActToAct(String account,
+			String password, String amtAct, double amtnum) {
+		HashMap<String, String> transInfo = new HashMap<String, String>();
+		// 转出人 的 账号信息
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", account);
+		// 转出人的信息
+		HashMap<String, String> outuser = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid",
+						accInfo.get("userid"));
+		// 转入人的账号信息
+		HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid", amtAct);
+		// 转入人的信息
+		HashMap<String, String> userInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid", accInfo1.get("userid"));
+		// 判断转出人输入的密码是否正确
+		if (password.equals(accInfo.get("actpwd"))) {
+			double balance = transfer(amtnum, accInfo, outuser, userInfo,
+					accInfo1);
+			transInfo.put("result", "转账成功");
+			transInfo.put("balance", String.valueOf(balance));
+		} else {
+			transInfo.put("result", "密码错误");
+		}
+		
+		return transInfo;
+	}
 
 	/**
 	 * 转账时 修改 两个账号中的余额

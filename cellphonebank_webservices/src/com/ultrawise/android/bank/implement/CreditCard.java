@@ -162,6 +162,35 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 
 		return transInfo;
 	}
+	
+	public HashMap<String, String> transfeActToAct(String account,
+			String password, String amtAct, double amtnum) {
+		HashMap<String, String> transInfo = new HashMap<String, String>();
+		// 转出人 的 账号信息
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("creditCard", "orderid", account);
+		// 转出人的信息
+		HashMap<String, String> outuser = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid",
+						accInfo.get("userid"));
+		// 转入人的账号信息
+		HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
+				.createQueryTools().query("creditCard", "orderid", amtAct);
+		// 转入人的信息
+		HashMap<String, String> userInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid", accInfo1.get("userid"));
+		// 判断转出人输入的密码是否正确
+		if (password.equals(accInfo.get("actpwd"))) {
+			double balance = CurrentDeposit.transfer(amtnum, accInfo, outuser, userInfo,
+					accInfo1);
+			transInfo.put("result", "转账成功");
+			transInfo.put("balance", String.valueOf(balance));
+		} else {
+			transInfo.put("result", "密码错误");
+		}
+		
+		return transInfo;
+	}
 
 	public HashMap<String, String> getComeQueryInfo(String type, String id) {
 		HashMap<String, String> comeQueryInfo = new HashMap<String, String>();
