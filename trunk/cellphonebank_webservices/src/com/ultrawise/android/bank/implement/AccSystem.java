@@ -35,14 +35,26 @@ public class AccSystem implements IAccSystem {
 	public boolean addAcc(String userId, String accNo, String accType,
 			String accNickName, String accPwd) {
 		// TODO Auto-generated method stub
+		String tableName = "";
+		if ("信用卡".equals(accType)) {
+			tableName = "creditCard";
+		} else {
+			tableName = "accout";
+		}
 
-		boolean result = insertTools.insertThree("assign", userId, accNo,
-				accType, accNickName, accPwd);
-
-		if (result) {
-			return true;
-		} else
+		HashMap<String, String> accInfo = this.queryTools.query(tableName,
+				"userid", userId);
+		String type = this.queryTools.query("paypal", "id", accInfo.get("actype")).get(
+				"tyname");
+		System.out.println(userId+","+accNo+","+accType+","+accNickName+","+accPwd);
+		if (accNo.equals(accInfo.get("orderid"))
+				&& accPwd.equals(accInfo.get("actpwd")) && type.equals(accType)
+				&& "0".equals(accInfo.get("isadd"))) {
+			return this.updataTools.updata(tableName, "userid", userId,
+					"aliss", accNickName, "isadd", "1");
+		} else {
 			return false;
+		}
 
 	}
 
