@@ -395,11 +395,10 @@ public class AccSystem implements IAccSystem {
 	 */
 	public List<String> getPaymentNameOnMana() {
 		List<String> list = new ArrayList<String>();
-		List<HashMap<String, String>> listHashMaps = DataAccessModel
-				.newInstances().createQueryTools().query("openServiceInfo");
-		for (HashMap<String, String> hm : listHashMaps) {
-			list.add(hm.get("prname"));
-		}
+		HashMap<String, String> Maps = DataAccessModel
+				.newInstances().createQueryTools().query("openItem","1");
+		list.add(Maps.get("state0")+"#"+Maps.get("state1")+"#"+Maps.get("state2")+"#"+
+				Maps.get("state3")+"#"+Maps.get("state4")+"#"+Maps.get("state5"));
 		return list;
 	}
 
@@ -496,7 +495,7 @@ public class AccSystem implements IAccSystem {
 	 */
 	public boolean updatePaymentState(String payName, String state) {
 		boolean a = DataAccessModel.newInstances().createUpdataTools().updata(
-				"userInfo", "userName", payName, "state", state);
+				"openItem", "userid","1",payName, state);
 
 		return a;
 	}
