@@ -412,6 +412,10 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 					.createQueryTools().query("pendingform", "name",
 							paymentName);
 			String serNo = temp1.get("dunum");
+			if(serNo==null){
+				serNo="sT"+String.valueOf(Math.random()).substring(2, 10);//产生一串随机数
+				System.out.println("流水号为:"+serNo);
+			}
 //			System.out.println("|"+temp.get("actpwd")+"|-----");//获得密码
 			DataAccessModel.newInstances().createInsertTools().insertThree(
 					"paymentform", "id:2", "userid:" + temp.get("userid"),
