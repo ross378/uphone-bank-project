@@ -487,8 +487,8 @@ public class AccSystem implements IAccSystem {
 	public boolean setPreAcc(String userId, String accNo) {
 		// TODO Auto-generated method stub
 
-		boolean result = this.updataTools.updata("accout", "userid", userId,
-				"orderid", accNo);
+		boolean result = this.updataTools.updata("userInfo", "userid", userId,
+				"preant", accNo);
 		return result;
 	}
 
