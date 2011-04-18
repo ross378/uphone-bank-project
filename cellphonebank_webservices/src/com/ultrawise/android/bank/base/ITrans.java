@@ -24,6 +24,17 @@ public interface ITrans {
 	public HashMap<String,String> transfeAct(String account,String password,String amtph,double amtnum);
 	
 	/**
+	 * @author 王   亭
+	 * 2011-4-17
+	 * @param account
+	 * @param password
+	 * @param amtAct
+	 * @param amtnum
+	 * @return
+	 */
+	public HashMap<String, String> transfeActToAct(String account,String password,String amtAct,double amtnum);
+	
+	/**
 	 * 某条明细的查询
 	 * @param id	
 	 * @return		某条明细的详细信息
