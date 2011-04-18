@@ -231,6 +231,9 @@ public class CellPhoneBankWS {
 			// 确认转账
 			return action.performTransfeAct(firstValue, secondValue,
 					thirdParam, Double.parseDouble(fourParam));
+		case TRANSFE_ACC_ACC:
+			return action.performTransfeAct(firstValue, secondValue,
+					thirdParam, Double.parseDouble(fourParam));
 		case GET_LISTQUERY_INFO:
 			// 明细信息
 			return action.performGetListQueryInfo(firstValue,secondValue);
