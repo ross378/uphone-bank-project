@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.sun.xml.bind.v2.util.QNameMap.Entry;
 import com.ultrawise.android.bank.Enum.EAccState;
 import com.ultrawise.android.bank.base.IAccSystem;
 import com.ultrawise.bank.base.dao.IDataInsertTools;
@@ -52,68 +53,69 @@ public class AccSystem implements IAccSystem {
 		List<String> result = new ArrayList<String>();
 		String tableName = "";
 		HashMap<String, String> records = new HashMap<String, String>();
-		//根据不同类型的卡 访问不同的表
-		if("信用卡".equals(accType)){
+		// 根据不同类型的卡 访问不同的表
+		if ("信用卡".equals(accType)) {
 			tableName = "creditCard";
-		}else {
+		} else {
 			tableName = "accout";
 		}
-		//根据客户端传过来的账户类型  找到账户类型对应的id
-		String accTypeId = this.queryTools.query("paypal","tyname",accType).get("id"); 
-		//根据要查询的不同账户状态来选择账户
+		// 根据客户端传过来的账户类型 找到账户类型对应的id
+		String accTypeId = this.queryTools.query("paypal", "tyname", accType)
+				.get("id");
+		// 根据要查询的不同账户状态来选择账户
 		switch (accState) {
 		case BIND: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "bind", "1");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
 		case UNBIND: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "bind", "0");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
 		case LOSS: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "loss", "1");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
 		case UNLOSS: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "loss", "0");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
 		case ACTIVE: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "activation", "1");
-			if(records.get("orderid")!=null)	
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
 		case UNACTIVE: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "activation", "0");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
 		case ORDER: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "orderstate", "1");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 		}
 		case UNORDER: {
 			records = this.queryTools.query(tableName, "userid", userId,
 					"actype", accTypeId, "orderstate", "0");
-			if(records.get("orderid")!=null)
+			if (records.get("orderid") != null)
 				result.add(records.get("orderid"));
 			break;
 		}
@@ -174,7 +176,7 @@ public class AccSystem implements IAccSystem {
 		List<String> list = new ArrayList<String>();
 		// TODO 只有活期储蓄卡!!!!!
 		HashMap<String, String> records = this.queryTools.query("paypal", "id",
-				"3");
+				"1");
 		list.add(records.get("tyname"));
 		return list;
 	}
@@ -209,11 +211,15 @@ public class AccSystem implements IAccSystem {
 	}
 
 	public List<String> getBindCreditCard(String userId) {
-		// TODO Auto-generated method stub
+		// TODO 获取绑定的信用卡
 		List<String> lstStr = new ArrayList<String>();
-		lstStr.add("123");
-		lstStr.add("321");
-
+		List<HashMap<String, String>> lstMap = DataAccessModel.newInstances()
+				.createQueryTools().query("creditCard");
+		for (HashMap<String, String> hashMap : lstMap) {
+			if (hashMap.get("bind").equals("1")) {
+				lstStr.add(hashMap.get("orderid"));
+			}
+		}
 		return lstStr;
 	}
 
@@ -363,10 +369,7 @@ public class AccSystem implements IAccSystem {
 	}
 
 	/**
-	 * gsm 2011.3.31
-	 * 功能号 0118 
-	 * 需访问表pendingform
-	 * 1.首先遍历整张表找到所有记录
+	 * gsm 2011.3.31 功能号 0118 需访问表pendingform 1.首先遍历整张表找到所有记录
 	 * 2.将所有结果的userId和传进来进行比较,查到相等的返回
 	 */
 	public Map<String, String> getPaymentName(String userId) {
@@ -375,11 +378,11 @@ public class AccSystem implements IAccSystem {
 		// 查到整张表的记录
 		List<HashMap<String, String>> list2 = DataAccessModel.newInstances()
 				.createQueryTools().query("pendingform");
-		//遍历list2中的每一项
-		for(int i=0;i<list2.size();i++){
-			HashMap<String, String> hm=list2.get(i);
-			//判断userid 和缴费状态state 0表示未缴费
-			if(hm.get("userid").equals(userId)&&hm.get("state").equals("0")){
+		// 遍历list2中的每一项
+		for (int i = 0; i < list2.size(); i++) {
+			HashMap<String, String> hm = list2.get(i);
+			// 判断userid 和缴费状态state 0表示未缴费
+			if (hm.get("userid").equals(userId) && hm.get("state").equals("0")) {
 				map.put(hm.get("name"), hm.get("damout"));
 			}
 		}
@@ -400,38 +403,30 @@ public class AccSystem implements IAccSystem {
 	}
 
 	/**
-	 * 钟小会
-	 * gsm 2011.04.15中午修改过返回值新加了金额 balance
+	 * 钟小会 gsm 2011.04.15中午修改过返回值新加了金额 balance
 	 */
 	public String getPreAcc(String userId) {
 		// TODO Auto-generated method stub
 		HashMap<String, String> record = queryTools.query("userInfo", "userid",
 				userId);
-		String orderid = record.get("preant");//取得账号
-/**
- * 利用账号 在account中查到余额和类型
- * <userid>5</userid>
- *<orderid>114</orderid>//账户号
- *<actype>1</actype>
- *<balance>80000</balance>
- */
-		HashMap<String, String>  hm= queryTools.query("accout", "orderid",
-				orderid);
-		String balance = hm.get("balance");//取得余额
-		String acctype=hm.get("actype");//取得类型
-		
+		String orderid = record.get("preant");// 取得账号
 		/**
-		 * 通过类型在paypal表中查到该类型的名称
-		 * <paypal>
-		 *<id>1</id>
-		 *<tyname>活期储蓄卡</tyname>
-	     *</paypal>
+		 * 利用账号 在account中查到余额和类型 <userid>5</userid> <orderid>114</orderid>//账户号
+		 * <actype>1</actype> <balance>80000</balance>
 		 */
-		HashMap<String, String>  hm2= queryTools.query("paypal", "id",
-				acctype);
-		String tyname = hm2.get("tyname");//取得名称
-		return acctype+"#"+orderid+"#"+balance+"#"+tyname;
-//		return orderid;
+		HashMap<String, String> hm = queryTools.query("accout", "orderid",
+				orderid);
+		String balance = hm.get("balance");// 取得余额
+		String acctype = hm.get("actype");// 取得类型
+
+		/**
+		 * 通过类型在paypal表中查到该类型的名称 <paypal> <id>1</id> <tyname>活期储蓄卡</tyname>
+		 * </paypal>
+		 */
+		HashMap<String, String> hm2 = queryTools.query("paypal", "id", acctype);
+		String tyname = hm2.get("tyname");// 取得名称
+		return acctype + "#" + orderid + "#" + balance + "#" + tyname;
+		// return orderid;
 	}
 
 	/**

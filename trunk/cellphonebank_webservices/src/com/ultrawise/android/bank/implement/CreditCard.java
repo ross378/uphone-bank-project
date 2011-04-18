@@ -34,20 +34,21 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		HashMap<String, String> targetPhoneInfo = new HashMap<String, String>();
 		HashMap<String, String> accInfo = DataAccessModel.newInstances()
 				.createQueryTools().query("creditCard", "orderid", account);
-		if(password.equals(accInfo.get("actpwd"))){
-			HashMap<String, String> userInfo = DataAccessModel.newInstances().createQueryTools().query("userInfo", "phnum",amtph);
-			if(userInfo != null){
+		if (password.equals(accInfo.get("actpwd"))) {
+			HashMap<String, String> userInfo = DataAccessModel.newInstances()
+					.createQueryTools().query("userInfo", "phnum", amtph);
+			if (userInfo != null) {
 				double balance = Double.parseDouble(accInfo.get("balance"));
-				if(balance >= amtnum){
-					targetPhoneInfo.put("cost",accSystem.getCost("转账") );
+				if (balance >= amtnum) {
+					targetPhoneInfo.put("cost", accSystem.getCost("转账"));
 					targetPhoneInfo.put("username", userInfo.get("userName"));
-				}else {
+				} else {
 					targetPhoneInfo.put("error", "您的余额不足");
 				}
-			}else {
+			} else {
 				targetPhoneInfo.put("error", "对方手机号没有开通手机银行");
 			}
-		}else {
+		} else {
 			targetPhoneInfo.put("error", "密码错误");
 		}
 		return targetPhoneInfo;
@@ -57,36 +58,37 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			double paymentAmt, String paymentActNo, String paymentActPasswd,
 			String paymentNum, String operator) {
 		HashMap<String, String> recharge = new HashMap<String, String>();
-		//判断账号是否已经激活
+		// 判断账号是否已经激活
 		boolean isActive = acctIsActive(paymentActNo);
 		if (!isActive) {
-		//账号没有激活，则激活账号
-			DataAccessModel.newInstances().createUpdataTools().updata("creditCard",
-					"orderid:" + paymentActNo, "activation", "1");
+			// 账号没有激活，则激活账号
+			DataAccessModel.newInstances().createUpdataTools().updata(
+					"creditCard", "orderid:" + paymentActNo, "activation", "1");
 		}
-		//根据账号 获取账号的信息
+		// 根据账号 获取账号的信息
 		HashMap<String, String> temp = DataAccessModel.newInstances()
-				.createQueryTools().query("creditCard", "orderid", paymentActNo);
-		//判断输入的密码是否正确
+				.createQueryTools()
+				.query("creditCard", "orderid", paymentActNo);
+		// 判断输入的密码是否正确
 		if (paymentActPasswd.equals(temp.get("actpwd"))) {
-			//获取账号的余额
+			// 获取账号的余额
 			double balance = Double.parseDouble(temp.get("balance"));
 			balance -= paymentAmt;
-			//根据缴费名称获取缴费的合同号
+			// 根据缴费名称获取缴费的合同号
 			HashMap<String, String> temp1 = DataAccessModel.newInstances()
 					.createQueryTools().query("patype", "name", paymentName);
 			String serNo = temp1.get("dunum");
-			//插入一条充值记录
+			// 插入一条充值记录
 			DataAccessModel.newInstances().createInsertTools().insertThree(
 					"rechargeform", "id:2", "userid:" + temp.get("userid"),
-					"name:"+ paymentName, "credit:" + paymentAmt,
+					"name:" + paymentName, "credit:" + paymentAmt,
 					"creqqnum:" + paymentNum,
 					"date:" + Helper.getCurrentTime(), "creno:" + serNo,
 					"operator:" + operator, "account:" + paymentActNo);
-			//更新账号的余额
-			DataAccessModel.newInstances().createUpdataTools()
-					.updata("creditCard", "orderid", paymentActNo, "balance",
-							String.valueOf(balance));
+			// 更新账号的余额
+			DataAccessModel.newInstances().createUpdataTools().updata(
+					"creditCard", "orderid", paymentActNo, "balance",
+					String.valueOf(balance));
 			recharge.put("serNo", serNo);
 			recharge.put("result", "true");
 		} else {
@@ -101,11 +103,12 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		HashMap<String, String> payment = new HashMap<String, String>();
 		boolean isActive = acctIsActive(paymentActNo);
 		if (!isActive) {
-			DataAccessModel.newInstances().createUpdataTools().updata("creditCard",
-					"orderid:" + paymentActNo, "activation", "1");
+			DataAccessModel.newInstances().createUpdataTools().updata(
+					"creditCard", "orderid:" + paymentActNo, "activation", "1");
 		}
 		HashMap<String, String> temp = DataAccessModel.newInstances()
-				.createQueryTools().query("creditCard", "orderid", paymentActNo);
+				.createQueryTools()
+				.query("creditCard", "orderid", paymentActNo);
 		if (paymentActPasswd.equals(temp.get("actpwd"))) {
 			double balance = Double.parseDouble(temp.get("balance"));
 			balance -= paymentAmt;
@@ -118,8 +121,8 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 					"name:" + paymentName, "dunum:" + serNo,
 					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
 					"charger:" + charger, "account:" + paymentActNo);
-			DataAccessModel.newInstances().createUpdataTools()
-			.updata("creditCard", "orderid", paymentActNo, "balance",
+			DataAccessModel.newInstances().createUpdataTools().updata(
+					"creditCard", "orderid", paymentActNo, "balance",
 					String.valueOf(balance));
 			payment.put("serNo", serNo);
 			payment.put("result", "true");
@@ -130,7 +133,8 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	}
 
 	public boolean setDetail(String serNo, String detail) {
-		return DataAccessModel.newInstances().createUpdataTools().updata("transfers","id",serNo,"description",detail);
+		return DataAccessModel.newInstances().createUpdataTools().updata(
+				"transfers", "id", serNo, "description", detail);
 	}
 
 	public HashMap<String, String> transfeAct(String account, String password,
@@ -152,8 +156,8 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 				.createQueryTools().query("accout", "userid", userid);
 		// 判断转出人输入的密码是否正确
 		if (password.equals(accInfo.get("actpwd"))) {
-			double balance = CurrentDeposit.transfer(amtnum, accInfo, outuser, userInfo,
-					accInfo1);
+			double balance = CurrentDeposit.transfer(amtnum, accInfo, outuser,
+					userInfo, accInfo1);
 			transInfo.put("result", "转账成功");
 			transInfo.put("balance", String.valueOf(balance));
 		} else {
@@ -195,7 +199,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	public HashMap<String, String> getComeQueryInfo(String type, String id) {
 		HashMap<String, String> comeQueryInfo = new HashMap<String, String>();
 		HashMap<String, String> temp = null;
-		//根据不同的来账的类型   在不同的表中查找来账记录
+		// 根据不同的来账的类型 在不同的表中查找来账记录
 		if ("汇款".equals(type)) {
 			temp = DataAccessModel.newInstances().createQueryTools().query(
 					"remit", "id", id);
@@ -203,11 +207,11 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			temp = DataAccessModel.newInstances().createQueryTools().query(
 					"transfers", "id", id);
 		}
-		//根据账号  得到 账号的类型id
+		// 根据账号 得到 账号的类型id
 		HashMap<String, String> accInfo = DataAccessModel.newInstances()
 				.createQueryTools().query("accout", "orderid",
 						temp.get("outant"));
-		//根据账号id 得到 账号的类型名称
+		// 根据账号id 得到 账号的类型名称
 		HashMap<String, String> accType = DataAccessModel.newInstances()
 				.createQueryTools()
 				.query("paypal", "id", accInfo.get("actype"));
@@ -219,7 +223,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		return comeQueryInfo;
 	}
 
-	public HashMap<String, String> getListQueryInfo(String type,String id) {
+	public HashMap<String, String> getListQueryInfo(String type, String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -294,19 +298,20 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 						accInfo.get("userid"));
 		// 转入人信息
 		HashMap<String, String> accInfo1 = DataAccessModel.newInstances()
-				.createQueryTools().query("accout", "orderid", tarAcc);
+				.createQueryTools().query("creditCard", "orderid", tarAcc);
 		HashMap<String, String> inuser = DataAccessModel.newInstances()
 				.createQueryTools().query("userInfo", "userid",
 						accInfo.get("userid"));
 
 		// 判断转出人输入的密码是否正确
 		if (password.equals(accInfo.get("actpwd"))) {
-			double balance = CurrentDeposit.transfer(payamt, accInfo, outuser,
-					inuser, accInfo1);
-			transInfo.put("result", "转账成功");
-			transInfo.put("balance", String.valueOf(balance));
+			// double balance = CurrentDeposit.transfer(payamt, accInfo,
+			// outuser,
+			// inuser, accInfo1);
+			transInfo.put("result", "true");
+			// transInfo.put("balance", String.valueOf(balance));
 		} else {
-			transInfo.put("result", "密码错误");
+			transInfo.put("result", "false");
 		}
 		return transInfo;
 	}
@@ -347,8 +352,10 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	// -------查询---------
 	@Override
 	public boolean acctIsActive(String paymentActNo) {
-		HashMap<String,String> accInfo = DataAccessModel.newInstances().createQueryTools().query("creditCard", "orderid",paymentActNo);
-		if("1".equals(accInfo.get("activation"))){
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools()
+				.query("creditCard", "orderid", paymentActNo);
+		if ("1".equals(accInfo.get("activation"))) {
 			return true;
 		}
 		return false;
@@ -359,7 +366,8 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		HashMap<String, String> accInfo = new HashMap<String, String>();
 		HashMap<String, String> temp = DataAccessModel.newInstances()
 				.createQueryTools().query("creditCard", "orderid", acc);
-		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances().createQueryTools().query("paypal", "id",temp.get("actype"));
+		HashMap<String, String> accTypeHashMap = DataAccessModel.newInstances()
+				.createQueryTools().query("paypal", "id", temp.get("actype"));
 		if (temp != null) {
 			accInfo.put("账户", temp.get("orderid"));
 			accInfo.put("账户别名", temp.get("aliss"));
@@ -369,9 +377,9 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			accInfo.put("可用度", temp.get("availability"));
 			accInfo.put("预借现金可用度", temp.get("payment"));
 			accInfo.put("每月的账单日", temp.get("billdate"));
-			accInfo.put("本期还款额", temp.get("repayment"));
-			accInfo.put("最低还款额", temp.get("minpayment"));
-			accInfo.put("到期还款日",temp.get("duedata") );
+			accInfo.put("本期应还款额", temp.get("repayment"));
+			accInfo.put("本期最低还款额", temp.get("minpayment"));
+			accInfo.put("本期到期还款日", temp.get("duedata"));
 			accInfo.put("账户状态", "预约换卡");
 			accInfo.put("是否绑定", temp.get("bind").equals("1")?"是":"否");
 			accInfo.put("开户行", temp.get("openbank"));
@@ -390,26 +398,28 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	@Override
 	public HashMap<String, String> getOrderInfo(String acc) {
 		HashMap<String, String> orderInfo = new HashMap<String, String>();
-		HashMap<String, String> temp = DataAccessModel.newInstances().createQueryTools().query("appointmentform", "orderid",acc);
-		if(temp != null){
+		HashMap<String, String> temp = DataAccessModel.newInstances()
+				.createQueryTools().query("appointmentform", "orderid", acc);
+		if (temp != null) {
 			orderInfo.put("账号", temp.get("orderid"));
 			orderInfo.put("账户别名", temp.get("aliss"));
 			orderInfo.put("更换原因", temp.get("reason"));
 			orderInfo.put("领卡网点", temp.get("net"));
 			orderInfo.put("网点地址", temp.get("netaddress"));
 			orderInfo.put("工本费用", temp.get("cost"));
-		}else{
+		} else {
 			orderInfo.put("not find", "该账号没有预约信息");
 		}
 		return orderInfo;
 	}
 
-	public boolean verifyPassword(String account,String password) {
-		HashMap<String, String> accHashMap = DataAccessModel.newInstances().createQueryTools().query("creditCard", "orderid",account);
+	public boolean verifyPassword(String account, String password) {
+		HashMap<String, String> accHashMap = DataAccessModel.newInstances()
+				.createQueryTools().query("creditCard", "orderid", account);
 		if (password.equals(accHashMap.get("actpwd"))) {
 			return true;
 		}
-		
+
 		return false;
 	}
 	// -------查询---------
