@@ -233,5 +233,4 @@ public interface IAccSystem {
 	 */
 	Map<String, String> getAccWithNickName(String userId, String accType,
 			EAccState accState);
-
 }
