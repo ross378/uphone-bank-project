@@ -321,7 +321,10 @@ public class AccSystem implements IAccSystem {
 	}
 
 	/**
+	 *获得运营商名称
 	 * gsm 2011.3.31 功能号：0115
+	 * 查表patype
+	 * 
 	 */
 	public List<String> getOperator(String paymentId) {
 		List<String> list = new ArrayList<String>();
