@@ -219,11 +219,13 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 		HashMap<String, String> accType = DataAccessModel.newInstances()
 				.createQueryTools()
 				.query("paypal", "id", accInfo.get("actype"));
-		comeQueryInfo.put("date", temp.get("date"));
-		comeQueryInfo.put("amount", temp.get("amount"));
-		comeQueryInfo.put("outsub", temp.get("outsub"));
-		comeQueryInfo.put("outant", temp.get("outant"));
-		comeQueryInfo.put("type", accType.get("tyname"));
+		comeQueryInfo.put("来账时间", temp.get("date"));
+		comeQueryInfo.put("来账类型", type);
+		comeQueryInfo.put("来账金额", temp.get("amount"));
+		comeQueryInfo.put("付款人姓名", temp.get("outsub"));
+		comeQueryInfo.put("付款账号", temp.get("outant"));
+		comeQueryInfo.put("付款账号种类", accType.get("tyname"));
+		comeQueryInfo.put("描述", temp.get("description"));
 		return comeQueryInfo;
 	}
 
