@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.implement;
 import java.util.Date;
 import java.util.HashMap;
 
+import com.sun.org.apache.commons.collections.StaticBucketMap;
 import com.ultrawise.android.bank.Enum.EOperation;
 import com.ultrawise.android.bank.Enum.TableName;
 import com.ultrawise.android.bank.Helper.Helper;
@@ -428,8 +429,9 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				System.out.println("流水号为:"+serNo);
 			}
 //			System.out.println("|"+temp.get("actpwd")+"|-----");//获得密码
+			int n=2;
 			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"paymentform", "id:2", "userid:" + temp.get("userid"),
+					"paymentform", "id:"+(++n), "userid:" + temp.get("userid"),
 					"name:" + paymentName, "dunum:" + serNo,
 					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
 					"charger:" + charger, "account:" + paymentActNo);
