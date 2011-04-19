@@ -364,22 +364,43 @@ public class AccSystem implements IAccSystem {
 	 */
 	public Map<String, String> getPaymentHistory(String userId,
 			String startDate, String endDate) {
-		startDate="2011-7-4";
-		endDate="2011-7-14";
-		HashMap<String, String> hMap = DataAccessModel.newInstances()
-				.createQueryTools().queryByTime("pendingform", "id", userId,
-						startDate, endDate, "dulimit");
-//		if (hMap.get("state").equals("1")) {// 1表示缴费
-//			hM = hMap;
-//		}
-		return hMap;
+//		startDate="2011-7-4";
+//		endDate="2011-7-14";
+//		HashMap<String, String> hMap = DataAccessModel.newInstances()
+//				.createQueryTools().queryByTime("pendingform", "id", userId,
+//						startDate, endDate, "dulimit");
+//		return hMap;
+			
+	 StringBuilder stringBuilder=new StringBuilder();
+	  HashMap<String, String> map=new HashMap<String, String>();
+	  List<HashMap<String, String>> list = DataAccessModel.newInstances()
+	 .createQueryTools().query("paymentform");
+	 for(int i=0;i<list.size();i++){
+		stringBuilder.append(list.get(i).get("date")+"#"+list.get(i).get("name")+"#");
+		map.put("Info", stringBuilder.toString());
+	 }
+	return map;
 	}
 
-	public Map<String, String> getPaymentInfo(String userId) {
-		// TODO Auto-generated method stub
-		// 不实现
-		return null;
-	}
+	/**
+	 * 功能号0209
+	 * 查表paymentform
+	 *@author gsm
+	 *2011-4-18 
+	 * @param userId
+	 * @return
+	 */
+//	public Map<String, String> getPaymentInfo(String userId) {
+//		StringBuilder stringBuilder=new StringBuilder();
+//		HashMap<String, String> map=new HashMap<String, String>();
+//		List<HashMap<String, String>> list = DataAccessModel.newInstances()
+//		.createQueryTools().query("paymentform");
+//		for(int i=0;i<list.size();i++){
+//			stringBuilder.append(list.get(i).get("date")+"#"+list.get(i).get("name"));
+//			map.put("Info", stringBuilder.toString());
+//		}
+//		return map;
+//	}
 
 	/**
 	 * gsm 2011.3.31 功能号 0118 需访问表pendingform 1.首先遍历整张表找到所有记录

@@ -116,6 +116,10 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 					.createQueryTools().query("pendingform", "name",
 							paymentName);
 			String serNo = temp1.get("dunum");
+			if(serNo==null){
+				serNo="sT"+String.valueOf(Math.random()).substring(2, 10);//产生一串随机数
+				System.out.println("流水号为:"+serNo);
+			}
 			DataAccessModel.newInstances().createInsertTools().insertThree(
 					"paymentform", "id:2", "userid:" + temp.get("userid"),
 					"name:" + paymentName, "dunum:" + serNo,
