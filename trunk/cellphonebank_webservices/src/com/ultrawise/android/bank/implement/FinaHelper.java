@@ -66,7 +66,12 @@ public class FinaHelper implements IHelper {
 			double dDollar = Double.parseDouble(dollarRate);
 			double dSource = Double.parseDouble(SourceRate);
 			double dDestin = Double.parseDouble(DestinRate);
-			dExchange = (dDollar / dSource) * dDestin;
+			System.out.println(dDollar);
+			System.out.println(dSource);
+			System.out.println(dDestin);
+			
+			double tempEx = (dDollar / dSource) * dDestin;
+			dExchange=currencyDenomination*tempEx;
 			return dExchange;
 		}
 		return dExchange;
