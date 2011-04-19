@@ -499,13 +499,14 @@ public class AccSystem implements IAccSystem {
 	/**
 	 * 钟小会
 	 */
-	public boolean login(String userId, String userPwd, String exCode) {
-		HashMap<String, String> record = this.queryTools.query("userInfo",
-				"userid", userId);
+	public boolean login(String userName, String userPwd, String exCode) {
+		HashMap<String, String> record = DataAccessModel.newInstances().createQueryTools().query("userInfo",
+				"userName", userName);
+		
 		if (record == null) {
 			return false;
 		}
-		if (userPwd.equals(record.get("password")) && exCode.equals("***")) {
+		if (userPwd.equals(record.get("password"))) {
 			return true;
 		} else {
 			return false;
