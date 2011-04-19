@@ -536,7 +536,7 @@ public class AccSystem implements IAccSystem {
 
 	public boolean login(String userId, String userPwd, String exCode) {
 		HashMap<String, String> record = DataAccessModel.newInstances().createQueryTools().query("userInfo",
-				"userId", userId);
+				"userid", userId);
 		
 		if (record == null) {
 			return false;
