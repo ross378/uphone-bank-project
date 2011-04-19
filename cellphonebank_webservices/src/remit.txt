@@ -2,6 +2,7 @@
 <Remit primaryKey="id">
 	<remit>
 		<id>1</id>
+		<userid>1</userid>
 		<sequence>tf00001</sequence>//流水号
 	    <outant>112</outant>//转出账号
 		<name>汇款</name>//操作名字
@@ -15,7 +16,8 @@
 		<description>这个是张三转给李四的</description>
 	</remit>
 	<remit>
-		<id>1</id>
+		<id>2</id>
+		<userid>1</userid>
 	    <sequence>tf00001</sequence>//流水号
 	    <outant>112</outant>//转出账号
 		<name>收入</name>//操作名字
