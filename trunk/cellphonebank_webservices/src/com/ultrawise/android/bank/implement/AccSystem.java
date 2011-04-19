@@ -1,5 +1,6 @@
 package com.ultrawise.android.bank.implement;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -198,18 +199,34 @@ public class AccSystem implements IAccSystem {
 	 */
 	public Map<String, String> getComeHistory(String userId, String startDate,
 			String endDate) {
-		/**
-		 * 先查transfers表得到<inant>112</inant>//转进账号
-		 */
-		String inantString = DataAccessModel.newInstances().createQueryTools()
-				.queryByTime("transfers", "userid", userId, startDate, endDate,
-						"outdata").get("inant");
-		/**
-		 * 再查accout表得到转账号的所有信息
-		 */
-		HashMap<String, String> hmap = DataAccessModel.newInstances()
-				.createQueryTools().query("accout", "orderid", inantString);
-		return hmap;
+		StringBuffer resultBuffer = new StringBuffer();
+		HashMap<String, String> comeHistory = new HashMap<String, String>();
+		List<HashMap<String, String>> transfer = this.queryTools.query("transfers");
+		Date start = Date.valueOf(startDate);
+		Date end = Date.valueOf(endDate);
+		for(HashMap<String, String> temp : transfer){
+			if(userId.equals(temp.get("userid"))){
+				Date date1 = Date.valueOf(temp.get("date"));
+				if(date1.after(start) && date1.before(end)){
+					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("转账");
+					resultBuffer.append(",");
+				}
+			}
+		}
+		List<HashMap<String, String>> remit = this.queryTools.query("remit");
+		for(HashMap<String, String> temp : remit){
+			if(userId.equals(temp.get("userid"))){
+				Date date1 = Date.valueOf(temp.get("date"));
+				if(date1.after(start) && date1.before(end)){
+					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("汇款");
+					resultBuffer.append(",");
+				}
+			}
+		}
+		
+		comeHistory.put("info", resultBuffer.toString());
+
+		return comeHistory;
 	}
 
 	/**
@@ -290,28 +307,30 @@ public class AccSystem implements IAccSystem {
 	public Map<String, String> getListHistory(String userId, String startDate,
 			String endDate) {
 		HashMap<String, String> hMap = new HashMap<String, String>();
-		String sequenceStr = DataAccessModel.newInstances().createQueryTools()
-				.queryByTime("transfers", "userid", userId, startDate, endDate,
-						"outdata").get("sequence");
-		if (!sequenceStr.equals("")) {
-			// 汇款时间
-			String remtTime = DataAccessModel.newInstances().createQueryTools()
-					.query("remit", "sequence", sequenceStr, "name", "汇款").get(
-							"time");
-			// 收入时间
-			String IncomeTime = DataAccessModel.newInstances()
-					.createQueryTools().query("remit", "sequence", sequenceStr,
-							"name", "收入").get("time");
-
-			// 包装成HashMap<String,String>
-			hMap.put("id", "汇款");
-			hMap.put("typeRemt", "汇款");
-			hMap.put("remtTime", remtTime);
-			hMap.put("typeIncome", "收入");
-			hMap.put("IncomeTime", IncomeTime);
-		} else {
-			hMap = null;
+		StringBuffer resultBuffer = new StringBuffer();
+		List<HashMap<String, String>> transfer = this.queryTools.query("transfers");
+		Date start = Date.valueOf(startDate);
+		Date end = Date.valueOf(endDate);
+		for(HashMap<String, String> temp : transfer){
+			if(userId.equals(temp.get("userid"))){
+				Date date1 = Date.valueOf(temp.get("date"));
+				if(date1.after(start) && date1.before(end)){
+					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("支出");
+					resultBuffer.append(",");
+				}
+			}
 		}
+		List<HashMap<String, String>> remit = this.queryTools.query("remit");
+		for(HashMap<String, String> temp : remit){
+			if(userId.equals(temp.get("userid"))){
+				Date date1 = Date.valueOf(temp.get("date"));
+				if(date1.after(start) && date1.before(end)){
+					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("收入");
+					resultBuffer.append(",");
+				}
+			}
+		}
+		hMap.put("info", resultBuffer.toString());
 		return hMap;
 	}
 
