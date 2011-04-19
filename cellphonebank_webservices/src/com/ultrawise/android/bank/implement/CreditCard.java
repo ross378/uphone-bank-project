@@ -230,8 +230,26 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 	}
 
 	public HashMap<String, String> getListQueryInfo(String type, String id) {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<String, String> listQueryInfo = new HashMap<String, String>();
+		HashMap<String, String> temp = null;
+		// 根据不同的来账的类型 在不同的表中查找来账记录
+		if ("收入".equals(type)) {
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"remit", "id", id);
+		} else {
+			temp = DataAccessModel.newInstances().createQueryTools().query(
+					"transfers", "id", id);
+		}
+		// 根据账号 得到 账号的类型id
+		HashMap<String, String> accInfo = DataAccessModel.newInstances()
+				.createQueryTools().query("accout", "orderid",
+						temp.get("outant"));
+		listQueryInfo.put("交易时间", temp.get("date"));
+		listQueryInfo.put("交易账号", temp.get("outant"));
+		listQueryInfo.put("交易金额", temp.get("amount"));
+		listQueryInfo.put("余额", accInfo.get("balance"));
+		listQueryInfo.put("描述", temp.get("description"));
+		return listQueryInfo;
 	}
 
 	// -------转账---------
