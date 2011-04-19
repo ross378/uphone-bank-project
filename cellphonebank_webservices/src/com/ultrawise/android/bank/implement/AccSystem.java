@@ -45,9 +45,10 @@ public class AccSystem implements IAccSystem {
 
 		HashMap<String, String> accInfo = this.queryTools.query(tableName,
 				"userid", userId);
-		String type = this.queryTools.query("paypal", "id", accInfo.get("actype")).get(
-				"tyname");
-		System.out.println(userId+","+accNo+","+accType+","+accNickName+","+accPwd);
+		String type = this.queryTools.query("paypal", "id",
+				accInfo.get("actype")).get("tyname");
+		System.out.println(userId + "," + accNo + "," + accType + ","
+				+ accNickName + "," + accPwd);
 		if (accNo.equals(accInfo.get("orderid"))
 				&& accPwd.equals(accInfo.get("actpwd")) && type.equals(accType)
 				&& "0".equals(accInfo.get("isadd"))) {
@@ -358,9 +359,7 @@ public class AccSystem implements IAccSystem {
 	}
 
 	/**
-	 *获得运营商名称
-	 * gsm 2011.3.31 功能号：0115
-	 * 查表patype
+	 *获得运营商名称 gsm 2011.3.31 功能号：0115 查表patype
 	 * 
 	 */
 	public List<String> getOperator(String paymentId) {
@@ -378,48 +377,65 @@ public class AccSystem implements IAccSystem {
 	}
 
 	/**
-	 * gsm 2011.04.01 功能号 0116 需查pendingform表 表中时间为2011-7-12
-	 * "pendingform", "id","1","2011-7-4","2011-7-14","dulimit"
+	 * gsm 2011.04.01 功能号 0116 需查pendingform表 表中时间为2011-7-12 "pendingform",
+	 * "id","1","2011-7-4","2011-7-14","dulimit"
 	 */
 	public Map<String, String> getPaymentHistory(String userId,
 			String startDate, String endDate) {
-//		startDate="2011-7-4";
-//		endDate="2011-7-14";
-//		HashMap<String, String> hMap = DataAccessModel.newInstances()
-//				.createQueryTools().queryByTime("pendingform", "id", userId,
-//						startDate, endDate, "dulimit");
-//		return hMap;
-			
-	 StringBuilder stringBuilder=new StringBuilder();
-	  HashMap<String, String> map=new HashMap<String, String>();
-	  List<HashMap<String, String>> list = DataAccessModel.newInstances()
-	 .createQueryTools().query("paymentform");
-	 for(int i=0;i<list.size();i++){
-		stringBuilder.append(list.get(i).get("date")+"#"+list.get(i).get("name")+"#");
-		map.put("Info", stringBuilder.toString());
-	 }
-	return map;
+
+		// System.out.println("userId=" + userId + "startDate=" + startDate
+		// + "endDate=" + endDate);
+		StringBuilder stringBuilder = null;
+		HashMap<String, String> map = null;
+		if (startDate.equals("") || endDate.equals("")) {// 查询最近一个月记录
+			stringBuilder = new StringBuilder();
+			map = new HashMap<String, String>();
+			List<HashMap<String, String>> list = DataAccessModel.newInstances()
+					.createQueryTools().query("paymentform");
+			for (int i = 0; i < list.size(); i++) {
+				stringBuilder.append(list.get(i).get("date") + "#"
+						+ list.get(i).get("name") + "#");
+				map.put("Info", stringBuilder.toString());
+			}
+		} else {// 根据时间段查询记录
+			List<HashMap<String, String>> list = DataAccessModel.newInstances()
+					.createQueryTools().query("paymentform");
+			stringBuilder = new StringBuilder();
+			map = new HashMap<String, String>();
+			for (int i = 0; i < list.size(); i++) {
+				Date date3 = Date.valueOf(list.get(i).get("date"));// 查到数据库中的时间
+				Date date1 = Date.valueOf(startDate);// 转换传过来的时间
+				Date date2 = Date.valueOf(endDate);
+				if (userId.equals(list.get(i).get("userid"))
+						&& date3.before(date2) && date3.after(date1)) {// 找到了符合条件的
+					stringBuilder.append(list.get(i).get("date") + "#"
+							+ list.get(i).get("name") + "#");
+					map.put("Info", stringBuilder.toString());
+				}
+			}
+		}
+		// System.out.println(map.toString());
+		return map;
 	}
 
 	/**
-	 * 功能号0209
-	 * 查表paymentform
-	 *@author gsm
-	 *2011-4-18 
+	 * 功能号0209 查表paymentform
+	 * 
+	 * @author gsm 2011-4-18
 	 * @param userId
 	 * @return
 	 */
-//	public Map<String, String> getPaymentInfo(String userId) {
-//		StringBuilder stringBuilder=new StringBuilder();
-//		HashMap<String, String> map=new HashMap<String, String>();
-//		List<HashMap<String, String>> list = DataAccessModel.newInstances()
-//		.createQueryTools().query("paymentform");
-//		for(int i=0;i<list.size();i++){
-//			stringBuilder.append(list.get(i).get("date")+"#"+list.get(i).get("name"));
-//			map.put("Info", stringBuilder.toString());
-//		}
-//		return map;
-//	}
+	// public Map<String, String> getPaymentInfo(String userId) {
+	// StringBuilder stringBuilder=new StringBuilder();
+	// HashMap<String, String> map=new HashMap<String, String>();
+	// List<HashMap<String, String>> list = DataAccessModel.newInstances()
+	// .createQueryTools().query("paymentform");
+	// for(int i=0;i<list.size();i++){
+	// stringBuilder.append(list.get(i).get("date")+"#"+list.get(i).get("name"));
+	// map.put("Info", stringBuilder.toString());
+	// }
+	// return map;
+	// }
 
 	/**
 	 * gsm 2011.3.31 功能号 0118 需访问表pendingform 1.首先遍历整张表找到所有记录
@@ -447,10 +463,11 @@ public class AccSystem implements IAccSystem {
 	 */
 	public List<String> getPaymentNameOnMana() {
 		List<String> list = new ArrayList<String>();
-		HashMap<String, String> Maps = DataAccessModel
-				.newInstances().createQueryTools().query("openItem","1");
-		list.add(Maps.get("state0")+"#"+Maps.get("state1")+"#"+Maps.get("state2")+"#"+
-				Maps.get("state3")+"#"+Maps.get("state4")+"#"+Maps.get("state5"));
+		HashMap<String, String> Maps = DataAccessModel.newInstances()
+				.createQueryTools().query("openItem", "1");
+		list.add(Maps.get("state0") + "#" + Maps.get("state1") + "#"
+				+ Maps.get("state2") + "#" + Maps.get("state3") + "#"
+				+ Maps.get("state4") + "#" + Maps.get("state5"));
 		return list;
 	}
 
@@ -482,9 +499,7 @@ public class AccSystem implements IAccSystem {
 	}
 
 	/**
-	 * gsm 2011.3.31
-	 * 功能号"0121"
-	 * 需访问表patype
+	 * gsm 2011.3.31 功能号"0121" 需访问表patype
 	 */
 	public List<String> getSelServiceName() {
 		List<String> list = new ArrayList<String>();
@@ -548,7 +563,7 @@ public class AccSystem implements IAccSystem {
 	 */
 	public boolean updatePaymentState(String payName, String state) {
 		boolean a = DataAccessModel.newInstances().createUpdataTools().updata(
-				"openItem", "userid","1",payName, state);
+				"openItem", "userid", "1", payName, state);
 
 		return a;
 	}
