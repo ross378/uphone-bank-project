@@ -533,9 +533,10 @@ public class AccSystem implements IAccSystem {
 	/**
 	 * 钟小会
 	 */
-	public boolean login(String userName, String userPwd, String exCode) {
+
+	public boolean login(String userId, String userPwd, String exCode) {
 		HashMap<String, String> record = DataAccessModel.newInstances().createQueryTools().query("userInfo",
-				"userName", userName);
+				"userId", userId);
 		
 		if (record == null) {
 			return false;
@@ -567,5 +568,18 @@ public class AccSystem implements IAccSystem {
 
 		return a;
 	}
+	
+	public HashMap<String,String> getUserInfo (String userId){
+		HashMap<String, String> userInfo= new HashMap<String,String>();
+		List<HashMap<String, String>> userInfoLst = DataAccessModel.newInstances().createQueryTools().query("userInfo");
+		for(HashMap<String,String> map:userInfoLst){
+			String userid = map.get("userid");
+			if(userId.equals(userid)){
+				return map;
+			}
+		}
+		return userInfo;
+	}
+	
 
 }

@@ -1,11 +1,14 @@
 package com.ultrawise.android.bank.base;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.ultrawise.android.bank.Enum.EAccState;
 
 public interface IAccSystem {
+	
+	HashMap<String,String> getUserInfo(String userId);
 	/**
 	 * 添加账户，需要用户号，账户号，账户类型，账户别名，账户密码
 	 * 

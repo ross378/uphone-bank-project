@@ -97,6 +97,9 @@ public class CellPhoneBankWS {
 		/**
 		 * 系统功能
 		 */
+		case GET_USER_INFO:
+			//获取用户信息
+			return action.performGetUserInfo(firstValue);
 		case GET_ACC_TYPE:
 			// 获取账户类型
 			return action.performGetAccType();

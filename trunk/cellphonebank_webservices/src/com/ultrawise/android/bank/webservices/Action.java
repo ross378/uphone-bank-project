@@ -62,6 +62,10 @@ public class Action {
 	}
 
 	// ----------------------------系统
+public JSONObject performGetUserInfo(String userId){
+	return Helper.wrapUp(mAccSystem.getUserInfo(userId));
+}
+	
 	/**
 	 * 功能号:0101
 	 * 
@@ -622,4 +626,5 @@ public class Action {
 		// TODO Auto-generated method stub
 		return Helper.wrapUp(mhelper.getMoneyType());
 	}
+	
 }
