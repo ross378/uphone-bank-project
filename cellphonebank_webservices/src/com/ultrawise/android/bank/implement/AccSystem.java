@@ -277,7 +277,8 @@ public class AccSystem implements IAccSystem {
 	 */
 	public String getExtraCode() {
 		// TODO Auto-generated method stub
-		return "1234";
+		String random=String.valueOf(Math.random()).substring(2, 6);//个4位随机数	
+		return random;
 	}
 
 	/**
