@@ -32,7 +32,7 @@
 		<period>五个月</period>//存期
 		<months>2010-01-01</months>//起息月
 		<rate>1.5%</rate>
-		<bind>0</bind>	
+		<bind>1</bind>	
     	<actpwd>123456</actpwd> 
     	<orderstate>1</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
@@ -53,7 +53,7 @@
 		<period>六个月</period>//存期
 		<months>2010-01-01</months>//起息月
 		<rate>1.5%</rate>
-		<bind>1</bind>	
+		<bind>0</bind>	
     	<actpwd>123456</actpwd> 
     	<orderstate>0</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
@@ -74,7 +74,7 @@
 		<period>三个月</period>//存期
 		<months>2010-01-01</months>//起息月
 		<rate>1.5%</rate>
-		<bind>0</bind>	
+		<bind>1</bind>	
     	<actpwd>123456</actpwd> 
     	<orderstate>1</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
