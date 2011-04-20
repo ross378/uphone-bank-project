@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Act primaryKey="userid">
 	<accout>//第一个账户
     	<userid>1</userid>
-		<orderid>110</orderid>//账户号
+		<orderid>622202111</orderid>//账户号
 		<actype>1</actype>
 		<signup>0</signup>//签约
 		<aliss>我的存蓄卡</aliss>//别名
@@ -22,9 +22,9 @@
     	<isadd>1</isadd>
 	</accout>
   	<accout>//第二个账户
-    	<userid>2</userid>
-		<orderid>111</orderid>//账户号
-		<actype>1</actype>
+    	<userid>1</userid>
+		<orderid>622202112</orderid>//账户号
+		<actype>2</actype>
 		<signup>1</signup>//签约
 		<aliss>我的第二张卡</aliss>//别名
 		<balance>50000</balance>
@@ -40,11 +40,11 @@
     	<loss>1</loss>//挂失
     	<delete>0</delete>
     	<activation>0</activation>//激活
-    	<isadd>1</isadd>
+    	<isadd>0</isadd>
  	</accout>
   	<accout>//第三个账户
-    	<userid>3</userid>
-		<orderid>112</orderid>//账户号
+    	<userid>1</userid>
+		<orderid>622202113</orderid>//账户号
 		<actype>1</actype>
 		<signup>0</signup>//签约
 		<aliss>我的第三个账户</aliss>//别名
@@ -64,8 +64,8 @@
     	<isadd>1</isadd>
  	</accout>
   	<accout>//第四个账户
-    	<userid>4</userid>
-		<orderid>113</orderid>//账户号
+    	<userid>2</userid>
+		<orderid>622202114</orderid>//账户号
 		<actype>1</actype>
 		<signup>1</signup>//签约
 		<aliss>我的第四个账户</aliss>//别名
@@ -82,12 +82,12 @@
     	<loss>1</loss>//挂失
     	<delete>0</delete>
     	<activation>0</activation>//激活
-    	<isadd>0</isadd>
+    	<isadd>1</isadd>
  	</accout>
 	<accout>//第五个账户
-    	<userid>5</userid>
-		<orderid>114</orderid>//账户号
-		<actype>1</actype>
+    	<userid>2</userid>
+		<orderid>622202115</orderid>//账户号
+		<actype>2</actype>
 		<signup>0</signup>//签约
 		<aliss>我的第五个账户</aliss>//别名
 		<balance>80000</balance>
@@ -103,12 +103,12 @@
     	<loss>1</loss>//挂失
     	<delete>0</delete>
     	<activation>0</activation>//激活
-    	<isadd>0</isadd>
+    	<isadd>1</isadd>
 	</accout>
 	<accout>//第六个账户
-    	<userid>6</userid>
-		<orderid>115</orderid>//账户号
-		<actype>2</actype>
+    	<userid>2</userid>
+		<orderid>622202116</orderid>//账户号
+		<actype>1</actype>
 		<signup>1</signup>//签约
 		<aliss>我的第六个账户</aliss>//别名
 		<balance>90000</balance>

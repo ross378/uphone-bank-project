@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Remit primaryKey="id">
 	<remit>
 		<id>1</id>
 		<userid>1</userid>
 		<sequence>tf00001</sequence>//流水号
-	    <outant>112</outant>//转出账号
+	    <outant>622202111</outant>//转出账号
 		<name>汇款</name>//操作名字
 		<outsub>张三</outsub>//转出人
 		<amount>100000</amount>//转出金额
@@ -19,12 +19,12 @@
 		<id>2</id>
 		<userid>1</userid>
 	    <sequence>tf00001</sequence>//流水号
-	    <outant>112</outant>//转出账号
-		<name>收入</name>//操作名字
+	    <outant>622202111</outant>//转出账号
+		<name>汇款</name>//操作名字
 		<outsub>张三</outsub>//转出人
 		<amount>100000</amount>//转出金额
 		<date>2011-03-04</date>
-		<outphone>15954556325</outphone>
+		<outphone>15954556326</outphone>
 		<incity>无锡</incity>
 		<inbank>中国农业银行</inbank>
 		<inidnum>421125198901112225</inidnum>//收款人身份证号
