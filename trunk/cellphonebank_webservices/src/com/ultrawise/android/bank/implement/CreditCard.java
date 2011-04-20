@@ -80,7 +80,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 			String serNo = temp1.get("dunum");
 			// 插入一条充值记录
 			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"rechargeform", "id:2", "userid:" + temp.get("userid"),
+					"rechargeform", "id:" + String.valueOf(rechargeId++), "userid:" + temp.get("userid"),
 					"name:" + paymentName, "credit:" + paymentAmt,
 					"creqqnum:" + paymentNum,
 					"date:" + Helper.getCurrentTime(), "creno:" + serNo,
@@ -121,7 +121,7 @@ public class CreditCard extends Account implements ITrans, IUpdate, ICreditCard 
 				System.out.println("流水号为:"+serNo);
 			}
 			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"paymentform", "id:2", "userid:" + temp.get("userid"),
+					"paymentform", "id:" + String.valueOf(paymentId++), "userid:" + temp.get("userid"),
 					"name:" + paymentName, "dunum:" + serNo,
 					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
 					"charger:" + charger, "account:" + paymentActNo);
