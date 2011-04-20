@@ -103,7 +103,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 			String serNo = temp1.get("dunum");
 			// 插入一条充值记录
 			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"rechargeform", "id:2", "userid:" + temp.get("userid"),
+					"rechargeform", "id:" + String.valueOf(rechargeId++), "userid:" + temp.get("userid"),
 					"name:" + paymentName, "credit:" + paymentAmt,
 					"creqqnum:" + paymentNum,
 					"date:" + Helper.getCurrentTime(), "creno:" + serNo,
@@ -215,7 +215,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		double balance1 = Double.parseDouble(accInfo1.get("balance"));
 		balance1 += amtnum;
 		DataAccessModel.newInstances().createInsertTools().insertThree(
-				"transfers", "id:5", "userid:" + userInfo.get("userid"),
+				"transfers", "id:" + String.valueOf(transferId++), "userid:" + userInfo.get("userid"),
 				"sequence:tf00005", "outsub:" + outuser.get("userName"),
 				"intsub:" + userInfo.get("userName"),
 				"inant:" + accInfo1.get("orderid"),
@@ -429,9 +429,9 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 				System.out.println("流水号为:"+serNo);
 			}
 //			System.out.println("|"+temp.get("actpwd")+"|-----");//获得密码
-			int n=2;
+			
 			DataAccessModel.newInstances().createInsertTools().insertThree(
-					"paymentform", "id:"+(++n), "userid:" + temp.get("userid"),
+					"paymentform", "id:"+String.valueOf(paymentId++), "userid:" + temp.get("userid"),
 					"name:" + paymentName, "dunum:" + serNo,
 					"damout:" + paymentAmt, "date:" + Helper.getCurrentTime(),
 					"charger:" + charger, "account:" + paymentActNo);
