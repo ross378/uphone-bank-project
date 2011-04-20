@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <PaymentForm>
 	<costRecord>
 	  	 <id>1</id>
@@ -6,8 +6,8 @@
 	  	 <name>煤气费</name>
 	  	 <dunum>s45256</dunum>
 	  	 <damout>78.00</damout>
-	  	 <date>2011-4-16</date>
+	  	 <date>2011-03-02</date>
 	 	 <charger>无锡能源公司</charger>
-	  	 <account>622202116</account>
+	  	 <account>622202111</account>
 	  </costRecord>
 </PaymentForm>

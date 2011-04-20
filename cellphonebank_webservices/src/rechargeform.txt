@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <RechargeFrom>
  <chargeRecord>
 	    <id>1</id>
@@ -9,7 +9,7 @@
 	    <data>2011-03-12</data>
 	    <creno>sT5233</creno>
 	    <operator>中国移动</operator>
-	    <account>622202116</account>
+	    <account>622202111</account>
   </chargeRecord>
   <chargeRecord>
 	    <id>2</id>
@@ -20,7 +20,7 @@
 	    <data>2011-03-12</data>
 	    <creno>sT5233</creno>
 	    <operator>腾讯</operator>
-	    <account>622202116</account>
+	    <account>622202111</account>
   </chargeRecord>
   <chargeRecord>
 	    <id>3</id>
@@ -31,6 +31,6 @@
 	    <data>2011-03-12</data>
 	    <creno>sT5233</creno>
 	    <operator>网易</operator>
-	    <account>622202116</account>
+	    <account>622202111</account>
   </chargeRecord>
 </RechargeFrom>

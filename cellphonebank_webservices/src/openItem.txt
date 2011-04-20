@@ -2,11 +2,12 @@
 <openserviceinfo>
    <service>
 		<userid>1</userid>
-		<state0>0</state0>
-		<state1>1</state1>
-		<state2>0</state2>
-		<state3>1</state3>
-		<state4>0</state4>
-		<state5>1</state5>
+		<openType>1</openType>
+		<open>0</open>//0表示未开通1表示开通
+   </service>
+   <service>
+		<userid>2</userid>
+		<openType>2</openType>
+		<open>1</open>
    </service>
 </openserviceinfo>
