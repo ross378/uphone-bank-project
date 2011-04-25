@@ -3,6 +3,7 @@ package com.ultrawise.android.bank.implement;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -64,6 +65,7 @@ public class AccSystem implements IAccSystem {
 	 * 钟小会
 	 */
 	public List<String> getAcc(String userId, String accType, EAccState accState) {
+
 		List<String> result = new ArrayList<String>();
 		String tableName = "";
 		HashMap<String, String> records = new HashMap<String, String>();
@@ -73,65 +75,144 @@ public class AccSystem implements IAccSystem {
 		} else {
 			tableName = "accout";
 		}
+		// 首先查出所有记录
+		List<HashMap<String, String>> lisMaps = this.queryTools
+				.query(tableName);
 		// 根据客户端传过来的账户类型 找到账户类型对应的id
 		String accTypeId = this.queryTools.query("paypal", "tyname", accType)
 				.get("id");
 		// 根据要查询的不同账户状态来选择账户
 		switch (accState) {
 		case BIND: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "bind", "1");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("bind").equals("1")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
 		}
 		case UNBIND: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "bind", "0");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("bind").equals("0")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "bind", "0");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		case LOSS: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "loss", "1");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("loss").equals("1")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "loss", "1");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		case UNLOSS: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "loss", "0");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("loss").equals("0")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "loss", "0");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		case ACTIVE: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "activation", "1");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("activation").equals("1")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "activation", "1");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		case UNACTIVE: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "activation", "0");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("activation").equals("0")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "activation", "0");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		case ORDER: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "orderstate", "1");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("orderstate").equals("1")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
+			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "orderstate", "1");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		case UNORDER: {
-			records = this.queryTools.query(tableName, "userid", userId,
-					"actype", accTypeId, "orderstate", "0");
-			if (records.get("orderid") != null)
-				result.add(records.get("orderid"));
+			for (Iterator iterator = lisMaps.iterator(); iterator.hasNext();) {
+				HashMap<String, String> hashMap = (HashMap<String, String>) iterator
+						.next();
+				if (hashMap.get("userid").equals(userId)
+						&& hashMap.get("actype").equals(accTypeId)
+						&& hashMap.get("orderstate").equals("0")) {
+					result.add(hashMap.get("orderid"));
+				}
+			}
 			break;
+			// records = this.queryTools.query(tableName, "userid", userId,
+			// "actype", accTypeId, "orderstate", "0");
+			// if (records.get("orderid") != null)
+			// result.add(records.get("orderid"));
+			// break;
 		}
 		}
 
@@ -202,29 +283,32 @@ public class AccSystem implements IAccSystem {
 			String endDate) {
 		StringBuffer resultBuffer = new StringBuffer();
 		HashMap<String, String> comeHistory = new HashMap<String, String>();
-		List<HashMap<String, String>> transfer = this.queryTools.query("transfers");
+		List<HashMap<String, String>> transfer = this.queryTools
+				.query("transfers");
 		Date start = Date.valueOf(startDate);
 		Date end = Date.valueOf(endDate);
-		for(HashMap<String, String> temp : transfer){
-			if(userId.equals(temp.get("userid"))){
+		for (HashMap<String, String> temp : transfer) {
+			if (userId.equals(temp.get("userid"))) {
 				Date date1 = Date.valueOf(temp.get("date"));
-				if(date1.after(start) && date1.before(end)){
-					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("转账");
+				if (date1.after(start) && date1.before(end)) {
+					resultBuffer.append(temp.get("id")).append("#").append(
+							temp.get("date")).append("#").append("转账");
 					resultBuffer.append(",");
 				}
 			}
 		}
 		List<HashMap<String, String>> remit = this.queryTools.query("remit");
-		for(HashMap<String, String> temp : remit){
-			if(userId.equals(temp.get("userid"))){
+		for (HashMap<String, String> temp : remit) {
+			if (userId.equals(temp.get("userid"))) {
 				Date date1 = Date.valueOf(temp.get("date"));
-				if(date1.after(start) && date1.before(end)){
-					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("汇款");
+				if (date1.after(start) && date1.before(end)) {
+					resultBuffer.append(temp.get("id")).append("#").append(
+							temp.get("date")).append("#").append("汇款");
 					resultBuffer.append(",");
 				}
 			}
 		}
-		
+
 		comeHistory.put("info", resultBuffer.toString());
 
 		return comeHistory;
@@ -277,7 +361,7 @@ public class AccSystem implements IAccSystem {
 	 */
 	public String getExtraCode() {
 		// TODO Auto-generated method stub
-		String random=String.valueOf(Math.random()).substring(2, 6);//个4位随机数	
+		String random = String.valueOf(Math.random()).substring(2, 6);// 个4位随机数
 		return random;
 	}
 
@@ -310,24 +394,27 @@ public class AccSystem implements IAccSystem {
 			String endDate) {
 		HashMap<String, String> hMap = new HashMap<String, String>();
 		StringBuffer resultBuffer = new StringBuffer();
-		List<HashMap<String, String>> transfer = this.queryTools.query("transfers");
+		List<HashMap<String, String>> transfer = this.queryTools
+				.query("transfers");
 		Date start = Date.valueOf(startDate);
 		Date end = Date.valueOf(endDate);
-		for(HashMap<String, String> temp : transfer){
-			if(userId.equals(temp.get("userid"))){
+		for (HashMap<String, String> temp : transfer) {
+			if (userId.equals(temp.get("userid"))) {
 				Date date1 = Date.valueOf(temp.get("date"));
-				if(date1.after(start) && date1.before(end)){
-					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("支出");
+				if (date1.after(start) && date1.before(end)) {
+					resultBuffer.append(temp.get("id")).append("#").append(
+							temp.get("date")).append("#").append("支出");
 					resultBuffer.append(",");
 				}
 			}
 		}
 		List<HashMap<String, String>> remit = this.queryTools.query("remit");
-		for(HashMap<String, String> temp : remit){
-			if(userId.equals(temp.get("userid"))){
+		for (HashMap<String, String> temp : remit) {
+			if (userId.equals(temp.get("userid"))) {
 				Date date1 = Date.valueOf(temp.get("date"));
-				if(date1.after(start) && date1.before(end)){
-					resultBuffer.append(temp.get("id")).append("#").append(temp.get("date")).append("#").append("收入");
+				if (date1.after(start) && date1.before(end)) {
+					resultBuffer.append(temp.get("id")).append("#").append(
+							temp.get("date")).append("#").append("收入");
 					resultBuffer.append(",");
 				}
 			}
@@ -536,9 +623,9 @@ public class AccSystem implements IAccSystem {
 	 */
 
 	public boolean login(String userId, String userPwd, String exCode) {
-		HashMap<String, String> record = DataAccessModel.newInstances().createQueryTools().query("userInfo",
-				"userid", userId);
-		
+		HashMap<String, String> record = DataAccessModel.newInstances()
+				.createQueryTools().query("userInfo", "userid", userId);
+
 		if (record == null) {
 			return false;
 		}
@@ -569,18 +656,18 @@ public class AccSystem implements IAccSystem {
 
 		return a;
 	}
-	
-	public HashMap<String,String> getUserInfo (String userId){
-		HashMap<String, String> userInfo= new HashMap<String,String>();
-		List<HashMap<String, String>> userInfoLst = DataAccessModel.newInstances().createQueryTools().query("userInfo");
-		for(HashMap<String,String> map:userInfoLst){
+
+	public HashMap<String, String> getUserInfo(String userId) {
+		HashMap<String, String> userInfo = new HashMap<String, String>();
+		List<HashMap<String, String>> userInfoLst = DataAccessModel
+				.newInstances().createQueryTools().query("userInfo");
+		for (HashMap<String, String> map : userInfoLst) {
 			String userid = map.get("userid");
-			if(userId.equals(userid)){
+			if (userId.equals(userid)) {
 				return map;
 			}
 		}
 		return userInfo;
 	}
-	
 
 }
