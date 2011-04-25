@@ -543,7 +543,7 @@ public JSONObject performGetUserInfo(String userId){
 	public JSONObject preformTransfeActToAct(String account, String password,
 			String amtAct, double amtnum){
 		JSONObject jsonObj = new JSONObject();
-		jsonObj = Helper.wrapUp(mTrans.transfeAct(account, password, amtAct,
+		jsonObj = Helper.wrapUp(mTrans.transfeActToAct(account, password, amtAct,
 				amtnum));
 		return jsonObj;
 	}
