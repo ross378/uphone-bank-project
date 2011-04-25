@@ -235,7 +235,7 @@ public class CellPhoneBankWS {
 			return action.performTransfeAct(firstValue, secondValue,
 					thirdParam, Double.parseDouble(fourParam));
 		case TRANSFE_ACC_ACC:
-			return action.performTransfeAct(firstValue, secondValue,
+			return action.preformTransfeActToAct(firstValue, secondValue,
 					thirdParam, Double.parseDouble(fourParam));
 		case GET_LISTQUERY_INFO:
 			// 明细信息
