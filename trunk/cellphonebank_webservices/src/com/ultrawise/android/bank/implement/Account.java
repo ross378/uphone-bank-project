@@ -6,8 +6,8 @@ import java.util.Map;
 import com.ultrawise.android.bank.base.IQuery;
 
 public abstract class Account implements IQuery {
-	protected static long transferId = 2;
-	protected static long rechargeId = 2;
+	protected static long transferId = 5;
+	protected static long rechargeId = 4;
 	protected static long paymentId = 2;
 	// 这些方法应该是抽象的
 
