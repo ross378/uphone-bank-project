@@ -503,9 +503,9 @@ public class AccSystem implements IAccSystem {
 					.createQueryTools().query("paymentform");
 			for (int i = 0; i < list.size(); i++) {
 				stringBuilder.append(list.get(i).get("date") + "#"
-						+ list.get(i).get("name") + "#");
-				map.put("Info", stringBuilder.toString());
+						+ list.get(i).get("name") + "#"+list.get(i).get("id")+ ",");
 			}
+			map.put("Info", stringBuilder.toString());
 		} else {// 根据时间段查询记录
 			List<HashMap<String, String>> list = DataAccessModel.newInstances()
 					.createQueryTools().query("paymentform");
@@ -518,11 +518,13 @@ public class AccSystem implements IAccSystem {
 				if (userId.equals(list.get(i).get("userid"))
 						&& date3.before(date2) && date3.after(date1)) {// 找到了符合条件的
 					stringBuilder.append(list.get(i).get("date") + "#"
-							+ list.get(i).get("name") + "#");
-					map.put("Info", stringBuilder.toString());
+							+ list.get(i).get("name")+ "#"+list.get(i).get("id")+ ",");
 				}
 			}
+			map.put("Info", stringBuilder.toString());
 		}
+		System.out.println(map.toString()+"wai");
+//		map.put("Info", stringBuilder.toString());
 		// System.out.println(map.toString());
 		return map;
 	}
