@@ -215,7 +215,7 @@ public class CurrentDeposit extends Account implements ITrans, IUpdate {
 		double balance1 = Double.parseDouble(accInfo1.get("balance"));
 		balance1 += amtnum;
 		DataAccessModel.newInstances().createInsertTools().insertThree(
-				"transfers", "id:" + String.valueOf(transferId++), "userid:" + userInfo.get("userid"),
+				"transfers", "id:" + String.valueOf(transferId++), "userid:" + accInfo.get("userid"),
 				"sequence:tf00005", "outsub:" + outuser.get("userName"),
 				"intsub:" + userInfo.get("userName"),
 				"inant:" + accInfo1.get("orderid"),
