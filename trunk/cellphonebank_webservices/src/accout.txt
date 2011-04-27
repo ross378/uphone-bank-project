@@ -18,7 +18,7 @@
     	<opendate>2011-03-18</opendate>
     	<loss>0</loss>//挂失
     	<delete>0</delete>
-    	<activation>1</activation>//激活
+    	<activation>0</activation>//激活
     	<isadd>1</isadd>
 	</accout>
   	<accout>//第二个账户
@@ -34,13 +34,13 @@
 		<rate>1.5%</rate>
 		<bind>1</bind>	
     	<actpwd>123456</actpwd> 
-    	<orderstate>1</orderstate>//预约换卡
+    	<orderstate>0</orderstate>//预约换卡
     	<openbank>建设银行深圳市梅林支行</openbank>
     	<opendate>2011-03-18</opendate>
-    	<loss>1</loss>//挂失
+    	<loss>0</loss>//挂失
     	<delete>0</delete>
     	<activation>0</activation>//激活
-    	<isadd>0</isadd>
+    	<isadd>1</isadd>
  	</accout>
   	<accout>//第三个账户
     	<userid>1</userid>
@@ -63,7 +63,28 @@
     	<activation>0</activation>//激活
     	<isadd>1</isadd>
  	</accout>
-  	<accout>//第四个账户
+ 	<accout>//第四个账户
+    	<userid>1</userid>
+		<orderid>622202117</orderid>//账户号
+		<actype>1</actype>
+		<signup>0</signup>//签约
+		<aliss>我的第四个账户</aliss>//别名
+		<balance>20000</balance>
+		<montype>人民币</montype>//币种
+		<period>六个月</period>//存期
+		<months>2010-01-01</months>//起息月
+		<rate>1.5%</rate>
+		<bind>0</bind>	
+    	<actpwd>123456</actpwd> 
+    	<orderstate>0</orderstate>//预约换卡
+    	<openbank>建设银行深圳市梅林支行</openbank>
+    	<opendate>2011-03-18</opendate>
+    	<loss>0</loss>//挂失
+    	<delete>0</delete>
+    	<activation>0</activation>//激活
+    	<isadd>0</isadd>
+ 	</accout>
+  	<accout>//第五个账户
     	<userid>2</userid>
 		<orderid>622202114</orderid>//账户号
 		<actype>1</actype>
@@ -84,7 +105,7 @@
     	<activation>0</activation>//激活
     	<isadd>1</isadd>
  	</accout>
-	<accout>//第五个账户
+	<accout>//第六个账户
     	<userid>2</userid>
 		<orderid>622202115</orderid>//账户号
 		<actype>2</actype>
@@ -105,7 +126,7 @@
     	<activation>0</activation>//激活
     	<isadd>1</isadd>
 	</accout>
-	<accout>//第六个账户
+	<accout>//第七个账户
     	<userid>2</userid>
 		<orderid>622202116</orderid>//账户号
 		<actype>1</actype>
