@@ -45,15 +45,15 @@ public class AccSystem implements IAccSystem {
 		}
 
 		HashMap<String, String> accInfo = this.queryTools.query(tableName,
-				"userid", userId);
+				"orderid", accNo);
 		String type = this.queryTools.query("paypal", "id",
 				accInfo.get("actype")).get("tyname");
 		System.out.println(userId + "," + accNo + "," + accType + ","
 				+ accNickName + "," + accPwd);
-		if (accNo.equals(accInfo.get("orderid"))
+		if (userId.equals(accInfo.get("userid"))
 				&& accPwd.equals(accInfo.get("actpwd")) && type.equals(accType)
 				&& "0".equals(accInfo.get("isadd"))) {
-			return this.updataTools.updata(tableName, "userid", userId,
+			return this.updataTools.updata(tableName, "orderid", accNo,
 					"aliss", accNickName, "isadd", "1");
 		} else {
 			return false;
@@ -89,7 +89,9 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("bind").equals("1")) {
+						&& hashMap.get("bind").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -101,7 +103,9 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("bind").equals("0")) {
+						&& hashMap.get("bind").equals("0")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -118,7 +122,9 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("loss").equals("1")) {
+						&& hashMap.get("loss").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -135,7 +141,10 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("loss").equals("0")) {
+						&& hashMap.get("loss").equals("0")
+						&& hashMap.get("bind").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -152,7 +161,10 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("activation").equals("1")) {
+						&& hashMap.get("activation").equals("1")
+						&& hashMap.get("bind").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -169,7 +181,10 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("activation").equals("0")) {
+						&& hashMap.get("activation").equals("0")
+						&& hashMap.get("bind").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -186,7 +201,10 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("orderstate").equals("1")) {
+						&& hashMap.get("orderstate").equals("1")
+						&& hashMap.get("bind").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
@@ -203,7 +221,10 @@ public class AccSystem implements IAccSystem {
 						.next();
 				if (hashMap.get("userid").equals(userId)
 						&& hashMap.get("actype").equals(accTypeId)
-						&& hashMap.get("orderstate").equals("0")) {
+						&& hashMap.get("orderstate").equals("0")
+						&& hashMap.get("bind").equals("1")
+						&& hashMap.get("isadd").equals("1")
+						&& hashMap.get("delete").equals("0")) {
 					result.add(hashMap.get("orderid"));
 				}
 			}
