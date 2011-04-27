@@ -523,7 +523,6 @@ public class AccSystem implements IAccSystem {
 			}
 			map.put("Info", stringBuilder.toString());
 		}
-		System.out.println(map.toString()+"wai");
 //		map.put("Info", stringBuilder.toString());
 		// System.out.println(map.toString());
 		return map;
